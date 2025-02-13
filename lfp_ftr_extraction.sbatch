@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-#SBATCH -A neuralctrl
+#SBATCH -A your_account
 #SBATCH -J lfp-ftr
 #SBATCH -N 1
 #SBATCH -c 1

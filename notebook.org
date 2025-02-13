@@ -5472,3 +5472,22 @@ pfc_rm = fitrm(pfc_tbl, 'f1-f246 ~ f0', 'WithinDesign', Freq);
 ** TODOS
 *** DONE: add legend to alpha power figure 
 *** TODO: fix references 
+
+* [2025-2-13 Thu] - setting up repo for public access 
+** init_paths for path definitions 
+*** DONE: slrt_ftr_extraction.m
+*** DONE: ap_ftr_extraction.m
+*** DONE: lfp_ftr_extraction.m
+*** DONE: slrt_extract.m
+*** DONE: sponSpikePhasePlotting.m 
+*** DONE: plotPhaseShiftAcrossProbe.m
+*** DONE: AlphaModFigScripts/poissonProcessSims.m
+*** DONE: AlphaModFigScripts/spikeClassificationPlots.m
+*** DONE: AlphaModFigScripts/alphaPowerAndPhaseModSummaries.m
+*** DONE: AlphaModFigScripts/avgFiringRatePlots.m
+*** DONE: AlphaModFigScripts/behaviorPlots.m
+*** DONE: AlphaModFigScripts/laminarDistributions.m
+*** DONE: AlphaModFigScripts/lfpPowerByOutcome.m
+*** DONE: AlphaModFigScripts/modulationAndBehaviorSummaries.m
+*** DONE: AlphaModFigScripts/phaseModClasses.m
+*** DONE: AlphaModFigScripts/phaseModSummaries.m

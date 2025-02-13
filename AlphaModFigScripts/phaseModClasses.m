@@ -1,5 +1,7 @@
-% pfc = load('~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/data.mat');
-% pfc = pfc.out.alpha_modulated;
+init_paths;
+mkdir('./Figures/')
+pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/data.mat'));
+pfc = pfc.out.alpha_modulated;
 cs = [278, 270, 210];
 fig = figure('Position', [1220 1375 1270 343]);
 tl = tiledlayout(1,3);

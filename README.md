@@ -36,6 +36,8 @@ not be compatible.
 First, Neuropixels data must be sorted with [Kilosort](https://github.com/MouseLand/Kilosort).  
 This can be done through n-CORTEx.
 
+For subsequent analyses, you will also need to install [Chronux](https://chronux.org/) and [CircStat](https://github.com/circstat/circstat-matlab).
+
 There are multiple processing steps necessary to run the analyses presented in *link to biorxv*.
 To start running analyses, navigate to *./Analysis/* and run MATLAB.
 
@@ -58,3 +60,4 @@ This script generates *data.mat* files containing phase modualtion metrics and p
 phase modulation on a cell-by-cell basis.  Again there is a SLURM script for running this on a cluster: *spontaneous_phase.sbatch*.
 
 Finally, to perform anlyses and generate plots found in *link to biorxv*, there are scripts in the folder *./AlphaModFigScripts/*.
+These scripts should be run, however, from the *./Analysis/* folder.

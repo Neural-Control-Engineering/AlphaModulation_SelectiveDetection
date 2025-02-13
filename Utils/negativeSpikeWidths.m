@@ -108,6 +108,8 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     + startsWith(all_regions, 'PL') + startsWith(all_regions, 'IL') ...
     + startsWith(all_regions, 'OR') + startsWith(all_regions, 'MO');
     ss_inds = startsWith(all_regions, 'SS');
+
+    mkdir('./Figures/')
     
     fig = figure('Position', [1220 1298 560 420]); 
     hold on 

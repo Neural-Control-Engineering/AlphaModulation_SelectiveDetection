@@ -1,21 +1,15 @@
 out_path = false;
+init_paths;
 addpath(genpath('~/circstat-matlab/'))
-s1 = load('/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/data.mat');
-pfc = load('/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/data.mat');
-striatum = load('/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/data.mat');
-
-all_ftr_files = {'/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
-    '/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
-    '/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_rx--DCZ-01mgpkg_phase--phase3_g0.mat', ...
-    '/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_rx--DCZ-005mgpkg_phase--phase3_g0.mat', ...
-    '/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_rx--Saline_phase--phase3_g0.mat', ...
-    '/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_rx--DCZ-01mgpkg_phase--phase3_g0.mat', ...
-    '/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_rx--DCZ-005mgpkg_phase--phase3_g0.mat', ...
-    '/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_rx--Saline_phase--phase3_g0.mat'};
+mkdir('./Figures/')
+s1 = load(strcat(ftr_path, 'AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/data.mat'));
+pfc = load(strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/data.mat'));
+striatum = load(strcat(ftr_path, 'AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/data.mat'));
 
 %% s1 sessions
 % combine animals
-ftr_files = horzcat(all_ftr_files(1), all_ftr_files(2));
+ftr_files = {strcat(ftr_path, 'AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
+    strcat(ftr_path, 'AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat')};
 for i = 1:length(ftr_files)
     f = load(ftr_files{i});
     if i == 1
@@ -26,8 +20,8 @@ for i = 1:length(ftr_files)
 end
 S1 = ftrs(startsWith(ftrs.region, 'SS'),:);
 
-ftr_files = {'/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
-    '/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'};
+ftr_files = {strcat(ftr_path, 'AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
+    strcat(ftr_path, 'AP/subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
 for i = 1:length(ftr_files)
     f = load(ftr_files{i});
     if i == 1
@@ -1544,30 +1538,3 @@ s1_rs_theta_bar_mat = [[s1_l1_rs_theta_bar; nan(maxN-length(s1_l1_rs_theta_bar),
     [s1_l6_rs_theta_bar; nan(maxN-length(s1_l6_rs_theta_bar),1)]];
 fprintf(sprintf('S1 RS MSE ANOVA:\n'))
 [p, ~, stats] = anova1(s1_rs_theta_bar_mat)
-
-
-
-    % exec_str = sprintf("l%s_mod_rs_delta = l%s_mod_rs_hit-mean(l%s_mod_rs_hit(:,time<0),2),2);", layer, layer, layer);
-    % eval(exec_str)
-    % exec_str = sprintf("l%s_unmod_rs_delta = l%s_unmod_rs_hit-mean(l%s_unmod_rs_hit(:,time<0),2),2);", layer, layer, layer);
-    % eval(exec_str)
-    % exec_str = sprintf("l%s_mod_rs_delta = l%s_mod_rs_delta(:,time > 0);", layer, layer);
-    % eval(exec_str)
-    % exec_str = sprintf("l%s_unmod_rs_delta = l%s_unmod_rs_delta(:,time > 0);", layer, layer);
-    % eval(exec_str)
-    % exec_str = sprintf("l%s_mod_fs_delta = l%s_mod_fs_hit-mean(l%s_mod_fs_hit(:,time<0),2),2);", layer, layer, layer);
-    % try
-    %     eval(exec_str)
-    % end
-    % exec_str = sprintf("l%s_unmod_fs_delta = l%s_unmod_fs_hit-mean(l%s_unmod_fs_hit(:,time<0),2),2);", layer, layer, layer);
-    % try
-    %     eval(exec_str)
-    % end
-    % exec_str = sprintf("l%s_mod_fs_delta = l%s_mod_fs_delta(:,time > 0);", layer, layer);
-    % try
-    %     eval(exec_str)
-    % end
-    % exec_str = sprintf("l%s_unmod_fs_delta = l%s_unmod_fs_delta(:,time > 0);", layer, layer);
-    % try
-    %     eval(exec_str)
-    % end

@@ -1,11 +1,13 @@
+init_paths;
 visualize = true;
 out_path = false; %'Figures/';
+mkdir('./Figures/')
 ftr_files = {'subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
     'subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
     'subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
     'subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'};
 for i = 1:length(ftr_files)
-    ftr_files{i} = strcat('~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/SLRT/', ftr_files{i});
+    ftr_files{i} = strcat(ftr_path, 'SLRT/', ftr_files{i});
 end
 
  % add firing rate, fa rate 

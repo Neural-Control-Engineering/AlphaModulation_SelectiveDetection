@@ -1,9 +1,11 @@
+addpath(genpath('./'))
 addpath(genpath('~/circstat-matlab/'))
-load ~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/data.mat
+init_paths;
+load(strcat(ftr_path, '/AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/data.mat'))
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
-out_file = '~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat';
+out_file = strcat(ftr_path, '/AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
 load(out_file)
 s1_rs_low_mi = out.low_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
 s1_rs_high_mi = out.high_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
@@ -68,11 +70,11 @@ s1_fs_low_mse_err = nanstd(s1_fs_low_mse) ./ sqrt(sum(~isnan(s1_fs_low_mse)));
 s1_fs_high_mse_err = nanstd(s1_fs_high_mse) ./ sqrt(sum(~isnan(s1_fs_high_mse)));
 
 
-load ~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/data.mat
+load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/data.mat'))
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
-out_file = '~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat';
+out_file = strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
 load(out_file)
 pfc_rs_low_mi = out.low_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
 pfc_rs_high_mi = out.high_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
@@ -137,11 +139,11 @@ pfc_fs_low_mse_err = nanstd(pfc_fs_low_mse) ./ sqrt(sum(~isnan(pfc_fs_low_mse)))
 pfc_fs_high_mse_err = nanstd(pfc_fs_high_mse) ./ sqrt(sum(~isnan(pfc_fs_high_mse)));
 
 
-load ~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/data.mat
+load strcat(ftr_path, '/AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/data.mat
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
-out_file = '~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat';
+out_file = 'strcat(ftr_path, '/AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat';
 load(out_file)
 striatum_rs_low_mi = out.low_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
 striatum_rs_high_mi = out.high_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
@@ -205,11 +207,11 @@ striatum_fs_high_mse_avg = nanmean(striatum_fs_high_mse);
 striatum_fs_low_mse_err = nanstd(striatum_fs_low_mse) ./ sqrt(sum(~isnan(striatum_fs_low_mse)));
 striatum_fs_high_mse_err = nanstd(striatum_fs_high_mse) ./ sqrt(sum(~isnan(striatum_fs_high_mse)));
 
-load ~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/Expert_Combo/Amygdala/Spontaneous_Alpha_Modulation_v2/data.mat
+load strcat(ftr_path, '/AP/FIG/Expert_Combo/Amygdala/Spontaneous_Alpha_Modulation_v2/data.mat
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
-out_file = '~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/Expert_Combo/Amygdala/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat';
+out_file = 'strcat(ftr_path, '/AP/FIG/Expert_Combo/Amygdala/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat';
 load(out_file)
 amygdala_rs_low_mi = out.low_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
 amygdala_rs_high_mi = out.high_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
@@ -480,7 +482,8 @@ xtickangle(45)
 ylim([-4,4])
 yticks([-pi,pi])
 yticklabels({'-\pi', '\pi'})
-% saveas(fig, 'tmp/lowVsHighAlpha_summary.png')
+
+mkdir('./Figures/')
 saveas(fig, 'Figures/lowVsHighAlpha_summary.svg')
 saveas(fig, 'Figures/lowVsHighAlpha_summary.fig')
 
@@ -754,145 +757,145 @@ end
 fprintf('Amygdala FS avg high minus low MSE: %d\n', nanmean(amygdala_fs_high_mse-amygdala_fs_low_mse))
 
 
-% %% example figure
-% load ~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/EXT/AP/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat
-% load ~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/EXT/LFP/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat
-% load ~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/EXT/SLRT/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat
+%% example figure
+load(strcat(ext_path, 'AP/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
+load(strcat(ext_path, 'LFP/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
+load(strcat(ext_path, 'SLRT/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
 
-% alpha_powers = [];
-% all_phases = [];
-% all_times = [];
-% cid = 218; % fast spiking 
-% for t = 1:size(slrt_data,1)
-%     c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
-%     cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
-%     lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-%     lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
-%     lfp_time = lfp_data(t,:).lfpTime{1};
-%     alpha = bandpassFilter(lfp, 8, 12, 500);
-%     spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
-%     phi = angle(hilbert(alpha));
-%     ALPHA = abs(hilbert(alpha)).^2;
-%     delta = bandpassFilter(lfp, 1, 4, 500);
-%     DELTA = abs(hilbert(delta)).^2;
-%     spike_phases = zeros(1,length(spike_times));
-%     for i = 1:length(spike_times)
-%         [~, tind] = min((lfp_times - spike_times(i)).^2);
-%         spike_phases(i) = phi(tind);
-%     end
-%     spike_phases = spike_phases(spike_times > -3 & spike_times < 0);
-%     alpha_powers = [alpha_powers, ALPHA(lfp_times > -3 & lfp_times < 0)];
-%     all_times = [all_times, lfp_time(lfp_times > -3 & lfp_times < 0)];
-% end
+alpha_powers = [];
+all_phases = [];
+all_times = [];
+cid = 218; % fast spiking 
+for t = 1:size(slrt_data,1)
+    c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
+    cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
+    lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
+    lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+    lfp_time = lfp_data(t,:).lfpTime{1};
+    alpha = bandpassFilter(lfp, 8, 12, 500);
+    spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+    phi = angle(hilbert(alpha));
+    ALPHA = abs(hilbert(alpha)).^2;
+    delta = bandpassFilter(lfp, 1, 4, 500);
+    DELTA = abs(hilbert(delta)).^2;
+    spike_phases = zeros(1,length(spike_times));
+    for i = 1:length(spike_times)
+        [~, tind] = min((lfp_times - spike_times(i)).^2);
+        spike_phases(i) = phi(tind);
+    end
+    spike_phases = spike_phases(spike_times > -3 & spike_times < 0);
+    alpha_powers = [alpha_powers, ALPHA(lfp_times > -3 & lfp_times < 0)];
+    all_times = [all_times, lfp_time(lfp_times > -3 & lfp_times < 0)];
+end
 
-% high_phases = [];
-% low_phases = [];
-% high_frs = [];
-% low_frs = [];
-% for t = 1:size(slrt_data,1)
-%     c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
-%     cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
-%     lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-%     lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
-%     alpha = bandpassFilter(lfp, 8, 12, 500);
-%     spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
-%     phi = angle(hilbert(alpha));
-%     ALPHA = abs(hilbert(alpha)).^2;
-%     delta = bandpassFilter(lfp, 1, 4, 500);
-%     DELTA = abs(hilbert(delta)).^2;
-%     for i = 1:length(spike_times)
-%         [~, tind] = min((lfp_times - spike_times(i)).^2);
-%         spike_phases(i) = phi(tind);
-%     end
-%     spike_phases = spike_phases(spike_times > -3 & spike_times < 0);
-%     spike_times = spike_times(spike_times > -3 & spike_times < 0);
-%     ALPHA = ALPHA(lfp_times > -3 & lfp_times < 0);
-%     lfp_times = lfp_times(lfp_times > -3 & lfp_times < 0);
-%     high_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 75), 0.33, 0.2, 'above');
-%     if size(high_inds,1)
-%         for n = 1:size(high_inds,1)
-%             begin = lfp_times(high_inds(n,1));
-%             fin = lfp_times(high_inds(n,2));
-%             high_phases = [high_phases, spike_phases(spike_times > begin & spike_times < fin)];
-%             high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-%         end
-%     end
-%     low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
-%     if size(low_inds,1)
-%         for n = 1:size(low_inds,1)
-%             begin = lfp_times(low_inds(n,1));
-%             fin = lfp_times(low_inds(n,2));
-%             low_phases = [low_phases, spike_phases(spike_times >= begin & spike_times <= fin)];
-%             low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-%         end
-%     end
-% end
+high_phases = [];
+low_phases = [];
+high_frs = [];
+low_frs = [];
+for t = 1:size(slrt_data,1)
+    c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
+    cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
+    lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
+    lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+    alpha = bandpassFilter(lfp, 8, 12, 500);
+    spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+    phi = angle(hilbert(alpha));
+    ALPHA = abs(hilbert(alpha)).^2;
+    delta = bandpassFilter(lfp, 1, 4, 500);
+    DELTA = abs(hilbert(delta)).^2;
+    for i = 1:length(spike_times)
+        [~, tind] = min((lfp_times - spike_times(i)).^2);
+        spike_phases(i) = phi(tind);
+    end
+    spike_phases = spike_phases(spike_times > -3 & spike_times < 0);
+    spike_times = spike_times(spike_times > -3 & spike_times < 0);
+    ALPHA = ALPHA(lfp_times > -3 & lfp_times < 0);
+    lfp_times = lfp_times(lfp_times > -3 & lfp_times < 0);
+    high_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 75), 0.33, 0.2, 'above');
+    if size(high_inds,1)
+        for n = 1:size(high_inds,1)
+            begin = lfp_times(high_inds(n,1));
+            fin = lfp_times(high_inds(n,2));
+            high_phases = [high_phases, spike_phases(spike_times > begin & spike_times < fin)];
+            high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
+        end
+    end
+    low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
+    if size(low_inds,1)
+        for n = 1:size(low_inds,1)
+            begin = lfp_times(low_inds(n,1));
+            fin = lfp_times(low_inds(n,2));
+            low_phases = [low_phases, spike_phases(spike_times >= begin & spike_times <= fin)];
+            low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
+        end
+    end
+end
 
-% example_fig = figure('Position', [1220 1318 984 400]);
-% tl = tiledlayout(1, 2);
-% axs(1) = nexttile;
-% [Nlow, edges] = histcounts(low_phases, 20, 'Normalization', 'pdf');
-% centers = zeros(length(edges)-1,1);
-% for e = 1:(length(edges)-1)
-%     centers(e) = mean(edges(e:(e+1)));
-% end
-% [x,y, ~, ~, ~] = vonMises(low_phases);
-% bar(centers, Nlow, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
-% hold on
-% plot(x,y, 'k', 'LineWidth', 2);
-% xticks([-pi, 0, pi])
-% xticklabels({'-\pi', '0', '\pi'})
-% title('Low Alpha Power')
-% ylim([0,0.35])
-% yticks([0,0.35])
-% axs(2) = nexttile;
-% [Nhigh, edges] = histcounts(high_phases, 20, 'Normalization', 'pdf');
-% centers = zeros(length(edges)-1,1);
-% for e = 1:(length(edges)-1)
-%     centers(e) = mean(edges(e:(e+1)));
-% end
-% [x,y, ~, ~, ~] = vonMises(high_phases);
-% bar(centers, Nhigh, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
-% hold on
-% plot(x,y, 'k', 'LineWidth', 2);
-% xticks([-pi, 0, pi])
-% xticklabels({'-\pi', '0', '\pi'})
-% title('High Alpha Power')
-% xlabel(tl, 'Alpha Phase (radians)', 'FontSize', 14)
-% ylabel(tl, 'Spike PDF', 'FontSize', 14)
-% ylim([0,0.35])
-% yticks([0,0.35])
-% yticklabels({})
-% % saveas(example_fig, 'tmp/examp_high_low.png')
-% saveas(example_fig, 'Figures/examp_high_low.svg')
-% saveas(example_fig, 'Figures/examp_high_low.fig')
+example_fig = figure('Position', [1220 1318 984 400]);
+tl = tiledlayout(1, 2);
+axs(1) = nexttile;
+[Nlow, edges] = histcounts(low_phases, 20, 'Normalization', 'pdf');
+centers = zeros(length(edges)-1,1);
+for e = 1:(length(edges)-1)
+    centers(e) = mean(edges(e:(e+1)));
+end
+[x,y, ~, ~, ~] = vonMises(low_phases);
+bar(centers, Nlow, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
+hold on
+plot(x,y, 'k', 'LineWidth', 2);
+xticks([-pi, 0, pi])
+xticklabels({'-\pi', '0', '\pi'})
+title('Low Alpha Power')
+ylim([0,0.35])
+yticks([0,0.35])
+axs(2) = nexttile;
+[Nhigh, edges] = histcounts(high_phases, 20, 'Normalization', 'pdf');
+centers = zeros(length(edges)-1,1);
+for e = 1:(length(edges)-1)
+    centers(e) = mean(edges(e:(e+1)));
+end
+[x,y, ~, ~, ~] = vonMises(high_phases);
+bar(centers, Nhigh, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
+hold on
+plot(x,y, 'k', 'LineWidth', 2);
+xticks([-pi, 0, pi])
+xticklabels({'-\pi', '0', '\pi'})
+title('High Alpha Power')
+xlabel(tl, 'Alpha Phase (radians)', 'FontSize', 14)
+ylabel(tl, 'Spike PDF', 'FontSize', 14)
+ylim([0,0.35])
+yticks([0,0.35])
+yticklabels({})
 
-% [Nlow, ~] = histcounts(low_phases, 20);
-% [Nhigh, ~] = histcounts(high_phases, 20);
-% low_mi = compute_modulation_index(Nlow);
-% high_mi = compute_modulation_index(Nhigh);
-% low_p = circ_rtest(low_phases);
-% high_p = circ_rtest(high_phases);
-% [Nlow, edges] = histcounts(low_phases, 20, 'Normalization', 'pdf');
-% centers = zeros(length(edges)-1,1);
-% for e = 1:(length(edges)-1)
-%     centers(e) = mean(edges(e:(e+1)));
-% end
-% [x,y, theta_bar_low ~, ~] = vonMises(low_phases);
-% y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
-% low_mse = mean((Nlow(2:end-1) - y_interpolated').^2);
-% [Nhigh, edges] = histcounts(high_phases, 20, 'Normalization', 'pdf');
-% centers = zeros(length(edges)-1,1);
-% for e = 1:(length(edges)-1)
-%     centers(e) = mean(edges(e:(e+1)));
-% end
-% [x,y, theta_bar_high ~, ~] = vonMises(high_phases);
-% y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
-% high_mse = mean((Nhigh(2:end-1) - y_interpolated').^2);
+saveas(example_fig, 'Figures/examp_high_low.svg')
+saveas(example_fig, 'Figures/examp_high_low.fig')
 
-% fprintf(sprintf('Example Low Alpha Power MI: %.4f\n', low_mi))
-% fprintf(sprintf('Example Low Alpha Power von Mises MSE: %.4f\n', low_mse))
-% fprintf(sprintf('Example Low Alpha Power Rayleigh test: p = %d\n', low_p))
-% fprintf(sprintf('Example High Alpha Power MI: %.4f\n', high_mi))
-% fprintf(sprintf('Example High Alpha Power von Mises MSE: %.4f\n', high_mse))
-% fprintf(sprintf('Example High Alpha Power Rayleigh test: p = %d\n', high_p))
+[Nlow, ~] = histcounts(low_phases, 20);
+[Nhigh, ~] = histcounts(high_phases, 20);
+low_mi = compute_modulation_index(Nlow);
+high_mi = compute_modulation_index(Nhigh);
+low_p = circ_rtest(low_phases);
+high_p = circ_rtest(high_phases);
+[Nlow, edges] = histcounts(low_phases, 20, 'Normalization', 'pdf');
+centers = zeros(length(edges)-1,1);
+for e = 1:(length(edges)-1)
+    centers(e) = mean(edges(e:(e+1)));
+end
+[x,y, theta_bar_low ~, ~] = vonMises(low_phases);
+y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
+low_mse = mean((Nlow(2:end-1) - y_interpolated').^2);
+[Nhigh, edges] = histcounts(high_phases, 20, 'Normalization', 'pdf');
+centers = zeros(length(edges)-1,1);
+for e = 1:(length(edges)-1)
+    centers(e) = mean(edges(e:(e+1)));
+end
+[x,y, theta_bar_high ~, ~] = vonMises(high_phases);
+y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
+high_mse = mean((Nhigh(2:end-1) - y_interpolated').^2);
+
+fprintf(sprintf('Example Low Alpha Power MI: %.4f\n', low_mi))
+fprintf(sprintf('Example Low Alpha Power von Mises MSE: %.4f\n', low_mse))
+fprintf(sprintf('Example Low Alpha Power Rayleigh test: p = %d\n', low_p))
+fprintf(sprintf('Example High Alpha Power MI: %.4f\n', high_mi))
+fprintf(sprintf('Example High Alpha Power von Mises MSE: %.4f\n', high_mse))
+fprintf(sprintf('Example High Alpha Power Rayleigh test: p = %d\n', high_p))

@@ -1,4 +1,6 @@
+addpath(genpath('./'))
 addpath(genpath('~/circstat-matlab/'))
+init_paths
 
 load_results = true;
 
@@ -11,11 +13,11 @@ if ~load_results
     n_trials = zeros(1,length(session_ids));
     parfor i = 1:length(session_ids)
         session_id = session_ids{i};
-        slrt_ext = load(sprintf('/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/EXT/SLRT/%s.mat', session_id));
+        slrt_ext = load(sprintf('%sSLRT/%s.mat', ext_path, session_id));
         n_trials(i) = size(slrt_ext.slrt_data,1);
     end
 
-    duration = 100 %3*round(mean(n_trials));
+    duration = 100; %3*round(mean(n_trials));
     % duration = 20;
     Fs = 1000;
     L = duration * Fs;
@@ -80,9 +82,9 @@ if ~load_results
         end
     end
 
-    frac_fig = figure(); imagesc(firing_rates, lfp_fs, fracs); colorbar(); saveas(frac_fig, 'tmp/pois_frac.fig'); saveas(frac_fig, 'tmp/pois_frac.svg'); close;
-    mse_fig = figure(); imagesc(firing_rates, lfp_fs, mean(mis,3)); colorbar(); saveas(mse_fig, 'tmp/pois_mse.fig'); saveas(mse_fig, 'tmp/pois_mse.svg'); close;
-    mis_fig = figure(); imagesc(firing_rates, lfp_fs, mean(mse,3)); colorbar(); saveas(mis_fig, 'tmp/pois_mis.fig'); saveas(mis_fig, 'tmp/pois_mis.svg'); close;
+    % frac_fig = figure(); imagesc(firing_rates, lfp_fs, fracs); colorbar(); saveas(frac_fig, 'tmp/pois_frac.fig'); saveas(frac_fig, 'tmp/pois_frac.svg'); close;
+    % mse_fig = figure(); imagesc(firing_rates, lfp_fs, mean(mis,3)); colorbar(); saveas(mse_fig, 'tmp/pois_mse.fig'); saveas(mse_fig, 'tmp/pois_mse.svg'); close;
+    % mis_fig = figure(); imagesc(firing_rates, lfp_fs, mean(mse,3)); colorbar(); saveas(mis_fig, 'tmp/pois_mis.fig'); saveas(mis_fig, 'tmp/pois_mis.svg'); close;
 
     out_file = 'pois_sim_results.mat';
     out = struct();
@@ -95,31 +97,33 @@ if ~load_results
 else
     out_file = 'pois_sim_results.mat';
     load(out_file)
-
-    Nruns = size(out.mis,3);
-    for fi = 1:length(out.lfp_fs)
-        for fr = 1:length(out.firing_rates)
-            fracs(fi,fr) = sum(out.ps(fi,fr,:) < (0.05/Nruns)) / Nruns;
-        end
-    end
-
-    summary_fig = figure('Position', [1220 1334 1409 384]);
-    tl = tiledlayout(1,3);
-    axs(1) = nexttile;
-    imagesc(out.firing_rates, out.lfp_fs, fracs.*100); cbar1 = colorbar();
-    cbar1.Label.String = '% p < 0.05';
-    xticks([1.0,20.0])
-    yticks([8,12])
-    axs(2) = nexttile;
-    imagesc(out.firing_rates, out.lfp_fs, mean(out.mis,3)); cbar2 = colorbar();
-    cbar2.Label.String = 'Modulation Index';
-    xticks([1.0,20.0])
-    yticks([8,12])
-    axs(3) = nexttile;
-    imagesc(out.firing_rates, out.lfp_fs, mean(out.mse,3)); cbar3 = colorbar();
-    cbar3.Label.String = 'MSE';
-    xlabel(tl, 'Neuronal Firing Rate (Hz)')
-    ylabel(tl, 'LFP Frequency (Hz)')
-    saveas(summary_fig, 'Figures/poisson_sim_results.fig')
-    saveas(summary_fig, 'Figures/poisson_sim_results.svg')
 end
+
+Nruns = size(out.mis,3);
+for fi = 1:length(out.lfp_fs)
+    for fr = 1:length(out.firing_rates)
+        fracs(fi,fr) = sum(out.ps(fi,fr,:) < (0.05/Nruns)) / Nruns;
+    end
+end
+
+summary_fig = figure('Position', [1220 1334 1409 384]);
+tl = tiledlayout(1,3);
+axs(1) = nexttile;
+imagesc(out.firing_rates, out.lfp_fs, fracs.*100); cbar1 = colorbar();
+cbar1.Label.String = '% p < 0.05';
+xticks([1.0,20.0])
+yticks([8,12])
+axs(2) = nexttile;
+imagesc(out.firing_rates, out.lfp_fs, mean(out.mis,3)); cbar2 = colorbar();
+cbar2.Label.String = 'Modulation Index';
+xticks([1.0,20.0])
+yticks([8,12])
+axs(3) = nexttile;
+imagesc(out.firing_rates, out.lfp_fs, mean(out.mse,3)); cbar3 = colorbar();
+cbar3.Label.String = 'MSE';
+xlabel(tl, 'Neuronal Firing Rate (Hz)')
+ylabel(tl, 'LFP Frequency (Hz)')
+
+mkdir('./Figures/')
+saveas(summary_fig, 'Figures/poisson_sim_results.fig')
+saveas(summary_fig, 'Figures/poisson_sim_results.svg')

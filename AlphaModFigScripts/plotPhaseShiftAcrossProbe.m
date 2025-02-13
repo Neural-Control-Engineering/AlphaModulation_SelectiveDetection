@@ -1,60 +1,65 @@
 addpath(genpath('./'))
 addpath(genpath('~/circstat-matlab/'))
-% sessionIDs;
-% ksChanMap = load('/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Subjects/3387-20240121/neuropixPhase3A_kilosortChanMap.mat');
-% phase_shift_3387 = alphaPhaseShiftAcrossProbe(expert_3387_session_ids, ksChanMap.chanMap, 285);
-% phase_shift_3738 = alphaPhaseShiftAcrossProbe(expert_3738_session_ids, false, 285);
-% phase_shift_3755 = alphaPhaseShiftAcrossProbe(expert_3755_session_ids, false, 300);
-% phase_shift_1075 = alphaPhaseShiftAcrossProbe(expert_1075_session_ids, false, 180);
+init_paths
+sessionIDs
 
-% [phase_shift_3387_Hit, ...
-%     phase_shift_3387_Miss, ...
-%     phase_shift_3387_FA, ...
-%     phase_shift_3387_CR] = ...
-%     alphaPhaseShiftAcrossProbeByOutcome(expert_3387_session_ids, ksChanMap.chanMap, 285);
-% [phase_shift_3738_Hit, ...
-%     phase_shift_3738_Miss, ...
-%     phase_shift_3738_FA, ...
-%     phase_shift_3738_CR] = ...
-%     alphaPhaseShiftAcrossProbeByOutcome(expert_3738_session_ids, false, 285);
-% [phase_shift_3755_Hit, ...
-%     phase_shift_3755_Miss, ...
-%     phase_shift_3755_FA, ...
-%     phase_shift_3755_CR] = ...
-%     alphaPhaseShiftAcrossProbeByOutcome(expert_3755_session_ids, false, 285);
-% [phase_shift_1075_Hit, ...
-%     phase_shift_1075_Miss, ...
-%     phase_shift_1075_FA, ...
-%     phase_shift_1075_CR] = ...
-%     alphaPhaseShiftAcrossProbeByOutcome(expert_1075_session_ids, false, 180);
-% channels = 1:4:385;
+run_analysis = false; %% toggle to run analysis 
+if run_analysis
+    ksChanMap = load(strcat(subject_path, '3387-20240121/neuropixPhase3A_kilosortChanMap.mat'));
+    phase_shift_3387 = alphaPhaseShiftAcrossProbe(expert_3387_session_ids, ksChanMap.chanMap, 285);
+    phase_shift_3738 = alphaPhaseShiftAcrossProbe(expert_3738_session_ids, false, 285);
+    phase_shift_3755 = alphaPhaseShiftAcrossProbe(expert_3755_session_ids, false, 300);
+    phase_shift_1075 = alphaPhaseShiftAcrossProbe(expert_1075_session_ids, false, 180);
 
-% out_file = 'phase_shift_results.mat';
-% out = struct();
-% out.phase_shift_1075 = phase_shift_1075;
-% out.phase_shift_3755 = phase_shift_3755;
-% out.phase_shift_3738 = phase_shift_3738;
-% out.phase_shift_3387 = phase_shift_3387;
-% out.phase_shift_1075_Hit = phase_shift_1075_Hit;
-% out.phase_shift_3755_Hit = phase_shift_3755_Hit;
-% out.phase_shift_3738_Hit = phase_shift_3738_Hit;
-% out.phase_shift_3387_Hit = phase_shift_3387_Hit;
-% out.phase_shift_1075_Miss = phase_shift_1075_Miss;
-% out.phase_shift_3755_Miss = phase_shift_3755_Miss;
-% out.phase_shift_3738_Miss = phase_shift_3738_Miss;
-% out.phase_shift_3387_Miss = phase_shift_3387_Miss;
-% out.phase_shift_1075_CR = phase_shift_1075_CR;
-% out.phase_shift_3755_CR = phase_shift_3755_CR;
-% out.phase_shift_3738_CR = phase_shift_3738_CR;
-% out.phase_shift_3387_CR = phase_shift_3387_CR;
-% out.phase_shift_1075_FA = phase_shift_1075_FA;
-% out.phase_shift_3755_FA = phase_shift_3755_FA;
-% out.phase_shift_3738_FA = phase_shift_3738_FA;
-% out.phase_shift_3387_FA = phase_shift_3387_FA;
+    [phase_shift_3387_Hit, ...
+        phase_shift_3387_Miss, ...
+        phase_shift_3387_FA, ...
+        phase_shift_3387_CR] = ...
+        alphaPhaseShiftAcrossProbeByOutcome(expert_3387_session_ids, ksChanMap.chanMap, 285);
+    [phase_shift_3738_Hit, ...
+        phase_shift_3738_Miss, ...
+        phase_shift_3738_FA, ...
+        phase_shift_3738_CR] = ...
+        alphaPhaseShiftAcrossProbeByOutcome(expert_3738_session_ids, false, 285);
+    [phase_shift_3755_Hit, ...
+        phase_shift_3755_Miss, ...
+        phase_shift_3755_FA, ...
+        phase_shift_3755_CR] = ...
+        alphaPhaseShiftAcrossProbeByOutcome(expert_3755_session_ids, false, 285);
+    [phase_shift_1075_Hit, ...
+        phase_shift_1075_Miss, ...
+        phase_shift_1075_FA, ...
+        phase_shift_1075_CR] = ...
+        alphaPhaseShiftAcrossProbeByOutcome(expert_1075_session_ids, false, 180);
+    channels = 1:4:385;
 
-% save(out_file, 'out', '-v7.3');
+    out_file = 'phase_shift_results.mat';
+    out = struct();
+    out.phase_shift_1075 = phase_shift_1075;
+    out.phase_shift_3755 = phase_shift_3755;
+    out.phase_shift_3738 = phase_shift_3738;
+    out.phase_shift_3387 = phase_shift_3387;
+    out.phase_shift_1075_Hit = phase_shift_1075_Hit;
+    out.phase_shift_3755_Hit = phase_shift_3755_Hit;
+    out.phase_shift_3738_Hit = phase_shift_3738_Hit;
+    out.phase_shift_3387_Hit = phase_shift_3387_Hit;
+    out.phase_shift_1075_Miss = phase_shift_1075_Miss;
+    out.phase_shift_3755_Miss = phase_shift_3755_Miss;
+    out.phase_shift_3738_Miss = phase_shift_3738_Miss;
+    out.phase_shift_3387_Miss = phase_shift_3387_Miss;
+    out.phase_shift_1075_CR = phase_shift_1075_CR;
+    out.phase_shift_3755_CR = phase_shift_3755_CR;
+    out.phase_shift_3738_CR = phase_shift_3738_CR;
+    out.phase_shift_3387_CR = phase_shift_3387_CR;
+    out.phase_shift_1075_FA = phase_shift_1075_FA;
+    out.phase_shift_3755_FA = phase_shift_3755_FA;
+    out.phase_shift_3738_FA = phase_shift_3738_FA;
+    out.phase_shift_3387_FA = phase_shift_3387_FA;
 
-load phase_shift_results.mat
+    save(out_file, 'out', '-v7.3');
+else
+    load phase_shift_results.mat
+end
 
 s1_phase_shifts = [out.phase_shift_3387; out.phase_shift_3738];
 pfc_phase_shifts = [out.phase_shift_3755; out.phase_shift_1075];
@@ -65,7 +70,7 @@ axs(1) = nexttile;
 hold on
 imagesc(mean(s1_phase_shifts)'); 
 clim([-pi,pi]); 
-load('/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Subjects/3738-20240702/regionMap.mat');
+load(strcat(subject_path, '3738-20240702/regionMap.mat'));
 l6 = round(97 - find(contains(regMap.region, '6'), 1, 'last') / 4);
 str_begin = round(97 - find(contains(regMap.region, 'CP'), 1, 'first') / 4);
 str_end = round(97 - find(contains(regMap.region, 'STR'), 1, 'last') / 4);
@@ -87,7 +92,7 @@ xticks([])
 axxs(2) = nexttile;
 hold on
 imagesc(mean(pfc_phase_shifts)'); 
-load('/insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Subjects/3755-20240828/regionMap.mat');
+load(strcat(subject_path, '3755-20240828/regionMap.mat'));
 ac_begin = round(97 - find(contains(regMap.region, 'AC'), 1, 'first') / 4);
 ac_end = round(97 - find(contains(regMap.region, 'AC'), 1, 'last') / 4);
 pl_begin = round(97 - find(contains(regMap.region, 'PL'), 1, 'first') / 4);
@@ -120,6 +125,7 @@ yticklabels({'AON', 'DP', 'ORB', 'IL', 'PL', 'ACC', 'MO'})
 set(gca, 'YDir', 'normal')
 ylim([1,97])
 xticks([])
-% saveas(fig, 'tmp/compare_avg_phase_shifts.png');
+
+mkdir('./Figures/')
 saveas(fig, 'Figures/compare_avg_phase_shifts.fig');
 saveas(fig, 'Figures/compare_avg_phase_shifts.svg');
