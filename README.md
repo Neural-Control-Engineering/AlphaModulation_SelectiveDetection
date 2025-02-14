@@ -33,8 +33,7 @@ other data collection and segmentation themselves, and subsequent analysis code 
 not be compatible.
 
 # Analysis 
-First, Neuropixels data must be sorted with [Kilosort](https://github.com/MouseLand/Kilosort).  
-This can be done through n-CORTEx.
+First, Neuropixels data must be sorted with [Kilosort](https://github.com/MouseLand/Kilosort). This can be done through n-CORTEx.
 
 For subsequent analyses, you will also need to install [Chronux](https://chronux.org/) and [CircStat](https://github.com/circstat/circstat-matlab).
 
