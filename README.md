@@ -11,16 +11,16 @@ After launching the app, set *./Experiment-Module/* under *Modules*, set *Projec
 folder to save your data, and select *SELECT_DETECT* as the experiment. Next to the 
 *Experiment* tab, you will have the option to select an experiment phase. 
 
-    Phase 1 - Classical conditioning: "Target" (go) stimuli are immediately paired with water reward, requiring
-    no action on the part of the mouse, while no-go stimuli are not.
+Phase 1 - Classical conditioning: "Target" (go) stimuli are immediately paired with water reward, requiring
+no action on the part of the mouse, while no-go stimuli are not.
 
-    Phase 2 - Operant conditioning: Mice must lick within a 1.5 s window of opportunity in response to a go 
-    stimulus to receive a water reward.  Rewards are delived at 1.5 s following the stimulus presentation 
-    regardles of when the mouse responded.  There is no punishment for false alarms.
+Phase 2 - Operant conditioning: Mice must lick within a 1.5 s window of opportunity in response to a go 
+stimulus to receive a water reward.  Rewards are delived at 1.5 s following the stimulus presentation 
+regardles of when the mouse responded.  There is no punishment for false alarms.
 
-    Phase 3 - Full task: Mice must lick within a 1 s window of opportunity in response to a go stimulus to 
-    receive a water reward.  Rewards are delived 1 s following stimulus presentation.  False alarms result 
-    in an increased inter-trial interval.
+Phase 3 - Full task: Mice must lick within a 1 s window of opportunity in response to a go stimulus to 
+receive a water reward.  Rewards are delived 1 s following stimulus presentation.  False alarms result 
+in an increased inter-trial interval.
 
 Under the parameters tab, *var_trainingStage* corresponds to the phases above.  One may also set *var_trainingStage* to 
 111, which ejects water from the spout once per second, or 222, which deflects the target/go piezo once per second.
