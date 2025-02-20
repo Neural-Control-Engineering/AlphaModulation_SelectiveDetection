@@ -5491,3 +5491,10 @@ pfc_rm = fitrm(pfc_tbl, 'f1-f246 ~ f0', 'WithinDesign', Freq);
 *** DONE: AlphaModFigScripts/modulationAndBehaviorSummaries.m
 *** DONE: AlphaModFigScripts/phaseModClasses.m
 *** DONE: AlphaModFigScripts/phaseModSummaries.m
+
+* [2025-2-20 Thu] - addressing comments 
+** TODOS: 
+*** TODO: check significance for interregional comparisons
+**** bonferronic correction: 0.05 / 28 
+*** TODO: foof analysis of LFPs 
+*** TODO: fix waveform classification figure 
