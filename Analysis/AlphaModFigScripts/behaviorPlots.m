@@ -73,7 +73,7 @@ if out_path
     saveas(fig, strcat(out_path,'qc_individual_reaction_times.svg'))
 end
 
-p = signrank(hr, far);
+[~, p] = ttest(hr, far);
 if p < (0.05 / length(hr))
     fprintf(sprintf('Hit Rate vs FA Rate: Wilcoxon Signed Rank **p = %d\n', p));
 elseif p < 0.05
@@ -81,7 +81,7 @@ elseif p < 0.05
 else
     fprintf(sprintf('Hit Rate vs FA Rate: Wilcoxon Signed Rank p = %d\n', p));
 end
-p = signrank(rt_by_outcome(1,:), rt_by_outcome(2,:));
+[~, p] = ttest(rt_by_outcome(1,:), rt_by_outcome(2,:));
 if p < (0.05 / length(hr))
     fprintf(sprintf('Hit RT vs FA RT: Wilcoxon Signed Rank **p = %d\n', p));
 elseif p < 0.05 

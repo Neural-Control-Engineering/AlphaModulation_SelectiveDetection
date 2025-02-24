@@ -5495,6 +5495,13 @@ pfc_rm = fitrm(pfc_tbl, 'f1-f246 ~ f0', 'WithinDesign', Freq);
 * [2025-2-20 Thu] - addressing comments 
 ** TODOS: 
 *** TODO: check significance for interregional comparisons
-**** bonferronic correction: 0.05 / 28 
+**** bonferroni correction: 0.05 / 28 
 *** TODO: foof analysis of LFPs 
-*** TODO: fix waveform classification figure 
+*** DONE: fix waveform classification figure 
+*** DONE: check homoscedasticity
+[x] Figure 1: behavior 
+[x] Figure 2: firing rates (no changes)
+[x] Figure 3: MI and von Mises (no changes)
+[x] Figure 5: Alpha power and phase modulation 
+[x] Figure 7: correct vs. incorrect / action vs. inaction
+*** TODO: alpha power and behavior 

@@ -8,7 +8,7 @@ amygdala = load(strcat(ftr_path, '/AP/FIG/Expert_Combo/Amygdala/Spontaneous_Alph
 %% s1 sessions
 % combine animals
 ftr_files = {strcat(ftr_path, '/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
-    strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat')}
+    strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat')};
 for i = 1:length(ftr_files)
     f = load(ftr_files{i});
     if i == 1
@@ -700,10 +700,26 @@ xlabel('Time (s)')
 title(tl, 'Somatosensory Cortex')
 legend()
 
+keyboard
 fprintf(sprintf('S1 RS theta bars vs FS theta bars Kuiper test: p = %d\n', circ_kuipertest(s1_rs.theta_bars, s1_fs.theta_bars)))
-fprintf(sprintf('S1 RS MI vs FS MI Mann Whitney: p = %d\n', ranksum(s1_rs.pmi, s1_fs.pmi)))
-fprintf(sprintf('S1 RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = %d\n', ranksum(s1_rs.mses, s1_fs.mses)))
-fprintf(sprintf('S1 RS vs FS fraction (Mann-Whitney): p = %d\n', ranksum(s1_rs_fracs, s1_fs_fracs)))
+if KStest(s1_rs.pmi) || KStest(s1_fs.pmi)
+    fprintf(sprintf('S1 RS MI vs FS MI Mann Whitney: p = %d\n', ranksum(s1_rs.pmi, s1_fs.pmi)))
+else
+    [~,p] = ttest2(s1_rs.pmi, s1_fs.pmi);
+    fprintf(sprintf('S1 RS MI vs FS MI 2-sample t-test: p = %d\n', p))
+end
+if KStest(s1_rs.mses) || KStest(s1_fs.mses)
+    fprintf(sprintf('S1 RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = %d\n', ranksum(s1_rs.mses, s1_fs.mses)))
+else
+    [~,p] = ttest2(s1_rs.mses, s1_fs.mses);
+    fprintf(sprintf('S1 RS von Mises MSE vs FS von Mises MSE 2-sample t-test: p = %d\n', p))
+end
+if KStest(s1_rs_fracs) || KStest(s1_fs_fracs)
+    fprintf(sprintf('S1 RS vs FS fraction (Mann-Whitney): p = %d\n', ranksum(s1_rs_fracs, s1_fs_fracs)))
+else
+    [~,p] = ttest2(s1_rs_fracs, s1_fs_fracs);
+    fprintf(sprintf('S1 RS vs FS fraction (Mann-Whitney): p = %d\n', p))
+end
 fprintf(sprintf('S1 RS mean theta bar: %d +/- %d\n', circ_mean(s1_rs.theta_bars), circ_std(s1_rs.theta_bars) / sqrt(length(s1_rs.theta_bars))))
 fprintf(sprintf('S1 FS mean theta bar: %d +/- %d\n', circ_mean(s1_fs.theta_bars), circ_std(s1_fs.theta_bars) / sqrt(length(s1_fs.theta_bars))))
 
@@ -846,9 +862,24 @@ legend()
 title(tl, 'Prefrontal Cortex')
 
 fprintf(sprintf('PFC RS theta bars vs FS theta bars Kuiper test: p = %d\n', circ_kuipertest(pfc_rs.theta_bars, pfc_fs.theta_bars)))
-fprintf(sprintf('PFC RS MI vs FS MI Mann Whitney: p = %d\n', ranksum(pfc_rs.pmi, pfc_fs.pmi)))
-fprintf(sprintf('PFC RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = %d\n', ranksum(pfc_rs.mses, pfc_fs.mses)))
-fprintf(sprintf('PFC RS vs FS fraction (Mann-Whitney): p = %d\n', ranksum(pfc_rs_fracs, pfc_fs_fracs)))
+if KStest(pfc_rs.pmi) || KStest(pfc_fs.pmi)
+    fprintf(sprintf('PFC RS MI vs FS MI Mann Whitney: p = %d\n', ranksum(pfc_rs.pmi, pfc_fs.pmi)))
+else
+    [~,p] = ttest2(pfc_rs.pmi, pfc_fs.pmi);
+    fprintf(sprintf('PFC RS MI vs FS MI 2-sample t-test: p = %d\n', p))
+end
+if KStest(pfc_rs.mses) || KStest(pfc_fs.mses)
+    fprintf(sprintf('PFC RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = %d\n', ranksum(pfc_rs.mses, pfc_fs.mses)))
+else
+    [~,p] = ttest2(pfc_rs.mses, pfc_fs.mses);
+    fprintf(sprintf('PFC RS von Mises MSE vs FS von Mises MSE 2-sample t-test: p = %d\n', p))
+end
+if KStest(pfc_rs_fracs) || KStest(pfc_fs_fracs)
+    fprintf(sprintf('PFC RS vs FS fraction (Mann-Whitney): p = %d\n', ranksum(pfc_rs_fracs, pfc_fs_fracs)))
+else
+    [~,p] = ttest2(pfc_rs_fracs, pfc_fs_fracs);
+    fprintf(sprintf('PFC RS vs FS fraction (Mann-Whitney): p = %d\n', p))
+end
 fprintf(sprintf('PFC RS mean theta bar: %d +/- %d\n', circ_mean(pfc_rs.theta_bars), circ_std(pfc_rs.theta_bars) / sqrt(length(pfc_rs.theta_bars))))
 fprintf(sprintf('PFC FS mean theta bar: %d +/- %d\n', circ_mean(pfc_fs.theta_bars), circ_std(pfc_fs.theta_bars) / sqrt(length(pfc_fs.theta_bars))))
 
@@ -993,9 +1024,24 @@ legend()
 title(tl, 'Striatum')
 
 fprintf(sprintf('Striatum RS theta bars vs FS theta bars Kuiper test: p = %d\n', circ_kuipertest(striatum_rs.theta_bars, striatum_fs.theta_bars)))
-fprintf(sprintf('Striatum RS MI vs FS MI Mann Whitney: p = %d\n', ranksum(striatum_rs.pmi, striatum_fs.pmi)))
-fprintf(sprintf('Striatum RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = %d\n', ranksum(striatum_rs.mses, striatum_fs.mses)))
-fprintf(sprintf('Striatum RS vs FS fraction (Mann-Whitney): p = %d\n', ranksum(striatum_rs_fracs, striatum_fs_fracs)))
+if KStest(striatum_rs.pmi) || KStest(striatum_fs.pmi)
+    fprintf(sprintf('Striatum RS MI vs FS MI Mann Whitney: p = %d\n', ranksum(striatum_rs.pmi, striatum_fs.pmi)))
+else
+    [~,p] = ttest2(striatum_rs.pmi, striatum_fs.pmi);
+    fprintf(sprintf('Striatum RS MI vs FS MI 2-sample t-test: p = %d\n', p))
+end
+if KStest(striatum_rs.mses) || KStest(striatum_fs.mses)
+    fprintf(sprintf('Striatum RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = %d\n', ranksum(striatum_rs.mses, striatum_fs.mses)))
+else
+    [~,p] = ttest2(striatum_rs.mses, striatum_fs.mses);
+    fprintf(sprintf('Striatum RS von Mises MSE vs FS von Mises MSE 2-sample t-test: p = %d\n', p))
+end
+if KStest(striatum_rs_fracs) || KStest(striatum_fs_fracs)
+    fprintf(sprintf('Striatum RS vs FS fraction (Mann-Whitney): p = %d\n', ranksum(striatum_rs_fracs, striatum_fs_fracs)))
+else
+    [~,p] = ttest2(striatum_rs_fracs, striatum_fs_fracs);
+    fprintf(sprintf('Striatum RS vs FS fraction (Mann-Whitney): p = %d\n', p))
+end
 fprintf(sprintf('Striatum RS mean theta bar: %d +/- %d\n', circ_mean(striatum_rs.theta_bars), circ_std(striatum_rs.theta_bars) / sqrt(length(striatum_rs.theta_bars))))
 fprintf(sprintf('Striatum FS mean theta bar: %d +/- %d\n\n', circ_mean(striatum_fs.theta_bars), circ_std(striatum_fs.theta_bars) / sqrt(length(striatum_fs.theta_bars))))
 
@@ -1139,9 +1185,24 @@ legend()
 
 % fprintf(sprintf('Amygdala RS theta bars vs FS theta bars Kuiper test: p = %d\n', circ_kuipertest(amygdala_rs.theta_bars, amygdala_fs.theta_bars)))
 fprintf(sprintf('Amygdala RS theta bars vs FS theta bars Kuiper test: p = NaN\n'))
-fprintf(sprintf('Amygdala RS vs FS fraction (Mann-Whitney): p = %d\n', ranksum(amygdala_rs_fracs, amygdala_fs_fracs)))
-fprintf(sprintf('Amygdala RS MI vs FS MI Mann Whitney: p = %d\n', ranksum(amygdala_rs.pmi, amygdala_fs.pmi)))
-fprintf(sprintf('Amygdala RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = %d\n', ranksum(amygdala_rs.mses, amygdala_fs.mses)))
+if KStest(amygdala_rs.pmi) || KStest(amygdala_fs.pmi)
+    fprintf(sprintf('Amygdala RS MI vs FS MI Mann Whitney: p = %d\n', ranksum(amygdala_rs.pmi, amygdala_fs.pmi)))
+else
+    [~,p] = ttest2(amygdala_rs.pmi, amygdala_fs.pmi);
+    fprintf(sprintf('Amygdala RS MI vs FS MI 2-sample t-test: p = %d\n', p))
+end
+if KStest(amygdala_rs.mses) || KStest(amygdala_fs.mses)
+    fprintf(sprintf('Amygdala RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = %d\n', ranksum(amygdala_rs.mses, amygdala_fs.mses)))
+else
+    [~,p] = ttest2(amygdala_rs.mses, amygdala_fs.mses);
+    fprintf(sprintf('Amygdala RS von Mises MSE vs FS von Mises MSE 2-sample t-test: p = %d\n', p))
+end
+if KStest(amygdala_rs_fracs) || KStest(amygdala_fs_fracs)
+    fprintf(sprintf('Amygdala RS vs FS fraction (Mann-Whitney): p = %d\n', ranksum(amygdala_rs_fracs, amygdala_fs_fracs)))
+else
+    [~,p] = ttest2(amygdala_rs_fracs, amygdala_fs_fracs);
+    fprintf(sprintf('Amygdala RS vs FS fraction (Mann-Whitney): p = %d\n', p))
+end
 fprintf(sprintf('Amygdala RS mean theta bar: %d +/- %d\n', circ_mean(amygdala_rs.theta_bars), circ_std(amygdala_rs.theta_bars)/sqrt(length(amygdala_rs.theta_bars))))
 fprintf(sprintf('Amygdala FS mean theta bar: %d +/- %d\n\n', circ_mean(amygdala_fs.theta_bars), circ_std(amygdala_fs.theta_bars)/sqrt(length(amygdala_fs.theta_bars))))
 
@@ -1213,7 +1274,7 @@ fprintf(sprintf('Total modulated Amygdala: %i\n', size(amygdala_rs,1)+size(amygd
 fprintf(sprintf('Amygdala RS fraction modulated: %d +/- %d\n', nanmean(amygdala_rs_fracs), nanstd(amygdala_rs_fracs)/sqrt(sum(~isnan(amygdala_rs_fracs)))))
 fprintf(sprintf('Amygdala FS fraction modulated: %d +/- %d\n', nanmean(amygdala_fs_fracs), nanstd(amygdala_fs_fracs)/sqrt(sum(~isnan(amygdala_fs_fracs)))))
 
-out_path = true;
+out_path = false;
 mkdir('./Figures/')
 if out_path
     saveas(fracs_fig, 'Figures/fracs.fig')

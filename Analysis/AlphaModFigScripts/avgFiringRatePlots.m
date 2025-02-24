@@ -1,5 +1,5 @@
 init_paths;
-out_path = true; %% toggle to save figures
+out_path = false; %% toggle to save figures
 mkdir('./Figures/')
 
 ftr_files = {strcat(ftr_path, 'AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
@@ -372,22 +372,44 @@ fprintf(sprintf('Striatum FS: N = %i\n\n', length(bg_fs_hit_depol)))
 fprintf(sprintf('Amygdala RS: N = %i\n', length(ag_rs_hit_depol)))
 fprintf(sprintf('Amygdala FS: N = %i\n\n', length(ag_fs_hit_depol)))
 
-p = signrank(ss_rs_hit_depol, ss_rs_miss_depol);
-if p < (0.05 / length(ss_rs_hit_depol))
-    fprintf(sprintf('S1 RS Hit vs. Miss (Wilcoxon Signed Rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('S1 RS Hit vs. Miss (Wilcoxon Signed Rank): *p = %d\n', p))
+if KStest(ss_rs_hit_depol) || KStest(ss_rs_miss_depol)
+    p = signrank(ss_rs_hit_depol, ss_rs_miss_depol);
+    if p < (0.05 / length(ss_rs_hit_depol))
+        fprintf(sprintf('S1 RS Hit vs. Miss (Wilcoxon Signed Rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 RS Hit vs. Miss (Wilcoxon Signed Rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 RS Hit vs. Miss (Wilcoxon Signed Rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('S1 RS Hit vs. Miss (Wilcoxon Signed Rank): p = %d\n', p))
+    [~, p] = ttest(ss_rs_hit_depol, ss_rs_miss_depol);
+    if p < (0.05 / length(ss_rs_hit_depol))
+        fprintf(sprintf('S1 RS Hit vs. Miss (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 RS Hit vs. Miss (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 RS Hit vs. Miss (t-test): p = %d\n', p))
+    end
 end
 
-p = signrank(ss_fs_hit_depol, ss_fs_miss_depol);
-if p < (0.05 / length(ss_fs_hit_depol))
-    fprintf(sprintf('S1 FS Hit vs. Miss (Wilcoxon Signed Rank): **p = %d\n\n', p))
-elseif p < 0.05
-    fprintf(sprintf('S1 FS Hit vs. Miss (Wilcoxon Signed Rank): *p = %d\n\n', p))
+if KStest(ss_fs_hit_depol) || KStest(ss_fs_miss_depol)
+    p = signrank(ss_fs_hit_depol, ss_fs_miss_depol);
+    if p < (0.05 / length(ss_fs_hit_depol))
+        fprintf(sprintf('S1 FS Hit vs. Miss (Wilcoxon Signed Rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 FS Hit vs. Miss (Wilcoxon Signed Rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 FS Hit vs. Miss (Wilcoxon Signed Rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('S1 FS Hit vs. Miss (Wilcoxon Signed Rank): p = %d\n\n', p))
+    [~, p] = ttest(ss_fs_hit_depol, ss_fs_miss_depol);
+    if p < (0.05 / length(ss_fs_hit_depol))
+        fprintf(sprintf('S1 FS Hit vs. Miss (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 FS Hit vs. Miss (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 FS Hit vs. Miss (t-test): p = %d\n', p))
+    end
 end
 
 fprintf('S1 RS Hit: %d +/- %d\n', nanmean(ss_rs_hit_depol), nanstd(ss_rs_hit_depol)/sqrt(sum(~isnan(ss_rs_hit_depol))));
@@ -395,68 +417,136 @@ fprintf('S1 RS Miss: %d +/- %d\n', nanmean(ss_rs_miss_depol), nanstd(ss_rs_miss_
 fprintf('S1 FS Hit: %d +/- %d\n', nanmean(ss_fs_hit_depol), nanstd(ss_fs_hit_depol)/sqrt(sum(~isnan(ss_fs_hit_depol))));
 fprintf('S1 FS Miss: %d +/- %d\n', nanmean(ss_fs_miss_depol), nanstd(ss_fs_miss_depol)/sqrt(sum(~isnan(ss_fs_miss_depol))));
 
-p = signrank(pfc_rs_hit_depol, pfc_rs_miss_depol);
-if p < (0.05 / length(pfc_rs_hit_depol))
-    fprintf(sprintf('PFC RS Hit vs. Miss: **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('PFC RS Hit vs. Miss: *p = %d\n', p))
+if KStest(pfc_rs_hit_depol) || KStest(pfc_rs_miss_depol)
+    p = signrank(pfc_rs_hit_depol, pfc_rs_miss_depol);
+    if p < (0.05 / length(pfc_rs_hit_depol))
+        fprintf(sprintf('PFC RS Hit vs. Miss (Wilcoxon Signed Rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC RS Hit vs. Miss (Wilcoxon Signed Rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC RS Hit vs. Miss (Wilcoxon Signed Rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('PFC RS Hit vs. Miss: p = %d\n', p))
+    [~, p] = ttest(pfc_rs_hit_depol, pfc_rs_miss_depol);
+    if p < (0.05 / length(pfc_rs_hit_depol))
+        fprintf(sprintf('PFC RS Hit vs. Miss (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC RS Hit vs. Miss (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC RS Hit vs. Miss (t-test): p = %d\n', p))
+    end
 end
 
-p = signrank(pfc_fs_hit_depol, pfc_fs_miss_depol);
-if p < (0.05 / length(pfc_fs_hit_depol))
-    fprintf(sprintf('PFC FS Hit vs. Miss: **p = %d\n\n', p))
-elseif p < 0.05 
-    fprintf(sprintf('PFC FS Hit vs. Miss: *p = %d\n\n', p))
+if KStest(pfc_fs_hit_depol) || KStest(pfc_fs_miss_depol)
+    p = signrank(pfc_fs_hit_depol, pfc_fs_miss_depol);
+    if p < (0.05 / length(pfc_fs_hit_depol))
+        fprintf(sprintf('PFC FS Hit vs. Miss (Wilcoxon Signed Rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC FS Hit vs. Miss (Wilcoxon Signed Rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC FS Hit vs. Miss (Wilcoxon Signed Rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('PFC FS Hit vs. Miss: p = %d\n\n', p))
+    [~, p] = ttest(pfc_fs_hit_depol, pfc_fs_miss_depol);
+    if p < (0.05 / length(pfc_fs_hit_depol))
+        fprintf(sprintf('PFC FS Hit vs. Miss (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC FS Hit vs. Miss (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC FS Hit vs. Miss (t-test): p = %d\n', p))
+    end
 end
+
 
 fprintf('PFC RS Hit: %d +/- %d\n', nanmean(pfc_rs_hit_depol), nanstd(pfc_rs_hit_depol)/sqrt(sum(~isnan(pfc_rs_hit_depol))));
 fprintf('PFC RS Miss: %d +/- %d\n', nanmean(pfc_rs_miss_depol), nanstd(pfc_rs_miss_depol)/sqrt(sum(~isnan(pfc_rs_miss_depol))));
 fprintf('PFC FS Hit: %d +/- %d\n', nanmean(pfc_fs_hit_depol), nanstd(pfc_fs_hit_depol)/sqrt(sum(~isnan(pfc_fs_hit_depol))));
 fprintf('PFC FS Miss: %d +/- %d\n', nanmean(pfc_fs_miss_depol), nanstd(pfc_fs_miss_depol)/sqrt(sum(~isnan(pfc_fs_miss_depol))));
 
-p = signrank(bg_rs_hit_depol, bg_rs_miss_depol);
-if p < (0.05 < length(bg_rs_hit_depol))
-    fprintf(sprintf('Striatum RS Hit vs. Miss: **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Striatum RS Hit vs. Miss: *p = %d\n', p))
+if KStest(bg_rs_hit_depol) || KStest(bg_rs_miss_depol)
+    p = signrank(bg_rs_hit_depol, bg_rs_miss_depol);
+    if p < (0.05 / length(bg_rs_hit_depol))
+        fprintf(sprintf('Striatum RS Hit vs. Miss (Wilcoxon Signed Rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum RS Hit vs. Miss (Wilcoxon Signed Rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum RS Hit vs. Miss (Wilcoxon Signed Rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Striatum RS Hit vs. Miss: p = %d\n', p))
+    [~, p] = ttest(bg_rs_hit_depol, bg_rs_miss_depol);
+    if p < (0.05 / length(bg_rs_hit_depol))
+        fprintf(sprintf('Striatum RS Hit vs. Miss (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum RS Hit vs. Miss (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum RS Hit vs. Miss (t-test): p = %d\n', p))
+    end
 end
 
-p = signrank(bg_fs_hit_depol, bg_fs_miss_depol);
-if p < (0.05 / length(bg_fs_hit_depol))
-    fprintf(sprintf('Striatum FS Hit vs. Miss: **p = %d\n\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Striatum FS Hit vs. Miss: *p = %d\n\n', p))
+if KStest(bg_fs_hit_depol) || KStest(bg_fs_miss_depol)
+    p = signrank(bg_fs_hit_depol, bg_fs_miss_depol);
+    if p < (0.05 / length(bg_fs_hit_depol))
+        fprintf(sprintf('Striatum FS Hit vs. Miss (Wilcoxon Signed Rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum FS Hit vs. Miss (Wilcoxon Signed Rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum FS Hit vs. Miss (Wilcoxon Signed Rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Striatum FS Hit vs. Miss: p = %d\n\n', p))
+    [~, p] = ttest(bg_fs_hit_depol, bg_fs_miss_depol);
+    if p < (0.05 / length(bg_fs_hit_depol))
+        fprintf(sprintf('Striatum FS Hit vs. Miss (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum FS Hit vs. Miss (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum FS Hit vs. Miss (t-test): p = %d\n', p))
+    end
 end
+
 
 fprintf('Striatum RS Hit: %d +/- %d\n', nanmean(bg_rs_hit_depol), nanstd(bg_rs_hit_depol)/sqrt(sum(~isnan(bg_rs_hit_depol))));
 fprintf('Striatum RS Miss: %d +/- %d\n', nanmean(bg_rs_miss_depol), nanstd(bg_rs_miss_depol)/sqrt(sum(~isnan(bg_rs_miss_depol))));
 fprintf('Striatum FS Hit: %d +/- %d\n', nanmean(bg_fs_hit_depol), nanstd(bg_fs_hit_depol)/sqrt(sum(~isnan(bg_fs_hit_depol))));
 fprintf('Striatum FS Miss: %d +/- %d\n', nanmean(bg_fs_miss_depol), nanstd(bg_fs_miss_depol)/sqrt(sum(~isnan(bg_fs_miss_depol))));
 
-p = signrank(ag_rs_hit_depol, ag_rs_miss_depol);
-if p < (0.05 / length(ag_rs_hit_depol))
-    fprintf(sprintf('Amygdala RS Hit vs. Miss: **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Amygdala RS Hit vs. Miss: *p = %d\n', p))
+if KStest(ag_rs_hit_depol) || KStest(ag_rs_miss_depol)
+    p = signrank(ag_rs_hit_depol, ag_rs_miss_depol);
+    if p < (0.05 / length(ag_rs_hit_depol))
+        fprintf(sprintf('Amygdala RS Hit vs. Miss (Wilcoxon Signed Rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala RS Hit vs. Miss (Wilcoxon Signed Rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala RS Hit vs. Miss (Wilcoxon Signed Rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Amygdala RS Hit vs. Miss: p = %d\n', p))
+    [~, p] = ttest(ag_rs_hit_depol, ag_rs_miss_depol);
+    if p < (0.05 / length(ag_rs_hit_depol))
+        fprintf(sprintf('Amygdala RS Hit vs. Miss (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala RS Hit vs. Miss (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala RS Hit vs. Miss (t-test): p = %d\n', p))
+    end
 end
 
-p = signrank(ag_fs_hit_depol, ag_fs_miss_depol);
-if p < (0.05 / length(ag_fs_hit_depol))
-    fprintf(sprintf('Amygdala FS Hit vs. Miss: **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Amygdala FS Hit vs. Miss: *p = %d\n', p))
+if KStest(ag_fs_hit_depol) || KStest(ag_fs_miss_depol)
+    p = signrank(ag_fs_hit_depol, ag_fs_miss_depol);
+    if p < (0.05 / length(ag_fs_hit_depol))
+        fprintf(sprintf('Amygdala FS Hit vs. Miss (Wilcoxon Signed Rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala FS Hit vs. Miss (Wilcoxon Signed Rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala FS Hit vs. Miss (Wilcoxon Signed Rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Amygdala FS Hit vs. Miss: p = %d\n', p))
+    [~, p] = ttest(ag_fs_hit_depol, ag_fs_miss_depol);
+    if p < (0.05 / length(ag_fs_hit_depol))
+        fprintf(sprintf('Amygdala FS Hit vs. Miss (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala FS Hit vs. Miss (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala FS Hit vs. Miss (t-test): p = %d\n', p))
+    end
 end
 
 fprintf('Amygdala RS Hit: %d +/- %d\n', nanmean(ag_rs_hit_depol), nanstd(ag_rs_hit_depol)/sqrt(sum(~isnan(ag_rs_hit_depol))));

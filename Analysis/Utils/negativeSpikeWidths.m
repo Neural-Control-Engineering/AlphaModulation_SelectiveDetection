@@ -129,9 +129,9 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     ss_wvfrms = ctx_wvfrms;
     ss_frs = ctx_frs;
     ss_t2p = ctx_t2p;
-    scatter(ctx_t2p(ctx_t2p < 0.351), ctx_widths(ctx_t2p < 0.351), [], [0.5,0.5,0.5]);
+    scatter(ctx_t2p(ctx_t2p < 0.351), ctx_widths(ctx_t2p < 0.351), [], [0,0,0]);
     hold on
-    scatter(ctx_t2p(ctx_t2p > 0.351), ctx_widths(ctx_t2p > 0.351), [], [0,0,0]);
+    scatter(ctx_t2p(ctx_t2p > 0.351), ctx_widths(ctx_t2p > 0.351), [], [0.5,0.5,0.5]);
     xlim([0,1.2])
     ylim([0,0.6])
     title('Somatosensory Cortex')
@@ -158,9 +158,9 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     pfc_wvfrms = ctx_wvfrms;
     pfc_frs = ctx_frs;
     pfc_t2p = ctx_t2p;
-    scatter(ctx_t2p(ctx_t2p < 0.351), ctx_widths(ctx_t2p < 0.351), [], [0.5,0.5,0.5]);
+    scatter(ctx_t2p(ctx_t2p < 0.351), ctx_widths(ctx_t2p < 0.351), [], [0,0,0]);
     hold on
-    scatter(ctx_t2p(ctx_t2p > 0.351), ctx_widths(ctx_t2p > 0.351), [], [0,0,0]);
+    scatter(ctx_t2p(ctx_t2p > 0.351), ctx_widths(ctx_t2p > 0.351), [], [0.5,0.5,0.5]);
     xlim([0,1.2])
     ylim([0,0.6])
     title('Prefrontal Cortex')
@@ -182,9 +182,9 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     bg_wvfrms = bg_wvfrms(~isnan(bg_t2p),:);
     bg_frs = bg_frs(~isnan(bg_t2p));
     bg_t2p = bg_t2p(~isnan(bg_t2p));
-    scatter(bg_t2p(bg_t2p < 0.351), bg_widths(bg_t2p < 0.351), [], [0.5,0.5,0.5]);
+    scatter(bg_t2p(bg_t2p < 0.351), bg_widths(bg_t2p < 0.351), [], [0,0,0]);
     hold on 
-    scatter(bg_t2p(bg_t2p > 0.351), bg_widths(bg_t2p > 0.351), [], [0,0,0]);
+    scatter(bg_t2p(bg_t2p > 0.351), bg_widths(bg_t2p > 0.351), [], [0.5,0.5,0.5]);
     xlim([0,1.2])
     ylim([0,0.6])
     title('Striatum')
@@ -206,9 +206,9 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     ag_wvfrms = ag_wvfrms(~isnan(ag_t2p),:);
     ag_frs = ag_frs(~isnan(ag_t2p));
     ag_t2p = ag_t2p(~isnan(ag_t2p));
-    scatter(ag_t2p(ag_t2p < 0.351), ag_widths(ag_t2p < 0.351), [], [0.5,0.5,0.5]);
+    scatter(ag_t2p(ag_t2p < 0.351), ag_widths(ag_t2p < 0.351), [], [0,0,0]);
     hold on 
-    scatter(ag_t2p(ag_t2p > 0.351), ag_widths(ag_t2p > 0.351), [], [0,0,0]);
+    scatter(ag_t2p(ag_t2p > 0.351), ag_widths(ag_t2p > 0.351), [], [0.5,0.5,0.5]);
     xlim([0,1.2])
     ylim([0,0.6])
     title('Amygdala')
@@ -227,7 +227,7 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
 
     ss_fig = figure();
     p = piechart([sum(ss_t2p < 0.351), sum(ss_t2p > 0.351)], {'FS', 'RS'});
-    colororder([0.5,0.5,0.5;0,0,0])
+    colororder([0,0,0; 0.5,0.5,0.5])
     p.FaceAlpha = 1;
     % p.LabelStyle = None;
     saveas(ss_fig, 'Figures/ss_cellClass_pct.svg')
@@ -235,7 +235,7 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
 
     pfc_fig = figure();
     p = piechart([sum(pfc_t2p < 0.351), sum(pfc_t2p > 0.351)], {'FS', 'RS'});
-    colororder([0.5,0.5,0.5;0,0,0])
+    colororder([0,0,0; 0.5,0.5,0.5])
     p.FaceAlpha = 1;
     % p.LabelStyle = None;
     saveas(pfc_fig, 'Figures/pfc_cellClass_pct.svg')
@@ -244,14 +244,14 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     bg_fig = figure();
     p = piechart([sum(bg_t2p < 0.351), sum(bg_t2p > 0.351)], {'FS', 'RS'});
     % p.LabelStyle = None;
-    colororder([0.5,0.5,0.5;0,0,0])
+    colororder([0,0,0; 0.5,0.5,0.5])
     p.FaceAlpha = 1;
     saveas(bg_fig, 'Figures/bg_cellClass_pct.svg')
     saveas(bg_fig, 'Figures/bg_cellClass_pct.fig')
 
     ag_fig = figure();
     p = piechart([sum(ag_t2p < 0.351), sum(ag_t2p > 0.351)], {'FS', 'RS'});
-    colororder([0.5,0.5,0.5;0,0,0])
+    colororder([0,0,0; 0.5,0.5,0.5])
     p.FaceAlpha = 1;
     % p.LabelStyle = None;
     saveas(ag_fig, 'Figures/ag_cellClass_pct.svg')
@@ -364,9 +364,9 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     fs_ss_wvfrms = ss_wvfrms(idx == 2, :);
     
     ss_rs_fig = figure();
-    plot(linspace(0,(size(rs_ss_wvfrms,2)/30),61), mean(rs_ss_wvfrms), 'k', 'LineWidth', 2)
+    plot(linspace(0,(size(rs_ss_wvfrms,2)/30),61), mean(rs_ss_wvfrms), 'Color', [0.5,0.5,0.5], 'LineWidth', 2)
     hold on
-    plot(linspace(0,(size(fs_ss_wvfrms,2)/30),61), mean(fs_ss_wvfrms), 'Color', [0.5,0.5,0.5], 'LineWidth', 2)
+    plot(linspace(0,(size(fs_ss_wvfrms,2)/30),61), mean(fs_ss_wvfrms), 'Color', [0,0,0], 'LineWidth', 2)
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
     xlim([0,2])
@@ -382,9 +382,9 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     fs_pfc_wvfrms = pfc_wvfrms(idx == 2, :);
 
     pfc_rs_fig = figure();
-    plot(linspace(0,(size(rs_pfc_wvfrms,2)/30),61), mean(rs_pfc_wvfrms), 'k', 'LineWidth', 2)
+    plot(linspace(0,(size(rs_pfc_wvfrms,2)/30),61), mean(rs_pfc_wvfrms), 'Color', [0.5,0.5,0.5], 'LineWidth', 2)
     hold on
-    plot(linspace(0,(size(fs_pfc_wvfrms,2)/30),61), mean(fs_pfc_wvfrms), 'Color', [0.5,0.5,0.5], 'LineWidth', 2)
+    plot(linspace(0,(size(fs_pfc_wvfrms,2)/30),61), mean(fs_pfc_wvfrms), 'Color', [0,0,0], 'LineWidth', 2)
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
     xlim([0,2])
@@ -399,9 +399,9 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     fs_bg_wvfrms = bg_wvfrms(idx == 2, :);
 
     bg_rs_fig = figure();
-    plot(linspace(0,(size(rs_bg_wvfrms,2)/30),61), mean(rs_bg_wvfrms), 'k', 'LineWidth', 2)
+    plot(linspace(0,(size(rs_bg_wvfrms,2)/30),61), mean(rs_bg_wvfrms), 'Color', [0.5,0.5,0.5], 'LineWidth', 2)
     hold on
-    plot(linspace(0,(size(fs_bg_wvfrms,2)/30),61), mean(fs_bg_wvfrms), 'Color', [0.5,0.5,0.5], 'LineWidth', 2)
+    plot(linspace(0,(size(fs_bg_wvfrms,2)/30),61), mean(fs_bg_wvfrms), 'Color', [0,0,0], 'LineWidth', 2)
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
     xlim([0,2])
@@ -416,9 +416,9 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     fs_ag_wvfrms = ag_wvfrms(idx == 2, :);
 
     ag_rs_fig = figure();
-    plot(linspace(0,(size(rs_ag_wvfrms,2)/30),61), mean(rs_ag_wvfrms), 'k', 'LineWidth', 2)
+    plot(linspace(0,(size(rs_ag_wvfrms,2)/30),61), mean(rs_ag_wvfrms), 'Color', [0.5,0.5,0.5], 'LineWidth', 2)
     hold on
-    plot(linspace(0,(size(fs_ag_wvfrms,2)/30),61), mean(fs_ag_wvfrms), 'Color', [0.5,0.5,0.5], 'LineWidth', 2)
+    plot(linspace(0,(size(fs_ag_wvfrms,2)/30),61), mean(fs_ag_wvfrms), 'Color', [0,0,0], 'LineWidth', 2)
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
     xlim([0,2])

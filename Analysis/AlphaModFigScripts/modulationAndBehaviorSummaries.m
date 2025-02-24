@@ -1,4 +1,4 @@
-out_path = true;
+out_path = false;
 addpath(genpath('./'))
 addpath(genpath('~/circstat-matlab/'))
 mkdir('./Figures/')
@@ -1407,262 +1407,615 @@ if out_path
     saveas(theta_bars_fig, 'Figures/theta_bars_by_outcome.svg')
 end
 
-p = signrank(s1_rs_pmi_correct, s1_rs_pmi_incorrect);
-if p < (0.05 / size(s1_rs,1))
-    fprintf(sprintf('S1 RS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('S1 RS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(s1_rs_pmi_correct) || KStest(s1_rs_pmi_incorrect)
+    p = signrank(s1_rs_pmi_correct, s1_rs_pmi_incorrect);
+    if p < (0.05 / size(s1_rs,1))
+        fprintf(sprintf('S1 RS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 RS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 RS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('S1 RS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(s1_rs_pmi_correct, s1_rs_pmi_incorrect);
+    if p < (0.05 / size(s1_rs,1))
+        fprintf(sprintf('S1 RS MI Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 RS MI Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 RS MI Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(s1_rs_pmi_action, s1_rs_pmi_inaction);
-if p < (0.05 / size(s1_rs,1))
-    fprintf(sprintf('S1 RS MI Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('S1 RS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(s1_rs_pmi_action) || KStest(s1_rs_pmi_inaction)
+    p = signrank(s1_rs_pmi_action, s1_rs_pmi_inaction);
+    if p < (0.05 / size(s1_rs,1))
+        fprintf(sprintf('S1 RS MI Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 RS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 RS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('S1 RS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(s1_rs_pmi_action, s1_rs_pmi_inaction);
+    if p < (0.05 / size(s1_rs,1))
+        fprintf(sprintf('S1 RS MI Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 RS MI Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 RS MI Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(s1_rs_mses_correct, s1_rs_mses_incorrect);
-if p < (0.05 / size(s1_rs,1))
-    fprintf(sprintf('S1 RS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('S1 RS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(s1_rs_mses_correct) || KStest(s1_rs_mses_incorrect)
+    p = signrank(s1_rs_mses_correct, s1_rs_mses_incorrect);
+    if p < (0.05 / size(s1_rs,1))
+        fprintf(sprintf('S1 RS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 RS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 RS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('S1 RS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(s1_rs_mses_correct, s1_rs_mses_incorrect);
+    if p < (0.05 / size(s1_rs,1))
+        fprintf(sprintf('S1 RS MSE Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 RS MSE Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 RS MSE Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(s1_rs_mses_action, s1_rs_mses_inaction);
-if p < (0.05 / size(s1_rs,1))
-    fprintf(sprintf('S1 RS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('S1 RS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(s1_rs_mses_action) || KStest(s1_rs_mses_inaction)
+    p = signrank(s1_rs_mses_action, s1_rs_mses_inaction);
+    if p < (0.05 / size(s1_rs,1))
+        fprintf(sprintf('S1 RS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 RS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 RS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('S1 RS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(s1_rs_mses_action, s1_rs_mses_inaction);
+    if p < (0.05 / size(s1_rs,1))
+        fprintf(sprintf('S1 RS MSE Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 RS MSE Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 RS MSE Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(s1_fs_pmi_correct, s1_fs_pmi_incorrect);
-if p < (0.05 / size(s1_fs,1))
-    fprintf(sprintf('S1 FS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('S1 FS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(s1_fs_pmi_correct) || KStest(s1_fs_pmi_incorrect)
+    p = signrank(s1_fs_pmi_correct, s1_fs_pmi_incorrect);
+    if p < (0.05 / size(s1_fs,1))
+        fprintf(sprintf('S1 FS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 FS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 FS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('S1 FS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(s1_fs_pmi_correct, s1_fs_pmi_incorrect);
+    if p < (0.05 / size(s1_fs,1))
+        fprintf(sprintf('S1 FS MI Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 FS MI Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 FS MI Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(s1_fs_pmi_action, s1_fs_pmi_inaction);
-if p < (0.05 / size(s1_fs,1))
-    fprintf(sprintf('S1 FS MI Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('S1 FS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(s1_fs_pmi_action) || KStest(s1_fs_pmi_inaction)
+    p = signrank(s1_fs_pmi_action, s1_fs_pmi_inaction);
+    if p < (0.05 / size(s1_fs,1))
+        fprintf(sprintf('S1 FS MI Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 FS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 FS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('S1 FS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(s1_fs_pmi_action, s1_fs_pmi_inaction);
+    if p < (0.05 / size(s1_fs,1))
+        fprintf(sprintf('S1 FS MI Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 FS MI Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 FS MI Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(s1_fs_mses_correct, s1_fs_mses_incorrect);
-if p < (0.05 / size(s1_fs,1))
-    fprintf(sprintf('S1 FS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('S1 FS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(s1_fs_mses_correct) || KStest(s1_fs_mses_incorrect)
+    p = signrank(s1_fs_mses_correct, s1_fs_mses_incorrect);
+    if p < (0.05 / size(s1_fs,1))
+        fprintf(sprintf('S1 FS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 FS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 FS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('S1 FS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(s1_fs_mses_correct, s1_fs_mses_incorrect);
+    if p < (0.05 / size(s1_fs,1))
+        fprintf(sprintf('S1 FS MSE Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 FS MSE Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 FS MSE Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(s1_fs_mses_action, s1_fs_mses_inaction);
-if p < (0.05 / size(s1_fs,1))
-    fprintf(sprintf('S1 FS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('S1 FS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(s1_fs_mses_action) || KStest(s1_fs_mses_inaction)
+    p = signrank(s1_fs_mses_action, s1_fs_mses_inaction);
+    if p < (0.05 / size(s1_fs,1))
+        fprintf(sprintf('S1 FS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 FS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 FS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('S1 FS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(s1_fs_mses_action, s1_fs_mses_inaction);
+    if p < (0.05 / size(s1_fs,1))
+        fprintf(sprintf('S1 FS MSE Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('S1 FS MSE Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 FS MSE Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(pfc_rs_pmi_correct, pfc_rs_pmi_incorrect);
-if p < (0.05 / size(pfc_rs,1))
-    fprintf(sprintf('PFC RS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('PFC RS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(pfc_rs_pmi_correct) || KStest(pfc_rs_pmi_incorrect)
+    p = signrank(pfc_rs_pmi_correct, pfc_rs_pmi_incorrect);
+    if p < (0.05 / size(pfc_rs,1))
+        fprintf(sprintf('PFC RS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC RS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC RS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('PFC RS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(pfc_rs_pmi_correct, pfc_rs_pmi_incorrect);
+    if p < (0.05 / size(pfc_rs,1))
+        fprintf(sprintf('PFC RS MI Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC RS MI Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC RS MI Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(pfc_rs_pmi_action, pfc_rs_pmi_inaction);
-if p < (0.05 / size(pfc_rs,1))
-    fprintf(sprintf('PFC RS MI Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('PFC RS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(pfc_rs_pmi_action) || KStest(pfc_rs_pmi_inaction)
+    p = signrank(pfc_rs_pmi_action, pfc_rs_pmi_inaction);
+    if p < (0.05 / size(pfc_rs,1))
+        fprintf(sprintf('PFC RS MI Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC RS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC RS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('PFC RS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(pfc_rs_pmi_action, pfc_rs_pmi_inaction);
+    if p < (0.05 / size(pfc_rs,1))
+        fprintf(sprintf('PFC RS MI Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC RS MI Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC RS MI Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(pfc_rs_mses_correct, pfc_rs_mses_incorrect);
-if p < (0.05 / size(pfc_rs,1))
-    fprintf(sprintf('PFC RS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('PFC RS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(pfc_rs_mses_correct) || KStest(pfc_rs_mses_incorrect)
+    p = signrank(pfc_rs_mses_correct, pfc_rs_mses_incorrect);
+    if p < (0.05 / size(pfc_rs,1))
+        fprintf(sprintf('PFC RS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC RS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC RS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('PFC RS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(pfc_rs_mses_correct, pfc_rs_mses_incorrect);
+    if p < (0.05 / size(pfc_rs,1))
+        fprintf(sprintf('PFC RS MSE Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC RS MSE Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC RS MSE Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(pfc_rs_mses_action, pfc_rs_mses_inaction);
-if p < (0.05 / size(pfc_rs,1))
-    fprintf(sprintf('PFC RS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('PFC RS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(pfc_rs_mses_action) || KStest(pfc_rs_mses_inaction)
+    p = signrank(pfc_rs_mses_action, pfc_rs_mses_inaction);
+    if p < (0.05 / size(pfc_rs,1))
+        fprintf(sprintf('PFC RS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC RS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC RS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('PFC RS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(pfc_rs_mses_action, pfc_rs_mses_inaction);
+    if p < (0.05 / size(pfc_rs,1))
+        fprintf(sprintf('PFC RS MSE Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC RS MSE Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC RS MSE Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(pfc_fs_pmi_correct, pfc_fs_pmi_incorrect);
-if p < (0.05 / size(pfc_fs,1))
-    fprintf(sprintf('PFC FS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('PFC FS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(pfc_fs_pmi_correct) || KStest(pfc_fs_pmi_incorrect)
+    p = signrank(pfc_fs_pmi_correct, pfc_fs_pmi_incorrect);
+    if p < (0.05 / size(pfc_fs,1))
+        fprintf(sprintf('PFC FS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC FS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC FS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('PFC FS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(pfc_fs_pmi_correct, pfc_fs_pmi_incorrect);
+    if p < (0.05 / size(pfc_fs,1))
+        fprintf(sprintf('PFC FS MI Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC FS MI Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC FS MI Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(pfc_fs_pmi_action, pfc_fs_pmi_inaction);
-if p < (0.05 / size(pfc_fs,1))
-    fprintf(sprintf('PFC FS MI Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('PFC FS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(pfc_fs_pmi_action) || KStest(pfc_fs_pmi_inaction)
+    p = signrank(pfc_fs_pmi_action, pfc_fs_pmi_inaction);
+    if p < (0.05 / size(pfc_fs,1))
+        fprintf(sprintf('PFC FS MI Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC FS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC FS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('PFC FS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(pfc_fs_pmi_action, pfc_fs_pmi_inaction);
+    if p < (0.05 / size(pfc_fs,1))
+        fprintf(sprintf('PFC FS MI Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC FS MI Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC FS MI Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(pfc_fs_mses_correct, pfc_fs_mses_incorrect);
-if p < (0.05 / size(pfc_fs,1))
-    fprintf(sprintf('PFC FS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('PFC FS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(pfc_fs_mses_correct) || KStest(pfc_fs_mses_incorrect)
+    p = signrank(pfc_fs_mses_correct, pfc_fs_mses_incorrect);
+    if p < (0.05 / size(pfc_fs,1))
+        fprintf(sprintf('PFC FS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC FS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC FS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('PFC FS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(pfc_fs_mses_correct, pfc_fs_mses_incorrect);
+    if p < (0.05 / size(pfc_fs,1))
+        fprintf(sprintf('PFC FS MSE Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC FS MSE Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC FS MSE Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(pfc_fs_mses_action, pfc_fs_mses_inaction);
-if p < (0.05 / size(pfc_fs,1))
-    fprintf(sprintf('PFC FS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('PFC FS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(pfc_fs_mses_action) || KStest(pfc_fs_mses_inaction)
+    p = signrank(pfc_fs_mses_action, pfc_fs_mses_inaction);
+    if p < (0.05 / size(pfc_fs,1))
+        fprintf(sprintf('PFC FS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC FS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC FS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('PFC FS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(pfc_fs_mses_action, pfc_fs_mses_inaction);
+    if p < (0.05 / size(pfc_fs,1))
+        fprintf(sprintf('PFC FS MSE Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('PFC FS MSE Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC FS MSE Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
 
-p = signrank(striatum_rs_pmi_correct, striatum_rs_pmi_incorrect);
-if p < (0.05 / size(striatum_rs,1))
-    fprintf(sprintf('Striatum RS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Striatum RS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(striatum_rs_pmi_correct) || KStest(striatum_rs_pmi_incorrect)
+    p = signrank(striatum_rs_pmi_correct, striatum_rs_pmi_incorrect);
+    if p < (0.05 / size(striatum_rs,1))
+        fprintf(sprintf('Striatum RS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum RS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum RS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Striatum RS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(striatum_rs_pmi_correct, striatum_rs_pmi_incorrect);
+    if p < (0.05 / size(striatum_rs,1))
+        fprintf(sprintf('Striatum RS MI Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum RS MI Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum RS MI Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(striatum_rs_pmi_action, striatum_rs_pmi_inaction);
-if p < (0.05 / size(striatum_rs,1))
-    fprintf(sprintf('Striatum RS MI Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Striatum RS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(striatum_rs_pmi_action) || KStest(striatum_rs_pmi_inaction)
+    p = signrank(striatum_rs_pmi_action, striatum_rs_pmi_inaction);
+    if p < (0.05 / size(striatum_rs,1))
+        fprintf(sprintf('Striatum RS MI Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum RS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum RS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Striatum RS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(striatum_rs_pmi_action, striatum_rs_pmi_inaction);
+    if p < (0.05 / size(striatum_rs,1))
+        fprintf(sprintf('Striatum RS MI Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum RS MI Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum RS MI Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(striatum_rs_mses_correct, striatum_rs_mses_incorrect);
-if p < (0.05 / size(striatum_rs,1))
-    fprintf(sprintf('Striatum RS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Striatum RS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(striatum_rs_mses_correct) || KStest(striatum_rs_mses_incorrect)
+    p = signrank(striatum_rs_mses_correct, striatum_rs_mses_incorrect);
+    if p < (0.05 / size(striatum_rs,1))
+        fprintf(sprintf('Striatum RS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum RS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum RS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Striatum RS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(striatum_rs_mses_correct, striatum_rs_mses_incorrect);
+    if p < (0.05 / size(striatum_rs,1))
+        fprintf(sprintf('Striatum RS MSE Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum RS MSE Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum RS MSE Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(striatum_rs_mses_action, striatum_rs_mses_inaction);
-if p < (0.05 / size(striatum_rs,1))
-    fprintf(sprintf('Striatum RS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Striatum RS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(striatum_rs_mses_action) || KStest(striatum_rs_mses_inaction)
+    p = signrank(striatum_rs_mses_action, striatum_rs_mses_inaction);
+    if p < (0.05 / size(striatum_rs,1))
+        fprintf(sprintf('Striatum RS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum RS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum RS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Striatum RS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(striatum_rs_mses_action, striatum_rs_mses_inaction);
+    if p < (0.05 / size(striatum_rs,1))
+        fprintf(sprintf('Striatum RS MSE Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum RS MSE Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum RS MSE Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(striatum_fs_pmi_correct, striatum_fs_pmi_incorrect);
-if p < (0.05 / size(striatum_fs,1))
-    fprintf(sprintf('Striatum FS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Striatum FS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(striatum_fs_pmi_correct) || KStest(striatum_fs_pmi_incorrect)
+    p = signrank(striatum_fs_pmi_correct, striatum_fs_pmi_incorrect);
+    if p < (0.05 / size(striatum_fs,1))
+        fprintf(sprintf('Striatum FS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum FS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum FS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Striatum FS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(striatum_fs_pmi_correct, striatum_fs_pmi_incorrect);
+    if p < (0.05 / size(striatum_fs,1))
+        fprintf(sprintf('Striatum FS MI Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum FS MI Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum FS MI Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(striatum_fs_pmi_action, striatum_fs_pmi_inaction);
-if p < (0.05 / size(striatum_fs,1))
-    fprintf(sprintf('Striatum FS MI Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Striatum FS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(striatum_fs_pmi_action) || KStest(striatum_fs_pmi_inaction)
+    p = signrank(striatum_fs_pmi_action, striatum_fs_pmi_inaction);
+    if p < (0.05 / size(striatum_fs,1))
+        fprintf(sprintf('Striatum FS MI Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum FS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum FS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Striatum FS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(striatum_fs_pmi_action, striatum_fs_pmi_inaction);
+    if p < (0.05 / size(striatum_fs,1))
+        fprintf(sprintf('Striatum FS MI Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum FS MI Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum FS MI Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(striatum_fs_mses_correct, striatum_fs_mses_incorrect);
-if p < (0.05 / size(striatum_fs,1))
-    fprintf(sprintf('Striatum FS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Striatum FS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(striatum_fs_mses_correct) || KStest(striatum_fs_mses_incorrect)
+    p = signrank(striatum_fs_mses_correct, striatum_fs_mses_incorrect);
+    if p < (0.05 / size(striatum_fs,1))
+        fprintf(sprintf('Striatum FS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum FS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum FS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Striatum FS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(striatum_fs_mses_correct, striatum_fs_mses_incorrect);
+    if p < (0.05 / size(striatum_fs,1))
+        fprintf(sprintf('Striatum FS MSE Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum FS MSE Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum FS MSE Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(striatum_fs_mses_action, striatum_fs_mses_inaction);
-if p < (0.05 / size(striatum_fs,1))
-    fprintf(sprintf('Striatum FS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Striatum FS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(striatum_fs_mses_action) || KStest(striatum_fs_mses_inaction)
+    p = signrank(striatum_fs_mses_action, striatum_fs_mses_inaction);
+    if p < (0.05 / size(striatum_fs,1))
+        fprintf(sprintf('Striatum FS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum FS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum FS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Striatum FS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(striatum_fs_mses_action, striatum_fs_mses_inaction);
+    if p < (0.05 / size(striatum_fs,1))
+        fprintf(sprintf('Striatum FS MSE Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Striatum FS MSE Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum FS MSE Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(amygdala_rs_pmi_correct, amygdala_rs_pmi_incorrect);
-if p < (0.05 / size(amygdala_rs,1))
-    fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+
+if KStest(amygdala_rs_pmi_correct) || KStest(amygdala_rs_pmi_incorrect)
+    p = signrank(amygdala_rs_pmi_correct, amygdala_rs_pmi_incorrect);
+    if p < (0.05 / size(amygdala_rs,1))
+        fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(amygdala_rs_pmi_correct, amygdala_rs_pmi_incorrect);
+    if p < (0.05 / size(amygdala_rs,1))
+        fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(amygdala_rs_pmi_action, amygdala_rs_pmi_inaction);
-if p < (0.05 / size(amygdala_rs,1))
-    fprintf(sprintf('Amygdala RS MI Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Amygdala RS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(amygdala_rs_pmi_action) || KStest(amygdala_rs_pmi_inaction)
+    p = signrank(amygdala_rs_pmi_action, amygdala_rs_pmi_inaction);
+    if p < (0.05 / size(amygdala_rs,1))
+        fprintf(sprintf('Amygdala RS MI Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala RS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala RS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Amygdala RS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(amygdala_rs_pmi_action, amygdala_rs_pmi_inaction);
+    if p < (0.05 / size(amygdala_rs,1))
+        fprintf(sprintf('Amygdala RS MI Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala RS MI Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala RS MI Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(amygdala_rs_mses_correct, amygdala_rs_mses_incorrect);
-if p < (0.05 / size(amygdala_rs,1))
-    fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(amygdala_rs_mses_correct) || KStest(amygdala_rs_mses_incorrect)
+    p = signrank(amygdala_rs_mses_correct, amygdala_rs_mses_incorrect);
+    if p < (0.05 / size(amygdala_rs,1))
+        fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(amygdala_rs_mses_correct, amygdala_rs_mses_incorrect);
+    if p < (0.05 / size(amygdala_rs,1))
+        fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(amygdala_rs_mses_action, amygdala_rs_mses_inaction);
-if p < (0.05 / size(amygdala_rs,1))
-    fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(amygdala_rs_mses_action) || KStest(amygdala_rs_mses_inaction)
+    p = signrank(amygdala_rs_mses_action, amygdala_rs_mses_inaction);
+    if p < (0.05 / size(amygdala_rs,1))
+        fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(amygdala_rs_mses_action, amygdala_rs_mses_inaction);
+    if p < (0.05 / size(amygdala_rs,1))
+        fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(amygdala_fs_pmi_correct, amygdala_fs_pmi_incorrect);
-if p < (0.05 / size(amygdala_fs,1))
-    fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(amygdala_fs_pmi_correct) || KStest(amygdala_fs_pmi_incorrect)
+    p = signrank(amygdala_fs_pmi_correct, amygdala_fs_pmi_incorrect);
+    if p < (0.05 / size(amygdala_fs,1))
+        fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(amygdala_fs_pmi_correct, amygdala_fs_pmi_incorrect);
+    if p < (0.05 / size(amygdala_fs,1))
+        fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(amygdala_fs_pmi_action, amygdala_fs_pmi_inaction);
-if p < (0.05 / size(amygdala_fs,1))
-    fprintf(sprintf('Amygdala FS MI Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Amygdala FS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(amygdala_fs_pmi_action) || KStest(amygdala_fs_pmi_inaction)
+    p = signrank(amygdala_fs_pmi_action, amygdala_fs_pmi_inaction);
+    if p < (0.05 / size(amygdala_fs,1))
+        fprintf(sprintf('Amygdala FS MI Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala FS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala FS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Amygdala FS MI Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(amygdala_fs_pmi_action, amygdala_fs_pmi_inaction);
+    if p < (0.05 / size(amygdala_fs,1))
+        fprintf(sprintf('Amygdala FS MI Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala FS MI Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala FS MI Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
-p = signrank(amygdala_fs_mses_correct, amygdala_fs_mses_incorrect);
-if p < (0.05 / size(amygdala_fs,1))
-    fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+if KStest(amygdala_fs_mses_correct) || KStest(amygdala_fs_mses_incorrect)
+    p = signrank(amygdala_fs_mses_correct, amygdala_fs_mses_incorrect);
+    if p < (0.05 / size(amygdala_fs,1))
+        fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+    [~,p] = ttest(amygdala_fs_mses_correct, amygdala_fs_mses_incorrect);
+    if p < (0.05 / size(amygdala_fs,1))
+        fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (t-test): p = %d\n', p))
+    end
 end
-p = signrank(amygdala_fs_mses_action, amygdala_fs_mses_inaction);
-if p < (0.05 / size(amygdala_fs,1))
-    fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
-elseif p < 0.05
-    fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+if KStest(amygdala_fs_mses_action) || KStest(amygdala_fs_mses_inaction)
+    p = signrank(amygdala_fs_mses_action, amygdala_fs_mses_inaction);
+    if p < (0.05 / size(amygdala_fs,1))
+        fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    end
 else
-    fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+    [~,p] = ttest(amygdala_fs_mses_action, amygdala_fs_mses_inaction);
+    if p < (0.05 / size(amygdala_fs,1))
+        fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (t-test): **p = %d\n', p))
+    elseif p < 0.05
+        fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (t-test: *p = %d\n', p))
+    else
+        fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (t-test): p = %d\n', p))
+    end
 end
 
 fprintf(sprintf('S1 RS MI Incorrect minus Correct: %d +/- %d\n', ...

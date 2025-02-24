@@ -2,7 +2,7 @@
 This repository contains code for running experiments and analyzing data presented in *link to biorxv*.
 While there are some general tools here that could be used with neural and behavioral data, code as 
 a whole is intended for use in conjunction with [n-CORTEx](https://github.com/Neural-Control-Engineering/n-CORTex) - 
-a MATLAB application desigend to collect, store, and segment neurophysiological and behavioral data.
+a MATLAB application designed to collect, store, and segment neurophysiological and behavioral data.
 
 # Data collection 
 Make sure you have installed [n-CORTEx](https://github.com/Neural-Control-Engineering/n-CORTex).
