@@ -42,10 +42,16 @@ for nrn = 1:size(alpha_modulated,1)
         c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
         cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
         lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-        lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
-        lfp_time = lfp_data(t,:).lfpTime{1};
+        if strcmp(slrt_data(t,:).categorical_outcome{1}, 'Hit') || strcmp(slrt_data(t,:).categorical_outcome{1}, 'Miss')
+            lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+            lfp_time = lfp_data(t,:).lfpTime{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+        else
+            lfp_times = lfp_data(t,:).right_trigger_aligned_lfp_time{1};
+            lfp_time = lfp_data(t,:).lfpTime{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).right_trigger_aligned_spike_times{1};
+        end
         alpha = bandpassFilter(lfp, 8, 12, 500);
-        spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
         phi = angle(hilbert(alpha));
         ALPHA = abs(hilbert(alpha)).^2;
         delta = bandpassFilter(lfp, 1, 4, 500);
@@ -68,9 +74,14 @@ for nrn = 1:size(alpha_modulated,1)
         c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
         cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
         lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-        lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+        if strcmp(slrt_data(t,:).categorical_outcome{1}, 'Hit') || strcmp(slrt_data(t,:).categorical_outcome{1}, 'Miss')
+            lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+        else
+            lfp_times = lfp_data(t,:).right_trigger_aligned_lfp_time{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).right_trigger_aligned_spike_times{1};
+        end
         alpha = bandpassFilter(lfp, 8, 12, 500);
-        spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
         phi = angle(hilbert(alpha));
         ALPHA = abs(hilbert(alpha)).^2;
         delta = bandpassFilter(lfp, 1, 4, 500);
@@ -200,10 +211,16 @@ for nrn = 1:size(alpha_modulated,1)
         c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
         cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
         lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-        lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
-        lfp_time = lfp_data(t,:).lfpTime{1};
+        if strcmp(slrt_data(t,:).categorical_outcome{1}, 'Hit') || strcmp(slrt_data(t,:).categorical_outcome{1}, 'Miss')
+            lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+            lfp_time = lfp_data(t,:).lfpTime{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+        else
+            lfp_times = lfp_data(t,:).right_trigger_aligned_lfp_time{1};
+            lfp_time = lfp_data(t,:).lfpTime{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).right_trigger_aligned_spike_times{1};
+        end
         alpha = bandpassFilter(lfp, 8, 12, 500);
-        spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
         phi = angle(hilbert(alpha));
         ALPHA = abs(hilbert(alpha)).^2;
         delta = bandpassFilter(lfp, 1, 4, 500);
@@ -226,9 +243,14 @@ for nrn = 1:size(alpha_modulated,1)
         c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
         cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
         lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-        lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+        if strcmp(slrt_data(t,:).categorical_outcome{1}, 'Hit') || strcmp(slrt_data(t,:).categorical_outcome{1}, 'Miss')
+            lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+        else
+            lfp_times = lfp_data(t,:).right_trigger_aligned_lfp_time{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).right_trigger_aligned_spike_times{1};
+        end
         alpha = bandpassFilter(lfp, 8, 12, 500);
-        spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
         phi = angle(hilbert(alpha));
         ALPHA = abs(hilbert(alpha)).^2;
         delta = bandpassFilter(lfp, 1, 4, 500);
@@ -384,9 +406,14 @@ for nrn = 1:size(alpha_modulated,1)
         c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
         cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
         lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-        lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+        if strcmp(slrt_data(t,:).categorical_outcome{1}, 'Hit') || strcmp(slrt_data(t,:).categorical_outcome{1}, 'Miss')
+            lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+        else
+            lfp_times = lfp_data(t,:).right_trigger_aligned_lfp_time{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).right_trigger_aligned_spike_times{1};
+        end
         alpha = bandpassFilter(lfp, 8, 12, 500);
-        spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
         phi = angle(hilbert(alpha));
         ALPHA = abs(hilbert(alpha)).^2;
         delta = bandpassFilter(lfp, 1, 4, 500);
@@ -542,9 +569,14 @@ for nrn = 1:size(alpha_modulated,1)
         c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
         cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
         lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-        lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+        if strcmp(slrt_data(t,:).categorical_outcome{1}, 'Hit') || strcmp(slrt_data(t,:).categorical_outcome{1}, 'Miss')
+            lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+        else
+            lfp_times = lfp_data(t,:).right_trigger_aligned_lfp_time{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).right_trigger_aligned_spike_times{1};
+        end
         alpha = bandpassFilter(lfp, 8, 12, 500);
-        spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
         phi = angle(hilbert(alpha));
         ALPHA = abs(hilbert(alpha)).^2;
         delta = bandpassFilter(lfp, 1, 4, 500);

@@ -5505,3 +5505,38 @@ pfc_rm = fitrm(pfc_tbl, 'f1-f246 ~ f0', 'WithinDesign', Freq);
 [x] Figure 5: Alpha power and phase modulation 
 [x] Figure 7: correct vs. incorrect / action vs. inaction
 *** TODO: alpha power and behavior 
+
+* [2025-2-25 Tue] - alpha power and behavior 
+** found bug in phaseModAndPower.m, hadn't been analyzing CR/FA 
+** 
+init_paths;
+session_id = expert_3387_session_ids{1};
+if ~strcmp(session_id, last_session_id)
+    load(sprintf('%sAP/%s.mat', ext_path, session_id));
+    load(sprintf('%sLFP/%s.mat', ext_path, session_id));
+    load(sprintf('%sSLRT/%s.mat', ext_path, session_id));
+end
+alpha_powers = [];
+all_times = [];
+for t = 1:size(lfp_data,1)
+    t_power = [];
+    t_time = [];
+    for c = 1:size(lfp_data(t,:).lfp{1},1)
+        lfp = lfp_data(t,:).lfp{1}(c,:);
+        if strcmp(slrt_data(t,:).categorical_outcome{1}, 'Hit') || strcmp(slrt_data(t,:).categorical_outcome{1}, 'Miss')
+            lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+            lfp_time = lfp_data(t,:).lfpTime{1};
+        else
+            lfp_times = lfp_data(t,:).right_trigger_aligned_lfp_time{1};
+            lfp_time = lfp_data(t,:).lfpTime{1};
+        end
+        alpha = bandpassFilter(lfp, 8, 12, 500);
+        phi = angle(hilbert(alpha));
+        ALPHA = abs(hilbert(alpha)).^2;
+        delta = bandpassFilter(lfp, 1, 4, 500);
+        DELTA = abs(hilbert(delta)).^2;
+        t_power = [t_power; ALPHA(lfp_times > -3 & lfp_times < 0)];
+        t_time = [t_time; lfp_time(lfp_times > -3 & lfp_times < 0)];
+    end
+    all_powers = [all_powers, t_power];
+    all_t
