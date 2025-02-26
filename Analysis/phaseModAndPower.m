@@ -86,6 +86,7 @@ for nrn = 1:size(alpha_modulated,1)
         ALPHA = abs(hilbert(alpha)).^2;
         delta = bandpassFilter(lfp, 1, 4, 500);
         DELTA = abs(hilbert(delta)).^2;
+        spike_phases = zeros(1,length(spike_times));
         for i = 1:length(spike_times)
             [~, tind] = min((lfp_times - spike_times(i)).^2);
             spike_phases(i) = phi(tind);
@@ -170,6 +171,7 @@ out.low_sessions = low_sessions;
 save(out_file, 'out', '-v7.3');
 
 clear 
+init_paths;
 load(strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/data.mat'))
 alpha_modulated = out.alpha_modulated;
 clear out
@@ -255,6 +257,7 @@ for nrn = 1:size(alpha_modulated,1)
         ALPHA = abs(hilbert(alpha)).^2;
         delta = bandpassFilter(lfp, 1, 4, 500);
         DELTA = abs(hilbert(delta)).^2;
+        spike_phases = zeros(1,length(spike_times));
         for i = 1:length(spike_times)
             [~, tind] = min((lfp_times - spike_times(i)).^2);
             spike_phases(i) = phi(tind);
@@ -338,7 +341,8 @@ out.low_outcomes = low_outcomes;
 out.low_sessions = low_sessions;
 save(out_file, 'out', '-v7.3');
 
-clear 
+clear
+init_paths; 
 load(strcat(ftr_path, 'AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/data.mat'))
 alpha_modulated = out.alpha_modulated;
 clear out
@@ -380,10 +384,16 @@ for nrn = 1:size(alpha_modulated,1)
         c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
         cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
         lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-        lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
-        lfp_time = lfp_data(t,:).lfpTime{1};
+        if strcmp(slrt_data(t,:).categorical_outcome{1}, 'Hit') || strcmp(slrt_data(t,:).categorical_outcome{1}, 'Miss')
+            lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+            lfp_time = lfp_data(t,:).lfpTime{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+        else
+            lfp_times = lfp_data(t,:).right_trigger_aligned_lfp_time{1};
+            lfp_time = lfp_data(t,:).lfpTime{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).right_trigger_aligned_spike_times{1};
+        end
         alpha = bandpassFilter(lfp, 8, 12, 500);
-        spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
         phi = angle(hilbert(alpha));
         ALPHA = abs(hilbert(alpha)).^2;
         delta = bandpassFilter(lfp, 1, 4, 500);
@@ -418,6 +428,7 @@ for nrn = 1:size(alpha_modulated,1)
         ALPHA = abs(hilbert(alpha)).^2;
         delta = bandpassFilter(lfp, 1, 4, 500);
         DELTA = abs(hilbert(delta)).^2;
+        spike_phases = zeros(1,length(spike_times));
         for i = 1:length(spike_times)
             [~, tind] = min((lfp_times - spike_times(i)).^2);
             spike_phases(i) = phi(tind);
@@ -501,7 +512,8 @@ out.low_outcomes = low_outcomes;
 out.low_sessions = low_sessions;
 save(out_file, 'out', '-v7.3');
 
-clear 
+clear
+init_paths; 
 load(strcat(ftr_path, 'AP/FIG/Expert_Combo/Amygdala/Spontaneous_Alpha_Modulation_v2/data.mat'))
 alpha_modulated = out.alpha_modulated;
 clear out
@@ -543,10 +555,16 @@ for nrn = 1:size(alpha_modulated,1)
         c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
         cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
         lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-        lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
-        lfp_time = lfp_data(t,:).lfpTime{1};
+        if strcmp(slrt_data(t,:).categorical_outcome{1}, 'Hit') || strcmp(slrt_data(t,:).categorical_outcome{1}, 'Miss')
+            lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+            lfp_time = lfp_data(t,:).lfpTime{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+        else
+            lfp_times = lfp_data(t,:).right_trigger_aligned_lfp_time{1};
+            lfp_time = lfp_data(t,:).lfpTime{1};
+            spike_times = ap_data(t,:).spiking_data{1}(c,:).right_trigger_aligned_spike_times{1};
+        end
         alpha = bandpassFilter(lfp, 8, 12, 500);
-        spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
         phi = angle(hilbert(alpha));
         ALPHA = abs(hilbert(alpha)).^2;
         delta = bandpassFilter(lfp, 1, 4, 500);
@@ -581,6 +599,7 @@ for nrn = 1:size(alpha_modulated,1)
         ALPHA = abs(hilbert(alpha)).^2;
         delta = bandpassFilter(lfp, 1, 4, 500);
         DELTA = abs(hilbert(delta)).^2;
+        spike_phases = zeros(1,length(spike_times));
         for i = 1:length(spike_times)
             [~, tind] = min((lfp_times - spike_times(i)).^2);
             spike_phases(i) = phi(tind);
