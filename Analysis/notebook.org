@@ -5510,33 +5510,81 @@ pfc_rm = fitrm(pfc_tbl, 'f1-f246 ~ f0', 'WithinDesign', Freq);
 ** found bug in phaseModAndPower.m, hadn't been analyzing CR/FA 
 ** 
 init_paths;
-session_id = expert_3387_session_ids{1};
-if ~strcmp(session_id, last_session_id)
+sessionIDs;
+% session_id = expert_3387_session_ids{1};
+counts_high = zeros(length(expert_3387_session_ids),5);
+counts_low = zeros(length(expert_3387_session_ids),5);
+for s = 1:length(expert_3387_session_ids)
+    session_id = expert_3387_session_ids{s};
     load(sprintf('%sAP/%s.mat', ext_path, session_id));
     load(sprintf('%sLFP/%s.mat', ext_path, session_id));
     load(sprintf('%sSLRT/%s.mat', ext_path, session_id));
-end
-alpha_powers = [];
-all_times = [];
-for t = 1:size(lfp_data,1)
-    t_power = [];
-    t_time = [];
-    for c = 1:size(lfp_data(t,:).lfp{1},1)
-        lfp = lfp_data(t,:).lfp{1}(c,:);
-        if strcmp(slrt_data(t,:).categorical_outcome{1}, 'Hit') || strcmp(slrt_data(t,:).categorical_outcome{1}, 'Miss')
-            lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
-            lfp_time = lfp_data(t,:).lfpTime{1};
-        else
-            lfp_times = lfp_data(t,:).right_trigger_aligned_lfp_time{1};
-            lfp_time = lfp_data(t,:).lfpTime{1};
+    all_powers = [];
+    all_times = [];
+    for t = 1:size(lfp_data,1)
+        t_power = [];
+        t_time = [];
+        for c = 1:size(lfp_data(t,:).lfp{1},1)
+            lfp = lfp_data(t,:).lfp{1}(c,:);
+            if strcmp(slrt_data(t,:).categorical_outcome{1}, 'Hit') || strcmp(slrt_data(t,:).categorical_outcome{1}, 'Miss')
+                lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+                lfp_time = lfp_data(t,:).lfpTime{1};
+            else
+                lfp_times = lfp_data(t,:).right_trigger_aligned_lfp_time{1};
+                lfp_time = lfp_data(t,:).lfpTime{1};
+            end
+            alpha = bandpassFilter(lfp, 8, 12, 500);
+            phi = angle(hilbert(alpha));
+            ALPHA = abs(hilbert(alpha)).^2;
+            delta = bandpassFilter(lfp, 1, 4, 500);
+            DELTA = abs(hilbert(delta)).^2;
+            t_power = [t_power; ALPHA(lfp_times > -3 & lfp_times < 0)];
+            t_time = [t_time; lfp_time(lfp_times > -3 & lfp_times < 0)];
         end
-        alpha = bandpassFilter(lfp, 8, 12, 500);
-        phi = angle(hilbert(alpha));
-        ALPHA = abs(hilbert(alpha)).^2;
-        delta = bandpassFilter(lfp, 1, 4, 500);
-        DELTA = abs(hilbert(delta)).^2;
-        t_power = [t_power; ALPHA(lfp_times > -3 & lfp_times < 0)];
-        t_time = [t_time; lfp_time(lfp_times > -3 & lfp_times < 0)];
+        all_powers = [all_powers, t_power];
+        all_times = [all_times, t_time];
     end
-    all_powers = [all_powers, t_power];
-    all_t
+    high_outcomes = {};
+    low_outcomes = {};
+    high_sessions = {};
+    low_sessions = {};
+    high_phases = [];
+    low_phases = [];
+    high_frs = [];
+    low_frs = [];
+    all_high = {};
+    all_low = {};
+    for t = 1:size(lfp_data,1)
+        t_high = {};
+        t_low = {};
+        for c = 1:size(all_powers,1)
+            lfp = lfp_data(t,:).lfp{1}(c,:);
+            if strcmp(slrt_data(t,:).categorical_outcome{1}, 'Hit') || strcmp(slrt_data(t,:).categorical_outcome{1}, 'Miss')
+                lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+            else
+                lfp_times = lfp_data(t,:).right_trigger_aligned_lfp_time{1};
+            end
+            alpha = bandpassFilter(lfp, 8, 12, 500);
+            phi = angle(hilbert(alpha));
+            ALPHA = abs(hilbert(alpha)).^2;
+            delta = bandpassFilter(lfp, 1, 4, 500);
+            DELTA = abs(hilbert(delta)).^2;
+            ALPHA = ALPHA(lfp_times > -3 & lfp_times < 0);
+            lfp_times = lfp_times(lfp_times > -3 & lfp_times < 0);
+            high_inds = findEvents(ALPHA, lfp_times, prctile(all_powers(c,:), 75), 0.33, 0.2, 'above');
+            low_inds = findEvents(ALPHA, lfp_times, prctile(all_powers(c,:), 50), 0.33, 0.2, 'below');
+            t_high{c} = high_inds;
+            t_low{c} = low_inds;
+        end
+        all_high{t} = t_high;
+        all_low{t} = t_low;
+    end
+    outcomes = {'Hit', 'Miss', 'CR', 'FA', 'Pass'};
+
+    c = 50;
+    for t = 1:size(slrt_data)
+        ind = find(strcmp(outcomes, slrt_data(t,:).categorical_outcome{1}));
+        counts_high(s,ind) = counts_high(ind) + size(all_high{t}{c},2);
+        counts_low(s,ind) = counts_low(ind) + size(all_low{t}{c},2);
+    end
+end
