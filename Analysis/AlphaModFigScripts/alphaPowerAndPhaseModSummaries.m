@@ -2,7 +2,7 @@ addpath(genpath('./'))
 addpath(genpath('~/circstat-matlab/'))
 init_paths;
 load(strcat(ftr_path, '/AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/data.mat'))
-out_path = false;
+out_path = true;
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
