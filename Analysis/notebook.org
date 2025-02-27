@@ -5588,3 +5588,21 @@ for s = 1:length(expert_3387_session_ids)
         counts_low(s,ind) = counts_low(ind) + size(all_low{t}{c},2);
     end
 end
+
+* [2025-2-26 Wed] - fooof
+** 
+addpath(genpath('~/fooof/'))
+args = struct();
+args.peakWidth_min = 2;
+args.peakWidth_max = 8;  
+args.numPeaks_max = 8;
+args.peakHeight_min = 0.;     
+args.peakThreshold = 2;
+args.chanRange_start = 1;
+args.chanRange_end = 384;
+f = data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1};
+mat = s1_hit;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30);
+DF_chg.ax.f = f(f<30);
+DF_specs = spectralParameterizationV0(DF_chg, args);

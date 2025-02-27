@@ -109,7 +109,7 @@ ftr_files = {strcat(ftr_path, 'LFP/date--2024-12-20_subj--1075-20241202_geno--Wt
     strcat(ftr_path, 'LFP/date--2024-12-16_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'LFP/date--2024-12-15_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
 
-pfc_channel = 180 
+pfc_channel = 180;
 
 for f = 1:length(ftr_files)
     data = load(ftr_files{f});
@@ -121,7 +121,7 @@ for f = 1:length(ftr_files)
     pfc_fa = [pfc_fa; data.lfp_session(pfc_channel,:).right_trigger_baseline_spectra_FA{1}];
 end
 
-fig = figure(); 
+fig = figure('Position', [1194 982 779 659]); 
 tl = tiledlayout(4,4);
 axs(1) = nexttile;
 semshade(log10(s1_hit), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
@@ -241,9 +241,638 @@ yticklabels({})
 xlabel(tl, 'Frequency (Hz)', 'FontSize', 14)
 ylabel(tl, 'log LFP power', 'FontSize', 14)
 
-out_path = true; 
+out_path = false; 
 mkdir('./Figures/')
 if out_path
     saveas(fig, 'Figures/lfp_power_by_outcome.fig')
     saveas(fig, 'Figures/lfp_power_by_outcome.svg')
 end
+
+args = struct();
+args.peakWidth_min = 2;
+args.peakWidth_max = 8;  
+args.numPeaks_max = 8;
+args.peakHeight_min = 0.;     
+args.peakThreshold = 2;
+args.chanRange_start = 1;
+args.chanRange_end = 384;
+
+%% s1 
+f = data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1};
+mat = s1_hit;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_hit = spectralParameterizationV0(DF_chg, args);
+pparams_hit = [];
+for i = 1:size(DF_specs_hit,1)
+    if size(DF_specs_hit(i,:).periodic_params{1},1) > 1
+        pparams_hit = [pparams_hit; DF_specs_hit(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_hit = [pparams_hit; DF_specs_hit(i,:).periodic_params{1}];
+    end
+end
+
+mat = s1_miss;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_miss = spectralParameterizationV0(DF_chg, args);
+pparams_miss = [];
+for i = 1:size(DF_specs_miss,1)
+    if size(DF_specs_miss(i,:).periodic_params{1},1) > 1
+        pparams_miss = [pparams_miss; DF_specs_miss(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_miss = [pparams_miss; DF_specs_miss(i,:).periodic_params{1}];
+    end
+end
+
+mat = s1_cr;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_cr = spectralParameterizationV0(DF_chg, args);
+pparams_cr = [];
+for i = 1:size(DF_specs_cr,1)
+    if size(DF_specs_cr(i,:).periodic_params{1},1) > 1
+        pparams_cr = [pparams_cr; DF_specs_cr(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_cr = [pparams_cr; DF_specs_cr(i,:).periodic_params{1}];
+    end
+end
+
+mat = s1_fa;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_fa = spectralParameterizationV0(DF_chg, args);
+pparams_fa = [];
+for i = 1:size(DF_specs_fa,1)
+    if size(DF_specs_fa(i,:).periodic_params{1},1) > 1
+        pparams_fa = [pparams_fa; DF_specs_fa(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_fa = [pparams_fa; DF_specs_fa(i,:).periodic_params{1}];
+    end
+end
+
+% fprintf('S1 params\n')
+% mat = [pparams_hit(:,1), pparams_miss(:,1), pparams_cr(:,1), pparams_fa(:,1)];
+% anova1(mat)
+
+% mat = [pparams_hit(:,2), pparams_miss(:,2), pparams_cr(:,2), pparams_fa(:,2)];
+% anova1(mat)
+
+% mat = [pparams_hit(:,3), pparams_miss(:,3), pparams_cr(:,3), pparams_fa(:,3)];
+% anova1(mat)
+
+figure('Position', [1461 983 661 659]);
+tl = tiledlayout(4,3);
+% axs(1,1) = nexttile;
+% avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
+%     mean(DF_specs_miss.aperiodic_params(:,1)), ...
+%     mean(DF_specs_cr.aperiodic_params(:,1)), ...
+%     mean(DF_specs_fa.aperiodic_params(:,1))];
+% err = [std(DF_specs_hit.aperiodic_params(:,1)) / sqrt(size(DF_specs_hit,1)), ...
+%     std(DF_specs_miss.aperiodic_params(:,1)) / sqrt(size(DF_specs_miss,1)), ...
+%     std(DF_specs_cr.aperiodic_params(:,1)) / sqrt(size(DF_specs_cr,1)), ...
+%     std(DF_specs_fa.aperiodic_params(:,1)) / sqrt(size(DF_specs_fa,1))];
+% hold on 
+% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+% errorbar(1:4, avg, err, 'k.')
+
+% axs(1,2) = nexttile;
+% avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
+%     mean(DF_specs_miss.aperiodic_params(:,2)), ...
+%     mean(DF_specs_cr.aperiodic_params(:,2)), ...
+%     mean(DF_specs_fa.aperiodic_params(:,2))];
+% err = [std(DF_specs_hit.aperiodic_params(:,2)) / sqrt(size(DF_specs_hit,1)), ...
+%     std(DF_specs_miss.aperiodic_params(:,2)) / sqrt(size(DF_specs_miss,1)), ...
+%     std(DF_specs_cr.aperiodic_params(:,2)) / sqrt(size(DF_specs_cr,1)), ...
+%     std(DF_specs_fa.aperiodic_params(:,2)) / sqrt(size(DF_specs_fa,1))];
+% hold on 
+% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+% errorbar(1:4, avg, err, 'k.')
+
+axs(1,1) = nexttile;
+avg = [mean(pparams_hit(:,1)), ...
+    mean(pparams_miss(:,1)), ...
+    mean(pparams_cr(:,1)), ...
+    mean(pparams_fa(:,1))];
+err = [std(pparams_hit(:,1)) / sqrt(size(pparams_hit,1)), ...
+    std(pparams_miss(:,1)) / sqrt(size(pparams_miss,1)), ...
+    std(pparams_cr(:,1)) / sqrt(size(pparams_cr,1)), ...
+    std(pparams_fa(:,1)) / sqrt(size(pparams_fa,1))];
+hold on 
+bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+errorbar(1:4, avg, err, 'k.')
+xticks([1,2,3,4])
+xticklabels({'','','',''})
+ylim([0,20])
+yticks([0,20])
+ylabel('Peak Frequency (Hz)')
+
+axs(1,2) = nexttile;
+avg = [mean(pparams_hit(:,2)), ...
+    mean(pparams_miss(:,2)), ...
+    mean(pparams_cr(:,2)), ...
+    mean(pparams_fa(:,2))];
+err = [std(pparams_hit(:,2)) / sqrt(size(pparams_hit,1)), ...
+    std(pparams_miss(:,2)) / sqrt(size(pparams_miss,1)), ...
+    std(pparams_cr(:,2)) / sqrt(size(pparams_cr,1)), ...
+    std(pparams_fa(:,2)) / sqrt(size(pparams_fa,1))];
+hold on 
+bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+errorbar(1:4, avg, err, 'k.')
+xticks([1,2,3,4])
+xticklabels({'','','',''})
+ylim([0,0.8])
+yticks([0,0.8])
+ylabel('Relative Power (a.u.)')
+
+axs(1,3) = nexttile;
+avg = [mean(pparams_hit(:,3)), ...
+    mean(pparams_miss(:,3)), ...
+    mean(pparams_cr(:,3)), ...
+    mean(pparams_fa(:,3))];
+err = [std(pparams_hit(:,3)) / sqrt(size(pparams_hit,1)), ...
+    std(pparams_miss(:,3)) / sqrt(size(pparams_miss,1)), ...
+    std(pparams_cr(:,3)) / sqrt(size(pparams_cr,1)), ...
+    std(pparams_fa(:,3)) / sqrt(size(pparams_fa,1))];
+hold on 
+bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+errorbar(1:4, avg, err, 'k.')
+xticks([1,2,3,4])
+xticklabels({'','','',''})
+ylim([0,8])
+yticks([0,8])
+ylabel('Bandwidth (Hz)')
+
+mat = pfc_hit;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_hit = spectralParameterizationV0(DF_chg, args);
+pparams_hit = [];
+for i = 1:size(DF_specs_hit,1)
+    if size(DF_specs_hit(i,:).periodic_params{1},1) > 1
+        pparams_hit = [pparams_hit; DF_specs_hit(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_hit = [pparams_hit; DF_specs_hit(i,:).periodic_params{1}];
+    end
+end
+
+mat = pfc_miss;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_miss = spectralParameterizationV0(DF_chg, args);
+pparams_miss = [];
+for i = 1:size(DF_specs_miss,1)
+    if size(DF_specs_miss(i,:).periodic_params{1},1) > 1
+        pparams_miss = [pparams_miss; DF_specs_miss(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_miss = [pparams_miss; DF_specs_miss(i,:).periodic_params{1}];
+    end
+end
+
+mat = pfc_cr;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_cr = spectralParameterizationV0(DF_chg, args);
+pparams_cr = [];
+for i = 1:size(DF_specs_cr,1)
+    if size(DF_specs_cr(i,:).periodic_params{1},1) > 1
+        pparams_cr = [pparams_cr; DF_specs_cr(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_cr = [pparams_cr; DF_specs_cr(i,:).periodic_params{1}];
+    end
+end
+
+mat = pfc_fa;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_fa = spectralParameterizationV0(DF_chg, args);
+pparams_fa = [];
+for i = 1:size(DF_specs_fa,1)
+    if size(DF_specs_fa(i,:).periodic_params{1},1) > 1
+        pparams_fa = [pparams_fa; DF_specs_fa(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_fa = [pparams_fa; DF_specs_fa(i,:).periodic_params{1}];
+    end
+end
+
+% fprintf('PFC params\n')
+
+% mat = nan(13,4);
+% mat(:,1) = pparams_hit(:,1);
+% mat(1:12,2) = pparams_miss(:,1);
+% mat(:,3) = pparams_cr(:,1);
+% mat(:,4) = pparams_fa(:,1);
+% anova1(mat)
+
+% mat = nan(13,4);
+% mat(:,1) = pparams_hit(:,2);
+% mat(1:12,2) = pparams_miss(:,2);
+% mat(:,3) = pparams_cr(:,2);
+% mat(:,4) = pparams_fa(:,2);
+% anova1(mat)
+
+% mat = nan(13,4);
+% mat(:,1) = pparams_hit(:,3);
+% mat(1:12,2) = pparams_miss(:,3);
+% mat(:,3) = pparams_cr(:,3);
+% mat(:,4) = pparams_fa(:,3);
+% anova1(mat)
+
+% axs(2,1) = nexttile;
+% avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
+%     mean(DF_specs_miss.aperiodic_params(:,1)), ...
+%     mean(DF_specs_cr.aperiodic_params(:,1)), ...
+%     mean(DF_specs_fa.aperiodic_params(:,1))];
+% err = [std(DF_specs_hit.aperiodic_params(:,1)) / sqrt(size(DF_specs_hit,1)), ...
+%     std(DF_specs_miss.aperiodic_params(:,1)) / sqrt(size(DF_specs_miss,1)), ...
+%     std(DF_specs_cr.aperiodic_params(:,1)) / sqrt(size(DF_specs_cr,1)), ...
+%     std(DF_specs_fa.aperiodic_params(:,1)) / sqrt(size(DF_specs_fa,1))];
+% hold on 
+% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+% errorbar(1:4, avg, err, 'k.')
+
+% axs(2,2) = nexttile;
+% avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
+%     mean(DF_specs_miss.aperiodic_params(:,2)), ...
+%     mean(DF_specs_cr.aperiodic_params(:,2)), ...
+%     mean(DF_specs_fa.aperiodic_params(:,2))];
+% err = [std(DF_specs_hit.aperiodic_params(:,2)) / sqrt(size(DF_specs_hit,1)), ...
+%     std(DF_specs_miss.aperiodic_params(:,2)) / sqrt(size(DF_specs_miss,1)), ...
+%     std(DF_specs_cr.aperiodic_params(:,2)) / sqrt(size(DF_specs_cr,1)), ...
+%     std(DF_specs_fa.aperiodic_params(:,2)) / sqrt(size(DF_specs_fa,1))];
+% hold on 
+% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+% errorbar(1:4, avg, err, 'k.')
+
+axs(2,1) = nexttile;
+avg = [mean(pparams_hit(:,1)), ...
+    mean(pparams_miss(:,1)), ...
+    mean(pparams_cr(:,1)), ...
+    mean(pparams_fa(:,1))];
+err = [std(pparams_hit(:,1)) / sqrt(size(pparams_hit,1)), ...
+    std(pparams_miss(:,1)) / sqrt(size(pparams_miss,1)), ...
+    std(pparams_cr(:,1)) / sqrt(size(pparams_cr,1)), ...
+    std(pparams_fa(:,1)) / sqrt(size(pparams_fa,1))];
+hold on 
+bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+errorbar(1:4, avg, err, 'k.')
+xticks([1,2,3,4])
+xticklabels({'','','',''})
+ylim([0,20])
+yticks([0,20])
+ylabel('Peak Frequency (Hz)')
+
+axs(2,2) = nexttile;
+avg = [mean(pparams_hit(:,2)), ...
+    mean(pparams_miss(:,2)), ...
+    mean(pparams_cr(:,2)), ...
+    mean(pparams_fa(:,2))];
+err = [std(pparams_hit(:,2)) / sqrt(size(pparams_hit,1)), ...
+    std(pparams_miss(:,2)) / sqrt(size(pparams_miss,1)), ...
+    std(pparams_cr(:,2)) / sqrt(size(pparams_cr,1)), ...
+    std(pparams_fa(:,2)) / sqrt(size(pparams_fa,1))];
+hold on 
+bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+errorbar(1:4, avg, err, 'k.')
+xticks([1,2,3,4])
+xticklabels({'','','',''})
+ylim([0,0.8])
+yticks([0,0.8])
+ylabel('Relative Power (a.u.)')
+
+
+axs(2,3) = nexttile;
+avg = [mean(pparams_hit(:,3)), ...
+    mean(pparams_miss(:,3)), ...
+    mean(pparams_cr(:,3)), ...
+    mean(pparams_fa(:,3))];
+err = [std(pparams_hit(:,3)) / sqrt(size(pparams_hit,1)), ...
+    std(pparams_miss(:,3)) / sqrt(size(pparams_miss,1)), ...
+    std(pparams_cr(:,3)) / sqrt(size(pparams_cr,1)), ...
+    std(pparams_fa(:,3)) / sqrt(size(pparams_fa,1))];
+hold on 
+bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+errorbar(1:4, avg, err, 'k.')
+xticks([1,2,3,4])
+xticklabels({'','','',''})
+ylim([0,8])
+yticks([0,8])
+ylabel('Bandwidth (Hz)')
+
+mat = striatum_hit;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_hit = spectralParameterizationV0(DF_chg, args);
+pparams_hit = [];
+for i = 1:size(DF_specs_hit,1)
+    if size(DF_specs_hit(i,:).periodic_params{1},1) > 1
+        pparams_hit = [pparams_hit; DF_specs_hit(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_hit = [pparams_hit; DF_specs_hit(i,:).periodic_params{1}];
+    end
+end
+
+mat = striatum_miss;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_miss = spectralParameterizationV0(DF_chg, args);
+pparams_miss = [];
+for i = 1:size(DF_specs_miss,1)
+    if size(DF_specs_miss(i,:).periodic_params{1},1) > 1
+        pparams_miss = [pparams_miss; DF_specs_miss(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_miss = [pparams_miss; DF_specs_miss(i,:).periodic_params{1}];
+    end
+end
+
+mat = striatum_cr;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_cr = spectralParameterizationV0(DF_chg, args);
+pparams_cr = [];
+for i = 1:size(DF_specs_cr,1)
+    if size(DF_specs_cr(i,:).periodic_params{1},1) > 1
+        pparams_cr = [pparams_cr; DF_specs_cr(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_cr = [pparams_cr; DF_specs_cr(i,:).periodic_params{1}];
+    end
+end
+
+mat = striatum_fa;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_fa = spectralParameterizationV0(DF_chg, args);
+pparams_fa = [];
+for i = 1:size(DF_specs_fa,1)
+    if size(DF_specs_fa(i,:).periodic_params{1},1) > 1
+        pparams_fa = [pparams_fa; DF_specs_fa(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_fa = [pparams_fa; DF_specs_fa(i,:).periodic_params{1}];
+    end
+end
+
+% fprintf('Striatum params\n')
+
+% mat = [pparams_hit(:,1), pparams_miss(:,1), pparams_cr(:,1), pparams_fa(:,1)];
+% anova1(mat)
+
+% mat = [pparams_hit(:,2), pparams_miss(:,2), pparams_cr(:,2), pparams_fa(:,2)];
+% anova1(mat)
+
+% mat = [pparams_hit(:,3), pparams_miss(:,3), pparams_cr(:,3), pparams_fa(:,3)];
+% anova1(mat)
+
+% axs(3,1) = nexttile;
+% avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
+%     mean(DF_specs_miss.aperiodic_params(:,1)), ...
+%     mean(DF_specs_cr.aperiodic_params(:,1)), ...
+%     mean(DF_specs_fa.aperiodic_params(:,1))];
+% err = [std(DF_specs_hit.aperiodic_params(:,1)) / sqrt(size(DF_specs_hit,1)), ...
+%     std(DF_specs_miss.aperiodic_params(:,1)) / sqrt(size(DF_specs_miss,1)), ...
+%     std(DF_specs_cr.aperiodic_params(:,1)) / sqrt(size(DF_specs_cr,1)), ...
+%     std(DF_specs_fa.aperiodic_params(:,1)) / sqrt(size(DF_specs_fa,1))];
+% hold on 
+% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+% errorbar(1:4, avg, err, 'k.')
+
+% axs(3,2) = nexttile;
+% avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
+%     mean(DF_specs_miss.aperiodic_params(:,2)), ...
+%     mean(DF_specs_cr.aperiodic_params(:,2)), ...
+%     mean(DF_specs_fa.aperiodic_params(:,2))];
+% err = [std(DF_specs_hit.aperiodic_params(:,2)) / sqrt(size(DF_specs_hit,1)), ...
+%     std(DF_specs_miss.aperiodic_params(:,2)) / sqrt(size(DF_specs_miss,1)), ...
+%     std(DF_specs_cr.aperiodic_params(:,2)) / sqrt(size(DF_specs_cr,1)), ...
+%     std(DF_specs_fa.aperiodic_params(:,2)) / sqrt(size(DF_specs_fa,1))];
+% hold on 
+% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+% errorbar(1:4, avg, err, 'k.')
+
+axs(3,1) = nexttile;
+avg = [mean(pparams_hit(:,1)), ...
+    mean(pparams_miss(:,1)), ...
+    mean(pparams_cr(:,1)), ...
+    mean(pparams_fa(:,1))];
+err = [std(pparams_hit(:,1)) / sqrt(size(pparams_hit,1)), ...
+    std(pparams_miss(:,1)) / sqrt(size(pparams_miss,1)), ...
+    std(pparams_cr(:,1)) / sqrt(size(pparams_cr,1)), ...
+    std(pparams_fa(:,1)) / sqrt(size(pparams_fa,1))];
+hold on 
+bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+errorbar(1:4, avg, err, 'k.')
+xticks([1,2,3,4])
+xticklabels({'','','',''})
+ylim([0,20])
+yticks([0,20])
+ylabel('Peak Frequency (Hz)')
+
+axs(3,2) = nexttile;
+avg = [mean(pparams_hit(:,2)), ...
+    mean(pparams_miss(:,2)), ...
+    mean(pparams_cr(:,2)), ...
+    mean(pparams_fa(:,2))];
+err = [std(pparams_hit(:,2)) / sqrt(size(pparams_hit,1)), ...
+    std(pparams_miss(:,2)) / sqrt(size(pparams_miss,1)), ...
+    std(pparams_cr(:,2)) / sqrt(size(pparams_cr,1)), ...
+    std(pparams_fa(:,2)) / sqrt(size(pparams_fa,1))];
+hold on 
+bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+errorbar(1:4, avg, err, 'k.')
+xticks([1,2,3,4])
+xticklabels({'','','',''})
+ylim([0,0.8])
+yticks([0,0.8])
+ylabel('Relative Power (a.u.)')
+
+axs(3,3) = nexttile;
+avg = [mean(pparams_hit(:,3)), ...
+    mean(pparams_miss(:,3)), ...
+    mean(pparams_cr(:,3)), ...
+    mean(pparams_fa(:,3))];
+err = [std(pparams_hit(:,3)) / sqrt(size(pparams_hit,1)), ...
+    std(pparams_miss(:,3)) / sqrt(size(pparams_miss,1)), ...
+    std(pparams_cr(:,3)) / sqrt(size(pparams_cr,1)), ...
+    std(pparams_fa(:,3)) / sqrt(size(pparams_fa,1))];
+hold on 
+bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+errorbar(1:4, avg, err, 'k.')
+xticks([1,2,3,4])
+xticklabels({'','','',''})
+ylim([0,8])
+yticks([0,8])
+ylabel('Bandwidth (Hz)')
+
+mat = amygdala_hit;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_hit = spectralParameterizationV0(DF_chg, args);
+pparams_hit = [];
+for i = 1:size(DF_specs_hit,1)
+    if size(DF_specs_hit(i,:).periodic_params{1},1) > 1
+        pparams_hit = [pparams_hit; DF_specs_hit(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_hit = [pparams_hit; DF_specs_hit(i,:).periodic_params{1}];
+    end
+end
+
+mat = amygdala_miss;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_miss = spectralParameterizationV0(DF_chg, args);
+pparams_miss = [];
+for i = 1:size(DF_specs_miss,1)
+    if size(DF_specs_miss(i,:).periodic_params{1},1) > 1
+        pparams_miss = [pparams_miss; DF_specs_miss(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_miss = [pparams_miss; DF_specs_miss(i,:).periodic_params{1}];
+    end
+end
+
+mat = amygdala_cr;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_cr = spectralParameterizationV0(DF_chg, args);
+pparams_cr = [];
+for i = 1:size(DF_specs_cr,1)
+    if size(DF_specs_cr(i,:).periodic_params{1},1) > 1
+        pparams_cr = [pparams_cr; DF_specs_cr(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_cr = [pparams_cr; DF_specs_cr(i,:).periodic_params{1}];
+    end
+end
+
+mat = amygdala_fa;
+DF_chg = struct();
+DF_chg.df = mat(:,f<30)';
+F = 0:0.122:30;
+DF_chg.ax.f = F;
+DF_specs_fa = spectralParameterizationV0(DF_chg, args);
+pparams_fa = [];
+for i = 1:size(DF_specs_fa,1)
+    if size(DF_specs_fa(i,:).periodic_params{1},1) > 1
+        pparams_fa = [pparams_fa; DF_specs_fa(i,:).periodic_params{1}(end,:)];
+    else
+        pparams_fa = [pparams_fa; DF_specs_fa(i,:).periodic_params{1}];
+    end
+end
+
+% fprintf('Amygdala params\n')
+
+% mat = [pparams_hit(:,1), pparams_miss(:,1), pparams_cr(:,1), pparams_fa(:,1)];
+% anova1(mat)
+
+% mat = [pparams_hit(:,2), pparams_miss(:,2), pparams_cr(:,2), pparams_fa(:,2)];
+% anova1(mat)
+
+% mat = [pparams_hit(:,3), pparams_miss(:,3), pparams_cr(:,3), pparams_fa(:,3)];
+% anova1(mat)
+
+% axs(4,1) = nexttile;
+% avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
+%     mean(DF_specs_miss.aperiodic_params(:,1)), ...
+%     mean(DF_specs_cr.aperiodic_params(:,1)), ...
+%     mean(DF_specs_fa.aperiodic_params(:,1))];
+% err = [std(DF_specs_hit.aperiodic_params(:,1)) / sqrt(size(DF_specs_hit,1)), ...
+%     std(DF_specs_miss.aperiodic_params(:,1)) / sqrt(size(DF_specs_miss,1)), ...
+%     std(DF_specs_cr.aperiodic_params(:,1)) / sqrt(size(DF_specs_cr,1)), ...
+%     std(DF_specs_fa.aperiodic_params(:,1)) / sqrt(size(DF_specs_fa,1))];
+% hold on 
+% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+% errorbar(1:4, avg, err, 'k.')
+
+% axs(4,2) = nexttile;
+% avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
+%     mean(DF_specs_miss.aperiodic_params(:,2)), ...
+%     mean(DF_specs_cr.aperiodic_params(:,2)), ...
+%     mean(DF_specs_fa.aperiodic_params(:,2))];
+% err = [std(DF_specs_hit.aperiodic_params(:,2)) / sqrt(size(DF_specs_hit,1)), ...
+%     std(DF_specs_miss.aperiodic_params(:,2)) / sqrt(size(DF_specs_miss,1)), ...
+%     std(DF_specs_cr.aperiodic_params(:,2)) / sqrt(size(DF_specs_cr,1)), ...
+%     std(DF_specs_fa.aperiodic_params(:,2)) / sqrt(size(DF_specs_fa,1))];
+% hold on 
+% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+% errorbar(1:4, avg, err, 'k.')
+
+axs(4,1) = nexttile;
+avg = [mean(pparams_hit(:,1)), ...
+    mean(pparams_miss(:,1)), ...
+    mean(pparams_cr(:,1)), ...
+    mean(pparams_fa(:,1))];
+err = [std(pparams_hit(:,1)) / sqrt(size(pparams_hit,1)), ...
+    std(pparams_miss(:,1)) / sqrt(size(pparams_miss,1)), ...
+    std(pparams_cr(:,1)) / sqrt(size(pparams_cr,1)), ...
+    std(pparams_fa(:,1)) / sqrt(size(pparams_fa,1))];
+hold on 
+bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+errorbar(1:4, avg, err, 'k.')
+xticks([1,2,3,4])
+xticklabels({'Hit','Miss','CR','FA'})
+ylim([0,20])
+yticks([0,20])
+ylabel('Peak Frequency (Hz)')
+
+axs(4,2) = nexttile;
+avg = [mean(pparams_hit(:,2)), ...
+    mean(pparams_miss(:,2)), ...
+    mean(pparams_cr(:,2)), ...
+    mean(pparams_fa(:,2))];
+err = [std(pparams_hit(:,2)) / sqrt(size(pparams_hit,1)), ...
+    std(pparams_miss(:,2)) / sqrt(size(pparams_miss,1)), ...
+    std(pparams_cr(:,2)) / sqrt(size(pparams_cr,1)), ...
+    std(pparams_fa(:,2)) / sqrt(size(pparams_fa,1))];
+hold on 
+bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+errorbar(1:4, avg, err, 'k.')
+xticks([1,2,3,4])
+xticklabels({'Hit','Miss','CR','FA'})
+ylim([0,0.8])
+yticks([0,0.8])
+ylabel('Relative Power (a.u.)')
+
+axs(4,3) = nexttile;
+avg = [mean(pparams_hit(:,3)), ...
+    mean(pparams_miss(:,3)), ...
+    mean(pparams_cr(:,3)), ...
+    mean(pparams_fa(:,3))];
+err = [std(pparams_hit(:,3)) / sqrt(size(pparams_hit,1)), ...
+    std(pparams_miss(:,3)) / sqrt(size(pparams_miss,1)), ...
+    std(pparams_cr(:,3)) / sqrt(size(pparams_cr,1)), ...
+    std(pparams_fa(:,3)) / sqrt(size(pparams_fa,1))];
+hold on 
+bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
+errorbar(1:4, avg, err, 'k.')
+xticks([1,2,3,4])
+xticklabels({'Hit','Miss','CR','FA'})
+ylim([0,8])
+yticks([0,8])
+ylabel('Bandwidth (Hz)')
