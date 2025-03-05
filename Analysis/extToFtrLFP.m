@@ -13,7 +13,7 @@ function extToFtrLFP(ext_path, session_ids, ftr_path, chanMap)
         
         lfp_session = table(sesh_id_array, num2cell(1:size(lfp_ext.lfp_data(1,:).lfp{1},1))', 'VariableNames', {'session_id', 'channel_id'});
         
-        lfp_session = avgBaselineSpectrum(lfp_session, lfp_ext.lfp_data, {'left_trigger', 'right_trigger'});
+        % lfp_session = avgBaselineSpectrum(lfp_session, lfp_ext.lfp_data, {'left_trigger', 'right_trigger'});
         
         lfp_session = avgBaselineSpectrumByOutcome(lfp_session, lfp_ext.lfp_data, slrt_ext.slrt_data, {'left_trigger', 'right_trigger'});
 
