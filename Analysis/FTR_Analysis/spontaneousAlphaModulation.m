@@ -7,16 +7,21 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
         mkdir(strcat(fig_path, 'Phase_Preference_By_Outcome_v2/'));
         mkdir(strcat(fig_path, 'Correct_vs_Incorrect_v2/'));
         mkdir(strcat(fig_path, 'Action_vs_Inaction_v2/'));
+        mkdir(strcat(fig_path, 'Lick_vs_nolick_v2/'));
         mkdir(strcat(fig_path, 'Combo_v2/'));
     end
 
     p_value = zeros(size(ap_session,1),1);
+    p_value_lick = zeros(size(ap_session,1),1);
+    p_value_nolick = zeros(size(ap_session,1),1);
     p_value_hit = zeros(size(ap_session,1),1);
     p_value_miss = zeros(size(ap_session,1),1);
     p_value_cr = zeros(size(ap_session,1),1);
     p_value_fa = zeros(size(ap_session,1),1);
     
     mi = zeros(size(ap_session,1),1);
+    mi_lick = zeros(size(ap_session,1),1);
+    mi_nolick = zeros(size(ap_session,1),1);
     mi_hit = zeros(size(ap_session,1),1);
     mi_miss = zeros(size(ap_session,1),1);
     mi_cr = zeros(size(ap_session,1),1);
@@ -32,6 +37,28 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
         else
             p_value(c) = nan;
             mi(c) = nan;
+        end
+
+        % lick
+        if ~isempty(ap_session(c,:).alpha_spike_phases_lick{1})
+            [p, ~] = circ_rtest(ap_session(c,:).alpha_spike_phases_lick{1});
+            p_value_lick(c) = p;
+            [N, ~] = histcounts(ap_session(c,:).alpha_spike_phases_lick{1}, 20);
+            mi_lick(c) = compute_modulation_index(N);
+        else
+            p_value_lick(c) = nan;
+            mi_lick(c) = nan;
+        end
+
+        % no lick
+        if ~isempty(ap_session(c,:).alpha_spike_phases_nolick{1})
+            [p, ~] = circ_rtest(ap_session(c,:).alpha_spike_phases_nolick{1});
+            p_value_nolick(c) = p;
+            [N, ~] = histcounts(ap_session(c,:).alpha_spike_phases_nolick{1}, 20);
+            mi_nolick(c) = compute_modulation_index(N);
+        else
+            p_value_lick(c) = nan;
+            mi_nolick(c) = nan;
         end
 
         % hit trials 
@@ -92,6 +119,8 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
     mi_miss = mi_miss(p_value < overall_p_threshold);
     mi_cr = mi_cr(p_value < overall_p_threshold);
     mi_fa = mi_fa(p_value < overall_p_threshold);
+    mi_lick = mi_lick(p_value < overall_p_threshold);
+    mi_nolick = mi_nolick(p_value < overall_p_threshold);
 
     theta_bars = zeros(size(alpha_modulated,1),1);
     Rs = zeros(size(alpha_modulated,1),1);
@@ -117,10 +146,14 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
     pmi_incorrect = zeros(size(alpha_modulated,1),1);
     pmi_action = zeros(size(alpha_modulated,1),1);
     pmi_inaction = zeros(size(alpha_modulated,1),1);
+    pmi_lick = zeros(size(alpha_modulated,1),1);
+    pmi_nolick = zeros(size(alpha_modulated,1),1);
     theta_bars_correct = zeros(size(alpha_modulated,1),1);
     theta_bars_incorrect = zeros(size(alpha_modulated,1),1);
     theta_bars_action = zeros(size(alpha_modulated,1),1);
     theta_bars_inaction = zeros(size(alpha_modulated,1),1);
+    theta_bars_lick = zeros(size(alpha_modulated,1),1);
+    theta_bars_nolick = zeros(size(alpha_modulated,1),1);
     mses = zeros(size(alpha_modulated,1),1);
     mses_hit = zeros(size(alpha_modulated,1),1);
     mses_miss = zeros(size(alpha_modulated,1),1);
@@ -130,10 +163,14 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
     mses_incorrect = zeros(size(alpha_modulated,1),1);
     mses_action = zeros(size(alpha_modulated,1),1);
     mses_inaction = zeros(size(alpha_modulated,1),1);
+    mses_lick = zeros(size(alpha_modulated,1),1);
+    mses_nolick = zeros(size(alpha_modulated,1),1);
     p_correct = zeros(size(alpha_modulated,1),1);
     p_incorrect = zeros(size(alpha_modulated,1),1);
     p_action = zeros(size(alpha_modulated,1),1);
     p_inaction = zeros(size(alpha_modulated,1),1);
+    p_lick = zeros(size(alpha_modulated,1),1);
+    p_nolick = zeros(size(alpha_modulated,1),1);
 
     for i = 1:size(alpha_modulated,1)
         % overall spontaneous phase modulation 
@@ -147,6 +184,7 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
         pmi(i) = compute_modulation_index(N);
         y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
         mses(i) = mean((N(2:end-1) - y_interpolated').^2);
+        
         %% plotting 
         if visualize
             spon_fig = figure();
@@ -736,7 +774,76 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
             saveas(combo_fig, strcat(fig_path, 'Combo_v2/', fname))
         end
         
-        close all
+        %% lick vs no lick trials 
+        if visualize
+            lick_fig = figure('Position', [1220, 1256, 1401, 582]);
+        else
+            lick_fig = figure('Visible', 'off', 'Position', [1220, 1256, 1401, 582]);
+        end
+        lick_tl = tiledlayout(1,2);
+        lick = alpha_modulated(i,:).alpha_spike_phases_lick{1};
+        nolick = alpha_modulated(i,:).alpha_spike_phases_nolick{1};
+        p_threshold_lick(i) = 0.05 / length(lick);
+        p_threshold_nolick(i) = 0.05 / length(nolick);
+        if ~isempty(lick) && ~isempty(nolick)
+            [p_lick(i), ~] = circ_rtest(lick);
+            [p_nolick(i), ~] = circ_rtest(nolick);
+            lick_axs(1) = nexttile;
+            [N, edges] = histcounts(lick, 20, 'Normalization', 'pdf');
+            centers = zeros(length(edges)-1,1);
+            for e = 1:(length(edges)-1)
+                centers(e) = mean(edges(e:(e+1)));
+            end
+            [x,y, theta_bars_lick(i), Rs_lick(i), kappas_lick(i)] = vonMises(lick);
+            pmi_lick(i) = compute_modulation_index(N);
+            y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
+            mses_lick(i) = mean((N(2:end-1) - y_interpolated').^2);
+            bar(centers, N, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
+            hold on
+            plot(x,y, 'k', 'LineWidth', 2);
+            xticks([-pi, 0, pi])
+            xticklabels({'-\pi', '0', '\pi'})
+            if p_lick(i) < (0.5 / size(ap_session,1))
+                title(sprintf('*Lick: PMI: %.2f; MSE: %.1d', pmi_lick(i), mses_lick(i)))
+            else
+                title(sprintf('Lick: PMI: %.2f; MSE: %.1d', pmi_lick(i), mses_lick(i)))
+            end
+            axs(2) = nexttile;
+            [N, edges] = histcounts(nolick, 20, 'Normalization', 'pdf');
+            centers = zeros(length(edges)-1,1);
+            for e = 1:(length(edges)-1)
+                centers(e) = mean(edges(e:(e+1)));
+            end
+            [x,y, theta_bars_nolick(i), Rs_nolick(i), kappas_nolick(i)] = vonMises(nolick);
+            pmi_nolick(i) = compute_modulation_index(N);
+            y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
+            mses_nolick(i) = mean((N(2:end-1) - y_interpolated').^2);
+            bar(centers, N, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
+            hold on
+            plot(x,y, 'k', 'LineWidth', 2);
+            xticks([-pi, 0, pi])
+            xticklabels({'-\pi', '0', '\pi'})
+            if p_nolick(i) < (0.5 / size(ap_session,1))
+                title(sprintf('*No Lick: PMI: %.2f; MSE: %.1d', pmi_nolick(i), mses_nolick(i)))
+            else
+                title(sprintf('No Lick: PMI: %.2f; MSE: %.1d', pmi_nolick(i), mses_nolick(i)))
+            end
+            if out_path
+                fname = sprintf('%s_cluster_%i.fig', alpha_modulated(i,:).session_id{1}, alpha_modulated(i,:).cluster_id);
+                saveas(lick_fig, strcat(fig_path, 'lick_vs_nolick_v2/', fname))
+                fname = sprintf('%s_cluster_%i.png', alpha_modulated(i,:).session_id{1}, alpha_modulated(i,:).cluster_id);
+                saveas(lick_fig, strcat(fig_path, 'lick_vs_nolick_v2/', fname))
+            end
+        else
+            p_lick(i) = nan;
+            p_nolick(i) = nan;
+            theta_bars_lick(i) = nan;
+            Rs_lick(i) = nan;
+            kappas_lick(i) = nan;
+            theta_bars_nolick(i) = nan;
+            Rs_nolick(i) = nan;
+            kappas_nolick(i) = nan;
+        end
         
     end
 
@@ -1008,6 +1115,102 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
         saveas(wvc_fraction_fig, strcat(fig_path, 'fraction_of_population_modulated.png'))
     end
 
+    if visualize
+        lick_pmi_fig = figure('Position', [1220, 1379, 1019, 459]);
+    else
+        lick_pmi_fig = figure('Visible', 'off', 'Position', [1220, 1379, 1019, 459]);
+    end
+    bar(1:2, [nanmean(pmi_lick), nanmean(pmi_nolick)], 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5, 0.5])
+    hold on
+    errorbar(1:2, [nanmean(pmi_lick), nanmean(pmi_nolick)], [nanstd(pmi_lick) ./ sqrt(length(pmi_lick)), nanstd(pmi_nolick) ./ sqrt(length(pmi_lick))], 'k.')
+    xticks(1:2)
+    xticklabels({'Lick', 'No Lick'})
+    ylabel('Phase Modulation Index')
+    if out_path 
+        saveas(lick_pmi_fig, strcat(fig_path, 'lick_pmi.fig'))
+        saveas(lick_pmi_fig, strcat(fig_path, 'lick_pmi.png'))
+    end
+    
+    if visualize
+        lick_mses_fig = figure('Position', [1220, 1379, 1019, 459]);
+    else
+        lick_mses_fig = figure('Visible', 'off', 'Position', [1220, 1379, 1019, 459]);
+    end
+    bar(1:2, [nanmean(mses_lick), nanmean(mses_nolick)], 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5, 0.5])
+    hold on
+    errorbar(1:2, [nanmean(mses_lick), nanmean(mses_nolick)], [nanstd(mses_lick) ./ sqrt(length(mses_lick)), nanstd(mses_nolick) ./ sqrt(length(mses_lick))], 'k.')
+    xticks(1:2)
+    xticklabels({'Lick', 'No Lick'})
+    ylabel('M.S.E.')
+    if out_path 
+        saveas(lick_mses_fig, strcat(fig_path, 'lick_mses.fig'))
+        saveas(lick_mses_fig, strcat(fig_path, 'lick_mses.png'))
+    end
+
+    if visualize
+        lick_theta_fig = figure('Position', [1220, 1379, 1019, 459]);
+    else
+        lick_theta_fig = figure('Visible', 'off', 'Position', [1220, 1379, 1019, 459]);
+    end
+    attl = tiledlayout(1,2);
+    ataxs(1) = nexttile;
+    polarhistogram(theta_bars_lick, 36)
+    title('Lick')
+    ataxs(2) = nexttile;
+    polarhistogram(theta_bars_nolick, 36)
+    title('No Lick')
+    if out_path 
+        saveas(lick_theta_fig, strcat(fig_path, 'lick_theta.fig'))
+        saveas(lick_theta_fig, strcat(fig_path, 'lick_theta.png'))
+    end
+    
+    if visualize
+        lick_r_fig = figure();
+    else
+        lick_r_fig = figure('Visible', 'off');
+    end
+    bar([1,2], [nanmean(Rs_lick), nanmean(Rs_nolick)], 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+    hold on
+    errorbar([1,2], [nanmean(Rs_lick), nanmean(Rs_nolick)], [nanstd(Rs_lick) ./ sqrt(length(Rs_lick)), nanstd(Rs_nolick) ./ sqrt(length(Rs_nolick))], 'k.')
+    xticks([1,2])
+    xticklabels({'Correct', 'No Lick'})
+    ylabel('R')
+    if out_path 
+        saveas(lick_r_fig, strcat(fig_path, 'lick_r.fig'))
+        saveas(lick_r_fig, strcat(fig_path, 'lick_r.png'))
+    end
+    
+    if visualize
+        lick_kappa_fig = figure();
+    else
+        lick_kappa_fig = figure('Visible', 'off');
+    end
+    bar([1,2], [nanmean(kappas_lick), nanmean(kappas_nolick)], 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+    hold on
+    errorbar([1,2], [nanmean(kappas_lick), nanmean(kappas_nolick)], [nanstd(kappas_lick) ./ sqrt(length(kappas_lick)), nanstd(kappas_nolick) ./ sqrt(length(kappas_nolick))], 'k.')
+    xticks([1,2])
+    xticklabels({'Correct', 'No Lick'})
+    ylabel('Kappa')
+    if out_path 
+        saveas(lick_kappa_fig, strcat(fig_path, 'lick_kappa.fig'))
+        saveas(lick_kappa_fig, strcat(fig_path, 'lick_kappa.png'))
+    end
+    
+    if visualize
+        lick_nolick_fig = figure();
+    else
+        lick_nolick_fig = figure('Visible', 'off');
+    end
+    bar([1,2], [sum(p_lick < overall_p_threshold) / size(alpha_modulated,1), sum(p_nolick < overall_p_threshold) / size(alpha_modulated,1)], ...
+        'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+    ylabel('Frlick of Modulated Neurons')
+    xticks([1,2])
+    xticklabels({'Lick', 'No Lick'})
+    if out_path 
+        saveas(lick_nolick_fig, strcat(fig_path, 'lick_nolick_modulated.fig'))
+        saveas(lick_nolick_fig, strcat(fig_path, 'lick_nolick_modulated.png'))
+    end
+
     close all 
 
     alpha_modulated = [alpha_modulated, ...
@@ -1048,6 +1251,16 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
             theta_bars_incorrect, ...
             theta_bars_action, ...
             theta_bars_inaction, ...
+            theta_bars_lick, ...
+            kappas_lick, ...
+            Rs_lick, ...
+            mses_lick, ...
+            pmi_lick, ...
+            theta_bars_nolick, ...
+            kappas_nolick, ...
+            Rs_nolick, ...
+            mses_nolick, ...
+            pmi_nolick, ...
             'VariableNames', ...
             {'theta_bars', ...
             'Rs', ...
@@ -1085,7 +1298,17 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
             'theta_bars_correct', ...
             'theta_bars_incorrect', ...
             'theta_bars_action', ...
-            'theta_bars_inaction'})];
+            'theta_bars_inaction', ...
+            'theta_bars_lick', ...
+            'kappas_lick', ...
+            'Rs_lick', ...
+            'mses_lick', ...
+            'pmi_lick', ...
+            'theta_bars_nolick', ...
+            'kappas_nolick', ...
+            'Rs_nolick', ...
+            'mses_nolick', ...
+            'pmi_nolick'})];
     alpha_modulated = [alpha_modulated, table(p_value, ...
                 p_value_hit, ...
                 p_value_miss, ...
@@ -1095,6 +1318,8 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
                 p_incorrect, ...
                 p_action, ...
                 p_inaction, ...
+                p_lick, ...
+                p_nolick, ...
                 'VariableNames', ...
                 {'p_value', ...
                 'p_value_hit', ...
@@ -1104,7 +1329,9 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
                 'p_correct', ...
                 'p_incorrect', ...
                 'p_action', ...
-                'p_inaction'})];
+                'p_inaction', ...
+                'p_lick', ...
+                'p_nolick'})];
 
     out = struct();
     out.alpha_modulated = alpha_modulated;

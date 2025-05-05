@@ -5332,7 +5332,7 @@ postsynaptic dendritic currents, in neurons near the recording electrode (Buzsak
 CNS phase coding has been most thoroughly studied in the context of “phase precession” in hippocampal place cells but has also been seen in entorhinal grid
 cells (53), as well as in successive theta waves in medial prefrontal cortex (88), and ventral striatum (89). In hippocampal
 place cells, the firing rate provides a coarse-grained encoding
-of the animal’s location in an arena (21). During phase precession, spiking occurs earlier on successive cycles of the
+of the animal's location in an arena (21). During phase precession, spiking occurs earlier on successive cycles of the
 theta wave as an animal moves towards the center of a place
 field, providing a finer-grained temporal encoding of location within the place field (54). 
 ** referencing Kelley2023-ir
@@ -5362,7 +5362,7 @@ the recorded MUA at layer 6 contained a strong contribution from the depolarizat
 **** Figure 2 shows all spikes and their relation to alpha phase
 **** the pulsed-inhibition hypothesis (5, 28, 29), which states that the α-oscillations are
 a consequence of bouts of inhibition that prevent firing and thus reduce neuronal processing.
-***** 5 - Klimesch W, Sauseng P, Hanslmayr S (2007) EEG alpha oscillations: The inhibitiontiming hypothesis. Brain Res Brain Res Rev 53(1):63–88. 
+***** 5 - Klimesch W, Sauseng P, Hanslmayr S (2007) EEG alpha oscillations: The inhibitiontiming hypothesis. Brain Res Brain Res Rev 53(1):63-88. 
 ***** 28 - Mazaheri A, Jensen O (2010) Rhythmic pulsing: Linking ongoing brain activity with evoked responses. Front Hum Neurosci 4:177.
 ***** 29 -  Mathewson KE, et al. (2011) Pulsed out of awareness: EEG alpha oscillations represent a pulsed-inhibition of ongoing cortical processing. Front Psychol 2:99.
 *** Haegens2015-mx 
@@ -5606,3 +5606,289 @@ DF_chg = struct();
 DF_chg.df = mat(:,f<30);
 DF_chg.ax.f = f(f<30);
 DF_specs = spectralParameterizationV0(DF_chg, args);
+
+* [2025-5-5 Mon] - reviews
+Here are the comments of the reviewers (if applicable):
+----------------------------------------
+Reviewer: 1
+
+Comments to Author
+This study by Kelley et al. investigates the coupling of spiking activity to the phase of alpha oscillations in multiple brain regions in mice performing a 
+whisker-based selective detection task. The strength of this study is the ability to relate spike-phase coupling to task performance. While there have been 
+multiple theories proposed as to the functions of alpha oscillations, few studies have been able to directly test these theories with spike-phase resolution 
+in subjects performing goal-directed tasks. That said, there are multiple problems with the manuscript in its current form.
+
+Major concerns
+
+1. Only 'Go' sided recordings and analyses. While the datasets appear to be high quality, all four probe implants were contralateral to the Go stimulus. 
+This precludes the ability to compare 'Go' vs 'NoGo' cortical and subcortical dynamics. As motivated in the Introduction, differences in alpha power 
+have been associated with 'attended' vs 'unattended' cortices, thereby potentially contributing to the suppression of irrelevant representations. By 
+only sampling the 'Go' hemisphere, the authors are unable to test a major motivating hypothesis.
+
+2. Main conclusion: alpha modulation is lower on incorrect trials. If supported by the data, this would be an important finding. However, my concern is about 
+the statistical analyses used to support this conclusion. The conclusion appears to be driven by the data presented in Figure 6 (example data) and 7A (summary data). 
+The problem is with the number of trials included in each analysis. There are many more 'hit' and 'correct rejection' trials in expert mice, providing more statistical 
+power than for 'miss' and 'false alarm' trials, which may be driving the results in Figure 7A. Indeed, the MI in 7B is higher for misses for most datasets. On p14, 
+line 26 the authors state “While higher MI may be mistaken for stronger coupling, higher MI combined with the magnitude of MSE observed on incorrect trials (compare 
+to MSE in Figs. 3-5) is better explained by an increased randomness in the relationship between spiking activity and alpha phase.” This may be true if the same number 
+of spikes are included in both analyses. My suggestion - re-do these analyses with similar spike numbers per trial type. This would greatly strengthen the robustness 
+of the findings. More generally, the dependence of spike rates / spike counts on phase modulation statistical analyses should be considered throughout the study.
+** TODOS 
+*** TODO: plot spike count vs MI, MSE 
+**** added MSE and MI vs. average overall firing rate to phaseModSummaries.m
+**** may consider rejecting units w/ FR < 0.5 Hz 
+*** TODO: find neurons with high spike counts on incorrect trials 
+**** maybe pick as many hits/correct rejection trials as there are miss/false alarm trials at random and generate distribution
+
+3. Interpretation of alpha modulation. The messaging here is unclear. The authors write on p17 “The strong alpha modulation observed prior to correct trials compared 
+to incorrect trials, rather than reflecting the sort of internally directed attention described in Buffalo et al. (2011), instead may produce the global low amplitude 
+activity, identified by Marrero et al. (2022), which tunes brain networks to the discrete all-or-none behavior required for this task (Hô and Destexhe, 2000).” 
+However, this seems to contradict their own data showing a lack of difference in baseline firing rates prior to hit vs miss trials. Moreover, the authors propose 
+“this global cortical low amplitude state is, at least in part, a result of the ubiquity of alpha modulation and pulsed inhibition in neocortex.” And yet, from their 
+own data, alpha modulation levels did not influence spike rates. These inconsistencies need to be reconciled.
+** TODOS 
+*** TODO: lean into lapse in attention 
+*** TODO: move away from "low amplitude state"
+
+4. In the Marrero et al study, pre-stimulus movements appeared to play a major role in predicting trial outcome. Can pre-trial movements account for differences in 
+alpha modulation and trial outcomes? If face/body movements were monitored during these experiments, their analyses relative to alpha modulations and trial outcomes 
+should be included.
+** TODOS
+*** TODO: compare alpha modulation on trials with movements vs without 
+**** added FTR_Analysis/lfpPhaseHistSponLicking.m to extToFtrAP.m to compare phase modulation during trials with spontaneous licks vs those without 
+**** TODO: rerun ap_ftr_extraction.m 
+
+5. Interpretation of alpha modulation, part 2. Throughout the manuscript the authors suggest that (from the abstract) “dysregulation of spiking activity with respect 
+to alpha oscillations may characterize lapses in task engagement or attention.” However, if low alpha modulation reflected poor task engagement, one would expect 
+reduced responding (including false alarms), rather than reduced correct outcomes. Impairments in attention, however, would be consistent with reduced correct outcomes.
+** TODOS
+*** TODO: play down task engagement, play up attention 
+
+6. In the Results, the authors refer to hit and false alarm trials as 'action' vs miss and correct rejection trials as 'inaction'. These should be relabeled as 'response' 
+and 'no response', as there can be plenty of action/movement on all trial outcome types.
+** TODOS:
+*** TODO: action -> response; inaction -> no response
+
+Minor concerns
+
+Introduction, p3, lines 24-25- clarify 'ipsilateral' vs 'contralateral' to the attended stimuli. Is 'contralateral' the hemisphere receiving the attended sensory input?
+
+Methods, Behavioral task. Is there any requirement or monitoring for licking during the inter-trial interval?
+
+Results, p7, lines 48-49. What is the interpretation of 44.8% of classified FSUs in the striatum?
+
+Results, p8. One missing analysis is the activity aligned to the first response. Since reward delivery is fixed at 1 second, this design provides a unique opportunity to 
+dissociate response onset from reward onset.
+
+Figure 3A- The text refers to spike-phase coupling at the alpha trough, similar to previous studies. However, the illustration in 3A suggests coupling at the peak. 
+Is the LFP inverted? Or is this an example of phase coupling to the peak? If the latter, then 180 degrees in 3D-G also refers to the peak?
+
+Figure labels on p10 and 11 referencing figure 3 appear to be mislabeled.
+
+Results, general. Since alpha power correlates with spike-phase coupling strength, the authors could confirm their results by quantifying alpha power prior to different 
+trial outcomes.
+
+
+Reviewer: 2
+
+Comments to Author
+The manuscript by Kelley and colleagues presents a well-motivated and technically ambitious study that studies the relationship between alpha activity (phase and power) 
+and spiking dynamics in different brain areas of mice. The task is clever, requiring selective responses to a particular stimulation on the body, thus probing dynamics 
+during task-dependent states. The project integrates advanced signal processing techniques and large-datasets collected using high-density Neuropixels probes. The 
+introduction is well-written and provides a strong conceptual foundation for the work. Particularly commendable is the authors' application of a 1/f correction in 
+their oscillatory analyses, which demonstrates thoughtful attention to the spectral characteristics of neural signals. However, there are many issues with the methods, 
+analyses, and interpretations that substantially dampen my enthusiasm for the paper. The current version of the manuscript requires substantial revision to address concerns 
+related to statistical interpretation, methodological clarity, and data presentation. However, with thoughtful revisions, this study has the potential to make a significant 
+contribution to our understanding of oscillatory phase-spike relationships in the behaving brain. Overall, the potential findings may be of broad interest to the readership 
+associated with Cerebral Cortex. Below I provide a point-by-point description of my major and minor concerns.
+
+Major concerns
+
+1. Are the data pooled data across entire sessions? If so, this raises a significant concern. Behavioral performance in mice often fluctuates within a session—typically 
+improving after the initial trials, stabilizing mid-session, and then declining towards the end of the block due to fatigue or reduced motivation. It is unclear whether 
+the authors accounted for these within-session dynamics in their analyses. Did they segment the sessions to examine performance trends over time, or verify that performance 
+remained stable throughout? Without such verification, pooling data across the entire session could introduce confounds that affect the interpretation of both behavioral and 
+neural results. The authors should provide evidence that performance was consistent across the session or reanalyze the data in a time-resolved manner to ensure the robustness 
+of their findings.
+
+This concern raises specific concerns for the alpha phase/spiking effects. Indeed, it is well-established that alpha-band power tends to increase during states of reduced arousal, 
+such as eye-closed conditions, mind wandering, or low motivation. This known relationship raises concerns about the stability and interpretation of the reported alpha-phase modulation 
+effects across the duration of experimental sessions. In particular, if high alpha power is disproportionately concentrated toward the latter portions of the sessions—a plausible 
+scenario—it becomes challenging to determine whether the observed modulations of spiking activity reflect task-specific neural mechanisms or are instead driven by global changes 
+in arousal or vigilance. To address this issue, the authors should quantify and report the temporal distribution of high-alpha epochs throughout the session.
+** TODOS
+*** TODO: look at within trial d-prime, hit rate, false alarm rates 
+*** TODO: covariance of alpha modulation with binned d', hr, far 
+*** TODO: distribution of alpha events during the session 
+
+2. While Kilosort is a widely used and powerful tool for automated spike sorting, prior studies have noted limitations in its ability to accurately isolate single units under certain 
+conditions (Pachitariu et al Nature Methods 2024). To improve the reliability of spike classification, it is common practice to apply additional post hoc validation or refinement 
+procedures. It is unclear whether the authors implemented any such follow-up analyses to verify the quality of their spike sorting results. For example, did they assess waveform 
+consistency using PCA, examine the spatial distance separation of recorded units, analyze correlations in spike timing to detect potential sorting errors, or other metrics? 
+Clarification on these points is important to ensure the validity of the reported single-unit data, especially as they relate to the classification of fast-spiking and regular-spiking 
+cells.
+** TODOS:
+*** TODO: autocorrelograms for each neuron 
+*** TODO: PCA to assess waveform consistency 
+*** TODO: make sure andy's paper cited 
+
+3. While the results presented in Figure 4 are potentially interesting, it is difficult to assess whether the interpretations are fully supported by the analyses. Several methodological 
+and reporting issues limit the clarity and validity of the conclusions drawn from these data.
+
+o Statistical Concerns: The statistical tests used to evaluate differences in proportions across conditions appear to be inappropriate. For instance, in Figures 3B and 4A (top panel), 
+the authors assess binary outcomes (e.g., whether a unit was modulated or not) using parametric tests such as ANOVAs, and in other cases, non-parametric tests such as Wilcoxon 
+signed-rank tests. However, these tests assume continuous or ordinal data, not proportions derived from binary classifications. Instead, tests designed for categorical data 
+(e.g., Chi-square tests) would be more appropriate. The authors should revise these analyses accordingly or provide a clear justification for the statistical approach used.
+** TODOS:
+*** TODO: Chi-square tests for categorical data ... or not 
+**** from chatgpt 
+If you have vectors of percentages from multiple subjects/sessions (e.g., 10 percentages per group), treat the percentages as continuous data:
+Use a two-sample t-test (Assumes normality. If in doubt, use a non-parametric test like ranksum).
+
+o Interpretation of Firing Rate Changes: The changes in firing rate presented in Figures 4B and 4D are not clearly contextualized. It is unclear what these changes are relative 
+to—baseline, another condition, or a specific event. This lack of clarity undermines the interpretability of these results. The authors should explicitly define the reference 
+period or condition used in these comparisons.
+** TODOS:
+*** TODO: make clear that those are changes in FR from baseline 
+
+o Figure Legend and Analytical Clarity: The figure legend for Figure 4 lacks sufficient detail to guide the reader through the analyses. More thorough descriptions of the 
+computations and statistical methods used are necessary to allow proper evaluation of the results.
+** TODOS:
+*** TODO: beef up figure legend 
+
+o Identification of Anatomical Structures: It is unclear whether the recordings span the full depth of a cortical column, particularly for the S1 recordings. Confirmation that 
+recordings were obtained across cortical layers is essential for interpreting laminar differences in neural activity. While the use of Neuropixels Trajectory Explorer provides a 
+useful estimate, it is not sufficient on its own to verify precise laminar localization. The authors should provide additional empirical evidence—such as current source density 
+(CSD) analyses—to support their claim that recordings traverse the cortical column.  Moreover, for PFC recordings, how did the authors validate that the recordings were obtained 
+from the alleged regions (e.g., ACC, PL, IL, ORB, DP).
+** TODOS:
+*** TODO: CSD for S1 
+*** TODO: reinforce that PFC subregion assignments are estimates based on probe position 
+
+4. The rationale for selectively presenting only a subset of the data in Figure 6 is unclear. Specifically, the figure includes only fast-spiking (FS) neurons from S1 and 
+regular-spiking (RS) neurons from the prefrontal cortex, without explanation for the omission of other cell types or regions. The authors should clarify their criteria for 
+inclusion and justify why only these particular subsets are shown. If data from additional neuronal populations or regions were analyzed, those results should either be included 
+or the rationale for their exclusion explicitly stated.
+** TODOS:
+*** TODO: consider combining example and summary figures
+
+5. While the introduction is clearly written, the remainder of the manuscript would benefit from substantial editorial refinement. One major concern is the considerable redundancy 
+throughout the Results section. In several instances, the authors reintroduce methodological details that have already been described in the Methods section. This repetition 
+detracts from the flow and conciseness of the manuscript. I recommend that the authors streamline the Results section by removing or substantially abbreviating procedural 
+descriptions that are already covered elsewhere. As a specific example, lines 34-43 on page 7 reiterate content that is already thoroughly explained in the Methods and can 
+be omitted without loss of clarity. Additionally, for the population-level analyses, it would be helpful to include a summary table indicating the proportion of fast-spiking (FS) 
+versus regular-spiking (RS) units recorded in each brain region. This would enhance interpretability and allow for clearer cross-area comparisons. There are a lot fo data 
+presented. Perhaps, it would be better to just focus on a narrower set of results. Finally, the Discussion section is overly long and should be condensed. This is particularly 
+important if any re-analysis of the data leads to results that conflict with the current interpretations. In such cases, the narrative should be revised to accurately reflect the 
+revised findings while maintaining clarity and focus.
+** TODOS:
+*** TODO: clean up the text 
+*** TODO: consider summary table indicating the proportion of fast-spiking (FS) versus regular-spiking (RS) units recorded in each brain region
+
+6. The rationale for classifying neurons based on extracellular waveform shape requires further clarification and justification. While this approach has been historically used to 
+distinguish putative inhibitory (e.g., parvalbumin-expressing, fast-spiking neurons) from excitatory (regular-spiking) cell types, the waveform-based classification is limited 
+in reliability. This method is sensitive to technical factors such as electrode impedance, recording depth, and the local cellular milieu, which can significantly distort waveform 
+features. Additionally, unsupervised clustering approaches (e.g., k-means) applied to waveform features are highly dataset-dependent (i.e., dependent on the distribution of 
+the waveshape), and the resulting classifications may not generalize across sessions or animals. Prior studies (e.g., Shin and Moore, Neuron, 2019) have attempted to mitigate 
+these limitations by restricting analyses to neurons with waveform properties at the extreme ends of the distribution, thereby reducing classification ambiguity. However, it 
+appears that such thresholding was not implemented in the current study. Given that the work is performed in mice, why not consider leveraging molecular biology tools 
+(e.g., optogenetics) to more definitively classify cell types, which would substantially strengthen the interpretability of their findings.
+** TODOS:
+*** TODO: check out Shin and Moore, Neuron, 2019
+*** TODO: for RS/FS comparisons, consider sampling from extremes of the distributions 
+
+7. The statistical analyses appear to be conducted primarily at the population level (i.e., across cells), but it is unclear whether significance was also evaluated at 
+the level of individual units. This distinction is critical, as population-level significance can emerge even when individual cells do not show robust effects, and vice versa. 
+Such discrepancies could lead to different interpretations of the findings. The authors should clarify whether individual cell-level statistical tests were performed and, if so, 
+report the proportion of cells meeting significance criteria. Conversely, in cases where no significant population-level effects were observed, it would be informative to assess 
+whether any subpopulation of cells exhibited consistent modulation.
+** TODOS:
+*** TODO: clarify cell vs. population level analyses 
+
+8. The authors state in the Statistics section that they employed “circular ANOVAs.” However, there is no evidence of these analyses in the main text or Methods. 
+It would be helpful for the authors to clarify whether they indeed used circular ANOVA or if this was a reference to an alternative test (e.g., the Watson-Williams 
+test or a test based on the von Mises distribution). Please revise the text to specify the exact statistical method used and ensure consistency between the methods 
+section and the analyses described in the results.
+** actual line: "Watson-Williams test was used as a circular analog of ANOVA (Berens 2009)"
+
+9. The criterion for determining significant phase modulation—namely, applying a Bonferroni correction by dividing the Rayleigh test p-value threshold (0.05) by 
+the number of units recorded in a given session—appears to be highly conservative. While controlling for multiple comparisons is important, such a stringent 
+correction may increase the risk of Type II errors, potentially masking less-strong phase-locked effects. The authors should justify their choice of correction method 
+or reanalyze the data to provide a more balanced approach.
+** from chatgpt -- Some commonly used methods include:
+*** Holm-Bonferroni method: A stepwise version of Bonferroni that is uniformly more powerful. It sequentially adjusts the p-values and 
+stops testing once a non-significant result is encountered.
+*** Benjamini-Hochberg procedure (FDR control): Controls the false discovery rate rather than the family-wise error rate. This is 
+particularly useful when you expect some true positives among many tests (e.g., in genomics or neuroimaging).
+*** Hochberg's method: Similar to Holm's, but slightly more powerful; it requires independence or positive dependence among tests.
+*** False Discovery Rate (FDR) variants, such as Benjamini-Yekutieli, which accommodate arbitrary dependence structures.
+Each method has trade-offs between controlling Type I errors and retaining power. The choice depends on the context and the acceptable level of false positives.
+
+10. The interpretation of the results presented in Figures 3D-G requires further clarification. As currently stated, the authors appear to argue that a higher mean 
+squared error (MSE) from the von Mises fit indicates a deviation from a unimodal circular distribution, thereby reflecting a less phase-aligned neural response. While this 
+interpretation is plausible, it overlooks the possibility that a high MSE could also arise from a structured but non-unimodal distribution—such as a bimodal (e.g., two-peaked) 
+von Mises distribution, which appears to be the case in Figure 3C. In such scenarios, the elevated MSE would not necessarily reflect increased noise or reduced phase locking, 
+but rather a meaningful shift in the shape of the distribution. The authors should clarify how they distinguish between these possibilities and consider alternative model fits 
+(e.g., mixture models) if appropriate.
+
+11. In Figure 2H, what are the units on the x-axis? If it's time (e.g., seconds), then it is odd that the oscillatory phase remains so consistent? Please clarify.
+** TODOS:
+*** TODO: plot as line rather than heat map 
+
+12. For the neurons that show a bimodal distribution, it is unclear why the authors chose a Gaussian vs. a Von misses function (Lines 45-47, Page 6). The data are 
+in radians, no? Please clarify.
+** TODOS:
+*** TODO: check out Gatto2007-mc for generalized von mises 
+
+13. The authors repeatedly assert that neural activity increases in response to reward delivery (e.g., line 30 on page 10). However, the neural data appear to be 
+time-locked to stimulus onset rather than to the reward itself. This raises concerns about the validity of the claim that the observed activity is specifically 
+related to reward processing. Without aligning neural responses to the time of reward delivery, it is difficult to disentangle whether the reported effects reflect 
+responses to the stimulus, motor actions, reward anticipation, or the reward itself. The authors should either revise their interpretation accordingly or provide analyses 
+aligned to the actual time of reward delivery to substantiate these claims.
+** TODOS:
+*** TODO: add dashed lines indicating reward time (where necessary)
+
+14. It is commendable that the animals were trained on a selective detection task; however, it remains unclear whether the rewarded side was fixed or alternated across sessions. 
+This detail is essential for interpreting whether the observed alpha-band modulations are associated with attention to the task-relevant target or with suppression of the distractor. 
+Without this information, it is difficult to disentangle whether the neural signatures reflect enhancement of relevant input or suppression of irrelevant input. There are studies 
+that have raised concerns whether mechanisms of distracter suppression (e.g., the alpha suppression effect, see Snyder and Foxe, Frontiers in Psychology, 2011) are independent of 
+target enhancement. The findings from this paper can shed light onto this discussion by clarifying the reward structure and its implications for interpreting alpha dynamics.
+** TODOS:
+*** TODO: clarify that rewarded side was fixed across sessions 
+
+15. The rationale for including more than twice as many trials in the no-go stimulus condition compared to the go condition is unclear. This imbalance in trial numbers could 
+introduce biases the responses of animals, and thus the findings on the neural data. The authors should clarify the reasoning behind this design choice and discuss whether 
+the unequal trial distribution may have influenced their results or statistical comparisons.
+
+On a related note, it seems that mice with higher rates also had higher false alarms. This would suggest a response bias in the dataset (i.e., mice were just more prone to 
+lick in general). The authors should address this, and investigate whether it can influence the current findings.
+** TODOS:
+*** TODO: check out phase 5 data
+*** TODO: check out andy's data 
+
+Minor concerns:
+
+• Figure numbers should be in the order described in the main text (swap Figure 2 with figure 1, or rework the figures).
+
+• Please point to a graph when making claims about different response properties of neurons (e.g., “Interestingly, unmodulated FS units exhibited a more prominent 
+local peak in firing rate following reward compared to phase-modulated FS units, ..”). Without the reference, it is challenging to validate whether the interpretations are merited.
+
+• Figures with bar plots showing summary statistics need to have the associated 'Ns' for each conditions.
+
+• Have the authors considered using violin plots instead of bar charts?
+
+• The transparency in Figure 2B makes it really hard to decipher the brain locations. At the very least, it would be helpful to place markers that indicate brain general coordinates 
+(anterior, posterior, ventral, dorsal, etc.).
+
+• I think that the references to the paper figures in lines 15 (page 10), 37 (page 10), 6 (page 11), and 18 (page 11) are incorrect. Please correct.
+
+• Were the whiskers secured to the tactile stimulator, or were animals allowed to freely-whisk throughout the trial?
+
+• There is a missed opportunity to relate this work with the observations from Shin et al (2019) on gamma oscillations and tactile discrimination 
+in barrel cortex.
+
+• This sentence needs to be rewritten: “Subpopulations in each recorded region exhibited task-related spiking dynamics during task execution and differences in stimulus-evoked 
+changes in spiking activity during the 200 ms decision period between stimulus presentation and acceptable motor response (Fig. 2D,E).” In general, use better topic sentences 
+in paragraphs.
+
+• Are the data from Figures 1B and 1C averages across all sessions, or a representative sample?

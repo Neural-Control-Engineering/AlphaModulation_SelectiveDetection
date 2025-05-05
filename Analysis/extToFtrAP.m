@@ -39,6 +39,8 @@ function extToFtrAP(ext_path, session_ids, regMap, ftr_file)
 
         ap_session = lfpPhaseHists(ap_session, ap_ext.ap_data, {'left_trigger', 'right_trigger'});
 
+        ap_session = lfpPhaseHistSponLicking(ap_session, ap_ext.ap_data, slrt_ext.slrt_data, {'left_trigger', 'right_trigger'});
+
         ap_session = lfpPhaseHistByOutcome(ap_session, ap_ext.ap_data, slrt_ext.slrt_data, {'left_trigger', 'right_trigger'});
 
         ap_session = assignRegions(ap_session, regMap);

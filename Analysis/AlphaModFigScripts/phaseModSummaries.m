@@ -601,6 +601,8 @@ ylabel('% Neurons Modulated by Alpha', 'FontSize', 18)
 ax = gca;
 ax.XAxis.FontSize = 18;
 ax.YAxis.FontSize = 16;
+
+keyboard 
 % hold on 
 % bar(1:2, [mean(s1_rs_fracs), mean(s1_fs_fracs)], 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 % errorbar(1:2, [mean(s1_rs_fracs), mean(s1_fs_fracs)], ... 
@@ -700,7 +702,6 @@ xlabel('Time (s)')
 title(tl, 'Somatosensory Cortex')
 legend()
 
-keyboard
 fprintf(sprintf('S1 RS theta bars vs FS theta bars Kuiper test: p = %d\n', circ_kuipertest(s1_rs.theta_bars, s1_fs.theta_bars)))
 if KStest(s1_rs.pmi) || KStest(s1_fs.pmi)
     fprintf(sprintf('S1 RS MI vs FS MI Mann Whitney: p = %d\n', ranksum(s1_rs.pmi, s1_fs.pmi)))
@@ -1274,8 +1275,56 @@ fprintf(sprintf('Total modulated Amygdala: %i\n', size(amygdala_rs,1)+size(amygd
 fprintf(sprintf('Amygdala RS fraction modulated: %d +/- %d\n', nanmean(amygdala_rs_fracs), nanstd(amygdala_rs_fracs)/sqrt(sum(~isnan(amygdala_rs_fracs)))))
 fprintf(sprintf('Amygdala FS fraction modulated: %d +/- %d\n', nanmean(amygdala_fs_fracs), nanstd(amygdala_fs_fracs)/sqrt(sum(~isnan(amygdala_fs_fracs)))))
 
+%% MI and MSE by average firing rate 
+mi_fr_fig = figure();
+tl = tiledlayout(4,2);
+axs(1) = nexttile;
+plot(cell2mat(s1_rs.avg_trial_fr), s1_rs.pmi, 'k*')
+axs(2) = nexttile;
+plot(cell2mat(s1_fs.avg_trial_fr), s1_fs.pmi, 'k*')
+axs(3) = nexttile;
+plot(cell2mat(pfc_rs.avg_trial_fr), pfc_rs.pmi, 'k*')
+axs(4) = nexttile;
+plot(cell2mat(pfc_fs.avg_trial_fr), pfc_fs.pmi, 'k*')
+axs(5) = nexttile;
+plot(cell2mat(striatum_rs.avg_trial_fr), striatum_rs.pmi, 'k*')
+axs(6) = nexttile;
+plot(cell2mat(striatum_fs.avg_trial_fr), striatum_fs.pmi, 'k*')
+axs(7) = nexttile;
+plot(cell2mat(amygdala_rs.avg_trial_fr), amygdala_rs.pmi, 'k*')
+axs(8) = nexttile;
+plot(cell2mat(amygdala_fs.avg_trial_fr), amygdala_fs.pmi, 'k*')
+unifyYLimits(axs)
+xlabel(tl, 'Avg. Firing Rate (Hz)')
+ylabel(tl, 'Modulation Index')
+
+mse_fr_fig = figure();
+tl = tiledlayout(4,2);
+axs(1) = nexttile;
+plot(cell2mat(s1_rs.avg_trial_fr), s1_rs.mses, 'k*')
+axs(2) = nexttile;
+plot(cell2mat(s1_fs.avg_trial_fr), s1_fs.mses, 'k*')
+axs(3) = nexttile;
+plot(cell2mat(pfc_rs.avg_trial_fr), pfc_rs.mses, 'k*')
+axs(4) = nexttile;
+plot(cell2mat(pfc_fs.avg_trial_fr), pfc_fs.mses, 'k*')
+axs(5) = nexttile;
+plot(cell2mat(striatum_rs.avg_trial_fr), striatum_rs.mses, 'k*')
+axs(6) = nexttile;
+plot(cell2mat(striatum_fs.avg_trial_fr), striatum_fs.mses, 'k*')
+axs(7) = nexttile;
+plot(cell2mat(amygdala_rs.avg_trial_fr), amygdala_rs.mses, 'k*')
+axs(8) = nexttile;
+plot(cell2mat(amygdala_fs.avg_trial_fr), amygdala_fs.mses, 'k*')
+unifyYLimits(axs)
+xlabel(tl, 'Avg. Firing Rate (Hz)')
+ylabel(tl, 'von Mises MSE')
+
 out_path = false;
-mkdir('./Figures/')
+if ~exist('./Figures/', 'dir')
+    mkdir('./Figures/')
+end
+
 if out_path
     saveas(fracs_fig, 'Figures/fracs.fig')
     saveas(s1_mod_fig, 'Figures/s1_mod_fig.fig')
