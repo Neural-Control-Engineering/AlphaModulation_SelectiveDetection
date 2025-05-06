@@ -5729,7 +5729,11 @@ Clarification on these points is important to ensure the validity of the reporte
 cells.
 ** TODOS:
 *** TODO: autocorrelograms for each neuron 
-*** TODO: PCA to assess waveform consistency 
+**** sample code 
+load ~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat
+excld_file = 'ExcldInds/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_excld_inds.mat';
+autocorrQC(ap_ftr, excld_file)
+*** TODO: consider PCA to assess waveform consistency 
 *** TODO: make sure andy's paper cited 
 
 3. While the results presented in Figure 4 are potentially interesting, it is difficult to assess whether the interpretations are fully supported by the analyses. Several methodological 
@@ -5763,6 +5767,72 @@ useful estimate, it is not sufficient on its own to verify precise laminar local
 from the alleged regions (e.g., ACC, PL, IL, ORB, DP).
 ** TODOS:
 *** TODO: CSD for S1 
+**** example code 
+load ~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/LFP/date--2024-07-12_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat
+time = linspace(-3,5,4000);
+mat = cell2mat(lfp_session.left_trigger_aligned_erp);
+mat = mat - nanmean(mat(:,time < 0),2);
+mat = mat(2:2:385,:);
+csd = computeCSD(mat, (3.84/13/1000));
+figure(); imagesc(csd(2:end-2,:)); clim([-10,10])
+**** avg across sessions 
+***** 3387
+init_paths;
+session_ids = {'date--2024-02-22_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g1.mat', ...
+    'date--2024-02-22_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
+    'date--2024-02-21_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
+    'date--2024-02-20_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
+    'date--2024-02-15_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
+    'date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
+    'date--2024-03-04_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
+    'date--2024-03-01_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
+    'date--2024-02-29_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
+    'date--2024-02-27_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'};
+time = linspace(-3,5,4000);
+for s = 1:length(session_ids)
+    load(strcat(ftr_path, 'LFP/', session_ids{s}))
+    mat = cell2mat(lfp_session.left_trigger_aligned_erp);
+    mat = mat - nanmean(mat(:,time < 0),2);
+    mat = mat(2:2:385,:);
+    csd{s} = computeCSD(mat, (3.84/13/1000));
+end
+incld = [2,3,5,6,7,8,9];
+csd = csd(incld);
+csd_mat = zeros(190,3999,length(csd));
+for i = 1:length(csd)
+    csd_mat(:,:,i) = csd{i}(:,1:3999);
+end
+figure(); imagesc(mean(csd_mat,3)); colorbar(); clim([-15,15]); colormap('jet'); set(gca, 'YDir', 'normal'); ylim([115,185]); xlim([1400,2000])
+***** 3738 - need to clean up artifacts 
+session_ids = {'date--2024-07-17_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
+    'date--2024-07-16_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
+    'date--2024-07-15_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
+    'date--2024-07-13_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
+    'date--2024-07-12_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'};
+time = linspace(-3,5,4000);
+csd = {};
+f0 = 0.5; f1 = 30;
+d = designfilt('bandpassiir', ...
+    'FilterOrder', 10, ...
+    'HalfPowerFrequency1', f0, ...
+    'HalfPowerFrequency2', f1, ...
+    'DesignMethod', 'butter', ...
+    'SampleRate', 500);
+for s = 1:length(session_ids)
+    load(strcat(ftr_path, 'LFP/', session_ids{s}))
+    mat = cell2mat(lfp_session.left_trigger_aligned_erp);
+    mat = mat - nanmean(mat(:,time < 0),2);
+    mat = mat(2:2:385,:);
+    for c = 1:size(mat,1)
+        mat(c,:) = filtfilt(d, mat(c,:));
+    end 
+    csd{s} = computeCSD(mat, (3.84/13/1000));
+end 
+csd_mat = zeros(190,3999,length(csd));
+for i = 1:length(csd)
+    csd_mat(:,:,i) = csd{i}(:,1:3999);
+end
+figure(); imagesc(mean(csd_mat,3)); colorbar(); clim([-15,15]); colormap('jet'); set(gca, 'YDir', 'normal'); ylim([115,185]); xlim([1400,2000])
 *** TODO: reinforce that PFC subregion assignments are estimates based on probe position 
 
 4. The rationale for selectively presenting only a subset of the data in Figure 6 is unclear. Specifically, the figure includes only fast-spiking (FS) neurons from S1 and 
