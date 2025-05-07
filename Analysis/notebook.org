@@ -5734,6 +5734,7 @@ load ~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELEC
 excld_file = 'ExcldInds/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_excld_inds.mat';
 autocorrQC(ap_ftr, excld_file)
 *** TODO: consider PCA to assess waveform consistency 
+**** would be very difficult, because dont get a waveform from each spike, just a template, from kilosort 
 *** TODO: make sure andy's paper cited 
 
 3. While the results presented in Figure 4 are potentially interesting, it is difficult to assess whether the interpretations are fully supported by the analyses. Several methodological 
