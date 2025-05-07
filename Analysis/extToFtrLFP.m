@@ -29,7 +29,7 @@ function extToFtrLFP(ext_path, session_ids, ftr_path, chanMap)
 
         save(strcat(ftr_path, 'LFP/', session_id, '.mat'), 'lfp_session')
 
-        avgCsdByOutcome(lfp_ext.lfp_data, slrt_ext.slrt_data, chanMap, ftr_path, session_id)
+        % avgCsdByOutcome(lfp_ext.lfp_data, slrt_ext.slrt_data, chanMap, ftr_path, session_id)
 
         % if contains(session_id, 'phase5')
         %     lfp_session = ERPbyLeftMinusRight(lfp_session, lfp_ext.lfp_data, slrt_ext.slrt_data, -3, 5);

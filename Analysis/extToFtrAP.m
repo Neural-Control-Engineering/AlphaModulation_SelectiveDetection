@@ -51,10 +51,10 @@ function extToFtrAP(ext_path, session_ids, regMap, ftr_file)
         ap_session = avgPSTHbyOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'Miss', -3:0.1:5);
         ap_session = avgPSTHbyOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'FA', -3:0.1:5);
 
-        ap_session = avgPSTHbyPreviousOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'Hit', -3:0.1:5);
-        ap_session = avgPSTHbyPreviousOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'Miss', -3:0.1:5);
-        ap_session = avgPSTHbyPreviousOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'CR', -3:0.1:5);
-        ap_session = avgPSTHbyPreviousOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'FA', -3:0.1:5);
+        % ap_session = avgPSTHbyPreviousOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'Hit', -3:0.1:5);
+        % ap_session = avgPSTHbyPreviousOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'Miss', -3:0.1:5);
+        % ap_session = avgPSTHbyPreviousOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'CR', -3:0.1:5);
+        % ap_session = avgPSTHbyPreviousOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'FA', -3:0.1:5);
         
         ap_session = avgPSTHbyPerformance(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, {'left_trigger', 'right_trigger'}, -3:0.1:5);
         
@@ -76,24 +76,24 @@ function extToFtrAP(ext_path, session_ids, regMap, ftr_file)
         
         ap_session = avgTrialFR(ap_session, slrt_ext.slrt_data, ap_ext.ap_data);
 
-        ap_session = auROC(ap_session, ap_ext.ap_data, slrt_ext.slrt_data, {'left_trigger', 'right_trigger'}, 0.2);
+        % ap_session = auROC(ap_session, ap_ext.ap_data, slrt_ext.slrt_data, {'left_trigger', 'right_trigger'}, 0.2);
 
         ap_session = ISIhist(ap_session, ap_ext.ap_data, slrt_ext.slrt_data);
 
-        ap_session = avgSponCVbyOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'Hit');
-        ap_session = avgSponCVbyOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'Miss');
-        ap_session = avgSponCVbyOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'CR');
-        ap_session = avgSponCVbyOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'FA');
+        % ap_session = avgSponCVbyOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'Hit');
+        % ap_session = avgSponCVbyOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'Miss');
+        % ap_session = avgSponCVbyOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'CR');
+        % ap_session = avgSponCVbyOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'FA');
         
         ap_session = isDeltaModulated(ap_session);
         ap_session = isAlphaModulated(ap_session);
         ap_session = isThetaModulated(ap_session);
         ap_session = isBetaModulated(ap_session);
 
-        ap_session = avgPSTHbyPrevAndCurrentOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'Hit',  -3:0.1:5);
-        ap_session = avgPSTHbyPrevAndCurrentOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'Miss',  -3:0.1:5);
-        ap_session = avgPSTHbyPrevAndCurrentOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'CR',  -3:0.1:5);
-        ap_session = avgPSTHbyPrevAndCurrentOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'FA',  -3:0.1:5);
+        % ap_session = avgPSTHbyPrevAndCurrentOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'Hit',  -3:0.1:5);
+        % ap_session = avgPSTHbyPrevAndCurrentOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'Miss',  -3:0.1:5);
+        % ap_session = avgPSTHbyPrevAndCurrentOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'CR',  -3:0.1:5);
+        % ap_session = avgPSTHbyPrevAndCurrentOutcome(ap_session, slrt_ext.slrt_data, ap_ext.ap_data, 'FA',  -3:0.1:5);
 
 
         if ~exist('ap_ftr')

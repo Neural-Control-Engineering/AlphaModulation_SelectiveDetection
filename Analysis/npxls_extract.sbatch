@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-#SBATCH -A your_account
+#SBATCH -A neuralctrl
 #SBATCH -J npxls
 #SBATCH -N 1
 #SBATCH -c 4
