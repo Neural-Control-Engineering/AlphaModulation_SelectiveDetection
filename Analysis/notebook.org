@@ -5836,9 +5836,9 @@ session_ids = {'date--2024-07-17_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_n
     'date--2024-07-12_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'};
 time = linspace(-3,5,4000);
 csd = {};
-f0 = 0.5; f1 = 30;
+f0 = 0.1; f1 = 30;
 d = designfilt('bandpassiir', ...
-    'FilterOrder', 10, ...
+    'FilterOrder', 4, ...
     'HalfPowerFrequency1', f0, ...
     'HalfPowerFrequency2', f1, ...
     'DesignMethod', 'butter', ...
@@ -5849,9 +5849,14 @@ for s = 1:length(session_ids)
     mat = mat - nanmean(mat(:,time < 0),2);
     mat = mat(2:2:385,:);
     for c = 1:size(mat,1)
+        mat(c,2093) = nan;
+        mat(c,:) = fillmissing(mat(c,:), 'linear');
         mat(c,:) = filtfilt(d, mat(c,:));
+        mat(c,1) = mat(c,2);
     end 
     csd{s} = computeCSD(mat, (3.84/13/1000));
+    figure(); imagesc(csd{s}); 
+    colorbar(); clim([-15,15]); colormap('jet'); set(gca, 'YDir', 'normal'); ylim([115,185]); xlim([1400,2000])
 end 
 csd_mat = zeros(190,3999,length(csd));
 for i = 1:length(csd)
@@ -5987,3 +5992,7 @@ changes in spiking activity during the 200 ms decision period between stimulus p
 in paragraphs.
 
 • Are the data from Figures 1B and 1C averages across all sessions, or a representative sample?
+
+* [2025-5-7 Wed] - sexes 
+*** 3755 - male according to softmouse 
+*** 1075 - female 
