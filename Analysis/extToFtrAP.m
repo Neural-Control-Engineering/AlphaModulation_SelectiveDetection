@@ -67,6 +67,8 @@ function extToFtrAP(ext_path, session_ids, regMap, ftr_file)
 
         ap_session = avgBaselineFR(ap_session, ap_ext.ap_data, {'left_trigger', 'right_trigger'});
 
+        keyboard 
+
         ap_session = isStimModulated(ap_session, ap_ext.ap_data, {'left_trigger', 'right_trigger'});
 
         ap_session = isStimModByOutcome(ap_session, ap_ext.ap_data, slrt_ext.slrt_data, 'Hit', {'left_trigger', 'right_trigger'});
