@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-#SBATCH -A your_account
+#SBATCH -A neuralctrl
 #SBATCH -J ap-ftr
 #SBATCH -N 1
 #SBATCH -c 1
