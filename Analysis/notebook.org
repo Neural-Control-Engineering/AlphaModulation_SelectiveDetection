@@ -5639,53 +5639,7 @@ of the findings. More generally, the dependence of spike rates / spike counts on
 **** may consider rejecting units w/ FR < 0.5 Hz 
 *** TODO: find neurons with high spike counts on incorrect trials 
 **** maybe pick as many hits/correct rejection trials as there are miss/false alarm trials at random and generate distribution
-***** in extToFtrAP.m 
-addpath(genpath('~/circstat-matlab/'))
-numIncorrect = sum(strcmp(slrt_ext.slrt_data.categorical_outcome, 'Miss')) + sum(strcmp(slrt_ext.slrt_data.categorical_outcome, 'FA'));
-correctInds = find(strcmp(slrt_ext.slrt_data.categorical_outcome, 'Hit') | strcmp(slrt_ext.slrt_data.categorical_outcome, 'CR'));
-correct_ptiles = [];
-for ind = 61:70
-    correct = [ap_session(ind,:).spon_alpha_spike_phases_hit{1}, ap_session(ind,:).spon_alpha_spike_phases_cr{1}];
-    incorrect = [ap_session(ind,:).spon_alpha_spike_phases_miss{1}, ap_session(ind,:).spon_alpha_spike_phases_fa{1}];
-    shuff_p = [];
-    [p_incorrect, ~] = circ_rtest(incorrect);
-    [p_correct, ~] = circ_rtest(correct);
-    if p_correct < 0.001
-        figure();
-        tl = tiledlayout(1,2);
-        axs(1) = nexttile;
-        hist(correct, 20);
-        axs(2) = nexttile;
-        hist(incorrect,20);
-        title(num2str(ind))
-        for i = 1:100
-            choice_inds = correctInds(randperm(length(correctInds), numIncorrect));
-            tmp_ap = ap_ext.ap_data(choice_inds,:);
-            tmp_slrt = slrt_ext.slrt_data(choice_inds,:);
-            % table for session 
-            sesh_id_array = cell(length(tmp_ap(1,:).spiking_data{1}.cluster_id), 1);
-            session_id = tmp_slrt(1,:).session_label{1};
-            for j = 1:length(sesh_id_array)
-                sesh_id_array{j} = session_id;
-            end
-            positions =  cell2mat(tmp_ap(1,:).spiking_data{1}.position);
-            tmp_session = table(sesh_id_array, tmp_ap(1,:).spiking_data{1}.cluster_id, ...
-                    tmp_ap(1,:).spiking_data{1}.quality, ...
-                    tmp_ap(1,:).spiking_data{1}.template, tmp_ap(1,:).spiking_data{1}.template_amplitude, positions, ...
-                    'VariableNames', {'session_id', 'cluster_id', 'quality', 'template', 'template_amplitude', 'position'});
-            tmp_session = lfpPhaseHistByOutcome(tmp_session, tmp_ap, tmp_slrt, {'left_trigger', 'right_trigger'});
-            % figure(); hist([tmp_session(ind, :).spon_alpha_spike_phases_hit{1}, tmp_session(ind, :).spon_alpha_spike_phases_cr{1}])
-            [p, ~] = circ_rtest([tmp_session(ind, :).spon_alpha_spike_phases_hit{1}, tmp_session(ind, :).spon_alpha_spike_phases_cr{1}]);
-            shuff_p = [shuff_p, p];
-        end
-        ptiles = zeros(1,100);
-        for i = 1:100
-            ptiles(i) = prctile(shuff_p,i);
-        end
-        [~, min_ind] = min((ptiles - p_incorrect) .^ 2);
-        correct_ptiles = [correct_ptiles, min_ind];
-    end
-end
+***** AlphaModFigScripts/correctIncorrectShuffle.m
 
 3. Interpretation of alpha modulation. The messaging here is unclear. The authors write on p17 “The strong alpha modulation observed prior to correct trials compared 
 to incorrect trials, rather than reflecting the sort of internally directed attention described in Buffalo et al. (2011), instead may produce the global low amplitude 

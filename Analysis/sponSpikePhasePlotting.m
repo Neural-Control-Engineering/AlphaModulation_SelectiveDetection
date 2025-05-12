@@ -1,12 +1,12 @@
 addpath(genpath('./'))
 addpath(genpath('~/circstat-matlab/'))
 
-init_paths
+init_paths;
 
 %% s1-striatum-amygdala sessions
 % combine animals
-all_ftr_files = {strcat(ftr_path, 'AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
-    strcat(ftr_path, 'AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat')};
+ftr_files = {strcat(ftr_path, 'AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat'), ...
+    strcat(ftr_path, 'AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat')};
 for i = 1:length(ftr_files)
     f = load(ftr_files{i});
     if i == 1
@@ -22,24 +22,14 @@ striatum = ftrs(logical(striatum_inds), :);
 amyg_inds = startsWith(ftrs.region, 'LA') + startsWith(ftrs.region{1}, 'BL');
 amygdala = ftrs(logical(amyg_inds),:);
 
-fig_path = strcat(ftr_path, 'AP/FIG/Expert_Combo/Cortex/');  
-spontaneousAlphaModulation(ctx, false, fig_path)
-fig_path = strcat(ftr_path, 'AP/FIG/Expert_Combo/Basal_Ganglia/');
+% fig_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Cortex/');  
+% spontaneousAlphaModulation(ctx, false, fig_path)
+fig_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/');
 spontaneousAlphaModulation(striatum, false, fig_path)
-fig_path = strcat(ftr_path, 'AP/FIG/Expert_Combo/Amygdala/');
+fig_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/');
 spontaneousAlphaModulation(amygdala, false, fig_path)
 
 %% pfc recording sessions
-f = load(strcat(ftr_path, 'AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'));
-ftrs = f.ap_ftr;
-pfc_inds = startsWith(ftrs.region, 'DP') + startsWith(ftrs.region, 'AC') ...
-    + startsWith(ftrs.region, 'PL') + startsWith(ftrs.region, 'IL') ...
-    + startsWith(ftrs.region, 'OR');
-pfc_inds = logical(pfc_inds);
-pfc = ftrs(pfc_inds, :);
-
-fig_path = strcat(ftr_path, 'AP/FIG/3755_phase3/PFC/');
-spontaneousAlphaModulation(pfc, false, fig_path)
 ftr_files = {strcat(ftr_path, 'AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'AP/subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
 for i = 1:length(ftr_files)
@@ -56,5 +46,5 @@ pfc_inds = startsWith(ftrs.region, 'DP') + startsWith(ftrs.region, 'AC') ...
 pfc_inds = logical(pfc_inds);
 pfc = ftrs(pfc_inds, :);
 
-fig_path = strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo/PFC/');
+fig_path = strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo_Adjusted/PFC/');
 spontaneousAlphaModulation(pfc, false, fig_path)

@@ -1,14 +1,14 @@
 addpath(genpath('~/circstat-matlab/'))
 init_paths;
-s1 = load(strcat(ftr_path, '/AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/data.mat'));
-pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/data.mat'));
-striatum = load(strcat(ftr_path, '/AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/data.mat'));
-amygdala = load(strcat(ftr_path, '/AP/FIG/Expert_Combo/Amygdala/Spontaneous_Alpha_Modulation_v2/data.mat'));
+s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
+pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'));
+striatum = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
+amygdala = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/data.mat'));
 
 %% s1 sessions
 % combine animals
-ftr_files = {strcat(ftr_path, '/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
-    strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat')};
+ftr_files = {strcat(ftr_path, '/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat'), ...
+    strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat')};
 for i = 1:length(ftr_files)
     f = load(ftr_files{i});
     if i == 1
@@ -38,6 +38,15 @@ pfc_inds = startsWith(ftrs.region, 'DP') + startsWith(ftrs.region, 'AC') ...
     + startsWith(ftrs.region, 'OR');
 pfc_inds = logical(pfc_inds);
 PFC = ftrs(pfc_inds,:);
+
+S1 = S1(cell2mat(S1.avg_trial_fr) > 0.5, :);
+Striatum = Striatum(cell2mat(Striatum.avg_trial_fr) > 0.5, :);
+Amygdala = Amygdala(cell2mat(Amygdala.avg_trial_fr) > 0.5, :);
+PFC = PFC(cell2mat(PFC.avg_trial_fr) > 0.5, :);
+s1.out.alpha_modulated = s1.out.alpha_modulated(cell2mat(s1.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+striatum.out.alpha_modulated = striatum.out.alpha_modulated(cell2mat(striatum.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+amygdala.out.alpha_modulated = amygdala.out.alpha_modulated(cell2mat(amygdala.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+pfc.out.alpha_modulated = pfc.out.alpha_modulated(cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 0.5, :);
 
 s1_sessions = unique(S1.session_id);
 s1_rs_fracs = zeros(1,length(s1_sessions));
@@ -602,7 +611,6 @@ ax = gca;
 ax.XAxis.FontSize = 18;
 ax.YAxis.FontSize = 16;
 
-keyboard 
 % hold on 
 % bar(1:2, [mean(s1_rs_fracs), mean(s1_fs_fracs)], 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 % errorbar(1:2, [mean(s1_rs_fracs), mean(s1_fs_fracs)], ... 
@@ -1320,7 +1328,7 @@ unifyYLimits(axs)
 xlabel(tl, 'Avg. Firing Rate (Hz)')
 ylabel(tl, 'von Mises MSE')
 
-out_path = false;
+out_path = true;
 if ~exist('./Figures/', 'dir')
     mkdir('./Figures/')
 end

@@ -1,15 +1,14 @@
-out_path = false;
+out_path = true;
 init_paths;
 addpath(genpath('~/circstat-matlab/'))
 mkdir('./Figures/')
-s1 = load(strcat(ftr_path, 'AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/data.mat'));
-pfc = load(strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/data.mat'));
-striatum = load(strcat(ftr_path, 'AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/data.mat'));
+s1 = load(strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
+pfc = load(strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'));
 
 %% s1 sessions
 % combine animals
-ftr_files = {strcat(ftr_path, 'AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
-    strcat(ftr_path, 'AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat')};
+ftr_files = {strcat(ftr_path, 'AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat'), ...
+    strcat(ftr_path, 'AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat')};
 for i = 1:length(ftr_files)
     f = load(ftr_files{i});
     if i == 1
@@ -36,6 +35,11 @@ pfc_inds = startsWith(ftrs.region, 'DP') + startsWith(ftrs.region, 'AC') ...
 pfc_inds = logical(pfc_inds);
 PFC = ftrs(pfc_inds,:);
 
+S1 = S1(cell2mat(S1.avg_trial_fr) > 0.5, :);
+PFC = PFC(cell2mat(PFC.avg_trial_fr) > 0.5, :);
+s1.out.alpha_modulated = s1.out.alpha_modulated(cell2mat(s1.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+pfc.out.alpha_modulated = pfc.out.alpha_modulated(cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+
 s1_sessions = unique(S1.session_id);
 s1_l1_rs_frac = zeros(1,length(s1_sessions));
 s1_l2_rs_frac = zeros(1,length(s1_sessions));
@@ -57,6 +61,9 @@ for s = 1:length(s1_sessions)
     tmp_all_fs = tmp_all(strcmp(tmp_all.waveform_class, 'FS'),:);
     s1_l1_rs_frac(s) = sum(contains(tmp_rs.region, '1')) / sum(contains(tmp_all_rs.region, '1'));
     s1_l2_rs_frac(s) = sum(contains(tmp_rs.region, '2')) / sum(contains(tmp_all_rs.region, '2'));
+    if s1_l2_rs_frac(s) > 1
+        keyboard 
+    end
     s1_l4_rs_frac(s) = sum(contains(tmp_rs.region, '4')) / sum(contains(tmp_all_rs.region, '4'));
     s1_l5_rs_frac(s) = sum(contains(tmp_rs.region, '5')) / sum(contains(tmp_all_rs.region, '5'));
     s1_l6_rs_frac(s) = sum(contains(tmp_rs.region, '6')) / sum(contains(tmp_all_rs.region, '6'));

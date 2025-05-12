@@ -1,14 +1,14 @@
 function spontaneousAlphaModulation(ap_session, visualize, out_path)
 
     if out_path
-        fig_path = strcat(out_path, 'Spontaneous_Alpha_Modulation_v2/');
+        fig_path = strcat(out_path, 'Spontaneous_Alpha_Modulation/');
         mkdir(fig_path)
-        mkdir(strcat(fig_path, 'Overall_Phase_Preference_v2/'));
-        mkdir(strcat(fig_path, 'Phase_Preference_By_Outcome_v2/'));
-        mkdir(strcat(fig_path, 'Correct_vs_Incorrect_v2/'));
-        mkdir(strcat(fig_path, 'Action_vs_Inaction_v2/'));
-        mkdir(strcat(fig_path, 'Lick_vs_nolick_v2/'));
-        mkdir(strcat(fig_path, 'Combo_v2/'));
+        mkdir(strcat(fig_path, 'Overall_Phase_Preference/'));
+        mkdir(strcat(fig_path, 'Phase_Preference_By_Outcome/'));
+        mkdir(strcat(fig_path, 'Correct_vs_Incorrect/'));
+        mkdir(strcat(fig_path, 'Action_vs_Inaction/'));
+        mkdir(strcat(fig_path, 'Lick_vs_nolick/'));
+        mkdir(strcat(fig_path, 'Combo/'));
     end
 
     p_value = zeros(size(ap_session,1),1);
@@ -205,8 +205,8 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
         ax.YAxis.FontSize = 14;
         if out_path 
             fname = sprintf('%s_cluster_%i', alpha_modulated(i,:).session_id{1}, alpha_modulated(i,:).cluster_id);
-            saveas(spon_fig, strcat(fig_path, 'Overall_Phase_Preference_v2/', fname, '.fig'))
-            saveas(spon_fig, strcat(fig_path, 'Overall_Phase_Preference_v2/', fname, '.png'))
+            saveas(spon_fig, strcat(fig_path, 'Overall_Phase_Preference/', fname, '.fig'))
+            saveas(spon_fig, strcat(fig_path, 'Overall_Phase_Preference/', fname, '.png'))
         end
         
         %% by outcome
@@ -337,9 +337,9 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
         title(tl, sprintf('%s %s', alpha_modulated(i,:).region{1}, alpha_modulated(i,:).waveform_class{1}))
         if out_path
             fname = sprintf('%s_cluster_%i.fig', alpha_modulated(i,:).session_id{1}, alpha_modulated(i,:).cluster_id);
-            saveas(outcome_fig, strcat(fig_path, 'Phase_Preference_By_Outcome_v2/', fname))
+            saveas(outcome_fig, strcat(fig_path, 'Phase_Preference_By_Outcome/', fname))
             fname = sprintf('%s_cluster_%i.png', alpha_modulated(i,:).session_id{1}, alpha_modulated(i,:).cluster_id);
-            saveas(outcome_fig, strcat(fig_path, 'Phase_Preference_By_Outcome_v2/', fname))
+            saveas(outcome_fig, strcat(fig_path, 'Phase_Preference_By_Outcome/', fname))
         end
 
         %% correct vs incorrect
@@ -399,9 +399,9 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
             title(correct_tl, sprintf('%s %s', alpha_modulated(i,:).region{1}, alpha_modulated(i,:).waveform_class{1}))
             if out_path
                 fname = sprintf('%s_cluster_%i.fig', alpha_modulated(i,:).session_id{1}, alpha_modulated(i,:).cluster_id);
-                saveas(correct_fig, strcat(fig_path, 'Correct_vs_Incorrect_v2/', fname))
+                saveas(correct_fig, strcat(fig_path, 'Correct_vs_Incorrect/', fname))
                 fname = sprintf('%s_cluster_%i.png', alpha_modulated(i,:).session_id{1}, alpha_modulated(i,:).cluster_id);
-                saveas(correct_fig, strcat(fig_path, 'Correct_vs_Incorrect_v2/', fname))
+                saveas(correct_fig, strcat(fig_path, 'Correct_vs_Incorrect/', fname))
             end
         else
             p_correct(i) = nan;
@@ -471,9 +471,9 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
             end
             if out_path
                 fname = sprintf('%s_cluster_%i.fig', alpha_modulated(i,:).session_id{1}, alpha_modulated(i,:).cluster_id);
-                saveas(action_fig, strcat(fig_path, 'Action_vs_Inaction_v2/', fname))
+                saveas(action_fig, strcat(fig_path, 'Action_vs_Inaction/', fname))
                 fname = sprintf('%s_cluster_%i.png', alpha_modulated(i,:).session_id{1}, alpha_modulated(i,:).cluster_id);
-                saveas(action_fig, strcat(fig_path, 'Action_vs_Inaction_v2/', fname))
+                saveas(action_fig, strcat(fig_path, 'Action_vs_Inaction/', fname))
             end
         else
             p_action(i) = nan;
@@ -769,9 +769,9 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
         unifyYLimits(axs_combo(10:13))
         if out_path 
             fname = sprintf('%s_cluster_%i.fig', alpha_modulated(i,:).session_id{1}, alpha_modulated(i,:).cluster_id);
-            saveas(combo_fig, strcat(fig_path, 'Combo_v2/', fname))
+            saveas(combo_fig, strcat(fig_path, 'Combo/', fname))
             fname = sprintf('%s_cluster_%i.png', alpha_modulated(i,:).session_id{1}, alpha_modulated(i,:).cluster_id);
-            saveas(combo_fig, strcat(fig_path, 'Combo_v2/', fname))
+            saveas(combo_fig, strcat(fig_path, 'Combo/', fname))
         end
         
         %% lick vs no lick trials 
@@ -830,9 +830,9 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
             end
             if out_path
                 fname = sprintf('%s_cluster_%i.fig', alpha_modulated(i,:).session_id{1}, alpha_modulated(i,:).cluster_id);
-                saveas(lick_fig, strcat(fig_path, 'lick_vs_nolick_v2/', fname))
+                saveas(lick_fig, strcat(fig_path, 'Lick_vs_nolick/', fname))
                 fname = sprintf('%s_cluster_%i.png', alpha_modulated(i,:).session_id{1}, alpha_modulated(i,:).cluster_id);
-                saveas(lick_fig, strcat(fig_path, 'lick_vs_nolick_v2/', fname))
+                saveas(lick_fig, strcat(fig_path, 'Lick_vs_nolick/', fname))
             end
         else
             p_lick(i) = nan;
@@ -1252,13 +1252,13 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
             theta_bars_action, ...
             theta_bars_inaction, ...
             theta_bars_lick, ...
-            kappas_lick, ...
-            Rs_lick, ...
+            kappas_lick', ...
+            Rs_lick', ...
             mses_lick, ...
             pmi_lick, ...
             theta_bars_nolick, ...
-            kappas_nolick, ...
-            Rs_nolick, ...
+            kappas_nolick', ...
+            Rs_nolick', ...
             mses_nolick, ...
             pmi_nolick, ...
             'VariableNames', ...
