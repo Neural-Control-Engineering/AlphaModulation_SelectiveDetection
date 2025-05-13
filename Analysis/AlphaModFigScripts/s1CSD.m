@@ -9,7 +9,7 @@ session_ids = {'date--2024-02-22_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_n
     'date--2024-03-01_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
     'date--2024-02-29_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat', ...
     'date--2024-02-27_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'};
-time = linspace(-3,5,4000);
+time = linspace(-2.8,5,4000);
 for s = 1:length(session_ids)
     load(strcat(ftr_path, 'LFP/', session_ids{s}))
     mat = cell2mat(lfp_session.left_trigger_aligned_erp);
@@ -60,7 +60,6 @@ session_ids = {'date--2024-07-12_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_n
     'date--2024-07-25_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0', ...
     'date--2024-07-29_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0', ...
     'date--2024-07-31_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0'};
-time = linspace(-3,5,4000);
 csd = {};
 f0 = 0.5; f1 = 30;
 d = designfilt('bandpassiir', ...
@@ -99,16 +98,18 @@ layers{3} = [min(cell2mat(regMap.channel(contains(regMap.region, 'bfd4')))), max
 layers{4} = [min(cell2mat(regMap.channel(contains(regMap.region, 'bfd5')))), max(cell2mat(regMap.channel(contains(regMap.region, 'bfd5'))))] ./ 2;
 layers{5} = [min(cell2mat(regMap.channel(contains(regMap.region, 'bfd6')))), max(cell2mat(regMap.channel(contains(regMap.region, 'bfd6'))))] ./ 2;
 layer_names = {'L1', 'L2/3', 'L4', 'L5', 'L6'};
-for i = 1:length(layers)
+for i = 2:length(layers)
     plot([min(time),max(time)], [layers{i}(1), layers{i}(1)],  'k--')
     plot([min(time),max(time)], [layers{i}(2), layers{i}(2)],  'k--')
 end
-plot(time(1:end-1), smooth(mat(round(layers{1}(1))+5,:)*3e4, 10) + (layers{1}(1)+5), 'k-', 'LineWidth', 1.5)
-plot(time(1:end-1), smooth(mat(round(layers{1}(2))-5,:)*3e4, 10) + (layers{1}(2)-5), 'k-', 'LineWidth', 1.5)
 mids = fliplr(cellfun(@mean, layers));
+mids(1) = 133;
+mids(end) = 170;
 for m = 1:length(mids)
     plot(time(1:end-1), smooth((mat(round(mids(m)),:))*3e4, 10) + (mids(m)), 'k-', 'LineWidth', 1.5)
 end
+plot(time(1:end-1), smooth(mat(round(mids(end))+5,:)*3e4, 10) + (mids(end)+5), 'k-', 'LineWidth', 1.5)
+plot(time(1:end-1), smooth(mat(round(mids(end))-5,:)*3e4, 10) + (mids(end)-5), 'k-', 'LineWidth', 1.5)
 yticks(mids)
 yticklabels(fliplr(layer_names))
 ylim([122,178]); xlim([-0.1,0.8])

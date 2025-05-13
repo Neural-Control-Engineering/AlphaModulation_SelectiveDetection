@@ -1328,7 +1328,7 @@ unifyYLimits(axs)
 xlabel(tl, 'Avg. Firing Rate (Hz)')
 ylabel(tl, 'von Mises MSE')
 
-out_path = true;
+out_path = false;
 if ~exist('./Figures/', 'dir')
     mkdir('./Figures/')
 end
