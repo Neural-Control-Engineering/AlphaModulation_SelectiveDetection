@@ -40,6 +40,30 @@ PFC = PFC(cell2mat(PFC.avg_trial_fr) > 0.5, :);
 s1.out.alpha_modulated = s1.out.alpha_modulated(cell2mat(s1.out.alpha_modulated.avg_trial_fr) > 0.5, :);
 pfc.out.alpha_modulated = pfc.out.alpha_modulated(cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 0.5, :);
 
+exinds = load('ExcldInds/3738_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    S1(strcmp(S1.session_id, session_id) & S1.cluster_id == cid,:) = [];
+    s1.out.alpha_modulated(strcmp(s1.out.alpha_modulated.session_id, session_id) & s1.out.alpha_modulated.cluster_id == cid,:) = [];
+end
+exinds = load('ExcldInds/3387_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    S1(strcmp(S1.session_id, session_id) & S1.cluster_id == cid,:) = [];
+    s1.out.alpha_modulated(strcmp(s1.out.alpha_modulated.session_id, session_id) & s1.out.alpha_modulated.cluster_id == cid,:) = [];
+end
+
+inds = find(contains(PFC.region, 'AC') & strcmp(PFC.waveform_class, 'RS') & cell2mat(PFC.avg_trial_fr) > 15);
+for i = 1:length(inds)
+    PFC(inds(i),:).waveform_class{1} = 'FS';
+end
+inds = find(contains(pfc.out.alpha_modulated.region, 'AC') & strcmp(pfc.out.alpha_modulated.waveform_class, 'RS') & cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 15);
+for i = 1:length(inds)
+    pfc.out.alpha_modulated(inds(i),:).waveform_class{1} = 'FS';
+end
+
 s1_sessions = unique(S1.session_id);
 s1_l1_rs_frac = zeros(1,length(s1_sessions));
 s1_l2_rs_frac = zeros(1,length(s1_sessions));
@@ -397,6 +421,29 @@ l1_rs_table = table(l1_rs_group, l1_rs_subj, ...
 l1_rs_rm = fitrm(l1_rs_table, 't1-t50 ~ group', 'WithinDesign', Time);
 fprintf('L1 RS ANOVA:\n')
 l1_rs_ranova = ranova(l1_rs_rm)
+
+l1_mod_fs_delta = l1_mod_fs_hit-mean(l1_mod_fs_hit(:,time<0),2);
+l1_unmod_fs_delta = l1_unmod_fs_hit-mean(l1_unmod_fs_hit(:,time<0),2);
+l1_mod_fs_delta = l1_mod_fs_delta(:,time > 0);
+l1_unmod_fs_delta = l1_unmod_fs_delta(:,time > 0);
+l1_fs_delta = [l1_mod_fs_delta; l1_unmod_fs_delta];
+l1_fs_subj = vertcat(l1_mod_fs_subj, l1_unmod_fs_subj);
+l1_fs_group = [zeros(size(l1_mod_fs_delta,1),1); ones(size(l1_unmod_fs_delta,1),1)];
+l1_fs_table = table(l1_fs_group, l1_fs_subj, ...
+    l1_fs_delta(:,1), l1_fs_delta(:,2), l1_fs_delta(:,3), l1_fs_delta(:,4), l1_fs_delta(:,5), l1_fs_delta(:,6), l1_fs_delta(:,7), l1_fs_delta(:,8), l1_fs_delta(:,9), l1_fs_delta(:,10), ...
+    l1_fs_delta(:,11), l1_fs_delta(:,12), l1_fs_delta(:,13), l1_fs_delta(:,14), l1_fs_delta(:,15), l1_fs_delta(:,16), l1_fs_delta(:,17), l1_fs_delta(:,18), l1_fs_delta(:,19), l1_fs_delta(:,20), ...
+    l1_fs_delta(:,21), l1_fs_delta(:,22), l1_fs_delta(:,23), l1_fs_delta(:,24), l1_fs_delta(:,25), l1_fs_delta(:,26), l1_fs_delta(:,27), l1_fs_delta(:,28), l1_fs_delta(:,29), l1_fs_delta(:,30), ...
+    l1_fs_delta(:,31), l1_fs_delta(:,32), l1_fs_delta(:,33), l1_fs_delta(:,34), l1_fs_delta(:,35), l1_fs_delta(:,36), l1_fs_delta(:,37), l1_fs_delta(:,38), l1_fs_delta(:,39), l1_fs_delta(:,40), ...
+    l1_fs_delta(:,41), l1_fs_delta(:,42), l1_fs_delta(:,43), l1_fs_delta(:,44), l1_fs_delta(:,45), l1_fs_delta(:,46), l1_fs_delta(:,47), l1_fs_delta(:,48), l1_fs_delta(:,49), l1_fs_delta(:,50), ...
+    'VariableNames', {'group', 'subject', ...
+    't1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', ...
+    't11', 't12', 't13', 't14', 't15', 't16', 't17', 't18', 't19', 't20', ...
+    't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
+    't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
+    't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
+l1_fs_rm = fitrm(l1_fs_table, 't1-t50 ~ group', 'WithinDesign', Time);
+fprintf('L1 fs ANOVA:\n')
+l1_fs_ranova = ranova(l1_fs_rm)
 
 l2_mod_rs_delta = l2_mod_rs_hit-mean(l2_mod_rs_hit(:,time<0),2);
 l2_unmod_rs_delta = l2_unmod_rs_hit-mean(l2_unmod_rs_hit(:,time<0),2);

@@ -6032,3 +6032,64 @@ in paragraphs.
 * [2025-5-7 Wed] - sexes 
 *** 3755 - male according to softmouse 
 *** 1075 - female 
+
+* [2025-5-13 Tue] - 
+** TODOS
+*** DONE: figure out ACA RS assignment 
+**** a couple neurons with high firing rates reassigned to FS 
+*** TODO: analyze lick vs. no lick trials 
+*** TODO: retry alpha modulation of population on trial basis 
+**** example code 
+load /insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat
+session_ids = unique(out.alpha_modulated.session_id);
+init_paths;
+for s = 1:length(session_ids)
+    alpha_modulated = out.alpha_modulated(strcmp(out.alpha_modulated.session_id, session_ids{s}),:);
+    cids = alpha_modulated.cluster_id;
+    load(strcat(ext_path, 'AP/', session_ids{s}, '.mat'))
+    load(strcat(ext_path, 'SLRT/', session_ids{s}, '.mat'))
+    inds = find(strcmp(slrt_data.categorical_outcome, 'Hit'));
+    for i = 1:length(inds)
+        ind = inds(i);
+        all_phases = [];
+        for c = 1:length(cids)
+            phases = ap_data(ind,:).spiking_data{1}(ap_data(ind,:).spiking_data{1}.cluster_id == cids(c),:).spike_alpha_phase{1};
+            all_phases = [all_phases, phases(ap_data(ind,:).spiking_data{1}(ap_data(ind,:).spiking_data{1}.cluster_id == cids(c),:).left_trigger_aligned_spike_times{1} < 0)]; 
+        end
+        p_hit(i) = circ_rtest(all_phases);
+    end
+    inds = find(strcmp(slrt_data.categorical_outcome, 'Miss'));
+    for i = 1:length(inds)
+        ind = inds(i);
+        all_phases = [];
+        for c = 1:length(cids)
+            phases = ap_data(ind,:).spiking_data{1}(ap_data(ind,:).spiking_data{1}.cluster_id == cids(c),:).spike_alpha_phase{1};
+            all_phases = [all_phases, phases(ap_data(ind,:).spiking_data{1}(ap_data(ind,:).spiking_data{1}.cluster_id == cids(c),:).left_trigger_aligned_spike_times{1} < 0)]; 
+        end
+        p_miss(i) = circ_rtest(all_phases);
+    end
+    inds = find(strcmp(slrt_data.categorical_outcome, 'FA'));
+    for i = 1:length(inds)
+        ind = inds(i);
+        all_phases = [];
+        for c = 1:length(cids)
+            phases = ap_data(ind,:).spiking_data{1}(ap_data(ind,:).spiking_data{1}.cluster_id == cids(c),:).spike_alpha_phase{1};
+            all_phases = [all_phases, phases(ap_data(ind,:).spiking_data{1}(ap_data(ind,:).spiking_data{1}.cluster_id == cids(c),:).right_trigger_aligned_spike_times{1} < 0)]; 
+        end
+        if ~isempty(all_phases)
+            p_fa(i) = circ_rtest(all_phases);
+        else
+            p_fa(i) = nan;
+        end
+    end
+    inds = find(strcmp(slrt_data.categorical_outcome, 'CR'));
+    for i = 1:length(inds)
+        ind = inds(i);  
+        all_phases = [];
+        for c = 1:length(cids)
+            phases = ap_data(ind,:).spiking_data{1}(ap_data(ind,:).spiking_data{1}.cluster_id == cids(c),:).spike_alpha_phase{1};
+            all_phases = [all_phases, phases(ap_data(ind,:).spiking_data{1}(ap_data(ind,:).spiking_data{1}.cluster_id == cids(c),:).right_trigger_aligned_spike_times{1} < 0)]; 
+        end
+        p_cr(i) = circ_rtest(all_phases);
+    end
+end

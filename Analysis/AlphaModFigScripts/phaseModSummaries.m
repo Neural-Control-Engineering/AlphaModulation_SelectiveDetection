@@ -48,6 +48,39 @@ striatum.out.alpha_modulated = striatum.out.alpha_modulated(cell2mat(striatum.ou
 amygdala.out.alpha_modulated = amygdala.out.alpha_modulated(cell2mat(amygdala.out.alpha_modulated.avg_trial_fr) > 0.5, :);
 pfc.out.alpha_modulated = pfc.out.alpha_modulated(cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 0.5, :);
 
+exinds = load('ExcldInds/3738_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    S1(strcmp(S1.session_id, session_id) & S1.cluster_id == cid,:) = [];
+    s1.out.alpha_modulated(strcmp(s1.out.alpha_modulated.session_id, session_id) & s1.out.alpha_modulated.cluster_id == cid,:) = [];
+    Striatum(strcmp(Striatum.session_id, session_id) & Striatum.cluster_id == cid,:) = [];
+    striatum.out.alpha_modulated(strcmp(striatum.out.alpha_modulated.session_id, session_id) & striatum.out.alpha_modulated.cluster_id == cid,:) = [];
+    Amygdala(strcmp(Amygdala.session_id, session_id) & Amygdala.cluster_id == cid,:) = [];
+    amygdala.out.alpha_modulated(strcmp(amygdala.out.alpha_modulated.session_id, session_id) & amygdala.out.alpha_modulated.cluster_id == cid,:) = [];
+end
+exinds = load('ExcldInds/3387_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    S1(strcmp(S1.session_id, session_id) & S1.cluster_id == cid,:) = [];
+    s1.out.alpha_modulated(strcmp(s1.out.alpha_modulated.session_id, session_id) & s1.out.alpha_modulated.cluster_id == cid,:) = [];
+    Striatum(strcmp(Striatum.session_id, session_id) & Striatum.cluster_id == cid,:) = [];
+    striatum.out.alpha_modulated(strcmp(striatum.out.alpha_modulated.session_id, session_id) & striatum.out.alpha_modulated.cluster_id == cid,:) = [];
+    Amygdala(strcmp(Amygdala.session_id, session_id) & Amygdala.cluster_id == cid,:) = [];
+    amygdala.out.alpha_modulated(strcmp(amygdala.out.alpha_modulated.session_id, session_id) & amygdala.out.alpha_modulated.cluster_id == cid,:) = [];
+end
+
+inds = find(contains(PFC.region, 'AC') & strcmp(PFC.waveform_class, 'RS') & cell2mat(PFC.avg_trial_fr) > 15);
+for i = 1:length(inds)
+    PFC(inds(i),:).waveform_class{1} = 'FS';
+end
+inds = find(contains(pfc.out.alpha_modulated.region, 'AC') & strcmp(pfc.out.alpha_modulated.waveform_class, 'RS') & cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 15);
+for i = 1:length(inds)
+    pfc.out.alpha_modulated(inds(i),:).waveform_class{1} = 'FS';
+end
+
+
 s1_sessions = unique(S1.session_id);
 s1_rs_fracs = zeros(1,length(s1_sessions));
 s1_fs_fracs = zeros(1,length(s1_sessions));
