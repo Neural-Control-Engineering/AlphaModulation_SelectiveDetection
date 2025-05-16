@@ -5969,12 +5969,17 @@ but rather a meaningful shift in the shape of the distribution. The authors shou
 
 11. In Figure 2H, what are the units on the x-axis? If it's time (e.g., seconds), then it is odd that the oscillatory phase remains so consistent? Please clarify.
 ** TODOS:
-*** TODO: plot as line rather than heat map 
+*** DONE: plot as line rather than heat map 
 
 12. For the neurons that show a bimodal distribution, it is unclear why the authors chose a Gaussian vs. a Von misses function (Lines 45-47, Page 6). The data are 
 in radians, no? Please clarify.
 ** TODOS:
-*** TODO: check out Gatto2007-mc for generalized von mises 
+*** DONE: check out Gatto2007-mc for generalized von mises 
+**** a bit overly complicated 
+*** DONE: mixture of von Mises
+**** mvmdist package: https://github.com/chrschy/mvmdist.git
+**** Dhillon2003-bk, Bentley2006-le (UT Austin CS Tech Report, Simon Frasier Masters Thesis)
+*** DONE: sorting phase mod neurons by fitted mixture of von mises 
 
 13. The authors repeatedly assert that neural activity increases in response to reward delivery (e.g., line 30 on page 10). However, the neural data appear to be 
 time-locked to stimulus onset rather than to the reward itself. This raises concerns about the validity of the claim that the observed activity is specifically 
@@ -6033,11 +6038,18 @@ in paragraphs.
 *** 3755 - male according to softmouse 
 *** 1075 - female 
 
-* [2025-5-13 Tue] - 
+* [2025-5-13 Tue] - working through reanalysis
 ** TODOS
 *** DONE: figure out ACA RS assignment 
 **** a couple neurons with high firing rates reassigned to FS 
 *** TODO: analyze lick vs. no lick trials 
+*** TODO: flesh out stats for mod vs unmod firing rates 
+*** TODO: basline firing rates between mod and unmod neurons 
+**** significant with ranksum (not normally distributed)
+**** means very close though 
+*** TODO: consider removing amygdala 
+**** so few neurons (modulated or otherwise)
+**** much less confident what is amygdala given layer adjustments w/ CSD 
 *** TODO: retry alpha modulation of population on trial basis 
 **** example code 
 load /insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat

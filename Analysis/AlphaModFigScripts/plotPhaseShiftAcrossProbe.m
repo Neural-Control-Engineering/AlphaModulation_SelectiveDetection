@@ -68,30 +68,28 @@ fig = figure();
 tl = tiledlayout(1,2);
 axs(1) = nexttile;
 hold on
-imagesc(mean(s1_phase_shifts)'); 
-clim([-pi,pi]); 
-load(strcat(subject_path, '3738-20240702/regionMap.mat'));
+% imagesc(mean(s1_phase_shifts)'); 
+plot(mean(s1_phase_shifts), 1:length(s1_phase_shifts))
+load(strcat(subject_path, '3738-20240702/regionMap_adjusted.mat'));
 l6 = round(97 - find(contains(regMap.region, '6'), 1, 'last') / 4);
 str_begin = round(97 - find(contains(regMap.region, 'CP'), 1, 'first') / 4);
 str_end = round(97 - find(contains(regMap.region, 'STR'), 1, 'last') / 4);
 amy_begin = round(97 - find(contains(regMap.region, 'LA'), 1, 'first') / 4);
 amy_end = round(97 - find(contains(regMap.region, 'LA'), 1, 'last') / 4);
-set(gca, 'YDir', 'normal')
-plot([0.5,1.5], [l6,l6], 'k--')
-plot([0.5,1.5], [str_begin,str_begin], 'k--')
-plot([0.5,1.5], [str_end,str_end], 'k--')
-plot([0.5,1.5], [amy_begin,amy_begin], 'k--')
-plot([0.5,1.5], [amy_end,amy_end], 'k--')
+plot([-pi,pi], [l6,l6], 'k--')
+plot([-pi,pi], [str_end,str_end], 'k--')
+plot([-pi,pi], [amy_begin,amy_begin], 'k--')
 yticks([mean([amy_end, amy_begin]), ...
     mean([str_end, str_begin]), ...
     mean([l6, 97])]);
 yticklabels({'Amygdala', 'Striatum', 'S1'})
-ylim([1,97])
-xticks([])
+ylim([1,90])
+xticks([-pi,0,pi])
+xticklabels({'-\pi','0','\pi'})
 
 axxs(2) = nexttile;
 hold on
-imagesc(mean(pfc_phase_shifts)'); 
+plot(mean(pfc_phase_shifts), 1:length(pfc_phase_shifts)); 
 load(strcat(subject_path, '3755-20240828/regionMap.mat'));
 ac_begin = round(97 - find(contains(regMap.region, 'AC'), 1, 'first') / 4);
 ac_end = round(97 - find(contains(regMap.region, 'AC'), 1, 'last') / 4);
@@ -103,17 +101,12 @@ orb_begin = round(97 - find(contains(regMap.region, 'ORB'), 1, 'first') / 4);
 orb_end = round(97 - find(contains(regMap.region, 'ORB'), 1, 'last') / 4);
 dp_begin = round(97 - find(contains(regMap.region, 'DP'), 1, 'first') / 4);
 dp_end = round(97 - find(contains(regMap.region, 'DP'), 1, 'last') / 4);
-plot([0.5,1.5], [ac_begin,ac_begin], 'k--')
-plot([0.5,1.5], [ac_end,ac_end], 'k--')
-plot([0.5,1.5], [pl_begin,pl_begin], 'k--')
-plot([0.5,1.5], [pl_end,pl_end], 'k--')
-plot([0.5,1.5], [il_begin,il_begin], 'k--')
-plot([0.5,1.5], [il_end,il_end], 'k--')
-plot([0.5,1.5], [orb_begin,orb_begin], 'k--')
-plot([0.5,1.5], [orb_end,orb_end], 'k--')
-plot([0.5,1.5], [dp_begin,dp_begin], 'k--')
-plot([0.5,1.5], [dp_end,dp_end], 'k--')
-clim([-pi,pi]);  colorbar();
+plot([-pi,pi], [ac_end,ac_end], 'k--')
+plot([-pi,pi], [pl_begin,pl_begin], 'k--')
+plot([-pi,pi], [il_begin,il_begin], 'k--')
+plot([-pi,pi], [il_end,il_end], 'k--')
+plot([-pi,pi], [orb_end,orb_end], 'k--')
+plot([-pi,pi], [dp_end,dp_end], 'k--')
 yticks([mean([1, dp_end]), ...
     mean([dp_end, dp_begin]), ...
     mean([orb_end, orb_begin]), ...
@@ -123,8 +116,9 @@ yticks([mean([1, dp_end]), ...
     mean([ac_begin, 97])]);
 yticklabels({'AON', 'DP', 'ORB', 'IL', 'PL', 'ACC', 'MO'})
 set(gca, 'YDir', 'normal')
-ylim([1,97])
-xticks([])
+ylim([1,85])
+xticks([-pi,0,pi])
+xticklabels({'-\pi','0','\pi'})
 
 mkdir('./Figures/')
 saveas(fig, 'Figures/compare_avg_phase_shifts.fig');

@@ -1,57 +1,59 @@
-addpath(genpath('~/circstat-matlab/'))
-init_paths;
-s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
-pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'));
-striatum = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
-amygdala = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/data.mat'));
+% addpath(genpath('~/circstat-matlab/'))
+% init_paths;
+% s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
+% pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'));
+% striatum = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
+% amygdala = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/data.mat'));
 
-%% s1 sessions
-% combine animals
-ftr_files = {strcat(ftr_path, '/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat'), ...
-    strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat')};
-for i = 1:length(ftr_files)
-    f = load(ftr_files{i});
-    if i == 1
-        ftrs = f.ap_ftr;
-    else
-        ftrs = combineTables(ftrs, f.ap_ftr);
-    end
-end
-S1 = ftrs(startsWith(ftrs.region, 'SS'),:);
-striatum_inds = strcmp(ftrs.region, 'STR') + strcmp(ftrs.region, 'CP');
-Striatum = ftrs(logical(striatum_inds), :);
-amygdala_inds = strcmp(ftrs.region, 'BLAp') + strcmp(ftrs.region, 'LA');
-Amygdala = ftrs(logical(amygdala_inds), :);
+% %% s1 sessions
+% % combine animals
+% ftr_files = {strcat(ftr_path, '/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat'), ...
+%     strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat')};
+% for i = 1:length(ftr_files)
+%     f = load(ftr_files{i});
+%     if i == 1
+%         ftrs = f.ap_ftr;
+%     else
+%         ftrs = combineTables(ftrs, f.ap_ftr);
+%     end
+% end
+% S1 = ftrs(startsWith(ftrs.region, 'SS'),:);
+% striatum_inds = strcmp(ftrs.region, 'STR') + strcmp(ftrs.region, 'CP');
+% Striatum = ftrs(logical(striatum_inds), :);
+% amygdala_inds = strcmp(ftrs.region, 'BLAp') + strcmp(ftrs.region, 'LA');
+% Amygdala = ftrs(logical(amygdala_inds), :);
 
-ftr_files = {strcat(ftr_path, '/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
-    strcat(ftr_path, '/AP/subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
-for i = 1:length(ftr_files)
-    f = load(ftr_files{i});
-    if i == 1
-        ftrs = f.ap_ftr;
-    else
-        ftrs = combineTables(ftrs, f.ap_ftr);
-    end
-end
-pfc_inds = startsWith(ftrs.region, 'DP') + startsWith(ftrs.region, 'AC') ...
-    + startsWith(ftrs.region, 'PL') + startsWith(ftrs.region, 'IL') ...
-    + startsWith(ftrs.region, 'OR');
-pfc_inds = logical(pfc_inds);
-PFC = ftrs(pfc_inds,:);
+% ftr_files = {strcat(ftr_path, '/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
+%     strcat(ftr_path, '/AP/subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
+% for i = 1:length(ftr_files)
+%     f = load(ftr_files{i});
+%     if i == 1
+%         ftrs = f.ap_ftr;
+%     else
+%         ftrs = combineTables(ftrs, f.ap_ftr);
+%     end
+% end
+% pfc_inds = startsWith(ftrs.region, 'DP') + startsWith(ftrs.region, 'AC') ...
+%     + startsWith(ftrs.region, 'PL') + startsWith(ftrs.region, 'IL') ...
+%     + startsWith(ftrs.region, 'OR');
+% pfc_inds = logical(pfc_inds);
+% PFC = ftrs(pfc_inds,:);
 
-S1 = S1(cell2mat(S1.avg_trial_fr) > 0.5, :);
-Striatum = Striatum(cell2mat(Striatum.avg_trial_fr) > 0.5, :);
-Amygdala = Amygdala(cell2mat(Amygdala.avg_trial_fr) > 0.5, :);
-PFC = PFC(cell2mat(PFC.avg_trial_fr) > 0.5, :);
-s1.out.alpha_modulated = s1.out.alpha_modulated(cell2mat(s1.out.alpha_modulated.avg_trial_fr) > 0.5, :);
-striatum.out.alpha_modulated = striatum.out.alpha_modulated(cell2mat(striatum.out.alpha_modulated.avg_trial_fr) > 0.5, :);
-amygdala.out.alpha_modulated = amygdala.out.alpha_modulated(cell2mat(amygdala.out.alpha_modulated.avg_trial_fr) > 0.5, :);
-pfc.out.alpha_modulated = pfc.out.alpha_modulated(cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+% %-----------------------------------------------------%
+% % quality control
+% S1 = S1(cell2mat(S1.avg_trial_fr) > 0.5, :);
+% Striatum = Striatum(cell2mat(Striatum.avg_trial_fr) > 0.5, :);
+% Amygdala = Amygdala(cell2mat(Amygdala.avg_trial_fr) > 0.5, :);
+% PFC = PFC(cell2mat(PFC.avg_trial_fr) > 0.5, :);
+% s1.out.alpha_modulated = s1.out.alpha_modulated(cell2mat(s1.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+% striatum.out.alpha_modulated = striatum.out.alpha_modulated(cell2mat(striatum.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+% amygdala.out.alpha_modulated = amygdala.out.alpha_modulated(cell2mat(amygdala.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+% pfc.out.alpha_modulated = pfc.out.alpha_modulated(cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 0.5, :);
 
-exinds = load('ExcldInds/3738_excld.mat');
-for i = 1:length(exinds.excld{1})
-    session_id = exinds.excld{1}{i};
-    cid = exinds.excld{2}{i};
+exinds = load('ExcldInds/3738_excld_v2.mat');
+for i = 1:length(exinds.new_excld{1})
+    session_id = exinds.new_excld{1}{i};
+    cid = exinds.new_excld{2}{i};
     S1(strcmp(S1.session_id, session_id) & S1.cluster_id == cid,:) = [];
     s1.out.alpha_modulated(strcmp(s1.out.alpha_modulated.session_id, session_id) & s1.out.alpha_modulated.cluster_id == cid,:) = [];
     Striatum(strcmp(Striatum.session_id, session_id) & Striatum.cluster_id == cid,:) = [];
@@ -79,7 +81,7 @@ inds = find(contains(pfc.out.alpha_modulated.region, 'AC') & strcmp(pfc.out.alph
 for i = 1:length(inds)
     pfc.out.alpha_modulated(inds(i),:).waveform_class{1} = 'FS';
 end
-
+%-----------------------------------------------------%
 
 s1_sessions = unique(S1.session_id);
 s1_rs_fracs = zeros(1,length(s1_sessions));
@@ -259,6 +261,15 @@ s1_mod_rs_subj = {};
 s1_mod_fs_subj = {};
 s1_unmod_rs_subj = {};
 s1_unmod_fs_subj = {};
+s1_mod_rs_baseline = [];
+s1_mod_fs_baseline = [];
+s1_unmod_rs_baseline = [];
+s1_unmod_fs_baseline = [];
+
+s1_mod_rs_evoked = [];
+s1_mod_fs_evoked = [];
+s1_unmod_rs_evoked = [];
+s1_unmod_fs_evoked = [];
 
 for s = 1:length(s1_sessions)
     session_id = s1_sessions{s};
@@ -285,6 +296,9 @@ for s = 1:length(s1_sessions)
     s1_mod_rs_fa = [s1_mod_rs_fa; cell2mat(s1_rs.right_trigger_aligned_avg_fr_FA)];
     s1_mod_fs_fa = [s1_mod_fs_fa; cell2mat(s1_fs.right_trigger_aligned_avg_fr_FA)];
 
+    s1_mod_rs_baseline = [s1_mod_rs_baseline; cell2mat(s1_rs.avg_baseline_fr)];
+    s1_mod_fs_baseline = [s1_mod_fs_baseline; cell2mat(s1_fs.avg_baseline_fr)];
+
     s1_unmod_rs_hit = [s1_unmod_rs_hit; cell2mat(S1_rs.left_trigger_aligned_avg_fr_Hit)];
     s1_unmod_fs_hit = [s1_unmod_fs_hit; cell2mat(S1_fs.left_trigger_aligned_avg_fr_Hit)];
     s1_unmod_rs_miss = [s1_unmod_rs_miss; cell2mat(S1_rs.left_trigger_aligned_avg_fr_Miss)];
@@ -293,6 +307,9 @@ for s = 1:length(s1_sessions)
     s1_unmod_fs_cr = [s1_unmod_fs_cr; cell2mat(S1_fs.right_trigger_aligned_avg_fr_CR)];
     s1_unmod_rs_fa = [s1_unmod_rs_fa; cell2mat(S1_rs.right_trigger_aligned_avg_fr_FA)];
     s1_unmod_fs_fa = [s1_unmod_fs_fa; cell2mat(S1_fs.right_trigger_aligned_avg_fr_FA)];
+
+    s1_unmod_rs_baseline = [s1_unmod_rs_baseline; cell2mat(S1_rs.avg_baseline_fr)];
+    s1_unmod_fs_baseline = [s1_unmod_fs_baseline; cell2mat(S1_fs.avg_baseline_fr)];
 
     for id = 1:length(s1_rs.session_id)
         sesh = s1_rs.session_id{id};
@@ -351,6 +368,10 @@ pfc_mod_rs_subj = {};
 pfc_mod_fs_subj = {};
 pfc_unmod_rs_subj = {};
 pfc_unmod_fs_subj = {};
+pfc_mod_rs_baseline = [];
+pfc_mod_fs_baseline = [];
+pfc_unmod_rs_baseline = [];
+pfc_unmod_fs_baseline = [];
 
 for s = 1:length(pfc_sessions)
     session_id = pfc_sessions{s};
@@ -377,6 +398,9 @@ for s = 1:length(pfc_sessions)
     pfc_mod_rs_fa = [pfc_mod_rs_fa; cell2mat(pfc_rs.right_trigger_aligned_avg_fr_FA)];
     pfc_mod_fs_fa = [pfc_mod_fs_fa; cell2mat(pfc_fs.right_trigger_aligned_avg_fr_FA)];
 
+    pfc_mod_rs_baseline = [pfc_mod_rs_baseline; cell2mat(pfc_rs.avg_baseline_fr)];
+    pfc_mod_fs_baseline = [pfc_mod_fs_baseline; cell2mat(pfc_fs.avg_baseline_fr)];
+
     pfc_unmod_rs_hit = [pfc_unmod_rs_hit; cell2mat(PFC_rs.left_trigger_aligned_avg_fr_Hit)];
     pfc_unmod_fs_hit = [pfc_unmod_fs_hit; cell2mat(PFC_fs.left_trigger_aligned_avg_fr_Hit)];
     pfc_unmod_rs_miss = [pfc_unmod_rs_miss; cell2mat(PFC_rs.left_trigger_aligned_avg_fr_Miss)];
@@ -385,6 +409,9 @@ for s = 1:length(pfc_sessions)
     pfc_unmod_fs_cr = [pfc_unmod_fs_cr; cell2mat(PFC_fs.right_trigger_aligned_avg_fr_CR)];
     pfc_unmod_rs_fa = [pfc_unmod_rs_fa; cell2mat(PFC_rs.right_trigger_aligned_avg_fr_FA)];
     pfc_unmod_fs_fa = [pfc_unmod_fs_fa; cell2mat(PFC_fs.right_trigger_aligned_avg_fr_FA)];
+
+    pfc_unmod_rs_baseline = [pfc_unmod_rs_baseline; cell2mat(PFC_rs.avg_baseline_fr)];
+    pfc_unmod_fs_baseline = [pfc_unmod_fs_baseline; cell2mat(PFC_fs.avg_baseline_fr)];
 
     for id = 1:length(pfc_rs.session_id)
         sesh = pfc_rs.session_id{id};
@@ -443,6 +470,11 @@ striatum_mod_rs_subj = {};
 striatum_mod_fs_subj = {};
 striatum_unmod_rs_subj = {};
 striatum_unmod_fs_subj = {};
+striatum_mod_rs_baseline = [];
+striatum_mod_fs_baseline = [];
+striatum_unmod_rs_baseline = [];
+striatum_unmod_fs_baseline = [];
+
 
 for s = 1:length(striatum_sessions)
     session_id = striatum_sessions{s};
@@ -469,6 +501,9 @@ for s = 1:length(striatum_sessions)
     striatum_mod_rs_fa = [striatum_mod_rs_fa; cell2mat(striatum_rs.right_trigger_aligned_avg_fr_FA)];
     striatum_mod_fs_fa = [striatum_mod_fs_fa; cell2mat(striatum_fs.right_trigger_aligned_avg_fr_FA)];
 
+    striatum_mod_rs_baseline = [striatum_mod_rs_baseline; cell2mat(striatum_rs.avg_baseline_fr)];
+    striatum_mod_fs_baseline = [striatum_mod_fs_baseline; cell2mat(striatum_fs.avg_baseline_fr)];
+
     striatum_unmod_rs_hit = [striatum_unmod_rs_hit; cell2mat(Striatum_rs.left_trigger_aligned_avg_fr_Hit)];
     striatum_unmod_fs_hit = [striatum_unmod_fs_hit; cell2mat(Striatum_fs.left_trigger_aligned_avg_fr_Hit)];
     striatum_unmod_rs_miss = [striatum_unmod_rs_miss; cell2mat(Striatum_rs.left_trigger_aligned_avg_fr_Miss)];
@@ -477,6 +512,9 @@ for s = 1:length(striatum_sessions)
     striatum_unmod_fs_cr = [striatum_unmod_fs_cr; cell2mat(Striatum_fs.right_trigger_aligned_avg_fr_CR)];
     striatum_unmod_rs_fa = [striatum_unmod_rs_fa; cell2mat(Striatum_rs.right_trigger_aligned_avg_fr_FA)];
     striatum_unmod_fs_fa = [striatum_unmod_fs_fa; cell2mat(Striatum_fs.right_trigger_aligned_avg_fr_FA)];
+
+    striatum_unmod_rs_baseline = [striatum_unmod_rs_baseline; cell2mat(Striatum_rs.avg_baseline_fr)];
+    striatum_unmod_fs_baseline = [striatum_unmod_fs_baseline; cell2mat(Striatum_fs.avg_baseline_fr)];
 
     for id = 1:length(striatum_rs.session_id)
         sesh = striatum_rs.session_id{id};
@@ -535,6 +573,10 @@ amygdala_mod_rs_subj = {};
 amygdala_mod_fs_subj = {};
 amygdala_unmod_rs_subj = {};
 amygdala_unmod_fs_subj = {};
+amygdala_mod_rs_baseline = [];
+amygdala_mod_fs_baseline = [];
+amygdala_unmod_rs_baseline = [];
+amygdala_unmod_fs_baseline = [];
 
 for s = 1:length(amygdala_sessions)
     session_id = amygdala_sessions{s};
@@ -561,6 +603,9 @@ for s = 1:length(amygdala_sessions)
     amygdala_mod_rs_fa = [amygdala_mod_rs_fa; cell2mat(amygdala_rs.right_trigger_aligned_avg_fr_FA)];
     amygdala_mod_fs_fa = [amygdala_mod_fs_fa; cell2mat(amygdala_fs.right_trigger_aligned_avg_fr_FA)];
 
+    amygdala_mod_rs_baseline = [amygdala_mod_rs_baseline; cell2mat(amygdala_rs.avg_baseline_fr)];
+    amygdala_mod_fs_baseline = [amygdala_mod_fs_baseline; cell2mat(amygdala_fs.avg_baseline_fr)];
+
     amygdala_unmod_rs_hit = [amygdala_unmod_rs_hit; cell2mat(Amygdala_rs.left_trigger_aligned_avg_fr_Hit)];
     amygdala_unmod_fs_hit = [amygdala_unmod_fs_hit; cell2mat(Amygdala_fs.left_trigger_aligned_avg_fr_Hit)];
     amygdala_unmod_rs_miss = [amygdala_unmod_rs_miss; cell2mat(Amygdala_rs.left_trigger_aligned_avg_fr_Miss)];
@@ -569,6 +614,9 @@ for s = 1:length(amygdala_sessions)
     amygdala_unmod_fs_cr = [amygdala_unmod_fs_cr; cell2mat(Amygdala_fs.right_trigger_aligned_avg_fr_CR)];
     amygdala_unmod_rs_fa = [amygdala_unmod_rs_fa; cell2mat(Amygdala_rs.right_trigger_aligned_avg_fr_FA)];
     amygdala_unmod_fs_fa = [amygdala_unmod_fs_fa; cell2mat(Amygdala_fs.right_trigger_aligned_avg_fr_FA)];
+
+    amygdala_unmod_rs_baseline = [amygdala_unmod_rs_baseline; cell2mat(Amygdala_rs.avg_baseline_fr)];
+    amygdala_unmod_fs_baseline = [amygdala_unmod_fs_baseline; cell2mat(Amygdala_fs.avg_baseline_fr)];
 
     for id = 1:length(amygdala_rs.session_id)
         sesh = amygdala_rs.session_id{id};
@@ -643,6 +691,407 @@ ylabel('% Neurons Modulated by Alpha', 'FontSize', 18)
 ax = gca;
 ax.XAxis.FontSize = 18;
 ax.YAxis.FontSize = 16;
+
+%% evoked fig 
+s1_mod_rs_delta_hit = s1_mod_rs_hit-mean(s1_mod_rs_hit(:,time<0),2);
+s1_mod_rs_evoked_hit = max(s1_mod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
+s1_mod_fs_delta_hit = s1_mod_fs_hit-mean(s1_mod_fs_hit(:,time<0),2);
+s1_mod_fs_evoked_hit = max(s1_mod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
+
+s1_unmod_rs_delta_hit = s1_unmod_rs_hit-mean(s1_unmod_rs_hit(:,time<0),2);
+s1_unmod_rs_evoked_hit = max(s1_unmod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
+s1_unmod_fs_delta_hit = s1_unmod_fs_hit-mean(s1_unmod_fs_hit(:,time<0),2);
+s1_unmod_fs_evoked_hit = max(s1_unmod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
+
+s1_mod_rs_delta_miss = s1_mod_rs_miss-mean(s1_mod_rs_miss(:,time<0),2);
+s1_mod_rs_evoked_miss = max(s1_mod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
+s1_mod_fs_delta_miss = s1_mod_fs_miss-mean(s1_mod_fs_miss(:,time<0),2);
+s1_mod_fs_evoked_miss = max(s1_mod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
+
+s1_unmod_rs_delta_miss = s1_unmod_rs_miss-mean(s1_unmod_rs_miss(:,time<0),2);
+s1_unmod_rs_evoked_miss = max(s1_unmod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
+s1_unmod_fs_delta_miss = s1_unmod_fs_miss-mean(s1_unmod_fs_miss(:,time<0),2);
+s1_unmod_fs_evoked_miss = max(s1_unmod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
+
+pfc_mod_rs_delta_hit = pfc_mod_rs_hit-mean(pfc_mod_rs_hit(:,time<0),2);
+pfc_mod_rs_evoked_hit = max(pfc_mod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
+pfc_mod_fs_delta_hit = pfc_mod_fs_hit-mean(pfc_mod_fs_hit(:,time<0),2);
+pfc_mod_fs_evoked_hit = max(pfc_mod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
+
+pfc_unmod_rs_delta_hit = pfc_unmod_rs_hit-mean(pfc_unmod_rs_hit(:,time<0),2);
+pfc_unmod_rs_evoked_hit = max(pfc_unmod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
+pfc_unmod_fs_delta_hit = pfc_unmod_fs_hit-mean(pfc_unmod_fs_hit(:,time<0),2);
+pfc_unmod_fs_evoked_hit = max(pfc_unmod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
+
+pfc_mod_rs_delta_miss = pfc_mod_rs_miss-mean(pfc_mod_rs_miss(:,time<0),2);
+pfc_mod_rs_evoked_miss = max(pfc_mod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
+pfc_mod_fs_delta_miss = pfc_mod_fs_miss-mean(pfc_mod_fs_miss(:,time<0),2);
+pfc_mod_fs_evoked_miss = max(pfc_mod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
+
+pfc_unmod_rs_delta_miss = pfc_unmod_rs_miss-mean(pfc_unmod_rs_miss(:,time<0),2);
+pfc_unmod_rs_evoked_miss = max(pfc_unmod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
+pfc_unmod_fs_delta_miss = pfc_unmod_fs_miss-mean(pfc_unmod_fs_miss(:,time<0),2);
+pfc_unmod_fs_evoked_miss = max(pfc_unmod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
+
+striatum_mod_rs_delta_hit = striatum_mod_rs_hit-mean(striatum_mod_rs_hit(:,time<0),2);
+striatum_mod_rs_evoked_hit = max(striatum_mod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
+striatum_mod_fs_delta_hit = striatum_mod_fs_hit-mean(striatum_mod_fs_hit(:,time<0),2);
+striatum_mod_fs_evoked_hit = max(striatum_mod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
+
+striatum_unmod_rs_delta_hit = striatum_unmod_rs_hit-mean(striatum_unmod_rs_hit(:,time<0),2);
+striatum_unmod_rs_evoked_hit = max(striatum_unmod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
+striatum_unmod_fs_delta_hit = striatum_unmod_fs_hit-mean(striatum_unmod_fs_hit(:,time<0),2);
+striatum_unmod_fs_evoked_hit = max(striatum_unmod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
+
+striatum_mod_rs_delta_miss = striatum_mod_rs_miss-mean(striatum_mod_rs_miss(:,time<0),2);
+striatum_mod_rs_evoked_miss = max(striatum_mod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
+striatum_mod_fs_delta_miss = striatum_mod_fs_miss-mean(striatum_mod_fs_miss(:,time<0),2);
+striatum_mod_fs_evoked_miss = max(striatum_mod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
+
+striatum_unmod_rs_delta_miss = striatum_unmod_rs_miss-mean(striatum_unmod_rs_miss(:,time<0),2);
+striatum_unmod_rs_evoked_miss = max(striatum_unmod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
+striatum_unmod_fs_delta_miss = striatum_unmod_fs_miss-mean(striatum_unmod_fs_miss(:,time<0),2);
+striatum_unmod_fs_evoked_miss = max(striatum_unmod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
+
+amygdala_mod_rs_delta_hit = amygdala_mod_rs_hit-mean(amygdala_mod_rs_hit(:,time<0),2);
+amygdala_mod_rs_evoked_hit = max(amygdala_mod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
+amygdala_mod_fs_delta_hit = amygdala_mod_fs_hit-mean(amygdala_mod_fs_hit(:,time<0),2);
+amygdala_mod_fs_evoked_hit = max(amygdala_mod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
+
+amygdala_unmod_rs_delta_hit = amygdala_unmod_rs_hit-mean(amygdala_unmod_rs_hit(:,time<0),2);
+amygdala_unmod_rs_evoked_hit = max(amygdala_unmod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
+amygdala_unmod_fs_delta_hit = amygdala_unmod_fs_hit-mean(amygdala_unmod_fs_hit(:,time<0),2);
+amygdala_unmod_fs_evoked_hit = max(amygdala_unmod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
+
+amygdala_mod_rs_delta_miss = amygdala_mod_rs_miss-mean(amygdala_mod_rs_miss(:,time<0),2);
+amygdala_mod_rs_evoked_miss = max(amygdala_mod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
+amygdala_mod_fs_delta_miss = amygdala_mod_fs_miss-mean(amygdala_mod_fs_miss(:,time<0),2);
+amygdala_mod_fs_evoked_miss = max(amygdala_mod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
+
+amygdala_unmod_rs_delta_miss = amygdala_unmod_rs_miss-mean(amygdala_unmod_rs_miss(:,time<0),2);
+amygdala_unmod_rs_evoked_miss = max(amygdala_unmod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
+amygdala_unmod_fs_delta_miss = amygdala_unmod_fs_miss-mean(amygdala_unmod_fs_miss(:,time<0),2);
+amygdala_unmod_fs_evoked_miss = max(amygdala_unmod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
+
+s1_mod_rs_delta_cr = s1_mod_rs_cr-mean(s1_mod_rs_cr(:,time<0),2);
+s1_mod_rs_evoked_cr = max(s1_mod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
+s1_mod_fs_delta_cr = s1_mod_fs_cr-mean(s1_mod_fs_cr(:,time<0),2);
+s1_mod_fs_evoked_cr = max(s1_mod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
+
+s1_unmod_rs_delta_cr = s1_unmod_rs_cr-mean(s1_unmod_rs_cr(:,time<0),2);
+s1_unmod_rs_evoked_cr = max(s1_unmod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
+s1_unmod_fs_delta_cr = s1_unmod_fs_cr-mean(s1_unmod_fs_cr(:,time<0),2);
+s1_unmod_fs_evoked_cr = max(s1_unmod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
+
+s1_mod_rs_delta_fa = s1_mod_rs_fa-mean(s1_mod_rs_fa(:,time<0),2);
+s1_mod_rs_evoked_fa = max(s1_mod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
+s1_mod_fs_delta_fa = s1_mod_fs_fa-mean(s1_mod_fs_fa(:,time<0),2);
+s1_mod_fs_evoked_fa = max(s1_mod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
+
+s1_unmod_rs_delta_fa = s1_unmod_rs_fa-mean(s1_unmod_rs_fa(:,time<0),2);
+s1_unmod_rs_evoked_fa = max(s1_unmod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
+s1_unmod_fs_delta_fa = s1_unmod_fs_fa-mean(s1_unmod_fs_fa(:,time<0),2);
+s1_unmod_fs_evoked_fa = max(s1_unmod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
+
+pfc_mod_rs_delta_cr = pfc_mod_rs_cr-mean(pfc_mod_rs_cr(:,time<0),2);
+pfc_mod_rs_evoked_cr = max(pfc_mod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
+pfc_mod_fs_delta_cr = pfc_mod_fs_cr-mean(pfc_mod_fs_cr(:,time<0),2);
+pfc_mod_fs_evoked_cr = max(pfc_mod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
+
+pfc_unmod_rs_delta_cr = pfc_unmod_rs_cr-mean(pfc_unmod_rs_cr(:,time<0),2);
+pfc_unmod_rs_evoked_cr = max(pfc_unmod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
+pfc_unmod_fs_delta_cr = pfc_unmod_fs_cr-mean(pfc_unmod_fs_cr(:,time<0),2);
+pfc_unmod_fs_evoked_cr = max(pfc_unmod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
+
+pfc_mod_rs_delta_fa = pfc_mod_rs_fa-mean(pfc_mod_rs_fa(:,time<0),2);
+pfc_mod_rs_evoked_fa = max(pfc_mod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
+pfc_mod_fs_delta_fa = pfc_mod_fs_fa-mean(pfc_mod_fs_fa(:,time<0),2);
+pfc_mod_fs_evoked_fa = max(pfc_mod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
+
+pfc_unmod_rs_delta_fa = pfc_unmod_rs_fa-mean(pfc_unmod_rs_fa(:,time<0),2);
+pfc_unmod_rs_evoked_fa = max(pfc_unmod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
+pfc_unmod_fs_delta_fa = pfc_unmod_fs_fa-mean(pfc_unmod_fs_fa(:,time<0),2);
+pfc_unmod_fs_evoked_fa = max(pfc_unmod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
+
+striatum_mod_rs_delta_cr = striatum_mod_rs_cr-mean(striatum_mod_rs_cr(:,time<0),2);
+striatum_mod_rs_evoked_cr = max(striatum_mod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
+striatum_mod_fs_delta_cr = striatum_mod_fs_cr-mean(striatum_mod_fs_cr(:,time<0),2);
+striatum_mod_fs_evoked_cr = max(striatum_mod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
+
+striatum_unmod_rs_delta_cr = striatum_unmod_rs_cr-mean(striatum_unmod_rs_cr(:,time<0),2);
+striatum_unmod_rs_evoked_cr = max(striatum_unmod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
+striatum_unmod_fs_delta_cr = striatum_unmod_fs_cr-mean(striatum_unmod_fs_cr(:,time<0),2);
+striatum_unmod_fs_evoked_cr = max(striatum_unmod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
+
+striatum_mod_rs_delta_fa = striatum_mod_rs_fa-mean(striatum_mod_rs_fa(:,time<0),2);
+striatum_mod_rs_evoked_fa = max(striatum_mod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
+striatum_mod_fs_delta_fa = striatum_mod_fs_fa-mean(striatum_mod_fs_fa(:,time<0),2);
+striatum_mod_fs_evoked_fa = max(striatum_mod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
+
+striatum_unmod_rs_delta_fa = striatum_unmod_rs_fa-mean(striatum_unmod_rs_fa(:,time<0),2);
+striatum_unmod_rs_evoked_fa = max(striatum_unmod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
+striatum_unmod_fs_delta_fa = striatum_unmod_fs_fa-mean(striatum_unmod_fs_fa(:,time<0),2);
+striatum_unmod_fs_evoked_fa = max(striatum_unmod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
+
+amygdala_mod_rs_delta_cr = amygdala_mod_rs_cr-mean(amygdala_mod_rs_cr(:,time<0),2);
+amygdala_mod_rs_evoked_cr = max(amygdala_mod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
+amygdala_mod_fs_delta_cr = amygdala_mod_fs_cr-mean(amygdala_mod_fs_cr(:,time<0),2);
+amygdala_mod_fs_evoked_cr = max(amygdala_mod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
+
+amygdala_unmod_rs_delta_cr = amygdala_unmod_rs_cr-mean(amygdala_unmod_rs_cr(:,time<0),2);
+amygdala_unmod_rs_evoked_cr = max(amygdala_unmod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
+amygdala_unmod_fs_delta_cr = amygdala_unmod_fs_cr-mean(amygdala_unmod_fs_cr(:,time<0),2);
+amygdala_unmod_fs_evoked_cr = max(amygdala_unmod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
+
+amygdala_mod_rs_delta_fa = amygdala_mod_rs_fa-mean(amygdala_mod_rs_fa(:,time<0),2);
+amygdala_mod_rs_evoked_fa = max(amygdala_mod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
+amygdala_mod_fs_delta_fa = amygdala_mod_fs_fa-mean(amygdala_mod_fs_fa(:,time<0),2);
+amygdala_mod_fs_evoked_fa = max(amygdala_mod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
+
+amygdala_unmod_rs_delta_fa = amygdala_unmod_rs_fa-mean(amygdala_unmod_rs_fa(:,time<0),2);
+amygdala_unmod_rs_evoked_fa = max(amygdala_unmod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
+amygdala_unmod_fs_delta_fa = amygdala_unmod_fs_fa-mean(amygdala_unmod_fs_fa(:,time<0),2);
+amygdala_unmod_fs_evoked_fa = max(amygdala_unmod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
+
+evoked_fig = figure();
+tl = tiledlayout(3,2);
+axs(1,1) = nexttile;
+hold on
+violinplot(1, s1_mod_rs_evoked_hit, 'FaceColor', 'b')
+violinplot(2, s1_unmod_rs_evoked_hit, 'FaceColor', 'r')
+violinplot(4, s1_mod_rs_evoked_miss, 'FaceColor', 'b')
+violinplot(5, s1_unmod_rs_evoked_miss, 'FaceColor', 'r')
+violinplot(7, s1_mod_rs_evoked_cr, 'FaceColor', 'b')
+violinplot(8, s1_unmod_rs_evoked_cr, 'FaceColor', 'r')
+violinplot(10, s1_mod_rs_evoked_fa, 'FaceColor', 'b')
+violinplot(11, s1_unmod_rs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+ylabel('S1')
+title('Regular Spiking')
+
+axs(1,2) = nexttile;
+hold on
+violinplot(1, s1_mod_fs_evoked_hit, 'FaceColor', 'b')
+violinplot(2, s1_unmod_fs_evoked_hit, 'FaceColor', 'r')
+violinplot(4, s1_mod_fs_evoked_miss, 'FaceColor', 'b')
+violinplot(5, s1_unmod_fs_evoked_miss, 'FaceColor', 'r')
+violinplot(7, s1_mod_fs_evoked_cr, 'FaceColor', 'b')
+violinplot(8, s1_unmod_fs_evoked_cr, 'FaceColor', 'r')
+violinplot(10, s1_mod_fs_evoked_fa, 'FaceColor', 'b')
+violinplot(11, s1_unmod_fs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+title('Fast Spiking')
+
+axs(2,1) = nexttile;
+hold on
+violinplot(1, pfc_mod_rs_evoked_hit, 'FaceColor', 'b')
+violinplot(2, pfc_unmod_rs_evoked_hit, 'FaceColor', 'r')
+violinplot(4, pfc_mod_rs_evoked_miss, 'FaceColor', 'b')
+violinplot(5, pfc_unmod_rs_evoked_miss, 'FaceColor', 'r')
+violinplot(7, pfc_mod_rs_evoked_cr, 'FaceColor', 'b')
+violinplot(8, pfc_unmod_rs_evoked_cr, 'FaceColor', 'r')
+violinplot(10, pfc_mod_rs_evoked_fa, 'FaceColor', 'b')
+violinplot(11, pfc_unmod_rs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+ylabel('PFC')
+
+axs(2,2) = nexttile;
+hold on
+violinplot(1, pfc_mod_fs_evoked_hit, 'FaceColor', 'b')
+violinplot(2, pfc_unmod_fs_evoked_hit, 'FaceColor', 'r')
+violinplot(4, pfc_mod_fs_evoked_miss, 'FaceColor', 'b')
+violinplot(5, pfc_unmod_fs_evoked_miss, 'FaceColor', 'r')
+violinplot(7, pfc_mod_fs_evoked_cr, 'FaceColor', 'b')
+violinplot(8, pfc_unmod_fs_evoked_cr, 'FaceColor', 'r')
+violinplot(10, pfc_mod_fs_evoked_fa, 'FaceColor', 'b')
+violinplot(11, pfc_unmod_fs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+
+axs(3,1) = nexttile;
+hold on
+violinplot(1, striatum_mod_rs_evoked_hit, 'FaceColor', 'b')
+violinplot(2, striatum_unmod_rs_evoked_hit, 'FaceColor', 'r')
+violinplot(4, striatum_mod_rs_evoked_miss, 'FaceColor', 'b')
+violinplot(5, striatum_unmod_rs_evoked_miss, 'FaceColor', 'r')
+violinplot(7, striatum_mod_rs_evoked_cr, 'FaceColor', 'b')
+violinplot(8, striatum_unmod_rs_evoked_cr, 'FaceColor', 'r')
+violinplot(10, striatum_mod_rs_evoked_fa, 'FaceColor', 'b')
+violinplot(11, striatum_unmod_rs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+ylabel('Striatum')
+
+axs(3,2) = nexttile;
+hold on
+violinplot(1, striatum_mod_fs_evoked_hit, 'FaceColor', 'b')
+violinplot(2, striatum_unmod_fs_evoked_hit, 'FaceColor', 'r')
+violinplot(4, striatum_mod_fs_evoked_miss, 'FaceColor', 'b')
+violinplot(5, striatum_unmod_fs_evoked_miss, 'FaceColor', 'r')
+violinplot(7, striatum_mod_fs_evoked_cr, 'FaceColor', 'b')
+violinplot(8, striatum_unmod_fs_evoked_cr, 'FaceColor', 'r')
+violinplot(10, striatum_mod_fs_evoked_fa, 'FaceColor', 'b')
+violinplot(11, striatum_unmod_fs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+xlabel(tl, 'Trial Outcome')
+ylabel(tl, 'Evoked \Delta Firing Rate (Hz)')
+
+%% iti firing rates 
+s1_mod_rs_iti_hit = mean(s1_mod_rs_delta_hit(:,time>2 & time < 5),2);
+s1_mod_fs_iti_hit = mean(s1_mod_fs_delta_hit(:,time>2 & time < 5),2);
+s1_unmod_rs_iti_hit = mean(s1_unmod_rs_delta_hit(:,time>2 & time < 5),2);
+s1_unmod_fs_iti_hit = mean(s1_unmod_fs_delta_hit(:,time>2 & time < 5),2);
+s1_mod_rs_iti_miss = mean(s1_mod_rs_delta_miss(:,time>2 & time < 5),2);
+s1_mod_fs_iti_miss = mean(s1_mod_fs_delta_miss(:,time>2 & time < 5),2);
+s1_unmod_rs_iti_miss = mean(s1_unmod_rs_delta_miss(:,time>2 & time < 5),2);
+s1_unmod_fs_iti_miss = mean(s1_unmod_fs_delta_miss(:,time>2 & time < 5),2);
+s1_mod_rs_iti_cr = mean(s1_mod_rs_delta_cr(:,time>2 & time < 5),2);
+s1_mod_fs_iti_cr = mean(s1_mod_fs_delta_cr(:,time>2 & time < 5),2);
+s1_unmod_rs_iti_cr = mean(s1_unmod_rs_delta_cr(:,time>2 & time < 5),2);
+s1_unmod_fs_iti_cr = mean(s1_unmod_fs_delta_cr(:,time>2 & time < 5),2);
+s1_mod_rs_iti_fa = mean(s1_mod_rs_delta_fa(:,time>2 & time < 5),2);
+s1_mod_fs_iti_fa = mean(s1_mod_fs_delta_fa(:,time>2 & time < 5),2);
+s1_unmod_rs_iti_fa = mean(s1_unmod_rs_delta_fa(:,time>2 & time < 5),2);
+s1_unmod_fs_iti_fa = mean(s1_unmod_fs_delta_fa(:,time>2 & time < 5),2);
+pfc_mod_rs_iti_hit = mean(pfc_mod_rs_delta_hit(:,time>2 & time < 5),2);
+pfc_mod_fs_iti_hit = mean(pfc_mod_fs_delta_hit(:,time>2 & time < 5),2);
+pfc_unmod_rs_iti_hit = mean(pfc_unmod_rs_delta_hit(:,time>2 & time < 5),2);
+pfc_unmod_fs_iti_hit = mean(pfc_unmod_fs_delta_hit(:,time>2 & time < 5),2);
+pfc_mod_rs_iti_miss = mean(pfc_mod_rs_delta_miss(:,time>2 & time < 5),2);
+pfc_mod_fs_iti_miss = mean(pfc_mod_fs_delta_miss(:,time>2 & time < 5),2);
+pfc_unmod_rs_iti_miss = mean(pfc_unmod_rs_delta_miss(:,time>2 & time < 5),2);
+pfc_unmod_fs_iti_miss = mean(pfc_unmod_fs_delta_miss(:,time>2 & time < 5),2);
+pfc_mod_rs_iti_cr = mean(pfc_mod_rs_delta_cr(:,time>2 & time < 5),2);
+pfc_mod_fs_iti_cr = mean(pfc_mod_fs_delta_cr(:,time>2 & time < 5),2);
+pfc_unmod_rs_iti_cr = mean(pfc_unmod_rs_delta_cr(:,time>2 & time < 5),2);
+pfc_unmod_fs_iti_cr = mean(pfc_unmod_fs_delta_cr(:,time>2 & time < 5),2);
+pfc_mod_rs_iti_fa = mean(pfc_mod_rs_delta_fa(:,time>2 & time < 5),2);
+pfc_mod_fs_iti_fa = mean(pfc_mod_fs_delta_fa(:,time>2 & time < 5),2);
+pfc_unmod_rs_iti_fa = mean(pfc_unmod_rs_delta_fa(:,time>2 & time < 5),2);
+pfc_unmod_fs_iti_fa = mean(pfc_unmod_fs_delta_fa(:,time>2 & time < 5),2);
+striatum_mod_rs_iti_hit = mean(striatum_mod_rs_delta_hit(:,time>2 & time < 5),2);
+striatum_mod_fs_iti_hit = mean(striatum_mod_fs_delta_hit(:,time>2 & time < 5),2);
+striatum_unmod_rs_iti_hit = mean(striatum_unmod_rs_delta_hit(:,time>2 & time < 5),2);
+striatum_unmod_fs_iti_hit = mean(striatum_unmod_fs_delta_hit(:,time>2 & time < 5),2);
+striatum_mod_rs_iti_miss = mean(striatum_mod_rs_delta_miss(:,time>2 & time < 5),2);
+striatum_mod_fs_iti_miss = mean(striatum_mod_fs_delta_miss(:,time>2 & time < 5),2);
+striatum_unmod_rs_iti_miss = mean(striatum_unmod_rs_delta_miss(:,time>2 & time < 5),2);
+striatum_unmod_fs_iti_miss = mean(striatum_unmod_fs_delta_miss(:,time>2 & time < 5),2);
+striatum_mod_rs_iti_cr = mean(striatum_mod_rs_delta_cr(:,time>2 & time < 5),2);
+striatum_mod_fs_iti_cr = mean(striatum_mod_fs_delta_cr(:,time>2 & time < 5),2);
+striatum_unmod_rs_iti_cr = mean(striatum_unmod_rs_delta_cr(:,time>2 & time < 5),2);
+striatum_unmod_fs_iti_cr = mean(striatum_unmod_fs_delta_cr(:,time>2 & time < 5),2);
+striatum_mod_rs_iti_fa = mean(striatum_mod_rs_delta_fa(:,time>2 & time < 5),2);
+striatum_mod_fs_iti_fa = mean(striatum_mod_fs_delta_fa(:,time>2 & time < 5),2);
+striatum_unmod_rs_iti_fa = mean(striatum_unmod_rs_delta_fa(:,time>2 & time < 5),2);
+striatum_unmod_fs_iti_fa = mean(striatum_unmod_fs_delta_fa(:,time>2 & time < 5),2);
+amygdala_mod_rs_iti_hit = mean(amygdala_mod_rs_delta_hit(:,time>2 & time < 5),2);
+amygdala_mod_fs_iti_hit = mean(amygdala_mod_fs_delta_hit(:,time>2 & time < 5),2);
+amygdala_unmod_rs_iti_hit = mean(amygdala_unmod_rs_delta_hit(:,time>2 & time < 5),2);
+amygdala_unmod_fs_iti_hit = mean(amygdala_unmod_fs_delta_hit(:,time>2 & time < 5),2);
+amygdala_mod_rs_iti_miss = mean(amygdala_mod_rs_delta_miss(:,time>2 & time < 5),2);
+amygdala_mod_fs_iti_miss = mean(amygdala_mod_fs_delta_miss(:,time>2 & time < 5),2);
+amygdala_unmod_rs_iti_miss = mean(amygdala_unmod_rs_delta_miss(:,time>2 & time < 5),2);
+amygdala_unmod_fs_iti_miss = mean(amygdala_unmod_fs_delta_miss(:,time>2 & time < 5),2);
+amygdala_mod_rs_iti_cr = mean(amygdala_mod_rs_delta_cr(:,time>2 & time < 5),2);
+amygdala_mod_fs_iti_cr = mean(amygdala_mod_fs_delta_cr(:,time>2 & time < 5),2);
+amygdala_unmod_rs_iti_cr = mean(amygdala_unmod_rs_delta_cr(:,time>2 & time < 5),2);
+amygdala_unmod_fs_iti_cr = mean(amygdala_unmod_fs_delta_cr(:,time>2 & time < 5),2);
+amygdala_mod_rs_iti_fa = mean(amygdala_mod_rs_delta_fa(:,time>2 & time < 5),2);
+amygdala_mod_fs_iti_fa = mean(amygdala_mod_fs_delta_fa(:,time>2 & time < 5),2);
+amygdala_unmod_rs_iti_fa = mean(amygdala_unmod_rs_delta_fa(:,time>2 & time < 5),2);
+amygdala_unmod_fs_iti_fa = mean(amygdala_unmod_fs_delta_fa(:,time>2 & time < 5),2);
+
+iti_fig = figure();
+tl = tiledlayout(3,2);
+axs(1,1) = nexttile;
+hold on
+violinplot(1, s1_mod_rs_iti_hit, 'FaceColor', 'b')
+violinplot(2, s1_unmod_rs_iti_hit, 'FaceColor', 'r')
+violinplot(4, s1_mod_rs_iti_miss, 'FaceColor', 'b')
+violinplot(5, s1_unmod_rs_iti_miss, 'FaceColor', 'r')
+violinplot(7, s1_mod_rs_iti_cr, 'FaceColor', 'b')
+violinplot(8, s1_unmod_rs_iti_cr, 'FaceColor', 'r')
+violinplot(10, s1_mod_rs_iti_fa, 'FaceColor', 'b')
+violinplot(11, s1_unmod_rs_iti_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+ylabel('S1')
+title('Regular Spiking')
+
+axs(1,2) = nexttile;
+hold on
+violinplot(1, s1_mod_fs_iti_hit, 'FaceColor', 'b')
+violinplot(2, s1_unmod_fs_iti_hit, 'FaceColor', 'r')
+violinplot(4, s1_mod_fs_iti_miss, 'FaceColor', 'b')
+violinplot(5, s1_unmod_fs_iti_miss, 'FaceColor', 'r')
+violinplot(7, s1_mod_fs_iti_cr, 'FaceColor', 'b')
+violinplot(8, s1_unmod_fs_iti_cr, 'FaceColor', 'r')
+violinplot(10, s1_mod_fs_iti_fa, 'FaceColor', 'b')
+violinplot(11, s1_unmod_fs_iti_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+title('Fast Spiking')
+
+axs(2,1) = nexttile;
+hold on
+violinplot(1, pfc_mod_rs_iti_hit, 'FaceColor', 'b')
+violinplot(2, pfc_unmod_rs_iti_hit, 'FaceColor', 'r')
+violinplot(4, pfc_mod_rs_iti_miss, 'FaceColor', 'b')
+violinplot(5, pfc_unmod_rs_iti_miss, 'FaceColor', 'r')
+violinplot(7, pfc_mod_rs_iti_cr, 'FaceColor', 'b')
+violinplot(8, pfc_unmod_rs_iti_cr, 'FaceColor', 'r')
+violinplot(10, pfc_mod_rs_iti_fa, 'FaceColor', 'b')
+violinplot(11, pfc_unmod_rs_iti_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+ylabel('PFC')
+
+axs(2,2) = nexttile;
+hold on
+violinplot(1, pfc_mod_fs_iti_hit, 'FaceColor', 'b')
+violinplot(2, pfc_unmod_fs_iti_hit, 'FaceColor', 'r')
+violinplot(4, pfc_mod_fs_iti_miss, 'FaceColor', 'b')
+violinplot(5, pfc_unmod_fs_iti_miss, 'FaceColor', 'r')
+violinplot(7, pfc_mod_fs_iti_cr, 'FaceColor', 'b')
+violinplot(8, pfc_unmod_fs_iti_cr, 'FaceColor', 'r')
+violinplot(10, pfc_mod_fs_iti_fa, 'FaceColor', 'b')
+violinplot(11, pfc_unmod_fs_iti_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+
+axs(3,1) = nexttile;
+hold on
+violinplot(1, striatum_mod_rs_iti_hit, 'FaceColor', 'b')
+violinplot(2, striatum_unmod_rs_iti_hit, 'FaceColor', 'r')
+violinplot(4, striatum_mod_rs_iti_miss, 'FaceColor', 'b')
+violinplot(5, striatum_unmod_rs_iti_miss, 'FaceColor', 'r')
+violinplot(7, striatum_mod_rs_iti_cr, 'FaceColor', 'b')
+violinplot(8, striatum_unmod_rs_iti_cr, 'FaceColor', 'r')
+violinplot(10, striatum_mod_rs_iti_fa, 'FaceColor', 'b')
+violinplot(11, striatum_unmod_rs_iti_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+ylabel('Striatum')
+
+axs(3,2) = nexttile;
+hold on
+violinplot(1, striatum_mod_fs_iti_hit, 'FaceColor', 'b')
+violinplot(2, striatum_unmod_fs_iti_hit, 'FaceColor', 'r')
+violinplot(4, striatum_mod_fs_iti_miss, 'FaceColor', 'b')
+violinplot(5, striatum_unmod_fs_iti_miss, 'FaceColor', 'r')
+violinplot(7, striatum_mod_fs_iti_cr, 'FaceColor', 'b')
+violinplot(8, striatum_unmod_fs_iti_cr, 'FaceColor', 'r')
+violinplot(10, striatum_mod_fs_iti_fa, 'FaceColor', 'b')
+violinplot(11, striatum_unmod_fs_iti_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+xlabel(tl, 'Trial Outcome')
+ylabel(tl, 'ITI \Delta Firing Rate from Baseline (Hz)')
 
 % hold on 
 % bar(1:2, [mean(s1_rs_fracs), mean(s1_fs_fracs)], 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
@@ -720,23 +1169,26 @@ xticklabels({'RS', 'FS'})
 ylabel('von Mises MSE')
 
 axs(5) = nexttile;
-semshade(s1_mod_rs_hit-mean(s1_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+semshade(s1_mod_rs_hit-mean(s1_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, sprintf('Modulated (n=%i)', size(s1_mod_rs_hit,1)));
 hold on;
-semshade(s1_unmod_rs_hit-mean(s1_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+semshade(s1_unmod_rs_hit-mean(s1_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, sprintf('Unmodulated (n=%i)', size(s1_unmod_rs_hit,1)));
 xlim([-2.8,4.8])
 ylim([-1,3])
+plot([1.2, 1.2], [-1, 3], 'k--', 'HandleVisibility','off')
 yticks([-1,3])
 xticks([-2,0,2,4])
 ylabel('\Delta Firing Rate (Hz)')
 xlabel('Time (s)')
+legend()
 
 axs(6) = nexttile;
-semshade(s1_mod_fs_hit-mean(s1_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+semshade(s1_mod_fs_hit-mean(s1_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, sprintf('Modulated (n=%i)', size(s1_mod_fs_hit,1)));
 hold on;
-semshade(s1_unmod_fs_hit-mean(s1_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+semshade(s1_unmod_fs_hit-mean(s1_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, sprintf('Unmodulated (n=%i)', size(s1_unmod_fs_hit,1)));
 xlim([-2.8,4.8])
 ylim([-2,15])
 yticks([-2,15])
+plot([1.2, 1.2], [-2, 15], 'k--', 'HandleVisibility','off')
 xticks([-2,0,2,4])
 ylabel('\Delta Firing Rate (Hz)')
 xlabel('Time (s)')
@@ -880,22 +1332,25 @@ xticklabels({'RS', 'FS'})
 ylabel('von Mises MSE')
 
 axs(5) = nexttile;
-semshade(pfc_mod_rs_hit-mean(pfc_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+semshade(pfc_mod_rs_hit-mean(pfc_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, sprintf('Modulated (n=%i)', size(pfc_mod_rs_hit,1)));
 hold on;
-semshade(pfc_unmod_rs_hit-mean(pfc_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+semshade(pfc_unmod_rs_hit-mean(pfc_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, sprintf('Unmodulated (n=%i)', size(pfc_unmod_rs_hit,1)));
 xlim([-2.8,4.8])
 ylim([-1,3])
+plot([1.2, 1.2], [-1, 3], 'k--', 'HandleVisibility','off')
 yticks([-1,3])
 xticks([-2,0,2,4])
 ylabel('\Delta Firing Rate (Hz)')
 xlabel('Time (s)')
+legend()
 
 axs(6) = nexttile;
-semshade(pfc_mod_fs_hit-mean(pfc_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+semshade(pfc_mod_fs_hit-mean(pfc_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, sprintf('Modulated (n=%i)', size(pfc_mod_fs_hit,1)));
 hold on;
-semshade(pfc_unmod_fs_hit-mean(pfc_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+semshade(pfc_unmod_fs_hit-mean(pfc_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, sprintf('Unmodulated (n=%i)', size(pfc_unmod_fs_hit,1)));
 xlim([-2.8,4.8])
 ylim([-2,15])
+plot([1.2, 1.2], [-2, 15], 'k--', 'HandleVisibility','off')
 yticks([-2,15])
 xticks([-2,0,2,4])
 ylabel('\Delta Firing Rate (Hz)')
@@ -1042,22 +1497,25 @@ xticklabels({'RS', 'FS'})
 ylabel('von Mises MSE')
 
 axs(5) = nexttile;
-semshade(striatum_mod_rs_hit-mean(striatum_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+semshade(striatum_mod_rs_hit-mean(striatum_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, sprintf('Modulated (n=%i)', size(striatum_mod_rs_hit,1)));
 hold on;
-semshade(striatum_unmod_rs_hit-mean(striatum_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+semshade(striatum_unmod_rs_hit-mean(striatum_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, sprintf('Unmodulated (n=%i)', size(striatum_unmod_rs_hit,1)));
 xlim([-2.8,4.8])
 ylim([-5,25])
+plot([1.2, 1.2], [-5, 25], 'k--', 'HandleVisibility','off')
 yticks([-5,25])
 xticks([-2,0,2,4])
 ylabel('\Delta Firing Rate (Hz)')
 xlabel('Time (s)')
+legend()
 
 axs(6) = nexttile;
-semshade(striatum_mod_fs_hit-mean(striatum_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+semshade(striatum_mod_fs_hit-mean(striatum_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, sprintf('Modulated (n=%i)', size(striatum_mod_fs_hit,1)));
 hold on;
-semshade(striatum_unmod_fs_hit-mean(striatum_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+semshade(striatum_unmod_fs_hit-mean(striatum_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, sprintf('Unmodulated (n=%i)', size(striatum_unmod_fs_hit,1)));
 xlim([-2.8,4.8])
 ylim([-2,15])
+plot([1.2, 1.2], [-2, 15], 'k--', 'HandleVisibility','off')
 yticks([-2,15])
 xticks([-2,0,2,4])
 ylabel('\Delta Firing Rate (Hz)')
@@ -1202,22 +1660,25 @@ xticklabels({'RS', 'FS'})
 ylabel('von Mises MSE')
 
 axs(5) = nexttile;
-semshade(amygdala_mod_rs_hit-mean(amygdala_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+semshade(amygdala_mod_rs_hit-mean(amygdala_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, sprintf('Modulated (n=%i)', size(amygdala_mod_rs_hit,1)));
 hold on;
-semshade(amygdala_unmod_rs_hit-mean(amygdala_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+semshade(amygdala_unmod_rs_hit-mean(amygdala_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, sprintf('Unmodulated (n=%i)', size(amygdala_unmod_rs_hit,1)));
 xlim([-2.8,4.8])
 ylim([-10,70])
+plot([1.2, 1.2], [-10, 70], 'k--', 'HandleVisibility','off')
 yticks([-10,70])
 xticks([-2,0,2,4])
 ylabel('\Delta Firing Rate (Hz)')
 xlabel('Time (s)')
+legend()
 
 axs(6) = nexttile;
-semshade(amygdala_mod_fs_hit-mean(amygdala_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+semshade(amygdala_mod_fs_hit-mean(amygdala_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, sprintf('Modulated (n=%i)', size(amygdala_mod_fs_hit,1)));
 hold on;
-semshade(amygdala_unmod_fs_hit-mean(amygdala_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+semshade(amygdala_unmod_fs_hit-mean(amygdala_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, sprintf('Unmodulated (n=%i)', size(amygdala_unmod_fs_hit,1)));
 xlim([-2.8,4.8])
 ylim([-10,50])
+plot([1.2, 1.2], [-10, 50], 'k--', 'HandleVisibility','off')
 yticks([-10,50])
 xticks([-2,0,2,4])
 ylabel('\Delta Firing Rate (Hz)')
@@ -1319,6 +1780,7 @@ fprintf(sprintf('Amygdala FS fraction modulated: %d +/- %d\n', nanmean(amygdala_
 %% MI and MSE by average firing rate 
 mi_fr_fig = figure();
 tl = tiledlayout(4,2);
+axs = zeros(1,8);
 axs(1) = nexttile;
 plot(cell2mat(s1_rs.avg_trial_fr), s1_rs.pmi, 'k*')
 axs(2) = nexttile;
@@ -1341,6 +1803,7 @@ ylabel(tl, 'Modulation Index')
 
 mse_fr_fig = figure();
 tl = tiledlayout(4,2);
+axs = zeros(1,8);
 axs(1) = nexttile;
 plot(cell2mat(s1_rs.avg_trial_fr), s1_rs.mses, 'k*')
 axs(2) = nexttile;
@@ -1361,6 +1824,196 @@ unifyYLimits(axs)
 xlabel(tl, 'Avg. Firing Rate (Hz)')
 ylabel(tl, 'von Mises MSE')
 
+%% firing rates by outcome 
+rs_mod_vs_unmod_fr_fig = figure('Position', [1151 841 1850 1081]);
+tl = tiledlayout(3,4);
+axs(1,1) = nexttile;
+semshade(s1_mod_rs_hit-mean(s1_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(s1_unmod_rs_hit-mean(s1_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-1,3])
+plot([1.2, 1.2], [-1, 3], 'k--', 'HandleVisibility','off')
+title('Hit', 'FontWeight', 'normal', 'FontSize', 16)
+axs(1,2) = nexttile;
+semshade(s1_mod_rs_miss-mean(s1_mod_rs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(s1_unmod_rs_miss-mean(s1_unmod_rs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-1,3])
+title('Miss', 'FontWeight', 'normal', 'FontSize', 16)
+axs(1,3) = nexttile;
+semshade(s1_mod_rs_cr-mean(s1_mod_rs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(s1_unmod_rs_cr-mean(s1_unmod_rs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-1,3])
+title('Correct Rejection', 'FontWeight', 'normal', 'FontSize', 16)
+axs(1,4) = nexttile;
+semshade(s1_mod_rs_fa-mean(s1_mod_rs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(s1_unmod_rs_fa-mean(s1_unmod_rs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-1,3])
+title('False Alarm', 'FontWeight', 'normal', 'FontSize', 16)
+axs(2,1) = nexttile;
+semshade(pfc_mod_rs_hit-mean(pfc_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(pfc_unmod_rs_hit-mean(pfc_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-1,3])
+plot([1.2, 1.2], [-1, 3], 'k--', 'HandleVisibility','off')
+axs(2,2) = nexttile;
+semshade(pfc_mod_rs_miss-mean(pfc_mod_rs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(pfc_unmod_rs_miss-mean(pfc_unmod_rs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-1,3])
+axs(2,3) = nexttile;
+semshade(pfc_mod_rs_cr-mean(pfc_mod_rs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(pfc_unmod_rs_cr-mean(pfc_unmod_rs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-1,3])
+axs(2,4) = nexttile;
+semshade(pfc_mod_rs_fa-mean(pfc_mod_rs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(pfc_unmod_rs_fa-mean(pfc_unmod_rs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-1,3])
+axs(3,1) = nexttile;
+semshade(striatum_mod_rs_hit-mean(striatum_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(striatum_unmod_rs_hit-mean(striatum_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,25])
+plot([1.2, 1.2], [-5, 25], 'k--', 'HandleVisibility','off')
+axs(3,2) = nexttile;
+semshade(striatum_mod_rs_miss-mean(striatum_mod_rs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(striatum_unmod_rs_miss-mean(striatum_unmod_rs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,25])
+axs(3,3) = nexttile;
+semshade(striatum_mod_rs_cr-mean(striatum_mod_rs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(striatum_unmod_rs_cr-mean(striatum_unmod_rs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,25])
+axs(3,4) = nexttile;
+semshade(striatum_mod_rs_fa-mean(striatum_mod_rs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(striatum_unmod_rs_fa-mean(striatum_unmod_rs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,25])
+xlabel(tl, 'Time (s)', 'FontSize', 16)
+ylabel(tl, '\Delta Firing Rate (Hz)', 'FontSize', 16)
+outcomes = {'Hit', 'Miss', 'Correct Rejection', 'False Alarm'};
+for c = 1:4
+    axes(axs(1,c))
+    title(outcomes{c}, 'FontWeight', 'normal', 'FontSize', 16)
+end
+title(tl, 'Regular Spiking Units', 'FontSize', 16, 'FontWeight', 'normal')
+
+fs_mod_vs_unmod_fr_fig = figure('Position', [1151 841 1850 1081]);
+tl = tiledlayout(3,4);
+axs(1,1) = nexttile;
+semshade(s1_mod_fs_hit-mean(s1_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(s1_unmod_fs_hit-mean(s1_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,15])
+plot([1.2, 1.2], [-5, 15], 'k--', 'HandleVisibility','off')
+title('Hit', 'FontWeight', 'normal', 'FontSize', 16)
+axs(1,2) = nexttile;
+semshade(s1_mod_fs_miss-mean(s1_mod_fs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(s1_unmod_fs_miss-mean(s1_unmod_fs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,15])
+title('Miss', 'FontWeight', 'normal', 'FontSize', 16)
+axs(1,3) = nexttile;
+semshade(s1_mod_fs_cr-mean(s1_mod_fs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(s1_unmod_fs_cr-mean(s1_unmod_fs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,15])
+title('Correct Rejection', 'FontWeight', 'normal', 'FontSize', 16)
+axs(1,4) = nexttile;
+semshade(s1_mod_fs_fa-mean(s1_mod_fs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(s1_unmod_fs_fa-mean(s1_unmod_fs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,15])
+title('False Alarm', 'FontWeight', 'normal', 'FontSize', 16)
+axs(2,1) = nexttile;
+semshade(pfc_mod_fs_hit-mean(pfc_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(pfc_unmod_fs_hit-mean(pfc_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,15])
+plot([1.2, 1.2], [-5, 15], 'k--', 'HandleVisibility','off')
+axs(2,2) = nexttile;
+semshade(pfc_mod_fs_miss-mean(pfc_mod_fs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(pfc_unmod_fs_miss-mean(pfc_unmod_fs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,15])
+axs(2,3) = nexttile;
+semshade(pfc_mod_fs_cr-mean(pfc_mod_fs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(pfc_unmod_fs_cr-mean(pfc_unmod_fs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,15])
+axs(2,4) = nexttile;
+semshade(pfc_mod_fs_fa-mean(pfc_mod_fs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(pfc_unmod_fs_fa-mean(pfc_unmod_fs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,15])
+axs(3,1) = nexttile;
+semshade(striatum_mod_fs_hit-mean(striatum_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(striatum_unmod_fs_hit-mean(striatum_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,15])
+plot([1.2, 1.2], [-5, 15], 'k--', 'HandleVisibility','off')
+axs(3,2) = nexttile;
+semshade(striatum_mod_fs_miss-mean(striatum_mod_fs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(striatum_unmod_fs_miss-mean(striatum_unmod_fs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,15])
+axs(3,3) = nexttile;
+semshade(striatum_mod_fs_cr-mean(striatum_mod_fs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(striatum_unmod_fs_cr-mean(striatum_unmod_fs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,15])
+axs(3,4) = nexttile;
+semshade(striatum_mod_fs_fa-mean(striatum_mod_fs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
+hold on;
+semshade(striatum_unmod_fs_fa-mean(striatum_unmod_fs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
+xlim([-2.8,4.8])
+ylim([-5,15])
+xlabel(tl, 'Time (s)', 'FontSize', 16)
+ylabel(tl, '\Delta Firing Rate (Hz)', 'FontSize', 16)
+outcomes = {'Hit', 'Miss', 'Correct Rejection', 'False Alarm'};
+for c = 1:4
+    axes(axs(1,c))
+    title(outcomes{c}, 'FontWeight', 'normal', 'FontSize', 16)
+end
+title(tl, 'Fast Spiking Units', 'FontSize', 16, 'FontWeight', 'normal')
+
+mod_baseline = [s1_mod_rs_baseline; s1_mod_fs_baseline; pfc_mod_rs_baseline; pfc_mod_fs_baseline; striatum_mod_rs_baseline; striatum_mod_fs_baseline; amygdala_mod_rs_baseline; amygdala_mod_fs_baseline];
+unmod_baseline = [s1_unmod_rs_baseline; s1_unmod_fs_baseline; pfc_unmod_rs_baseline; pfc_unmod_fs_baseline; striatum_unmod_rs_baseline; striatum_unmod_fs_baseline; amygdala_unmod_rs_baseline; amygdala_unmod_fs_baseline];
+baseline_fig = figure(); 
+hold on 
+bar(1:2, [mean(mod_baseline), mean(unmod_baseline)], 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5, 0.5])
+errorbar(1:2, [mean(mod_baseline), mean(unmod_baseline)], [ste(mod_baseline), ste(unmod_baseline)], 'k.')
+xticks(1:2)
+xticklabels({'Modulated', 'Unmodulated'})
+
 out_path = false;
 if ~exist('./Figures/', 'dir')
     mkdir('./Figures/')
@@ -1372,11 +2025,13 @@ if out_path
     saveas(pfc_mod_fig, 'Figures/pfc_mod_fig.fig')
     saveas(striatum_mod_fig, 'Figures/striatum_mod_fig.fig')
     saveas(amygdala_mod_fig, 'Figures/amygdala_mod_fig.fig')
+    saveas(baseline_fig, 'Figures/baseline_mod_v_unmod.fig')
 
     saveas(fracs_fig, 'Figures/fracs.svg')
     saveas(s1_mod_fig, 'Figures/s1_mod_fig.svg')
     saveas(pfc_mod_fig, 'Figures/pfc_mod_fig.svg')
     saveas(striatum_mod_fig, 'Figures/striatum_mod_fig.svg')
     saveas(amygdala_mod_fig, 'Figures/amygdala_mod_fig.svg')
+    saveas(baseline_fig, 'Figures/baseline_mod_v_unmod.svg')
 end
 
