@@ -5658,9 +5658,10 @@ session_ids = {'date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_n
     'date--2024-07-17_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0', ...
     'date--2024-07-24_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0'};
 s1_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/Correct_Incorrect_Shuffles/');
-
+ptiles = [];
 for s = 1:length(session_ids)
-    load(sprintf('%s%s/shuffle_data.mat'), s1_path, session_ids{s});
+    load(sprintf('%s%s/shuffle_data.mat', s1_path, session_ids{s}));
+    ptiles = [ptiles, correct_ptiles];
 end
 
 3. Interpretation of alpha modulation. The messaging here is unclear. The authors write on p17 “The strong alpha modulation observed prior to correct trials compared 
