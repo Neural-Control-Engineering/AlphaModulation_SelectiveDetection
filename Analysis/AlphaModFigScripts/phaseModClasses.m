@@ -1,6 +1,8 @@
 init_paths;
 addpath(genpath('~/mvmdist/'))
-mkdir('./Figures/')
+if ~exist('../Figures/', 'dir')
+    mkdir('../Figures/')
+end
 pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'));
 pfc = pfc.out.alpha_modulated;
 
@@ -68,6 +70,19 @@ for i = 1:length(exinds.excld{1})
     all_phase_mod(strcmp(all_phase_mod.session_id, session_id) & all_phase_mod.cluster_id == cid,:) = [];
 end
 
+exinds = load('ExcldInds/1075_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    all_phase_mod(strcmp(all_phase_mod.session_id, session_id) & all_phase_mod.cluster_id == cid,:) = [];
+end
+exinds = load('ExcldInds/3755_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    all_phase_mod(strcmp(all_phase_mod.session_id, session_id) & all_phase_mod.cluster_id == cid,:) = [];
+end
+
 y = [];
 for c = 1:size(all_phase_mod,1)
     [~,y(c,:), theta_bar(c), ~, ~] = vonMises(all_phase_mod(c,:).spon_alpha_spike_phases{1});
@@ -121,5 +136,5 @@ end
 unifyYLimits(axs)
 xlabel(tl, 'Alpha Phase (radians)', 'FontSize', 16)
 ylabel(tl, 'Spike PDF', 'FontSize', 16)
-saveas(fig, 'Figures/phase_mod_classes.svg')
-saveas(fig, 'Figures/phase_mod_classes.fig')
+saveas(fig, '../Figures/phase_mod_classes.svg')
+saveas(fig, '../Figures/phase_mod_classes.fig')

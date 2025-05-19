@@ -40,10 +40,10 @@ PFC = PFC(cell2mat(PFC.avg_trial_fr) > 0.5, :);
 s1.out.alpha_modulated = s1.out.alpha_modulated(cell2mat(s1.out.alpha_modulated.avg_trial_fr) > 0.5, :);
 pfc.out.alpha_modulated = pfc.out.alpha_modulated(cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 0.5, :);
 
-exinds = load('ExcldInds/3738_excld.mat');
-for i = 1:length(exinds.excld{1})
-    session_id = exinds.excld{1}{i};
-    cid = exinds.excld{2}{i};
+exinds = load('ExcldInds/3738_excld_v2.mat');
+for i = 1:length(exinds.new_excld{1})
+    session_id = exinds.new_excld{1}{i};
+    cid = exinds.new_excld{2}{i};
     S1(strcmp(S1.session_id, session_id) & S1.cluster_id == cid,:) = [];
     s1.out.alpha_modulated(strcmp(s1.out.alpha_modulated.session_id, session_id) & s1.out.alpha_modulated.cluster_id == cid,:) = [];
 end
@@ -63,6 +63,20 @@ inds = find(contains(pfc.out.alpha_modulated.region, 'AC') & strcmp(pfc.out.alph
 for i = 1:length(inds)
     pfc.out.alpha_modulated(inds(i),:).waveform_class{1} = 'FS';
 end
+
+exinds = load('ExcldInds/1075_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    pfc.out.alpha_modulated(strcmp(pfc.out.alpha_modulated.session_id, session_id) & pfc.out.alpha_modulated.cluster_id == cid,:) = [];
+end
+exinds = load('ExcldInds/3755_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    pfc.out.alpha_modulated(strcmp(pfc.out.alpha_modulated.session_id, session_id) & pfc.out.alpha_modulated.cluster_id == cid,:) = [];
+end
+%-------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 s1_sessions = unique(S1.session_id);
 s1_l1_rs_frac = zeros(1,length(s1_sessions));
@@ -358,7 +372,7 @@ for l = 1:length(layers)
     try 
         eval(exec_str)
     end
-    ylim([-5,10])
+    ylim([-10,20])
     xlim([-1,5])
     if l == 1
         title('Regular Spiking', 'FontSize', 18, 'FontWeight', 'normal')
@@ -394,8 +408,8 @@ ylabel(tl, '\Delta Firing Rate (Hz)', 'FontSize', 16)
 xlabel(tl, 'Time (s)', 'FontSize', 16)
 % saveas(s1_fr_fig, 'tmp/layer_fr.png')
 if out_path
-    saveas(s1_fr_fig, 'Figures/layer_fr.svg')
-    saveas(s1_fr_fig, 'Figures/layer_fr.fig')
+    saveas(s1_fr_fig, '../Figures/layer_fr.svg')
+    saveas(s1_fr_fig, '../Figures/layer_fr.fig')
 end
 Time = time(time > 0)';
 
@@ -807,8 +821,8 @@ xticklabels({'-\pi', '', '\pi'})
 xlabel('Avg. Firing Phase (radians)', 'FontSize', 14, 'FontWeight', 'normal')
 
 if out_path
-    saveas(s1_fig, 'Figures/s1_distribution.fig')
-    saveas(s1_fig, 'Figures/s1_distribution.svg')
+    saveas(s1_fig, '../Figures/s1_distribution.fig')
+    saveas(s1_fig, '../Figures/s1_distribution.svg')
 end
 fprintf(sprintf('Avg. Fraction L1 RS: %d\n', nanmean(s1_l1_rs_frac)))
 fprintf(sprintf('Avg. Fraction L2/3 RS: %d\n', nanmean(s1_l2_rs_frac)))
@@ -1134,10 +1148,10 @@ for l = 1:length(subregions)
         eval(exec_str)
     end
     if l == 1
-        ylim([-10,20])
+        ylim([-2,8])
         title('Regular Spiking', 'FontSize', 18, 'FontWeight', 'normal')
     else
-        ylim([-2,3])
+        ylim([-2,8])
     end
     xlim([-1,5])
     ylabel(labels{l}, 'FontSize', 14, 'FontWeight', 'normal')
@@ -1161,7 +1175,7 @@ for l = 1:length(subregions)
             eval(exec_str)
         end
     end
-    ylim([-10,20])
+    ylim([-10,22])
     xlim([-1,5])
     if l == 1
         title('Fast Spiking', 'FontSize', 18, 'FontWeight', 'normal')
@@ -1171,8 +1185,8 @@ ylabel(tl, '\Delta Firing Rate (Hz)', 'FontSize', 16, 'FontWeight', 'normal')
 xlabel(tl, 'Time (s)', 'FontSize', 16, 'FontWeight', 'normal')
 % saveas(pfc_fr_fig, 'tmp/subregion_fr.png')
 if out_path
-    saveas(pfc_fr_fig, 'Figures/subregion_fr.svg')
-    saveas(pfc_fr_fig, 'Figures/subregion_fr.fig')
+    saveas(pfc_fr_fig, '../Figures/subregion_fr.svg')
+    saveas(pfc_fr_fig, '../Figures/subregion_fr.fig')
 end
 AC_mod_rs_delta = AC_mod_rs_hit-mean(AC_mod_rs_hit(:,time<0),2);
 AC_unmod_rs_delta = AC_unmod_rs_hit-mean(AC_unmod_rs_hit(:,time<0),2);
@@ -1469,8 +1483,8 @@ xticklabels({'-\pi', '', '\pi'})
 xlabel('Avg. Firing Phase (radians)', 'FontSize', 14, 'FontWeight', 'normal')
 
 if out_path
-    saveas(pfc_fig, 'Figures/pfc_distribution.fig')
-    saveas(pfc_fig, 'Figures/pfc_distribution.svg')
+    saveas(pfc_fig, '../Figures/pfc_distribution.fig')
+    saveas(pfc_fig, '../Figures/pfc_distribution.svg')
 end
 fprintf(sprintf('Avg. Fraction AC RS: %d\n', nanmean(ac_rs_frac)))
 fprintf(sprintf('Avg. Fraction PL/3 RS: %d\n', nanmean(pl_rs_frac)))
@@ -1580,8 +1594,20 @@ s1_fs_theta_bar_mat = [[s1_l1_fs_theta_bar; nan(maxN-length(s1_l1_fs_theta_bar),
     [s1_l4_fs_theta_bar; nan(maxN-length(s1_l4_fs_theta_bar),1)], ...
     [s1_l5_fs_theta_bar; nan(maxN-length(s1_l5_fs_theta_bar),1)], ...
     [s1_l6_fs_theta_bar; nan(maxN-length(s1_l6_fs_theta_bar),1)]];
-fprintf(sprintf('S1 FS Theta Bar ANOVA:\n'))
-[p, ~, stats] = anova1(s1_fs_theta_bar_mat)
+angles = [];
+idx = [];
+for i = 1:size(s1_fs_theta_bar_mat,2) 
+    angles = [angles; s1_fs_theta_bar_mat(:,i)];
+    idx = [idx; zeros(size(s1_fs_theta_bar_mat,1),1)+i];
+end
+idx(isnan(angles)) = [];
+angles(isnan(angles)) = [];
+fprintf(sprintf('S1 FS Theta Bar Watson Williams:\n'))
+[pval, table] = circ_wwtest(angles, idx)
+
+% 
+% [p, ~, stats] = anova1(s1_fs_theta_bar_mat)
+
 
 maxN = max([size(s1_l1_rs_theta_bar,1),size(s1_l2_rs_theta_bar,1),size(s1_l4_rs_theta_bar,1),...
     size(s1_l5_rs_theta_bar,1), size(s1_l6_rs_theta_bar,1)]);
@@ -1590,5 +1616,14 @@ s1_rs_theta_bar_mat = [[s1_l1_rs_theta_bar; nan(maxN-length(s1_l1_rs_theta_bar),
     [s1_l4_rs_theta_bar; nan(maxN-length(s1_l4_rs_theta_bar),1)], ...
     [s1_l5_rs_theta_bar; nan(maxN-length(s1_l5_rs_theta_bar),1)], ...
     [s1_l6_rs_theta_bar; nan(maxN-length(s1_l6_rs_theta_bar),1)]];
-fprintf(sprintf('S1 RS MSE ANOVA:\n'))
-[p, ~, stats] = anova1(s1_rs_theta_bar_mat)
+fprintf(sprintf('S1 RS Watson Williams:\n'))
+angles = [];
+idx = [];
+for i = 1:size(s1_fs_theta_bar_mat,2) 
+    angles = [angles; s1_rs_theta_bar_mat(:,i)];
+    idx = [idx; zeros(size(s1_rs_theta_bar_mat,1),1)+i];
+end
+idx(isnan(angles)) = [];
+angles(isnan(angles)) = [];
+[pval, table] = circ_wwtest(angles, idx)
+% [p, ~, stats] = anova1(s1_rs_theta_bar_mat)

@@ -1,54 +1,54 @@
-% addpath(genpath('~/circstat-matlab/'))
-% init_paths;
-% s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
-% pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'));
-% striatum = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
-% amygdala = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/data.mat'));
+addpath(genpath('~/circstat-matlab/'))
+init_paths;
+s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
+pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'));
+striatum = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
+amygdala = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/data.mat'));
 
-% %% s1 sessions
-% % combine animals
-% ftr_files = {strcat(ftr_path, '/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat'), ...
-%     strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat')};
-% for i = 1:length(ftr_files)
-%     f = load(ftr_files{i});
-%     if i == 1
-%         ftrs = f.ap_ftr;
-%     else
-%         ftrs = combineTables(ftrs, f.ap_ftr);
-%     end
-% end
-% S1 = ftrs(startsWith(ftrs.region, 'SS'),:);
-% striatum_inds = strcmp(ftrs.region, 'STR') + strcmp(ftrs.region, 'CP');
-% Striatum = ftrs(logical(striatum_inds), :);
-% amygdala_inds = strcmp(ftrs.region, 'BLAp') + strcmp(ftrs.region, 'LA');
-% Amygdala = ftrs(logical(amygdala_inds), :);
+%% s1 sessions
+% combine animals
+ftr_files = {strcat(ftr_path, '/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat'), ...
+    strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat')};
+for i = 1:length(ftr_files)
+    f = load(ftr_files{i});
+    if i == 1
+        ftrs = f.ap_ftr;
+    else
+        ftrs = combineTables(ftrs, f.ap_ftr);
+    end
+end
+S1 = ftrs(startsWith(ftrs.region, 'SS'),:);
+striatum_inds = strcmp(ftrs.region, 'STR') + strcmp(ftrs.region, 'CP');
+Striatum = ftrs(logical(striatum_inds), :);
+amygdala_inds = strcmp(ftrs.region, 'BLAp') + strcmp(ftrs.region, 'LA');
+Amygdala = ftrs(logical(amygdala_inds), :);
 
-% ftr_files = {strcat(ftr_path, '/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
-%     strcat(ftr_path, '/AP/subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
-% for i = 1:length(ftr_files)
-%     f = load(ftr_files{i});
-%     if i == 1
-%         ftrs = f.ap_ftr;
-%     else
-%         ftrs = combineTables(ftrs, f.ap_ftr);
-%     end
-% end
-% pfc_inds = startsWith(ftrs.region, 'DP') + startsWith(ftrs.region, 'AC') ...
-%     + startsWith(ftrs.region, 'PL') + startsWith(ftrs.region, 'IL') ...
-%     + startsWith(ftrs.region, 'OR');
-% pfc_inds = logical(pfc_inds);
-% PFC = ftrs(pfc_inds,:);
+ftr_files = {strcat(ftr_path, '/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
+    strcat(ftr_path, '/AP/subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
+for i = 1:length(ftr_files)
+    f = load(ftr_files{i});
+    if i == 1
+        ftrs = f.ap_ftr;
+    else
+        ftrs = combineTables(ftrs, f.ap_ftr);
+    end
+end
+pfc_inds = startsWith(ftrs.region, 'DP') + startsWith(ftrs.region, 'AC') ...
+    + startsWith(ftrs.region, 'PL') + startsWith(ftrs.region, 'IL') ...
+    + startsWith(ftrs.region, 'OR');
+pfc_inds = logical(pfc_inds);
+PFC = ftrs(pfc_inds,:);
 
-% %-----------------------------------------------------%
-% % quality control
-% S1 = S1(cell2mat(S1.avg_trial_fr) > 0.5, :);
-% Striatum = Striatum(cell2mat(Striatum.avg_trial_fr) > 0.5, :);
-% Amygdala = Amygdala(cell2mat(Amygdala.avg_trial_fr) > 0.5, :);
-% PFC = PFC(cell2mat(PFC.avg_trial_fr) > 0.5, :);
-% s1.out.alpha_modulated = s1.out.alpha_modulated(cell2mat(s1.out.alpha_modulated.avg_trial_fr) > 0.5, :);
-% striatum.out.alpha_modulated = striatum.out.alpha_modulated(cell2mat(striatum.out.alpha_modulated.avg_trial_fr) > 0.5, :);
-% amygdala.out.alpha_modulated = amygdala.out.alpha_modulated(cell2mat(amygdala.out.alpha_modulated.avg_trial_fr) > 0.5, :);
-% pfc.out.alpha_modulated = pfc.out.alpha_modulated(cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+%-----------------------------------------------------%
+% quality control
+S1 = S1(cell2mat(S1.avg_trial_fr) > 0.5, :);
+Striatum = Striatum(cell2mat(Striatum.avg_trial_fr) > 0.5, :);
+Amygdala = Amygdala(cell2mat(Amygdala.avg_trial_fr) > 0.5, :);
+PFC = PFC(cell2mat(PFC.avg_trial_fr) > 0.5, :);
+s1.out.alpha_modulated = s1.out.alpha_modulated(cell2mat(s1.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+striatum.out.alpha_modulated = striatum.out.alpha_modulated(cell2mat(striatum.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+amygdala.out.alpha_modulated = amygdala.out.alpha_modulated(cell2mat(amygdala.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+pfc.out.alpha_modulated = pfc.out.alpha_modulated(cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 0.5, :);
 
 exinds = load('ExcldInds/3738_excld_v2.mat');
 for i = 1:length(exinds.new_excld{1})
@@ -80,6 +80,21 @@ end
 inds = find(contains(pfc.out.alpha_modulated.region, 'AC') & strcmp(pfc.out.alpha_modulated.waveform_class, 'RS') & cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 15);
 for i = 1:length(inds)
     pfc.out.alpha_modulated(inds(i),:).waveform_class{1} = 'FS';
+end
+
+exinds = load('ExcldInds/1075_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    PFC(strcmp(PFC.session_id, session_id) & PFC.cluster_id == cid,:) = [];
+    pfc.out.alpha_modulated(strcmp(pfc.out.alpha_modulated.session_id, session_id) & pfc.out.alpha_modulated.cluster_id == cid,:) = [];
+end
+exinds = load('ExcldInds/3755_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    PFC(strcmp(PFC.session_id, session_id) & PFC.cluster_id == cid,:) = [];
+    pfc.out.alpha_modulated(strcmp(pfc.out.alpha_modulated.session_id, session_id) & pfc.out.alpha_modulated.cluster_id == cid,:) = [];
 end
 %-----------------------------------------------------%
 
@@ -391,8 +406,13 @@ for s = 1:length(pfc_sessions)
     end
     pfc_mod_rs_hit = [pfc_mod_rs_hit; cell2mat(pfc_rs.left_trigger_aligned_avg_fr_Hit)];
     pfc_mod_fs_hit = [pfc_mod_fs_hit; cell2mat(pfc_fs.left_trigger_aligned_avg_fr_Hit)];
-    pfc_mod_rs_miss = [pfc_mod_rs_miss; cell2mat(pfc_rs.left_trigger_aligned_avg_fr_Miss)];
-    pfc_mod_fs_miss = [pfc_mod_fs_miss; cell2mat(pfc_fs.left_trigger_aligned_avg_fr_Miss)];
+    if isempty(cell2mat(pfc_rs.left_trigger_aligned_avg_fr_Miss))
+        pfc_mod_rs_miss = [pfc_mod_rs_miss; nan(size(cell2mat(pfc_rs.left_trigger_aligned_avg_fr_Hit)))];
+        pfc_mod_fs_miss = [pfc_mod_fs_miss; nan(size(cell2mat(pfc_fs.left_trigger_aligned_avg_fr_Hit)))];
+    else
+        pfc_mod_rs_miss = [pfc_mod_rs_miss; cell2mat(pfc_rs.left_trigger_aligned_avg_fr_Miss)];
+        pfc_mod_fs_miss = [pfc_mod_fs_miss; cell2mat(pfc_fs.left_trigger_aligned_avg_fr_Miss)];
+    end
     pfc_mod_rs_cr = [pfc_mod_rs_cr; cell2mat(pfc_rs.right_trigger_aligned_avg_fr_CR)];
     pfc_mod_fs_cr = [pfc_mod_fs_cr; cell2mat(pfc_fs.right_trigger_aligned_avg_fr_CR)];
     pfc_mod_rs_fa = [pfc_mod_rs_fa; cell2mat(pfc_rs.right_trigger_aligned_avg_fr_FA)];
@@ -403,8 +423,13 @@ for s = 1:length(pfc_sessions)
 
     pfc_unmod_rs_hit = [pfc_unmod_rs_hit; cell2mat(PFC_rs.left_trigger_aligned_avg_fr_Hit)];
     pfc_unmod_fs_hit = [pfc_unmod_fs_hit; cell2mat(PFC_fs.left_trigger_aligned_avg_fr_Hit)];
-    pfc_unmod_rs_miss = [pfc_unmod_rs_miss; cell2mat(PFC_rs.left_trigger_aligned_avg_fr_Miss)];
-    pfc_unmod_fs_miss = [pfc_unmod_fs_miss; cell2mat(PFC_fs.left_trigger_aligned_avg_fr_Miss)];
+    if isempty(cell2mat(pfc_rs.left_trigger_aligned_avg_fr_Miss))
+        pfc_unmod_rs_miss = [pfc_unmod_rs_miss; nan(size(cell2mat(PFC_rs.left_trigger_aligned_avg_fr_Hit)))];
+        pfc_unmod_fs_miss = [pfc_unmod_fs_miss; nan(size(cell2mat(PFC_fs.left_trigger_aligned_avg_fr_Hit)))];
+    else
+        pfc_unmod_rs_miss = [pfc_unmod_rs_miss; cell2mat(PFC_rs.left_trigger_aligned_avg_fr_Miss)];
+        pfc_unmod_fs_miss = [pfc_unmod_fs_miss; cell2mat(PFC_fs.left_trigger_aligned_avg_fr_Miss)];
+    end
     pfc_unmod_rs_cr = [pfc_unmod_rs_cr; cell2mat(PFC_rs.right_trigger_aligned_avg_fr_CR)];
     pfc_unmod_fs_cr = [pfc_unmod_fs_cr; cell2mat(PFC_fs.right_trigger_aligned_avg_fr_CR)];
     pfc_unmod_rs_fa = [pfc_unmod_rs_fa; cell2mat(PFC_rs.right_trigger_aligned_avg_fr_FA)];
@@ -940,6 +965,233 @@ xticklabels({'Hit', 'Miss', 'CR', 'FA'})
 xlabel(tl, 'Trial Outcome')
 ylabel(tl, 'Evoked \Delta Firing Rate (Hz)')
 
+fprintf('\n\nMod vs. Unmod on hit trials\n')
+if KStest(s1_mod_rs_evoked_hit) || KStest(s1_unmod_rs_evoked_hit)
+    fprintf(sprintf('S1 mod RS vs unmod RS evoked fr (Mann-Whitney): p = %d\n', ranksum(s1_mod_rs_evoked_hit, s1_unmod_rs_evoked_hit)))
+else
+    [a,p] = ttest2(s1_mod_rs_evoked_hit, s1_unmod_rs_evoked_hit);
+    fprintf(sprintf('S1 mod RS vs unmod RS evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(s1_mod_fs_evoked_hit) || KStest(s1_unmod_fs_evoked_hit)
+    fprintf(sprintf('S1 mod fs vs unmod fs evoked fr (Mann-Whitney): p = %d\n', ranksum(s1_mod_fs_evoked_hit, s1_unmod_fs_evoked_hit)))
+else
+    [a,p] = ttest2(s1_mod_fs_evoked_hit, s1_unmod_fs_evoked_hit);
+    fprintf(sprintf('S1 mod fs vs unmod fs evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(pfc_mod_rs_evoked_hit) || KStest(pfc_unmod_rs_evoked_hit)
+    fprintf(sprintf('PFC mod RS vs unmod RS evoked fr (Mann-Whitney): p = %d\n', ranksum(pfc_mod_rs_evoked_hit, pfc_unmod_rs_evoked_hit)))
+else
+    [a,p] = ttest2(pfc_mod_rs_evoked_hit, pfc_unmod_rs_evoked_hit);
+    fprintf(sprintf('PFC mod RS vs unmod RS evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(pfc_mod_fs_evoked_hit) || KStest(pfc_unmod_fs_evoked_hit)
+    fprintf(sprintf('PFC mod fs vs unmod fs evoked fr (Mann-Whitney): p = %d\n', ranksum(pfc_mod_fs_evoked_hit, pfc_unmod_fs_evoked_hit)))
+else
+    [a,p] = ttest2(pfc_mod_fs_evoked_hit, pfc_unmod_fs_evoked_hit);
+    fprintf(sprintf('PFC mod fs vs unmod fs evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(striatum_mod_rs_evoked_hit) || KStest(striatum_unmod_rs_evoked_hit)
+    fprintf(sprintf('Striatum mod RS vs unmod RS evoked fr (Mann-Whitney): p = %d\n', ranksum(striatum_mod_rs_evoked_hit, striatum_unmod_rs_evoked_hit)))
+else
+    [a,p] = ttest2(striatum_mod_rs_evoked_hit, striatum_unmod_rs_evoked_hit);
+    fprintf(sprintf('Striatum mod RS vs unmod RS evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(striatum_mod_fs_evoked_hit) || KStest(striatum_unmod_fs_evoked_hit)
+    fprintf(sprintf('Striatum mod fs vs unmod fs evoked fr (Mann-Whitney): p = %d\n', ranksum(striatum_mod_fs_evoked_hit, striatum_unmod_fs_evoked_hit)))
+else
+    [a,p] = ttest2(striatum_mod_fs_evoked_hit, striatum_unmod_fs_evoked_hit);
+    fprintf(sprintf('Striatum mod fs vs unmod fs evoked fr (2 sample t-test): p = %d\n', p))
+end
+
+fprintf('\n\nMod vs. Unmod on cr trials\n')
+if KStest(s1_mod_rs_evoked_cr) || KStest(s1_unmod_rs_evoked_cr)
+    fprintf(sprintf('S1 mod RS vs unmod RS evoked fr (Mann-Wcrney): p = %d\n', ranksum(s1_mod_rs_evoked_cr, s1_unmod_rs_evoked_cr)))
+else
+    [a,p] = ttest2(s1_mod_rs_evoked_cr, s1_unmod_rs_evoked_cr);
+    fprintf(sprintf('S1 mod RS vs unmod RS evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(s1_mod_fs_evoked_cr) || KStest(s1_unmod_fs_evoked_cr)
+    fprintf(sprintf('S1 mod fs vs unmod fs evoked fr (Mann-Wcrney): p = %d\n', ranksum(s1_mod_fs_evoked_cr, s1_unmod_fs_evoked_cr)))
+else
+    [a,p] = ttest2(s1_mod_fs_evoked_cr, s1_unmod_fs_evoked_cr);
+    fprintf(sprintf('S1 mod fs vs unmod fs evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(pfc_mod_rs_evoked_cr) || KStest(pfc_unmod_rs_evoked_cr)
+    fprintf(sprintf('PFC mod RS vs unmod RS evoked fr (Mann-Wcrney): p = %d\n', ranksum(pfc_mod_rs_evoked_cr, pfc_unmod_rs_evoked_cr)))
+else
+    [a,p] = ttest2(pfc_mod_rs_evoked_cr, pfc_unmod_rs_evoked_cr);
+    fprintf(sprintf('PFC mod RS vs unmod RS evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(pfc_mod_fs_evoked_cr) || KStest(pfc_unmod_fs_evoked_cr)
+    fprintf(sprintf('PFC mod fs vs unmod fs evoked fr (Mann-Wcrney): p = %d\n', ranksum(pfc_mod_fs_evoked_cr, pfc_unmod_fs_evoked_cr)))
+else
+    [a,p] = ttest2(pfc_mod_fs_evoked_cr, pfc_unmod_fs_evoked_cr);
+    fprintf(sprintf('PFC mod fs vs unmod fs evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(striatum_mod_rs_evoked_cr) || KStest(striatum_unmod_rs_evoked_cr)
+    fprintf(sprintf('Striatum mod RS vs unmod RS evoked fr (Mann-Wcrney): p = %d\n', ranksum(striatum_mod_rs_evoked_cr, striatum_unmod_rs_evoked_cr)))
+else
+    [a,p] = ttest2(striatum_mod_rs_evoked_cr, striatum_unmod_rs_evoked_cr);
+    fprintf(sprintf('Striatum mod RS vs unmod RS evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(striatum_mod_fs_evoked_cr) || KStest(striatum_unmod_fs_evoked_cr)
+    fprintf(sprintf('Striatum mod fs vs unmod fs evoked fr (Mann-Wcrney): p = %d\n', ranksum(striatum_mod_fs_evoked_cr, striatum_unmod_fs_evoked_cr)))
+else
+    [a,p] = ttest2(striatum_mod_fs_evoked_cr, striatum_unmod_fs_evoked_cr);
+    fprintf(sprintf('Striatum mod fs vs unmod fs evoked fr (2 sample t-test): p = %d\n', p))
+end
+
+fprintf('\n\nMod vs. Unmod on miss trials\n')
+if KStest(s1_mod_rs_evoked_miss) || KStest(s1_unmod_rs_evoked_miss)
+    fprintf(sprintf('S1 mod RS vs unmod RS evoked fr (Mann-Wmissney): p = %d\n', ranksum(s1_mod_rs_evoked_miss, s1_unmod_rs_evoked_miss)))
+else
+    [a,p] = ttest2(s1_mod_rs_evoked_miss, s1_unmod_rs_evoked_miss);
+    fprintf(sprintf('S1 mod RS vs unmod RS evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(s1_mod_fs_evoked_miss) || KStest(s1_unmod_fs_evoked_miss)
+    fprintf(sprintf('S1 mod fs vs unmod fs evoked fr (Mann-Wmissney): p = %d\n', ranksum(s1_mod_fs_evoked_miss, s1_unmod_fs_evoked_miss)))
+else
+    [a,p] = ttest2(s1_mod_fs_evoked_miss, s1_unmod_fs_evoked_miss);
+    fprintf(sprintf('S1 mod fs vs unmod fs evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(pfc_mod_rs_evoked_miss) || KStest(pfc_unmod_rs_evoked_miss)
+    fprintf(sprintf('PFC mod RS vs unmod RS evoked fr (Mann-Wmissney): p = %d\n', ranksum(pfc_mod_rs_evoked_miss, pfc_unmod_rs_evoked_miss)))
+else
+    [a,p] = ttest2(pfc_mod_rs_evoked_miss, pfc_unmod_rs_evoked_miss);
+    fprintf(sprintf('PFC mod RS vs unmod RS evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(pfc_mod_fs_evoked_miss) || KStest(pfc_unmod_fs_evoked_miss)
+    fprintf(sprintf('PFC mod fs vs unmod fs evoked fr (Mann-Wmissney): p = %d\n', ranksum(pfc_mod_fs_evoked_miss, pfc_unmod_fs_evoked_miss)))
+else
+    [a,p] = ttest2(pfc_mod_fs_evoked_miss, pfc_unmod_fs_evoked_miss);
+    fprintf(sprintf('PFC mod fs vs unmod fs evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(striatum_mod_rs_evoked_miss) || KStest(striatum_unmod_rs_evoked_miss)
+    fprintf(sprintf('Striatum mod RS vs unmod RS evoked fr (Mann-Wmissney): p = %d\n', ranksum(striatum_mod_rs_evoked_miss, striatum_unmod_rs_evoked_miss)))
+else
+    [a,p] = ttest2(striatum_mod_rs_evoked_miss, striatum_unmod_rs_evoked_miss);
+    fprintf(sprintf('Striatum mod RS vs unmod RS evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(striatum_mod_fs_evoked_miss) || KStest(striatum_unmod_fs_evoked_miss)
+    fprintf(sprintf('Striatum mod fs vs unmod fs evoked fr (Mann-Wmissney): p = %d\n', ranksum(striatum_mod_fs_evoked_miss, striatum_unmod_fs_evoked_miss)))
+else
+    [a,p] = ttest2(striatum_mod_fs_evoked_miss, striatum_unmod_fs_evoked_miss);
+    fprintf(sprintf('Striatum mod fs vs unmod fs evoked fr (2 sample t-test): p = %d\n', p))
+end
+
+fprintf('\n\nMod vs. Unmod on fa trials\n')
+if KStest(s1_mod_rs_evoked_fa) || KStest(s1_unmod_rs_evoked_fa)
+    fprintf(sprintf('S1 mod RS vs unmod RS evoked fr (Mann-Wfaney): p = %d\n', ranksum(s1_mod_rs_evoked_fa, s1_unmod_rs_evoked_fa)))
+else
+    [a,p] = ttest2(s1_mod_rs_evoked_fa, s1_unmod_rs_evoked_fa);
+    fprintf(sprintf('S1 mod RS vs unmod RS evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(s1_mod_fs_evoked_fa) || KStest(s1_unmod_fs_evoked_fa)
+    fprintf(sprintf('S1 mod fs vs unmod fs evoked fr (Mann-Wfaney): p = %d\n', ranksum(s1_mod_fs_evoked_fa, s1_unmod_fs_evoked_fa)))
+else
+    [a,p] = ttest2(s1_mod_fs_evoked_fa, s1_unmod_fs_evoked_fa);
+    fprintf(sprintf('S1 mod fs vs unmod fs evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(pfc_mod_rs_evoked_fa) || KStest(pfc_unmod_rs_evoked_fa)
+    fprintf(sprintf('PFC mod RS vs unmod RS evoked fr (Mann-Wfaney): p = %d\n', ranksum(pfc_mod_rs_evoked_fa, pfc_unmod_rs_evoked_fa)))
+else
+    [a,p] = ttest2(pfc_mod_rs_evoked_fa, pfc_unmod_rs_evoked_fa);
+    fprintf(sprintf('PFC mod RS vs unmod RS evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(pfc_mod_fs_evoked_fa) || KStest(pfc_unmod_fs_evoked_fa)
+    fprintf(sprintf('PFC mod fs vs unmod fs evoked fr (Mann-Wfaney): p = %d\n', ranksum(pfc_mod_fs_evoked_fa, pfc_unmod_fs_evoked_fa)))
+else
+    [a,p] = ttest2(pfc_mod_fs_evoked_fa, pfc_unmod_fs_evoked_fa);
+    fprintf(sprintf('PFC mod fs vs unmod fs evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(striatum_mod_rs_evoked_fa) || KStest(striatum_unmod_rs_evoked_fa)
+    fprintf(sprintf('Striatum mod RS vs unmod RS evoked fr (Mann-Wfaney): p = %d\n', ranksum(striatum_mod_rs_evoked_fa, striatum_unmod_rs_evoked_fa)))
+else
+    [a,p] = ttest2(striatum_mod_rs_evoked_fa, striatum_unmod_rs_evoked_fa);
+    fprintf(sprintf('Striatum mod RS vs unmod RS evoked fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(striatum_mod_fs_evoked_fa) || KStest(striatum_unmod_fs_evoked_fa)
+    fprintf(sprintf('Striatum mod fs vs unmod fs evoked fr (Mann-Wfaney): p = %d\n', ranksum(striatum_mod_fs_evoked_fa, striatum_unmod_fs_evoked_fa)))
+else
+    [a,p] = ttest2(striatum_mod_fs_evoked_fa, striatum_unmod_fs_evoked_fa);
+    fprintf(sprintf('Striatum mod fs vs unmod fs evoked fr (2 sample t-test): p = %d\n', p))
+end
+
+fprintf('\n\nMod hit vs miss trials\n')
+if KStest(s1_mod_rs_evoked_hit) || KStest(s1_mod_rs_evoked_miss)
+    fprintf(sprintf('S1 mod RS vs mod RS evoked fr (signed-rank): p = %d\n', signrank(s1_mod_rs_evoked_hit, s1_mod_rs_evoked_miss)))
+else
+    [a,p] = ttest(s1_mod_rs_evoked_hit, s1_mod_rs_evoked_miss);
+    fprintf(sprintf('S1 mod RS vs mod RS evoked fr (signed-rank): p = %d\n', p))
+end
+if KStest(s1_mod_fs_evoked_hit) || KStest(s1_mod_fs_evoked_miss)
+    fprintf(sprintf('S1 mod fs vs mod fs evoked fr (signed-rank): p = %d\n', signrank(s1_mod_fs_evoked_hit, s1_mod_fs_evoked_miss)))
+else
+    [a,p] = ttest(s1_mod_fs_evoked_hit, s1_mod_fs_evoked_miss);
+    fprintf(sprintf('S1 mod fs vs mod fs evoked fr (paired t-test): p = %d\n', p))
+end
+if KStest(pfc_mod_rs_evoked_hit) || KStest(pfc_mod_rs_evoked_miss)
+    fprintf(sprintf('PFC mod RS vs mod RS evoked fr (signed-rank): p = %d\n', signrank(pfc_mod_rs_evoked_hit, pfc_mod_rs_evoked_miss)))
+else
+    [a,p] = ttest(pfc_mod_rs_evoked_hit, pfc_mod_rs_evoked_miss);
+    fprintf(sprintf('PFC mod RS vs mod RS evoked fr (paired t-test): p = %d\n', p))
+end
+if KStest(pfc_mod_fs_evoked_hit) || KStest(pfc_mod_fs_evoked_miss)
+    fprintf(sprintf('PFC mod fs vs mod fs evoked fr (signed-rank): p = %d\n', signrank(pfc_mod_fs_evoked_hit, pfc_mod_fs_evoked_miss)))
+else
+    [a,p] = ttest(pfc_mod_fs_evoked_hit, pfc_mod_fs_evoked_miss);
+    fprintf(sprintf('PFC mod fs vs mod fs evoked fr (paired t-test): p = %d\n', p))
+end
+if KStest(striatum_mod_rs_evoked_hit) || KStest(striatum_mod_rs_evoked_miss)
+    fprintf(sprintf('Striatum mod RS vs mod RS evoked fr (signed-rank): p = %d\n', signrank(striatum_mod_rs_evoked_hit, striatum_mod_rs_evoked_miss)))
+else
+    [a,p] = ttest(striatum_mod_rs_evoked_hit, striatum_mod_rs_evoked_miss);
+    fprintf(sprintf('Striatum mod RS vs mod RS evoked fr (paired t-test): p = %d\n', p))
+end
+if KStest(striatum_mod_fs_evoked_hit) || KStest(striatum_mod_fs_evoked_miss)
+    fprintf(sprintf('Striatum mod fs vs mod fs evoked fr (signed-rank): p = %d\n', signrank(striatum_mod_fs_evoked_hit, striatum_mod_fs_evoked_miss)))
+else
+    [a,p] = ttest(striatum_mod_fs_evoked_hit, striatum_mod_fs_evoked_miss);
+    fprintf(sprintf('Striatum mod fs vs mod fs evoked fr (paired t-test): p = %d\n', p))
+end
+
+fprintf('\n\nUnmod hit vs miss trials\n')
+if KStest(s1_unmod_rs_evoked_hit) || KStest(s1_unmod_rs_evoked_miss)
+    fprintf(sprintf('S1 unmod RS vs unmod RS evoked fr (signed-rank): p = %d\n', signrank(s1_unmod_rs_evoked_hit, s1_unmod_rs_evoked_miss)))
+else
+    [a,p] = ttest(s1_unmod_rs_evoked_hit, s1_unmod_rs_evoked_miss);
+    fprintf(sprintf('S1 unmod RS vs unmod RS evoked fr (signed-rank): p = %d\n', p))
+end
+if KStest(s1_unmod_fs_evoked_hit) || KStest(s1_unmod_fs_evoked_miss)
+    fprintf(sprintf('S1 unmod fs vs unmod fs evoked fr (signed-rank): p = %d\n', signrank(s1_unmod_fs_evoked_hit, s1_unmod_fs_evoked_miss)))
+else
+    [a,p] = ttest(s1_unmod_fs_evoked_hit, s1_unmod_fs_evoked_miss);
+    fprintf(sprintf('S1 unmod fs vs unmod fs evoked fr (paired t-test): p = %d\n', p))
+end
+if KStest(pfc_unmod_rs_evoked_hit) || KStest(pfc_unmod_rs_evoked_miss)
+    fprintf(sprintf('PFC unmod RS vs unmod RS evoked fr (signed-rank): p = %d\n', signrank(pfc_unmod_rs_evoked_hit, pfc_unmod_rs_evoked_miss)))
+else
+    [a,p] = ttest(pfc_unmod_rs_evoked_hit, pfc_unmod_rs_evoked_miss);
+    fprintf(sprintf('PFC unmod RS vs unmod RS evoked fr (paired t-test): p = %d\n', p))
+end
+if KStest(pfc_unmod_fs_evoked_hit) || KStest(pfc_unmod_fs_evoked_miss)
+    fprintf(sprintf('PFC unmod fs vs unmod fs evoked fr (signed-rank): p = %d\n', signrank(pfc_unmod_fs_evoked_hit, pfc_unmod_fs_evoked_miss)))
+else
+    [a,p] = ttest(pfc_unmod_fs_evoked_hit, pfc_unmod_fs_evoked_miss);
+    fprintf(sprintf('PFC unmod fs vs unmod fs evoked fr (paired t-test): p = %d\n', p))
+end
+if KStest(striatum_unmod_rs_evoked_hit) || KStest(striatum_unmod_rs_evoked_miss)
+    fprintf(sprintf('Striatum unmod RS vs unmod RS evoked fr (signed-rank): p = %d\n', signrank(striatum_unmod_rs_evoked_hit, striatum_unmod_rs_evoked_miss)))
+else
+    [a,p] = ttest(striatum_unmod_rs_evoked_hit, striatum_unmod_rs_evoked_miss);
+    fprintf(sprintf('Striatum unmod RS vs unmod RS evoked fr (paired t-test): p = %d\n', p))
+end
+if KStest(striatum_unmod_fs_evoked_hit) || KStest(striatum_unmod_fs_evoked_miss)
+    fprintf(sprintf('Striatum unmod fs vs unmod fs evoked fr (signed-rank): p = %d\n', signrank(striatum_unmod_fs_evoked_hit, striatum_unmod_fs_evoked_miss)))
+else
+    [a,p] = ttest(striatum_unmod_fs_evoked_hit, striatum_unmod_fs_evoked_miss);
+    fprintf(sprintf('Striatum unmod fs vs unmod fs evoked fr (paired t-test): p = %d\n', p))
+end
 %% iti firing rates 
 s1_mod_rs_iti_hit = mean(s1_mod_rs_delta_hit(:,time>2 & time < 5),2);
 s1_mod_fs_iti_hit = mean(s1_mod_fs_delta_hit(:,time>2 & time < 5),2);
@@ -1092,6 +1344,45 @@ xticks([1.5:3:10.5])
 xticklabels({'Hit', 'Miss', 'CR', 'FA'})
 xlabel(tl, 'Trial Outcome')
 ylabel(tl, 'ITI \Delta Firing Rate from Baseline (Hz)')
+
+fprintf('\n\nMod vs. Unmod on hit trials\n')
+if KStest(s1_mod_rs_iti_hit) || KStest(s1_unmod_rs_iti_hit)
+    fprintf(sprintf('S1 mod RS vs unmod RS iti fr (Mann-Whitney): p = %d\n', ranksum(s1_mod_rs_iti_hit, s1_unmod_rs_iti_hit)))
+else
+    [a,p] = ttest2(s1_mod_rs_iti_hit, s1_unmod_rs_iti_hit);
+    fprintf(sprintf('S1 mod RS vs unmod RS iti fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(s1_mod_fs_iti_hit) || KStest(s1_unmod_fs_iti_hit)
+    fprintf(sprintf('S1 mod fs vs unmod fs iti fr (Mann-Whitney): p = %d\n', ranksum(s1_mod_fs_iti_hit, s1_unmod_fs_iti_hit)))
+else
+    [a,p] = ttest2(s1_mod_fs_iti_hit, s1_unmod_fs_iti_hit);
+    fprintf(sprintf('S1 mod fs vs unmod fs iti fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(pfc_mod_rs_iti_hit) || KStest(pfc_unmod_rs_iti_hit)
+    fprintf(sprintf('PFC mod RS vs unmod RS iti fr (Mann-Whitney): p = %d\n', ranksum(pfc_mod_rs_iti_hit, pfc_unmod_rs_iti_hit)))
+else
+    [a,p] = ttest2(pfc_mod_rs_iti_hit, pfc_unmod_rs_iti_hit);
+    fprintf(sprintf('PFC mod RS vs unmod RS iti fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(pfc_mod_fs_iti_hit) || KStest(pfc_unmod_fs_iti_hit)
+    fprintf(sprintf('PFC mod fs vs unmod fs iti fr (Mann-Whitney): p = %d\n', ranksum(pfc_mod_fs_iti_hit, pfc_unmod_fs_iti_hit)))
+else
+    [a,p] = ttest2(pfc_mod_fs_iti_hit, pfc_unmod_fs_iti_hit);
+    fprintf(sprintf('PFC mod fs vs unmod fs iti fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(striatum_mod_rs_iti_hit) || KStest(striatum_unmod_rs_iti_hit)
+    fprintf(sprintf('Striatum mod RS vs unmod RS iti fr (Mann-Whitney): p = %d\n', ranksum(striatum_mod_rs_iti_hit, striatum_unmod_rs_iti_hit)))
+else
+    [a,p] = ttest2(striatum_mod_rs_iti_hit, striatum_unmod_rs_iti_hit);
+    fprintf(sprintf('Striatum mod RS vs unmod RS iti fr (2 sample t-test): p = %d\n', p))
+end
+if KStest(striatum_mod_fs_iti_hit) || KStest(striatum_unmod_fs_iti_hit)
+    fprintf(sprintf('Striatum mod fs vs unmod fs iti fr (Mann-Whitney): p = %d\n', ranksum(striatum_mod_fs_iti_hit, striatum_unmod_fs_iti_hit)))
+else
+    [a,p] = ttest2(striatum_mod_fs_iti_hit, striatum_unmod_fs_iti_hit);
+    fprintf(sprintf('Striatum mod fs vs unmod fs iti fr (2 sample t-test): p = %d\n', p))
+end
+
 
 % hold on 
 % bar(1:2, [mean(s1_rs_fracs), mean(s1_fs_fracs)], 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
@@ -2009,29 +2300,36 @@ mod_baseline = [s1_mod_rs_baseline; s1_mod_fs_baseline; pfc_mod_rs_baseline; pfc
 unmod_baseline = [s1_unmod_rs_baseline; s1_unmod_fs_baseline; pfc_unmod_rs_baseline; pfc_unmod_fs_baseline; striatum_unmod_rs_baseline; striatum_unmod_fs_baseline; amygdala_unmod_rs_baseline; amygdala_unmod_fs_baseline];
 baseline_fig = figure(); 
 hold on 
-bar(1:2, [mean(mod_baseline), mean(unmod_baseline)], 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5, 0.5])
-errorbar(1:2, [mean(mod_baseline), mean(unmod_baseline)], [ste(mod_baseline), ste(unmod_baseline)], 'k.')
+% bar(1:2, [mean(mod_baseline), mean(unmod_baseline)], 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5, 0.5])
+% errorbar(1:2, [mean(mod_baseline), mean(unmod_baseline)], [ste(mod_baseline), ste(unmod_baseline)], 'k.')
+violinplot(1, mod_baseline, 'FaceColor', 'b')
+violinplot(2, unmod_baseline, 'FaceColor', 'r')
 xticks(1:2)
 xticklabels({'Modulated', 'Unmodulated'})
+ylabel('Baseline Firing Rate (Hz)')
 
-out_path = false;
-if ~exist('./Figures/', 'dir')
-    mkdir('./Figures/')
+out_path = true;
+if ~exist('../Figures/', 'dir')
+    mkdir('../Figures/')
 end
 
 if out_path
-    saveas(fracs_fig, 'Figures/fracs.fig')
-    saveas(s1_mod_fig, 'Figures/s1_mod_fig.fig')
-    saveas(pfc_mod_fig, 'Figures/pfc_mod_fig.fig')
-    saveas(striatum_mod_fig, 'Figures/striatum_mod_fig.fig')
-    saveas(amygdala_mod_fig, 'Figures/amygdala_mod_fig.fig')
-    saveas(baseline_fig, 'Figures/baseline_mod_v_unmod.fig')
+    saveas(fracs_fig, '../Figures/fracs.fig')
+    saveas(s1_mod_fig, '../Figures/s1_mod_fig.fig')
+    saveas(pfc_mod_fig, '../Figures/pfc_mod_fig.fig')
+    saveas(striatum_mod_fig, '../Figures/striatum_mod_fig.fig')
+    saveas(amygdala_mod_fig, '../Figures/amygdala_mod_fig.fig')
+    saveas(baseline_fig, '../Figures/baseline_mod_v_unmod.fig')
+    saveas(evoked_fig, '../Figures/evoked.fig')
+    saveas(iti_fig, '../Figures/iti.fig')
 
-    saveas(fracs_fig, 'Figures/fracs.svg')
-    saveas(s1_mod_fig, 'Figures/s1_mod_fig.svg')
-    saveas(pfc_mod_fig, 'Figures/pfc_mod_fig.svg')
-    saveas(striatum_mod_fig, 'Figures/striatum_mod_fig.svg')
-    saveas(amygdala_mod_fig, 'Figures/amygdala_mod_fig.svg')
-    saveas(baseline_fig, 'Figures/baseline_mod_v_unmod.svg')
+    saveas(fracs_fig, '../Figures/fracs.svg')
+    saveas(s1_mod_fig, '../Figures/s1_mod_fig.svg')
+    saveas(pfc_mod_fig, '../Figures/pfc_mod_fig.svg')
+    saveas(striatum_mod_fig, '../Figures/striatum_mod_fig.svg')
+    saveas(amygdala_mod_fig, '../Figures/amygdala_mod_fig.svg')
+    saveas(baseline_fig, '../Figures/baseline_mod_v_unmod.svg')
+    saveas(evoked_fig, '../Figures/evoked.svg')
+    saveas(iti_fig, '../Figures/iti.svg')
 end
 

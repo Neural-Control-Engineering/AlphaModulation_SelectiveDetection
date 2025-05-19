@@ -8,6 +8,58 @@ p_threshold = out.overall_p_threshold;
 clear out 
 out_file = strcat(ftr_path, '/AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
 load(out_file)
+
+out.low_mi = out.low_mi(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.high_mi = out.high_mi(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.low_mse = out.low_mse(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.high_mse = out.high_mse(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.theta_bar_low = out.theta_bar_low(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.theta_bar_high = out.theta_bar_high(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.low_p = out.low_p(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.high_p = out.high_p(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.low_firing_rates = out.low_firing_rates(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.high_firing_rates = out.high_firing_rates(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.n_low_events = out.n_low_events(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.n_high_events = out.n_high_events(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+alpha_modulated = alpha_modulated(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+
+exinds = load('ExcldInds/3738_excld_v2.mat');
+for i = 1:length(exinds.new_excld{1})
+    session_id = exinds.new_excld{1}{i};
+    cid = exinds.new_excld{2}{i};
+    out.low_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_low(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_high(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_low_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_high_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    alpha_modulated(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+end
+exinds = load('ExcldInds/3387_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    out.low_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_low(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_high(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_low_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_high_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    alpha_modulated(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+end
+
 s1_rs_low_mi = out.low_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
 s1_rs_high_mi = out.high_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
 s1_rs_low_mse = out.low_mse(strcmp(alpha_modulated.waveform_class, 'RS'));
@@ -70,13 +122,70 @@ s1_fs_high_mse_avg = nanmean(s1_fs_high_mse);
 s1_fs_low_mse_err = nanstd(s1_fs_low_mse) ./ sqrt(sum(~isnan(s1_fs_low_mse)));
 s1_fs_high_mse_err = nanstd(s1_fs_high_mse) ./ sqrt(sum(~isnan(s1_fs_high_mse)));
 
-
 load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/data.mat'))
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
 out_file = strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
 load(out_file)
+
+
+inds = find(contains(alpha_modulated.region, 'AC') & strcmp(alpha_modulated.waveform_class, 'RS') & cell2mat(alpha_modulated.avg_trial_fr) > 15);
+for i = 1:length(inds)
+    alpha_modulated(inds(i),:).waveform_class{1} = 'FS';
+end
+
+out.low_mi = out.low_mi(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.high_mi = out.high_mi(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.low_mse = out.low_mse(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.high_mse = out.high_mse(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.theta_bar_low = out.theta_bar_low(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.theta_bar_high = out.theta_bar_high(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.low_p = out.low_p(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.high_p = out.high_p(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.low_firing_rates = out.low_firing_rates(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.high_firing_rates = out.high_firing_rates(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.n_low_events = out.n_low_events(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.n_high_events = out.n_high_events(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+alpha_modulated = alpha_modulated(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+
+exinds = load('ExcldInds/3755_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    out.low_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_low(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_high(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_low_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_high_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    alpha_modulated(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+end
+exinds = load('ExcldInds/1075_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    out.low_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_low(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_high(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_low_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_high_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    alpha_modulated(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+end
+
 pfc_rs_low_mi = out.low_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
 pfc_rs_high_mi = out.high_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
 pfc_rs_low_p = out.low_p(strcmp(alpha_modulated.waveform_class, 'RS'));
@@ -146,6 +255,58 @@ p_threshold = out.overall_p_threshold;
 clear out 
 out_file = strcat(ftr_path, '/AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
 load(out_file)
+
+out.low_mi = out.low_mi(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.high_mi = out.high_mi(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.low_mse = out.low_mse(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.high_mse = out.high_mse(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.theta_bar_low = out.theta_bar_low(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.theta_bar_high = out.theta_bar_high(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.low_p = out.low_p(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.high_p = out.high_p(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.low_firing_rates = out.low_firing_rates(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.high_firing_rates = out.high_firing_rates(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.n_low_events = out.n_low_events(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.n_high_events = out.n_high_events(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+alpha_modulated = alpha_modulated(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+
+exinds = load('ExcldInds/3738_excld_v2.mat');
+for i = 1:length(exinds.new_excld{1})
+    session_id = exinds.new_excld{1}{i};
+    cid = exinds.new_excld{2}{i};
+    out.low_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_low(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_high(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_low_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_high_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    alpha_modulated(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+end
+exinds = load('ExcldInds/3387_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    out.low_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_low(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_high(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_low_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_high_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    alpha_modulated(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+end
+
 striatum_rs_low_mi = out.low_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
 striatum_rs_high_mi = out.high_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
 striatum_rs_low_p = out.low_p(strcmp(alpha_modulated.waveform_class, 'RS'));
@@ -214,6 +375,58 @@ p_threshold = out.overall_p_threshold;
 clear out 
 out_file = strcat(ftr_path, '/AP/FIG/Expert_Combo/Amygdala/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
 load(out_file)
+
+out.low_mi = out.low_mi(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.high_mi = out.high_mi(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.low_mse = out.low_mse(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.high_mse = out.high_mse(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.theta_bar_low = out.theta_bar_low(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.theta_bar_high = out.theta_bar_high(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
+out.low_p = out.low_p(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.high_p = out.high_p(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.low_firing_rates = out.low_firing_rates(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.high_firing_rates = out.high_firing_rates(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.n_low_events = out.n_low_events(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+out.n_high_events = out.n_high_events(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+alpha_modulated = alpha_modulated(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+
+exinds = load('ExcldInds/3738_excld_v2.mat');
+for i = 1:length(exinds.new_excld{1})
+    session_id = exinds.new_excld{1}{i};
+    cid = exinds.new_excld{2}{i};
+    out.low_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_low(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_high(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_low_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_high_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    alpha_modulated(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+end
+exinds = load('ExcldInds/3387_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    out.low_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mi(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_mse(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_low(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.theta_bar_high(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_p(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.low_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.high_firing_rates(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_low_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    out.n_high_events(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+    alpha_modulated(strcmp(alpha_modulated.session_id, session_id) & alpha_modulated.cluster_id == cid,:) = [];
+end
+
 amygdala_rs_low_mi = out.low_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
 amygdala_rs_high_mi = out.high_mi(strcmp(alpha_modulated.waveform_class, 'RS'));
 amygdala_rs_low_p = out.low_p(strcmp(alpha_modulated.waveform_class, 'RS'));
@@ -486,8 +699,8 @@ yticklabels({'-\pi', '\pi'})
 
 if out_path
     mkdir('./Figures/')
-    saveas(fig, 'Figures/lowVsHighAlpha_summary.svg')
-    saveas(fig, 'Figures/lowVsHighAlpha_summary.fig')
+    saveas(fig, '../Figures/lowVsHighAlpha_summary.svg')
+    saveas(fig, '../Figures/lowVsHighAlpha_summary.fig')
 end
 
 if KStest(s1_rs_low_mi) || KStest(s1_rs_high_mi)
@@ -1066,8 +1279,8 @@ yticks([0,0.35])
 yticklabels({})
 
 if out_path
-    saveas(example_fig, 'Figures/examp_high_low.svg')
-    saveas(example_fig, 'Figures/examp_high_low.fig')
+    saveas(example_fig, '../Figures/examp_high_low.svg')
+    saveas(example_fig, '../Figures/examp_high_low.fig')
 end
 
 [Nlow, ~] = histcounts(low_phases, 20);

@@ -90,7 +90,7 @@ end
 load ~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Subjects/3738-20240702/regionMap_adjusted.mat
 axs(2) = nexttile;
 hold on;
-imagesc(time(1:end-1), 1:size(csd_mat,1), mean(csd_mat,3)); colorbar(); clim([-20,20]); 
+imagesc(time(1:end-1), 1:size(csd_mat,1), mean(csd_mat,3)); colorbar(); clim([-25,25]); 
 colormap('jet'); set(gca, 'YDir', 'normal'); 
 layers{1} = [min(cell2mat(regMap.channel(contains(regMap.region, 'bfd1')))), max(cell2mat(regMap.channel(contains(regMap.region, 'bfd1'))))] ./ 2;
 layers{2} = [min(cell2mat(regMap.channel(contains(regMap.region, 'bfd2')))), max(cell2mat(regMap.channel(contains(regMap.region, 'bfd2'))))] ./ 2;
@@ -117,5 +117,5 @@ title('Mouse 2')
 xlabel(tl, 'Time (s)')
 ylabel(tl, 'Cortical Layer')
 
-saveas(fig, 'Figures/s1_csd.fig')
-saveas(fig, 'Figures/s1_csd.svg')
+saveas(fig, '../Figures/s1_csd.fig')
+saveas(fig, '../Figures/s1_csd.svg')

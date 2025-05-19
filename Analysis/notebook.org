@@ -5752,7 +5752,7 @@ consistency using PCA, examine the spatial distance separation of recorded units
 Clarification on these points is important to ensure the validity of the reported single-unit data, especially as they relate to the classification of fast-spiking and regular-spiking 
 cells.
 ** TODOS:
-*** TODO: autocorrelograms for each neuron 
+*** DONE: autocorrelograms for each neuron 
 **** sample code 
 load ~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat
 excld_file = 'ExcldInds/3755_excld.mat';
@@ -5999,3 +5999,889 @@ for s = 1:length(session_ids)
         p_cr(i) = circ_rtest(all_phases);
     end
 end
+
+* [2025-5-19 Mon] - updated statistics 
+** phaseModSummaries.m 
+Mod vs. Unmod on hit trials
+S1 mod RS vs unmod RS evoked fr (Mann-Whitney): p = 7.026432e-01
+S1 mod fs vs unmod fs evoked fr (Mann-Whitney): p = 8.073553e-05
+PFC mod RS vs unmod RS evoked fr (Mann-Whitney): p = 6.261122e-01
+PFC mod fs vs unmod fs evoked fr (Mann-Whitney): p = 3.225634e-05
+Striatum mod RS vs unmod RS evoked fr (Mann-Whitney): p = 3.904936e-04
+Striatum mod fs vs unmod fs evoked fr (Mann-Whitney): p = 1.240494e-01
+
+
+Mod vs. Unmod on cr trials
+S1 mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 6.923796e-02
+S1 mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 7.514031e-02
+PFC mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 2.935093e-01
+PFC mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 1.775465e-03
+Striatum mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 8.685842e-01
+Striatum mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 9.687211e-01
+
+
+Mod vs. Unmod on miss trials
+S1 mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 9.072430e-01
+S1 mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 6.279487e-04
+PFC mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 2.910718e-01
+PFC mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 1.688950e-02
+Striatum mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 3.087778e-02
+Striatum mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 1.362040e-01
+
+
+Mod vs. Unmod on fa trials
+S1 mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 6.948745e-01
+S1 mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 1.735418e-06
+PFC mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 7.268984e-01
+PFC mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 6.897619e-04
+Striatum mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 2.710903e-02
+Striatum mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 1.270603e-01
+
+
+Mod hit vs miss trials
+S1 mod RS vs mod RS evoked fr (signed-rank): p = 5.630208e-03
+S1 mod fs vs mod fs evoked fr (signed-rank): p = 8.376027e-05
+PFC mod RS vs mod RS evoked fr (signed-rank): p = 4.988701e-04
+PFC mod fs vs mod fs evoked fr (signed-rank): p = 3.458679e-01
+Striatum mod RS vs mod RS evoked fr (signed-rank): p = 3.536861e-03
+Striatum mod fs vs mod fs evoked fr (signed-rank): p = 1.022952e-01
+
+
+Unmod hit vs miss trials
+S1 unmod RS vs unmod RS evoked fr (signed-rank): p = 5.803880e-02
+S1 unmod fs vs unmod fs evoked fr (signed-rank): p = 3.254954e-02
+PFC unmod RS vs unmod RS evoked fr (signed-rank): p = 2.014496e-04
+PFC unmod fs vs unmod fs evoked fr (signed-rank): p = 1.049805e-02
+Striatum unmod RS vs unmod RS evoked fr (signed-rank): p = 1.955603e-01
+Striatum unmod fs vs unmod fs evoked fr (signed-rank): p = 2.796467e-01
+
+
+Mod vs. Unmod on hit trials
+S1 mod RS vs unmod RS iti fr (Mann-Whitney): p = 8.008776e-01
+S1 mod fs vs unmod fs iti fr (Mann-Whitney): p = 4.336835e-01
+PFC mod RS vs unmod RS iti fr (Mann-Whitney): p = 1.043474e-01
+PFC mod fs vs unmod fs iti fr (Mann-Whitney): p = 2.880363e-01
+Striatum mod RS vs unmod RS iti fr (Mann-Whitney): p = 6.797702e-02
+Striatum mod fs vs unmod fs iti fr (Mann-Whitney): p = 6.433570e-03
+
+Warning: N=142 not found in table, using closest N=100 present. 
+> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In phaseModSummaries (line 1489) 
+S1 RS theta bars vs FS theta bars Kuiper test: p = 5.000000e-02
+S1 RS MI vs FS MI Mann Whitney: p = 1.933791e-01
+S1 RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 2.811457e-14
+S1 RS vs FS fraction (Mann-Whitney): p = 2.842147e-01
+S1 RS mean theta bar: 2.564282e+00 +/- 4.258930e-02
+S1 FS mean theta bar: 2.688349e+00 +/- 6.944384e-02
+
+s1_rs_ranova =
+
+  5x8 table
+
+                            SumSq       DF      MeanSq      F         pValue       pValueGG      pValueHF     pValueLB 
+                          _________    _____    ______    ______    __________    __________    __________    _________
+
+    (Intercept):Time         2013.4       49    41.089    8.4121    2.9356e-58    3.2291e-07    2.8305e-07    0.0039079
+    group:Time               187.95       49    3.8358    0.7853       0.86002       0.54603       0.54729      0.37599
+    subject:Time             2856.6       49    58.298    11.935    1.8908e-91    2.3597e-10    1.9173e-10    0.0006024
+    group:subject:Time       557.04       49    11.368    2.3274    4.4402e-07      0.047918      0.047238      0.12781
+    Error(Time)           1.089e+05    22295    4.8845                                                                 
+
+
+s1_fs_ranova =
+
+  5x8 table
+
+                            SumSq        DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
+                          __________    ____    ______    ______    ___________    __________    __________    __________
+
+    (Intercept):Time           36207      49    738.92    24.351    3.1991e-203    2.9245e-13    1.9725e-13    1.7837e-06
+    group:Time                5668.2      49    115.68    3.8121     9.9203e-18      0.013698      0.013241      0.052393
+    subject:Time              5258.5      49    107.32    3.5365     1.3537e-15      0.019154      0.018594      0.061602
+    group:subject:Time        2361.3      49    48.189     1.588      0.0056227       0.19699       0.19636       0.20919
+    Error(Time)           2.7508e+05    9065    30.345                                                                   
+
+Warning: N=38 not found in table, using closest N=35 present. 
+> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In phaseModSummaries (line 1652) 
+PFC RS theta bars vs FS theta bars Kuiper test: p = 1.000000e-03
+PFC RS MI vs FS MI Mann Whitney: p = 3.593136e-03
+PFC RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 9.950687e-08
+PFC RS vs FS fraction (Mann-Whitney): p = 4.016780e-05
+PFC RS mean theta bar: 2.818574e+00 +/- 6.157454e-02
+PFC FS mean theta bar: -8.728546e-01 +/- 2.111526e-01
+
+pfc_rs_ranova =
+
+  5x8 table
+
+                          SumSq      DF      MeanSq      F         pValue       pValueGG      pValueHF     pValueLB
+                          ______    _____    ______    ______    __________    __________    __________    ________
+
+    (Intercept):Time      903.14       49    18.431    5.3217    1.8886e-30    2.9858e-05    2.6958e-05    0.021482
+    group:Time            811.69       49    16.565    4.7828    7.6377e-26    0.00011219    0.00010292    0.029222
+    subject:Time          653.55       49    13.338     3.851    3.5037e-18     0.0010574    0.00099598    0.050287
+    group:subject:Time    408.39       49    8.3346    2.4064    1.3773e-07      0.028407      0.027761     0.12149
+    Error(Time)            82309    23765    3.4634                                                                
+
+
+pfc_fs_ranova =
+
+  5x8 table
+
+                          SumSq      DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
+                          ______    ____    ______    ______    ___________    __________    __________    __________
+
+    (Intercept):Time       15788      49     322.2     22.88    3.6221e-162    3.7544e-12    6.9612e-13    1.6791e-05
+    group:Time            2815.8      49    57.465    4.0808     4.0882e-19     0.0081793     0.0067245      0.048972
+    subject:Time          6863.3      49    140.07    9.9467     1.0856e-65    5.4131e-06    2.7357e-06     0.0027788
+    group:subject:Time    1247.7      49    25.463    1.8083     0.00054987       0.14843       0.14391       0.18504
+    Error(Time)            33120    2352    14.082                                                                   
+
+Striatum RS theta bars vs FS theta bars Kuiper test: p = 1
+Striatum RS MI vs FS MI Mann Whitney: p = 3.872300e-03
+Striatum RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 1.323635e-03
+Striatum RS vs FS fraction (Mann-Whitney): p = 5.259364e-01
+Striatum RS mean theta bar: -2.805945e+00 +/- 1.334533e-01
+Striatum FS mean theta bar: -2.884973e+00 +/- 1.305836e-01
+
+
+striatum_rs_ranova =
+
+  3x8 table
+
+                          SumSq        DF      MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
+                        __________    _____    ______    ______    ___________    __________    __________    __________
+
+    (Intercept):Time         29325       49    598.46    18.912    2.2104e-155    3.8351e-10    3.1059e-10    2.0503e-05
+    group:Time              9470.9       49    193.28     6.108     4.9446e-37     0.0010416    0.00099048      0.014176
+    Error(Time)         3.5973e+05    11368    31.644                                                                   
+
+
+striatum_fs_ranova =
+
+  5x8 table
+
+                            SumSq        DF      MeanSq      F         pValue       pValueGG      pValueHF     pValueLB 
+                          __________    _____    ______    ______    __________    __________    __________    _________
+
+    (Intercept):Time           11191       49     228.4    12.393     3.436e-95    1.8079e-11     1.251e-11    0.0004939
+    group:Time                5196.4       49    106.05    5.7543    4.3347e-34     3.783e-05    3.3216e-05     0.017024
+    subject:Time                4778       49     97.51     5.291    4.4437e-30    0.00010176    9.0756e-05     0.022083
+    group:subject:Time          5785       49    118.06    6.4061    7.9013e-40    9.3039e-06    7.9884e-06     0.011855
+    Error(Time)           2.8717e+05    15582     18.43                                                                 
+
+Amygdala RS theta bars vs FS theta bars Kuiper test: p = NaN
+Amygdala RS MI vs FS MI Mann Whitney: p = 4.210526e-01
+Amygdala RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 1.093911e-01
+Amygdala RS vs FS fraction (Mann-Whitney): p = 4.661071e-01
+Amygdala RS mean theta bar: -6.578593e-01 +/- 3.860051e-01
+Amygdala FS mean theta bar: -3.818542e-01 +/- 1.969560e-01
+
+
+amygdala_rs_ranova =
+
+  3x8 table
+
+                        SumSq     DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
+                        _____    ____    ______    ______    ___________    __________    __________    __________
+
+    (Intercept):Time    47256      49    964.42    22.247    8.8411e-132    4.0775e-07    1.5186e-07    9.4317e-05
+    group:Time          34943      49    713.12     16.45    6.6519e-100    7.7834e-06    3.6748e-06     0.0004896
+    Error(Time)         48856    1127     43.35                                                                   
+
+
+amygdala_fs_ranova =
+
+  3x8 table
+
+                          SumSq        DF     MeanSq      F         pValue      pValueGG    pValueHF     pValueLB
+                        __________    ____    ______    ______    __________    ________    _________    ________
+
+    (Intercept):Time         10292      49    210.04    3.0865    3.8583e-12    0.011012    0.0096838    0.081804
+    group:Time              4451.1      49    90.839    1.3349      0.059585      0.2505      0.24847     0.25051
+    Error(Time)         3.5678e+05    5243    68.049                                                             
+
+Total modulated S1 RS: 283
+Total modulated S1 FS: 142
+Total modulated S1: 425
+S1 RS fraction modulated: 6.377564e-01 +/- 4.350446e-02
+S1 FS fraction modulated: 6.921797e-01 +/- 5.035237e-02
+Total modulated PFC RS: 169
+Total modulated PFC FS: 38
+Total modulated PFC: 207
+PFC RS fraction modulated: 3.410313e-01 +/- 2.309609e-02
+PFC FS fraction modulated: 7.711538e-01 +/- 6.470550e-02
+Total modulated Striatum RS: 40
+Total modulated Striatum FS: 44
+Total modulated Striatum: 84
+Striatum RS fraction modulated: 1.203613e-01 +/- 3.247318e-02
+Striatum FS fraction modulated: 1.342994e-01 +/- 2.827663e-02
+Total modulated Amygdala RS: 3
+Total modulated Amygdala FS: 16
+Total modulated Amygdala: 19
+Amygdala RS fraction modulated: 2.307692e-01 +/- 1.216261e-01
+Amygdala FS fraction modulated: 2.390229e-01 +/- 8.041692e-02
+** laminarDistributions.m 
+L1 RS ANOVA:
+
+l1_rs_ranova =
+
+  3x8 table
+
+                        SumSq      DF     MeanSq      F         pValue      pValueGG    pValueHF    pValueLB
+                        ______    ____    ______    ______    __________    ________    ________    ________
+
+    (Intercept):Time    101.24      49    2.0662    1.9439    0.00011908    0.12046     0.11226     0.17229 
+    group:Time          53.068      49     1.083    1.0189       0.43797    0.39203      0.3969      0.3199 
+    Error(Time)         1770.8    1666    1.0629                                                            
+
+L1 fs ANOVA:
+
+l1_fs_ranova =
+
+  3x8 table
+
+                        SumSq     DF     MeanSq       F         pValue       pValueGG      pValueHF     pValueLB
+                        ______    ___    ______    _______    __________    __________    __________    ________
+
+    (Intercept):Time    5730.5     49    116.95     6.1277    1.3891e-29    0.00095305    0.00015338    0.027849
+    group:Time          352.03     49    7.1843    0.37643       0.99997       0.79337       0.85322     0.55011
+    Error(Time)          12157    637    19.085                                                                 
+
+L2/3 RS ANOVA:
+
+l2_rs_ranova =
+
+  5x8 table
+
+                          SumSq     DF     MeanSq        F       pValue     pValueGG    pValueHF    pValueLB
+                          ______    ___    _______    _______    _______    ________    ________    ________
+
+    (Intercept):Time      50.252     49     1.0255     0.5331    0.99652    0.70492     0.75436     0.47525 
+    group:Time            26.201     49    0.53471    0.27795          1    0.88486     0.92687     0.60486 
+    subject:Time           43.34     49    0.88449    0.45978    0.99948     0.7577     0.80888     0.50685 
+    group:subject:Time    14.909     49    0.30427    0.15817          1    0.95463     0.97837      0.6958 
+    Error(Time)           1602.5    833     1.9237                                                          
+
+L4 RS ANOVA:
+
+l4_rs_ranova =
+
+  5x8 table
+
+                          SumSq      DF     MeanSq       F       pValue     pValueGG    pValueHF    pValueLB
+                          ______    ____    ______    _______    _______    ________    ________    ________
+
+    (Intercept):Time      450.38      49    9.1915    0.75349     0.8961    0.52762     0.53651      0.3896 
+    group:Time            339.72      49    6.9331    0.56836    0.99324    0.64468     0.65726     0.45452 
+    subject:Time          496.44      49    10.131    0.83055    0.79303    0.48366     0.49086     0.36657 
+    group:subject:Time    320.82      49    6.5474    0.53674    0.99657    0.66613     0.67922     0.46728 
+    Error(Time)            29288    2401    12.198                                                          
+
+L4 FS ANOVA:
+
+l4_fs_ranova =
+
+  3x8 table
+
+                        SumSq     DF     MeanSq      F        pValue      pValueGG      pValueHF     pValueLB
+                        ______    ___    ______    ______    _________    _________    __________    ________
+
+    (Intercept):Time      3704     49    75.591    5.8658    1.111e-25    0.0023306    0.00019766    0.038488
+    group:Time          772.99     49    15.775    1.2242      0.15133      0.31975       0.31184     0.29724
+    Error(Time)           5683    441    12.887                                                              
+
+L5 RS ANOVA:
+
+l5_rs_ranova =
+
+  5x8 table
+
+                          SumSq      DF     MeanSq      F         pValue       pValueGG      pValueHF     pValueLB
+                          ______    ____    ______    ______    __________    __________    __________    ________
+
+    (Intercept):Time      393.83      49    8.0374    4.5715    2.4708e-23    3.5472e-05    1.4106e-05    0.035721
+    group:Time            298.07      49     6.083    3.4599    9.1862e-15    0.00092811    0.00052635    0.066743
+    subject:Time          341.11      49    6.9615    3.9596    1.5383e-18    0.00021738    0.00010544    0.050203
+    group:subject:Time    277.25      49    5.6583    3.2183    5.3689e-13     0.0018493     0.0011284    0.076795
+    Error(Time)           6547.3    3724    1.7581                                                                
+
+L5 FS ANOVA:
+
+l5_fs_ranova =
+
+  5x8 table
+
+                          SumSq     DF     MeanSq       F         pValue       pValueGG      pValueHF     pValueLB 
+                          ______    ___    ______    _______    __________    __________    __________    _________
+
+    (Intercept):Time      3092.7     49    63.117     8.5077    4.3984e-47    1.1053e-06    9.2006e-09    0.0092051
+    group:Time            297.87     49    6.0791    0.81942        0.8074       0.54016       0.57678      0.37731
+    subject:Time          2709.7     49    55.301     7.4541    3.0437e-40    6.1472e-06    1.0398e-07     0.013739
+    group:subject:Time    208.03     49    4.2455    0.57226       0.99212       0.72301       0.78367      0.45915
+    Error(Time)           6543.4    882    7.4188                                                                  
+
+L6 RS ANOVA:
+
+l6_rs_ranova =
+
+  5x8 table
+
+                          SumSq      DF      MeanSq        F        pValue    pValueGG    pValueHF    pValueLB
+                          ______    _____    _______    ________    ______    ________    ________    ________
+
+    (Intercept):Time      16.775       49    0.34235    0.069326       1      0.99258      0.9931     0.79252 
+    group:Time            39.472       49    0.80555     0.16313       1      0.96117     0.96285     0.68662 
+    subject:Time          15.848       49    0.32344    0.065497       1      0.99337     0.99385     0.79821 
+    group:subject:Time    26.464       49    0.54009     0.10937       1      0.98184     0.98285     0.74113 
+    Error(Time)            64123    12985     4.9382                                                          
+
+L6 FS ANOVA:
+
+l6_fs_ranova =
+
+  3x8 table
+
+                          SumSq        DF     MeanSq      F         pValue        pValueGG     pValueHF      pValueLB 
+                        __________    ____    ______    ______    ___________    __________    _________    __________
+
+    (Intercept):Time         42891      49    875.33    25.126    6.7929e-203    2.2859e-11    1.534e-11    1.8745e-06
+    group:Time              5739.9      49    117.14    3.3624     3.4671e-14      0.032326     0.031454      0.069178
+    Error(Time)         2.0485e+05    5880    34.838                                                                  
+
+S1 Fraction RS ANOVA:
+
+p =
+
+    0.0043
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [14 14 15 18 19]
+    source: 'anova1'
+     means: [0.5071 0.7381 0.8589 0.4771 0.4303]
+        df: 75
+         s: 0.3638
+
+S1 Fraction FS ANOVA:
+
+p =
+
+   4.9404e-04
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [10 12 9 12 18]
+    source: 'anova1'
+     means: [0.9500 1 0.7407 0.7222 0.4669]
+        df: 56
+         s: 0.3319
+
+S1 MI RS ANOVA:
+
+p =
+
+   2.0295e-07
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [17 12 44 45 165]
+    source: 'anova1'
+     means: [0.0224 0.0120 0.0088 0.0110 0.0078]
+        df: 278
+         s: 0.0095
+
+S1 MI FS ANOVA:
+
+p =
+
+   6.4335e-04
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [14 19 8 17 84]
+    source: 'anova1'
+     means: [0.0184 0.0100 0.0051 0.0109 0.0087]
+        df: 137
+         s: 0.0080
+
+S1 MSE RS ANOVA:
+
+p =
+
+   1.6027e-18
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [17 12 44 45 165]
+    source: 'anova1'
+     means: [5.2828e-04 2.4465e-04 1.4279e-04 1.4823e-04 8.9434e-05]
+        df: 278
+         s: 1.7213e-04
+
+S1 MSE FS ANOVA:
+
+p =
+
+    0.0522
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [14 19 8 17 84]
+    source: 'anova1'
+     means: [3.1501e-05 3.9793e-05 5.9139e-05 1.3990e-04 4.8099e-05]
+        df: 137
+         s: 1.1976e-04
+
+Avg. Fraction L1 RS: 5.071429e-01
+Avg. Fraction L2/3 RS: 7.380952e-01
+Avg. Fraction L4 RS: 8.588889e-01
+Avg. Fraction L5 RS: 4.771164e-01
+Avg. Fraction L6 RS: 4.303245e-01
+Avg. Fraction L1 FS: 9.500000e-01
+Avg. Fraction L2/3 FS: 1
+Avg. Fraction L4 FS: 7.407407e-01
+Avg. Fraction L5 FS: 7.222222e-01
+Avg. Fraction L6 FS: 4.668646e-01
+Avg. MI L1 RS: 2.244179e-02
+Avg. MI L2/3 RS: 1.196635e-02
+Avg. MI L4 RS: 8.814607e-03
+Avg. MI L5 RS: 1.102613e-02
+Avg. MI L6 RS: 7.802334e-03
+Avg. MI L1 FS: 1.836117e-02
+Avg. MI L2/3 FS: 9.966030e-03
+Avg. MI L4 FS: 5.078745e-03
+Avg. MI L5 FS: 1.092414e-02
+Avg. MI L6 FS: 8.712368e-03
+Avg. MSE L1 RS: 5.282792e-04
+Avg. MSE L2/3 RS: 2.446509e-04
+Avg. MSE L4 RS: 1.427884e-04
+Avg. MSE L5 RS: 1.482273e-04
+Avg. MSE L6 RS: 8.943440e-05
+Avg. MSE L1 FS: 3.150068e-05
+Avg. MSE L2/3 FS: 3.979276e-05
+Avg. MSE L4 FS: 5.913916e-05
+Avg. MSE L5 FS: 1.398984e-04
+Avg. MSE L6 FS: 4.809880e-05
+ACC RS ANOVA:
+
+AC_rs_ranova =
+
+  3x8 table
+
+                        SumSq      DF     MeanSq       F         pValue        pValueGG      pValueHF      pValueLB 
+                        ______    ____    _______    ______    ___________    __________    __________    __________
+
+    (Intercept):Time    671.83      49     13.711    19.084    2.9379e-151    4.4221e-17    9.4113e-18     2.628e-05
+    group:Time          560.45      49     11.438     15.92    2.1117e-123    2.7725e-14    7.8579e-15    0.00011272
+    Error(Time)         4330.1    6027    0.71845                                                                   
+
+ACC FS ANOVA:
+
+AC_fs_ranova =
+
+  3x8 table
+
+                        SumSq     DF     MeanSq      F         pValue        pValueGG     pValueHF      pValueLB 
+                        ______    ___    ______    ______    ___________    __________    _________    __________
+
+    (Intercept):Time     20472     49     417.8    22.613    1.4506e-125    2.4825e-06    1.068e-06    0.00013763
+    group:Time          2296.1     49    46.858    2.5362     7.8983e-08       0.10353      0.09873       0.12776
+    Error(Time)          17201    931    18.476                                                                  
+
+PL RS ANOVA:
+
+PL_rs_ranova =
+
+  5x8 table
+
+                          SumSq      DF     MeanSq       F       pValue     pValueGG    pValueHF    pValueLB
+                          ______    ____    ______    _______    _______    ________    ________    ________
+
+    (Intercept):Time      66.656      49    1.3603    0.27232          1     0.9296     0.93322     0.60235 
+    group:Time            304.29      49    6.2101     1.2432    0.11893    0.28645     0.28571     0.26619 
+    subject:Time          53.607      49     1.094    0.21901          1    0.95543     0.95824      0.6403 
+    group:subject:Time    152.43      49    3.1107    0.62272    0.98213    0.68406     0.68867     0.43096 
+    Error(Time)            49444    9898    4.9953                                                          
+
+PL FS ANOVA:
+
+PL_fs_ranova =
+
+  3x8 table
+
+                        SumSq     DF     MeanSq      F        pValue     pValueGG    pValueHF    pValueLB
+                        ______    ___    ______    ______    ________    ________    ________    ________
+
+    (Intercept):Time    608.71     49    12.423    1.5318    0.014898    0.22719     0.19984     0.24715 
+    group:Time          399.73     49    8.1578    1.0059     0.46626    0.40694     0.42492     0.34208 
+    Error(Time)         3576.3    441    8.1096                                                          
+
+IL RS ANOVA:
+
+IL_rs_ranova =
+
+  5x8 table
+
+                          SumSq      DF     MeanSq        F        pValue     pValueGG    pValueHF    pValueLB
+                          ______    ____    _______    ________    _______    ________    ________    ________
+
+    (Intercept):Time      102.72      49     2.0963     0.44023    0.99976     0.8021     0.81333     0.50883 
+    group:Time            22.768      49    0.46465    0.097578          1    0.98897     0.99126     0.75553 
+    subject:Time          81.414      49     1.6615     0.34893    0.99999    0.86613      0.8765     0.55631 
+    group:subject:Time    24.627      49    0.50259     0.10555          1    0.98699     0.98958     0.74608 
+    Error(Time)            19600    4116     4.7618                                                           
+
+ORB RS ANOVA:
+
+ORB_rs_ranova =
+
+  3x8 table
+
+                        SumSq      DF     MeanSq        F       pValue     pValueGG    pValueHF    pValueLB
+                        ______    ____    _______    _______    _______    ________    ________    ________
+
+    (Intercept):Time    15.254      49    0.31132    0.56539    0.99348    0.73498     0.76879     0.45759 
+    group:Time          17.414      49    0.35538    0.64542    0.97318    0.67313     0.70416     0.42768 
+    Error(Time)         863.37    1568    0.55062                                                          
+
+ORB FS ANOVA:
+
+ORB_fs_ranova =
+
+  3x8 table
+
+                        SumSq     DF     MeanSq      F        pValue      pValueGG    pValueHF    pValueLB
+                        ______    ___    ______    ______    _________    ________    ________    ________
+
+    (Intercept):Time     837.6     49    17.094     1.873    0.0014252     0.2155     0.16552     0.24296 
+    group:Time          541.15     49    11.044    1.2101      0.18321    0.34738     0.34519     0.33307 
+    Error(Time)         1788.8    196    9.1265                                                           
+
+DP RS ANOVA:
+
+DP_rs_ranova =
+
+  3x8 table
+
+                        SumSq      DF     MeanSq       F         pValue      pValueGG    pValueHF    pValueLB
+                        ______    ____    ______    _______    __________    ________    ________    ________
+
+    (Intercept):Time    201.86      49    4.1197     2.1497    7.4576e-06    0.022849    0.014195    0.14862 
+    group:Time          89.618      49    1.8289    0.95436       0.56417     0.47902     0.48955    0.33314 
+    Error(Time)           4883    2548    1.9164                                                             
+
+Avg. Fraction AC RS: 4.867038e-02
+Avg. Fraction PL/3 RS: 3.473075e-01
+Avg. Fraction IL RS: 6.140593e-01
+Avg. Fraction ORB RS: 2.380952e-02
+Avg. Fraction DP RS: 4.266026e-01
+Avg. Fraction AC FS: 8.809524e-01
+Avg. Fraction PL/3 FS: 2.777778e-01
+Avg. Fraction IL FS: 1
+Avg. Fraction ORB FS: 3.750000e-01
+Avg. Fraction DP FS: 5.000000e-01
+Avg. MI AC RS: 7.224391e-03
+Avg. MI PL/3 RS: 1.028604e-02
+Avg. MI IL RS: 6.387499e-03
+Avg. MI ORB RS: 1.349609e-02
+Avg. MI DP RS: 8.380913e-03
+Avg. MI AC FS: 8.923883e-03
+Avg. MI PL/3 FS: 5.056368e-03
+Avg. MI IL FS: 4.398253e-03
+Avg. MI ORB FS: 4.115363e-03
+Avg. MI DP FS: 6.006836e-03
+Avg. MSE AC RS: 1.288034e-04
+Avg. MSE PL/3 RS: 5.538605e-04
+Avg. MSE IL RS: 2.007180e-04
+Avg. MSE ORB RS: 4.809664e-04
+Avg. MSE DP RS: 1.398287e-04
+Avg. MSE AC FS: 3.109112e-04
+Avg. MSE PL/3 FS: 1.788476e-05
+Avg. MSE IL FS: 1.884185e-05
+Avg. MSE ORB FS: 2.485888e-05
+Avg. MSE DP FS: 4.947697e-05
+PFC RS Fractions ANOVA:
+
+p =
+
+   4.0792e-05
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [7 13 13 6 6]
+    source: 'anova1'
+     means: [0.0487 0.3473 0.6141 0.0238 0.4266]
+        df: 40
+         s: 0.2534
+
+PFC FS Fractions ANOVA:
+
+p =
+
+    0.0050
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [7 6 6 4 2]
+    source: 'anova1'
+     means: [0.8810 0.2778 1 0.3750 0.5000]
+        df: 20
+         s: 0.3323
+
+PFC RS MI ANOVA:
+
+p =
+
+    0.0199
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [6 102 38 1 22]
+    source: 'anova1'
+     means: [0.0072 0.0103 0.0064 0.0135 0.0084]
+        df: 164
+         s: 0.0063
+
+PFC FS MI ANOVA:
+
+p =
+
+    0.0127
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [19 3 13 2 1]
+    source: 'anova1'
+     means: [0.0089 0.0051 0.0044 0.0041 0.0060]
+        df: 33
+         s: 0.0035
+
+PFC RS MSE ANOVA:
+
+p =
+
+    0.0696
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [6 102 38 1 22]
+    source: 'anova1'
+     means: [1.2880e-04 5.5386e-04 2.0072e-04 4.8097e-04 1.3983e-04]
+        df: 164
+         s: 8.1308e-04
+
+PFC FS MSE ANOVA:
+
+p =
+
+    0.3415
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [19 3 13 2 1]
+    source: 'anova1'
+     means: [3.1091e-04 1.7885e-05 1.8842e-05 2.4859e-05 4.9477e-05]
+        df: 33
+         s: 4.1324e-04
+
+PFC FS Theta Bar ANOVA:
+
+p =
+
+    0.1253
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [19 3 13 2 1]
+    source: 'anova1'
+     means: [-0.0909 -1.6448 0.6685 -2.4089 0.6775]
+        df: 33
+         s: 1.8267
+
+PFC RS MSE ANOVA:
+
+p =
+
+    0.0228
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: {5x1 cell}
+         n: [6 102 38 1 22]
+    source: 'anova1'
+     means: [-0.0638 0.4416 1.8601 -0.2271 1.3121]
+        df: 164
+         s: 2.3880
+
+S1 FS Theta Bar Watson Williams:
+
+pval =
+
+   1.1458e-09
+
+
+table =
+
+  4x6 cell array
+
+    {'Source'   }    {'d.f.'}    {'SS'     }    {'MS'      }    {'F'       }    {'P-Value'   }
+    {'Columns'  }    {[   4]}    {[12.7399]}    {[  3.1850]}    {[ 14.1096]}    {[1.1458e-09]}
+    {'Residual '}    {[ 137]}    {[35.8800]}    {[  0.2619]}    {0x0 double}    {0x0 double  }
+    {'Total'    }    {[ 141]}    {[48.6199]}    {0x0 double}    {0x0 double}    {0x0 double  }
+
+S1 RS Watson Williams:
+
+pval =
+
+   4.2711e-11
+
+
+table =
+
+  4x6 cell array
+
+    {'Source'   }    {'d.f.'}    {'SS'     }    {'MS'      }    {'F'       }    {'P-Value'   }
+    {'Columns'  }    {[   4]}    {[11.5468]}    {[  2.8867]}    {[ 14.9736]}    {[4.2711e-11]}
+    {'Residual '}    {[ 278]}    {[61.0879]}    {[  0.2197]}    {0x0 double}    {0x0 double  }
+    {'Total'    }    {[ 282]}    {[72.6346]}    {0x0 double}    {0x0 double}    {0x0 double  }
+** laminarDistributions.m 
+S1 RS low alpha MI vs high alpha MI (signed-rank): **p = 3.403273e-27
+S1 RS avg high minus low MI: 1.654343e-02
+S1 FS low alpha MI vs high alpha MI (signed-rank): **p = 1.396558e-15
+S1 FS avg high minus low MI: 1.694997e-02
+PFC RS low alpha MI vs high alpha MI (signed-rank): **p = 2.772769e-29
+PFC RS avg high minus low MI: 2.442250e-02
+PFC FS low alpha MI vs high alpha MI (signed-rank): **p = 1.154343e-07
+PFC FS avg high minus low MI: 5.361083e-03
+Striatum RS low alpha MI vs high alpha MI (signed-rank): **p = 3.430056e-05
+Striatum RS avg high minus low MI: 1.896241e-02
+Striatum FS low alpha MI vs high alpha MI (signed-rank): **p = 5.256413e-06
+Striatum FS avg high minus low MI: 6.828946e-03
+Amygdala RS low alpha MI vs high alpha MI (t-test): p = 1.344174e-01
+Amygdala RS avg high minus low MI: 3.246996e-03
+Amygdala FS low alpha MI vs high alpha MI (signed-rank): *p = 1.171875e-02
+Amygdala FS avg high minus low MI: 3.916555e-03
+S1 RS low alpha MSE vs high alpha MSE (signed-rank): **p = 4.389014e-19
+S1 RS avg high minus low MSE: 7.914857e-04
+S1 FS low alpha MSE vs high alpha MSE (signed-rank): **p = 1.255272e-15
+S1 FS avg high minus low MSE: 4.307892e-04
+PFC RS low alpha MSE vs high alpha MSE (signed-rank): **p = 2.012832e-29
+PFC RS avg high minus low MSE: 3.245318e-03
+PFC FS low alpha MSE vs high alpha MSE (signed-rank): **p = 7.739732e-08
+PFC FS avg high minus low MSE: 3.713277e-04
+Striatum RS low alpha MSE vs high alpha MSE (signed-rank): **p = 1.821530e-05
+Striatum RS avg high minus low MSE: 1.820902e-03
+Striatum FS low alpha MSE vs high alpha MSE (signed-rank): **p = 3.789619e-06
+Striatum FS avg high minus low MSE: 5.360012e-04
+Amygdala RS low alpha MSE vs high alpha MSE (t-test): p = 3.254738e-01
+Amygdala RS avg high minus low MSE: 1.190841e-04
+Amygdala FS low alpha MSE vs high alpha MSE (signed-rank): **p = 3.906250e-03
+Amygdala FS avg high minus low MSE: 2.158818e-04
+S1 RS low alpha FR vs high alpha FR (signed-rank): p = 6.295116e-01
+S1 RS avg high minus low FR: -1.070172e-01
+S1 FS low alpha FR vs high alpha FR (signed-rank): *p = 1.643923e-02
+S1 FS avg high minus low FR: 4.443397e-01
+PFC RS low alpha FR vs high alpha FR (signed-rank): p = 6.252696e-02
+PFC RS avg high minus low FR: -2.395269e-01
+PFC FS low alpha FR vs high alpha FR (signed-rank): *p = 1.993254e-02
+PFC FS avg high minus low FR: -8.980810e-01
+Striatum RS low alpha FR vs high alpha FR (signed-rank): *p = 2.227098e-02
+Striatum RS avg high minus low FR: 3.696403e-01
+Striatum FS low alpha FR vs high alpha FR (signed-rank): *p = 3.308556e-03
+Striatum FS avg high minus low FR: 7.722738e-01
+Amygdala RS low alpha FR vs high alpha FR (signed-rank): p = 7.500000e-01
+Amygdala RS avg high minus low FR: 7.383359e-01
+Amygdala FS low alpha FR vs high alpha FR (signed-rank): p = 7.421875e-02
+Amygdala FS avg high minus low FR: -1.756159e+00
+Warning: N=165 not found in table, using closest N=100 present. 
+> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In alphaPowerAndPhaseModSummaries (line 1162) 
+S1 RS theta bar distribtions kuipers test: 5.000000e-03
+Warning: N=85 not found in table, using closest N=50 present. 
+> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In alphaPowerAndPhaseModSummaries (line 1163) 
+S1 FS theta bar distribtions kuipers test: 1
+Warning: N=169 not found in table, using closest N=100 present. 
+> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In alphaPowerAndPhaseModSummaries (line 1164) 
+PFC RS theta bar distribtions kuipers test: 1
+Warning: N=38 not found in table, using closest N=35 present. 
+> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In alphaPowerAndPhaseModSummaries (line 1165) 
+PFC FS theta bar distribtions kuipers test: 1
+Striatum RS theta bar distribtions kuipers test: 1
+Warning: N=28 not found in table, using closest N=25 present. 
+> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In alphaPowerAndPhaseModSummaries (line 1167) 
+Striatum FS theta bar distribtions kuipers test: 1
+Amygdala FS theta bar distribtions kuipers test: 1
+Example Low Alpha Power MI: 0.0054
+Example Low Alpha Power von Mises MSE: 0.0003
+Example Low Alpha Power Rayleigh test: p = 1.025484e-01
+Example High Alpha Power MI: 0.0374
+Example High Alpha Power von Mises MSE: 0.0010
+Example High Alpha Power Rayleigh test: p = 1.604326e-11
