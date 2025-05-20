@@ -5937,6 +5937,7 @@ in paragraphs.
 *** DONE: figure out ACA RS assignment 
 **** a couple neurons with high firing rates reassigned to FS 
 *** TODO: analyze lick vs. no lick trials 
+*** TODO: percent modulated on high vs low 
 *** TODO: flesh out stats for mod vs unmod firing rates 
 *** TODO: basline firing rates between mod and unmod neurons 
 **** significant with ranksum (not normally distributed)

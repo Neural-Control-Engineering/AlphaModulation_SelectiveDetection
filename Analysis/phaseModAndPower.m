@@ -1,7 +1,7 @@
 addpath(genpath('./'))
 addpath(genpath('~/circstat-matlab/'))
 init_paths;
-load(strcat(ftr_path, 'AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/data.mat'))
+load(strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'))
 alpha_modulated = out.alpha_modulated;
 clear out
 
@@ -97,6 +97,7 @@ for nrn = 1:size(alpha_modulated,1)
         lfp_times = lfp_times(lfp_times > -3 & lfp_times < 0);
         high_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 75), 0.33, 0.2, 'above');
         if size(high_inds,1)
+            keyboard 
             for n = 1:size(high_inds,1)
                 begin = lfp_times(high_inds(n,1));
                 fin = lfp_times(high_inds(n,2));
@@ -149,7 +150,7 @@ for nrn = 1:size(alpha_modulated,1)
     n_high_events(nrn) = length(high_frs);
 end
 
-out_file = strcat(ftr_path, 'AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
+out_file = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
 
 out = struct();
 out.low_mi = low_mi;
@@ -172,7 +173,7 @@ save(out_file, 'out', '-v7.3');
 
 clear 
 init_paths;
-load(strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/data.mat'))
+load(strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'))
 alpha_modulated = out.alpha_modulated;
 clear out
 
@@ -320,7 +321,7 @@ for nrn = 1:size(alpha_modulated,1)
     n_high_events(nrn) = length(high_frs);
 end
 
-out_file = strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
+out_file = strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
 
 out = struct();
 out.low_mi = low_mi;
@@ -343,7 +344,7 @@ save(out_file, 'out', '-v7.3');
 
 clear
 init_paths; 
-load(strcat(ftr_path, 'AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/data.mat'))
+load(strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'))
 alpha_modulated = out.alpha_modulated;
 clear out
 
@@ -491,7 +492,7 @@ for nrn = 1:size(alpha_modulated,1)
     n_high_events(nrn) = length(high_frs);
 end
 
-out_file = strcat(ftr_path, 'AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
+out_file = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
 
 out = struct();
 out.low_mi = low_mi;
@@ -514,7 +515,7 @@ save(out_file, 'out', '-v7.3');
 
 clear
 init_paths; 
-load(strcat(ftr_path, 'AP/FIG/Expert_Combo/Amygdala/Spontaneous_Alpha_Modulation_v2/data.mat'))
+load(strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/data.mat'))
 alpha_modulated = out.alpha_modulated;
 clear out
 
@@ -662,7 +663,7 @@ for nrn = 1:size(alpha_modulated,1)
     n_high_events(nrn) = length(high_frs);
 end
 
-out_file = strcat(ftr_path, 'AP/FIG/Expert_Combo/Amygdala/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
+out_file = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
 
 out = struct();
 out.low_mi = low_mi;
