@@ -5936,7 +5936,7 @@ in paragraphs.
 ** TODOS
 *** DONE: figure out ACA RS assignment 
 **** a couple neurons with high firing rates reassigned to FS 
-*** TODO: analyze lick vs. no lick trials 
+*** DONE: analyze lick vs. no lick trials 
 *** TODO: percent modulated on high vs low 
 *** TODO: flesh out stats for mod vs unmod firing rates 
 *** TODO: basline firing rates between mod and unmod neurons 
@@ -6886,3 +6886,9 @@ Example Low Alpha Power Rayleigh test: p = 1.025484e-01
 Example High Alpha Power MI: 0.0374
 Example High Alpha Power von Mises MSE: 0.0010
 Example High Alpha Power Rayleigh test: p = 1.604326e-11
+
+* [2025-5-20 Tue] - wishlists 
+** Wishlist for phaseModAndPower.m 
+*** TODO: number of events per trial 
+*** TODO: n events by outcome 
+*** TODO: rerun 

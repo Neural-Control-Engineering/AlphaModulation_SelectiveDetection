@@ -22,6 +22,7 @@ low_outcomes = {};
 high_sessions = {};
 low_sessions = {};
 
+
 for nrn = 1:size(alpha_modulated,1)
     cid = alpha_modulated(nrn,:).cluster_id;
     if nrn == 1
