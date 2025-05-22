@@ -19,11 +19,15 @@ theta_bar_low = zeros(size(alpha_modulated,1),1);
 theta_bar_high = zeros(size(alpha_modulated,1),1);
 high_outcomes = {};
 low_outcomes = {};
-high_sessions = {};
-low_sessions = {};
-
+event_inds_low = {};
+event_inds_high = {};
 
 for nrn = 1:size(alpha_modulated,1)
+    high_outcomes{nrn} = {};
+    low_outcomes{nrn} = {};
+    event_inds_low{nrn} = {};
+    event_inds_high{nrn} = {};
+
     cid = alpha_modulated(nrn,:).cluster_id;
     if nrn == 1
         last_session_id = '';
@@ -98,14 +102,13 @@ for nrn = 1:size(alpha_modulated,1)
         lfp_times = lfp_times(lfp_times > -3 & lfp_times < 0);
         high_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 75), 0.33, 0.2, 'above');
         if size(high_inds,1)
-            keyboard 
             for n = 1:size(high_inds,1)
                 begin = lfp_times(high_inds(n,1));
                 fin = lfp_times(high_inds(n,2));
                 high_phases = [high_phases, spike_phases(spike_times > begin & spike_times < fin)];
                 high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-                high_outcomes = horzcat(high_outcomes, slrt_data(t,:).categorical_outcome{1});
-                high_sessions = horzcat(high_sessions, session_id);
+                high_outcomes{nrn} = horzcat(high_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
+                event_inds_high{nrn} = horzcat(event_inds_high{nrn}, {high_inds(n,:)});
             end
         end
         low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
@@ -115,8 +118,8 @@ for nrn = 1:size(alpha_modulated,1)
                 fin = lfp_times(low_inds(n,2));
                 low_phases = [low_phases, spike_phases(spike_times >= begin & spike_times <= fin)];
                 low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-                low_outcomes = horzcat(low_outcomes, slrt_data(t,:).categorical_outcome{1});
-                low_sessions = horzcat(low_sessions, session_id);
+                low_outcomes{nrn} = horzcat(low_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
+                event_inds_low{nrn} = horzcat(event_inds_low{nrn}, {low_inds(n,:)});
             end
         end
     end
@@ -170,6 +173,10 @@ out.high_outcomes = high_outcomes;
 out.high_sessions = high_sessions;
 out.low_outcomes = low_outcomes;
 out.low_sessions = low_sessions;
+out.low_outcomes = low_outcomes;
+out.event_inds_low = event_inds_low;
+out.high_outcomes = high_outcomes;
+out.event_inds_high = event_inds_high;
 save(out_file, 'out', '-v7.3');
 
 clear 
@@ -192,10 +199,15 @@ theta_bar_low = zeros(size(alpha_modulated,1),1);
 theta_bar_high = zeros(size(alpha_modulated,1),1);
 high_outcomes = {};
 low_outcomes = {};
-high_sessions = {};
-low_sessions = {};
+event_inds_low = {};
+event_inds_high = {};
 
 for nrn = 1:size(alpha_modulated,1)
+    high_outcomes{nrn} = {};
+    low_outcomes{nrn} = {};
+    event_inds_low{nrn} = {};
+    event_inds_high{nrn} = {};
+
     cid = alpha_modulated(nrn,:).cluster_id;
     if nrn == 1
         last_session_id = '';
@@ -275,8 +287,8 @@ for nrn = 1:size(alpha_modulated,1)
                 fin = lfp_times(high_inds(n,2));
                 high_phases = [high_phases, spike_phases(spike_times > begin & spike_times < fin)];
                 high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-                high_outcomes = horzcat(high_outcomes, slrt_data(t,:).categorical_outcome{1});
-                high_sessions = horzcat(high_sessions, session_id);
+                high_outcomes{nrn} = horzcat(high_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
+                event_inds_high{nrn} = horzcat(event_inds_high{nrn}, {high_inds(n,:)});
             end
         end
         low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
@@ -286,8 +298,8 @@ for nrn = 1:size(alpha_modulated,1)
                 fin = lfp_times(low_inds(n,2));
                 low_phases = [low_phases, spike_phases(spike_times >= begin & spike_times <= fin)];
                 low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-                low_outcomes = horzcat(low_outcomes, slrt_data(t,:).categorical_outcome{1});
-                low_sessions = horzcat(low_sessions, session_id);
+                low_outcomes{nrn} = horzcat(low_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
+                event_inds_low{nrn} = horzcat(event_inds_low{nrn}, {low_inds(n,:)});
             end
         end
     end
@@ -337,10 +349,10 @@ out.low_mse = low_mse;
 out.high_mse = high_mse;
 out.theta_bar_low = theta_bar_low;
 out.theta_bar_high = theta_bar_high;
-out.high_outcomes = high_outcomes;
-out.high_sessions = high_sessions;
 out.low_outcomes = low_outcomes;
-out.low_sessions = low_sessions;
+out.event_inds_low = event_inds_low;
+out.high_outcomes = high_outcomes;
+out.event_inds_high = event_inds_high;
 save(out_file, 'out', '-v7.3');
 
 clear
@@ -363,10 +375,14 @@ theta_bar_low = zeros(size(alpha_modulated,1),1);
 theta_bar_high = zeros(size(alpha_modulated,1),1);
 high_outcomes = {};
 low_outcomes = {};
-high_sessions = {};
-low_sessions = {};
+event_inds_low = {};
+event_inds_high = {};
 
 for nrn = 1:size(alpha_modulated,1)
+    high_outcomes{nrn} = {};
+    low_outcomes{nrn} = {};
+    event_inds_low{nrn} = {};
+    event_inds_high{nrn} = {};
     cid = alpha_modulated(nrn,:).cluster_id;
     if nrn == 1
         last_session_id = '';
@@ -446,8 +462,8 @@ for nrn = 1:size(alpha_modulated,1)
                 fin = lfp_times(high_inds(n,2));
                 high_phases = [high_phases, spike_phases(spike_times > begin & spike_times < fin)];
                 high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-                high_outcomes = horzcat(high_outcomes, slrt_data(t,:).categorical_outcome{1});
-                high_sessions = horzcat(high_sessions, session_id);
+                high_outcomes{nrn} = horzcat(high_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
+                event_inds_high{nrn} = horzcat(event_inds_high{nrn}, {high_inds(n,:)});
             end
         end
         low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
@@ -457,8 +473,8 @@ for nrn = 1:size(alpha_modulated,1)
                 fin = lfp_times(low_inds(n,2));
                 low_phases = [low_phases, spike_phases(spike_times >= begin & spike_times <= fin)];
                 low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-                low_outcomes = horzcat(low_outcomes, slrt_data(t,:).categorical_outcome{1});
-                low_sessions = horzcat(low_sessions, session_id);
+                low_outcomes{nrn} = horzcat(low_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
+                event_inds_low{nrn} = horzcat(event_inds_low{nrn}, {low_inds(n,:)});
             end
         end
     end
@@ -508,10 +524,10 @@ out.low_mse = low_mse;
 out.high_mse = high_mse;
 out.theta_bar_low = theta_bar_low;
 out.theta_bar_high = theta_bar_high;
-out.high_outcomes = high_outcomes;
-out.high_sessions = high_sessions;
 out.low_outcomes = low_outcomes;
-out.low_sessions = low_sessions;
+out.event_inds_low = event_inds_low;
+out.high_outcomes = high_outcomes;
+out.event_inds_high = event_inds_high;
 save(out_file, 'out', '-v7.3');
 
 clear
@@ -617,8 +633,8 @@ for nrn = 1:size(alpha_modulated,1)
                 fin = lfp_times(high_inds(n,2));
                 high_phases = [high_phases, spike_phases(spike_times > begin & spike_times < fin)];
                 high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-                high_outcomes = horzcat(high_outcomes, slrt_data(t,:).categorical_outcome{1});
-                high_sessions = horzcat(high_sessions, session_id);
+                high_outcomes{nrn} = horzcat(high_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
+                event_inds_high{nrn} = horzcat(event_inds_high{nrn}, {high_inds(n,:)});
             end
         end
         low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
@@ -628,8 +644,8 @@ for nrn = 1:size(alpha_modulated,1)
                 fin = lfp_times(low_inds(n,2));
                 low_phases = [low_phases, spike_phases(spike_times >= begin & spike_times <= fin)];
                 low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-                low_outcomes = horzcat(low_outcomes, slrt_data(t,:).categorical_outcome{1});
-                low_sessions = horzcat(low_sessions, session_id);
+                low_outcomes{nrn} = horzcat(low_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
+                event_inds_low{nrn} = horzcat(event_inds_low{nrn}, {low_inds(n,:)});
             end
         end
     end
@@ -679,8 +695,8 @@ out.low_mse = low_mse;
 out.high_mse = high_mse;
 out.theta_bar_low = theta_bar_low;
 out.theta_bar_high = theta_bar_high;
-out.high_outcomes = high_outcomes;
-out.high_sessions = high_sessions;
 out.low_outcomes = low_outcomes;
-out.low_sessions = low_sessions;
+out.event_inds_low = event_inds_low;
+out.high_outcomes = high_outcomes;
+out.event_inds_high = event_inds_high;
 save(out_file, 'out', '-v7.3');
