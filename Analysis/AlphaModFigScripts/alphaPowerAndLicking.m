@@ -340,7 +340,10 @@ for s = 1:length(all_session_ids)
     tmp = all_phase_mod(strcmp(all_phase_mod.session_id, all_session_ids{s}),:);
     fracs_lick(s) = sum(tmp.p_lick < pfc.out.overall_p_threshold) / size(tmp,1) * 100;
     fracs_nolick(s) = sum(tmp.p_nolick < pfc.out.overall_p_threshold) / size(tmp,1) * 100;
+    % fracs_lick(s) = sum(tmp.p_lick < 0.01) / size(tmp,1) * 100;
+    % fracs_nolick(s) = sum(tmp.p_nolick < 0.01) / size(tmp,1) * 100;
 end
+
 all_fig = figure();
 hold on 
 bar(1:2, [nanmean(fracs_nolick), nanmean(fracs_lick)], 'FaceColor', [0.5, 0.5, 0.5], 'EdgeColor', [0.5, 0.5, 0.5])
@@ -348,3 +351,23 @@ errorbar(1:2, [nanmean(fracs_nolick), nanmean(fracs_lick)], [ste(fracs_nolick), 
 xticks(1:2)
 xticklabels({'Lick', 'No Lick'})
 ylabel('Percent Phase Modulated')
+
+sessionIDs;
+session_ids = horzcat(expert_3387_session_ids, expert_3738_session_ids_v2, expert_3755_session_ids, expert_1075_session_ids);
+n_lick = zeros(length(session_ids),1);
+n_nolick = zeros(length(session_ids),1);
+for s = 1:length(session_ids)
+    load(strcat(ext_path, 'SLRT/', session_ids{s}, '.mat'))
+    % load(strcat(ext_path, 'AP/', session_ids{s}, '.mat'))
+    contains_lick = spontaneousLicks(slrt_data);
+    n_lick(s) = sum(contains_lick == 1);
+    n_nolick(s) = sum(contains_lick == 0);
+end
+trial_fig = figure();
+hold on 
+bar([1,2], [mean(n_lick), mean(n_nolick)], 'FaceColor', [0.5, 0.5, 0.5], 'EdgeColor', [0.5, 0.5, 0.5])
+errorbar([1,2], [mean(n_lick), mean(n_nolick)], [ste(n_lick), ste(n_nolick)], 'k.')
+xticks(1:2)
+xticklabels({'Lick', 'No-Lick'})
+xlabel('Spontaneous Trials')
+ylabel('Number of trials')

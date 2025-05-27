@@ -41,14 +41,14 @@ PFC = ftrs(pfc_inds,:);
 
 %-----------------------------------------------------%
 % quality control
-S1 = S1(cell2mat(S1.avg_trial_fr) > 0.5, :);
-Striatum = Striatum(cell2mat(Striatum.avg_trial_fr) > 0.5, :);
-Amygdala = Amygdala(cell2mat(Amygdala.avg_trial_fr) > 0.5, :);
-PFC = PFC(cell2mat(PFC.avg_trial_fr) > 0.5, :);
-s1.out.alpha_modulated = s1.out.alpha_modulated(cell2mat(s1.out.alpha_modulated.avg_trial_fr) > 0.5, :);
-striatum.out.alpha_modulated = striatum.out.alpha_modulated(cell2mat(striatum.out.alpha_modulated.avg_trial_fr) > 0.5, :);
-amygdala.out.alpha_modulated = amygdala.out.alpha_modulated(cell2mat(amygdala.out.alpha_modulated.avg_trial_fr) > 0.5, :);
-pfc.out.alpha_modulated = pfc.out.alpha_modulated(cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 0.5, :);
+S1 = S1(cell2mat(S1.avg_trial_fr) > 1, :);
+Striatum = Striatum(cell2mat(Striatum.avg_trial_fr) > 1, :);
+Amygdala = Amygdala(cell2mat(Amygdala.avg_trial_fr) > 1, :);
+PFC = PFC(cell2mat(PFC.avg_trial_fr) > 1, :);
+s1.out.alpha_modulated = s1.out.alpha_modulated(cell2mat(s1.out.alpha_modulated.avg_trial_fr) > 1, :);
+striatum.out.alpha_modulated = striatum.out.alpha_modulated(cell2mat(striatum.out.alpha_modulated.avg_trial_fr) > 1, :);
+amygdala.out.alpha_modulated = amygdala.out.alpha_modulated(cell2mat(amygdala.out.alpha_modulated.avg_trial_fr) > 1, :);
+pfc.out.alpha_modulated = pfc.out.alpha_modulated(cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 1, :);
 
 exinds = load('ExcldInds/3738_excld_v2.mat');
 for i = 1:length(exinds.new_excld{1})

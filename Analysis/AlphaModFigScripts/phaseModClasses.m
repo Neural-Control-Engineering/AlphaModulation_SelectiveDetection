@@ -83,6 +83,8 @@ for i = 1:length(exinds.excld{1})
     all_phase_mod(strcmp(all_phase_mod.session_id, session_id) & all_phase_mod.cluster_id == cid,:) = [];
 end
 
+all_phase_mod = all_phase_mod(cell2mat(all_phase_mod.avg_trial_fr) > 1.0, :);
+
 y = [];
 for c = 1:size(all_phase_mod,1)
     [~,y(c,:), theta_bar(c), ~, ~] = vonMises(all_phase_mod(c,:).spon_alpha_spike_phases{1});

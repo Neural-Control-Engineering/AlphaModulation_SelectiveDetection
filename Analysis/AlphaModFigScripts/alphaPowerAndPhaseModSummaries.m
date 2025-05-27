@@ -1,12 +1,12 @@
 addpath(genpath('./'))
 addpath(genpath('~/circstat-matlab/'))
 init_paths;
-load(strcat(ftr_path, '/AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/data.mat'))
+load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'))
 out_path = true;
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
-out_file = strcat(ftr_path, '/AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
+out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
 load(out_file)
 
 out.low_mi = out.low_mi(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
@@ -122,11 +122,11 @@ s1_fs_high_mse_avg = nanmean(s1_fs_high_mse);
 s1_fs_low_mse_err = nanstd(s1_fs_low_mse) ./ sqrt(sum(~isnan(s1_fs_low_mse)));
 s1_fs_high_mse_err = nanstd(s1_fs_high_mse) ./ sqrt(sum(~isnan(s1_fs_high_mse)));
 
-load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/data.mat'))
+load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'))
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
-out_file = strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
+out_file = strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
 load(out_file)
 
 
@@ -249,11 +249,11 @@ pfc_fs_low_mse_err = nanstd(pfc_fs_low_mse) ./ sqrt(sum(~isnan(pfc_fs_low_mse)))
 pfc_fs_high_mse_err = nanstd(pfc_fs_high_mse) ./ sqrt(sum(~isnan(pfc_fs_high_mse)));
 
 
-load(strcat(ftr_path, '/AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/data.mat'))
+load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'))
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
-out_file = strcat(ftr_path, '/AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
+out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
 load(out_file)
 
 out.low_mi = out.low_mi(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
@@ -369,11 +369,11 @@ striatum_fs_high_mse_avg = nanmean(striatum_fs_high_mse);
 striatum_fs_low_mse_err = nanstd(striatum_fs_low_mse) ./ sqrt(sum(~isnan(striatum_fs_low_mse)));
 striatum_fs_high_mse_err = nanstd(striatum_fs_high_mse) ./ sqrt(sum(~isnan(striatum_fs_high_mse)));
 
-load(strcat(ftr_path, '/AP/FIG/Expert_Combo/Amygdala/Spontaneous_Alpha_Modulation_v2/data.mat'))
+load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/data.mat'))
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
-out_file = strcat(ftr_path, '/AP/FIG/Expert_Combo/Amygdala/Spontaneous_Alpha_Modulation_v2/high_v_low_alpha.mat');
+out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
 load(out_file)
 
 out.low_mi = out.low_mi(cell2mat(alpha_modulated.avg_trial_fr) > 0.5, :);
@@ -1312,24 +1312,3 @@ fprintf(sprintf('Example Low Alpha Power Rayleigh test: p = %d\n', low_p))
 fprintf(sprintf('Example High Alpha Power MI: %.4f\n', high_mi))
 fprintf(sprintf('Example High Alpha Power von Mises MSE: %.4f\n', high_mse))
 fprintf(sprintf('Example High Alpha Power Rayleigh test: p = %d\n', high_p))
-
-all_phase_mod = combineTables(s1.out.alpha_modulated, pfc.out.alpha_modulated); 
-all_phase_mod = combineTables(all_phase_mod, striatum.out.alpha_modulated); 
-all_phase_mod = combineTables(all_phase_mod, amygdala.out.alpha_modulated);
-all_session_ids = unique(all_phase_mod.session_id);
-for s = 1:length(all_session_ids)
-    tmp = all_phase_mod(strcmp(all_phase_mod.session_id, all_session_ids{s}),:);
-    fracs_lick(s) = sum(tmp.p_lick < pfc.out.overall_p_threshold) / size(tmp,1) * 100;
-    fracs_nolick(s) = sum(tmp.p_nolick < pfc.out.overall_p_threshold) / size(tmp,1) * 100;
-end
-all_lick_fig = figure();
-hold on 
-bar(1:2, [nanmean(fracs_nolick), nanmean(fracs_lick)], 'FaceColor', [0.5, 0.5, 0.5], 'EdgeColor', [0.5, 0.5, 0.5])
-errorbar(1:2, [nanmean(fracs_nolick), nanmean(fracs_lick)], [ste(fracs_nolick), ste(fracs_lick)], 'k.')
-xticks(1:2)
-xticklabels({'Lick', 'No Lick'})
-ylabel('Percent Phase Modulated')
-if out_path 
-    saveas(all_lick_fig, '../Figures/lick_fig.svg')
-    saveas(all_lick_fig, '../Figures/lick_fig.fig')
-end
