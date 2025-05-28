@@ -1,5 +1,5 @@
 init_paths;
-out_path = false; %% toggle to save figures
+out_path = true; %% toggle to save figures
 mkdir('./Figures/')
 
 ftr_files = {strcat(ftr_path, 'AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
@@ -34,6 +34,50 @@ pfc_inds = startsWith(ftrs.region, 'DP') + startsWith(ftrs.region, 'AC') ...
     + startsWith(ftrs.region, 'OR');
 pfc = ftrs(logical(pfc_inds),:);
 
+%-----------------------------------------------------%
+% quality control
+ss = ss(cell2mat(ss.avg_trial_fr) > 1, :);
+bg = bg(cell2mat(bg.avg_trial_fr) > 1, :);
+ag = ag(cell2mat(ag.avg_trial_fr) > 1, :);
+pfc = pfc(cell2mat(pfc.avg_trial_fr) > 1, :);
+
+exinds = load('ExcldInds/3738_excld_v2.mat');
+for i = 1:length(exinds.new_excld{1})
+    session_id = exinds.new_excld{1}{i};
+    cid = exinds.new_excld{2}{i};
+    ss(strcmp(ss.session_id, session_id) & ss.cluster_id == cid,:) = [];
+    bg(strcmp(bg.session_id, session_id) & bg.cluster_id == cid,:) = [];
+    ag(strcmp(ag.session_id, session_id) & ag.cluster_id == cid,:) = [];
+end
+exinds = load('ExcldInds/3387_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    ss(strcmp(ss.session_id, session_id) & ss.cluster_id == cid,:) = [];
+    bg(strcmp(bg.session_id, session_id) & bg.cluster_id == cid,:) = [];
+    ag(strcmp(ag.session_id, session_id) & ag.cluster_id == cid,:) = [];
+end
+
+inds = find(contains(pfc.region, 'AC') & strcmp(pfc.waveform_class, 'RS') & cell2mat(pfc.avg_trial_fr) > 15);
+for i = 1:length(inds)
+    pfc(inds(i),:).waveform_class{1} = 'FS';
+end
+
+exinds = load('ExcldInds/1075_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    pfc(strcmp(pfc.session_id, session_id) & pfc.cluster_id == cid,:) = [];
+end
+exinds = load('ExcldInds/3755_excld.mat');
+for i = 1:length(exinds.excld{1})
+    session_id = exinds.excld{1}{i};
+    cid = exinds.excld{2}{i};
+    pfc(strcmp(pfc.session_id, session_id) & pfc.cluster_id == cid,:) = [];
+end
+%-----------------------------------------------------%
+
+
 ss_rs = ss(strcmp(ss.waveform_class, 'RS'),:);
 ss_fs = ss(strcmp(ss.waveform_class, 'FS'),:);
 bg_rs = bg(strcmp(bg.waveform_class, 'RS'),:);
@@ -61,13 +105,15 @@ for c = 1:length(signals)
     semshade(mat, 0.3, 'k', 'k', time, 1);
     title(ttls{c}, 'FontSize', 16, 'FontWeight','Normal');
     xlim([-2.8,4.9])
-    ylim([5,10])
-    yticks([5,10])
+    ylim([6,12])
+    yticks([6,12])
     if c == 1
-        yticks([5,10])
+        yticks([6,12])
         ax = gca;
         ax.YAxis.FontSize = 12;
         ylabel('S1', 'FontSize', 16)
+        hold on;
+        plot([1.2, 1.2], [6,12], 'k--')
     else
         yticks([])
     end
@@ -80,12 +126,14 @@ for c = 1:length(signals)
     semshade(mat, 0.3, 'k', 'k', time, 1);
     %title(ttls{c});
     xlim([-2.8,4.9])
-    ylim([2.5,4])
+    ylim([4,8])
     if c == 1
-        yticks([2.5,4])
+        yticks([4,8])
         ax = gca;
         ax.YAxis.FontSize = 12;
         ylabel('PFC', 'FontSize', 16)
+        hold on;
+        plot([1.2, 1.2], [4,8], 'k--')
     else
         yticks([])
     end
@@ -98,12 +146,14 @@ for c = 1:length(signals)
     semshade(mat, 0.3, 'k', 'k', time, 1);
     %title(ttls{c});
     xlim([-2.8,4.9])
-    ylim([2,12])
+    ylim([2,25])
     if c == 1
-        yticks([2,12])
+        yticks([2,25])
         ax = gca;
         ax.YAxis.FontSize = 12;
         ylabel('Striatum', 'FontSize', 16)
+        hold on;
+        plot([1.2, 1.2], [2,25], 'k--')
     else
         yticks([])
     end
@@ -117,12 +167,14 @@ for c = 1:length(signals)
     semshade(mat, 0.3, 'k', 'k', time, 1);
     %title(ttls{c});
     xlim([-2.8,4.9])
-    ylim([15,50])
+    ylim([15,55])
     if c == 1
-        yticks([15,50])
+        yticks([15,55])
         ax = gca;
         ax.YAxis.FontSize = 12;
         ylabel('Amygdala', 'FontSize', 16)
+        hold on;
+        plot([1.2, 1.2], [15,55], 'k--')
     else
         yticks([])
     end
@@ -133,8 +185,8 @@ xlabel(tl, 'Time (s)', 'FontSize', 16)
 ylabel(tl, 'Avg. Firing Rate (Hz)', 'FontSize', 16)
 title(tl, 'Regular Spiking Units', 'FontSize', 16)
 if out_path
-    saveas(rs_fig, 'Figures/rs_avg_frs.svg')
-    saveas(rs_fig, 'Figures/rs_avg_frs.fig')
+    saveas(rs_fig, '../Figures/rs_avg_frs.svg')
+    saveas(rs_fig, '../Figures/rs_avg_frs.fig')
 end
 
 % fs figure 
@@ -148,12 +200,14 @@ for c = 1:length(signals)
     semshade(mat, 0.3, 'k', 'k', time, 1);
     title(ttls{c}, 'FontSize', 16, 'FontWeight','Normal');
     xlim([-2.8,4.9])
-    ylim([8,25])
+    ylim([10,25])
     if c == 1
-        yticks([8,25])
+        yticks([10,25])
         ax = gca;
         ax.YAxis.FontSize = 12;
         ylabel('S1', 'FontSize', 16)
+        hold on;
+        plot([1.2, 1.2], [10,25], 'k--')
     else
         yticks([])
     end
@@ -166,12 +220,14 @@ for c = 1:length(signals)
     semshade(mat, 0.3, 'k', 'k', time, 1);
     %title(ttls{c});
     xlim([-2.8,4.9])
-    ylim([10,25])
+    ylim([10,30])
     if c == 1
-        yticks([10,25])
+        yticks([10,30])
         ax = gca;
         ax.YAxis.FontSize = 12;
         ylabel('PFC', 'FontSize', 16)
+        hold on;
+        plot([1.2, 1.2], [10,30], 'k--')
     else
         yticks([])
     end
@@ -184,12 +240,14 @@ for c = 1:length(signals)
     semshade(mat, 0.3, 'k', 'k', time, 1);
     %title(ttls{c});
     xlim([-2.8,4.9])
-    ylim([10,20])
+    ylim([12,25])
     if c == 1
-        yticks([10,20])
+        yticks([12,25])
         ax = gca;
         ax.YAxis.FontSize = 12;
         ylabel('Striatum', 'FontSize', 16)
+        hold on;
+        plot([1.2, 1.2], [12,25], 'k--')
     else
         yticks([])
     end
@@ -209,6 +267,8 @@ for c = 1:length(signals)
         ax = gca;
         ax.YAxis.FontSize = 12;
         ylabel('Amygdala', 'FontSize', 16)
+        hold on;
+        plot([1.2, 1.2], [20,60], 'k--')
     else
         yticks([])
     end
@@ -219,8 +279,8 @@ xlabel(tl, 'Time (s)', 'FontSize', 16)
 ylabel(tl, 'Avg. Firing Rate (Hz)', 'FontSize', 16)
 title(tl, 'Fast Spiking Units', 'FontSize', 16)
 if out_path
-    saveas(fs_fig, 'Figures/fs_avg_frs.svg')
-    saveas(fs_fig, 'Figures/fs_avg_frs.fig')
+    saveas(fs_fig, '../Figures/fs_avg_frs.svg')
+    saveas(fs_fig, '../Figures/fs_avg_frs.fig')
 end
 
 % statistics 

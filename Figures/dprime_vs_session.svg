@@ -129,12 +129,17 @@
       /><path d="M0 -4 L0 4 M-4 0 L4 0 M-2.799 -2.799 L2.799 2.799 M-2.799 2.799 L2.799 -2.799" style="fill:none; stroke-linejoin:miter;" transform="translate(308.3333,94.2397)"
       /><path d="M0 -4 L0 4 M-4 0 L4 0 M-2.799 -2.799 L2.799 2.799 M-2.799 2.799 L2.799 -2.799" style="fill:none; stroke-linejoin:miter;" transform="translate(376.7778,82.2826)"
       /><path d="M0 -4 L0 4 M-4 0 L4 0 M-2.799 -2.799 L2.799 2.799 M-2.799 2.799 L2.799 -2.799" style="fill:none; stroke-linejoin:miter;" transform="translate(445.2222,41.0917)"
-      /><path d="M103 158.4817 L171.4444 121.6324 L239.8889 105.1379 L308.3333 114.1264 L376.7778 77.1796" style="fill:none; fill-rule:evenodd;"
+      /><path d="M103 158.4817 L171.4444 121.6324 L239.8889 105.1379 L308.3333 114.1264 L376.7778 77.1796 L445.2222 97.8822 L513.6667 99.701 L582.1111 134.0423 L650.5555 107.1735 L719 119.4394 L719.0734 119.4621" style="fill:none; fill-rule:evenodd;"
       /><path d="M0 -4 L0 4 M-4 0 L4 0 M-2.799 -2.799 L2.799 2.799 M-2.799 2.799 L2.799 -2.799" style="fill:none; stroke-linejoin:miter;" transform="translate(103,158.4817)"
       /><path d="M0 -4 L0 4 M-4 0 L4 0 M-2.799 -2.799 L2.799 2.799 M-2.799 2.799 L2.799 -2.799" style="fill:none; stroke-linejoin:miter;" transform="translate(171.4444,121.6324)"
       /><path d="M0 -4 L0 4 M-4 0 L4 0 M-2.799 -2.799 L2.799 2.799 M-2.799 2.799 L2.799 -2.799" style="fill:none; stroke-linejoin:miter;" transform="translate(239.8889,105.1379)"
       /><path d="M0 -4 L0 4 M-4 0 L4 0 M-2.799 -2.799 L2.799 2.799 M-2.799 2.799 L2.799 -2.799" style="fill:none; stroke-linejoin:miter;" transform="translate(308.3333,114.1264)"
       /><path d="M0 -4 L0 4 M-4 0 L4 0 M-2.799 -2.799 L2.799 2.799 M-2.799 2.799 L2.799 -2.799" style="fill:none; stroke-linejoin:miter;" transform="translate(376.7778,77.1796)"
+      /><path d="M0 -4 L0 4 M-4 0 L4 0 M-2.799 -2.799 L2.799 2.799 M-2.799 2.799 L2.799 -2.799" style="fill:none; stroke-linejoin:miter;" transform="translate(445.2222,97.8822)"
+      /><path d="M0 -4 L0 4 M-4 0 L4 0 M-2.799 -2.799 L2.799 2.799 M-2.799 2.799 L2.799 -2.799" style="fill:none; stroke-linejoin:miter;" transform="translate(513.6667,99.701)"
+      /><path d="M0 -4 L0 4 M-4 0 L4 0 M-2.799 -2.799 L2.799 2.799 M-2.799 2.799 L2.799 -2.799" style="fill:none; stroke-linejoin:miter;" transform="translate(582.1111,134.0423)"
+      /><path d="M0 -4 L0 4 M-4 0 L4 0 M-2.799 -2.799 L2.799 2.799 M-2.799 2.799 L2.799 -2.799" style="fill:none; stroke-linejoin:miter;" transform="translate(650.5555,107.1735)"
+      /><path d="M0 -4 L0 4 M-4 0 L4 0 M-2.799 -2.799 L2.799 2.799 M-2.799 2.799 L2.799 -2.799" style="fill:none; stroke-linejoin:miter;" transform="translate(719,119.4394)"
       /><line x1="103" x2="719" y1="173" style="fill:none; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke-miterlimit:1;" y2="173"
     /></g
   ></g

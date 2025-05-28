@@ -5934,8 +5934,7 @@ errorbar([1,2], [mean(n_lick), mean(n_nolick)], [ste(n_lick), ste(n_nolick)], 'k
 xticks(1:2)
 xticklabels({'Spon. Lick Trials', 'Spon. No-Lick Trials'})
 ylabel('Number of trials')
-
-*** TODO: percent modulated on high vs low 
+*** DONE: percent modulated on high vs low 
 *** TODO: flesh out stats for mod vs unmod firing rates 
 *** TODO: basline firing rates between mod and unmod neurons 
 **** significant with ranksum (not normally distributed)
