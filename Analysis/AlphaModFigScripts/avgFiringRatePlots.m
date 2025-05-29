@@ -1,3 +1,5 @@
+delete Stats/avg_firing_rates.txt
+diary Stats/avg_firing_rates.txt
 init_paths;
 out_path = true; %% toggle to save figures
 mkdir('./Figures/')
@@ -613,3 +615,5 @@ fprintf('Amygdala RS Hit: %d +/- %d\n', nanmean(ag_rs_hit_depol), nanstd(ag_rs_h
 fprintf('Amygdala RS Miss: %d +/- %d\n', nanmean(ag_rs_miss_depol), nanstd(ag_rs_miss_depol)/sqrt(sum(~isnan(ag_rs_miss_depol))));
 fprintf('Amygdala FS Hit: %d +/- %d\n', nanmean(ag_fs_hit_depol), nanstd(ag_fs_hit_depol)/sqrt(sum(~isnan(ag_fs_hit_depol))));
 fprintf('Amygdala FS Miss: %d +/- %d\n', nanmean(ag_fs_miss_depol), nanstd(ag_fs_miss_depol)/sqrt(sum(~isnan(ag_fs_miss_depol))));
+
+diary off

@@ -1,0 +1,46 @@
+[Warning: Directory already exists.] 
+[> In avgFiringRatePlots (line 4)] 
+[Warning: Colon operands must be real scalars. This warning will become an error
+in a future release.] 
+[> In avgFiringRatePlots (line 384)
+] 
+[Warning: Colon operands must be real scalars. This warning will become an error
+in a future release.] 
+[> In avgFiringRatePlots (line 405)
+] 
+S1 RS: N = 241
+S1 FS: N = 115
+
+PFC RS: N = 390
+PFC FS: N = 52
+
+Striatum RS: N = 108
+Striatum FS: N = 220
+
+Amygdala RS: N = 14
+Amygdala FS: N = 60
+
+S1 RS Hit vs. Miss (Wilcoxon Signed Rank): p = 1.691769e-01
+S1 FS Hit vs. Miss (Wilcoxon Signed Rank): **p = 2.906692e-06
+S1 RS Hit: 3.499709e+00 +/- 3.968363e-01
+S1 RS Miss: 3.289684e+00 +/- 4.464390e-01
+S1 FS Hit: 1.099597e+01 +/- 1.162894e+00
+S1 FS Miss: 7.369409e+00 +/- 1.155869e+00
+PFC RS Hit vs. Miss (Wilcoxon Signed Rank): **p = 8.117981e-07
+PFC FS Hit vs. Miss (Wilcoxon Signed Rank): p = 5.146929e-01
+PFC RS Hit: 2.691961e+00 +/- 2.872533e-01
+PFC RS Miss: 4.227120e+00 +/- 4.083495e-01
+PFC FS Hit: 1.255492e+01 +/- 1.675654e+00
+PFC FS Miss: 1.394893e+01 +/- 2.312893e+00
+Striatum RS Hit vs. Miss (Wilcoxon Signed Rank): p = 1.231303e-01
+Striatum FS Hit vs. Miss (Wilcoxon Signed Rank): p = 8.028317e-01
+Striatum RS Hit: 1.509558e+01 +/- 2.715852e+00
+Striatum RS Miss: 1.264964e+01 +/- 2.478151e+00
+Striatum FS Hit: 6.703723e+00 +/- 6.149965e-01
+Striatum FS Miss: 6.854845e+00 +/- 6.324672e-01
+Amygdala RS Hit vs. Miss (Wilcoxon Signed Rank): p = 3.258057e-01
+Amygdala FS Hit vs. Miss (Wilcoxon Signed Rank): *p = 5.900871e-03
+Amygdala RS Hit: 1.536354e+01 +/- 5.637005e+00
+Amygdala RS Miss: 1.001904e+01 +/- 3.221203e+00
+Amygdala FS Hit: 7.120787e+00 +/- 1.297491e+00
+Amygdala FS Miss: 3.986213e+00 +/- 9.112236e-01

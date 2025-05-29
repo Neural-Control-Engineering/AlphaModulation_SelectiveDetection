@@ -1,0 +1,32 @@
+
+ax = 
+
+  Axes with properties:
+
+             XLim: [-3.5640 3.5640]
+             YLim: [0 0.2000]
+           XScale: 'linear'
+           YScale: 'linear'
+    GridLineStyle: '-'
+         Position: [0.1300 0.1100 0.7750 0.8150]
+            Units: 'normalized'
+
+  Use GET to show all properties
+
+
+ax = 
+
+  Axes with properties:
+
+             XLim: [-3.5640 3.5640]
+             YLim: [0 0.2000]
+           XScale: 'linear'
+           YScale: 'linear'
+    GridLineStyle: '-'
+         Position: [0.1300 0.1100 0.7750 0.8150]
+            Units: 'normalized'
+
+  Use GET to show all properties
+
+Example cell Rayleigh p-value: 3.049949e-42
+Example cell Rayleigh MI: 5.020644e-03

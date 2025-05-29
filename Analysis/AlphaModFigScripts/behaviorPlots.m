@@ -1,3 +1,5 @@
+delete Stats/behavior.txt 
+diary Stats/behavior.txt 
 init_paths;
 visualize = true;
 out_path = '../Figures/';
@@ -145,3 +147,5 @@ if out_path
     saveas(fig, strcat(out_path,'dprime_vs_session.fig'))
     saveas(fig, strcat(out_path,'dprime_vs_session.svg'))
 end
+
+diary off 

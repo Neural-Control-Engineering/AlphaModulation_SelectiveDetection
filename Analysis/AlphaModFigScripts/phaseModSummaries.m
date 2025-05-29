@@ -1,3 +1,6 @@
+delete Stats/phase_mod_summaries.txt 
+diary Stats/phase_mod_summaries.txt 
+
 addpath(genpath('~/circstat-matlab/'))
 init_paths;
 s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
@@ -280,7 +283,6 @@ s1_mod_rs_baseline = [];
 s1_mod_fs_baseline = [];
 s1_unmod_rs_baseline = [];
 s1_unmod_fs_baseline = [];
-
 s1_mod_rs_evoked = [];
 s1_mod_fs_evoked = [];
 s1_unmod_rs_evoked = [];
@@ -693,7 +695,8 @@ amygdala_rs = amygdala.out.alpha_modulated(strcmp(amygdala.out.alpha_modulated.w
 amygdala_fs = amygdala.out.alpha_modulated(strcmp(amygdala.out.alpha_modulated.waveform_class,'FS'),:);
 
 %% fraction fig 
-fracs_fig = figure('Position', [1220 1274 963 444]);
+% fracs_fig = figure('Position', [1220 1274 963 444]);
+fracs_fig = figure('Position', [1220 1004 568 714]);
 frac_avgs = [nanmean(s1_rs_fracs), nanmean(s1_fs_fracs), ...
     nanmean(pfc_rs_fracs), nanmean(pfc_fs_fracs), ...
     nanmean(striatum_rs_fracs), nanmean(striatum_fs_fracs), ...
@@ -712,7 +715,7 @@ xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS',
 xtickangle(45)
 ylim([0,100])
 yticks([0,100])
-ylabel('% Neurons Modulated by Alpha', 'FontSize', 18)
+ylabel('% Alpha Modulated', 'FontSize', 18)
 ax = gca;
 ax.XAxis.FontSize = 18;
 ax.YAxis.FontSize = 16;
@@ -878,7 +881,7 @@ amygdala_unmod_rs_evoked_fa = max(amygdala_unmod_rs_delta_fa(:,time > 0 & time <
 amygdala_unmod_fs_delta_fa = amygdala_unmod_fs_fa-mean(amygdala_unmod_fs_fa(:,time<0),2);
 amygdala_unmod_fs_evoked_fa = max(amygdala_unmod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
 
-evoked_fig = figure();
+evoked_fig = figure('Position', [1220 770 1007 948]);
 tl = tiledlayout(3,2);
 axs(1,1) = nexttile;
 hold on
@@ -892,8 +895,13 @@ violinplot(10, s1_mod_rs_evoked_fa, 'FaceColor', 'b')
 violinplot(11, s1_unmod_rs_evoked_fa, 'FaceColor', 'r')
 xticks([1.5:3:10.5])
 xticklabels({'Hit', 'Miss', 'CR', 'FA'})
-ylabel('S1')
-title('Regular Spiking')
+ylabel('S1', 'FontSize', 16)
+title('Regular Spiking', 'FontWeight', 'normal', 'FontSize', 16)
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;
 
 axs(1,2) = nexttile;
 hold on
@@ -907,7 +915,12 @@ violinplot(10, s1_mod_fs_evoked_fa, 'FaceColor', 'b')
 violinplot(11, s1_unmod_fs_evoked_fa, 'FaceColor', 'r')
 xticks([1.5:3:10.5])
 xticklabels({'Hit', 'Miss', 'CR', 'FA'})
-title('Fast Spiking')
+title('Fast Spiking', 'FontWeight', 'normal', 'FontSize', 16)
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;
 
 axs(2,1) = nexttile;
 hold on
@@ -921,7 +934,12 @@ violinplot(10, pfc_mod_rs_evoked_fa, 'FaceColor', 'b')
 violinplot(11, pfc_unmod_rs_evoked_fa, 'FaceColor', 'r')
 xticks([1.5:3:10.5])
 xticklabels({'Hit', 'Miss', 'CR', 'FA'})
-ylabel('PFC')
+ylabel('PFC', 'FontSize', 16)
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;
 
 axs(2,2) = nexttile;
 hold on
@@ -935,6 +953,11 @@ violinplot(10, pfc_mod_fs_evoked_fa, 'FaceColor', 'b')
 violinplot(11, pfc_unmod_fs_evoked_fa, 'FaceColor', 'r')
 xticks([1.5:3:10.5])
 xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;
 
 axs(3,1) = nexttile;
 hold on
@@ -948,7 +971,12 @@ violinplot(10, striatum_mod_rs_evoked_fa, 'FaceColor', 'b')
 violinplot(11, striatum_unmod_rs_evoked_fa, 'FaceColor', 'r')
 xticks([1.5:3:10.5])
 xticklabels({'Hit', 'Miss', 'CR', 'FA'})
-ylabel('Striatum')
+ylabel('Striatum', 'FontSize', 16)
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;
 
 axs(3,2) = nexttile;
 hold on
@@ -962,8 +990,13 @@ violinplot(10, striatum_mod_fs_evoked_fa, 'FaceColor', 'b')
 violinplot(11, striatum_unmod_fs_evoked_fa, 'FaceColor', 'r')
 xticks([1.5:3:10.5])
 xticklabels({'Hit', 'Miss', 'CR', 'FA'})
-xlabel(tl, 'Trial Outcome')
-ylabel(tl, 'Evoked \Delta Firing Rate (Hz)')
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;
+xlabel(tl, 'Trial Outcome', 'FontSize', 18)
+ylabel(tl, 'Evoked \Delta Firing Rate (Hz)', 'FontSize', 18)
 
 fprintf('\n\nMod vs. Unmod on hit trials\n')
 if KStest(s1_mod_rs_evoked_hit) || KStest(s1_unmod_rs_evoked_hit)
@@ -1508,50 +1541,6 @@ end
 fprintf(sprintf('S1 RS mean theta bar: %d +/- %d\n', circ_mean(s1_rs.theta_bars), circ_std(s1_rs.theta_bars) / sqrt(length(s1_rs.theta_bars))))
 fprintf(sprintf('S1 FS mean theta bar: %d +/- %d\n', circ_mean(s1_fs.theta_bars), circ_std(s1_fs.theta_bars) / sqrt(length(s1_fs.theta_bars))))
 
-s1_mod_rs_delta = s1_mod_rs_hit-mean(s1_mod_rs_hit(:,time<0),2);
-s1_unmod_rs_delta = s1_unmod_rs_hit-mean(s1_unmod_rs_hit(:,time<0),2);
-s1_mod_rs_delta = s1_mod_rs_delta(:,time > 0);
-s1_unmod_rs_delta = s1_unmod_rs_delta(:,time > 0);
-s1_rs_delta = [s1_mod_rs_delta; s1_unmod_rs_delta];
-s1_rs_subj = vertcat(s1_mod_rs_subj, s1_unmod_rs_subj);
-s1_rs_group = [zeros(size(s1_mod_rs_delta,1),1); ones(size(s1_unmod_rs_delta,1),1)];
-s1_rs_table = table(s1_rs_group, s1_rs_subj, ...
-    s1_rs_delta(:,1), s1_rs_delta(:,2), s1_rs_delta(:,3), s1_rs_delta(:,4), s1_rs_delta(:,5), s1_rs_delta(:,6), s1_rs_delta(:,7), s1_rs_delta(:,8), s1_rs_delta(:,9), s1_rs_delta(:,10), ...
-    s1_rs_delta(:,11), s1_rs_delta(:,12), s1_rs_delta(:,13), s1_rs_delta(:,14), s1_rs_delta(:,15), s1_rs_delta(:,16), s1_rs_delta(:,17), s1_rs_delta(:,18), s1_rs_delta(:,19), s1_rs_delta(:,20), ...
-    s1_rs_delta(:,21), s1_rs_delta(:,22), s1_rs_delta(:,23), s1_rs_delta(:,24), s1_rs_delta(:,25), s1_rs_delta(:,26), s1_rs_delta(:,27), s1_rs_delta(:,28), s1_rs_delta(:,29), s1_rs_delta(:,30), ...
-    s1_rs_delta(:,31), s1_rs_delta(:,32), s1_rs_delta(:,33), s1_rs_delta(:,34), s1_rs_delta(:,35), s1_rs_delta(:,36), s1_rs_delta(:,37), s1_rs_delta(:,38), s1_rs_delta(:,39), s1_rs_delta(:,40), ...
-    s1_rs_delta(:,41), s1_rs_delta(:,42), s1_rs_delta(:,43), s1_rs_delta(:,44), s1_rs_delta(:,45), s1_rs_delta(:,46), s1_rs_delta(:,47), s1_rs_delta(:,48), s1_rs_delta(:,49), s1_rs_delta(:,50), ...
-    'VariableNames', {'group', 'subject', ...
-    't1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', ...
-    't11', 't12', 't13', 't14', 't15', 't16', 't17', 't18', 't19', 't20', ...
-    't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
-    't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
-    't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-s1_rs_rm = fitrm(s1_rs_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
-s1_rs_ranova = ranova(s1_rs_rm)
-
-s1_mod_fs_delta = s1_mod_fs_hit-mean(s1_mod_fs_hit(:,time<0),2);
-s1_unmod_fs_delta = s1_unmod_fs_hit-mean(s1_unmod_fs_hit(:,time<0),2);
-s1_mod_fs_delta = s1_mod_fs_delta(:,time > 0);
-s1_unmod_fs_delta = s1_unmod_fs_delta(:,time > 0);
-s1_fs_delta = [s1_mod_fs_delta; s1_unmod_fs_delta];
-s1_fs_subj = vertcat(s1_mod_fs_subj, s1_unmod_fs_subj);
-s1_fs_group = [zeros(size(s1_mod_fs_delta,1),1); ones(size(s1_unmod_fs_delta,1),1)];
-s1_fs_table = table(s1_fs_group, s1_fs_subj, ...
-    s1_fs_delta(:,1), s1_fs_delta(:,2), s1_fs_delta(:,3), s1_fs_delta(:,4), s1_fs_delta(:,5), s1_fs_delta(:,6), s1_fs_delta(:,7), s1_fs_delta(:,8), s1_fs_delta(:,9), s1_fs_delta(:,10), ...
-    s1_fs_delta(:,11), s1_fs_delta(:,12), s1_fs_delta(:,13), s1_fs_delta(:,14), s1_fs_delta(:,15), s1_fs_delta(:,16), s1_fs_delta(:,17), s1_fs_delta(:,18), s1_fs_delta(:,19), s1_fs_delta(:,20), ...
-    s1_fs_delta(:,21), s1_fs_delta(:,22), s1_fs_delta(:,23), s1_fs_delta(:,24), s1_fs_delta(:,25), s1_fs_delta(:,26), s1_fs_delta(:,27), s1_fs_delta(:,28), s1_fs_delta(:,29), s1_fs_delta(:,30), ...
-    s1_fs_delta(:,31), s1_fs_delta(:,32), s1_fs_delta(:,33), s1_fs_delta(:,34), s1_fs_delta(:,35), s1_fs_delta(:,36), s1_fs_delta(:,37), s1_fs_delta(:,38), s1_fs_delta(:,39), s1_fs_delta(:,40), ...
-    s1_fs_delta(:,41), s1_fs_delta(:,42), s1_fs_delta(:,43), s1_fs_delta(:,44), s1_fs_delta(:,45), s1_fs_delta(:,46), s1_fs_delta(:,47), s1_fs_delta(:,48), s1_fs_delta(:,49), s1_fs_delta(:,50), ...
-    'VariableNames', {'group', 'subject', ...
-    't1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', ...
-    't11', 't12', 't13', 't14', 't15', 't16', 't17', 't18', 't19', 't20', ...
-    't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
-    't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
-    't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-s1_fs_rm = fitrm(s1_fs_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
-s1_fs_ranova = ranova(s1_fs_rm)
-
 %% parts for overview figure - pfc
 pfc_mod_fig = figure('Position', [1220 1269 1071 569]);
 tl = tiledlayout(2,3, 'TileSpacing', 'compact');
@@ -1671,52 +1660,6 @@ end
 fprintf(sprintf('PFC RS mean theta bar: %d +/- %d\n', circ_mean(pfc_rs.theta_bars), circ_std(pfc_rs.theta_bars) / sqrt(length(pfc_rs.theta_bars))))
 fprintf(sprintf('PFC FS mean theta bar: %d +/- %d\n', circ_mean(pfc_fs.theta_bars), circ_std(pfc_fs.theta_bars) / sqrt(length(pfc_fs.theta_bars))))
 
-pfc_mod_rs_delta = pfc_mod_rs_hit-mean(pfc_mod_rs_hit(:,time<0),2);
-pfc_unmod_rs_delta = pfc_unmod_rs_hit-mean(pfc_unmod_rs_hit(:,time<0),2);
-pfc_mod_rs_delta = pfc_mod_rs_delta(:,time > 0);
-pfc_unmod_rs_delta = pfc_unmod_rs_delta(:,time > 0);
-pfc_rs_delta = [pfc_mod_rs_delta; pfc_unmod_rs_delta];
-pfc_rs_subj = vertcat(pfc_mod_rs_subj, pfc_unmod_rs_subj);
-pfc_rs_group = [zeros(size(pfc_mod_rs_delta,1),1); ones(size(pfc_unmod_rs_delta,1),1)];
-pfc_rs_table = table(pfc_rs_group, pfc_rs_subj, ...
-    pfc_rs_delta(:,1), pfc_rs_delta(:,2), pfc_rs_delta(:,3), pfc_rs_delta(:,4), pfc_rs_delta(:,5), pfc_rs_delta(:,6), pfc_rs_delta(:,7), pfc_rs_delta(:,8), pfc_rs_delta(:,9), pfc_rs_delta(:,10), ...
-    pfc_rs_delta(:,11), pfc_rs_delta(:,12), pfc_rs_delta(:,13), pfc_rs_delta(:,14), pfc_rs_delta(:,15), pfc_rs_delta(:,16), pfc_rs_delta(:,17), pfc_rs_delta(:,18), pfc_rs_delta(:,19), pfc_rs_delta(:,20), ...
-    pfc_rs_delta(:,21), pfc_rs_delta(:,22), pfc_rs_delta(:,23), pfc_rs_delta(:,24), pfc_rs_delta(:,25), pfc_rs_delta(:,26), pfc_rs_delta(:,27), pfc_rs_delta(:,28), pfc_rs_delta(:,29), pfc_rs_delta(:,30), ...
-    pfc_rs_delta(:,31), pfc_rs_delta(:,32), pfc_rs_delta(:,33), pfc_rs_delta(:,34), pfc_rs_delta(:,35), pfc_rs_delta(:,36), pfc_rs_delta(:,37), pfc_rs_delta(:,38), pfc_rs_delta(:,39), pfc_rs_delta(:,40), ...
-    pfc_rs_delta(:,41), pfc_rs_delta(:,42), pfc_rs_delta(:,43), pfc_rs_delta(:,44), pfc_rs_delta(:,45), pfc_rs_delta(:,46), pfc_rs_delta(:,47), pfc_rs_delta(:,48), pfc_rs_delta(:,49), pfc_rs_delta(:,50), ...
-    'VariableNames', {'group', 'subject', ...
-    't1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', ...
-    't11', 't12', 't13', 't14', 't15', 't16', 't17', 't18', 't19', 't20', ...
-    't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
-    't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
-    't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-pfc_rs_rm = fitrm(pfc_rs_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
-% pfc_rs_rm = fitrm(pfc_rs_table, 't1-t50 ~ group', 'WithinDesign', Time);
-pfc_rs_ranova = ranova(pfc_rs_rm)
-
-pfc_mod_fs_delta = pfc_mod_fs_hit-mean(pfc_mod_fs_hit(:,time<0),2);
-pfc_unmod_fs_delta = pfc_unmod_fs_hit-mean(pfc_unmod_fs_hit(:,time<0),2);
-pfc_mod_fs_delta = pfc_mod_fs_delta(:,time > 0);
-pfc_unmod_fs_delta = pfc_unmod_fs_delta(:,time > 0);
-pfc_fs_delta = [pfc_mod_fs_delta; pfc_unmod_fs_delta];
-pfc_fs_subj = vertcat(pfc_mod_fs_subj, pfc_unmod_fs_subj);
-pfc_fs_group = [zeros(size(pfc_mod_fs_delta,1),1); ones(size(pfc_unmod_fs_delta,1),1)];
-pfc_fs_table = table(pfc_fs_group, pfc_fs_subj, ...
-    pfc_fs_delta(:,1), pfc_fs_delta(:,2), pfc_fs_delta(:,3), pfc_fs_delta(:,4), pfc_fs_delta(:,5), pfc_fs_delta(:,6), pfc_fs_delta(:,7), pfc_fs_delta(:,8), pfc_fs_delta(:,9), pfc_fs_delta(:,10), ...
-    pfc_fs_delta(:,11), pfc_fs_delta(:,12), pfc_fs_delta(:,13), pfc_fs_delta(:,14), pfc_fs_delta(:,15), pfc_fs_delta(:,16), pfc_fs_delta(:,17), pfc_fs_delta(:,18), pfc_fs_delta(:,19), pfc_fs_delta(:,20), ...
-    pfc_fs_delta(:,21), pfc_fs_delta(:,22), pfc_fs_delta(:,23), pfc_fs_delta(:,24), pfc_fs_delta(:,25), pfc_fs_delta(:,26), pfc_fs_delta(:,27), pfc_fs_delta(:,28), pfc_fs_delta(:,29), pfc_fs_delta(:,30), ...
-    pfc_fs_delta(:,31), pfc_fs_delta(:,32), pfc_fs_delta(:,33), pfc_fs_delta(:,34), pfc_fs_delta(:,35), pfc_fs_delta(:,36), pfc_fs_delta(:,37), pfc_fs_delta(:,38), pfc_fs_delta(:,39), pfc_fs_delta(:,40), ...
-    pfc_fs_delta(:,41), pfc_fs_delta(:,42), pfc_fs_delta(:,43), pfc_fs_delta(:,44), pfc_fs_delta(:,45), pfc_fs_delta(:,46), pfc_fs_delta(:,47), pfc_fs_delta(:,48), pfc_fs_delta(:,49), pfc_fs_delta(:,50), ...
-    'VariableNames', {'group', 'subject', ...
-    't1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', ...
-    't11', 't12', 't13', 't14', 't15', 't16', 't17', 't18', 't19', 't20', ...
-    't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
-    't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
-    't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-pfc_fs_rm = fitrm(pfc_fs_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
-% pfc_fs_rm = fitrm(pfc_fs_table, 't1-t50 ~ group', 'WithinDesign', Time);
-pfc_fs_ranova = ranova(pfc_fs_rm)
-
 %% parts for overview figure - striatum
 striatum_mod_fig = figure('Position', [1220 1269 1071 569]);
 tl = tiledlayout(2,3, 'TileSpacing', 'compact');
@@ -1835,50 +1778,6 @@ else
 end
 fprintf(sprintf('Striatum RS mean theta bar: %d +/- %d\n', circ_mean(striatum_rs.theta_bars), circ_std(striatum_rs.theta_bars) / sqrt(length(striatum_rs.theta_bars))))
 fprintf(sprintf('Striatum FS mean theta bar: %d +/- %d\n\n', circ_mean(striatum_fs.theta_bars), circ_std(striatum_fs.theta_bars) / sqrt(length(striatum_fs.theta_bars))))
-
-striatum_mod_rs_delta = striatum_mod_rs_hit-mean(striatum_mod_rs_hit(:,time<0),2);
-striatum_unmod_rs_delta = striatum_unmod_rs_hit-mean(striatum_unmod_rs_hit(:,time<0),2);
-striatum_mod_rs_delta = striatum_mod_rs_delta(:,time > 0);
-striatum_unmod_rs_delta = striatum_unmod_rs_delta(:,time > 0);
-striatum_rs_delta = [striatum_mod_rs_delta; striatum_unmod_rs_delta];
-striatum_rs_subj = vertcat(striatum_mod_rs_subj, striatum_unmod_rs_subj);
-striatum_rs_group = [zeros(size(striatum_mod_rs_delta,1),1); ones(size(striatum_unmod_rs_delta,1),1)];
-striatum_rs_table = table(striatum_rs_group, striatum_rs_subj, ...
-    striatum_rs_delta(:,1), striatum_rs_delta(:,2), striatum_rs_delta(:,3), striatum_rs_delta(:,4), striatum_rs_delta(:,5), striatum_rs_delta(:,6), striatum_rs_delta(:,7), striatum_rs_delta(:,8), striatum_rs_delta(:,9), striatum_rs_delta(:,10), ...
-    striatum_rs_delta(:,11), striatum_rs_delta(:,12), striatum_rs_delta(:,13), striatum_rs_delta(:,14), striatum_rs_delta(:,15), striatum_rs_delta(:,16), striatum_rs_delta(:,17), striatum_rs_delta(:,18), striatum_rs_delta(:,19), striatum_rs_delta(:,20), ...
-    striatum_rs_delta(:,21), striatum_rs_delta(:,22), striatum_rs_delta(:,23), striatum_rs_delta(:,24), striatum_rs_delta(:,25), striatum_rs_delta(:,26), striatum_rs_delta(:,27), striatum_rs_delta(:,28), striatum_rs_delta(:,29), striatum_rs_delta(:,30), ...
-    striatum_rs_delta(:,31), striatum_rs_delta(:,32), striatum_rs_delta(:,33), striatum_rs_delta(:,34), striatum_rs_delta(:,35), striatum_rs_delta(:,36), striatum_rs_delta(:,37), striatum_rs_delta(:,38), striatum_rs_delta(:,39), striatum_rs_delta(:,40), ...
-    striatum_rs_delta(:,41), striatum_rs_delta(:,42), striatum_rs_delta(:,43), striatum_rs_delta(:,44), striatum_rs_delta(:,45), striatum_rs_delta(:,46), striatum_rs_delta(:,47), striatum_rs_delta(:,48), striatum_rs_delta(:,49), striatum_rs_delta(:,50), ...
-    'VariableNames', {'group', 'subject', ...
-    't1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', ...
-    't11', 't12', 't13', 't14', 't15', 't16', 't17', 't18', 't19', 't20', ...
-    't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
-    't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
-    't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-striatum_rs_rm = fitrm(striatum_rs_table, 't1-t50 ~ group', 'WithinDesign', Time);
-striatum_rs_ranova = ranova(striatum_rs_rm)
-
-striatum_mod_fs_delta = striatum_mod_fs_hit-mean(striatum_mod_fs_hit(:,time<0),2);
-striatum_unmod_fs_delta = striatum_unmod_fs_hit-mean(striatum_unmod_fs_hit(:,time<0),2);
-striatum_mod_fs_delta = striatum_mod_fs_delta(:,time > 0);
-striatum_unmod_fs_delta = striatum_unmod_fs_delta(:,time > 0);
-striatum_fs_delta = [striatum_mod_fs_delta; striatum_unmod_fs_delta];
-striatum_fs_subj = vertcat(striatum_mod_fs_subj, striatum_unmod_fs_subj);
-striatum_fs_group = [zeros(size(striatum_mod_fs_delta,1),1); ones(size(striatum_unmod_fs_delta,1),1)];
-striatum_fs_table = table(striatum_fs_group, striatum_fs_subj, ...
-    striatum_fs_delta(:,1), striatum_fs_delta(:,2), striatum_fs_delta(:,3), striatum_fs_delta(:,4), striatum_fs_delta(:,5), striatum_fs_delta(:,6), striatum_fs_delta(:,7), striatum_fs_delta(:,8), striatum_fs_delta(:,9), striatum_fs_delta(:,10), ...
-    striatum_fs_delta(:,11), striatum_fs_delta(:,12), striatum_fs_delta(:,13), striatum_fs_delta(:,14), striatum_fs_delta(:,15), striatum_fs_delta(:,16), striatum_fs_delta(:,17), striatum_fs_delta(:,18), striatum_fs_delta(:,19), striatum_fs_delta(:,20), ...
-    striatum_fs_delta(:,21), striatum_fs_delta(:,22), striatum_fs_delta(:,23), striatum_fs_delta(:,24), striatum_fs_delta(:,25), striatum_fs_delta(:,26), striatum_fs_delta(:,27), striatum_fs_delta(:,28), striatum_fs_delta(:,29), striatum_fs_delta(:,30), ...
-    striatum_fs_delta(:,31), striatum_fs_delta(:,32), striatum_fs_delta(:,33), striatum_fs_delta(:,34), striatum_fs_delta(:,35), striatum_fs_delta(:,36), striatum_fs_delta(:,37), striatum_fs_delta(:,38), striatum_fs_delta(:,39), striatum_fs_delta(:,40), ...
-    striatum_fs_delta(:,41), striatum_fs_delta(:,42), striatum_fs_delta(:,43), striatum_fs_delta(:,44), striatum_fs_delta(:,45), striatum_fs_delta(:,46), striatum_fs_delta(:,47), striatum_fs_delta(:,48), striatum_fs_delta(:,49), striatum_fs_delta(:,50), ...
-    'VariableNames', {'group', 'subject', ...
-    't1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', ...
-    't11', 't12', 't13', 't14', 't15', 't16', 't17', 't18', 't19', 't20', ...
-    't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
-    't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
-    't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-striatum_fs_rm = fitrm(striatum_fs_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
-striatum_fs_ranova = ranova(striatum_fs_rm)
 
 %% parts for overview figure - amygdala
 amygdala_mod_fig = figure('Position', [1220 1269 1071 569]);
@@ -2000,49 +1899,49 @@ end
 fprintf(sprintf('Amygdala RS mean theta bar: %d +/- %d\n', circ_mean(amygdala_rs.theta_bars), circ_std(amygdala_rs.theta_bars)/sqrt(length(amygdala_rs.theta_bars))))
 fprintf(sprintf('Amygdala FS mean theta bar: %d +/- %d\n\n', circ_mean(amygdala_fs.theta_bars), circ_std(amygdala_fs.theta_bars)/sqrt(length(amygdala_fs.theta_bars))))
 
-amygdala_mod_rs_delta = amygdala_mod_rs_hit-mean(amygdala_mod_rs_hit(:,time<0),2);
-amygdala_unmod_rs_delta = amygdala_unmod_rs_hit-mean(amygdala_unmod_rs_hit(:,time<0),2);
-amygdala_mod_rs_delta = amygdala_mod_rs_delta(:,time > 0);
-amygdala_unmod_rs_delta = amygdala_unmod_rs_delta(:,time > 0);
-amygdala_rs_delta = [amygdala_mod_rs_delta; amygdala_unmod_rs_delta];
-amygdala_rs_subj = vertcat(amygdala_mod_rs_subj, amygdala_unmod_rs_subj);
-amygdala_rs_group = [zeros(size(amygdala_mod_rs_delta,1),1); ones(size(amygdala_unmod_rs_delta,1),1)];
-amygdala_rs_table = table(amygdala_rs_group, amygdala_rs_subj, ...
-    amygdala_rs_delta(:,1), amygdala_rs_delta(:,2), amygdala_rs_delta(:,3), amygdala_rs_delta(:,4), amygdala_rs_delta(:,5), amygdala_rs_delta(:,6), amygdala_rs_delta(:,7), amygdala_rs_delta(:,8), amygdala_rs_delta(:,9), amygdala_rs_delta(:,10), ...
-    amygdala_rs_delta(:,11), amygdala_rs_delta(:,12), amygdala_rs_delta(:,13), amygdala_rs_delta(:,14), amygdala_rs_delta(:,15), amygdala_rs_delta(:,16), amygdala_rs_delta(:,17), amygdala_rs_delta(:,18), amygdala_rs_delta(:,19), amygdala_rs_delta(:,20), ...
-    amygdala_rs_delta(:,21), amygdala_rs_delta(:,22), amygdala_rs_delta(:,23), amygdala_rs_delta(:,24), amygdala_rs_delta(:,25), amygdala_rs_delta(:,26), amygdala_rs_delta(:,27), amygdala_rs_delta(:,28), amygdala_rs_delta(:,29), amygdala_rs_delta(:,30), ...
-    amygdala_rs_delta(:,31), amygdala_rs_delta(:,32), amygdala_rs_delta(:,33), amygdala_rs_delta(:,34), amygdala_rs_delta(:,35), amygdala_rs_delta(:,36), amygdala_rs_delta(:,37), amygdala_rs_delta(:,38), amygdala_rs_delta(:,39), amygdala_rs_delta(:,40), ...
-    amygdala_rs_delta(:,41), amygdala_rs_delta(:,42), amygdala_rs_delta(:,43), amygdala_rs_delta(:,44), amygdala_rs_delta(:,45), amygdala_rs_delta(:,46), amygdala_rs_delta(:,47), amygdala_rs_delta(:,48), amygdala_rs_delta(:,49), amygdala_rs_delta(:,50), ...
-    'VariableNames', {'group', 'subject', ...
-    't1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', ...
-    't11', 't12', 't13', 't14', 't15', 't16', 't17', 't18', 't19', 't20', ...
-    't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
-    't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
-    't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-amygdala_rs_rm = fitrm(amygdala_rs_table, 't1-t50 ~ group', 'WithinDesign', Time);
-amygdala_rs_ranova = ranova(amygdala_rs_rm)
+% amygdala_mod_rs_delta = amygdala_mod_rs_hit-mean(amygdala_mod_rs_hit(:,time<0),2);
+% amygdala_unmod_rs_delta = amygdala_unmod_rs_hit-mean(amygdala_unmod_rs_hit(:,time<0),2);
+% amygdala_mod_rs_delta = amygdala_mod_rs_delta(:,time > 0);
+% amygdala_unmod_rs_delta = amygdala_unmod_rs_delta(:,time > 0);
+% amygdala_rs_delta = [amygdala_mod_rs_delta; amygdala_unmod_rs_delta];
+% amygdala_rs_subj = vertcat(amygdala_mod_rs_subj, amygdala_unmod_rs_subj);
+% amygdala_rs_group = [zeros(size(amygdala_mod_rs_delta,1),1); ones(size(amygdala_unmod_rs_delta,1),1)];
+% amygdala_rs_table = table(amygdala_rs_group, amygdala_rs_subj, ...
+%     amygdala_rs_delta(:,1), amygdala_rs_delta(:,2), amygdala_rs_delta(:,3), amygdala_rs_delta(:,4), amygdala_rs_delta(:,5), amygdala_rs_delta(:,6), amygdala_rs_delta(:,7), amygdala_rs_delta(:,8), amygdala_rs_delta(:,9), amygdala_rs_delta(:,10), ...
+%     amygdala_rs_delta(:,11), amygdala_rs_delta(:,12), amygdala_rs_delta(:,13), amygdala_rs_delta(:,14), amygdala_rs_delta(:,15), amygdala_rs_delta(:,16), amygdala_rs_delta(:,17), amygdala_rs_delta(:,18), amygdala_rs_delta(:,19), amygdala_rs_delta(:,20), ...
+%     amygdala_rs_delta(:,21), amygdala_rs_delta(:,22), amygdala_rs_delta(:,23), amygdala_rs_delta(:,24), amygdala_rs_delta(:,25), amygdala_rs_delta(:,26), amygdala_rs_delta(:,27), amygdala_rs_delta(:,28), amygdala_rs_delta(:,29), amygdala_rs_delta(:,30), ...
+%     amygdala_rs_delta(:,31), amygdala_rs_delta(:,32), amygdala_rs_delta(:,33), amygdala_rs_delta(:,34), amygdala_rs_delta(:,35), amygdala_rs_delta(:,36), amygdala_rs_delta(:,37), amygdala_rs_delta(:,38), amygdala_rs_delta(:,39), amygdala_rs_delta(:,40), ...
+%     amygdala_rs_delta(:,41), amygdala_rs_delta(:,42), amygdala_rs_delta(:,43), amygdala_rs_delta(:,44), amygdala_rs_delta(:,45), amygdala_rs_delta(:,46), amygdala_rs_delta(:,47), amygdala_rs_delta(:,48), amygdala_rs_delta(:,49), amygdala_rs_delta(:,50), ...
+%     'VariableNames', {'group', 'subject', ...
+%     't1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', ...
+%     't11', 't12', 't13', 't14', 't15', 't16', 't17', 't18', 't19', 't20', ...
+%     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
+%     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
+%     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
+% amygdala_rs_rm = fitrm(amygdala_rs_table, 't1-t50 ~ group', 'WithinDesign', Time);
+% amygdala_rs_ranova = ranova(amygdala_rs_rm)
 
-amygdala_mod_fs_delta = amygdala_mod_fs_hit-mean(amygdala_mod_fs_hit(:,time<0),2);
-amygdala_unmod_fs_delta = amygdala_unmod_fs_hit-mean(amygdala_unmod_fs_hit(:,time<0),2);
-amygdala_mod_fs_delta = amygdala_mod_fs_delta(:,time > 0);
-amygdala_unmod_fs_delta = amygdala_unmod_fs_delta(:,time > 0);
-amygdala_fs_delta = [amygdala_mod_fs_delta; amygdala_unmod_fs_delta];
-amygdala_fs_subj = vertcat(amygdala_mod_fs_subj, amygdala_unmod_fs_subj);
-amygdala_fs_group = [zeros(size(amygdala_mod_fs_delta,1),1); ones(size(amygdala_unmod_fs_delta,1),1)];
-amygdala_fs_table = table(amygdala_fs_group, amygdala_fs_subj, ...
-    amygdala_fs_delta(:,1), amygdala_fs_delta(:,2), amygdala_fs_delta(:,3), amygdala_fs_delta(:,4), amygdala_fs_delta(:,5), amygdala_fs_delta(:,6), amygdala_fs_delta(:,7), amygdala_fs_delta(:,8), amygdala_fs_delta(:,9), amygdala_fs_delta(:,10), ...
-    amygdala_fs_delta(:,11), amygdala_fs_delta(:,12), amygdala_fs_delta(:,13), amygdala_fs_delta(:,14), amygdala_fs_delta(:,15), amygdala_fs_delta(:,16), amygdala_fs_delta(:,17), amygdala_fs_delta(:,18), amygdala_fs_delta(:,19), amygdala_fs_delta(:,20), ...
-    amygdala_fs_delta(:,21), amygdala_fs_delta(:,22), amygdala_fs_delta(:,23), amygdala_fs_delta(:,24), amygdala_fs_delta(:,25), amygdala_fs_delta(:,26), amygdala_fs_delta(:,27), amygdala_fs_delta(:,28), amygdala_fs_delta(:,29), amygdala_fs_delta(:,30), ...
-    amygdala_fs_delta(:,31), amygdala_fs_delta(:,32), amygdala_fs_delta(:,33), amygdala_fs_delta(:,34), amygdala_fs_delta(:,35), amygdala_fs_delta(:,36), amygdala_fs_delta(:,37), amygdala_fs_delta(:,38), amygdala_fs_delta(:,39), amygdala_fs_delta(:,40), ...
-    amygdala_fs_delta(:,41), amygdala_fs_delta(:,42), amygdala_fs_delta(:,43), amygdala_fs_delta(:,44), amygdala_fs_delta(:,45), amygdala_fs_delta(:,46), amygdala_fs_delta(:,47), amygdala_fs_delta(:,48), amygdala_fs_delta(:,49), amygdala_fs_delta(:,50), ...
-    'VariableNames', {'group', 'subject', ...
-    't1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', ...
-    't11', 't12', 't13', 't14', 't15', 't16', 't17', 't18', 't19', 't20', ...
-    't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
-    't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
-    't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-amygdala_fs_rm = fitrm(amygdala_fs_table, 't1-t50 ~ group', 'WithinDesign', Time);
-amygdala_fs_ranova = ranova(amygdala_fs_rm)
+% amygdala_mod_fs_delta = amygdala_mod_fs_hit-mean(amygdala_mod_fs_hit(:,time<0),2);
+% amygdala_unmod_fs_delta = amygdala_unmod_fs_hit-mean(amygdala_unmod_fs_hit(:,time<0),2);
+% amygdala_mod_fs_delta = amygdala_mod_fs_delta(:,time > 0);
+% amygdala_unmod_fs_delta = amygdala_unmod_fs_delta(:,time > 0);
+% amygdala_fs_delta = [amygdala_mod_fs_delta; amygdala_unmod_fs_delta];
+% amygdala_fs_subj = vertcat(amygdala_mod_fs_subj, amygdala_unmod_fs_subj);
+% amygdala_fs_group = [zeros(size(amygdala_mod_fs_delta,1),1); ones(size(amygdala_unmod_fs_delta,1),1)];
+% amygdala_fs_table = table(amygdala_fs_group, amygdala_fs_subj, ...
+%     amygdala_fs_delta(:,1), amygdala_fs_delta(:,2), amygdala_fs_delta(:,3), amygdala_fs_delta(:,4), amygdala_fs_delta(:,5), amygdala_fs_delta(:,6), amygdala_fs_delta(:,7), amygdala_fs_delta(:,8), amygdala_fs_delta(:,9), amygdala_fs_delta(:,10), ...
+%     amygdala_fs_delta(:,11), amygdala_fs_delta(:,12), amygdala_fs_delta(:,13), amygdala_fs_delta(:,14), amygdala_fs_delta(:,15), amygdala_fs_delta(:,16), amygdala_fs_delta(:,17), amygdala_fs_delta(:,18), amygdala_fs_delta(:,19), amygdala_fs_delta(:,20), ...
+%     amygdala_fs_delta(:,21), amygdala_fs_delta(:,22), amygdala_fs_delta(:,23), amygdala_fs_delta(:,24), amygdala_fs_delta(:,25), amygdala_fs_delta(:,26), amygdala_fs_delta(:,27), amygdala_fs_delta(:,28), amygdala_fs_delta(:,29), amygdala_fs_delta(:,30), ...
+%     amygdala_fs_delta(:,31), amygdala_fs_delta(:,32), amygdala_fs_delta(:,33), amygdala_fs_delta(:,34), amygdala_fs_delta(:,35), amygdala_fs_delta(:,36), amygdala_fs_delta(:,37), amygdala_fs_delta(:,38), amygdala_fs_delta(:,39), amygdala_fs_delta(:,40), ...
+%     amygdala_fs_delta(:,41), amygdala_fs_delta(:,42), amygdala_fs_delta(:,43), amygdala_fs_delta(:,44), amygdala_fs_delta(:,45), amygdala_fs_delta(:,46), amygdala_fs_delta(:,47), amygdala_fs_delta(:,48), amygdala_fs_delta(:,49), amygdala_fs_delta(:,50), ...
+%     'VariableNames', {'group', 'subject', ...
+%     't1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', ...
+%     't11', 't12', 't13', 't14', 't15', 't16', 't17', 't18', 't19', 't20', ...
+%     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
+%     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
+%     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
+% amygdala_fs_rm = fitrm(amygdala_fs_table, 't1-t50 ~ group', 'WithinDesign', Time);
+% amygdala_fs_ranova = ranova(amygdala_fs_rm)
 
 fprintf(sprintf('Total modulated S1 RS: %i\n', size(s1_rs,1)));
 fprintf(sprintf('Total modulated S1 FS: %i\n', size(s1_fs,1)));
@@ -2068,7 +1967,7 @@ fprintf(sprintf('Total modulated Amygdala: %i\n', size(amygdala_rs,1)+size(amygd
 fprintf(sprintf('Amygdala RS fraction modulated: %d +/- %d\n', nanmean(amygdala_rs_fracs), nanstd(amygdala_rs_fracs)/sqrt(sum(~isnan(amygdala_rs_fracs)))))
 fprintf(sprintf('Amygdala FS fraction modulated: %d +/- %d\n', nanmean(amygdala_fs_fracs), nanstd(amygdala_fs_fracs)/sqrt(sum(~isnan(amygdala_fs_fracs)))))
 
-%% MI and MSE by average firing rate 
+%% MI by average firing rate 
 mi_fr_fig = figure();
 tl = tiledlayout(4,2);
 axs = zeros(1,8);
@@ -2092,6 +1991,7 @@ unifyYLimits(axs)
 xlabel(tl, 'Avg. Firing Rate (Hz)')
 ylabel(tl, 'Modulation Index')
 
+%% mse by frs
 mse_fr_fig = figure();
 tl = tiledlayout(4,2);
 axs = zeros(1,8);
@@ -2115,187 +2015,8 @@ unifyYLimits(axs)
 xlabel(tl, 'Avg. Firing Rate (Hz)')
 ylabel(tl, 'von Mises MSE')
 
-%% firing rates by outcome 
-rs_mod_vs_unmod_fr_fig = figure('Position', [1151 841 1850 1081]);
-tl = tiledlayout(3,4);
-axs(1,1) = nexttile;
-semshade(s1_mod_rs_hit-mean(s1_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(s1_unmod_rs_hit-mean(s1_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-1,3])
-plot([1.2, 1.2], [-1, 3], 'k--', 'HandleVisibility','off')
-title('Hit', 'FontWeight', 'normal', 'FontSize', 16)
-axs(1,2) = nexttile;
-semshade(s1_mod_rs_miss-mean(s1_mod_rs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(s1_unmod_rs_miss-mean(s1_unmod_rs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-1,3])
-title('Miss', 'FontWeight', 'normal', 'FontSize', 16)
-axs(1,3) = nexttile;
-semshade(s1_mod_rs_cr-mean(s1_mod_rs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(s1_unmod_rs_cr-mean(s1_unmod_rs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-1,3])
-title('Correct Rejection', 'FontWeight', 'normal', 'FontSize', 16)
-axs(1,4) = nexttile;
-semshade(s1_mod_rs_fa-mean(s1_mod_rs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(s1_unmod_rs_fa-mean(s1_unmod_rs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-1,3])
-title('False Alarm', 'FontWeight', 'normal', 'FontSize', 16)
-axs(2,1) = nexttile;
-semshade(pfc_mod_rs_hit-mean(pfc_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(pfc_unmod_rs_hit-mean(pfc_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-1,3])
-plot([1.2, 1.2], [-1, 3], 'k--', 'HandleVisibility','off')
-axs(2,2) = nexttile;
-semshade(pfc_mod_rs_miss-mean(pfc_mod_rs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(pfc_unmod_rs_miss-mean(pfc_unmod_rs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-1,3])
-axs(2,3) = nexttile;
-semshade(pfc_mod_rs_cr-mean(pfc_mod_rs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(pfc_unmod_rs_cr-mean(pfc_unmod_rs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-1,3])
-axs(2,4) = nexttile;
-semshade(pfc_mod_rs_fa-mean(pfc_mod_rs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(pfc_unmod_rs_fa-mean(pfc_unmod_rs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-1,3])
-axs(3,1) = nexttile;
-semshade(striatum_mod_rs_hit-mean(striatum_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(striatum_unmod_rs_hit-mean(striatum_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,25])
-plot([1.2, 1.2], [-5, 25], 'k--', 'HandleVisibility','off')
-axs(3,2) = nexttile;
-semshade(striatum_mod_rs_miss-mean(striatum_mod_rs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(striatum_unmod_rs_miss-mean(striatum_unmod_rs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,25])
-axs(3,3) = nexttile;
-semshade(striatum_mod_rs_cr-mean(striatum_mod_rs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(striatum_unmod_rs_cr-mean(striatum_unmod_rs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,25])
-axs(3,4) = nexttile;
-semshade(striatum_mod_rs_fa-mean(striatum_mod_rs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(striatum_unmod_rs_fa-mean(striatum_unmod_rs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,25])
-xlabel(tl, 'Time (s)', 'FontSize', 16)
-ylabel(tl, '\Delta Firing Rate (Hz)', 'FontSize', 16)
-outcomes = {'Hit', 'Miss', 'Correct Rejection', 'False Alarm'};
-for c = 1:4
-    axes(axs(1,c))
-    title(outcomes{c}, 'FontWeight', 'normal', 'FontSize', 16)
-end
-title(tl, 'Regular Spiking Units', 'FontSize', 16, 'FontWeight', 'normal')
 
-fs_mod_vs_unmod_fr_fig = figure('Position', [1151 841 1850 1081]);
-tl = tiledlayout(3,4);
-axs(1,1) = nexttile;
-semshade(s1_mod_fs_hit-mean(s1_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(s1_unmod_fs_hit-mean(s1_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,15])
-plot([1.2, 1.2], [-5, 15], 'k--', 'HandleVisibility','off')
-title('Hit', 'FontWeight', 'normal', 'FontSize', 16)
-axs(1,2) = nexttile;
-semshade(s1_mod_fs_miss-mean(s1_mod_fs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(s1_unmod_fs_miss-mean(s1_unmod_fs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,15])
-title('Miss', 'FontWeight', 'normal', 'FontSize', 16)
-axs(1,3) = nexttile;
-semshade(s1_mod_fs_cr-mean(s1_mod_fs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(s1_unmod_fs_cr-mean(s1_unmod_fs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,15])
-title('Correct Rejection', 'FontWeight', 'normal', 'FontSize', 16)
-axs(1,4) = nexttile;
-semshade(s1_mod_fs_fa-mean(s1_mod_fs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(s1_unmod_fs_fa-mean(s1_unmod_fs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,15])
-title('False Alarm', 'FontWeight', 'normal', 'FontSize', 16)
-axs(2,1) = nexttile;
-semshade(pfc_mod_fs_hit-mean(pfc_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(pfc_unmod_fs_hit-mean(pfc_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,15])
-plot([1.2, 1.2], [-5, 15], 'k--', 'HandleVisibility','off')
-axs(2,2) = nexttile;
-semshade(pfc_mod_fs_miss-mean(pfc_mod_fs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(pfc_unmod_fs_miss-mean(pfc_unmod_fs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,15])
-axs(2,3) = nexttile;
-semshade(pfc_mod_fs_cr-mean(pfc_mod_fs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(pfc_unmod_fs_cr-mean(pfc_unmod_fs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,15])
-axs(2,4) = nexttile;
-semshade(pfc_mod_fs_fa-mean(pfc_mod_fs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(pfc_unmod_fs_fa-mean(pfc_unmod_fs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,15])
-axs(3,1) = nexttile;
-semshade(striatum_mod_fs_hit-mean(striatum_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(striatum_unmod_fs_hit-mean(striatum_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,15])
-plot([1.2, 1.2], [-5, 15], 'k--', 'HandleVisibility','off')
-axs(3,2) = nexttile;
-semshade(striatum_mod_fs_miss-mean(striatum_mod_fs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(striatum_unmod_fs_miss-mean(striatum_unmod_fs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,15])
-axs(3,3) = nexttile;
-semshade(striatum_mod_fs_cr-mean(striatum_mod_fs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(striatum_unmod_fs_cr-mean(striatum_unmod_fs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,15])
-axs(3,4) = nexttile;
-semshade(striatum_mod_fs_fa-mean(striatum_mod_fs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
-hold on;
-semshade(striatum_unmod_fs_fa-mean(striatum_unmod_fs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
-xlim([-2.8,4.8])
-ylim([-5,15])
-xlabel(tl, 'Time (s)', 'FontSize', 16)
-ylabel(tl, '\Delta Firing Rate (Hz)', 'FontSize', 16)
-outcomes = {'Hit', 'Miss', 'Correct Rejection', 'False Alarm'};
-for c = 1:4
-    axes(axs(1,c))
-    title(outcomes{c}, 'FontWeight', 'normal', 'FontSize', 16)
-end
-title(tl, 'Fast Spiking Units', 'FontSize', 16, 'FontWeight', 'normal')
-
+%% baseline firing rates 
 mod_baseline = [s1_mod_rs_baseline; s1_mod_fs_baseline; pfc_mod_rs_baseline; pfc_mod_fs_baseline; striatum_mod_rs_baseline; striatum_mod_fs_baseline; amygdala_mod_rs_baseline; amygdala_mod_fs_baseline];
 unmod_baseline = [s1_unmod_rs_baseline; s1_unmod_fs_baseline; pfc_unmod_rs_baseline; pfc_unmod_fs_baseline; striatum_unmod_rs_baseline; striatum_unmod_fs_baseline; amygdala_unmod_rs_baseline; amygdala_unmod_fs_baseline];
 baseline_fig = figure(); 
@@ -2304,9 +2025,151 @@ hold on
 % errorbar(1:2, [mean(mod_baseline), mean(unmod_baseline)], [ste(mod_baseline), ste(unmod_baseline)], 'k.')
 violinplot(1, mod_baseline, 'FaceColor', 'b')
 violinplot(2, unmod_baseline, 'FaceColor', 'r')
+% scatter(ones(1,length(mod_baseline)), mod_baseline, 'k.', 'jitter', 'on')
+% scatter(ones(1,length(unmod_baseline))+1, unmod_baseline, 'k.', 'jitter', 'on')
 xticks(1:2)
 xticklabels({'Modulated', 'Unmodulated'})
 ylabel('Baseline Firing Rate (Hz)')
+lims = ylim;
+ylim([0,lims(2)])
+if KStest(mod_baseline) || KStest(unmod_baseline)
+    fprintf(sprintf('Mod vs. Unmod baseline FR (mann-whitney): p = %d\n', ranksum(mod_baseline, unmod_baseline)))
+else
+    [~,p] = ttest2(mod_baseline, unmod_baseline);
+    fprintf(sprintf('Mod vs. Unmod baseline FR (2 samp t-test): p = %d\n', p))
+end
+fprintf(sprintf('Mod avg baseline FR: %d +/i %d\n', nanmean(mod_baseline), ste(mod_baseline)))
+fprintf(sprintf('Unmod avg baseline FR: %d +/i %d\n', nanmean(unmod_baseline), ste(unmod_baseline)))
+
+%% theta bars figure 
+s1_rs_theta_fig = figure('Position', [1179 1256 538 495]);
+polarhistogram(s1_rs.theta_bars, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+% Access the current polar axes
+pax = gca;
+% Customize the radial grid (axis markers)
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+rlim([0,25])
+hold on 
+polarplot([circ_mean(s1_rs.theta_bars), circ_mean(s1_rs.theta_bars)], [0,25], 'r--', 'LineWidth', 2)
+
+s1_fs_theta_fig = figure('Position', [1179 1256 538 495]);
+polarhistogram(s1_fs.theta_bars, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+% Access the current polar axes
+pax = gca;
+% Customize the radial grid (axis markers)
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+rlim([0,25])
+hold on 
+polarplot([circ_mean(s1_fs.theta_bars), circ_mean(s1_fs.theta_bars)], [0,25], 'r--', 'LineWidth', 2)
+
+pfc_rs_theta_fig = figure('Position', [1179 1256 538 495]);
+polarhistogram(pfc_rs.theta_bars, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+% Access the current polar axes
+pax = gca;
+% Customize the radial grid (axis markers)
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+rlim([0,15])
+hold on 
+polarplot([circ_mean(pfc_rs.theta_bars),circ_mean(pfc_rs.theta_bars)], [0,15], 'r--', 'LineWidth', 2)
+
+pfc_fs_theta_fig = figure('Position', [1179 1256 538 495]);
+polarhistogram(pfc_fs.theta_bars, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+% Access the current polar axes
+pax = gca;
+% Customize the radial grid (axis markers)
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+rlim([0,15])
+hold on 
+polarplot([circ_mean(pfc_fs.theta_bars),circ_mean(pfc_fs.theta_bars)], [0,15], 'r--', 'LineWidth', 2)
+
+striatum_rs_theta_fig = figure('Position', [1179 1256 538 495]);
+polarhistogram(striatum_rs.theta_bars, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+% Access the current polar axes
+pax = gca;
+% Customize the radial grid (axis markers)
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+rlim([0,5])
+hold on 
+polarplot([circ_mean(striatum_rs.theta_bars),circ_mean(striatum_rs.theta_bars)], [0,15], 'r--', 'LineWidth', 2)
+
+striatum_fs_theta_fig = figure('Position', [1179 1256 538 495]);
+polarhistogram(striatum_fs.theta_bars, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+% Access the current polar axes
+pax = gca;
+% Customize the radial grid (axis markers)
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+rlim([0,5])
+hold on 
+polarplot([circ_mean(striatum_fs.theta_bars),circ_mean(striatum_fs.theta_bars)], [0,15], 'r--', 'LineWidth', 2)
+
+amygdala_fs_theta_fig = figure('Position', [1179 1256 538 495]);
+polarhistogram(amygdala_fs.theta_bars, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+polarplot([circ_mean(amygdala_fs.theta_bars), circ_mean(amygdala_fs.theta_bars)], [0, 10], 'r--', 'LineWidth', 2)
+thetaticks([0 90 180 270])
+% Access the current polar axes
+pax = gca;
+% Customize the radial grid (axis markers)
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+rlim([0,2])
+
+amygdala_rs_theta_fig = figure('Position', [1179 1256 538 495]);
+polarhistogram(amygdala_rs.theta_bars, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+polarplot([circ_mean(amygdala_rs.theta_bars), circ_mean(amygdala_rs.theta_bars)], [0, 10], 'r--', 'LineWidth', 2)
+thetaticks([0 90 180 270])
+% Access the current polar axes
+pax = gca;
+% Customize the radial grid (axis markers)
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+rlim([0,2])
+
+%% MI fig 
+mi_fig = figure('Position', [1220 1004 568 714]); %figure('Position', [1220 1274 963 444]);
+mi_avgs = [nanmean(s1_rs.pmi), nanmean(s1_fs.pmi), ...
+    nanmean(pfc_rs.pmi), nanmean(pfc_fs.pmi), ...
+    nanmean(striatum_rs.pmi), nanmean(striatum_fs.pmi), ...
+    nanmean(amygdala_rs.pmi), nanmean(amygdala_fs.pmi)];
+mi_errs = [nanstd(s1_rs.pmi)/sqrt(sum(~isnan(s1_rs.pmi))), nanstd(s1_fs.pmi)/sqrt(sum(~isnan(s1_fs.pmi))), ...
+    nanstd(pfc_rs.pmi)/sqrt(sum(~isnan(pfc_rs.pmi))), nanstd(pfc_fs.pmi)/sqrt(sum(~isnan(pfc_fs.pmi))), ...
+    nanstd(striatum_rs.pmi)/sqrt(sum(~isnan(striatum_rs.pmi))), nanstd(striatum_fs.pmi)/sqrt(sum(~isnan(striatum_fs.pmi))), ...
+    nanstd(amygdala_rs.pmi)/sqrt(sum(~isnan(amygdala_rs.pmi))), nanstd(amygdala_fs.pmi)/sqrt(sum(~isnan(amygdala_fs.pmi)))];
+x = [1,2,4,5,7,8,10,11];
+bar(x, mi_avgs, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+errorbar(x, mi_avgs, mi_errs, 'k.')
+xticks(x)
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS', 'Amygdala RS', 'Amygdala FS'})
+xtickangle(45)
+% ylim([0,100])
+ylim([0,0.012])
+yticks([0,0.012])
+ylabel('Mdulation Index', 'FontSize', 18)
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;
 
 out_path = true;
 if ~exist('../Figures/', 'dir')
@@ -2320,8 +2183,17 @@ if out_path
     saveas(striatum_mod_fig, '../Figures/striatum_mod_fig.fig')
     saveas(amygdala_mod_fig, '../Figures/amygdala_mod_fig.fig')
     saveas(baseline_fig, '../Figures/baseline_mod_v_unmod.fig')
-    saveas(evoked_fig, '../Figures/evoked.fig')
-    saveas(iti_fig, '../Figures/iti.fig')
+    % saveas(evoked_fig, '../Figures/evoked.fig')
+    % saveas(iti_fig, '../Figures/iti.fig')
+    saveas(s1_rs_theta_fig, '../Figures/s1_rs_theta.fig')
+    saveas(s1_fs_theta_fig, '../Figures/s1_fs_theta.fig')
+    saveas(pfc_rs_theta_fig, '../Figures/pfc_rs_theta.fig')
+    saveas(pfc_fs_theta_fig, '../Figures/pfc_fs_theta.fig')
+    saveas(striatum_rs_theta_fig, '../Figures/striatum_rs_theta.fig')
+    saveas(striatum_fs_theta_fig, '../Figures/striatum_fs_theta.fig')
+    saveas(amygdala_rs_theta_fig, '../Figures/amygdala_rs_theta.fig')
+    saveas(amygdala_fs_theta_fig, '../Figures/amygdala_fs_theta.fig')
+    saveas(mi_fig, '../Figures/overall_mi.fig')
 
     saveas(fracs_fig, '../Figures/fracs.svg')
     saveas(s1_mod_fig, '../Figures/s1_mod_fig.svg')
@@ -2329,7 +2201,18 @@ if out_path
     saveas(striatum_mod_fig, '../Figures/striatum_mod_fig.svg')
     saveas(amygdala_mod_fig, '../Figures/amygdala_mod_fig.svg')
     saveas(baseline_fig, '../Figures/baseline_mod_v_unmod.svg')
-    saveas(evoked_fig, '../Figures/evoked.svg')
-    saveas(iti_fig, '../Figures/iti.svg')
+    % saveas(evoked_fig, '../Figures/evoked.svg')
+    % saveas(iti_fig, '../Figures/iti.svg')
+    saveas(s1_rs_theta_fig, '../Figures/s1_rs_theta.svg')
+    saveas(s1_fs_theta_fig, '../Figures/s1_fs_theta.svg')
+    saveas(pfc_rs_theta_fig, '../Figures/pfc_rs_theta.svg')
+    saveas(pfc_fs_theta_fig, '../Figures/pfc_fs_theta.svg')
+    saveas(striatum_rs_theta_fig, '../Figures/striatum_rs_theta.svg')
+    saveas(striatum_fs_theta_fig, '../Figures/striatum_fs_theta.svg')
+    saveas(amygdala_rs_theta_fig, '../Figures/amygdala_rs_theta.svg')
+    saveas(amygdala_fs_theta_fig, '../Figures/amygdala_fs_theta.svg')
+    saveas(mi_fig, '../Figures/overall_mi.svg')
+    
 end
 
+diary off

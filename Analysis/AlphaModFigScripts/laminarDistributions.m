@@ -1,4 +1,6 @@
 out_path = true;
+delete Stats/laminar_distributions.txt 
+diary Stats/laminar_distributions.txt 
 init_paths;
 addpath(genpath('~/circstat-matlab/'))
 mkdir('./Figures/')
@@ -524,7 +526,7 @@ l4_rs_table = table(l4_rs_group, l4_rs_subj, ...
     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-l4_rs_rm = fitrm(l4_rs_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
+l4_rs_rm = fitrm(l4_rs_table, 't1-t50 ~ group', 'WithinDesign', Time);
 fprintf('L4 RS ANOVA:\n')
 l4_rs_ranova = ranova(l4_rs_rm)
 
@@ -616,7 +618,7 @@ l6_rs_table = table(l6_rs_group, l6_rs_subj, ...
     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-l6_rs_rm = fitrm(l6_rs_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
+l6_rs_rm = fitrm(l6_rs_table, 't1-t50 ~ group', 'WithinDesign', Time);
 fprintf('L6 RS ANOVA:\n')
 l6_rs_ranova = ranova(l6_rs_rm)
 
@@ -824,6 +826,98 @@ if out_path
     saveas(s1_fig, '../Figures/s1_distribution.fig')
     saveas(s1_fig, '../Figures/s1_distribution.svg')
 end
+
+s1_fig_v2 = figure('Position', [1452 766 849 1011]);
+tl = tiledlayout(3,2);
+
+rs_avg = [nanmean(s1_l1_rs_frac), nanmean(s1_l2_rs_frac), nanmean(s1_l4_rs_frac), nanmean(s1_l5_rs_frac), nanmean(s1_l6_rs_frac)];
+fs_avg = [nanmean(s1_l1_fs_frac), nanmean(s1_l2_fs_frac), nanmean(s1_l4_fs_frac), nanmean(s1_l5_fs_frac), nanmean(s1_l6_fs_frac)];
+rs_err = [nanstd(s1_l1_rs_frac)/sqrt(sum(~isnan(s1_l1_rs_frac))), nanstd(s1_l2_rs_frac)/sqrt(sum(~isnan(s1_l2_rs_frac))), nanstd(s1_l4_rs_frac)/sqrt(sum(~isnan(s1_l4_rs_frac))), nanstd(s1_l5_rs_frac)/sqrt(sum(~isnan(s1_l5_rs_frac))), nanstd(s1_l6_rs_frac)/sqrt(sum(~isnan(s1_l6_rs_frac)))];
+fs_err = [nanstd(s1_l1_fs_frac)/sqrt(sum(~isnan(s1_l1_fs_frac))), nanstd(s1_l2_fs_frac)/sqrt(sum(~isnan(s1_l2_fs_frac))), nanstd(s1_l4_fs_frac)/sqrt(sum(~isnan(s1_l4_fs_frac))), nanstd(s1_l5_fs_frac)/sqrt(sum(~isnan(s1_l5_fs_frac))), nanstd(s1_l6_fs_frac)/sqrt(sum(~isnan(s1_l6_fs_frac)))];
+axs(1) = nexttile;
+barh(1:5, fliplr(rs_avg) .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+errorbar(fliplr(rs_avg) .* 100, 1:5, fliplr(rs_err) .* 100, 'horizontal', 'k.')
+yticks(1:5)
+yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+ylim([0.5,5.5])
+title('Regular Spiking', 'FontSize', 16, 'FontWeight', 'normal')
+xlabel('% Alpha Modulated', 'FontSize', 14)
+% ylabel('Cortical Layer', 'FontSize', 14)
+lims = xlim;
+xticks(lims)
+axs(2) = nexttile;
+barh(1:5, fliplr(fs_avg) .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+errorbar(fliplr(fs_avg) .* 100, 1:5, fliplr(fs_err) .* 100, 'horizontal', 'k.')
+yticks(1:5)
+yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+ylim([0.5,5.5])
+lims = xlim;
+xticks(lims)
+title('Fast Spiking', 'FontSize', 16, 'FontWeight', 'normal')
+xlabel('% Alpha Modulated', 'FontSize', 14, 'FontWeight', 'normal')
+
+rs_avg = [nanmean(s1_l1_rs_mi), nanmean(s1_l2_rs_mi), nanmean(s1_l4_rs_mi), nanmean(s1_l5_rs_mi), nanmean(s1_l6_rs_mi)];
+fs_avg = [nanmean(s1_l1_fs_mi), nanmean(s1_l2_fs_mi), nanmean(s1_l4_fs_mi), nanmean(s1_l5_fs_mi), nanmean(s1_l6_fs_mi)];
+rs_err = [nanstd(s1_l1_rs_mi)/sqrt(sum(~isnan(s1_l1_rs_mi))), nanstd(s1_l2_rs_mi)/sqrt(sum(~isnan(s1_l2_rs_mi))), nanstd(s1_l4_rs_mi)/sqrt(sum(~isnan(s1_l4_rs_mi))), nanstd(s1_l5_rs_mi)/sqrt(sum(~isnan(s1_l5_rs_mi))), nanstd(s1_l6_rs_mi)/sqrt(sum(~isnan(s1_l6_rs_mi)))];
+fs_err = [nanstd(s1_l1_fs_mi)/sqrt(sum(~isnan(s1_l1_fs_mi))), nanstd(s1_l2_fs_mi)/sqrt(sum(~isnan(s1_l2_fs_mi))), nanstd(s1_l4_fs_mi)/sqrt(sum(~isnan(s1_l4_fs_mi))), nanstd(s1_l5_fs_mi)/sqrt(sum(~isnan(s1_l5_fs_mi))), nanstd(s1_l6_fs_mi)/sqrt(sum(~isnan(s1_l6_fs_mi)))];
+axs(3) = nexttile;
+barh(1:5, fliplr(rs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'k.')
+yticks(1:5)
+yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+ylim([0.5,5.5])
+xlabel('Modulation Index', 'FontSize', 14)
+xlim([0,0.025])
+xticks([0,0.025])
+% ylabel('Cortical Layer', 'FontSize', 14)
+axs(4) = nexttile;
+barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'k.')
+yticks(1:5)
+yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+ylim([0.5,5.5])
+xlabel('Modulation Index', 'FontSize', 14)
+xlim([0,0.025])
+xticks([0,0.025])
+
+rs_avg = [circ_mean(s1_l1_rs_theta_bar), circ_mean(s1_l2_rs_theta_bar), circ_mean(s1_l4_rs_theta_bar), circ_mean(s1_l5_rs_theta_bar), circ_mean(s1_l6_rs_theta_bar)];
+fs_avg = [circ_mean(s1_l1_fs_theta_bar), circ_mean(s1_l2_fs_theta_bar), circ_mean(s1_l4_fs_theta_bar), circ_mean(s1_l5_fs_theta_bar), circ_mean(s1_l6_fs_theta_bar)];
+rs_err = [circ_std(s1_l1_rs_theta_bar)/sqrt(sum(~isnan(s1_l1_rs_theta_bar))), circ_std(s1_l2_rs_theta_bar)/sqrt(sum(~isnan(s1_l2_rs_theta_bar))), circ_std(s1_l4_rs_theta_bar)/sqrt(sum(~isnan(s1_l4_rs_theta_bar))), circ_std(s1_l5_rs_theta_bar)/sqrt(sum(~isnan(s1_l5_rs_theta_bar))), circ_std(s1_l6_rs_theta_bar)/sqrt(sum(~isnan(s1_l6_rs_theta_bar)))];
+fs_err = [circ_std(s1_l1_fs_theta_bar)/sqrt(sum(~isnan(s1_l1_fs_theta_bar))), circ_std(s1_l2_fs_theta_bar)/sqrt(sum(~isnan(s1_l2_fs_theta_bar))), circ_std(s1_l4_fs_theta_bar)/sqrt(sum(~isnan(s1_l4_fs_theta_bar))), circ_std(s1_l5_fs_theta_bar)/sqrt(sum(~isnan(s1_l5_fs_theta_bar))), circ_std(s1_l6_fs_theta_bar)/sqrt(sum(~isnan(s1_l6_fs_theta_bar)))];
+axs(5) = nexttile;
+barh(1:5, fliplr(rs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'k.')
+yticks(1:5)
+yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+ylim([0.5,5.5])
+xlim([-3.5,3.5])
+xticks([-pi,0,pi])
+xticklabels({'-\pi', '', '\pi'})
+xlabel('Avg. Firing Phase (radians)', 'FontSize', 14)
+% ylabel('Cortical Layer', 'FontSize', 14)
+axs(6) = nexttile;
+barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'k.')
+yticks(1:5)
+yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+ylim([0.5,5.5])
+xlim([-3.5,3.5])
+xticks([-pi,0,pi])
+xticklabels({'-\pi', '', '\pi'})
+xlabel('Avg. Firing Phase (radians)', 'FontSize', 14, 'FontWeight', 'normal')
+ylabel(tl, 'Cortical Layer', 'FontSize', 16)
+
+if out_path
+    saveas(s1_fig_v2, '../Figures/s1_distribution_v2.fig')
+    saveas(s1_fig_v2, '../Figures/s1_distribution_v2.svg')
+end
+
 fprintf(sprintf('Avg. Fraction L1 RS: %d\n', nanmean(s1_l1_rs_frac)))
 fprintf(sprintf('Avg. Fraction L2/3 RS: %d\n', nanmean(s1_l2_rs_frac)))
 fprintf(sprintf('Avg. Fraction L4 RS: %d\n', nanmean(s1_l4_rs_frac)))
@@ -1486,6 +1580,97 @@ if out_path
     saveas(pfc_fig, '../Figures/pfc_distribution.fig')
     saveas(pfc_fig, '../Figures/pfc_distribution.svg')
 end
+
+pfc_fig_v2 = figure('Position', [1452 766 849 1011]);
+tl = tiledlayout(3,2);
+rs_avg = [nanmean(ac_rs_frac), nanmean(pl_rs_frac), nanmean(il_rs_frac), nanmean(orb_rs_frac), nanmean(dp_rs_frac)];
+fs_avg = [nanmean(ac_fs_frac), nanmean(pl_fs_frac), nanmean(il_fs_frac), nanmean(orb_fs_frac), nanmean(dp_fs_frac)];
+rs_err = [nanstd(ac_rs_frac)/sqrt(sum(~isnan(ac_rs_frac))), nanstd(pl_rs_frac)/sqrt(sum(~isnan(pl_rs_frac))), nanstd(il_rs_frac)/sqrt(sum(~isnan(il_rs_frac))), nanstd(orb_rs_frac)/sqrt(sum(~isnan(orb_rs_frac))), nanstd(dp_rs_frac)/sqrt(sum(~isnan(dp_rs_frac)))];
+fs_err = [nanstd(ac_fs_frac)/sqrt(sum(~isnan(ac_fs_frac))), nanstd(pl_fs_frac)/sqrt(sum(~isnan(pl_fs_frac))), nanstd(il_fs_frac)/sqrt(sum(~isnan(il_fs_frac))), nanstd(orb_fs_frac)/sqrt(sum(~isnan(orb_fs_frac))), nanstd(dp_fs_frac)/sqrt(sum(~isnan(dp_fs_frac)))];
+axs(1) = nexttile;
+barh(1:5, fliplr(rs_avg) .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+errorbar(fliplr(rs_avg) .* 100, 1:5, fliplr(rs_err) .* 100, 'horizontal', 'k.')
+yticks(1:5)
+yticklabels(fliplr({'ACC', 'PL', 'IL', 'ORB', 'DP'}))
+ylim([0.5,5.5])
+xlim([0,105])
+xticks([0,100])
+title('Regular Spiking', 'FontSize', 16, 'FontWeight', 'normal')
+xlabel('% Alpha Modulated', 'FontSize', 14)
+% ylabel('PFC Subregion', 'FontSize', 14)
+axs(2) = nexttile;
+barh(1:5, fliplr(fs_avg) .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+errorbar(fliplr(fs_avg) .* 100, 1:5, fliplr(fs_err) .* 100, 'horizontal', 'k.')
+yticks(1:5)
+yticklabels(fliplr({'ACC', 'PL', 'IL', 'ORB', 'DP'}))
+ylim([0.5,5.5])
+xlim([0,105])
+xticks([0,100])
+title('Fast Spiking', 'FontSize', 16, 'FontWeight', 'normal')
+xlabel('% Alpha Modulated', 'FontSize', 14, 'FontWeight', 'normal')
+
+rs_avg = [nanmean(ac_rs_mi), nanmean(pl_rs_mi), nanmean(il_rs_mi), nanmean(orb_rs_mi), nanmean(dp_rs_mi)];
+fs_avg = [nanmean(ac_fs_mi), nanmean(pl_fs_mi), nanmean(il_fs_mi), nanmean(orb_fs_mi), nanmean(dp_fs_mi)];
+rs_err = [nanstd(ac_rs_mi)/sqrt(sum(~isnan(ac_rs_mi))), nanstd(pl_rs_mi)/sqrt(sum(~isnan(pl_rs_mi))), nanstd(il_rs_mi)/sqrt(sum(~isnan(il_rs_mi))), nanstd(orb_rs_mi)/sqrt(sum(~isnan(orb_rs_mi))), nanstd(dp_rs_mi)/sqrt(sum(~isnan(dp_rs_mi)))];
+fs_err = [nanstd(ac_fs_mi)/sqrt(sum(~isnan(ac_fs_mi))), nanstd(pl_fs_mi)/sqrt(sum(~isnan(pl_fs_mi))), nanstd(il_fs_mi)/sqrt(sum(~isnan(il_fs_mi))), nanstd(orb_fs_mi)/sqrt(sum(~isnan(orb_fs_mi))), nanstd(dp_fs_mi)/sqrt(sum(~isnan(dp_fs_mi)))];
+axs(3) = nexttile;
+barh(1:5, fliplr(rs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'k.')
+yticks(1:5)
+yticklabels(fliplr({'ACC', 'PL', 'IL', 'ORB', 'DP'}))
+ylim([0.5,5.5])
+xlim([0,0.025])
+xticks([0,0.025])
+xlabel('Modulation Index', 'FontSize', 14)
+% ylabel('PFC Subregion', 'FontSize', 14)
+axs(4) = nexttile;
+barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'k.')
+yticks(1:5)
+yticklabels(fliplr({'ACC', 'PL', 'IL', 'ORB', 'DP'}))
+ylim([0.5,5.5])
+xlim([0,0.025])
+xticks([0,0.025])
+xlabel('Modulation Index', 'FontSize', 14)
+
+rs_avg = [circ_mean(ac_rs_theta_bar), circ_mean(pl_rs_theta_bar), circ_mean(il_rs_theta_bar), circ_mean(orb_rs_theta_bar), circ_mean(dp_rs_theta_bar)];
+fs_avg = [circ_mean(ac_fs_theta_bar), circ_mean(pl_fs_theta_bar), circ_mean(il_fs_theta_bar), circ_mean(orb_fs_theta_bar), circ_mean(dp_fs_theta_bar)];
+rs_err = [circ_std(ac_rs_theta_bar)/sqrt(sum(~isnan(ac_rs_theta_bar))), circ_std(pl_rs_theta_bar)/sqrt(sum(~isnan(pl_rs_theta_bar))), circ_std(il_rs_theta_bar)/sqrt(sum(~isnan(il_rs_theta_bar))), circ_std(orb_rs_theta_bar)/sqrt(sum(~isnan(orb_rs_theta_bar))), circ_std(dp_rs_theta_bar)/sqrt(sum(~isnan(dp_rs_theta_bar)))];
+fs_err = [circ_std(ac_fs_theta_bar)/sqrt(sum(~isnan(ac_fs_theta_bar))), circ_std(pl_fs_theta_bar)/sqrt(sum(~isnan(pl_fs_theta_bar))), circ_std(il_fs_theta_bar)/sqrt(sum(~isnan(il_fs_theta_bar))), circ_std(orb_fs_theta_bar)/sqrt(sum(~isnan(orb_fs_theta_bar))), circ_std(dp_fs_theta_bar)/sqrt(sum(~isnan(dp_fs_theta_bar)))];
+axs(5) = nexttile;
+barh(1:5, fliplr(rs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'k.')
+yticks(1:5)
+yticklabels(fliplr({'ACC', 'PL', 'IL', 'ORB', 'DP'}))
+ylim([0.5,5.5])
+xlim([-3.5,3.5])
+xticks([-pi,0,pi])
+xticklabels({'-\pi', '', '\pi'})
+xlabel('Avg. Firing Phase (radians)', 'FontSize', 14)
+% ylabel('Cortical Layer', 'FontSize', 14)
+axs(6) = nexttile;
+barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'k.')
+yticks(1:5)
+yticklabels(fliplr({'ACC', 'PL', 'IL', 'ORB', 'DP'}))
+ylim([0.5,5.5])
+xlim([-3.5,3.5])
+xticks([-pi,0,pi])
+xticklabels({'-\pi', '', '\pi'})
+xlabel('Avg. Firing Phase (radians)', 'FontSize', 14, 'FontWeight', 'normal')
+ylabel(tl, 'PFC Subregion', 'FontSize', 16)
+
+if out_path
+    saveas(pfc_fig_v2, '../Figures/pfc_distribution_v2.fig')
+    saveas(pfc_fig_v2, '../Figures/pfc_distribution_v2.svg')
+end
+
 fprintf(sprintf('Avg. Fraction AC RS: %d\n', nanmean(ac_rs_frac)))
 fprintf(sprintf('Avg. Fraction PL/3 RS: %d\n', nanmean(pl_rs_frac)))
 fprintf(sprintf('Avg. Fraction IL RS: %d\n', nanmean(il_rs_frac)))
@@ -1627,3 +1812,5 @@ idx(isnan(angles)) = [];
 angles(isnan(angles)) = [];
 [pval, table] = circ_wwtest(angles, idx)
 % [p, ~, stats] = anova1(s1_rs_theta_bar_mat)
+
+diary off
