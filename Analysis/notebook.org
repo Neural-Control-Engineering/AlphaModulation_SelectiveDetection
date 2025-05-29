@@ -6891,3 +6891,45 @@ Example High Alpha Power Rayleigh test: p = 1.604326e-11
 *** TODO: rerun 
 
 * [2025-5-27 Tue] - rerunning analyses with 1Hz cutoff 
+
+* [2025-5-28 Wed] - new figures 
+** Figure 1 - behavior  
+*** TODO: combine subplots
+*** TODO: edit stats in manuscript
+** Figure 2 - overivew of neural recordings 
+*** TODO: update D, E, H 
+** Figure 3 - overview of phase modulation 
+*** TODO: add firing rate subplot 
+**** TODO: consider alternative ways of visualizing 
+*** TODO: consider removing delta firing rate panels
+**** will be focus of next figure 
+*** TODO: consider combining MI into single panel (like % modulated)
+*** TODO: consider combining preffered phases in single panel 
+*** TODO: convert polar histograms from degrees to radians 
+*** TODO: consider removing von Mises panels (not very informative)
+*** TODO: consider expanding methodological panel 
+**** show multiple trials of alpha band + spike phases (1 + 2 + ... )
+**** show final combined histogram rather than histogram for single trial 
+** Figure 4 - modulated vs unmodulated and firing rates 
+*** TODO: rerun AlphaModFigScripts/phaseModSummaries.m 
+**** panels aren't saved or added to git 
+*** TODO: consider separation of driven, suppressed, non-responders 
+** Figure 5 - laminar distribution of phase modulation 
+*** TODO: just S1 
+*** TODO: consider removing MSE 
+*** TODO: add current source density 
+*** TODO: matching supplemental figure for PFC 
+*** TODO: consider removing firing rates
+**** very few comparisons are actually significant 
+***** probably because of low n, mixed selectivity etc 
+** Figure 6 - alpha modulation and alpha power 
+*** TODO: add panel on % significantly phase modulated 
+*** TODO: consdier removing panel for MSE 
+*** TODO: consider characterizing frequency of these events 
+** Figure 7 - alpha modulation and licking 
+*** TODO: rerun AlphaModFigScripts/alphaModAndLicking.m
+*** TODO: double check code for p_lick vs p_nolick
+** Figure 8 - alpha modulation and trial outcome 
+*** TODO: consider combining examples (current figure 6) and summaries (current figure 7)
+*** TODO: for summaries, consider just % phase modulated 
+*** TODO: add panels or create supplemental figure for boostrapping method 
