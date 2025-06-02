@@ -1969,6 +1969,31 @@ fprintf(sprintf('Amygdala FS fraction modulated: %d +/- %d\n', nanmean(amygdala_
 
 %% MI by average firing rate 
 mi_fr_fig = figure();
+fr = [cell2mat(s1_rs.avg_baseline_fr); ...
+    cell2mat(s1_fs.avg_baseline_fr); ...
+    cell2mat(pfc_rs.avg_baseline_fr); ...
+    cell2mat(s1_rs.avg_baseline_fr); ...
+    cell2mat(s1_fs.avg_baseline_fr); ...
+    cell2mat(striatum_rs.avg_baseline_fr); ...
+    cell2mat(striatum_fs.avg_baseline_fr)];
+mi = [s1_rs.pmi; ...
+    s1_fs.pmi; ...
+    pfc_rs.pmi; ...
+    s1_rs.pmi; ...
+    s1_fs.pmi; ...
+    striatum_rs.pmi; ...
+    striatum_fs.pmi];
+figure();
+scatter(fr, mi, 'k')
+xlabel('Firing Rate (Hz)')
+hold on 
+x = 1:60;
+for i = 1:60
+    y(i) = (0.05 / i) + min(mi);
+end
+plot(x, y, 'r')
+
+
 tl = tiledlayout(4,2);
 axs = zeros(1,8);
 axs(1) = nexttile;
@@ -2014,7 +2039,6 @@ plot(cell2mat(amygdala_fs.avg_trial_fr), amygdala_fs.mses, 'k*')
 unifyYLimits(axs)
 xlabel(tl, 'Avg. Firing Rate (Hz)')
 ylabel(tl, 'von Mises MSE')
-
 
 %% baseline firing rates 
 mod_baseline = [s1_mod_rs_baseline; s1_mod_fs_baseline; pfc_mod_rs_baseline; pfc_mod_fs_baseline; striatum_mod_rs_baseline; striatum_mod_fs_baseline; amygdala_mod_rs_baseline; amygdala_mod_fs_baseline];

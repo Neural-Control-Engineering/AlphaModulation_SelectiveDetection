@@ -6,12 +6,11 @@ addpath(genpath('~/circstat-matlab'))
 delete Stats/example_phase_mod.txt
 diary Stats/example_phase_mod.txt
 trials = find(strcmp(slrt_data.categorical_outcome,'Hit'));
-% for trial = 1:length(trials)
 
 trial_inds = 24:27;
 count = 1;
 for t = 107:109
-    % t = 24;
+    t = 24;
     c = find(ap_data(t,:).spiking_data{1}.cluster_id == 218);
     cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
     lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
@@ -32,10 +31,10 @@ for t = 107:109
     figs(count) = figure('Position', [1220 1074 567 728]);
     tl = tiledlayout(2,1);
     axs(1) = nexttile;
-    plot(lfp_times, y, 'k-'); xlim([-3,0]);
+    plot(lfp_times, y, 'k-', 'LineWidth', 2); xlim([-3,0]);
     ylabel('Filtered LFP', 'FontSize', 16)
     xlabel('Time (s)', 'FontSize', 16)
-    % yticks([-1e-4, 1e-4])
+    yticks([-1e-4, 1e-4])
     xticks([-3,-1.5,0])
     ylim([-6.5e-5, 6.5e-5])
     ax = gca;    
@@ -43,9 +42,9 @@ for t = 107:109
     ax = gca;    
     ax.YAxis.FontSize = 14;
     axs(2) = nexttile;
-    plot(lfp_times, phi, 'k-')
+    plot(lfp_times, phi, 'k-', 'LineWidth', 2)
     hold on 
-    plot(spike_times, spike_phases, 'r*')
+    plot(spike_times, spike_phases, 'r.', 'MarkerSize', 20)
     xlabel('Time (s)', 'FontSize', 16)
     ylabel('Alpha Phase (radians)', 'FontSize', 16)
     yticks([-pi, 0, pi])

@@ -1,0 +1,496 @@
+PFC RS MSE ANOVA:
+
+p =
+
+   2.3904e-36
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [152 152 152 152]
+    source: 'anova1'
+     means: [0.0011 0.0095 4.5445e-04 0.0017]
+        df: 604
+         s: 0.0065
+
+S1 RS MSE ANOVA:
+
+p =
+
+   1.4544e-17
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [152 152 152 152]
+    source: 'anova1'
+     means: [5.0031e-04 0.0061 1.7484e-04 0.0018]
+        df: 604
+         s: 0.0062
+
+Striatum RS MSE ANOVA:
+
+p =
+
+    0.0341
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [17 17 17 17]
+    source: 'anova1'
+     means: [3.3350e-04 0.0029 1.1199e-04 8.9989e-04]
+        df: 64
+         s: 0.0030
+
+Amygdala RS MSE ANOVA:
+
+p =
+
+    0.4767
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [3 3 3 3]
+    source: 'anova1'
+     means: [0.0025 2.5693e-04 1.6255e-05 0.0037]
+        df: 8
+         s: 0.0032
+
+PFC RS MI ANOVA:
+
+p =
+
+   6.5943e-38
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [152 152 152 152]
+    source: 'anova1'
+     means: [0.0144 0.0778 0.0094 0.0201]
+        df: 604
+         s: 0.0477
+
+S1 RS MI ANOVA:
+
+p =
+
+   6.1315e-16
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [152 152 152 152]
+    source: 'anova1'
+     means: [0.0101 0.0558 0.0078 0.0206]
+        df: 604
+         s: 0.0535
+
+Striatum RS MI ANOVA:
+
+p =
+
+    0.0252
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [17 17 17 17]
+    source: 'anova1'
+     means: [0.0071 0.0263 0.0060 0.0122]
+        df: 64
+         s: 0.0211
+
+Amygdala RS MI ANOVA:
+
+p =
+
+    0.4508
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [3 3 3 3]
+    source: 'anova1'
+     means: [0.0230 0.0071 0.0054 0.0357]
+        df: 8
+         s: 0.0252
+
+PFC FS MSE ANOVA:
+
+p =
+
+   5.4465e-13
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [38 38 38 38]
+    source: 'anova1'
+     means: [3.4096e-04 0.0031 2.1631e-04 5.4891e-04]
+        df: 148
+         s: 0.0017
+
+S1 FS MSE ANOVA:
+
+p =
+
+   1.4498e-04
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [83 83 83 83]
+    source: 'anova1'
+     means: [1.7768e-04 0.0032 7.5771e-05 0.0011]
+        df: 328
+         s: 0.0050
+
+Striatum FS MSE ANOVA:
+
+p =
+
+   2.3824e-05
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [27 27 27 27]
+    source: 'anova1'
+     means: [2.1705e-04 0.0020 8.2477e-05 6.5510e-04]
+        df: 104
+         s: 0.0015
+
+Amygdala FS MSE ANOVA:
+
+p =
+
+    0.1497
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [9 9 9 9]
+    source: 'anova1'
+     means: [1.6201e-04 0.0016 4.3798e-05 0.0011]
+        df: 32
+         s: 0.0016
+
+PFC FS MI ANOVA:
+
+p =
+
+   2.6282e-11
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [38 38 38 38]
+    source: 'anova1'
+     means: [0.0080 0.0291 0.0073 0.0096]
+        df: 148
+         s: 0.0141
+
+S1 FS MI ANOVA:
+
+p =
+
+   6.9408e-05
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [83 83 83 83]
+    source: 'anova1'
+     means: [0.0090 0.0337 0.0081 0.0151]
+        df: 328
+         s: 0.0395
+
+Striatum FS MI ANOVA:
+
+p =
+
+   9.6817e-05
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [27 27 27 27]
+    source: 'anova1'
+     means: [0.0066 0.0209 0.0053 0.0098]
+        df: 104
+         s: 0.0132
+
+Amygdala FS MI ANOVA:
+
+p =
+
+    0.1573
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [9 9 9 9]
+    source: 'anova1'
+     means: [0.0064 0.0190 0.0055 0.0121]
+        df: 32
+         s: 0.0137
+
+S1 RS MI Correct vs. Incorrect (signed rank): **p = 8.181067e-21
+S1 RS MI Action vs. Inaction (signed rank): **p = 9.860940e-06
+S1 RS MSE Correct vs. Incorrect (signed rank): **p = 1.315852e-26
+S1 RS MSE Action vs. Inaction (signed rank): **p = 2.948222e-17
+S1 FS MI Correct vs. Incorrect (signed rank): **p = 1.309396e-05
+S1 FS MI Action vs. Inaction (signed rank): *p = 6.359981e-03
+S1 FS MSE Correct vs. Incorrect (signed rank): **p = 2.596441e-15
+S1 FS MSE Action vs. Inaction (signed rank): **p = 3.828966e-10
+PFC RS MI Correct vs. Incorrect (signed rank): **p = 1.278621e-12
+PFC RS MI Action vs. Inaction (signed rank): *p = 2.729024e-02
+PFC RS MSE Correct vs. Incorrect (signed rank): **p = 4.514817e-15
+PFC RS MSE Action vs. Inaction (signed rank): *p = 3.700158e-03
+PFC FS MI Correct vs. Incorrect (signed rank): *p = 1.456321e-03
+PFC FS MI Action vs. Inaction (signed rank): p = 6.582581e-01
+PFC FS MSE Correct vs. Incorrect (signed rank): **p = 1.581927e-04
+PFC FS MSE Action vs. Inaction (signed rank): p = 1.705418e-01
+Striatum RS MI Correct vs. Incorrect (signed rank): **p = 1.001879e-03
+Striatum RS MI Action vs. Inaction (signed rank): p = 1.239292e-01
+Striatum RS MSE Correct vs. Incorrect (signed rank): **p = 2.930525e-04
+Striatum RS MSE Action vs. Inaction (signed rank): **p = 1.001879e-03
+Striatum FS MI Correct vs. Incorrect (signed rank): **p = 3.986256e-05
+Striatum FS MI Action vs. Inaction (signed rank): *p = 4.939932e-03
+Striatum FS MSE Correct vs. Incorrect (signed rank): **p = 5.606117e-06
+Striatum FS MSE Action vs. Inaction (signed rank): **p = 1.099725e-05
+Amygdala RS MI Correct vs. Incorrect (t-test): p = 2.287446e-01
+Amygdala RS MI Action vs. Inaction (t-test): p = 4.245200e-01
+Amygdala RS MSE Correct vs. Incorrect (t-test): p = 1.321808e-01
+Amygdala RS MSE Action vs. Inaction (t-test): p = 4.095726e-01
+Amygdala FS MI Correct vs. Incorrect (signed rank): p = 9.765625e-02
+Amygdala FS MI Action vs. Inaction (signed rank): p = 5.703125e-01
+Amygdala FS MSE Correct vs. Incorrect (signed rank): *p = 1.171875e-02
+Amygdala FS MSE Action vs. Inaction (signed rank): p = 9.765625e-02
+S1 RS MI Incorrect minus Correct: 4.812595e-03 +/- 5.892039e-04
+S1 RS MI Inaction minus Action: -1.477365e-03 +/- 4.045764e-04
+S1 RS von Mises MSE Incorrect minus Correct: 6.568908e-04 +/- 7.882308e-05
+S1 RS von Mises MSE Inaction minus Action: -1.959981e-04 +/- 3.675533e-05
+PFC RS MI Incorrect minus Correct: 4.557196e-03 +/- 9.217503e-04
+PFC RS MI Inaction minus Action: -1.797871e-03 +/- 1.046424e-03
+PFC RS von Mises MSE Incorrect minus Correct: 6.248303e-04 +/- 1.212190e-04
+PFC RS von Mises MSE Inaction minus Action: -2.015861e-04 +/- 1.164331e-04
+Striatum RS MI Incorrect minus Correct: 3.740834e-03 +/- 1.142520e-03
+Striatum RS MI Inaction minus Action: -6.220859e-04 +/- 3.626377e-04
+Striatum RS von Mises MSE Incorrect minus Correct: 4.629100e-04 +/- 1.023164e-04
+Striatum RS von Mises MSE Inaction minus Action: -1.366727e-04 +/- 3.535910e-05
+Amygdala RS MI Incorrect minus Correct: 8.532174e-04 +/- 4.979234e-04
+Amygdala RS MI Inaction minus Action: -9.766671e-03 +/- 9.814244e-03
+Amygdala RS von Mises MSE Incorrect minus Correct: 6.917311e-05 +/- 2.800558e-05
+Amygdala RS von Mises MSE Inaction minus Action: -1.603878e-03 +/- 1.550288e-03
+S1 FS MI Incorrect minus Correct: 1.970926e-03 +/- 5.890267e-04
+S1 FS MI Inaction minus Action: -6.078349e-04 +/- 2.260691e-04
+S1 FS von Mises MSE Incorrect minus Correct: 2.906970e-04 +/- 5.860471e-05
+S1 FS von Mises MSE Inaction minus Action: -6.860199e-05 +/- 1.517202e-05
+PFC FS MI Incorrect minus Correct: 8.769085e-04 +/- 4.317450e-04
+PFC FS MI Inaction minus Action: -4.302050e-05 +/- 3.584953e-04
+PFC FS von Mises MSE Incorrect minus Correct: 1.088389e-04 +/- 5.849165e-05
+PFC FS von Mises MSE Inaction minus Action: -2.741881e-05 +/- 3.477099e-05
+Striatum FS MI Incorrect minus Correct: 2.893789e-03 +/- 5.675024e-04
+Striatum FS MI Inaction minus Action: -1.046326e-03 +/- 3.198001e-04
+Striatum FS von Mises MSE Incorrect minus Correct: 3.843600e-04 +/- 9.627410e-05
+Striatum FS von Mises MSE Inaction minus Action: -7.758276e-05 +/- 1.531173e-05
+Amygdala FS MI Incorrect minus Correct: 5.781994e-04 +/- 3.026418e-04
+Amygdala FS MI Inaction minus Action: -7.174247e-04 +/- 6.090235e-04
+Amygdala FS von Mises MSE Incorrect minus Correct: 9.833980e-05 +/- 3.271796e-05
+Amygdala FS von Mises MSE Inaction minus Action: -7.534874e-05 +/- 4.807654e-05
+S1 RS theta bar ANOVA:
+
+ans =
+
+    0.5271
+
+S1 FS theta bar ANOVA:
+
+ans =
+
+    0.4196
+
+PFC RS theta bar ANOVA:
+
+ans =
+
+   2.2500e-08
+
+PFC FS theta bar ANOVA:
+
+ans =
+
+    0.4256
+
+Striatum RS theta bar ANOVA:
+
+ans =
+
+    0.5404
+
+Striatum FS theta bar ANOVA:
+
+ans =
+
+    0.5539
+
+Amygdala RS theta bar ANOVA:
+
+ans =
+
+    0.0086
+
+Amygdala FS theta bar ANOVA:
+
+ans =
+
+    0.8191
+
+PFC RS cognitive anova:
+
+ans =
+
+   3.8320e-10
+
+PFC RS motor anova:
+
+ans =
+
+   2.5925e-05
+
+PFC FS cognitive anova:
+
+ans =
+
+   4.8837e-05
+
+PFC FS motor anova:
+
+ans =
+
+    0.0197
+
+S1 RS cognitive anova:
+
+ans =
+
+   8.9492e-08
+
+S1 RS motor anova:
+
+ans =
+
+   3.3977e-06
+
+S1 FS cognitive anova:
+
+ans =
+
+   7.0357e-04
+
+S1 FS motor anova:
+
+ans =
+
+   4.1088e-04
+
+Striatum RS cognitive anova:
+
+ans =
+
+   3.6378e-04
+
+Striatum RS motor anova:
+
+ans =
+
+    0.3215
+
+Striatum FS cognitive anova:
+
+ans =
+
+   4.4229e-04
+
+Striatum FS motor anova:
+
+ans =
+
+    0.5742
+
+Amygdala RS cognitive anova:
+
+ans =
+
+   1.0948e-47
+
+Amygdala RS motor anova:
+
+ans =
+
+    0.0787
+
+Amygdala FS cognitive anova:
+
+ans =
+
+    0.0014
+
+Amygdala FS motor anova:
+
+ans =
+
+    0.0494
+

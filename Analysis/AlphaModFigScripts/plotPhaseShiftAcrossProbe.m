@@ -69,7 +69,7 @@ tl = tiledlayout(1,2);
 axs(1) = nexttile;
 hold on
 % imagesc(mean(s1_phase_shifts)'); 
-plot(mean(s1_phase_shifts), 1:length(s1_phase_shifts))
+plot(mean(s1_phase_shifts), 1:length(s1_phase_shifts), 'b', 'LineWidth', 2)
 load(strcat(subject_path, '3738-20240702/regionMap_adjusted.mat'));
 l6 = round(97 - find(contains(regMap.region, '6'), 1, 'last') / 4);
 str_begin = round(97 - find(contains(regMap.region, 'CP'), 1, 'first') / 4);
@@ -77,8 +77,9 @@ str_end = round(97 - find(contains(regMap.region, 'STR'), 1, 'last') / 4);
 amy_begin = round(97 - find(contains(regMap.region, 'LA'), 1, 'first') / 4);
 amy_end = round(97 - find(contains(regMap.region, 'LA'), 1, 'last') / 4);
 plot([-pi,pi], [l6,l6], 'k--')
-plot([-pi,pi], [str_end,str_end], 'k--')
 plot([-pi,pi], [amy_begin,amy_begin], 'k--')
+lims = ylim;
+plot(zeros(1,50), linspace(lims(1),lims(2),50), 'k.')
 yticks([mean([amy_end, amy_begin]), ...
     mean([str_end, str_begin]), ...
     mean([l6, 97])]);
@@ -86,10 +87,14 @@ yticklabels({'Amygdala', 'Striatum', 'S1'})
 ylim([1,90])
 xticks([-pi,0,pi])
 xticklabels({'-\pi','0','\pi'})
+ax = gca;
+ax.XAxis.FontSize = 14;
+ax.YAxis.FontSize = 14;
 
-axxs(2) = nexttile;
+
+axs(2) = nexttile;
 hold on
-plot(mean(pfc_phase_shifts), 1:length(pfc_phase_shifts)); 
+plot(mean(pfc_phase_shifts), 1:length(pfc_phase_shifts), 'b', 'LineWidth', 2); 
 load(strcat(subject_path, '3755-20240828/regionMap.mat'));
 ac_begin = round(97 - find(contains(regMap.region, 'AC'), 1, 'first') / 4);
 ac_end = round(97 - find(contains(regMap.region, 'AC'), 1, 'last') / 4);
@@ -101,12 +106,13 @@ orb_begin = round(97 - find(contains(regMap.region, 'ORB'), 1, 'first') / 4);
 orb_end = round(97 - find(contains(regMap.region, 'ORB'), 1, 'last') / 4);
 dp_begin = round(97 - find(contains(regMap.region, 'DP'), 1, 'first') / 4);
 dp_end = round(97 - find(contains(regMap.region, 'DP'), 1, 'last') / 4);
-plot([-pi,pi], [ac_end,ac_end], 'k--')
 plot([-pi,pi], [pl_begin,pl_begin], 'k--')
 plot([-pi,pi], [il_begin,il_begin], 'k--')
 plot([-pi,pi], [il_end,il_end], 'k--')
 plot([-pi,pi], [orb_end,orb_end], 'k--')
 plot([-pi,pi], [dp_end,dp_end], 'k--')
+lims = ylim;
+plot(zeros(1,50), linspace(lims(1),lims(2),50), 'k.')
 yticks([mean([1, dp_end]), ...
     mean([dp_end, dp_begin]), ...
     mean([orb_end, orb_begin]), ...
@@ -116,10 +122,13 @@ yticks([mean([1, dp_end]), ...
     mean([ac_begin, 97])]);
 yticklabels({'AON', 'DP', 'ORB', 'IL', 'PL', 'ACC', 'MO'})
 set(gca, 'YDir', 'normal')
+ax = gca;
+ax.XAxis.FontSize = 14;
+ax.YAxis.FontSize = 14;
 ylim([1,85])
 xticks([-pi,0,pi])
 xticklabels({'-\pi','0','\pi'})
+xlabel(tl, 'Avg. Phase Shift (rad)', 'FontSize', 16)
 
-mkdir('./Figures/')
-saveas(fig, 'Figures/compare_avg_phase_shifts.fig');
-saveas(fig, 'Figures/compare_avg_phase_shifts.svg');
+saveas(fig, '../Figures/compare_avg_phase_shifts.fig');
+saveas(fig, '../Figures/compare_avg_phase_shifts.svg');

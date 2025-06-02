@@ -1237,6 +1237,10 @@ hold on;
 semshade(s1_unmod_rs_hit-mean(s1_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-1,3])
+yticks([-1,3])
+xticks([])
+ax = gca;
+ax.YAxis.FontSize = 14;
 plot([1.2, 1.2], [-3, 8], 'k--', 'HandleVisibility','off')
 title('Hit', 'FontWeight', 'normal', 'FontSize', 16)
 ylabel('S1', 'FontSize', 16)
@@ -1246,6 +1250,8 @@ hold on;
 semshade(s1_unmod_rs_miss-mean(s1_unmod_rs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-1,3])
+yticks([])
+xticks([])
 title('Miss', 'FontWeight', 'normal', 'FontSize', 16)
 axs(1,3) = nexttile;
 semshade(s1_mod_rs_cr-mean(s1_mod_rs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
@@ -1253,6 +1259,8 @@ hold on;
 semshade(s1_unmod_rs_cr-mean(s1_unmod_rs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-1,3])
+yticks([])
+xticks([])
 title('Correct Rejection', 'FontWeight', 'normal', 'FontSize', 16)
 axs(1,4) = nexttile;
 semshade(s1_mod_rs_fa-mean(s1_mod_rs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
@@ -1260,6 +1268,8 @@ hold on;
 semshade(s1_unmod_rs_fa-mean(s1_unmod_rs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-1,3])
+yticks([])
+xticks([])
 title('False Alarm', 'FontWeight', 'normal', 'FontSize', 16)
 axs(2,1) = nexttile;
 semshade(pfc_mod_rs_hit-mean(pfc_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
@@ -1267,6 +1277,10 @@ hold on;
 semshade(pfc_unmod_rs_hit-mean(pfc_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-1,3])
+yticks([-1,3])
+xticks([])
+ax = gca;
+ax.YAxis.FontSize = 14;
 plot([1.2, 1.2], [-3, 8], 'k--', 'HandleVisibility','off')
 ylabel('PFC', 'FontSize', 16)
 axs(2,2) = nexttile;
@@ -1275,24 +1289,34 @@ hold on;
 semshade(pfc_unmod_rs_miss-mean(pfc_unmod_rs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-1,3])
+yticks([])
+xticks([])
 axs(2,3) = nexttile;
 semshade(pfc_mod_rs_cr-mean(pfc_mod_rs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
 semshade(pfc_unmod_rs_cr-mean(pfc_unmod_rs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-1,3])
+yticks([])
+xticks([])
 axs(2,4) = nexttile;
 semshade(pfc_mod_rs_fa-mean(pfc_mod_rs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
 semshade(pfc_unmod_rs_fa-mean(pfc_unmod_rs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-1,3])
+yticks([])
+xticks([])
 axs(3,1) = nexttile;
 semshade(striatum_mod_rs_hit-mean(striatum_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
 semshade(striatum_unmod_rs_hit-mean(striatum_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-5,35])
+yticks([-5,35])
+ax = gca;
+ax.YAxis.FontSize = 14;
+ax.XAxis.FontSize = 14;
 plot([1.2, 1.2], [-5, 35], 'k--', 'HandleVisibility','off')
 ylabel('Striatum', 'FontSize', 16)
 axs(3,2) = nexttile;
@@ -1301,18 +1325,27 @@ hold on;
 semshade(striatum_unmod_rs_miss-mean(striatum_unmod_rs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-5,35])
+yticks([])
+ax = gca;
+ax.XAxis.FontSize = 14;
 axs(3,3) = nexttile;
 semshade(striatum_mod_rs_cr-mean(striatum_mod_rs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
 semshade(striatum_unmod_rs_cr-mean(striatum_unmod_rs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-5,35])
+yticks([])
+ax = gca;
+ax.XAxis.FontSize = 14;
 axs(3,4) = nexttile;
 semshade(striatum_mod_rs_fa-mean(striatum_mod_rs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
 semshade(striatum_unmod_rs_fa-mean(striatum_unmod_rs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-5,35])
+yticks([])
+ax = gca;
+ax.XAxis.FontSize = 14;
 xlabel(tl, 'Time (s)', 'FontSize', 16)
 ylabel(tl, '\Delta Firing Rate (Hz)', 'FontSize', 16)
 outcomes = {'Hit', 'Miss', 'Correct Rejection', 'False Alarm'};
@@ -1334,6 +1367,10 @@ ylim([-5,15])
 plot([1.2, 1.2], [-5, 15], 'k--', 'HandleVisibility','off')
 title('Hit', 'FontWeight', 'normal', 'FontSize', 16)
 ylabel('S1', 'FontSize', 16)
+xticks([])
+yticks([-5,15])
+ax = gca;
+ax.YAxis.FontSize = 14;
 axs(1,2) = nexttile;
 semshade(s1_mod_fs_miss-mean(s1_mod_fs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
@@ -1341,6 +1378,8 @@ semshade(s1_unmod_fs_miss-mean(s1_unmod_fs_miss(:,time<0),2), 0.3, 'r', 'r', tim
 xlim([-2.8,4.8])
 ylim([-5,15])
 title('Miss', 'FontWeight', 'normal', 'FontSize', 16)
+xticks([])
+yticks([])
 axs(1,3) = nexttile;
 semshade(s1_mod_fs_cr-mean(s1_mod_fs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
@@ -1348,6 +1387,8 @@ semshade(s1_unmod_fs_cr-mean(s1_unmod_fs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1
 xlim([-2.8,4.8])
 ylim([-5,15])
 title('Correct Rejection', 'FontWeight', 'normal', 'FontSize', 16)
+xticks([])
+yticks([])
 axs(1,4) = nexttile;
 semshade(s1_mod_fs_fa-mean(s1_mod_fs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
@@ -1355,6 +1396,8 @@ semshade(s1_unmod_fs_fa-mean(s1_unmod_fs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1
 xlim([-2.8,4.8])
 ylim([-5,15])
 title('False Alarm', 'FontWeight', 'normal', 'FontSize', 16)
+xticks([])
+yticks([])
 axs(2,1) = nexttile;
 semshade(pfc_mod_fs_hit-mean(pfc_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
@@ -1362,51 +1405,74 @@ semshade(pfc_unmod_fs_hit-mean(pfc_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', tim
 xlim([-2.8,4.8])
 ylim([-5,15])
 plot([1.2, 1.2], [-5, 15], 'k--', 'HandleVisibility','off')
+xticks([])
+yticks([-5,15])
+ylabel('PFC', 'FontSize', 16)
+ax = gca;
+ax.YAxis.FontSize = 14;
 axs(2,2) = nexttile;
 semshade(pfc_mod_fs_miss-mean(pfc_mod_fs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
 semshade(pfc_unmod_fs_miss-mean(pfc_unmod_fs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-5,15])
-ylabel('PFC', 'FontSize', 16)
+xticks([])
+yticks([])
 axs(2,3) = nexttile;
 semshade(pfc_mod_fs_cr-mean(pfc_mod_fs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
 semshade(pfc_unmod_fs_cr-mean(pfc_unmod_fs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-5,15])
+xticks([])
+yticks([])
 axs(2,4) = nexttile;
 semshade(pfc_mod_fs_fa-mean(pfc_mod_fs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
 semshade(pfc_unmod_fs_fa-mean(pfc_unmod_fs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-5,15])
+xticks([])
+yticks([])
 axs(3,1) = nexttile;
 semshade(striatum_mod_fs_hit-mean(striatum_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
 semshade(striatum_unmod_fs_hit-mean(striatum_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-5,15])
+yticks([-5,15])
 plot([1.2, 1.2], [-5, 15], 'k--', 'HandleVisibility','off')
 ylabel('Striatum', 'FontSize', 16)
+ax = gca;
+ax.YAxis.FontSize = 14;
+ax.XAxis.FontSize = 14;
 axs(3,2) = nexttile;
 semshade(striatum_mod_fs_miss-mean(striatum_mod_fs_miss(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
 semshade(striatum_unmod_fs_miss-mean(striatum_unmod_fs_miss(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-5,15])
+yticks([])
+ax = gca;
+ax.XAxis.FontSize = 14;
 axs(3,3) = nexttile;
 semshade(striatum_mod_fs_cr-mean(striatum_mod_fs_cr(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
 semshade(striatum_unmod_fs_cr-mean(striatum_unmod_fs_cr(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-5,15])
+yticks([])
+ax = gca;
+ax.XAxis.FontSize = 14;
 axs(3,4) = nexttile;
 semshade(striatum_mod_fs_fa-mean(striatum_mod_fs_fa(:,time<0),2), 0.3, 'b', 'b', time, 1, 'Phase Modulated');
 hold on;
 semshade(striatum_unmod_fs_fa-mean(striatum_unmod_fs_fa(:,time<0),2), 0.3, 'r', 'r', time, 1, 'Unmodulated');
 xlim([-2.8,4.8])
 ylim([-5,15])
+yticks([])
+ax = gca;
+ax.XAxis.FontSize = 14;
 xlabel(tl, 'Time (s)', 'FontSize', 16)
 ylabel(tl, '\Delta Firing Rate (Hz)', 'FontSize', 16)
 outcomes = {'Hit', 'Miss', 'Correct Rejection', 'False Alarm'};
@@ -1984,42 +2050,98 @@ striatum_unmod_driven_fs_fraction = sum(striatum_unmod_fs_evoked_hit > 1) / leng
 striatum_unmod_suppressed_fs_fraction = sum(striatum_unmod_fs_evoked_hit < -1) / length(striatum_unmod_fs_evoked_hit);
 striatum_unmod_nonresponse_fs_fraction = sum(abs(striatum_unmod_fs_evoked_hit) <= 1) / length(striatum_unmod_fs_evoked_hit);
 
-s1_mod_rs_fracs = figure(); piechart([s1_mod_driven_rs_fraction, s1_mod_suppressed_rs_fraction, s1_mod_nonresponse_rs_fraction], ...
+s1_mod_responsive_rs_count = sum(abs(s1_mod_rs_evoked_hit) > 1);
+s1_mod_nonresponsive_rs_count = sum(abs(s1_mod_rs_evoked_hit) <= 1);
+s1_mod_responsive_fs_count = sum(abs(s1_mod_fs_evoked_hit) > 1);
+s1_mod_nonresponsive_fs_count = sum(abs(s1_mod_fs_evoked_hit) <= 1);
+s1_unmod_responsive_rs_count = sum(abs(s1_unmod_rs_evoked_hit) > 1);
+s1_unmod_nonresponsive_rs_count = sum(abs(s1_unmod_rs_evoked_hit) <= 1);
+s1_unmod_responsive_fs_count = sum(abs(s1_unmod_fs_evoked_hit) > 1);
+s1_unmod_nonresponsive_fs_count = sum(abs(s1_unmod_fs_evoked_hit) <= 1);
+pfc_mod_responsive_rs_count = sum(abs(pfc_mod_rs_evoked_hit) > 1);
+pfc_mod_nonresponsive_rs_count = sum(abs(pfc_mod_rs_evoked_hit) <= 1);
+pfc_mod_responsive_fs_count = sum(abs(pfc_mod_fs_evoked_hit) > 1);
+pfc_mod_nonresponsive_fs_count = sum(abs(pfc_mod_fs_evoked_hit) <= 1);
+pfc_unmod_responsive_rs_count = sum(abs(pfc_unmod_rs_evoked_hit) > 1);
+pfc_unmod_nonresponsive_rs_count = sum(abs(pfc_unmod_rs_evoked_hit) <= 1);
+pfc_unmod_responsive_fs_count = sum(abs(pfc_unmod_fs_evoked_hit) > 1);
+pfc_unmod_nonresponsive_fs_count = sum(abs(pfc_unmod_fs_evoked_hit) <= 1);
+striatum_mod_responsive_rs_count = sum(abs(striatum_mod_rs_evoked_hit) > 1);
+striatum_mod_nonresponsive_rs_count = sum(abs(striatum_mod_rs_evoked_hit) <= 1);
+striatum_mod_responsive_fs_count = sum(abs(striatum_mod_fs_evoked_hit) > 1);
+striatum_mod_nonresponsive_fs_count = sum(abs(striatum_mod_fs_evoked_hit) <= 1);
+striatum_unmod_responsive_rs_count = sum(abs(striatum_unmod_rs_evoked_hit) > 1);
+striatum_unmod_nonresponsive_rs_count = sum(abs(striatum_unmod_rs_evoked_hit) <= 1);
+striatum_unmod_responsive_fs_count = sum(abs(striatum_unmod_fs_evoked_hit) > 1);
+striatum_unmod_nonresponsive_fs_count = sum(abs(striatum_unmod_fs_evoked_hit) <= 1);
+
+x = [s1_mod_nonresponsive_rs_count, s1_unmod_nonresponsive_rs_count];
+n = x + [s1_mod_responsive_rs_count, s1_unmod_responsive_rs_count];
+fprintf('Fisher exact test s1 rs mod vs unmod nonresponsive %%\n')
+[h,p,stats] = fishertest([x(1), n(1)-x(1); x(2), n(2)-x(2)])
+x = [s1_mod_nonresponsive_fs_count, s1_unmod_nonresponsive_fs_count];
+n = x + [s1_mod_responsive_fs_count, s1_unmod_responsive_fs_count];
+fprintf('Fisher exact test s1 fs mod vs unmod nonresponsive %%\n')
+[h,p,stats] = fishertest([x(1), n(1)-x(1); x(2), n(2)-x(2)])
+x = [pfc_mod_nonresponsive_rs_count, pfc_unmod_nonresponsive_rs_count];
+n = x + [pfc_mod_responsive_rs_count, pfc_unmod_responsive_rs_count];
+fprintf('Fisher exact test pfc rs mod vs unmod nonresponsive %%\n')
+[h,p,stats] = fishertest([x(1), n(1)-x(1); x(2), n(2)-x(2)])
+x = [pfc_mod_nonresponsive_fs_count, pfc_unmod_nonresponsive_fs_count];
+n = x + [pfc_mod_responsive_fs_count, pfc_unmod_responsive_fs_count];
+fprintf('Fisher exact test pfc fs mod vs unmod nonresponsive %%\n')
+[h,p,stats] = fishertest([x(1), n(1)-x(1); x(2), n(2)-x(2)])
+x = [striatum_mod_nonresponsive_rs_count, striatum_unmod_nonresponsive_rs_count];
+n = x + [striatum_mod_responsive_rs_count, striatum_unmod_responsive_rs_count];
+fprintf('Fisher exact test striatum rs mod vs unmod nonresponsive %%\n')
+[h,p,stats] = fishertest([x(1), n(1)-x(1); x(2), n(2)-x(2)])
+x = [striatum_mod_nonresponsive_fs_count, striatum_unmod_nonresponsive_fs_count];
+n = x + [striatum_mod_responsive_fs_count, striatum_unmod_responsive_fs_count];
+fprintf('Fisher exact test striatum fs mod vs unmod nonresponsive %%\n')
+[h,p,stats] = fishertest([x(1), n(1)-x(1); x(2), n(2)-x(2)])
+
+pie_fig = figure('Position', [1151 721 1850 1081]);
+tl = tiledlayout(3,4);
+axs(1) = nexttile;
+piechart([s1_mod_driven_rs_fraction, s1_mod_suppressed_rs_fraction, s1_mod_nonresponse_rs_fraction], ...
     ["Driven", "Suppressed", "Nonresponsive"])
-title("S1 Alpha Modulated RS Units")
-s1_unmod_rs_fracs = figure(); piechart([s1_unmod_driven_rs_fraction, s1_unmod_suppressed_rs_fraction, s1_unmod_nonresponse_rs_fraction], ...
+title('Modulated')
+axs(2) = nexttile;
+piechart([s1_unmod_driven_rs_fraction, s1_unmod_suppressed_rs_fraction, s1_unmod_nonresponse_rs_fraction], ...
     ["Driven", "Suppressed", "Nonresponsive"])
-title("S1 Alpha Unmodulated RS Units")
-pfc_mod_rs_fracs = figure(); piechart([pfc_mod_driven_rs_fraction, pfc_mod_suppressed_rs_fraction, pfc_mod_nonresponse_rs_fraction], ...
+title('Unmodulated')
+axs(3) = nexttile;
+piechart([s1_mod_driven_fs_fraction, s1_mod_suppressed_fs_fraction, s1_mod_nonresponse_fs_fraction], ...
     ["Driven", "Suppressed", "Nonresponsive"])
-title("PFC Alpha Modulated RS Units")
-pfc_unmod_rs_fracs = figure(); piechart([pfc_unmod_driven_rs_fraction, pfc_unmod_suppressed_rs_fraction, pfc_unmod_nonresponse_rs_fraction], ...
+title('Modulated')
+axs(4) = nexttile;
+piechart([s1_unmod_driven_fs_fraction, s1_unmod_suppressed_fs_fraction, s1_unmod_nonresponse_fs_fraction], ...
     ["Driven", "Suppressed", "Nonresponsive"])
-title("PFC Alpha Unmodulated RS Units")
-striatum_mod_rs_fracs = figure(); piechart([striatum_mod_driven_rs_fraction, striatum_mod_suppressed_rs_fraction, striatum_mod_nonresponse_rs_fraction], ...
+title('Unmodulated')
+axs(5) = nexttile;
+piechart([pfc_mod_driven_rs_fraction, pfc_mod_suppressed_rs_fraction, pfc_mod_nonresponse_rs_fraction], ...
     ["Driven", "Suppressed", "Nonresponsive"])
-title("Striatum Alpha Modulated RS Units")
-striatum_unmod_rs_fracs = figure(); piechart([striatum_unmod_driven_rs_fraction, striatum_unmod_suppressed_rs_fraction, striatum_unmod_nonresponse_rs_fraction], ...
+axs(6) = nexttile;
+piechart([pfc_unmod_driven_rs_fraction, pfc_unmod_suppressed_rs_fraction, pfc_unmod_nonresponse_rs_fraction], ...
     ["Driven", "Suppressed", "Nonresponsive"])
-title("Striatum Alpha Unmodulated RS Units")
-s1_mod_fs_fracs = figure(); piechart([s1_mod_driven_fs_fraction, s1_mod_suppressed_fs_fraction, s1_mod_nonresponse_fs_fraction], ...
+axs(7) = nexttile;
+piechart([pfc_mod_driven_fs_fraction, pfc_mod_suppressed_fs_fraction, pfc_mod_nonresponse_fs_fraction], ...
     ["Driven", "Suppressed", "Nonresponsive"])
-title("S1 Alpha Modulated FS Units")
-s1_unmod_fs_fracs = figure(); piechart([s1_unmod_driven_fs_fraction, s1_unmod_suppressed_fs_fraction, s1_unmod_nonresponse_fs_fraction], ...
+axs(8) = nexttile;
+piechart([pfc_unmod_driven_fs_fraction, pfc_unmod_suppressed_fs_fraction, pfc_unmod_nonresponse_fs_fraction], ...
     ["Driven", "Suppressed", "Nonresponsive"])
-title("S1 Alpha Unmodulated FS Units")
-pfc_mod_fs_fracs = figure(); piechart([pfc_mod_driven_fs_fraction, pfc_mod_suppressed_fs_fraction, pfc_mod_nonresponse_fs_fraction], ...
+axs(9) = nexttile;
+piechart([striatum_mod_driven_rs_fraction, striatum_mod_suppressed_rs_fraction, striatum_mod_nonresponse_rs_fraction], ...
     ["Driven", "Suppressed", "Nonresponsive"])
-title("PFC Alpha Modulated FS Units")
-pfc_unmod_fs_fracs = figure(); piechart([pfc_unmod_driven_fs_fraction, pfc_unmod_suppressed_fs_fraction, pfc_unmod_nonresponse_fs_fraction], ...
+axs(10) = nexttile;
+piechart([striatum_unmod_driven_rs_fraction, striatum_unmod_suppressed_rs_fraction, striatum_unmod_nonresponse_rs_fraction], ...
     ["Driven", "Suppressed", "Nonresponsive"])
-title("PFC Alpha Unmodulated FS Units")
-striatum_mod_fs_fracs = figure(); piechart([striatum_mod_driven_fs_fraction, striatum_mod_suppressed_fs_fraction, striatum_mod_nonresponse_fs_fraction], ...
+axs(11) = nexttile;
+piechart([striatum_mod_driven_fs_fraction, striatum_mod_suppressed_fs_fraction, striatum_mod_nonresponse_fs_fraction], ...
     ["Driven", "Suppressed", "Nonresponsive"])
-title("Striatum Alpha Modulated FS Units")
-striatum_unmod_fs_fracs = figure(); piechart([striatum_unmod_driven_fs_fraction, striatum_unmod_suppressed_fs_fraction, striatum_unmod_nonresponse_fs_fraction], ...
+axs(12) = nexttile;
+piechart([striatum_unmod_driven_fs_fraction, striatum_unmod_suppressed_fs_fraction, striatum_unmod_nonresponse_fs_fraction], ...
     ["Driven", "Suppressed", "Nonresponsive"])
-title("Striatum Alpha Unmodulated FS Units")
 
 %% anova of firing rates 
 s1_mod_rs_delta = s1_mod_rs_hit-mean(s1_mod_rs_hit(:,time<0),2);
@@ -2745,18 +2867,7 @@ saveas(rs_mod_driven_vs_unmod_driven_fr_fig, '../Figures/rs_driven_mod_vs_unmod_
 saveas(fs_mod_driven_vs_unmod_driven_fr_fig, '../Figures/fs_driven_mod_vs_unmod_fr.svg')
 saveas(rs_mod_suppressed_vs_unmod_suppressed_fr_fig, '../Figures/rs_suppressed_mod_vs_unmod_fr.svg')
 saveas(fs_mod_suppressed_vs_unmod_suppressed_fr_fig, '../Figures/fs_suppressed_mod_vs_unmod_fr.svg')
-saveas(s1_mod_rs_fracs, '../Figures/s1_mod_rs_fracs.svg')
-saveas(s1_unmod_rs_fracs, '../Figures/s1_unmod_rs_fracs.svg')
-saveas(pfc_mod_rs_fracs, '../Figures/pfc_mod_rs_fracs.svg')
-saveas(pfc_unmod_rs_fracs, '../Figures/pfc_unmod_rs_fracs.svg')
-saveas(striatum_mod_rs_fracs, '../Figures/striatum_mod_rs_fracs.svg')
-saveas(striatum_unmod_rs_fracs, '../Figures/striatum_unmod_rs_fracs.svg')
-saveas(s1_mod_fs_fracs, '../Figures/s1_mod_fs_fracs.svg')
-saveas(s1_unmod_fs_fracs, '../Figures/s1_unmod_fs_fracs.svg')
-saveas(pfc_mod_fs_fracs, '../Figures/pfc_mod_fs_fracs.svg')
-saveas(pfc_unmod_fs_fracs, '../Figures/pfc_unmod_fs_fracs.svg')
-saveas(striatum_mod_fs_fracs, '../Figures/striatum_mod_fs_fracs.svg')
-saveas(striatum_unmod_fs_fracs, '../Figures/striatum_unmod_fs_fracs.svg')
+saveas(pie_fig, '../Figures/mod_unmod_responsiveness.svg')
 
 saveas(rs_mod_vs_unmod_fr_fig, '../Figures/rs_mod_vs_unmod_fr.fig')
 saveas(fs_mod_vs_unmod_fr_fig, '../Figures/fs_mod_vs_unmod_fr.fig')
@@ -2766,17 +2877,6 @@ saveas(rs_mod_driven_vs_unmod_driven_fr_fig, '../Figures/rs_driven_mod_vs_unmod_
 saveas(fs_mod_driven_vs_unmod_driven_fr_fig, '../Figures/fs_driven_mod_vs_unmod_fr.fig')
 saveas(rs_mod_suppressed_vs_unmod_suppressed_fr_fig, '../Figures/rs_suppressed_mod_vs_unmod_fr.fig')
 saveas(fs_mod_suppressed_vs_unmod_suppressed_fr_fig, '../Figures/fs_suppressed_mod_vs_unmod_fr.fig')
-saveas(s1_mod_rs_fracs, '../Figures/s1_mod_rs_fracs.fig')
-saveas(s1_unmod_rs_fracs, '../Figures/s1_unmod_rs_fracs.fig')
-saveas(pfc_mod_rs_fracs, '../Figures/pfc_mod_rs_fracs.fig')
-saveas(pfc_unmod_rs_fracs, '../Figures/pfc_unmod_rs_fracs.fig')
-saveas(striatum_mod_rs_fracs, '../Figures/striatum_mod_rs_fracs.fig')
-saveas(striatum_unmod_rs_fracs, '../Figures/striatum_unmod_rs_fracs.fig')
-saveas(s1_mod_fs_fracs, '../Figures/s1_mod_fs_fracs.fig')
-saveas(s1_unmod_fs_fracs, '../Figures/s1_unmod_fs_fracs.fig')
-saveas(pfc_mod_fs_fracs, '../Figures/pfc_mod_fs_fracs.fig')
-saveas(pfc_unmod_fs_fracs, '../Figures/pfc_unmod_fs_fracs.fig')
-saveas(striatum_mod_fs_fracs, '../Figures/striatum_mod_fs_fracs.fig')
-saveas(striatum_unmod_fs_fracs, '../Figures/striatum_unmod_fs_fracs.fig')
+saveas(pie_fig, '../Figures/mod_unmod_responsiveness.fig')
 
 diary off 

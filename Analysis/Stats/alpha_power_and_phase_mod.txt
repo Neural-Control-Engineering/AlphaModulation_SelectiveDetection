@@ -1,0 +1,99 @@
+S1 RS low alpha fraction vs high alpha fraction (signed-rank): **p = 8.596886e-05
+S1 RS avg high minus low fraction: 6.142408e-01
+S1 FS low alpha fraction vs high alpha fraction (signed-rank): **p = 8.732638e-05
+S1 FS avg high minus low fraction: 4.487539e-01
+PFC RS low alpha fraction vs high alpha fraction (signed-rank): *p = 3.125000e-02
+PFC RS avg high minus low fraction: 2.079563e-01
+PFC FS low alpha fraction vs high alpha fraction (signed-rank): *p = 3.125000e-02
+PFC FS avg high minus low fraction: 1.666667e-01
+Striatum RS low alpha fraction vs high alpha fraction (signed-rank): p = 1
+Striatum RS avg high minus low fraction: -4.545455e-02
+Striatum FS low alpha fraction vs high alpha fraction (signed-rank): p = 1.875000e-01
+Striatum FS avg high minus low fraction: 1.755556e-01
+S1 RS low alpha MI vs high alpha MI (signed-rank): **p = 1.796647e-42
+S1 RS avg high minus low MI: 1.621710e-02
+S1 FS low alpha MI vs high alpha MI (signed-rank): **p = 2.927388e-24
+S1 FS avg high minus low MI: 2.497078e-02
+PFC RS low alpha MI vs high alpha MI (signed-rank): **p = 1.831252e-27
+PFC RS avg high minus low MI: 2.194924e-02
+PFC FS low alpha MI vs high alpha MI (signed-rank): **p = 1.154343e-07
+PFC FS avg high minus low MI: 5.361083e-03
+Striatum RS low alpha MI vs high alpha MI (signed-rank): **p = 1.542669e-06
+Striatum RS avg high minus low MI: 6.081282e-03
+Striatum FS low alpha MI vs high alpha MI (signed-rank): **p = 9.371154e-09
+Striatum FS avg high minus low MI: 7.092364e-03
+Amygdala RS low alpha MI vs high alpha MI (t-test): p = 1.344174e-01
+Amygdala RS avg high minus low MI: 3.246996e-03
+Amygdala FS low alpha MI vs high alpha MI (signed-rank): **p = 6.430412e-04
+Amygdala FS avg high minus low MI: 7.749807e-03
+S1 RS low alpha MSE vs high alpha MSE (signed-rank): **p = 1.392015e-35
+S1 RS avg high minus low MSE: 5.849187e-04
+S1 FS low alpha MSE vs high alpha MSE (signed-rank): **p = 3.885173e-24
+S1 FS avg high minus low MSE: 2.841992e-04
+PFC RS low alpha MSE vs high alpha MSE (signed-rank): **p = 1.300048e-27
+PFC RS avg high minus low MSE: 2.764392e-03
+PFC FS low alpha MSE vs high alpha MSE (signed-rank): **p = 7.739732e-08
+PFC FS avg high minus low MSE: 3.713277e-04
+Striatum RS low alpha MSE vs high alpha MSE (signed-rank): **p = 7.952884e-07
+Striatum RS avg high minus low MSE: 6.475099e-04
+Striatum FS low alpha MSE vs high alpha MSE (signed-rank): **p = 7.615943e-09
+Striatum FS avg high minus low MSE: 5.725392e-04
+Amygdala RS low alpha MSE vs high alpha MSE (t-test): p = 3.254738e-01
+Amygdala RS avg high minus low MSE: 1.190841e-04
+Amygdala FS low alpha MSE vs high alpha MSE (signed-rank): **p = 6.430412e-04
+Amygdala FS avg high minus low MSE: 3.754883e-04
+S1 RS low alpha FR vs high alpha FR (signed-rank): p = 8.115788e-02
+S1 RS avg high minus low FR: -7.390949e-01
+S1 FS low alpha FR vs high alpha FR (signed-rank): *p = 7.942960e-04
+S1 FS avg high minus low FR: 1.033726e+00
+PFC RS low alpha FR vs high alpha FR (signed-rank): *p = 2.852715e-02
+PFC RS avg high minus low FR: -2.693956e-01
+PFC FS low alpha FR vs high alpha FR (signed-rank): *p = 1.993254e-02
+PFC FS avg high minus low FR: -8.980810e-01
+Striatum RS low alpha FR vs high alpha FR (signed-rank): p = 4.213656e-01
+Striatum RS avg high minus low FR: -5.520521e-03
+Striatum FS low alpha FR vs high alpha FR (signed-rank): p = 7.175195e-01
+Striatum FS avg high minus low FR: 5.017157e-02
+Amygdala RS low alpha FR vs high alpha FR (signed-rank): p = 7.500000e-01
+Amygdala RS avg high minus low FR: 7.383359e-01
+Amygdala FS low alpha FR vs high alpha FR (signed-rank): p = 9.798930e-02
+Amygdala FS avg high minus low FR: -1.329904e+00
+[Warning: N=251 not found in table, using closest N=200 present.] 
+[> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In alphaPowerAndPhaseModSummaries (line 1354)] 
+S1 RS theta bar distribtions kuipers test: 1.000000e-03
+[Warning: N=138 not found in table, using closest N=100 present.] 
+[> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In alphaPowerAndPhaseModSummaries (line 1355)] 
+S1 FS theta bar distribtions kuipers test: 1
+[Warning: N=158 not found in table, using closest N=100 present.] 
+[> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In alphaPowerAndPhaseModSummaries (line 1356)] 
+PFC RS theta bar distribtions kuipers test: 1
+[Warning: N=38 not found in table, using closest N=35 present.] 
+[> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In alphaPowerAndPhaseModSummaries (line 1357)] 
+PFC FS theta bar distribtions kuipers test: 1
+[Warning: N=32 not found in table, using closest N=30 present.] 
+[> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In alphaPowerAndPhaseModSummaries (line 1358)] 
+Striatum RS theta bar distribtions kuipers test: 1
+[Warning: N=44 not found in table, using closest N=40 present.] 
+[> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In alphaPowerAndPhaseModSummaries (line 1359)] 
+Striatum FS theta bar distribtions kuipers test: 1
+Amygdala FS theta bar distribtions kuipers test: 1
+[Warning: Directory already exists.] 
+[> In alphaPowerAndPhaseModSummaries (line 1556)] 
+Example Low Alpha Power MI: 0.0054
+Example Low Alpha Power von Mises MSE: 0.0003
+Example Low Alpha Power Rayleigh test: p = 1.025484e-01
+Example High Alpha Power MI: 0.0374
+Example High Alpha Power von Mises MSE: 0.0010
+Example High Alpha Power Rayleigh test: p = 1.604326e-11

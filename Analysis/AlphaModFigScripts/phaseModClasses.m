@@ -99,7 +99,7 @@ trough_pct = trough_total / (size(all_phase_mod,1) + bimodal_total) * 100;
 pcts = [trough_pct, peak_pct, bimodal_pct];
 ttls = {'Fires near trough ', 'Fires near peak ', 'Bimodal distribution '};
 for i = 1:length(pcts)
-    ttls{i} = sprintf('%s(%.2f%%)', ttls{i}, pcts(i));
+    ttls{i} = sprintf('%s(%.1f%%)', ttls{i}, pcts(i));
 end
 
 cs = [270, 278, 210];

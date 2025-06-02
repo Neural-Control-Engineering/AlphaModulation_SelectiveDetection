@@ -1,5 +1,6 @@
-addpath(genpath('./'))
 addpath(genpath('~/circstat-matlab/'))
+delete Stats/alpha_power_and_phase_mod.txt 
+diary Stats/alpha_power_and_phase_mod.txt 
 init_paths;
 load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'))
 out_path = true;
@@ -775,11 +776,124 @@ ylim([-4,4])
 yticks([-pi,pi])
 yticklabels({'-\pi', '\pi'})
 
-if out_path
-    mkdir('./Figures/')
-    saveas(fig, '../Figures/lowVsHighAlpha_summary.svg')
-    saveas(fig, '../Figures/lowVsHighAlpha_summary.fig')
+% if out_path
+%     mkdir('./Figures/')
+%     saveas(fig, '../Figures/lowVsHighAlpha_summary.svg')
+%     saveas(fig, '../Figures/lowVsHighAlpha_summary.fig')
+% end
+if KStest(s1_rs_frac_low) || KStest(s1_rs_frac_high)
+    p = signrank(s1_rs_frac_low,s1_rs_frac_high);
+    if p < (0.05 / length(s1_rs_frac_low))
+        fprintf(sprintf('S1 RS low alpha fraction vs high alpha fraction (signed-rank): **p = %d\n', p))
+    elseif p < 0.05 
+        fprintf(sprintf('S1 RS low alpha fraction vs high alpha fraction (signed-rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 RS low alpha fraction vs high alpha fraction (signed-rank): p = %d\n', p))
+    end
+else
+    [~, p] = ttest(s1_rs_frac_low, s1_rs_frac_high);
+    if p < 0.05 
+        fprintf(sprintf('S1 RS low alpha fraction vs high alpha fraction (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 RS low alpha fraction vs high alpha fraction (t-test): p = %d\n', p))
+    end
 end
+fprintf('S1 RS avg high minus low fraction: %d\n', nanmean(s1_rs_frac_high-s1_rs_frac_low))
+
+if KStest(s1_fs_frac_low) || KStest(s1_fs_frac_high)
+    p = signrank(s1_fs_frac_low,s1_fs_frac_high);
+    if p < (0.05 / length(s1_fs_frac_low))
+        fprintf(sprintf('S1 FS low alpha fraction vs high alpha fraction (signed-rank): **p = %d\n', p))
+    elseif p < 0.05 
+        fprintf(sprintf('S1 FS low alpha fraction vs high alpha fraction (signed-rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 FS low alpha fraction vs high alpha fraction (signed-rank): p = %d\n', p))
+    end
+else
+    [~, p] = ttest(s1_fs_frac_low, s1_fs_frac_high);
+    if p < 0.05 
+        fprintf(sprintf('S1 FS low alpha fraction vs high alpha fraction (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('S1 FS low alpha fraction vs high alpha fraction (t-test): p = %d\n', p))
+    end
+end
+fprintf('S1 FS avg high minus low fraction: %d\n', nanmean(s1_fs_frac_high-s1_fs_frac_low))
+
+if KStest(pfc_rs_frac_low) || KStest(pfc_rs_frac_high)
+    p = signrank(pfc_rs_frac_low,pfc_rs_frac_high);
+    if p < (0.05 / length(pfc_rs_frac_low))
+        fprintf(sprintf('PFC RS low alpha fraction vs high alpha fraction (signed-rank): **p = %d\n', p))
+    elseif p < 0.05 
+        fprintf(sprintf('PFC RS low alpha fraction vs high alpha fraction (signed-rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC RS low alpha fraction vs high alpha fraction (signed-rank): p = %d\n', p))
+    end
+else
+    [~, p] = ttest(pfc_rs_frac_low, pfc_rs_frac_high);
+    if p < 0.05 
+        fprintf(sprintf('PFC RS low alpha fraction vs high alpha fraction (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC RS low alpha fraction vs high alpha fraction (t-test): p = %d\n', p))
+    end
+end
+fprintf('PFC RS avg high minus low fraction: %d\n', nanmean(pfc_rs_frac_high-pfc_rs_frac_low))
+
+if KStest(pfc_fs_frac_low) || KStest(pfc_fs_frac_high)
+    p = signrank(pfc_fs_frac_low,pfc_fs_frac_high);
+    if p < (0.05 / length(pfc_fs_frac_low))
+        fprintf(sprintf('PFC FS low alpha fraction vs high alpha fraction (signed-rank): **p = %d\n', p))
+    elseif p < 0.05 
+        fprintf(sprintf('PFC FS low alpha fraction vs high alpha fraction (signed-rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC FS low alpha fraction vs high alpha fraction (signed-rank): p = %d\n', p))
+    end
+else
+    [~, p] = ttest(pfc_fs_frac_low, pfc_fs_frac_high);
+    if p < 0.05 
+        fprintf(sprintf('PFC FS low alpha fraction vs high alpha fraction (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('PFC FS low alpha fraction vs high alpha fraction (t-test): p = %d\n', p))
+    end
+end
+fprintf('PFC FS avg high minus low fraction: %d\n', nanmean(pfc_fs_frac_high-pfc_fs_frac_low))
+
+if KStest(striatum_rs_frac_low) || KStest(striatum_rs_frac_high)
+    p = signrank(striatum_rs_frac_low,striatum_rs_frac_high);
+    if p < (0.05 / length(striatum_rs_frac_low))
+        fprintf(sprintf('Striatum RS low alpha fraction vs high alpha fraction (signed-rank): **p = %d\n', p))
+    elseif p < 0.05 
+        fprintf(sprintf('Striatum RS low alpha fraction vs high alpha fraction (signed-rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum RS low alpha fraction vs high alpha fraction (signed-rank): p = %d\n', p))
+    end
+else
+    [~, p] = ttest(striatum_rs_frac_low, striatum_rs_frac_high);
+    if p < 0.05 
+        fprintf(sprintf('Striatum RS low alpha fraction vs high alpha fraction (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum RS low alpha fraction vs high alpha fraction (t-test): p = %d\n', p))
+    end
+end
+fprintf('Striatum RS avg high minus low fraction: %d\n', nanmean(striatum_rs_frac_high-striatum_rs_frac_low))
+
+if KStest(striatum_fs_frac_low) || KStest(striatum_fs_frac_high)
+    p = signrank(striatum_fs_frac_low,striatum_fs_frac_high);
+    if p < (0.05 / length(striatum_fs_frac_low))
+        fprintf(sprintf('Striatum FS low alpha fraction vs high alpha fraction (signed-rank): **p = %d\n', p))
+    elseif p < 0.05 
+        fprintf(sprintf('Striatum FS low alpha fraction vs high alpha fraction (signed-rank): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum FS low alpha fraction vs high alpha fraction (signed-rank): p = %d\n', p))
+    end
+else
+    [~, p] = ttest(striatum_fs_frac_low, striatum_fs_frac_high);
+    if p < 0.05 
+        fprintf(sprintf('Striatum FS low alpha fraction vs high alpha fraction (t-test): *p = %d\n', p))
+    else
+        fprintf(sprintf('Striatum FS low alpha fraction vs high alpha fraction (t-test): p = %d\n', p))
+    end
+end
+fprintf('Striatum FS avg high minus low fraction: %d\n', nanmean(striatum_fs_frac_high-striatum_fs_frac_low))
 
 if KStest(s1_rs_low_mi) || KStest(s1_rs_high_mi)
     p = signrank(s1_rs_low_mi,s1_rs_high_mi);
@@ -1246,190 +1360,347 @@ fprintf(sprintf('Striatum FS theta bar distribtions kuipers test: %d\n', circ_ku
 % fprintf(sprintf('Amygdala RS theta bar distribtions kuipers test: %d\n', circ_kuipertest(amygdala_rs_theta_bar_low,amygdala_rs_theta_bar_high)))
 fprintf(sprintf('Amygdala FS theta bar distribtions kuipers test: %d\n', circ_kuipertest(amygdala_fs_theta_bar_low,amygdala_fs_theta_bar_high)))
 
-fig = figure('Position', [1220 1334 1000 700]);
+% fig = figure('Position', [1220 1334 1000 700]);
+% hold on
+% bar([2,5,8,11,14,17, 20, 23], ...
+%     [s1_rs_frac_high_avg, s1_fs_frac_high_avg, ...
+%     pfc_rs_frac_high_avg, pfc_fs_frac_high_avg, ...
+%     striatum_rs_frac_high_avg, striatum_fs_frac_high_avg, ...
+%     amygdala_rs_frac_high_avg, amygdala_fs_frac_high_avg] .* 100, 0.3, ...
+%     'EdgeColor', 'k', 'FaceColor', 'b')
+% bar([1,4,7,10,13,16,19,22], ...
+%     [s1_rs_frac_low_avg, s1_fs_frac_low_avg, ...
+%     pfc_rs_frac_low_avg, pfc_fs_frac_low_avg, ...
+%     striatum_rs_frac_low_avg, striatum_fs_frac_low_avg, ...
+%     amygdala_rs_frac_low_avg, amygdala_fs_frac_low_avg] .* 100, 0.3, ...
+%     'EdgeColor', 'k', 'FaceColor', 'r')
+% errorbar([2,5,8,11,14,17, 20, 23], ...
+%     [s1_rs_frac_high_avg, s1_fs_frac_high_avg, ...
+%     pfc_rs_frac_high_avg, pfc_fs_frac_high_avg, ...
+%     striatum_rs_frac_high_avg, striatum_fs_frac_high_avg, ...
+%     amygdala_rs_frac_high_avg, amygdala_fs_frac_high_avg] .* 100, ...
+%     [s1_rs_frac_high_err, s1_fs_frac_high_err, ...
+%     pfc_rs_frac_high_err, pfc_fs_frac_high_err, ...
+%     striatum_rs_frac_high_err, striatum_fs_frac_high_err, ...
+%     amygdala_rs_frac_high_err, amygdala_fs_frac_high_err] .* 100, ...
+%     'k.')
+% errorbar([1,4,7,10,13,16,19,22], ...
+%     [s1_rs_frac_low_avg, s1_fs_frac_low_avg, ...
+%     pfc_rs_frac_low_avg, pfc_fs_frac_low_avg, ...
+%     striatum_rs_frac_low_avg, striatum_fs_frac_low_avg, ...
+%     amygdala_rs_frac_low_avg, amygdala_fs_frac_low_avg] .* 100, ...
+%     [s1_rs_frac_low_err, s1_fs_frac_low_err, ...
+%     pfc_rs_frac_low_err, pfc_fs_frac_low_err, ...
+%     striatum_rs_frac_low_err, striatum_fs_frac_low_err, ...
+%     amygdala_rs_frac_low_err, amygdala_fs_frac_low_err] .* 100, ...
+%     'k.')
+% xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5, 19.5, 22.5])
+% xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS', 'Amygdala RS', 'Amygdala FS'})
+% xtickangle(45)
+% % ylim([0,0.12])
+% % yticks([0,0.12])
+% lims = ylim;
+% yticks([0,lims(2)])
+% ylabel('% Alpha Modulated ', 'FontSize', 14)
+
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
 hold on
-bar([2,5,8,11,14,17, 20, 23], ...
+bar([2,5,8,11,14,17], ...
     [s1_rs_frac_high_avg, s1_fs_frac_high_avg, ...
     pfc_rs_frac_high_avg, pfc_fs_frac_high_avg, ...
-    striatum_rs_frac_high_avg, striatum_fs_frac_high_avg, ...
-    amygdala_rs_frac_high_avg, amygdala_fs_frac_high_avg], 0.3, ...
+    striatum_rs_frac_high_avg, striatum_fs_frac_high_avg] .* 100, 0.3, ...
     'EdgeColor', 'k', 'FaceColor', 'b')
-bar([1,4,7,10,13,16,19,22], ...
+bar([1,4,7,10,13,16], ...
     [s1_rs_frac_low_avg, s1_fs_frac_low_avg, ...
     pfc_rs_frac_low_avg, pfc_fs_frac_low_avg, ...
-    striatum_rs_frac_low_avg, striatum_fs_frac_low_avg, ...
-    amygdala_rs_frac_low_avg, amygdala_fs_frac_low_avg], 0.3, ...
+    striatum_rs_frac_low_avg, striatum_fs_frac_low_avg] .* 100, 0.3, ...
     'EdgeColor', 'k', 'FaceColor', 'r')
-errorbar([2,5,8,11,14,17, 20, 23], ...
+errorbar([2,5,8,11,14,17], ...
     [s1_rs_frac_high_avg, s1_fs_frac_high_avg, ...
     pfc_rs_frac_high_avg, pfc_fs_frac_high_avg, ...
-    striatum_rs_frac_high_avg, striatum_fs_frac_high_avg, ...
-    amygdala_rs_frac_high_avg, amygdala_fs_frac_high_avg], ...
+    striatum_rs_frac_high_avg, striatum_fs_frac_high_avg] .* 100, ...
     [s1_rs_frac_high_err, s1_fs_frac_high_err, ...
     pfc_rs_frac_high_err, pfc_fs_frac_high_err, ...
-    striatum_rs_frac_high_err, striatum_fs_frac_high_err, ...
-    amygdala_rs_frac_high_err, amygdala_fs_frac_high_err], ...
+    striatum_rs_frac_high_err, striatum_fs_frac_high_err] .* 100, ...
     'k.')
-errorbar([1,4,7,10,13,16,19,22], ...
+errorbar([1,4,7,10,13,16], ...
     [s1_rs_frac_low_avg, s1_fs_frac_low_avg, ...
     pfc_rs_frac_low_avg, pfc_fs_frac_low_avg, ...
-    striatum_rs_frac_low_avg, striatum_fs_frac_low_avg, ...
-    amygdala_rs_frac_low_avg, amygdala_fs_frac_low_avg], ...
+    striatum_rs_frac_low_avg, striatum_fs_frac_low_avg] .* 100, ...
     [s1_rs_frac_low_err, s1_fs_frac_low_err, ...
     pfc_rs_frac_low_err, pfc_fs_frac_low_err, ...
-    striatum_rs_frac_low_err, striatum_fs_frac_low_err, ...
-    amygdala_rs_frac_low_err, amygdala_fs_frac_low_err], ...
+    striatum_rs_frac_low_err, striatum_fs_frac_low_err] .* 100, ...
     'k.')
-xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5, 19.5, 22.5])
+xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+xtickangle(45)
+% ylim([0,0.12])
+% yticks([0,0.12])
+lims = ylim;
+yticks([0,105])
+yticks([0,100])
+ylabel('% Alpha Modulated ', 'FontSize', 14)
+
+axs(2) = nexttile;
+hold on
+bar([2,5,8,11,14,17], ...
+    [s1_rs_high_mi_avg, s1_fs_high_mi_avg, ...
+    pfc_rs_high_mi_avg, pfc_fs_high_mi_avg, ...
+    striatum_rs_high_mi_avg, striatum_fs_high_mi_avg], 0.3, ...
+    'EdgeColor', 'k', 'FaceColor', 'b')
+bar([1,4,7,10,13,16], ...
+    [s1_rs_low_mi_avg, s1_fs_low_mi_avg, ...
+    pfc_rs_low_mi_avg, pfc_fs_low_mi_avg, ...
+    striatum_rs_low_mi_avg, striatum_fs_low_mi_avg], 0.3, ...
+    'EdgeColor', 'k', 'FaceColor', 'r')
+errorbar([2,5,8,11,14,17], ...
+    [s1_rs_high_mi_avg, s1_fs_high_mi_avg, ...
+    pfc_rs_high_mi_avg, pfc_fs_high_mi_avg, ...
+    striatum_rs_high_mi_avg, striatum_fs_high_mi_avg], ...
+    [s1_rs_high_mi_err, s1_fs_high_mi_err, ...
+    pfc_rs_high_mi_err, pfc_fs_high_mi_err, ...
+    striatum_rs_high_mi_err, striatum_fs_high_mi_err], ...
+    'k.')
+errorbar([1,4,7,10,13,16], ...
+    [s1_rs_low_mi_avg, s1_fs_low_mi_avg, ...
+    pfc_rs_low_mi_avg, pfc_fs_low_mi_avg, ...
+    striatum_rs_low_mi_avg, striatum_fs_low_mi_avg], ...
+    [s1_rs_low_mi_err, s1_fs_low_mi_err, ...
+    pfc_rs_low_mi_err, pfc_fs_low_mi_err, ...
+    striatum_rs_low_mi_err, striatum_fs_low_mi_err], ...
+    'k.')
+xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5])
 xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS', 'Amygdala RS', 'Amygdala FS'})
 xtickangle(45)
 % ylim([0,0.12])
 % yticks([0,0.12])
 lims = ylim;
 yticks([0,lims(2)])
-ylabel('% Alpha Modulated ', 'FontSize', 14)
+ylabel('Modulation Index', 'FontSize', 14)
 
-% %% example figure
-% load(strcat(ext_path, 'AP/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
-% load(strcat(ext_path, 'LFP/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
-% load(strcat(ext_path, 'SLRT/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
+axs(3) = nexttile;
+hold on
+bar([2,5,8,11,14,17], ...
+    [s1_rs_high_fr_avg, s1_fs_high_fr_avg, ...
+    pfc_rs_high_fr_avg, pfc_fs_high_fr_avg, ...
+    striatum_rs_high_fr_avg, striatum_fs_high_fr_avg], 0.3, ...
+    'EdgeColor', 'k', 'FaceColor', 'b')
+bar([1,4,7,10,13,16], ...
+    [s1_rs_low_fr_avg, s1_fs_low_fr_avg, ...
+    pfc_rs_low_fr_avg, pfc_fs_low_fr_avg, ...
+    striatum_rs_low_fr_avg, striatum_fs_low_fr_avg], 0.3, ...
+    'EdgeColor', 'k', 'FaceColor', 'r')
+errorbar([2,5,8,11,14,17], ...
+    [s1_rs_high_fr_avg, s1_fs_high_fr_avg, ...
+    pfc_rs_high_fr_avg, pfc_fs_high_fr_avg, ...
+    striatum_rs_high_fr_avg, striatum_fs_high_fr_avg], ...
+    [s1_rs_high_fr_err, s1_fs_high_fr_err, ...
+    pfc_rs_high_fr_err, pfc_fs_high_fr_err, ...
+    striatum_rs_high_fr_err, striatum_fs_high_fr_err], ...
+    'k.')
+errorbar([1,4,7,10,13,16], ...
+    [s1_rs_low_fr_avg, s1_fs_low_fr_avg, ...
+    pfc_rs_low_fr_avg, pfc_fs_low_fr_avg, ...
+    striatum_rs_low_fr_avg, striatum_fs_low_fr_avg], ...
+    [s1_rs_low_fr_err, s1_fs_low_fr_err, ...
+    pfc_rs_low_fr_err, pfc_fs_low_fr_err, ...
+    striatum_rs_low_fr_err, striatum_fs_low_fr_err], ...
+    'k.')
+xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+xtickangle(45)
+% ylim([0,18])
+lims = ylim;
+yticks([0,lims(2)])
+ylabel('Avg. Firing Rate (Hz)', 'FontSize', 14)
 
-% alpha_powers = [];
-% all_phases = [];
-% all_times = [];
-% cid = 218; % fast spiking 
-% for t = 1:size(slrt_data,1)
-%     c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
-%     cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
-%     lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-%     lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
-%     lfp_time = lfp_data(t,:).lfpTime{1};
-%     alpha = bandpassFilter(lfp, 8, 12, 500);
-%     spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
-%     phi = angle(hilbert(alpha));
-%     ALPHA = abs(hilbert(alpha)).^2;
-%     delta = bandpassFilter(lfp, 1, 4, 500);
-%     DELTA = abs(hilbert(delta)).^2;
-%     spike_phases = zeros(1,length(spike_times));
-%     for i = 1:length(spike_times)
-%         [~, tind] = min((lfp_times - spike_times(i)).^2);
-%         spike_phases(i) = phi(tind);
-%     end
-%     spike_phases = spike_phases(spike_times > -3 & spike_times < 0);
-%     alpha_powers = [alpha_powers, ALPHA(lfp_times > -3 & lfp_times < 0)];
-%     all_times = [all_times, lfp_time(lfp_times > -3 & lfp_times < 0)];
-% end
+axs(4) = nexttile;
+hold on
+bar([2,5,8,11,14,17], ...
+    [s1_rs_theta_bar_high_avg, s1_fs_theta_bar_high_avg, ...
+    pfc_rs_theta_bar_high_avg, pfc_fs_theta_bar_high_avg, ...
+    striatum_rs_theta_bar_high_avg, striatum_fs_theta_bar_high_avg], 0.3, ...
+    'EdgeColor', 'k', 'FaceColor', 'b')
+bar([1,4,7,10,13,16], ...
+    [s1_rs_theta_bar_low_avg, s1_fs_theta_bar_low_avg, ...
+    pfc_rs_theta_bar_low_avg, pfc_fs_theta_bar_low_avg, ...
+    striatum_rs_theta_bar_low_avg, striatum_fs_theta_bar_low_avg], 0.3, ...
+    'EdgeColor', 'k', 'FaceColor', 'r')
+errorbar([2,5,8,11,14,17], ...
+    [s1_rs_theta_bar_high_avg, s1_fs_theta_bar_high_avg, ...
+    pfc_rs_theta_bar_high_avg, pfc_fs_theta_bar_high_avg, ...
+    striatum_rs_theta_bar_high_avg, striatum_fs_theta_bar_high_avg], ...
+    [s1_rs_theta_bar_high_err, s1_fs_theta_bar_high_err, ...
+    pfc_rs_theta_bar_high_err, pfc_fs_theta_bar_high_err, ...
+    striatum_rs_theta_bar_high_err, striatum_fs_theta_bar_high_err], ...
+    'k.')
+errorbar([1,4,7,10,13,16], ...
+    [s1_rs_theta_bar_low_avg, s1_fs_theta_bar_low_avg, ...
+    pfc_rs_theta_bar_low_avg, pfc_fs_theta_bar_low_avg, ...
+    striatum_rs_theta_bar_low_avg, striatum_fs_theta_bar_low_avg], ...
+    [s1_rs_theta_bar_low_err, s1_fs_theta_bar_low_err, ...
+    pfc_rs_theta_bar_low_err, pfc_fs_theta_bar_low_err, ...
+    striatum_rs_theta_bar_low_err, striatum_fs_theta_bar_low_err], ...
+    'k.')
+ylabel('Avg. Firing Phase (radians)', 'FontSize', 14)
+xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+xtickangle(45)
+ylim([-4,4])
+yticks([-pi,pi])
+yticklabels({'-\pi', '\pi'})
 
-% high_phases = [];
-% low_phases = [];
-% high_frs = [];
-% low_frs = [];
-% for t = 1:size(slrt_data,1)
-%     c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
-%     cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
-%     lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-%     lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
-%     alpha = bandpassFilter(lfp, 8, 12, 500);
-%     spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
-%     phi = angle(hilbert(alpha));
-%     ALPHA = abs(hilbert(alpha)).^2;
-%     delta = bandpassFilter(lfp, 1, 4, 500);
-%     DELTA = abs(hilbert(delta)).^2;
-%     for i = 1:length(spike_times)
-%         [~, tind] = min((lfp_times - spike_times(i)).^2);
-%         spike_phases(i) = phi(tind);
-%     end
-%     spike_phases = spike_phases(spike_times > -3 & spike_times < 0);
-%     spike_times = spike_times(spike_times > -3 & spike_times < 0);
-%     ALPHA = ALPHA(lfp_times > -3 & lfp_times < 0);
-%     lfp_times = lfp_times(lfp_times > -3 & lfp_times < 0);
-%     high_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 75), 0.33, 0.2, 'above');
-%     if size(high_inds,1)
-%         for n = 1:size(high_inds,1)
-%             begin = lfp_times(high_inds(n,1));
-%             fin = lfp_times(high_inds(n,2));
-%             high_phases = [high_phases, spike_phases(spike_times > begin & spike_times < fin)];
-%             high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-%         end
-%     end
-%     low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
-%     if size(low_inds,1)
-%         for n = 1:size(low_inds,1)
-%             begin = lfp_times(low_inds(n,1));
-%             fin = lfp_times(low_inds(n,2));
-%             low_phases = [low_phases, spike_phases(spike_times >= begin & spike_times <= fin)];
-%             low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-%         end
-%     end
-% end
+if out_path
+    mkdir('./Figures/')
+    saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.svg')
+    saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.fig')
+end
 
-% example_fig = figure('Position', [1220 1318 984 400]);
-% tl = tiledlayout(1, 2);
-% axs(1) = nexttile;
-% [Nlow, edges] = histcounts(low_phases, 20, 'Normalization', 'pdf');
-% centers = zeros(length(edges)-1,1);
-% for e = 1:(length(edges)-1)
-%     centers(e) = mean(edges(e:(e+1)));
-% end
-% [x,y, ~, ~, ~] = vonMises(low_phases);
-% bar(centers, Nlow, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
-% hold on
-% plot(x,y, 'k', 'LineWidth', 2);
-% xticks([-pi, 0, pi])
-% xticklabels({'-\pi', '0', '\pi'})
-% title('Low Alpha Power')
-% ylim([0,0.35])
-% yticks([0,0.35])
-% axs(2) = nexttile;
-% [Nhigh, edges] = histcounts(high_phases, 20, 'Normalization', 'pdf');
-% centers = zeros(length(edges)-1,1);
-% for e = 1:(length(edges)-1)
-%     centers(e) = mean(edges(e:(e+1)));
-% end
-% [x,y, ~, ~, ~] = vonMises(high_phases);
-% bar(centers, Nhigh, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
-% hold on
-% plot(x,y, 'k', 'LineWidth', 2);
-% xticks([-pi, 0, pi])
-% xticklabels({'-\pi', '0', '\pi'})
-% title('High Alpha Power')
-% xlabel(tl, 'Alpha Phase (radians)', 'FontSize', 14)
-% ylabel(tl, 'Spike PDF', 'FontSize', 14)
-% ylim([0,0.35])
-% yticks([0,0.35])
-% yticklabels({})
+%% example figure
+load(strcat(ext_path, 'AP/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
+load(strcat(ext_path, 'LFP/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
+load(strcat(ext_path, 'SLRT/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
 
-% if out_path
-%     saveas(example_fig, '../Figures/examp_high_low.svg')
-%     saveas(example_fig, '../Figures/examp_high_low.fig')
-% end
+alpha_powers = [];
+all_phases = [];
+all_times = [];
+cid = 218; % fast spiking 
+for t = 1:size(slrt_data,1)
+    c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
+    cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
+    lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
+    lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+    lfp_time = lfp_data(t,:).lfpTime{1};
+    alpha = bandpassFilter(lfp, 8, 12, 500);
+    spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+    phi = angle(hilbert(alpha));
+    ALPHA = abs(hilbert(alpha)).^2;
+    delta = bandpassFilter(lfp, 1, 4, 500);
+    DELTA = abs(hilbert(delta)).^2;
+    spike_phases = zeros(1,length(spike_times));
+    for i = 1:length(spike_times)
+        [~, tind] = min((lfp_times - spike_times(i)).^2);
+        spike_phases(i) = phi(tind);
+    end
+    spike_phases = spike_phases(spike_times > -3 & spike_times < 0);
+    alpha_powers = [alpha_powers, ALPHA(lfp_times > -3 & lfp_times < 0)];
+    all_times = [all_times, lfp_time(lfp_times > -3 & lfp_times < 0)];
+end
 
-% [Nlow, ~] = histcounts(low_phases, 20);
-% [Nhigh, ~] = histcounts(high_phases, 20);
-% low_mi = compute_modulation_index(Nlow);
-% high_mi = compute_modulation_index(Nhigh);
-% low_p = circ_rtest(low_phases);
-% high_p = circ_rtest(high_phases);
-% [Nlow, edges] = histcounts(low_phases, 20, 'Normalization', 'pdf');
-% centers = zeros(length(edges)-1,1);
-% for e = 1:(length(edges)-1)
-%     centers(e) = mean(edges(e:(e+1)));
-% end
-% [x,y, theta_bar_low ~, ~] = vonMises(low_phases);
-% y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
-% low_mse = mean((Nlow(2:end-1) - y_interpolated').^2);
-% [Nhigh, edges] = histcounts(high_phases, 20, 'Normalization', 'pdf');
-% centers = zeros(length(edges)-1,1);
-% for e = 1:(length(edges)-1)
-%     centers(e) = mean(edges(e:(e+1)));
-% end
-% [x,y, theta_bar_high ~, ~] = vonMises(high_phases);
-% y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
-% high_mse = mean((Nhigh(2:end-1) - y_interpolated').^2);
+high_phases = [];
+low_phases = [];
+high_frs = [];
+low_frs = [];
+for t = 1:size(slrt_data,1)
+    c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
+    cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
+    lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
+    lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+    alpha = bandpassFilter(lfp, 8, 12, 500);
+    spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+    phi = angle(hilbert(alpha));
+    ALPHA = abs(hilbert(alpha)).^2;
+    delta = bandpassFilter(lfp, 1, 4, 500);
+    DELTA = abs(hilbert(delta)).^2;
+    for i = 1:length(spike_times)
+        [~, tind] = min((lfp_times - spike_times(i)).^2);
+        spike_phases(i) = phi(tind);
+    end
+    spike_phases = spike_phases(spike_times > -3 & spike_times < 0);
+    spike_times = spike_times(spike_times > -3 & spike_times < 0);
+    ALPHA = ALPHA(lfp_times > -3 & lfp_times < 0);
+    lfp_times = lfp_times(lfp_times > -3 & lfp_times < 0);
+    high_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 75), 0.33, 0.2, 'above');
+    if size(high_inds,1)
+        for n = 1:size(high_inds,1)
+            begin = lfp_times(high_inds(n,1));
+            fin = lfp_times(high_inds(n,2));
+            high_phases = [high_phases, spike_phases(spike_times > begin & spike_times < fin)];
+            high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
+        end
+    end
+    low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
+    if size(low_inds,1)
+        for n = 1:size(low_inds,1)
+            begin = lfp_times(low_inds(n,1));
+            fin = lfp_times(low_inds(n,2));
+            low_phases = [low_phases, spike_phases(spike_times >= begin & spike_times <= fin)];
+            low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
+        end
+    end
+end
 
-% fprintf(sprintf('Example Low Alpha Power MI: %.4f\n', low_mi))
-% fprintf(sprintf('Example Low Alpha Power von Mises MSE: %.4f\n', low_mse))
-% fprintf(sprintf('Example Low Alpha Power Rayleigh test: p = %d\n', low_p))
-% fprintf(sprintf('Example High Alpha Power MI: %.4f\n', high_mi))
-% fprintf(sprintf('Example High Alpha Power von Mises MSE: %.4f\n', high_mse))
-% fprintf(sprintf('Example High Alpha Power Rayleigh test: p = %d\n', high_p))
+example_fig = figure('Position', [1220 1318 984 400]);
+tl = tiledlayout(1, 2);
+axs(1) = nexttile;
+[Nlow, edges] = histcounts(low_phases, 20, 'Normalization', 'pdf');
+centers = zeros(length(edges)-1,1);
+for e = 1:(length(edges)-1)
+    centers(e) = mean(edges(e:(e+1)));
+end
+[x,y, ~, ~, ~] = vonMises(low_phases);
+bar(centers, Nlow, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
+hold on
+plot(x,y, 'k', 'LineWidth', 2);
+xticks([-pi, 0, pi])
+xticklabels({'-\pi', '0', '\pi'})
+title('Low Alpha Power')
+ylim([0,0.35])
+yticks([0,0.35])
+axs(2) = nexttile;
+[Nhigh, edges] = histcounts(high_phases, 20, 'Normalization', 'pdf');
+centers = zeros(length(edges)-1,1);
+for e = 1:(length(edges)-1)
+    centers(e) = mean(edges(e:(e+1)));
+end
+[x,y, ~, ~, ~] = vonMises(high_phases);
+bar(centers, Nhigh, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
+hold on
+plot(x,y, 'k', 'LineWidth', 2);
+xticks([-pi, 0, pi])
+xticklabels({'-\pi', '0', '\pi'})
+title('High Alpha Power')
+xlabel(tl, 'Alpha Phase (radians)', 'FontSize', 14)
+ylabel(tl, 'Spike PDF', 'FontSize', 14)
+ylim([0,0.35])
+yticks([0,0.35])
+yticklabels({})
+
+if out_path
+    saveas(example_fig, '../Figures/examp_high_low.svg')
+    saveas(example_fig, '../Figures/examp_high_low.fig')
+end
+
+[Nlow, ~] = histcounts(low_phases, 20);
+[Nhigh, ~] = histcounts(high_phases, 20);
+low_mi = compute_modulation_index(Nlow);
+high_mi = compute_modulation_index(Nhigh);
+low_p = circ_rtest(low_phases);
+high_p = circ_rtest(high_phases);
+[Nlow, edges] = histcounts(low_phases, 20, 'Normalization', 'pdf');
+centers = zeros(length(edges)-1,1);
+for e = 1:(length(edges)-1)
+    centers(e) = mean(edges(e:(e+1)));
+end
+[x,y, theta_bar_low ~, ~] = vonMises(low_phases);
+y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
+low_mse = mean((Nlow(2:end-1) - y_interpolated').^2);
+[Nhigh, edges] = histcounts(high_phases, 20, 'Normalization', 'pdf');
+centers = zeros(length(edges)-1,1);
+for e = 1:(length(edges)-1)
+    centers(e) = mean(edges(e:(e+1)));
+end
+[x,y, theta_bar_high ~, ~] = vonMises(high_phases);
+y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
+high_mse = mean((Nhigh(2:end-1) - y_interpolated').^2);
+
+fprintf(sprintf('Example Low Alpha Power MI: %.4f\n', low_mi))
+fprintf(sprintf('Example Low Alpha Power von Mises MSE: %.4f\n', low_mse))
+fprintf(sprintf('Example Low Alpha Power Rayleigh test: p = %d\n', low_p))
+fprintf(sprintf('Example High Alpha Power MI: %.4f\n', high_mi))
+fprintf(sprintf('Example High Alpha Power von Mises MSE: %.4f\n', high_mse))
+fprintf(sprintf('Example High Alpha Power Rayleigh test: p = %d\n', high_p))
+
+diary off

@@ -61,278 +61,1815 @@ PFC mod RS vs unmod RS iti fr (Mann-Whitney): p = 1.445661e-01
 PFC mod fs vs unmod fs iti fr (Mann-Whitney): p = 2.880363e-01
 Striatum mod RS vs unmod RS iti fr (Mann-Whitney): p = 6.290746e-02
 Striatum mod fs vs unmod fs iti fr (Mann-Whitney): p = 1.601473e-02
+[Warning: N=138 not found in table, using closest N=100 present.] 
+[> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In phaseModSummaries (line 1522)] 
+S1 RS theta bars vs FS theta bars Kuiper test: p = 2.000000e-02
+S1 RS MI vs FS MI Mann Whitney: p = 7.572096e-03
+S1 RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 2.517713e-12
+S1 RS vs FS fraction (Mann-Whitney): p = 4.722792e-01
+S1 RS mean theta bar: 2.537973e+00 +/- 4.526162e-02
+S1 FS mean theta bar: 2.693628e+00 +/- 7.084667e-02
+[Warning: N=38 not found in table, using closest N=35 present.] 
+[> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In phaseModSummaries (line 1641)] 
+PFC RS theta bars vs FS theta bars Kuiper test: p = 1.000000e-03
+PFC RS MI vs FS MI Mann Whitney: p = 8.395012e-03
+PFC RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 3.156680e-07
+PFC RS vs FS fraction (Mann-Whitney): p = 1.293313e-04
+PFC RS mean theta bar: 2.829333e+00 +/- 6.417666e-02
+PFC FS mean theta bar: -8.728546e-01 +/- 2.111526e-01
+[Warning: N=32 not found in table, using closest N=30 present.] 
+[> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In phaseModSummaries (line 1760)] 
+Striatum RS theta bars vs FS theta bars Kuiper test: p = 1
+Striatum RS MI vs FS MI Mann Whitney: p = 1.040677e-01
+Striatum RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 4.974999e-02
+Striatum RS vs FS fraction (Mann-Whitney): p = 4.528848e-01
+Striatum RS mean theta bar: -2.871520e+00 +/- 1.397826e-01
+Striatum FS mean theta bar: -2.884973e+00 +/- 1.305836e-01
+
+Amygdala RS theta bars vs FS theta bars Kuiper test: p = NaN
+Amygdala RS MI vs FS MI Mann Whitney: p = 4.210526e-01
+Amygdala RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 1.093911e-01
+Amygdala RS vs FS fraction (Mann-Whitney): p = 4.661071e-01
+Amygdala RS mean theta bar: -6.578593e-01 +/- 3.860051e-01
+Amygdala FS mean theta bar: -3.818542e-01 +/- 1.969560e-01
+
+Total modulated S1 RS: 251
+Total modulated S1 FS: 138
+Total modulated S1: 389
+S1 RS fraction modulated: 6.593505e-01 +/- 4.423812e-02
+S1 FS fraction modulated: 6.892996e-01 +/- 5.018103e-02
+Total modulated PFC RS: 158
+Total modulated PFC FS: 38
+Total modulated PFC: 196
+PFC RS fraction modulated: 3.970402e-01 +/- 2.646230e-02
+PFC FS fraction modulated: 7.711538e-01 +/- 6.470550e-02
+Total modulated Striatum RS: 32
+Total modulated Striatum FS: 44
+Total modulated Striatum: 76
+Striatum RS fraction modulated: 1.320132e-01 +/- 3.602085e-02
+Striatum FS fraction modulated: 1.470696e-01 +/- 3.099314e-02
+Total modulated Amygdala RS: 3
+Total modulated Amygdala FS: 16
+Total modulated Amygdala: 19
+Amygdala RS fraction modulated: 2.307692e-01 +/- 1.216261e-01
+Amygdala FS fraction modulated: 2.394558e-01 +/- 8.037821e-02
+close all
+mi_fr_fig = figure();
+tl = tiledlayout(4,2);
+axs = zeros(1,8);
+axs(1) = nexttile;
+plot(cell2mat(s1_rs.avg_trial_fr), s1_rs.pmi, 'k*')
+axs(2) = nexttile;
+plot(cell2mat(s1_fs.avg_trial_fr), s1_fs.pmi, 'k*')
+axs(3) = nexttile;
+plot(cell2mat(pfc_rs.avg_trial_fr), pfc_rs.pmi, 'k*')
+axs(4) = nexttile;
+plot(cell2mat(pfc_fs.avg_trial_fr), pfc_fs.pmi, 'k*')
+axs(5) = nexttile;
+plot(cell2mat(striatum_rs.avg_trial_fr), striatum_rs.pmi, 'k*')
+axs(6) = nexttile;
+plot(cell2mat(striatum_fs.avg_trial_fr), striatum_fs.pmi, 'k*')
+axs(7) = nexttile;
+plot(cell2mat(amygdala_rs.avg_trial_fr), amygdala_rs.pmi, 'k*')
+axs(8) = nexttile;
+plot(cell2mat(amygdala_fs.avg_trial_fr), amygdala_fs.pmi, 'k*')
+unifyYLimits(axs)
+xlabel(tl, 'Avg. Firing Rate (Hz)')
+figure();
+scatter(fr, mi)
+{Error using keyboard
+Unrecognized function or variable 'fr'.
+} 
+fr = [cell2mat(s1_rs.avg_trial_fr); ...
+    cell2mat(s1_fs.avg_trial_fr); ...
+    cell2mat(pfc_rs.avg_trial_fr); ...
+    cell2mat(s1_rs.avg_trial_fr); ...
+    cell2mat(s1_fs.avg_trial_fr); ...
+    cell2mat(striatum_rs.avg_trial_fr); ...
+    cell2mat(striatum_fs.avg_trial_fr)];
+mi = [cell2mat(s1_rs.avg_trial_fr); ...
+    cell2mat(s1_fs.avg_trial_fr); ...
+    cell2mat(pfc_rs.avg_trial_fr); ...
+    cell2mat(s1_rs.avg_trial_fr); ...
+    cell2mat(s1_fs.avg_trial_fr); ...
+    cell2mat(striatum_rs.avg_trial_fr); ...
+    cell2mat(striatum_fs.avg_trial_fr)];
+figure();
+scatter(fr, mi)
+mi = [cell2mat(s1_rs.pmi); ...
+    cell2mat(s1_fs.pmi); ...
+    cell2mat(pfc_rs.pmi); ...
+    cell2mat(s1_rs.pmi); ...
+    cell2mat(s1_fs.pmi); ...
+    cell2mat(striatum_rs.pmi); ...
+    cell2mat(striatum_fs.pmi_fr)];
+{Brace indexing is not supported for variables of this type.
+
+Error in cell2mat (line 42)
+cellclass = class(c{1});
+                  ^^^^
+} 
+figure();
+scatter(fr, mi)
+
+mi = [s1_rs.pmi; ...
+    s1_fs.pmi; ...
+    pfc_rs.pmi; ...
+    s1_rs.pmi; ...
+    s1_fs.pmi; ...
+    striatum_rs.pmi; ...
+    striatum_fs.pmi];
+figure();
+scatter(fr, mi)
+figure();
+scatter(fr, mi, 'k')
+fr = [cell2mat(s1_rs.avg_baseline_fr); ...
+    cell2mat(s1_fs.avg_baseline_fr); ...
+    cell2mat(pfc_rs.avg_baseline_fr); ...
+    cell2mat(s1_rs.avg_baseline_fr); ...
+    cell2mat(s1_fs.avg_baseline_fr); ...
+    cell2mat(striatum_rs.avg_baseline_fr); ...
+    cell2mat(striatum_fs.avg_baseline_fr)];
+
+figure();
+scatter(fr, mi, 'k')
+xlabel('Firing Rate (Hz)
+ xlabel('Firing Rate (Hz)
+        |
+{Error: Character vector is not terminated properly.
+} 
+
+figure(); plot(1:60, 0.05/(1:60), 'r')
+{Error using /
+Matrix dimensions must agree.
+} 
+figure(2)
+figure();
+scatter(fr, mi, 'k')
+xlabel('Firing Rate (Hz)')
+hold on 
+x = 1:60;
+for i = 1:60
+    y(i) = 0.05 / i;
+end
+plot(x, y, 'r')
+close all
+figure();
+scatter(fr, mi, 'k')
+xlabel('Firing Rate (Hz)')
+hold on 
+x = 1:60;
+for i = 1:60
+    y(i) = (0.05 / i) + min(mi);
+end
+plot(x, y, 'r')
+dbstack
+> In phaseModSummaries (line 2018)
+close all
+clear
+dbquit
+clear
+clc
+modulationAndBehaviorSummaries
+[Warning: Directory already exists.] 
+[> In modulationAndBehaviorSummaries (line 4)] 
+PFC RS MSE ANOVA:
 
-s1_rs_ranova =
+p =
+
+   2.3904e-36
+
+
+stats = 
+
+  struct with fields:
 
-  5x8 table
+    gnames: [4x1 char]
+         n: [152 152 152 152]
+    source: 'anova1'
+     means: [0.0011 0.0095 4.5445e-04 0.0017]
+        df: 604
+         s: 0.0065
 
-                            SumSq        DF      MeanSq       F         pValue       pValueGG      pValueHF     pValueLB 
-                          __________    _____    ______    _______    __________    __________    __________    _________
+S1 RS MSE ANOVA:
 
-    (Intercept):Time          2131.8       49    43.506     7.7586    3.8288e-52    1.2472e-06    1.0865e-06    0.0056073
-    group:Time                218.51       49    4.4594    0.79526       0.84676       0.53924       0.54067      0.37307
-    subject:Time              3123.2       49    63.739     11.367    7.9075e-86    7.9899e-10    6.3605e-10    0.0008226
-    group:subject:Time        613.76       49    12.526     2.2338     1.724e-06      0.056586      0.055739      0.13583
-    Error(Time)           1.0688e+05    19061    5.6075                                                                  
+p =
 
+   1.4544e-17
 
-s1_fs_ranova =
 
-  5x8 table
+stats = 
 
-                            SumSq       DF     MeanSq      F         pValue       pValueGG      pValueHF      pValueLB 
-                          _________    ____    ______    ______    ___________    _________    __________    __________
+  struct with fields:
 
-    (Intercept):Time          36979      49    754.68    24.446    8.7638e-204    2.546e-13    1.6961e-13    1.7359e-06
-    group:Time                 5872      49    119.84    3.8817     2.8462e-18      0.01252      0.012077      0.050339
-    subject:Time             5166.1      49    105.43    3.4151     1.1463e-14     0.022111      0.021487      0.066236
-    group:subject:Time       2295.1      49    46.839    1.5172       0.011502       0.2138       0.21327       0.21964
-    Error(Time)           2.738e+05    8869    30.872                                                                  
+    gnames: [4x1 char]
+         n: [152 152 152 152]
+    source: 'anova1'
+     means: [5.0031e-04 0.0061 1.7484e-04 0.0018]
+        df: 604
+         s: 0.0062
 
+Striatum RS MSE ANOVA:
 
-pfc_rs_ranova =
+p =
 
-  5x8 table
+    0.0341
 
-                          SumSq      DF      MeanSq      F         pValue       pValueGG      pValueHF     pValueLB
-                          ______    _____    ______    ______    __________    __________    __________    ________
 
-    (Intercept):Time      929.65       49    18.973    4.4661    3.7155e-23    0.00023724    0.00021508    0.035214
-    group:Time            1082.3       49    22.089    5.1997    2.3912e-29    3.9348e-05    3.4715e-05    0.023136
-    subject:Time          665.97       49    13.591    3.1994    3.9163e-13     0.0047793     0.0045285    0.074451
-    group:subject:Time    505.09       49    10.308    2.4265    1.0351e-07      0.027009      0.026214     0.12012
-    Error(Time)            80348    18914    4.2481                                                                
+stats = 
 
+  struct with fields:
 
-pfc_fs_ranova =
+    gnames: [4x1 char]
+         n: [17 17 17 17]
+    source: 'anova1'
+     means: [3.3350e-04 0.0029 1.1199e-04 8.9989e-04]
+        df: 64
+         s: 0.0030
 
-  5x8 table
+Amygdala RS MSE ANOVA:
 
-                          SumSq      DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
-                          ______    ____    ______    ______    ___________    __________    __________    __________
+p =
 
-    (Intercept):Time       15788      49     322.2     22.88    3.6221e-162    3.7544e-12    6.9612e-13    1.6791e-05
-    group:Time            2815.8      49    57.465    4.0808     4.0882e-19     0.0081793     0.0067245      0.048972
-    subject:Time          6863.3      49    140.07    9.9467     1.0856e-65    5.4131e-06    2.7357e-06     0.0027788
-    group:subject:Time    1247.7      49    25.463    1.8083     0.00054987       0.14843       0.14391       0.18504
-    Error(Time)            33120    2352    14.082                                                                   
+    0.4767
 
 
-striatum_rs_ranova =
+stats = 
 
-  3x8 table
+  struct with fields:
 
-                          SumSq       DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
-                        _________    ____    ______    ______    ___________    __________    __________    __________
+    gnames: [4x1 char]
+         n: [3 3 3 3]
+    source: 'anova1'
+     means: [0.0025 2.5693e-04 1.6255e-05 0.0037]
+        df: 8
+         s: 0.0032
 
-    (Intercept):Time        34634      49    706.82    18.532    2.8151e-150    4.8604e-10    3.7179e-10    2.6985e-05
-    group:Time              11217      49    228.92    6.0022     5.7219e-36     0.0010968     0.0010286      0.015213
-    Error(Time)         3.476e+05    9114    38.139                                                                   
+PFC RS MI ANOVA:
 
+p =
 
-striatum_fs_ranova =
+   6.5943e-38
 
-  5x8 table
 
-                            SumSq        DF      MeanSq      F         pValue       pValueGG      pValueHF      pValueLB 
-                          __________    _____    ______    ______    __________    __________    __________    __________
+stats = 
 
-    (Intercept):Time           11191       49     228.4    11.443    4.6807e-86    1.3474e-10     9.304e-11    0.00081652
-    group:Time                4748.4       49    96.905    4.8549    2.4175e-26    0.00024788     0.0002218      0.028354
-    subject:Time                4778       49     97.51    4.8852    1.3427e-26    0.00023244    0.00020775      0.027868
-    group:subject:Time        5956.4       49    121.56      6.09    5.4273e-37    1.7553e-05    1.4996e-05      0.014172
-    Error(Time)           2.8364e+05    14210     19.96                                                                  
+  struct with fields:
 
+    gnames: [4x1 char]
+         n: [152 152 152 152]
+    source: 'anova1'
+     means: [0.0144 0.0778 0.0094 0.0201]
+        df: 604
+         s: 0.0477
 
-s1_rs_driven_ranova =
+S1 RS MI ANOVA:
 
-  5x8 table
+p =
 
-                          SumSq      DF      MeanSq       F         pValue        pValueGG      pValueHF      pValueLB 
-                          ______    _____    ______    _______    ___________    __________    __________    __________
+   6.1315e-16
 
-    (Intercept):Time      5766.8       49    117.69     16.727    6.6942e-135    3.5546e-15    1.7756e-15     5.972e-05
-    group:Time            224.43       49    4.5802    0.65095        0.97198       0.65142       0.65502       0.42061
-    subject:Time          4189.2       49    85.493     12.151     3.8036e-92    6.0255e-11     3.755e-11    0.00058759
-    group:subject:Time    739.14       49    15.085     2.1439     6.2642e-06      0.062184      0.060586       0.14451
-    Error(Time)            79297    11270    7.0361                                                                    
 
+stats = 
 
-s1_fs_driven_ranova =
+  struct with fields:
 
-  5x8 table
+    gnames: [4x1 char]
+         n: [152 152 152 152]
+    source: 'anova1'
+     means: [0.0101 0.0558 0.0078 0.0206]
+        df: 604
+         s: 0.0535
 
-                            SumSq        DF     MeanSq       F         pValue        pValueGG      pValueHF      pValueLB 
-                          __________    ____    ______    _______    ___________    __________    __________    __________
+Striatum RS MI ANOVA:
 
-    (Intercept):Time           53160      49    1084.9     38.544    1.8414e-320    3.8889e-24    1.0811e-24    5.1911e-09
-    group:Time                6061.3      49     123.7     4.3948     2.6127e-22     0.0033691     0.0030858      0.037761
-    subject:Time              4261.5      49    86.969     3.0899     3.1826e-12      0.022761       0.02172      0.080863
-    group:subject:Time        1023.1      49     20.88    0.74181        0.90922       0.53971        0.5429       0.39048
-    Error(Time)           2.0274e+05    7203    28.147                                                                    
+p =
 
+    0.0252
 
-pfc_rs_driven_ranova =
 
-  5x8 table
+stats = 
 
-                          SumSq      DF     MeanSq      F         pValue       pValueGG      pValueHF     pValueLB 
-                          ______    ____    ______    ______    __________    __________    __________    _________
+  struct with fields:
 
-    (Intercept):Time        3316      49    67.673    10.118    1.0451e-72     1.164e-11    4.5322e-12    0.0017391
-    group:Time            1277.8      49    26.078    3.8989    2.1339e-18    0.00048094    0.00038254     0.049901
-    subject:Time          1285.9      49    26.242    3.9234    1.3653e-18    0.00045038    0.00035732     0.049193
-    group:subject:Time    452.71      49    9.2389    1.3813       0.04018        0.2138       0.21109      0.24149
-    Error(Time)            57027    8526    6.6886                                                                 
+    gnames: [4x1 char]
+         n: [17 17 17 17]
+    source: 'anova1'
+     means: [0.0071 0.0263 0.0060 0.0122]
+        df: 64
+         s: 0.0211
 
+Amygdala RS MI ANOVA:
 
-pfc_fs_driven_ranova =
+p =
 
-  3x8 table
+    0.4508
 
-                        SumSq      DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
-                        ______    ____    ______    ______    ___________    __________    __________    __________
 
-    (Intercept):Time     17049      49    347.94    20.738    3.4203e-144    1.2901e-09    4.0716e-10    4.2982e-05
-    group:Time          2371.2      49    48.392    2.8843     1.8978e-10      0.047977      0.044294      0.096674
-    Error(Time)          35351    2107    16.778                                                                   
+stats = 
 
+  struct with fields:
 
-striatum_rs_driven_ranova =
+    gnames: [4x1 char]
+         n: [3 3 3 3]
+    source: 'anova1'
+     means: [0.0230 0.0071 0.0054 0.0357]
+        df: 8
+         s: 0.0252
 
-  3x8 table
+PFC FS MSE ANOVA:
 
-                          SumSq       DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
-                        _________    ____    ______    ______    ___________    __________    __________    __________
+p =
 
-    (Intercept):Time        42983      49    877.21    17.607    1.5638e-138    9.5508e-10    6.3541e-10    5.0861e-05
-    group:Time              10568      49    215.68     4.329     1.0356e-21     0.0072553     0.0068094      0.039494
-    Error(Time)         3.076e+05    6174    49.823                                                                   
+   5.4465e-13
 
 
-striatum_fs_driven_ranova =
+stats = 
 
-  5x8 table
+  struct with fields:
 
-                            SumSq        DF      MeanSq      F         pValue       pValueGG      pValueHF      pValueLB 
-                          __________    _____    ______    ______    __________    __________    __________    __________
+    gnames: [4x1 char]
+         n: [38 38 38 38]
+    source: 'anova1'
+     means: [3.4096e-04 0.0031 2.1631e-04 5.4891e-04]
+        df: 148
+         s: 0.0017
 
-    (Intercept):Time           14569       49    297.33    12.903    4.2698e-99    7.1568e-12    4.1443e-12    0.00040277
-    group:Time                  6074       49    123.96    5.3796    1.0402e-30    8.6772e-05    7.3459e-05       0.02127
-    subject:Time              6749.1       49    137.74    5.9776     7.101e-36    2.4321e-05    2.0007e-05      0.015258
-    group:subject:Time        8182.2       49    166.98    7.2468    4.2345e-47    1.5923e-06    1.2307e-06     0.0076366
-    Error(Time)           2.5404e+05    11025    23.042                                                                  
+S1 FS MSE ANOVA:
 
+p =
 
-s1_rs_suppressed_ranova =
+   1.4498e-04
 
-  3x8 table
 
-                        SumSq      DF     MeanSq      F         pValue      pValueGG      pValueHF     pValueLB 
-                        ______    ____    ______    ______    __________    _________    __________    _________
+stats = 
 
-    (Intercept):Time    1453.9      49    29.672    13.252    2.5311e-81    1.941e-08    7.9573e-10    0.0013003
-    group:Time          126.21      49    2.5757    1.1503       0.22472      0.33758       0.33797      0.29415
-    Error(Time)         2633.1    1176    2.2391                                                                
+  struct with fields:
 
+    gnames: [4x1 char]
+         n: [83 83 83 83]
+    source: 'anova1'
+     means: [1.7768e-04 0.0032 7.5771e-05 0.0011]
+        df: 328
+         s: 0.0050
 
-s1_fs_suppressed_ranova =
+Striatum FS MSE ANOVA:
 
-  3x8 table
+p =
 
-                        SumSq     DF     MeanSq      F         pValue       pValueGG      pValueHF      pValueLB 
-                        ______    ___    ______    ______    __________    __________    __________    __________
+   2.3824e-05
 
-    (Intercept):Time     21541     49     439.6    18.725    1.7632e-90    8.2955e-06    1.1818e-06    0.00098354
-    group:Time          1487.5     49    30.358    1.2931      0.092589       0.29312       0.29305       0.27768
-    Error(Time)          13805    588    23.477                                                                  
 
+stats = 
 
-pfc_rs_suppressed_ranova =
+  struct with fields:
 
-  5x8 table
+    gnames: [4x1 char]
+         n: [27 27 27 27]
+    source: 'anova1'
+     means: [2.1705e-04 0.0020 8.2477e-05 6.5510e-04]
+        df: 104
+         s: 0.0015
 
-                          SumSq      DF     MeanSq      F         pValue       pValueGG      pValueHF      pValueLB 
-                          ______    ____    ______    ______    ___________    _________    __________    __________
+Amygdala FS MSE ANOVA:
 
-    (Intercept):Time      1338.3      49    27.312    19.483    4.4234e-142    7.824e-20    3.7045e-22    4.5765e-05
-    group:Time            177.32      49    3.6187    2.5814     1.5616e-08     0.017889      0.013434       0.11365
-    subject:Time          225.88      49    4.6097    3.2883     2.1932e-13    0.0034979     0.0021846      0.075042
-    group:subject:Time    172.91      49    3.5288    2.5172     4.0468e-08     0.020664      0.015765       0.11814
-    Error(Time)           3915.4    2793    1.4019                                                                  
+p =
 
-[Warning: Model has 0 degrees of freedom for error. Consider not using group as
-a predictor.] 
-[> In manova.internal.validation.checkDFE (line 26)
-In manova.internal.fitting.fitCoefficients (line 19)
-In RepeatedMeasuresModel.fit (line 1391)
-In fitrm (line 77)
-In alphaModAndStimEncoding (line 2357)] 
+    0.1497
 
-pfc_fs_suppressed_ranova =
 
-  3x8 table
+stats = 
 
-                        SumSq     DF    MeanSq     F     pValue    pValueGG    pValueHF    pValueLB
-                        ______    __    ______    ___    ______    ________    ________    ________
+  struct with fields:
 
-    (Intercept):Time    402.21    49    8.2084    NaN     NaN        NaN         NaN         NaN   
-    group:Time           501.9    49    10.243    NaN     NaN        NaN         NaN         NaN   
-    Error(Time)            NaN     0       NaN                                                     
+    gnames: [4x1 char]
+         n: [9 9 9 9]
+    source: 'anova1'
+     means: [1.6201e-04 0.0016 4.3798e-05 0.0011]
+        df: 32
+         s: 0.0016
 
+PFC FS MI ANOVA:
 
-striatum_rs_suppressed_ranova =
+p =
 
-  3x8 table
+   2.6282e-11
 
-                        SumSq     DF     MeanSq       F       pValue     pValueGG    pValueHF    pValueLB
-                        ______    ___    ______    _______    _______    ________    ________    ________
 
-    (Intercept):Time     104.3     49    2.1286    0.41043    0.99989    0.63703     0.66039      0.5321 
-    group:Time          146.05     49    2.9807    0.57473    0.99146    0.54492     0.56376     0.46096 
-    Error(Time)         3557.8    686    5.1862                                                          
+stats = 
 
-S1 RS Driven Mod vs Unmod on Hit (mann-whitney): p = 6.937754e-01
-S1 FS Driven Mod vs Unmod on Hit (mann-whitney): p = 1.453234e-06
-S1 RS Driven Mod vs Unmod on Miss (mann-whitney): p = 2.638164e-01
-S1 FS Driven Mod vs Unmod on Miss (mann-whitney): p = 1.255163e-05
-S1 RS Driven Mod vs Unmod on CR (mann-whitney): p = 2.669897e-02
-S1 FS Driven Mod vs Unmod on CR (mann-whitney): p = 9.598273e-02
-S1 RS Driven Mod vs Unmod on FA (mann-whitney): p = 2.123976e-01
-S1 FS Driven Mod vs Unmod on FA (mann-whitney): p = 3.245556e-07
-PFC RS Driven Mod vs Unmod on Hit (mann-whitney): p = 6.172171e-01
-PFC FS Driven Mod vs Unmod on Hit (mann-whitney): p = 6.967914e-04
-PFC RS Driven Mod vs Unmod on Miss (mann-whitney): p = 9.135122e-01
-PFC FS Driven Mod vs Unmod on Miss (mann-whitney): p = 1.316491e-01
-PFC RS Driven Mod vs Unmod on CR (mann-whitney): p = 3.054883e-01
-PFC FS Driven Mod vs Unmod on CR (mann-whitney): p = 9.692446e-02
-PFC RS Driven Mod vs Unmod on FA (mann-whitney): p = 2.339094e-01
-PFC FS Driven Mod vs Unmod on FA (mann-whitney): p = 2.408129e-02
-Striatum RS Driven Mod vs Unmod on Hit (mann-whitney): p = 3.276323e-03
-Striatum FS Driven Mod vs Unmod on Hit (mann-whitney): p = 4.958951e-01
-Striatum RS Driven Mod vs Unmod on Miss (mann-whitney): p = 8.641969e-02
-Striatum FS Driven Mod vs Unmod on Miss (mann-whitney): p = 5.063562e-01
-Striatum RS Driven Mod vs Unmod on CR (mann-whitney): p = 3.418228e-01
-Striatum FS Driven Mod vs Unmod on CR (mann-whitney): p = 5.169339e-01
-Striatum RS Driven Mod vs Unmod on FA (mann-whitney): p = 9.976372e-01
-Striatum FS Driven Mod vs Unmod on FA (mann-whitney): p = 6.541260e-01
-S1 RS Suppressed Mod vs Unmod on Hit (mann-whitney): p = 8.035664e-01
-S1 FS Suppressed Mod vs Unmod on Hit (mann-whitney): p = 1.428571e-01
-S1 RS Suppressed Mod vs Unmod on Miss (mann-whitney): p = 2.409547e-01
-S1 FS Suppressed Mod vs Unmod on Miss (mann-whitney): p = 1
-S1 RS Suppressed Mod vs Unmod on CR (mann-whitney): p = 1.098194e-01
-S1 FS Suppressed Mod vs Unmod on CR (mann-whitney): p = 7.142857e-01
-S1 RS Suppressed Mod vs Unmod on FA (mann-whitney): p = 9.151060e-01
-S1 FS Suppressed Mod vs Unmod on FA (mann-whitney): p = 8.571429e-01
-PFC RS Suppressed Mod vs Unmod on Hit (mann-whitney): p = 1.328794e-01
-PFC FS Suppressed Mod vs Unmod on Hit (2 sample t-test): p = NaN
-PFC RS Suppressed Mod vs Unmod on Miss (mann-whitney): p = 9.069261e-01
-PFC FS Suppressed Mod vs Unmod on Miss (2 sample t-test): p = NaN
-PFC RS Suppressed Mod vs Unmod on CR (mann-whitney): p = 3.106385e-02
-PFC FS Suppressed Mod vs Unmod on CR (2 sample t-test): p = NaN
-PFC RS Suppressed Mod vs Unmod on FA (mann-whitney): p = 5.181821e-01
-PFC FS Suppressed Mod vs Unmod on FA (2 sample t-test): p = NaN
-Striatum RS Suppressed Mod vs Unmod on Hit (mann-whitney): p = 2.000000e-01
-Striatum RS Suppressed Mod vs Unmod on Miss (mann-whitney): p = 5.000000e-01
-Striatum RS Suppressed Mod vs Unmod on CR (mann-whitney): p = 2.000000e-01
-Striatum RS Suppressed Mod vs Unmod on FA (mann-whitney): p = 6.666667e-02
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [38 38 38 38]
+    source: 'anova1'
+     means: [0.0080 0.0291 0.0073 0.0096]
+        df: 148
+         s: 0.0141
+
+S1 FS MI ANOVA:
+
+p =
+
+   6.9408e-05
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [83 83 83 83]
+    source: 'anova1'
+     means: [0.0090 0.0337 0.0081 0.0151]
+        df: 328
+         s: 0.0395
+
+Striatum FS MI ANOVA:
+
+p =
+
+   9.6817e-05
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [27 27 27 27]
+    source: 'anova1'
+     means: [0.0066 0.0209 0.0053 0.0098]
+        df: 104
+         s: 0.0132
+
+Amygdala FS MI ANOVA:
+
+p =
+
+    0.1573
+
+
+stats = 
+
+  struct with fields:
+
+    gnames: [4x1 char]
+         n: [9 9 9 9]
+    source: 'anova1'
+     means: [0.0064 0.0190 0.0055 0.0121]
+        df: 32
+         s: 0.0137
+
+S1 RS MI Correct vs. Incorrect (signed rank): **p = 8.181067e-21
+S1 RS MI Action vs. Inaction (signed rank): **p = 9.860940e-06
+S1 RS MSE Correct vs. Incorrect (signed rank): **p = 1.315852e-26
+S1 RS MSE Action vs. Inaction (signed rank): **p = 2.948222e-17
+S1 FS MI Correct vs. Incorrect (signed rank): **p = 1.309396e-05
+S1 FS MI Action vs. Inaction (signed rank): *p = 6.359981e-03
+S1 FS MSE Correct vs. Incorrect (signed rank): **p = 2.596441e-15
+S1 FS MSE Action vs. Inaction (signed rank): **p = 3.828966e-10
+PFC RS MI Correct vs. Incorrect (signed rank): **p = 1.278621e-12
+PFC RS MI Action vs. Inaction (signed rank): *p = 2.729024e-02
+PFC RS MSE Correct vs. Incorrect (signed rank): **p = 4.514817e-15
+PFC RS MSE Action vs. Inaction (signed rank): *p = 3.700158e-03
+PFC FS MI Correct vs. Incorrect (signed rank): *p = 1.456321e-03
+PFC FS MI Action vs. Inaction (signed rank): p = 6.582581e-01
+PFC FS MSE Correct vs. Incorrect (signed rank): **p = 1.581927e-04
+PFC FS MSE Action vs. Inaction (signed rank): p = 1.705418e-01
+Striatum RS MI Correct vs. Incorrect (signed rank): **p = 1.001879e-03
+Striatum RS MI Action vs. Inaction (signed rank): p = 1.239292e-01
+Striatum RS MSE Correct vs. Incorrect (signed rank): **p = 2.930525e-04
+Striatum RS MSE Action vs. Inaction (signed rank): **p = 1.001879e-03
+Striatum FS MI Correct vs. Incorrect (signed rank): **p = 3.986256e-05
+Striatum FS MI Action vs. Inaction (signed rank): *p = 4.939932e-03
+Striatum FS MSE Correct vs. Incorrect (signed rank): **p = 5.606117e-06
+Striatum FS MSE Action vs. Inaction (signed rank): **p = 1.099725e-05
+Amygdala RS MI Correct vs. Incorrect (t-test): p = 2.287446e-01
+Amygdala RS MI Action vs. Inaction (t-test): p = 4.245200e-01
+Amygdala RS MSE Correct vs. Incorrect (t-test): p = 1.321808e-01
+Amygdala RS MSE Action vs. Inaction (t-test): p = 4.095726e-01
+Amygdala FS MI Correct vs. Incorrect (signed rank): p = 9.765625e-02
+Amygdala FS MI Action vs. Inaction (signed rank): p = 5.703125e-01
+Amygdala FS MSE Correct vs. Incorrect (signed rank): *p = 1.171875e-02
+Amygdala FS MSE Action vs. Inaction (signed rank): p = 9.765625e-02
+S1 RS MI Incorrect minus Correct: 4.812595e-03 +/- 5.892039e-04
+S1 RS MI Inaction minus Action: -1.477365e-03 +/- 4.045764e-04
+S1 RS von Mises MSE Incorrect minus Correct: 6.568908e-04 +/- 7.882308e-05
+S1 RS von Mises MSE Inaction minus Action: -1.959981e-04 +/- 3.675533e-05
+PFC RS MI Incorrect minus Correct: 4.557196e-03 +/- 9.217503e-04
+PFC RS MI Inaction minus Action: -1.797871e-03 +/- 1.046424e-03
+PFC RS von Mises MSE Incorrect minus Correct: 6.248303e-04 +/- 1.212190e-04
+PFC RS von Mises MSE Inaction minus Action: -2.015861e-04 +/- 1.164331e-04
+Striatum RS MI Incorrect minus Correct: 3.740834e-03 +/- 1.142520e-03
+Striatum RS MI Inaction minus Action: -6.220859e-04 +/- 3.626377e-04
+Striatum RS von Mises MSE Incorrect minus Correct: 4.629100e-04 +/- 1.023164e-04
+Striatum RS von Mises MSE Inaction minus Action: -1.366727e-04 +/- 3.535910e-05
+Amygdala RS MI Incorrect minus Correct: 8.532174e-04 +/- 4.979234e-04
+Amygdala RS MI Inaction minus Action: -9.766671e-03 +/- 9.814244e-03
+Amygdala RS von Mises MSE Incorrect minus Correct: 6.917311e-05 +/- 2.800558e-05
+Amygdala RS von Mises MSE Inaction minus Action: -1.603878e-03 +/- 1.550288e-03
+S1 FS MI Incorrect minus Correct: 1.970926e-03 +/- 5.890267e-04
+S1 FS MI Inaction minus Action: -6.078349e-04 +/- 2.260691e-04
+S1 FS von Mises MSE Incorrect minus Correct: 2.906970e-04 +/- 5.860471e-05
+S1 FS von Mises MSE Inaction minus Action: -6.860199e-05 +/- 1.517202e-05
+PFC FS MI Incorrect minus Correct: 8.769085e-04 +/- 4.317450e-04
+PFC FS MI Inaction minus Action: -4.302050e-05 +/- 3.584953e-04
+PFC FS von Mises MSE Incorrect minus Correct: 1.088389e-04 +/- 5.849165e-05
+PFC FS von Mises MSE Inaction minus Action: -2.741881e-05 +/- 3.477099e-05
+Striatum FS MI Incorrect minus Correct: 2.893789e-03 +/- 5.675024e-04
+Striatum FS MI Inaction minus Action: -1.046326e-03 +/- 3.198001e-04
+Striatum FS von Mises MSE Incorrect minus Correct: 3.843600e-04 +/- 9.627410e-05
+Striatum FS von Mises MSE Inaction minus Action: -7.758276e-05 +/- 1.531173e-05
+Amygdala FS MI Incorrect minus Correct: 5.781994e-04 +/- 3.026418e-04
+Amygdala FS MI Inaction minus Action: -7.174247e-04 +/- 6.090235e-04
+Amygdala FS von Mises MSE Incorrect minus Correct: 9.833980e-05 +/- 3.271796e-05
+Amygdala FS von Mises MSE Inaction minus Action: -7.534874e-05 +/- 4.807654e-05
+S1 RS theta bar ANOVA:
+
+ans =
+
+    0.5271
+
+S1 FS theta bar ANOVA:
+
+ans =
+
+    0.4196
+
+PFC RS theta bar ANOVA:
+
+ans =
+
+   2.2500e-08
+
+PFC FS theta bar ANOVA:
+
+ans =
+
+    0.4256
+
+Striatum RS theta bar ANOVA:
+
+ans =
+
+    0.5404
+
+Striatum FS theta bar ANOVA:
+
+ans =
+
+    0.5539
+
+Amygdala RS theta bar ANOVA:
+
+ans =
+
+    0.0086
+
+Amygdala FS theta bar ANOVA:
+
+ans =
+
+    0.8191
+
+PFC RS cognitive anova:
+
+ans =
+
+   3.8320e-10
+
+PFC RS motor anova:
+
+ans =
+
+   2.5925e-05
+
+PFC FS cognitive anova:
+
+ans =
+
+   4.8837e-05
+
+PFC FS motor anova:
+
+ans =
+
+    0.0197
+
+S1 RS cognitive anova:
+
+ans =
+
+   8.9492e-08
+
+S1 RS motor anova:
+
+ans =
+
+   3.3977e-06
+
+S1 FS cognitive anova:
+
+ans =
+
+   7.0357e-04
+
+S1 FS motor anova:
+
+ans =
+
+   4.1088e-04
+
+Striatum RS cognitive anova:
+
+ans =
+
+   3.6378e-04
+
+Striatum RS motor anova:
+
+ans =
+
+    0.3215
+
+Striatum FS cognitive anova:
+
+ans =
+
+   4.4229e-04
+
+Striatum FS motor anova:
+
+ans =
+
+    0.5742
+
+Amygdala RS cognitive anova:
+
+ans =
+
+   1.0948e-47
+
+Amygdala RS motor anova:
+
+ans =
+
+    0.0787
+
+Amygdala FS cognitive anova:
+
+ans =
+
+    0.0014
+
+Amygdala FS motor anova:
+
+ans =
+
+    0.0494
+
+close all
+mod_by_outcome_fig = figure('Position', [1222 868 869 1035]);
+% tl = tiledlayout(4,2);
+% axs = zeros(4,2);
+tl = tiledlayout(3,2);
+axs = zeros(3,2);
+axs(1,1) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)], ...
+    [nanstd(s1_rs_justCorrect) ./ sqrt(sum(~isnan(s1_rs_justCorrect))), ...
+    nanstd(s1_rs_justIncorrect) ./ sqrt(sum(~isnan(s1_rs_justIncorrect))), ...
+    nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)], ...
+    [nanstd(s1_rs_justAction) ./ sqrt(sum(~isnan(s1_rs_justAction))), ...
+    nanstd(s1_rs_justInaction) ./ sqrt(sum(~isnan(s1_rs_justInaction))), ...
+    nanstd(s1_rs_actionInaction) ./ sqrt(sum(~isnan(s1_rs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Corret', 'Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex RS')
+ylim([0,1])
+yticks([0,1])
+axs(1,2) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)], ...
+    [nanstd(s1_fs_justCorrect) ./ sqrt(sum(~isnan(s1_fs_justCorrect))), ...
+    nanstd(s1_fs_justIncorrect) ./ sqrt(sum(~isnan(s1_fs_justIncorrect))), ...
+    nanstd(s1_fs_correctIncorrect) ./ sqrt(sum(~isnan(s1_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)], ...
+    [nanstd(s1_fs_justAction) ./ sqrt(sum(~isnan(s1_fs_justAction))), ...
+    nanstd(s1_fs_justInaction) ./ sqrt(sum(~isnan(s1_fs_justInaction))), ...
+    nanstd(s1_fs_actionInaction) ./ sqrt(sum(~isnan(s1_fs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Corret', 'Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex FS')
+ylim([0,1])
+yticks([0,1])
+axs(2,1) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)], ...
+    [nanstd(pfc_rs_justCorrect) ./ sqrt(sum(~isnan(pfc_rs_justCorrect))), ...
+    nanstd(pfc_rs_justIncorrect) ./ sqrt(sum(~isnan(pfc_rs_justIncorrect))), ...
+    nanstd(pfc_rs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)], ...
+    [nanstd(pfc_rs_justAction) ./ sqrt(sum(~isnan(pfc_rs_justAction))), ...
+    nanstd(pfc_rs_justInaction) ./ sqrt(sum(~isnan(pfc_rs_justInaction))), ...
+    nanstd(pfc_rs_actionInaction) ./ sqrt(sum(~isnan(pfc_rs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Corret', 'Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex RS')
+ylim([0,1])
+yticks([0,1])
+axs(2,2) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)], ...
+    [nanstd(pfc_fs_justCorrect) ./ sqrt(sum(~isnan(pfc_fs_justCorrect))), ...
+    nanstd(pfc_fs_justIncorrect) ./ sqrt(sum(~isnan(pfc_fs_justIncorrect))), ...
+    nanstd(pfc_fs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)], ...
+    [nanstd(pfc_fs_justAction) ./ sqrt(sum(~isnan(pfc_fs_justAction))), ...
+    nanstd(pfc_fs_justInaction) ./ sqrt(sum(~isnan(pfc_fs_justInaction))), ...
+    nanstd(pfc_fs_actionInaction) ./ sqrt(sum(~isnan(pfc_fs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Corret', 'Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex FS')
+ylim([0,1])
+yticks([0,1])
+axs(3,1) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)], ...
+    [nanstd(striatum_rs_justCorrect) ./ sqrt(sum(~isnan(striatum_rs_justCorrect))), ...
+    nanstd(striatum_rs_justIncorrect) ./ sqrt(sum(~isnan(striatum_rs_justIncorrect))), ...
+    nanstd(striatum_rs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)], ...
+    [nanstd(striatum_rs_justAction) ./ sqrt(sum(~isnan(striatum_rs_justAction))), ...
+    nanstd(striatum_rs_justInaction) ./ sqrt(sum(~isnan(striatum_rs_justInaction))), ...
+    nanstd(striatum_rs_actionInaction) ./ sqrt(sum(~isnan(striatum_rs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Corret', 'Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
+xtickangle(45)
+title('Striatum RS')
+ylim([0,1])
+yticks([0,1])
+axs(3,2) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)], ...
+    [nanstd(striatum_fs_justCorrect) ./ sqrt(sum(~isnan(striatum_fs_justCorrect))), ...
+    nanstd(striatum_fs_justIncorrect) ./ sqrt(sum(~isnan(striatum_fs_justIncorrect))), ...
+    nanstd(striatum_fs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)], ...
+    [nanstd(striatum_fs_justAction) ./ sqrt(sum(~isnan(striatum_fs_justAction))), ...
+    nanstd(striatum_fs_justInaction) ./ sqrt(sum(~isnan(striatum_fs_justInaction))), ...
+    nanstd(striatum_fs_actionInaction) ./ sqrt(sum(~isnan(striatum_fs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Corret', 'Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
+xtickangle(45)
+title('Striatum FS')
+ylim([0,1])
+mod_by_outcome_fig = figure('Position', [1222 868 869 1035]);
+% tl = tiledlayout(4,2);
+% axs = zeros(4,2);
+tl = tiledlayout(3,2);
+axs = zeros(3,2);
+axs(1,1) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)], ...
+    [nanstd(s1_rs_justCorrect) ./ sqrt(sum(~isnan(s1_rs_justCorrect))), ...
+    nanstd(s1_rs_justIncorrect) ./ sqrt(sum(~isnan(s1_rs_justIncorrect))), ...
+    nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)], ...
+    [nanstd(s1_rs_justAction) ./ sqrt(sum(~isnan(s1_rs_justAction))), ...
+    nanstd(s1_rs_justInaction) ./ sqrt(sum(~isnan(s1_rs_justInaction))), ...
+    nanstd(s1_rs_actionInaction) ./ sqrt(sum(~isnan(s1_rs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex RS')
+ylim([0,1])
+yticks([0,1])
+axs(1,2) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)], ...
+    [nanstd(s1_fs_justCorrect) ./ sqrt(sum(~isnan(s1_fs_justCorrect))), ...
+    nanstd(s1_fs_justIncorrect) ./ sqrt(sum(~isnan(s1_fs_justIncorrect))), ...
+    nanstd(s1_fs_correctIncorrect) ./ sqrt(sum(~isnan(s1_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)], ...
+    [nanstd(s1_fs_justAction) ./ sqrt(sum(~isnan(s1_fs_justAction))), ...
+    nanstd(s1_fs_justInaction) ./ sqrt(sum(~isnan(s1_fs_justInaction))), ...
+    nanstd(s1_fs_actionInaction) ./ sqrt(sum(~isnan(s1_fs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex FS')
+ylim([0,1])
+yticks([0,1])
+axs(2,1) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)], ...
+    [nanstd(pfc_rs_justCorrect) ./ sqrt(sum(~isnan(pfc_rs_justCorrect))), ...
+    nanstd(pfc_rs_justIncorrect) ./ sqrt(sum(~isnan(pfc_rs_justIncorrect))), ...
+    nanstd(pfc_rs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)], ...
+    [nanstd(pfc_rs_justAction) ./ sqrt(sum(~isnan(pfc_rs_justAction))), ...
+    nanstd(pfc_rs_justInaction) ./ sqrt(sum(~isnan(pfc_rs_justInaction))), ...
+    nanstd(pfc_rs_actionInaction) ./ sqrt(sum(~isnan(pfc_rs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex RS')
+ylim([0,1])
+yticks([0,1])
+axs(2,2) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)], ...
+    [nanstd(pfc_fs_justCorrect) ./ sqrt(sum(~isnan(pfc_fs_justCorrect))), ...
+    nanstd(pfc_fs_justIncorrect) ./ sqrt(sum(~isnan(pfc_fs_justIncorrect))), ...
+    nanstd(pfc_fs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)], ...
+    [nanstd(pfc_fs_justAction) ./ sqrt(sum(~isnan(pfc_fs_justAction))), ...
+    nanstd(pfc_fs_justInaction) ./ sqrt(sum(~isnan(pfc_fs_justInaction))), ...
+    nanstd(pfc_fs_actionInaction) ./ sqrt(sum(~isnan(pfc_fs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex FS')
+ylim([0,1])
+yticks([0,1])
+axs(3,1) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)], ...
+    [nanstd(striatum_rs_justCorrect) ./ sqrt(sum(~isnan(striatum_rs_justCorrect))), ...
+    nanstd(striatum_rs_justIncorrect) ./ sqrt(sum(~isnan(striatum_rs_justIncorrect))), ...
+    nanstd(striatum_rs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)], ...
+    [nanstd(striatum_rs_justAction) ./ sqrt(sum(~isnan(striatum_rs_justAction))), ...
+    nanstd(striatum_rs_justInaction) ./ sqrt(sum(~isnan(striatum_rs_justInaction))), ...
+    nanstd(striatum_rs_actionInaction) ./ sqrt(sum(~isnan(striatum_rs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
+xtickangle(45)
+title('Striatum RS')
+ylim([0,1])
+yticks([0,1])
+axs(3,2) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)], ...
+    [nanstd(striatum_fs_justCorrect) ./ sqrt(sum(~isnan(striatum_fs_justCorrect))), ...
+    nanstd(striatum_fs_justIncorrect) ./ sqrt(sum(~isnan(striatum_fs_justIncorrect))), ...
+    nanstd(striatum_fs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)], ...
+    [nanstd(striatum_fs_justAction) ./ sqrt(sum(~isnan(striatum_fs_justAction))), ...
+    nanstd(striatum_fs_justInaction) ./ sqrt(sum(~isnan(striatum_fs_justInaction))), ...
+    nanstd(striatum_fs_actionInaction) ./ sqrt(sum(~isnan(striatum_fs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
+xtickangle(45)
+title('Striatum FS')
+ylim([0,1])
+yticks([0,1])
+xlabel(tl, 'Trial Outcome')
+ylabel(tl, 'Fraction of Modulated Neurons')
+mod_by_outcome_fig = figure('Position', [1222 868 869 1035]);
+% tl = tiledlayout(4,2);
+% axs = zeros(4,2);
+tl = tiledlayout(3,2);
+axs = zeros(3,2);
+axs(1,1) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)], ...
+    [nanstd(s1_rs_justCorrect) ./ sqrt(sum(~isnan(s1_rs_justCorrect))), ...
+    nanstd(s1_rs_justIncorrect) ./ sqrt(sum(~isnan(s1_rs_justIncorrect))), ...
+    nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)], ...
+    [nanstd(s1_rs_justAction) ./ sqrt(sum(~isnan(s1_rs_justAction))), ...
+    nanstd(s1_rs_justInaction) ./ sqrt(sum(~isnan(s1_rs_justInaction))), ...
+    nanstd(s1_rs_actionInaction) ./ sqrt(sum(~isnan(s1_rs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Action', 'Only Inaction', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex RS')
+ylim([0,1])
+yticks([0,1])
+axs(1,2) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)], ...
+    [nanstd(s1_fs_justCorrect) ./ sqrt(sum(~isnan(s1_fs_justCorrect))), ...
+    nanstd(s1_fs_justIncorrect) ./ sqrt(sum(~isnan(s1_fs_justIncorrect))), ...
+    nanstd(s1_fs_correctIncorrect) ./ sqrt(sum(~isnan(s1_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)], ...
+    [nanstd(s1_fs_justAction) ./ sqrt(sum(~isnan(s1_fs_justAction))), ...
+    nanstd(s1_fs_justInaction) ./ sqrt(sum(~isnan(s1_fs_justInaction))), ...
+    nanstd(s1_fs_actionInaction) ./ sqrt(sum(~isnan(s1_fs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Action', 'Only Inaction', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex FS')
+ylim([0,1])
+yticks([0,1])
+axs(2,1) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)], ...
+    [nanstd(pfc_rs_justCorrect) ./ sqrt(sum(~isnan(pfc_rs_justCorrect))), ...
+    nanstd(pfc_rs_justIncorrect) ./ sqrt(sum(~isnan(pfc_rs_justIncorrect))), ...
+    nanstd(pfc_rs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)], ...
+    [nanstd(pfc_rs_justAction) ./ sqrt(sum(~isnan(pfc_rs_justAction))), ...
+    nanstd(pfc_rs_justInaction) ./ sqrt(sum(~isnan(pfc_rs_justInaction))), ...
+    nanstd(pfc_rs_actionInaction) ./ sqrt(sum(~isnan(pfc_rs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Action', 'Only Inaction', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex RS')
+ylim([0,1])
+yticks([0,1])
+axs(2,2) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)], ...
+    [nanstd(pfc_fs_justCorrect) ./ sqrt(sum(~isnan(pfc_fs_justCorrect))), ...
+    nanstd(pfc_fs_justIncorrect) ./ sqrt(sum(~isnan(pfc_fs_justIncorrect))), ...
+    nanstd(pfc_fs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)], ...
+    [nanstd(pfc_fs_justAction) ./ sqrt(sum(~isnan(pfc_fs_justAction))), ...
+    nanstd(pfc_fs_justInaction) ./ sqrt(sum(~isnan(pfc_fs_justInaction))), ...
+    nanstd(pfc_fs_actionInaction) ./ sqrt(sum(~isnan(pfc_fs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Action', 'Only Inaction', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex FS')
+ylim([0,1])
+yticks([0,1])
+axs(3,1) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)], ...
+    [nanstd(striatum_rs_justCorrect) ./ sqrt(sum(~isnan(striatum_rs_justCorrect))), ...
+    nanstd(striatum_rs_justIncorrect) ./ sqrt(sum(~isnan(striatum_rs_justIncorrect))), ...
+    nanstd(striatum_rs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)], ...
+    [nanstd(striatum_rs_justAction) ./ sqrt(sum(~isnan(striatum_rs_justAction))), ...
+    nanstd(striatum_rs_justInaction) ./ sqrt(sum(~isnan(striatum_rs_justInaction))), ...
+    nanstd(striatum_rs_actionInaction) ./ sqrt(sum(~isnan(striatum_rs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Action', 'Only Inaction', 'Both'})
+xtickangle(45)
+title('Striatum RS')
+ylim([0,1])
+yticks([0,1])
+axs(3,2) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)], ...
+    [nanstd(striatum_fs_justCorrect) ./ sqrt(sum(~isnan(striatum_fs_justCorrect))), ...
+    nanstd(striatum_fs_justIncorrect) ./ sqrt(sum(~isnan(striatum_fs_justIncorrect))), ...
+    nanstd(striatum_fs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)], ...
+    [nanstd(striatum_fs_justAction) ./ sqrt(sum(~isnan(striatum_fs_justAction))), ...
+    nanstd(striatum_fs_justInaction) ./ sqrt(sum(~isnan(striatum_fs_justInaction))), ...
+    nanstd(striatum_fs_actionInaction) ./ sqrt(sum(~isnan(striatum_fs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Action', 'Only Inaction', 'Both'})
+xtickangle(45)
+title('Striatum FS')
+ylim([0,1])
+mod_by_outcome_fig = figure('Position', [1222 868 869 1035]);
+% tl = tiledlayout(4,2);
+% axs = zeros(4,2);
+tl = tiledlayout(3,2);
+axs = zeros(3,2);
+axs(1,1) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)], ...
+    [nanstd(s1_rs_justCorrect) ./ sqrt(sum(~isnan(s1_rs_justCorrect))), ...
+    nanstd(s1_rs_justIncorrect) ./ sqrt(sum(~isnan(s1_rs_justIncorrect))), ...
+    nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)], ...
+    [nanstd(s1_rs_justAction) ./ sqrt(sum(~isnan(s1_rs_justAction))), ...
+    nanstd(s1_rs_justInaction) ./ sqrt(sum(~isnan(s1_rs_justInaction))), ...
+    nanstd(s1_rs_actionInaction) ./ sqrt(sum(~isnan(s1_rs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex RS')
+ylim([0,1])
+yticks([0,1])
+axs(1,2) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)], ...
+    [nanstd(s1_fs_justCorrect) ./ sqrt(sum(~isnan(s1_fs_justCorrect))), ...
+    nanstd(s1_fs_justIncorrect) ./ sqrt(sum(~isnan(s1_fs_justIncorrect))), ...
+    nanstd(s1_fs_correctIncorrect) ./ sqrt(sum(~isnan(s1_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)], ...
+    [nanstd(s1_fs_justAction) ./ sqrt(sum(~isnan(s1_fs_justAction))), ...
+    nanstd(s1_fs_justInaction) ./ sqrt(sum(~isnan(s1_fs_justInaction))), ...
+    nanstd(s1_fs_actionInaction) ./ sqrt(sum(~isnan(s1_fs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex FS')
+ylim([0,1])
+yticks([0,1])
+axs(2,1) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)], ...
+    [nanstd(pfc_rs_justCorrect) ./ sqrt(sum(~isnan(pfc_rs_justCorrect))), ...
+    nanstd(pfc_rs_justIncorrect) ./ sqrt(sum(~isnan(pfc_rs_justIncorrect))), ...
+    nanstd(pfc_rs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)], ...
+    [nanstd(pfc_rs_justAction) ./ sqrt(sum(~isnan(pfc_rs_justAction))), ...
+    nanstd(pfc_rs_justInaction) ./ sqrt(sum(~isnan(pfc_rs_justInaction))), ...
+    nanstd(pfc_rs_actionInaction) ./ sqrt(sum(~isnan(pfc_rs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex RS')
+ylim([0,1])
+yticks([0,1])
+axs(2,2) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)], ...
+    [nanstd(pfc_fs_justCorrect) ./ sqrt(sum(~isnan(pfc_fs_justCorrect))), ...
+    nanstd(pfc_fs_justIncorrect) ./ sqrt(sum(~isnan(pfc_fs_justIncorrect))), ...
+    nanstd(pfc_fs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)], ...
+    [nanstd(pfc_fs_justAction) ./ sqrt(sum(~isnan(pfc_fs_justAction))), ...
+    nanstd(pfc_fs_justInaction) ./ sqrt(sum(~isnan(pfc_fs_justInaction))), ...
+    nanstd(pfc_fs_actionInaction) ./ sqrt(sum(~isnan(pfc_fs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex FS')
+ylim([0,1])
+yticks([0,1])
+axs(3,1) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)], ...
+    [nanstd(striatum_rs_justCorrect) ./ sqrt(sum(~isnan(striatum_rs_justCorrect))), ...
+    nanstd(striatum_rs_justIncorrect) ./ sqrt(sum(~isnan(striatum_rs_justIncorrect))), ...
+    nanstd(striatum_rs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)], ...
+    [nanstd(striatum_rs_justAction) ./ sqrt(sum(~isnan(striatum_rs_justAction))), ...
+    nanstd(striatum_rs_justInaction) ./ sqrt(sum(~isnan(striatum_rs_justInaction))), ...
+    nanstd(striatum_rs_actionInaction) ./ sqrt(sum(~isnan(striatum_rs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Striatum RS')
+ylim([0,1])
+yticks([0,1])
+axs(3,2) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)], ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)], ...
+    [nanstd(striatum_fs_justCorrect) ./ sqrt(sum(~isnan(striatum_fs_justCorrect))), ...
+    nanstd(striatum_fs_justIncorrect) ./ sqrt(sum(~isnan(striatum_fs_justIncorrect))), ...
+    nanstd(striatum_fs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)], ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)], ...
+    [nanstd(striatum_fs_justAction) ./ sqrt(sum(~isnan(striatum_fs_justAction))), ...
+    nanstd(striatum_fs_justInaction) ./ sqrt(sum(~isnan(striatum_fs_justInaction))), ...
+    nanstd(striatum_fs_actionInaction) ./ sqrt(sum(~isnan(striatum_fs_actionInaction)))], 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Striatum FS')
+ylim([0,1])
+yticks([0,1])
+close all
+mod_by_outcome_fig = figure('Position', [1222 868 869 1035]);
+% tl = tiledlayout(4,2);
+% axs = zeros(4,2);
+tl = tiledlayout(3,2);
+axs = zeros(3,2);
+axs(1,1) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] . * 100, ...
+ bar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] . * 100, ...
+                                                                                                      |
+{Invalid use of operator.
+} 
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+      'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+                                                            |
+{Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched delimiters.
+} 
+errorbar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] . * 100, ...
+ errorbar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] . * 100, ...
+                                                                                                           |
+{Invalid use of operator.
+} 
+    [nanstd(s1_rs_justCorrect) ./ sqrt(sum(~isnan(s1_rs_justCorrect))), ...
+    nanstd(s1_rs_justIncorrect) ./ sqrt(sum(~isnan(s1_rs_justIncorrect))), ...
+    nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))] . * 100, 'k.')
+     nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))] . * 100, 'k.')
+                                                                                  |
+{Invalid use of operator.
+} 
+bar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] . * 100, ...
+ bar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] . * 100, ...
+                                                                                                  |
+{Invalid use of operator.
+} 
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+                                                           |
+{Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched delimiters.
+} 
+errorbar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] . * 100, ...
+ errorbar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] . * 100, ...
+                                                                                                       |
+{Invalid use of operator.
+} 
+    [nanstd(s1_rs_justAction) ./ sqrt(sum(~isnan(s1_rs_justAction))), ...
+    nanstd(s1_rs_justInaction) ./ sqrt(sum(~isnan(s1_rs_justInaction))), ...
+    nanstd(s1_rs_actionInaction) ./ sqrt(sum(~isnan(s1_rs_actionInaction)))] . * 100, 'k.')
+     nanstd(s1_rs_actionInaction) ./ sqrt(sum(~isnan(s1_rs_actionInaction)))] . * 100, 'k.')
+                                                                              |
+{Invalid use of operator.
+} 
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex RS')
+ylim([0,1])
+yticks([0,1])
+mod_by_outcome_fig = figure('Position', [1222 868 869 1035]);
+% tl = tiledlayout(4,2);
+% axs = zeros(4,2);
+tl = tiledlayout(3,2);
+axs = zeros(3,2);
+axs(1,1) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] * 100, ...
+    [nanstd(s1_rs_justCorrect) ./ sqrt(sum(~isnan(s1_rs_justCorrect))), ...
+    nanstd(s1_rs_justIncorrect) ./ sqrt(sum(~isnan(s1_rs_justIncorrect))), ...
+    nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] * 100, ...
+    [nanstd(s1_rs_justAction) ./ sqrt(sum(~isnan(s1_rs_justAction))), ...
+    nanstd(s1_rs_justInaction) ./ sqrt(sum(~isnan(s1_rs_justInaction))), ...
+    nanstd(s1_rs_actionInaction) ./ sqrt(sum(~isnan(s1_rs_actionInaction)))] * 100, 'k.')
+close all
+mod_by_outcome_fig = figure('Position', [1222 868 869 1035]);
+% tl = tiledlayout(4,2);
+% axs = zeros(4,2);
+tl = tiledlayout(3,2);
+axs = zeros(3,2);
+axs(1,1) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] * 100, ...
+    [nanstd(s1_rs_justCorrect) ./ sqrt(sum(~isnan(s1_rs_justCorrect))), ...
+    nanstd(s1_rs_justIncorrect) ./ sqrt(sum(~isnan(s1_rs_justIncorrect))), ...
+    nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] * 100, ...
+    [nanstd(s1_rs_justAction) ./ sqrt(sum(~isnan(s1_rs_justAction))), ...
+    nanstd(s1_rs_justInaction) ./ sqrt(sum(~isnan(s1_rs_justInaction))), ...
+    nanstd(s1_rs_actionInaction) ./ sqrt(sum(~isnan(s1_rs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex RS')
+ylim([0,100])
+yticks([0,100])
+axs(1,2) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)] * 100, ...
+    [nanstd(s1_fs_justCorrect) ./ sqrt(sum(~isnan(s1_fs_justCorrect))), ...
+    nanstd(s1_fs_justIncorrect) ./ sqrt(sum(~isnan(s1_fs_justIncorrect))), ...
+    nanstd(s1_fs_correctIncorrect) ./ sqrt(sum(~isnan(s1_fs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)] * 100, ...
+    [nanstd(s1_fs_justAction) ./ sqrt(sum(~isnan(s1_fs_justAction))), ...
+    nanstd(s1_fs_justInaction) ./ sqrt(sum(~isnan(s1_fs_justInaction))), ...
+    nanstd(s1_fs_actionInaction) ./ sqrt(sum(~isnan(s1_fs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex FS')
+ylim([0,100])
+yticks([0,100])
+axs(2,1) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)] * 100, ...
+    [nanstd(pfc_rs_justCorrect) ./ sqrt(sum(~isnan(pfc_rs_justCorrect))), ...
+    nanstd(pfc_rs_justIncorrect) ./ sqrt(sum(~isnan(pfc_rs_justIncorrect))), ...
+    nanstd(pfc_rs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)] * 100, ...
+    [nanstd(pfc_rs_justAction) ./ sqrt(sum(~isnan(pfc_rs_justAction))), ...
+    nanstd(pfc_rs_justInaction) ./ sqrt(sum(~isnan(pfc_rs_justInaction))), ...
+    nanstd(pfc_rs_actionInaction) ./ sqrt(sum(~isnan(pfc_rs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex RS')
+ylim([0,1])
+yticks([0,1])
+axs(2,2) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)] * 100, ...
+    [nanstd(pfc_fs_justCorrect) ./ sqrt(sum(~isnan(pfc_fs_justCorrect))), ...
+    nanstd(pfc_fs_justIncorrect) ./ sqrt(sum(~isnan(pfc_fs_justIncorrect))), ...
+    nanstd(pfc_fs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)] * 100, ...
+    [nanstd(pfc_fs_justAction) ./ sqrt(sum(~isnan(pfc_fs_justAction))), ...
+    nanstd(pfc_fs_justInaction) ./ sqrt(sum(~isnan(pfc_fs_justInaction))), ...
+    nanstd(pfc_fs_actionInaction) ./ sqrt(sum(~isnan(pfc_fs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex FS')
+ylim([0,1])
+yticks([0,1])
+axs(3,1) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)] * 100, ...
+    [nanstd(striatum_rs_justCorrect) ./ sqrt(sum(~isnan(striatum_rs_justCorrect))), ...
+    nanstd(striatum_rs_justIncorrect) ./ sqrt(sum(~isnan(striatum_rs_justIncorrect))), ...
+    nanstd(striatum_rs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)] * 100, ...
+    [nanstd(striatum_rs_justAction) ./ sqrt(sum(~isnan(striatum_rs_justAction))), ...
+    nanstd(striatum_rs_justInaction) ./ sqrt(sum(~isnan(striatum_rs_justInaction))), ...
+    nanstd(striatum_rs_actionInaction) ./ sqrt(sum(~isnan(striatum_rs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Striatum RS')
+ylim([0,1])
+yticks([0,1])
+axs(3,2) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)] * 100, ...
+    [nanstd(striatum_fs_justCorrect) ./ sqrt(sum(~isnan(striatum_fs_justCorrect))), ...
+    nanstd(striatum_fs_justIncorrect) ./ sqrt(sum(~isnan(striatum_fs_justIncorrect))), ...
+    nanstd(striatum_fs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_fs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)] * 100, ...
+    [nanstd(striatum_fs_justAction) ./ sqrt(sum(~isnan(striatum_fs_justAction))), ...
+    nanstd(striatum_fs_justInaction) ./ sqrt(sum(~isnan(striatum_fs_justInaction))), ...
+    nanstd(striatum_fs_actionInaction) ./ sqrt(sum(~isnan(striatum_fs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Striatum FS')
+ylim([0,1])
+yticks([0,1])
+mod_by_outcome_fig = figure('Position', [1222 868 869 1035]);
+% tl = tiledlayout(4,2);
+% axs = zeros(4,2);
+tl = tiledlayout(3,2);
+axs = zeros(3,2);
+axs(1,1) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] * 100, ...
+    [nanstd(s1_rs_justCorrect) ./ sqrt(sum(~isnan(s1_rs_justCorrect))), ...
+    nanstd(s1_rs_justIncorrect) ./ sqrt(sum(~isnan(s1_rs_justIncorrect))), ...
+    nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] * 100, ...
+    [nanstd(s1_rs_justAction) ./ sqrt(sum(~isnan(s1_rs_justAction))), ...
+    nanstd(s1_rs_justInaction) ./ sqrt(sum(~isnan(s1_rs_justInaction))), ...
+    nanstd(s1_rs_actionInaction) ./ sqrt(sum(~isnan(s1_rs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex RS')
+ylim([0,100])
+yticks([0,100])
+axs(1,2) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)] * 100, ...
+    [nanstd(s1_fs_justCorrect) ./ sqrt(sum(~isnan(s1_fs_justCorrect))), ...
+    nanstd(s1_fs_justIncorrect) ./ sqrt(sum(~isnan(s1_fs_justIncorrect))), ...
+    nanstd(s1_fs_correctIncorrect) ./ sqrt(sum(~isnan(s1_fs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)] * 100, ...
+    [nanstd(s1_fs_justAction) ./ sqrt(sum(~isnan(s1_fs_justAction))), ...
+    nanstd(s1_fs_justInaction) ./ sqrt(sum(~isnan(s1_fs_justInaction))), ...
+    nanstd(s1_fs_actionInaction) ./ sqrt(sum(~isnan(s1_fs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex FS')
+ylim([0,100])
+yticks([0,100])
+axs(2,1) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)] * 100, ...
+    [nanstd(pfc_rs_justCorrect) ./ sqrt(sum(~isnan(pfc_rs_justCorrect))), ...
+    nanstd(pfc_rs_justIncorrect) ./ sqrt(sum(~isnan(pfc_rs_justIncorrect))), ...
+    nanstd(pfc_rs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)] * 100, ...
+    [nanstd(pfc_rs_justAction) ./ sqrt(sum(~isnan(pfc_rs_justAction))), ...
+    nanstd(pfc_rs_justInaction) ./ sqrt(sum(~isnan(pfc_rs_justInaction))), ...
+    nanstd(pfc_rs_actionInaction) ./ sqrt(sum(~isnan(pfc_rs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex RS')
+ylim([0,100])
+yticks([0,100])
+axs(2,2) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)] * 100, ...
+    [nanstd(pfc_fs_justCorrect) ./ sqrt(sum(~isnan(pfc_fs_justCorrect))), ...
+    nanstd(pfc_fs_justIncorrect) ./ sqrt(sum(~isnan(pfc_fs_justIncorrect))), ...
+    nanstd(pfc_fs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_fs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)] * 100, ...
+    [nanstd(pfc_fs_justAction) ./ sqrt(sum(~isnan(pfc_fs_justAction))), ...
+    nanstd(pfc_fs_justInaction) ./ sqrt(sum(~isnan(pfc_fs_justInaction))), ...
+    nanstd(pfc_fs_actionInaction) ./ sqrt(sum(~isnan(pfc_fs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex FS')
+ylim([0,100])
+yticks([0,100])
+axs(3,1) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)] * 100, ...
+    [nanstd(striatum_rs_justCorrect) ./ sqrt(sum(~isnan(striatum_rs_justCorrect))), ...
+    nanstd(striatum_rs_justIncorrect) ./ sqrt(sum(~isnan(striatum_rs_justIncorrect))), ...
+    nanstd(striatum_rs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)] * 100, ...
+    [nanstd(striatum_rs_justAction) ./ sqrt(sum(~isnan(striatum_rs_justAction))), ...
+    nanstd(striatum_rs_justInaction) ./ sqrt(sum(~isnan(striatum_rs_justInaction))), ...
+    nanstd(striatum_rs_actionInaction) ./ sqrt(sum(~isnan(striatum_rs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Striatum RS')
+ylim([0,100])
+yticks([0,100])
+axs(3,2) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)] * 100, ...
+    [nanstd(striatum_fs_justCorrect) ./ sqrt(sum(~isnan(striatum_fs_justCorrect))), ...
+    nanstd(striatum_fs_justIncorrect) ./ sqrt(sum(~isnan(striatum_fs_justIncorrect))), ...
+    nanstd(striatum_fs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_fs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)] * 100, ...
+    [nanstd(striatum_fs_justAction) ./ sqrt(sum(~isnan(striatum_fs_justAction))), ...
+    nanstd(striatum_fs_justInaction) ./ sqrt(sum(~isnan(striatum_fs_justInaction))), ...
+    nanstd(striatum_fs_actionInaction) ./ sqrt(sum(~isnan(striatum_fs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Striatum FS')
+ylim([0,100])
+yticks([0,100])
+mod_by_outcome_fig = figure('Position', [1222 868 869 1035]);
+% tl = tiledlayout(4,2);
+% axs = zeros(4,2);
+tl = tiledlayout(3,2);
+axs = zeros(3,2);
+axs(1,1) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] * 100, ...
+    [nanstd(s1_rs_justCorrect) ./ sqrt(sum(~isnan(s1_rs_justCorrect))), ...
+    nanstd(s1_rs_justIncorrect) ./ sqrt(sum(~isnan(s1_rs_justIncorrect))), ...
+    nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] * 100, ...
+    [nanstd(s1_rs_justAction) ./ sqrt(sum(~isnan(s1_rs_justAction))), ...
+    nanstd(s1_rs_justInaction) ./ sqrt(sum(~isnan(s1_rs_justInaction))), ...
+    nanstd(s1_rs_actionInaction) ./ sqrt(sum(~isnan(s1_rs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex RS')
+ylim([0,100])
+yticks([0,100])
+axs(1,2) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)] * 100, ...
+    [nanstd(s1_fs_justCorrect) ./ sqrt(sum(~isnan(s1_fs_justCorrect))), ...
+    nanstd(s1_fs_justIncorrect) ./ sqrt(sum(~isnan(s1_fs_justIncorrect))), ...
+    nanstd(s1_fs_correctIncorrect) ./ sqrt(sum(~isnan(s1_fs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)] * 100, ...
+    [nanstd(s1_fs_justAction) ./ sqrt(sum(~isnan(s1_fs_justAction))), ...
+    nanstd(s1_fs_justInaction) ./ sqrt(sum(~isnan(s1_fs_justInaction))), ...
+    nanstd(s1_fs_actionInaction) ./ sqrt(sum(~isnan(s1_fs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex FS')
+ylim([0,100])
+yticks([0,100])
+axs(2,1) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)] * 100, ...
+    [nanstd(pfc_rs_justCorrect) ./ sqrt(sum(~isnan(pfc_rs_justCorrect))), ...
+    nanstd(pfc_rs_justIncorrect) ./ sqrt(sum(~isnan(pfc_rs_justIncorrect))), ...
+    nanstd(pfc_rs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_rs_correctIncorrect)))], 'k.')
+bar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)] * 100, ...
+    [nanstd(pfc_rs_justAction) ./ sqrt(sum(~isnan(pfc_rs_justAction))), ...
+    nanstd(pfc_rs_justInaction) ./ sqrt(sum(~isnan(pfc_rs_justInaction))), ...
+    nanstd(pfc_rs_actionInaction) ./ sqrt(sum(~isnan(pfc_rs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex RS')
+ylim([0,100])
+yticks([0,100])
+axs(2,2) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)] * 100, ...
+    [nanstd(pfc_fs_justCorrect) ./ sqrt(sum(~isnan(pfc_fs_justCorrect))), ...
+    nanstd(pfc_fs_justIncorrect) ./ sqrt(sum(~isnan(pfc_fs_justIncorrect))), ...
+    nanstd(pfc_fs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_fs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)] * 100, ...
+    [nanstd(pfc_fs_justAction) ./ sqrt(sum(~isnan(pfc_fs_justAction))), ...
+    nanstd(pfc_fs_justInaction) ./ sqrt(sum(~isnan(pfc_fs_justInaction))), ...
+    nanstd(pfc_fs_actionInaction) ./ sqrt(sum(~isnan(pfc_fs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex FS')
+ylim([0,100])
+yticks([0,100])
+axs(3,1) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)] * 100, ...
+    [nanstd(striatum_rs_justCorrect) ./ sqrt(sum(~isnan(striatum_rs_justCorrect))), ...
+    nanstd(striatum_rs_justIncorrect) ./ sqrt(sum(~isnan(striatum_rs_justIncorrect))), ...
+    nanstd(striatum_rs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_rs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)] * 100, ...
+    [nanstd(striatum_rs_justAction) ./ sqrt(sum(~isnan(striatum_rs_justAction))), ...
+    nanstd(striatum_rs_justInaction) ./ sqrt(sum(~isnan(striatum_rs_justInaction))), ...
+    nanstd(striatum_rs_actionInaction) ./ sqrt(sum(~isnan(striatum_rs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Striatum RS')
+ylim([0,100])
+yticks([0,100])
+axs(3,2) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)] * 100, ...
+    [nanstd(striatum_fs_justCorrect) ./ sqrt(sum(~isnan(striatum_fs_justCorrect))), ...
+    nanstd(striatum_fs_justIncorrect) ./ sqrt(sum(~isnan(striatum_fs_justIncorrect))), ...
+    nanstd(striatum_fs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_fs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)] * 100, ...
+    [nanstd(striatum_fs_justAction) ./ sqrt(sum(~isnan(striatum_fs_justAction))), ...
+    nanstd(striatum_fs_justInaction) ./ sqrt(sum(~isnan(striatum_fs_justInaction))), ...
+    nanstd(striatum_fs_actionInaction) ./ sqrt(sum(~isnan(striatum_fs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Striatum FS')
+ylim([0,100])
+yticks([0,100])
+mod_by_outcome_fig = figure('Position', [1222 868 869 1035]);
+% tl = tiledlayout(4,2);
+% axs = zeros(4,2);
+tl = tiledlayout(3,2);
+axs = zeros(3,2);
+axs(1,1) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] * 100, ...
+    [nanstd(s1_rs_justCorrect) ./ sqrt(sum(~isnan(s1_rs_justCorrect))), ...
+    nanstd(s1_rs_justIncorrect) ./ sqrt(sum(~isnan(s1_rs_justIncorrect))), ...
+    nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] * 100, ...
+    [nanstd(s1_rs_justAction) ./ sqrt(sum(~isnan(s1_rs_justAction))), ...
+    nanstd(s1_rs_justInaction) ./ sqrt(sum(~isnan(s1_rs_justInaction))), ...
+    nanstd(s1_rs_actionInaction) ./ sqrt(sum(~isnan(s1_rs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex RS')
+ylim([0,100])
+yticks([0,100])
+axs(1,2) = nexttile;
+hold on
+bar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)] * 100, ...
+    [nanstd(s1_fs_justCorrect) ./ sqrt(sum(~isnan(s1_fs_justCorrect))), ...
+    nanstd(s1_fs_justIncorrect) ./ sqrt(sum(~isnan(s1_fs_justIncorrect))), ...
+    nanstd(s1_fs_correctIncorrect) ./ sqrt(sum(~isnan(s1_fs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)] * 100, ...
+    [nanstd(s1_fs_justAction) ./ sqrt(sum(~isnan(s1_fs_justAction))), ...
+    nanstd(s1_fs_justInaction) ./ sqrt(sum(~isnan(s1_fs_justInaction))), ...
+    nanstd(s1_fs_actionInaction) ./ sqrt(sum(~isnan(s1_fs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Somatosensory Cortex FS')
+ylim([0,100])
+yticks([0,100])
+axs(2,1) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)] * 100, ...
+    [nanstd(pfc_rs_justCorrect) ./ sqrt(sum(~isnan(pfc_rs_justCorrect))), ...
+    nanstd(pfc_rs_justIncorrect) ./ sqrt(sum(~isnan(pfc_rs_justIncorrect))), ...
+    nanstd(pfc_rs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_rs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)] * 100, ...
+    [nanstd(pfc_rs_justAction) ./ sqrt(sum(~isnan(pfc_rs_justAction))), ...
+    nanstd(pfc_rs_justInaction) ./ sqrt(sum(~isnan(pfc_rs_justInaction))), ...
+    nanstd(pfc_rs_actionInaction) ./ sqrt(sum(~isnan(pfc_rs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex RS')
+ylim([0,100])
+yticks([0,100])
+axs(2,2) = nexttile;
+hold on
+bar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)] * 100, ...
+    [nanstd(pfc_fs_justCorrect) ./ sqrt(sum(~isnan(pfc_fs_justCorrect))), ...
+    nanstd(pfc_fs_justIncorrect) ./ sqrt(sum(~isnan(pfc_fs_justIncorrect))), ...
+    nanstd(pfc_fs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_fs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)] * 100, ...
+    [nanstd(pfc_fs_justAction) ./ sqrt(sum(~isnan(pfc_fs_justAction))), ...
+    nanstd(pfc_fs_justInaction) ./ sqrt(sum(~isnan(pfc_fs_justInaction))), ...
+    nanstd(pfc_fs_actionInaction) ./ sqrt(sum(~isnan(pfc_fs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Prefrontal Cortex FS')
+ylim([0,100])
+yticks([0,100])
+axs(3,1) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)] * 100, ...
+    [nanstd(striatum_rs_justCorrect) ./ sqrt(sum(~isnan(striatum_rs_justCorrect))), ...
+    nanstd(striatum_rs_justIncorrect) ./ sqrt(sum(~isnan(striatum_rs_justIncorrect))), ...
+    nanstd(striatum_rs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_rs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)] * 100, ...
+    [nanstd(striatum_rs_justAction) ./ sqrt(sum(~isnan(striatum_rs_justAction))), ...
+    nanstd(striatum_rs_justInaction) ./ sqrt(sum(~isnan(striatum_rs_justInaction))), ...
+    nanstd(striatum_rs_actionInaction) ./ sqrt(sum(~isnan(striatum_rs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Striatum RS')
+ylim([0,100])
+yticks([0,100])
+axs(3,2) = nexttile;
+hold on
+bar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)] * 100, ...
+     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)] * 100, ...
+    [nanstd(striatum_fs_justCorrect) ./ sqrt(sum(~isnan(striatum_fs_justCorrect))), ...
+    nanstd(striatum_fs_justIncorrect) ./ sqrt(sum(~isnan(striatum_fs_justIncorrect))), ...
+    nanstd(striatum_fs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_fs_correctIncorrect)))] * 100, 'k.')
+bar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)] * 100, ...
+    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+errorbar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)] * 100, ...
+    [nanstd(striatum_fs_justAction) ./ sqrt(sum(~isnan(striatum_fs_justAction))), ...
+    nanstd(striatum_fs_justInaction) ./ sqrt(sum(~isnan(striatum_fs_justInaction))), ...
+    nanstd(striatum_fs_actionInaction) ./ sqrt(sum(~isnan(striatum_fs_actionInaction)))] * 100, 'k.')
+xticks([1:3,6:8])
+xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
+xtickangle(45)
+title('Striatum FS')
+ylim([0,100])
+yticks([0,100])
+yticks([0,100])
+xlabel(tl, 'Trial Outcome')
+ylabel(tl, '% Alpha Modulated Neurons')
+
+close all
+clear
+init_paths;
+s1_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/');
+example1_file = strcat(s1_path, 'date--2024-02-15_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_207.fig');
+openfig(example1_file)
+{Error using load
+Unable to find file or directory
+'/home/craig/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/date--2024-02-15_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_207.fig'.
+
+Error in matlab.graphics.internal.figfile.FigFile/read (line 28)
+hgDataVars = load(filename, '-mat', '-regexp', '^(hg[M]|meta_data)');
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in matlab.graphics.internal.figfile.FigFile
+
+Error in loadFigure (line 31)
+FF = matlab.graphics.internal.figfile.FigFile(fullpath);
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in openfig>localOpenFigure (line 75)
+    h = loadFigure(filename, visibleAction);
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in openfig (line 40)
+figOut = localOpenFigure(filename, reuse, visibleAction);
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+} 
+example1_file = strcat(s1_path, 'Correct_vs_Incorrect/date--2024-02-15_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_207.fig');
+openfig(example1_file)
+
+ans = 
+
+  Figure (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [1220 1229 1401 582]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+set(gcf, 'Visible', 'on')
+unifyYLimits(gcf)
+example_file = strcat(s1_path, 'Correct_vs_Incorrect/date--2024-07-13_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_254.fig');
+fig = openfig(example_file);
+unifyYLimits(fig);
+saveas(fig, '../Figures/correct_incorrect_example1.svg')
+saveas(fig, '../Figures/correct_incorrect_example1.fig')
+close()
+example_file = strcat(s1_path, 'Correct_vs_Incorrect/date--2024-07-13_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_254.fig');
+fig = openfig(example_file);
+unifyYLimits(fig);
+set(fig, 'Visible', 'on')
+example_file = strcat(pfc_path, 'Correct_vs_Incorrect/date--2024-09-07_subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_146.fig');
+{Unrecognized function or variable 'pfc_path'.
+} 
