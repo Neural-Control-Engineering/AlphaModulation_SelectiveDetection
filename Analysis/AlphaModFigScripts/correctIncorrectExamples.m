@@ -28,17 +28,17 @@ saveas(fig, '../Figures/action_inaction_example2.svg')
 saveas(fig, '../Figures/action_inaction_example2.fig')
 close()
 
-% example_file = strcat(pfc_path, 'Correct_vs_Incorrect/date--2024-09-07_subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_146.fig');
-example_file = strcat(pfc_path, 'Correct_vs_Incorrect/date--2024-09-07_subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_282.fig');
+example_file = strcat(pfc_path, 'Correct_vs_Incorrect/date--2024-09-07_subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_146.fig');
+% example_file = strcat(pfc_path, 'Correct_vs_Incorrect/date--2024-09-07_subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_282.fig');
 % example_file = strcat(pfc_path, 'Correct_vs_Incorrect/date--2024-12-20_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0_cluster_122.fig');
 fig = openfig(example_file);
 unifyYLimits(fig);
-% set(fig, 'Visible', 'on')
+set(fig, 'Visible', 'on')
 saveas(fig, '../Figures/correct_incorrect_example3.svg')
 saveas(fig, '../Figures/correct_incorrect_example3.fig')
 close()
-% example_file = strcat(pfc_path, 'Action_vs_Inaction/date--2024-09-07_subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_146.fig');
-example_file = strcat(pfc_path, 'Action_vs_Inaction/date--2024-09-07_subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_282.fig');
+example_file = strcat(pfc_path, 'Action_vs_Inaction/date--2024-09-07_subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_146.fig');
+% example_file = strcat(pfc_path, 'Action_vs_Inaction/date--2024-09-07_subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_cluster_282.fig');
 % example_file = strcat(pfc_path, 'Action_vs_Inaction/date--2024-12-20_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0_cluster_122.fig');
 fig = openfig(example_file);
 unifyYLimits(fig);
