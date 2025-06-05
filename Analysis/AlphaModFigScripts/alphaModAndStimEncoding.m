@@ -1,5 +1,5 @@
-delete Stats/phase_mod_summaries.txt 
-diary Stats/phase_mod_summaries.txt 
+delete Stats/phase_mod_stim_encoding.txt 
+diary Stats/phase_mod_stim_encoding.txt 
 
 addpath(genpath('~/circstat-matlab/'))
 init_paths;

@@ -104,6 +104,7 @@ end
 s1_sessions = unique(S1.session_id);
 s1_rs_fracs = zeros(1,length(s1_sessions));
 s1_fs_fracs = zeros(1,length(s1_sessions));
+s1_combo_fracs = zeros(1,length(s1_sessions));
 s1_ts_fracs = zeros(1,length(s1_sessions));
 s1_ps_fracs = zeros(1,length(s1_sessions));
 s1_action_fractions = zeros(1,length(s1_sessions));
@@ -116,6 +117,7 @@ for s = 1:length(s1_sessions)
     tmp_all = S1(strcmp(S1.session_id, session_id),:);
     s1_rs_fracs(s) = sum(strcmp(tmp.waveform_class, 'RS')) / sum(strcmp(tmp_all.waveform_class, 'RS'));
     s1_fs_fracs(s) = sum(strcmp(tmp.waveform_class, 'FS')) / sum(strcmp(tmp_all.waveform_class, 'FS'));
+    s1_combo_fracs(s) = (sum(strcmp(tmp.waveform_class, 'FS')) + sum(strcmp(tmp.waveform_class, 'RS'))) / (sum(strcmp(tmp_all.waveform_class, 'FS')) + sum(strcmp(tmp_all.waveform_class, 'RS')));
     s1_ts_fracs(s) = sum(strcmp(tmp.waveform_class, 'TS')) / sum(strcmp(tmp_all.waveform_class, 'TS'));
     s1_ps_fracs(s) = sum(strcmp(tmp.waveform_class, 'PS')) / sum(strcmp(tmp_all.waveform_class, 'PS'));
     s1_justAction_fractions(s) = sum(tmp.p_action < s1.out.overall_p_threshold & tmp.p_inaction > s1.out.overall_p_threshold) / size(tmp,1);
@@ -143,6 +145,7 @@ end
 striatum_sessions = unique(Striatum.session_id);
 striatum_rs_fracs = zeros(1,length(striatum_sessions));
 striatum_fs_fracs = zeros(1,length(striatum_sessions));
+striatum_combo_fracs = zeros(1,length(striatum_sessions));
 striatum_ts_fracs = zeros(1,length(striatum_sessions));
 striatum_ps_fracs = zeros(1,length(striatum_sessions));
 striatum_action_fractions = zeros(1,length(striatum_sessions));
@@ -155,6 +158,7 @@ for s = 1:length(striatum_sessions)
     tmp_all = Striatum(strcmp(Striatum.session_id, session_id),:);
     striatum_rs_fracs(s) = sum(strcmp(tmp.waveform_class, 'RS')) / sum(strcmp(tmp_all.waveform_class, 'RS'));
     striatum_fs_fracs(s) = sum(strcmp(tmp.waveform_class, 'FS')) / sum(strcmp(tmp_all.waveform_class, 'FS'));
+    striatum_combo_fracs(s) = (sum(strcmp(tmp.waveform_class, 'FS')) + sum(strcmp(tmp.waveform_class, 'RS'))) / (sum(strcmp(tmp_all.waveform_class, 'FS')) + sum(strcmp(tmp_all.waveform_class, 'RS')));
     striatum_ts_fracs(s) = sum(strcmp(tmp.waveform_class, 'TS')) / sum(strcmp(tmp_all.waveform_class, 'TS'));
     striatum_ps_fracs(s) = sum(strcmp(tmp.waveform_class, 'PS')) / sum(strcmp(tmp_all.waveform_class, 'PS'));
     striatum_justAction_fractions(s) = sum(tmp.p_action < striatum.out.overall_p_threshold & tmp.p_inaction > striatum.out.overall_p_threshold) / size(tmp,1);
@@ -183,6 +187,7 @@ end
 amygdala_sessions = unique(Amygdala.session_id);
 amygdala_rs_fracs = zeros(1,length(amygdala_sessions));
 amygdala_fs_fracs = zeros(1,length(amygdala_sessions));
+amygdala_combo_fracs = zeros(1,length(amygdala_sessions));
 amygdala_ts_fracs = zeros(1,length(amygdala_sessions));
 amygdala_ps_fracs = zeros(1,length(amygdala_sessions));
 amygdala_action_fractions = zeros(1,length(amygdala_sessions));
@@ -195,6 +200,7 @@ for s = 1:length(amygdala_sessions)
     tmp_all = Amygdala(strcmp(Amygdala.session_id, session_id),:);
     amygdala_rs_fracs(s) = sum(strcmp(tmp.waveform_class, 'RS')) / sum(strcmp(tmp_all.waveform_class, 'RS'));
     amygdala_fs_fracs(s) = sum(strcmp(tmp.waveform_class, 'FS')) / sum(strcmp(tmp_all.waveform_class, 'FS'));
+    amygdala_combo_fracs(s) = (sum(strcmp(tmp.waveform_class, 'FS')) + sum(strcmp(tmp.waveform_class, 'RS'))) / (sum(strcmp(tmp_all.waveform_class, 'FS')) + sum(strcmp(tmp_all.waveform_class, 'RS')));
     amygdala_ts_fracs(s) = sum(strcmp(tmp.waveform_class, 'TS')) / sum(strcmp(tmp_all.waveform_class, 'TS'));
     amygdala_ps_fracs(s) = sum(strcmp(tmp.waveform_class, 'PS')) / sum(strcmp(tmp_all.waveform_class, 'PS'));
     amygdala_justAction_fractions(s) = sum(tmp.p_action < amygdala.out.overall_p_threshold & tmp.p_inaction > amygdala.out.overall_p_threshold) / size(tmp,1);
@@ -223,6 +229,7 @@ end
 pfc_sessions = unique(PFC.session_id);
 pfc_rs_fracs = zeros(1,length(pfc_sessions));
 pfc_fs_fracs = zeros(1,length(pfc_sessions));
+pfc_combo_fracs = zeros(1,length(pfc_sessions));
 pfc_ts_fracs = zeros(1,length(pfc_sessions));
 pfc_ps_fracs = zeros(1,length(pfc_sessions));
 pfc_action_fractions = zeros(1,length(pfc_sessions));
@@ -235,6 +242,7 @@ for s = 1:length(pfc_sessions)
     tmp_all = PFC(strcmp(PFC.session_id, session_id),:);
     pfc_rs_fracs(s) = sum(strcmp(tmp.waveform_class, 'RS')) / sum(strcmp(tmp_all.waveform_class, 'RS'));
     pfc_fs_fracs(s) = sum(strcmp(tmp.waveform_class, 'FS')) / sum(strcmp(tmp_all.waveform_class, 'FS'));
+    pfc_combo_fracs(s) = (sum(strcmp(tmp.waveform_class, 'FS')) + sum(strcmp(tmp.waveform_class, 'RS'))) / (sum(strcmp(tmp_all.waveform_class, 'FS')) + sum(strcmp(tmp_all.waveform_class, 'RS')));
     pfc_ts_fracs(s) = sum(strcmp(tmp.waveform_class, 'TS')) / sum(strcmp(tmp_all.waveform_class, 'TS'));
     pfc_ps_fracs(s) = sum(strcmp(tmp.waveform_class, 'PS')) / sum(strcmp(tmp_all.waveform_class, 'PS'));
     pfc_justAction_fractions(s) = sum(tmp.p_action < pfc.out.overall_p_threshold & tmp.p_inaction > pfc.out.overall_p_threshold) / size(tmp,1);
@@ -696,22 +704,28 @@ amygdala_fs = amygdala.out.alpha_modulated(strcmp(amygdala.out.alpha_modulated.w
 
 %% fraction fig 
 % fracs_fig = figure('Position', [1220 1274 963 444]);
-fracs_fig = figure('Position', [1220 1004 568 714]);
-frac_avgs = [nanmean(s1_rs_fracs), nanmean(s1_fs_fracs), ...
-    nanmean(pfc_rs_fracs), nanmean(pfc_fs_fracs), ...
-    nanmean(striatum_rs_fracs), nanmean(striatum_fs_fracs), ...
-    nanmean(amygdala_rs_fracs), nanmean(amygdala_fs_fracs)];
+fracs_fig = figure('Position', [1215 842 764 864]);
+frac_avgs = [nanmean(s1_rs_fracs), nanmean(s1_fs_fracs), nanmean(s1_combo_fracs), ...
+    nanmean(pfc_rs_fracs), nanmean(pfc_fs_fracs), nanmean(pfc_combo_fracs), ...
+    nanmean(striatum_rs_fracs), nanmean(striatum_fs_fracs), nanmean(striatum_combo_fracs), ...
+    nanmean(amygdala_rs_fracs), nanmean(amygdala_fs_fracs), nanmean(amygdala_combo_fracs)];
 
-frac_errs = [nanstd(s1_rs_fracs)/sqrt(sum(~isnan(s1_rs_fracs))), nanstd(s1_fs_fracs)/sqrt(sum(~isnan(s1_fs_fracs))), ...
-    nanstd(pfc_rs_fracs)/sqrt(sum(~isnan(pfc_rs_fracs))), nanstd(pfc_fs_fracs)/sqrt(sum(~isnan(pfc_fs_fracs))), ...
-    nanstd(striatum_rs_fracs)/sqrt(sum(~isnan(striatum_rs_fracs))), nanstd(striatum_fs_fracs)/sqrt(sum(~isnan(striatum_fs_fracs))), ...
-    nanstd(amygdala_rs_fracs)/sqrt(sum(~isnan(amygdala_rs_fracs))), nanstd(amygdala_fs_fracs)/sqrt(sum(~isnan(amygdala_fs_fracs)))];
-x = [1,2,4,5,7,8,10,11];
+frac_errs = [ste(s1_rs_fracs), ste(s1_fs_fracs), ste(s1_combo_fracs) ...
+    ste(pfc_rs_fracs), ste(pfc_fs_fracs), ste(pfc_combo_fracs) ...
+    ste(striatum_rs_fracs), ste(striatum_fs_fracs), ste(striatum_combo_fracs) ...
+    ste(amygdala_rs_fracs), ste(amygdala_fs_fracs), ste(amygdala_combo_fracs)];
+x = [1,2,3,...
+    5,6,7, ...
+    9,10,11, ...
+    13,14,15];
 bar(x, frac_avgs .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 hold on
 errorbar(x, frac_avgs .* 100, frac_errs .* 100, 'k.')
 xticks(x)
-xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS', 'Amygdala RS', 'Amygdala FS'})
+xticklabels({'S1 RS', 'S1 FS', 'S1 Overall'...
+    'PFC RS', 'PFC FS', 'PFC Overall'...
+    'Striatum RS', 'Striatum FS', 'Striatum Overall', ...
+    'Amygdala RS', 'Amygdala FS', 'Amygdala Overall'})
 xtickangle(45)
 ylim([0,100])
 yticks([0,100])
@@ -1967,6 +1981,166 @@ fprintf(sprintf('Total modulated Amygdala: %i\n', size(amygdala_rs,1)+size(amygd
 fprintf(sprintf('Amygdala RS fraction modulated: %d +/- %d\n', nanmean(amygdala_rs_fracs), nanstd(amygdala_rs_fracs)/sqrt(sum(~isnan(amygdala_rs_fracs)))))
 fprintf(sprintf('Amygdala FS fraction modulated: %d +/- %d\n', nanmean(amygdala_fs_fracs), nanstd(amygdala_fs_fracs)/sqrt(sum(~isnan(amygdala_fs_fracs)))))
 
+fprintf('\n')
+if KStest(s1_rs_fracs) || KStest(s1_fs_fracs)
+    fprintf(sprintf('S1 RS vs FS fraction (signed-rank): p = %d\n', signrank(s1_rs_fracs, s1_fs_fracs)))
+else
+    [~,p] = ttest(s1_rs_fracs, s1_fs_fracs);
+    fprintf(sprintf('S1 RS vs FS fraction (paired t-test): p = %d\n', p))
+end
+if KStest(pfc_rs_fracs) || KStest(pfc_fs_fracs)
+    fprintf(sprintf('PFC RS vs FS fraction (signed-rank): p = %d\n', signrank(pfc_rs_fracs, pfc_fs_fracs)))
+else
+    [~,p] = ttest(pfc_rs_fracs, pfc_fs_fracs);
+    fprintf(sprintf('PFC RS vs FS fraction (paired t-test): p = %d\n', p))
+end
+if KStest(striatum_rs_fracs) || KStest(striatum_fs_fracs)
+    fprintf(sprintf('Striatum RS vs FS fraction (signed-rank): p = %d\n', signrank(striatum_rs_fracs, striatum_fs_fracs)))
+else
+    [~,p] = ttest(striatum_rs_fracs, striatum_fs_fracs);
+    fprintf(sprintf('Striatum RS vs FS fraction (paired t-test): p = %d\n', p))
+end
+if KStest(amygdala_rs_fracs) || KStest(amygdala_fs_fracs)
+    fprintf(sprintf('Amygdala RS vs FS fraction (signed-rank): p = %d\n', signrank(amygdala_rs_fracs, amygdala_fs_fracs)))
+else
+    [~,p] = ttest(amygdala_rs_fracs, amygdala_fs_fracs);
+    fprintf(sprintf('Amygdala RS vs FS fraction (paired t-test): p = %d\n', p))
+end
+fprintf('\n')
+if KStest(s1_rs_fracs) || KStest(pfc_rs_fracs)
+    fprintf(sprintf('S1 RS vs PFC RS fraction (mann-whitney): p = %d\n', ranksum(s1_rs_fracs, pfc_rs_fracs)))
+else
+    [~,p] = ttest2(s1_rs_fracs, pfc_rs_fracs);
+    fprintf(sprintf('S1 RS vs PFC RS fraction (two-sample t-test): p = %d\n', p))
+end
+if KStest(s1_fs_fracs) || KStest(pfc_fs_fracs)
+    fprintf(sprintf('S1 FS vs PFC FS fraction (mann-whitney): p = %d\n', ranksum(s1_fs_fracs, pfc_fs_fracs)))
+else
+    [~,p] = ttest2(s1_fs_fracs, pfc_fs_fracs);
+    fprintf(sprintf('S1 FS vs PFC FS fraction (two-sample t-test): p = %d\n', p))
+end
+if KStest(striatum_rs_fracs) || KStest(pfc_rs_fracs)
+    fprintf(sprintf('Striatum RS vs PFC RS fraction (mann-whitney): p = %d\n', ranksum(striatum_rs_fracs, pfc_rs_fracs)))
+else
+    [~,p] = ttest2(striatum_rs_fracs, pfc_rs_fracs);
+    fprintf(sprintf('Striatum RS vs PFC RS fraction (two-sample t-test): p = %d\n', p))
+end
+if KStest(striatum_fs_fracs) || KStest(pfc_fs_fracs)
+    fprintf(sprintf('Striatum FS vs PFC FS fraction (mann-whitney): p = %d\n', ranksum(striatum_fs_fracs, pfc_fs_fracs)))
+else
+    [~,p] = ttest2(striatum_fs_fracs, pfc_fs_fracs);
+    fprintf(sprintf('Striatum FS vs PFC FS fraction (two-sample t-test): p = %d\n', p))
+end
+if KStest(amygdala_rs_fracs) || KStest(pfc_rs_fracs)
+    fprintf(sprintf('Amygdala RS vs PFC RS fraction (mann-whitney): p = %d\n', ranksum(amygdala_rs_fracs, pfc_rs_fracs)))
+else
+    [~,p] = ttest2(amygdala_rs_fracs, pfc_rs_fracs);
+    fprintf(sprintf('Amygdala RS vs PFC RS fraction (two-sample t-test): p = %d\n', p))
+end
+if KStest(amygdala_fs_fracs) || KStest(pfc_fs_fracs)
+    fprintf(sprintf('Amygdala FS vs PFC FS fraction (mann-whitney): p = %d\n', ranksum(amygdala_fs_fracs, pfc_fs_fracs)))
+else
+    [~,p] = ttest2(amygdala_fs_fracs, pfc_fs_fracs);
+    fprintf(sprintf('Amygdala FS vs PFC FS fraction (two-sample t-test): p = %d\n', p))
+end
+if KStest(striatum_fs_fracs) || KStest(s1_fs_fracs)
+    fprintf(sprintf('Striatum FS vs S1 FS fraction (signed-rank): p = %d\n', signrank(striatum_fs_fracs, s1_fs_fracs)))
+else
+    [~,p] = ttest(striatum_fs_fracs, s1_fs_fracs);
+    fprintf(sprintf('Striatum FS vs S1 FS fraction (paired t-test): p = %d\n', p))
+end
+if KStest(amygdala_rs_fracs) || KStest(s1_rs_fracs)
+    fprintf(sprintf('Amygdala RS vs S1 RS fraction (signed-rank): p = %d\n', signrank(amygdala_rs_fracs, s1_rs_fracs)))
+else
+    [~,p] = ttest(amygdala_rs_fracs, s1_rs_fracs);
+    fprintf(sprintf('Amygdala RS vs S1 RS fraction (paired t-test): p = %d\n', p))
+end
+if KStest(amygdala_fs_fracs) || KStest(s1_fs_fracs)
+    fprintf(sprintf('Amygdala FS vs S1 FS fraction (signed-rank): p = %d\n', signrank(amygdala_fs_fracs, s1_fs_fracs)))
+else
+    [~,p] = ttest(amygdala_fs_fracs, s1_fs_fracs);
+    fprintf(sprintf('Amygdala FS vs S1 FS fraction (paired t-test): p = %d\n', p))
+end
+fprintf('\n')
+if KStest(s1_combo_fracs) || KStest(pfc_combo_fracs)
+    fprintf(sprintf('S1 overall vs PFC overall (mann-whitney) p = %d\n', ranksum(s1_combo_fracs, pfc_combo_fracs)))
+else
+    [~,p] = ttest2(s1_combo_fracs, pfc_combo_fracs);
+    sprintf(sprintf('S1 overall vs PFC overall (two-sample t-test) p = %d\n', p));
+end
+if KStest(striatum_combo_fracs) || KStest(pfc_combo_fracs)
+    fprintf(sprintf('Striatum overall vs PFC overall (mann-whitney) p = %d\n', ranksum(striatum_combo_fracs, pfc_combo_fracs)))
+else
+    [~,p] = ttest2(striatum_combo_fracs, pfc_combo_fracs);
+    sprintf(sprintf('Striatum overall vs PFC overall (two-sample t-test) p = %d\n', p));
+end
+if KStest(amygdala_combo_fracs) || KStest(pfc_combo_fracs)
+    fprintf(sprintf('Amygdala overall vs PFC overall (mann-whitney) p = %d\n', ranksum(amygdala_combo_fracs, pfc_combo_fracs)))
+else
+    [~,p] = ttest2(amygdala_combo_fracs, pfc_combo_fracs);
+    sprintf(sprintf('Amygdala overall vs PFC overall (two-sample t-test) p = %d\n', p));
+end
+if KStest(s1_combo_fracs) || KStest(striatum_combo_fracs)
+    fprintf(sprintf('S1 overall vs Striatum overall (sign-rank) p = %d\n', signrank(s1_combo_fracs, striatum_combo_fracs)))
+else
+    [~,p] = ttest(s1_combo_fracs, striatum_combo_fracs);
+    sprintf(sprintf('S1 overall vs Striatum overall (paired t-test) p = %d\n', p));
+end
+if KStest(s1_combo_fracs) || KStest(amygdala_combo_fracs)
+    fprintf(sprintf('S1 overall vs Amygdala overall (sign-rank) p = %d\n', signrank(s1_combo_fracs, amygdala_combo_fracs)))
+else
+    [~,p] = ttest(s1_combo_fracs, amygdala_combo_fracs);
+    sprintf(sprintf('S1 overall vs Amygdala overall (paired t-test) p = %d\n', p));
+end
+if KStest(striatum_combo_fracs) || KStest(amygdala_combo_fracs)
+    fprintf(sprintf('Striatum overall vs Amygdala overall (sign-rank) p = %d\n', signrank(striatum_combo_fracs, amygdala_combo_fracs)))
+else
+    [~,p] = ttest(striatum_combo_fracs, amygdala_combo_fracs);
+    sprintf(sprintf('Striatum overall vs Amygdala overall (paired t-test) p = %d\n', p));
+end
+fprintf('\n')
+fprintf(sprintf('S1 overall fraction: %d +/- %d\n', nanmean(s1_combo_fracs), ste(s1_combo_fracs)))
+fprintf(sprintf('PFC overall fraction: %d +/- %d\n', nanmean(pfc_combo_fracs), ste(pfc_combo_fracs)))
+fprintf(sprintf('Striatum overall fraction: %d +/- %d\n', nanmean(striatum_combo_fracs), ste(striatum_combo_fracs)))
+fprintf(sprintf('Amygdala overall fraction: %d +/- %d\n', nanmean(amygdala_combo_fracs), ste(amygdala_combo_fracs)))
+fprintf('\n')
+if KStest([s1_rs.pmi; s1_fs.pmi]) || KStest([pfc_rs.pmi; pfc_fs.pmi])
+    fprintf(sprintf('S1 vs PFC MI (mann-whitney): p = %d\n', ranksum([s1_rs.pmi; s1_fs.pmi], [pfc_rs.pmi; pfc_fs.pmi])))
+else
+    [~, p] = ttest2([s1_rs.pmi; s1_fs.pmi], [pfc_rs.pmi; pfc_fs.pmi]);
+    fprintf(sprintf('S1 vs PFC MI (two-sample t-test): p = %d\n', p))
+end
+if KStest([striatum_rs.pmi; striatum_fs.pmi]) || KStest([pfc_rs.pmi; pfc_fs.pmi])
+    fprintf(sprintf('Striatum vs PFC MI (mann-whitney): p = %d\n', ranksum([striatum_rs.pmi; striatum_fs.pmi], [pfc_rs.pmi; pfc_fs.pmi])))
+else
+    [~, p] = ttest2([striatum_rs.pmi; striatum_fs.pmi], [pfc_rs.pmi; pfc_fs.pmi]);
+    fprintf(sprintf('Striatum vs PFC MI (two-sample t-test): p = %d\n', p))
+end
+if KStest([amygdala_rs.pmi; amygdala_fs.pmi]) || KStest([pfc_rs.pmi; pfc_fs.pmi])
+    fprintf(sprintf('Amygdala vs PFC MI (mann-whitney): p = %d\n', ranksum([amygdala_rs.pmi; amygdala_fs.pmi], [pfc_rs.pmi; pfc_fs.pmi])))
+else
+    [~, p] = ttest2([amygdala_rs.pmi; amygdala_fs.pmi], [pfc_rs.pmi; pfc_fs.pmi]);
+    fprintf(sprintf('Amygdala vs PFC MI (two-sample t-test): p = %d\n', p))
+end
+if KStest([striatum_rs.pmi; striatum_fs.pmi]) || KStest([s1_rs.pmi; s1_fs.pmi])
+    fprintf(sprintf('Striatum vs S1 MI (mann-whitney): p = %d\n', ranksum([striatum_rs.pmi; striatum_fs.pmi], [s1_rs.pmi; s1_fs.pmi])))
+else
+    [~, p] = ttest2([striatum_rs.pmi; striatum_fs.pmi], [s1_rs.pmi; s1_fs.pmi]);
+    fprintf(sprintf('Striatum vs S1 MI (paired t-test): p = %d\n', p))
+end
+if KStest([amygdala_rs.pmi; amygdala_fs.pmi]) || KStest([s1_rs.pmi; s1_fs.pmi])
+    fprintf(sprintf('Amygdala vs S1 MI (two-sample t-test): p = %d\n', ranksum([amygdala_rs.pmi; amygdala_fs.pmi], [s1_rs.pmi; s1_fs.pmi])))
+else
+    [~, p] = ttest2([amygdala_rs.pmi; amygdala_fs.pmi], [s1_rs.pmi; s1_fs.pmi]);
+    fprintf(sprintf('Amygdala vs S1 MI (two-sample t-test): p = %d\n', p))
+end
+if KStest([striatum_rs.pmi; striatum_fs.pmi]) || KStest([amygdala_rs.pmi; amygdala_fs.pmi])
+    fprintf(sprintf('Striatum vs Amygdala MI (mann-whitney): p = %d\n', ranksum([striatum_rs.pmi; striatum_fs.pmi], [amygdala_rs.pmi; amygdala_fs.pmi])))
+else
+    [~, p] = ttest2([striatum_rs.pmi; striatum_fs.pmi], [amygdala_rs.pmi; amygdala_fs.pmi]);
+    fprintf(sprintf('Striatum vs Amygdala MI (two-sample t-test): p = %d\n', p))
+end
+fprintf('\n')
 %% MI by average firing rate 
 mi_fr_fig = figure();
 fr = [cell2mat(s1_rs.avg_baseline_fr); ...
@@ -2062,8 +2236,8 @@ else
     [~,p] = ttest2(mod_baseline, unmod_baseline);
     fprintf(sprintf('Mod vs. Unmod baseline FR (2 samp t-test): p = %d\n', p))
 end
-fprintf(sprintf('Mod avg baseline FR: %d +/i %d\n', nanmean(mod_baseline), ste(mod_baseline)))
-fprintf(sprintf('Unmod avg baseline FR: %d +/i %d\n', nanmean(unmod_baseline), ste(unmod_baseline)))
+fprintf(sprintf('Mod avg baseline FR: %d +/- %d\n', nanmean(mod_baseline), ste(mod_baseline)))
+fprintf(sprintf('Unmod avg baseline FR: %d +/- %d\n', nanmean(unmod_baseline), ste(unmod_baseline)))
 
 %% theta bars figure 
 s1_rs_theta_fig = figure('Position', [1179 1256 538 495]);
@@ -2171,21 +2345,27 @@ pax.GridLineStyle = '--';         % Dashed grid lines for visibility
 rlim([0,2])
 
 %% MI fig 
-mi_fig = figure('Position', [1220 1004 568 714]); %figure('Position', [1220 1274 963 444]);
-mi_avgs = [nanmean(s1_rs.pmi), nanmean(s1_fs.pmi), ...
-    nanmean(pfc_rs.pmi), nanmean(pfc_fs.pmi), ...
-    nanmean(striatum_rs.pmi), nanmean(striatum_fs.pmi), ...
-    nanmean(amygdala_rs.pmi), nanmean(amygdala_fs.pmi)];
-mi_errs = [nanstd(s1_rs.pmi)/sqrt(sum(~isnan(s1_rs.pmi))), nanstd(s1_fs.pmi)/sqrt(sum(~isnan(s1_fs.pmi))), ...
-    nanstd(pfc_rs.pmi)/sqrt(sum(~isnan(pfc_rs.pmi))), nanstd(pfc_fs.pmi)/sqrt(sum(~isnan(pfc_fs.pmi))), ...
-    nanstd(striatum_rs.pmi)/sqrt(sum(~isnan(striatum_rs.pmi))), nanstd(striatum_fs.pmi)/sqrt(sum(~isnan(striatum_fs.pmi))), ...
-    nanstd(amygdala_rs.pmi)/sqrt(sum(~isnan(amygdala_rs.pmi))), nanstd(amygdala_fs.pmi)/sqrt(sum(~isnan(amygdala_fs.pmi)))];
-x = [1,2,4,5,7,8,10,11];
+mi_fig = figure('Position', [1215 842 764 864]); %figure('Position', [1220 1274 963 444]);
+mi_avgs = [nanmean(s1_rs.pmi), nanmean(s1_fs.pmi), nanmean([s1_rs.pmi; s1_fs.pmi]), ...
+    nanmean(pfc_rs.pmi), nanmean(pfc_fs.pmi), nanmean([s1_rs.pmi; s1_fs.pmi]), ...
+    nanmean(striatum_rs.pmi), nanmean(striatum_fs.pmi), nanmean([striatum_rs.pmi; striatum_fs.pmi]), ...
+    nanmean(amygdala_rs.pmi), nanmean(amygdala_fs.pmi), nanmean([amygdala_rs.pmi; amygdala_fs.pmi])];
+mi_errs = [ste(s1_rs.pmi), ste(s1_fs.pmi), ste([s1_rs.pmi; s1_fs.pmi]), ...
+    ste(pfc_rs.pmi), ste(pfc_fs.pmi), ste([pfc_rs.pmi; pfc_fs.pmi]), ...
+    ste(striatum_rs.pmi), ste(striatum_fs.pmi), ste([striatum_rs.pmi; striatum_fs.pmi]), ...
+    ste(amygdala_rs.pmi), ste(amygdala_fs.pmi), ste([amygdala_rs.pmi; amygdala_fs.pmi])];
+x = [1,2,3,...
+    5,6,7, ...
+    9,10,11, ...
+    13,14,15];
 bar(x, mi_avgs, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 hold on
 errorbar(x, mi_avgs, mi_errs, 'k.')
 xticks(x)
-xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS', 'Amygdala RS', 'Amygdala FS'})
+xticklabels({'S1 RS', 'S1 FS', 'S1 Overall'...
+    'PFC RS', 'PFC FS', 'PFC Overall'...
+    'Striatum RS', 'Striatum FS', 'Striatum Overall', ...
+    'Amygdala RS', 'Amygdala FS', 'Amygdala Overall'})
 xtickangle(45)
 % ylim([0,100])
 ylim([0,0.012])

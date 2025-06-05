@@ -4875,3 +4875,7 @@ xtickangle(45)
 lims = ylim;
 yticks([0, lims(2)])
 saveas(fig, 'tmp/lick_mod_unmod.png')
+
+* [2025-6-5 Thu] - working on text 
+** TODOS:
+*** TODO: replace panels in figure 3 (include overall for fractions and MI)
