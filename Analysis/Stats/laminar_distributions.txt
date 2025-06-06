@@ -554,19 +554,10 @@ table =
 
   4x6 cell array
 
-  Columns 1 through 5
-
-    {'Source'   }    {'d.f.'}    {'SS'     }    {'MS'      }    {'F'       }
-    {'Columns'  }    {[   4]}    {[12.1047]}    {[  3.0262]}    {[ 13.1218]}
-    {'Residual '}    {[ 133]}    {[35.6886]}    {[  0.2683]}    {0x0 double}
-    {'Total'    }    {[ 137]}    {[47.7933]}    {0x0 double}    {0x0 double}
-
-  Column 6
-
-    {'P-Value'   }
-    {[4.9012e-09]}
-    {0x0 double  }
-    {0x0 double  }
+    {'Source'   }    {'d.f.'}    {'SS'     }    {'MS'      }    {'F'       }    {'P-Value'   }
+    {'Columns'  }    {[   4]}    {[12.1047]}    {[  3.0262]}    {[ 13.1218]}    {[4.9012e-09]}
+    {'Residual '}    {[ 133]}    {[35.6886]}    {[  0.2683]}    {0x0 double}    {0x0 double  }
+    {'Total'    }    {[ 137]}    {[47.7933]}    {0x0 double}    {0x0 double}    {0x0 double  }
 
 S1 RS Watson Williams:
 
@@ -579,17 +570,8 @@ table =
 
   4x6 cell array
 
-  Columns 1 through 5
-
-    {'Source'   }    {'d.f.'}    {'SS'     }    {'MS'      }    {'F'       }
-    {'Columns'  }    {[   4]}    {[ 7.9716]}    {[  1.9929]}    {[  9.9251]}
-    {'Residual '}    {[ 246]}    {[56.5608]}    {[  0.2299]}    {0x0 double}
-    {'Total'    }    {[ 250]}    {[64.5324]}    {0x0 double}    {0x0 double}
-
-  Column 6
-
-    {'P-Value'   }
-    {[1.8426e-07]}
-    {0x0 double  }
-    {0x0 double  }
+    {'Source'   }    {'d.f.'}    {'SS'     }    {'MS'      }    {'F'       }    {'P-Value'   }
+    {'Columns'  }    {[   4]}    {[ 7.9716]}    {[  1.9929]}    {[  9.9251]}    {[1.8426e-07]}
+    {'Residual '}    {[ 246]}    {[56.5608]}    {[  0.2299]}    {0x0 double}    {0x0 double  }
+    {'Total'    }    {[ 250]}    {[64.5324]}    {0x0 double}    {0x0 double}    {0x0 double  }
 

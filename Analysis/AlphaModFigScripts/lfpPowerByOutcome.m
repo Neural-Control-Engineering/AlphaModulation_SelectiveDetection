@@ -244,8 +244,8 @@ ylabel(tl, 'log LFP power', 'FontSize', 14)
 out_path = false; 
 mkdir('./Figures/')
 if out_path
-    saveas(fig, 'Figures/lfp_power_by_outcome.fig')
-    saveas(fig, 'Figures/lfp_power_by_outcome.svg')
+    saveas(fig, '../Figures/lfp_power_by_outcome.fig')
+    saveas(fig, '../Figures/lfp_power_by_outcome.svg')
 end
 
 args = struct();

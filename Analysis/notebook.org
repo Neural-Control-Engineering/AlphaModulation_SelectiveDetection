@@ -4754,11 +4754,11 @@ end
 * [2025-5-28 Wed] - new figures 
 ** Figure 1 - behavior  
 *** DONE: combine subplots
-*** TODO: edit stats in manuscript
+*** DONE: edit stats in manuscript
 ** Figure 2 - overivew of neural recordings 
 *** DONE: update D, E, H 
 ** Figure 3 - overview of phase modulation 
-*** TODO: add firing rate subplot 
+*** DONE: add firing rate subplot 
 **** DONE: consider alternative ways of visualizing 
 ***** just data points looks terrbile
 ***** bar plots with errorbars can't visualize difference (means similar) 
@@ -4766,7 +4766,7 @@ end
 **** will be focus of next figure 
 *** DONE: consider combining MI into single panel (like % modulated)
 *** DONE: consider combining preffered phases in single panel 
-*** TODO: convert polar histograms from degrees to radians 
+*** DONE: convert polar histograms from degrees to radians - neither done, no possible it seems
 *** DONE: consider removing von Mises panels (not very informative)
 *** DONE: consider expanding methodological panel 
 **** show multiple trials of alpha band + spike phases (1 + 2 + ... )
@@ -4789,7 +4789,7 @@ end
 *** DONE: consdier removing panel for MSE 
 *** TODO: consider characterizing frequency of these events 
 ** Figure 7 - alpha modulation and licking (really don't know if I want to include)
-*** TODO: rerun AlphaModFigScripts/alphaModAndLicking.m
+*** DONE: rerun AlphaModFigScripts/alphaModAndLicking.m
 *** DONE: double check code for p_lick vs p_nolick
 **** was OK - more phase mod on no lick than lick (makes sense; more no lick)
 ** Figure 8 - alpha modulation and trial outcome 
@@ -4879,3 +4879,7 @@ saveas(fig, 'tmp/lick_mod_unmod.png')
 * [2025-6-5 Thu] - working on text 
 ** TODOS:
 *** TODO: replace panels in figure 3 (include overall for fractions and MI)
+
+* [2025-6-6 Fri] - working on text 
+** TODOS:
+*** TODO: read/cite Pala2022-ik (ipsilateral representations in S1)

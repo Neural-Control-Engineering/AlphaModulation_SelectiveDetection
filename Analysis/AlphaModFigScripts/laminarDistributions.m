@@ -1749,8 +1749,8 @@ pfc_fs_mse_mat = [[ac_fs_mse; nan(maxN-length(ac_fs_mse),1)], ...
     [il_fs_mse; nan(maxN-length(il_fs_mse),1)], ...
     [orb_fs_mse; nan(maxN-length(orb_fs_mse),1)], ...
     [dp_fs_mse; nan(maxN-length(dp_fs_mse),1)]];
-fprintf(sprintf('PFC FS MSE ANOVA:\n'))
-[p, ~, stats] = anova1(pfc_fs_mse_mat)
+% fprintf(sprintf('PFC FS MSE ANOVA:\n'))
+% [p, ~, stats] = anova1(pfc_fs_mse_mat)
 
 maxN = max([size(ac_fs_theta_bar,1),size(pl_fs_theta_bar,1),size(il_fs_theta_bar,1),...
     size(orb_fs_theta_bar,1), size(dp_fs_theta_bar,1)]);
@@ -1759,8 +1759,16 @@ pfc_fs_theta_bar_mat = [[ac_fs_theta_bar; nan(maxN-length(ac_fs_theta_bar),1)], 
     [il_fs_theta_bar; nan(maxN-length(il_fs_theta_bar),1)], ...
     [orb_fs_theta_bar; nan(maxN-length(orb_fs_theta_bar),1)], ...
     [dp_fs_theta_bar; nan(maxN-length(dp_fs_theta_bar),1)]];
-fprintf(sprintf('PFC FS Theta Bar ANOVA:\n'))
-[p, ~, stats] = anova1(pfc_fs_theta_bar_mat)
+angles = [];
+idx = [];
+for i = 1:size(pfc_fs_theta_bar_mat,2) 
+    angles = [angles; pfc_fs_theta_bar_mat(:,i)];
+    idx = [idx; zeros(size(pfc_fs_theta_bar_mat,1),1)+i];
+end
+idx(isnan(angles)) = [];
+angles(isnan(angles)) = [];
+fprintf(sprintf('PFC FS Theta Bar Watson Williams:\n'))
+[pval, table] = circ_wwtest(angles, idx)
 
 maxN = max([size(ac_rs_theta_bar,1),size(pl_rs_theta_bar,1),size(il_rs_theta_bar,1),...
     size(orb_rs_theta_bar,1), size(dp_rs_theta_bar,1)]);
@@ -1769,8 +1777,17 @@ pfc_rs_theta_bar_mat = [[ac_rs_theta_bar; nan(maxN-length(ac_rs_theta_bar),1)], 
     [il_rs_theta_bar; nan(maxN-length(il_rs_theta_bar),1)], ...
     [orb_rs_theta_bar; nan(maxN-length(orb_rs_theta_bar),1)], ...
     [dp_rs_theta_bar; nan(maxN-length(dp_rs_theta_bar),1)]];
-fprintf(sprintf('PFC RS MSE ANOVA:\n'))
-[p, ~, stats] = anova1(pfc_rs_theta_bar_mat)
+angles = [];
+idx = [];
+for i = 1:size(pfc_rs_theta_bar_mat,2) 
+    angles = [angles; pfc_rs_theta_bar_mat(:,i)];
+    idx = [idx; zeros(size(pfc_rs_theta_bar_mat,1),1)+i];
+end
+idx(isnan(angles)) = [];
+angles(isnan(angles)) = [];
+fprintf(sprintf('PFC RS Theta Bar Watson Williams:\n'))
+[pval, table] = circ_wwtest(angles, idx)
+
 
 maxN = max([size(s1_l1_fs_theta_bar,1),size(s1_l2_fs_theta_bar,1),size(s1_l4_fs_theta_bar,1),...
     size(s1_l5_fs_theta_bar,1), size(s1_l6_fs_theta_bar,1)]);
