@@ -233,3 +233,5 @@ hold on
 plot([95,95],[0,60],'k--')
 xlabel('Boostrapped Percentile on Incorrect Trials')
 ylabel('Number of Units')
+saveas(fig, '../Figures/bootstrap_summary.svg')
+saveas(fig, '../Figures/bootstrap_summary.fig')
