@@ -89,11 +89,2081 @@ In circ_kuipertest (line 59)
 In alphaPowerAndPhaseModSummaries (line 1359)] 
 Striatum FS theta bar distribtions kuipers test: 1
 Amygdala FS theta bar distribtions kuipers test: 1
-[Warning: Directory already exists.] 
-[> In alphaPowerAndPhaseModSummaries (line 1556)] 
-Example Low Alpha Power MI: 0.0054
-Example Low Alpha Power von Mises MSE: 0.0003
-Example Low Alpha Power Rayleigh test: p = 1.025484e-01
-Example High Alpha Power MI: 0.0374
-Example High Alpha Power von Mises MSE: 0.0010
-Example High Alpha Power Rayleigh test: p = 1.604326e-11
+close all
+s1_rs_frac = [s1_rs_frac_high, s1_rs_frac_low];
+size(s1_rs_frac)
+
+ans =
+
+     1    42
+
+s1_rs_frac = [s1_rs_frac_high', s1_rs_frac_low'];
+size(s1_rs_frac)
+
+ans =
+
+    21     2
+
+s1_fs_frac = [s1_fs_frac_high', s1_fs_frac_low'];
+pfc_rs_frac = [pfc_rs_frac_high', pfc_rs_frac_low'];
+pfc_fs_frac = [pfc_fs_frac_high', pfc_fs_frac_low'];
+s1_rs_frac = [striatum_rs_frac_high', striatum_rs_frac_low'];
+s1_fs_frac = [striatum_fs_frac_high', striatum_fs_frac_low'];
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+s1_rs_frac = [s1_rs_frac_high', s1_rs_frac_low'];
+s1_fs_frac = [s1_fs_frac_high', s1_fs_frac_low'];
+pfc_rs_frac = [pfc_rs_frac_high', pfc_rs_frac_low'];
+pfc_fs_frac = [pfc_fs_frac_high', pfc_fs_frac_low'];
+s1_rs_frac = [striatum_rs_frac_high', striatum_rs_frac_low'];
+s1_fs_frac = [striatum_fs_frac_high', striatum_fs_frac_low'];
+plot(ones(1, size(s1_rs_frac,1)), s1_rs_frac(:,1), 'ro')
+s1_rs_frac
+
+s1_rs_frac =
+
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+    0.2000    0.2000
+         0         0
+         0         0
+         0    0.5000
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+
+s1_rs_frac = [s1_rs_frac_high', s1_rs_frac_low'];
+s1_fs_frac = [s1_fs_frac_high', s1_fs_frac_low'];
+s1_rs_frac
+
+s1_rs_frac =
+
+    0.8000         0
+         0         0
+    1.0000    0.1667
+    1.0000         0
+    1.0000         0
+    1.0000         0
+    1.0000         0
+    1.0000         0
+    1.0000    0.2500
+    0.8000         0
+    0.4348    0.1739
+    0.5238    0.2381
+    0.5455    0.1818
+    0.3333    0.1667
+    0.5000    0.1250
+    0.4615    0.1538
+    0.5000    0.1875
+    1.0000    0.3000
+    0.9412    0.2353
+    1.0000    0.3077
+    0.9091    0.3636
+
+s1_rs_frac = [s1_rs_frzac_low', s1_rs_frac_high'];
+{Error using keyboard
+Unrecognized function or variable 's1_rs_frzac_low'.
+} 
+s1_fs_frac = [s1_fs_frac_low', s1_fs_frac_high'];
+pfc_rs_frac = [pfc_rs_frac_low', pfc_rs_frac_high'];
+pfc_fs_frac = [pfc_fs_frac_low', pfc_fs_frac_high'];
+striatum_rs_frac = [striatum_rs_frac_low', striatum_rs_frac_high'];
+striatum_fs_frac = [striatum_fs_frac_low', striatum_fs_frac_high'];
+s1_rs_frac = [s1_rs_frac_low', s1_rs_frac_high'];
+s1_fs_frac = [s1_fs_frac_low', s1_fs_frac_high'];
+pfc_rs_frac = [pfc_rs_frac_low', pfc_rs_frac_high'];
+pfc_fs_frac = [pfc_fs_frac_low', pfc_fs_frac_high'];
+striatum_rs_frac = [striatum_rs_frac_low', striatum_rs_frac_high'];
+striatum_fs_frac = [striatum_fs_frac_low', striatum_fs_frac_high'];
+
+close all
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+s1_rs_frac = [s1_rs_frac_low', s1_rs_frac_high'];
+s1_fs_frac = [s1_fs_frac_low', s1_fs_frac_high'];
+pfc_rs_frac = [pfc_rs_frac_low', pfc_rs_frac_high'];
+pfc_fs_frac = [pfc_fs_frac_low', pfc_fs_frac_high'];
+striatum_rs_frac = [striatum_rs_frac_low', striatum_rs_frac_high'];
+striatum_fs_frac = [striatum_fs_frac_low', striatum_fs_frac_high'];
+plot(ones(1, size(s1_rs_frac,1)), s1_rs_frac(:,1), 'ro')
+
+plot(ones(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,2], s1_rs_frac(i,:), '--', 'Color', 'gray')
+end
+{Error using plot
+Invalid color name or hexadecimal color code. Valid names include: 'red', 'green', 'blue', 'cyan', 'magenta', 'yellow', 'black', 'white', and 'none'. Valid hexadecimal color codes consist of '#' followed
+by three or six hexadecimal digits.
+} 
+close all
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+s1_rs_frac = [s1_rs_frac_low', s1_rs_frac_high'];
+s1_fs_frac = [s1_fs_frac_low', s1_fs_frac_high'];
+pfc_rs_frac = [pfc_rs_frac_low', pfc_rs_frac_high'];
+pfc_fs_frac = [pfc_fs_frac_low', pfc_fs_frac_high'];
+striatum_rs_frac = [striatum_rs_frac_low', striatum_rs_frac_high'];
+striatum_fs_frac = [striatum_fs_frac_low', striatum_fs_frac_high'];
+plot(ones(1, size(s1_rs_frac,1)), s1_rs_frac(:,1), 'ro')
+plot(ones(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,2], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+4, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([3,4], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+close all
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+2, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,2], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(s1_fs_frac,1))+3, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+4, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([3,4], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+
+plot(zeros(1, size(pfc_rs_frac,1))+6, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+7, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([6,7], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(pfc_fs_frac,1))+9, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+10, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([9,10], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(striatum_rs_frac,1))+12, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+13, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([12,13], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(striatum_fs_frac,1))+15, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+16, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([15,16], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+striatum_rs_frac
+
+striatum_rs_frac =
+
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+       NaN       NaN
+    0.2000    0.2000
+         0         0
+         0         0
+    0.5000         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+2, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,2], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(s1_fs_frac,1))+5, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([5,6], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(pfc_rs_frac,1))+9, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+10, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([9,10], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(pfc_fs_frac,1))+13, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+14, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([13,14], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(striatum_rs_frac,1))+17, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+18, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([17,18], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(striatum_fs_frac,1))+21, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+22, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([21,22], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([11,13], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([16,18], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([21,23], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([26,28], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+
+yticks = [0,1];
+yticklabels({'0', '100'})
+
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([11,13], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([16,18], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([21,23], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([26,28], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+yticks = [0,1];
+
+yticks([0,1]);
+{Array indices must be positive integers or logical values.
+
+yticks appears to be both a function and a variable. If this is unintentional, use 'clear yticks' to remove the variable 'yticks' from the workspace.
+} 
+yticklabels({'0', '100'})
+clear yticks
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([11,13], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([16,18], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([21,23], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([26,28], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+yticks([0,1]);
+yticklabels({'0', '100'})
+close all
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,2)), 'k.')
+close all
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.')
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.')
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([11,13], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_frac(:,2)), ste(pfc_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_frac(:,1)), nanmean(pfc_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([16,18], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_frac(:,2)), ste(pfc_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_frac(:,1)), nanmean(pfc_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([21,23], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_frac(:,2)), ste(striatum_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_frac(:,1)), nanmean(striatum_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([26,28], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_fs_frac(:,2)), ste(striatum_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_fs_frac(:,1)), nanmean(striatum_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+yticks([0,1]);
+yticklabels({'0', '100'})
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([11,13], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_frac(:,2)), ste(pfc_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_frac(:,1)), nanmean(pfc_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([16,18], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_frac(:,2)), ste(pfc_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_frac(:,1)), nanmean(pfc_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([21,23], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_frac(:,2)), ste(striatum_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_frac(:,1)), nanmean(striatum_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([26,28], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_frac(:,2)), ste(striatum_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_frac(:,1)), nanmean(striatum_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+yticks([0,1]);
+yticklabels({'0', '100'})
+ylabel('% Alpha Modulated ', 'FontSize', 14)
+
+s1_rs_mi = [s1_rs_low_mi', s1_rs_high_mi'];
+s1_fs_mi = [s1_fs_low_mi', s1_fs_high_mi'];
+pfc_rs_mi = [pfc_rs_low_mi', pfc_rs_high_mi'];
+pfc_fs_mi = [pfc_fs_low_mi', pfc_fs_high_mi'];
+striatum_rs_mi = [striatum_rs_low_mi', striat_frac_high_mi'];
+{Error using keyboard
+Unrecognized function or variable 'striat_frac_high_mi'.
+} 
+striatum_fs_mi = [striatum_fs_low_mi', striat_frac_high_mi'];
+{Error using keyboard
+Unrecognized function or variable 'striat_frac_high_mi'.
+} 
+s1_rs_mi = [s1_rs_low_mi', s1_rs_high_mi'];
+s1_fs_mi = [s1_fs_low_mi', s1_fs_high_mi'];
+pfc_rs_mi = [pfc_rs_low_mi', pfc_rs_high_mi'];
+pfc_fs_mi = [pfc_fs_low_mi', pfc_fs_high_mi'];
+striatum_rs_mi = [striatum_rs_low_mi', striatum_frac_high_mi'];
+{Error using keyboard
+Unrecognized function or variable 'striatum_frac_high_mi'.
+} 
+
+s1_rs_mi = [s1_rs_low_mi', s1_rs_high_mi'];
+s1_fs_mi = [s1_fs_low_mi', s1_fs_high_mi'];
+pfc_rs_mi = [pfc_rs_low_mi', pfc_rs_high_mi'];
+pfc_fs_mi = [pfc_fs_low_mi', pfc_fs_high_mi'];
+striatum_rs_mi = [striatum_rs_low_mi', striatum_rs_high_mi'];
+striatum_fs_mi = [striatum_fs_low_mi', striatum_fs_high_mi'];
+size(s1_rs_mi)
+
+ans =
+
+     1   502
+
+size(s1_fs_mi)
+
+ans =
+
+     1   276
+
+
+axs(2) = nexttile;
+s1_rs_mi = [s1_rs_low_mi', s1_rs_high_mi'];
+s1_fs_mi = [s1_fs_low_mi', s1_fs_high_mi'];
+pfc_rs_mi = [pfc_rs_low_mi', pfc_rs_high_mi'];
+pfc_fs_mi = [pfc_fs_low_mi', pfc_fs_high_mi'];
+striatum_rs_mi = [striatum_rs_low_mi', striatum_rs_high_mi'];
+striatum_fs_mi = [striatum_fs_low_mi', striatum_fs_high_mi'];
+hold on 
+plot(zeros(1, size(s1_rs_mi,1))+1, s1_rs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_rs_mi,1))+3, s1_rs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([1,3], s1_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Error using plot
+Specify the coordinates as vectors or matrices of the same size, or as a vector and a matrix that share the same length in at least one dimension.
+} 
+errorbar(1, nanmean(s1_rs_mi(:,1)), ste(s1_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_mi(:,2)), ste(s1_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+s1_rs_mi
+
+s1_rs_mi =
+
+  Columns 1 through 20
+
+    0.0078    0.0062    0.0096    0.0079    0.0113    0.0110    0.0131    0.0130    0.0041    0.0092    0.0074    0.0133    0.0052    0.0274    0.0073    0.0055    0.0070    0.0055    0.0045    0.0221
+
+  Columns 21 through 40
+
+    0.0090    0.0054    0.0098    0.0046    0.0230    0.0095    0.0055    0.0072    0.0225    0.0050    0.0039    0.0073    0.0049    0.0051    0.0042    0.0060    0.0073    0.0127    0.0047    0.0052
+
+  Columns 41 through 60
+
+    0.0172    0.0059    0.0071    0.0057    0.0184    0.0054    0.0049    0.0047    0.0044    0.0123    0.0053    0.0046    0.0058    0.0052    0.0055    0.0069    0.0050    0.0041    0.0050    0.0055
+
+  Columns 61 through 80
+
+    0.0043    0.0079    0.0066    0.0045    0.0062    0.0069    0.0099    0.0125    0.0127    0.0067    0.0046    0.0075    0.0105    0.0056    0.0141    0.0058    0.0051    0.0055    0.0050    0.0058
+
+  Columns 81 through 100
+
+    0.0039    0.0049    0.0058    0.0043    0.0059    0.0047    0.0045    0.0072    0.0078    0.0091    0.0311    0.0105    0.0249    0.0124    0.0066    0.0052    0.0068    0.0049    0.0045    0.0046
+
+  Columns 101 through 120
+
+    0.0054    0.0056    0.0045    0.0046    0.0057    0.0069    0.0026    0.0056    0.0055    0.0061    0.0109    0.0070    0.0073    0.0119    0.0155    0.0063    0.0059    0.0107    0.0040    0.0050
+
+  Columns 121 through 140
+
+    0.0048    0.0048    0.0048    0.0046    0.0055    0.0056    0.0044    0.0048    0.0055    0.0044    0.0054    0.0064    0.0171    0.0088    0.0090    0.0051    0.0056    0.0168    0.0052    0.0055
+
+  Columns 141 through 160
+
+    0.0062    0.0058    0.0049    0.0053    0.0044    0.0078    0.0031    0.0054    0.0066    0.0069    0.0052    0.0048    0.0039    0.0036    0.0060    0.0050    0.0035    0.0052    0.0040    0.0064
+
+  Columns 161 through 180
+
+    0.0059    0.0061    0.0041    0.0060    0.0075    0.0146    0.0055    0.0042    0.0037    0.0048    0.0080    0.0051    0.0046    0.0049    0.0058    0.0081    0.0056    0.0057    0.0050    0.0112
+
+  Columns 181 through 200
+
+    0.0105    0.0098    0.0049    0.0058    0.0042    0.0051    0.0061    0.0050    0.0116    0.0053    0.0099    0.0049    0.0055    0.0064    0.0057    0.0064    0.0052    0.0048    0.0084    0.0121
+
+  Columns 201 through 220
+
+    0.0057    0.0044    0.0043    0.0042    0.0054    0.0064    0.0088    0.0057    0.0045    0.0086    0.0058    0.0047    0.0082    0.0055    0.0096    0.0038    0.0086    0.0047    0.0048    0.0051
+
+  Columns 221 through 240
+
+    0.0065    0.0050    0.0044    0.0053    0.0057    0.0063    0.0053    0.0059    0.0058    0.0054    0.0065    0.0062    0.0118    0.0079    0.0050    0.0052    0.0052    0.0044    0.0056    0.0049
+
+  Columns 241 through 260
+
+    0.0055    0.0072    0.0037    0.0067    0.0078    0.0043    0.0061    0.0062    0.0056    0.0104    0.0201    0.0441    0.0122    0.0441    0.0247    0.0331    0.0157    0.0407    0.0259    0.0206
+
+  Columns 261 through 280
+
+    0.0250    0.0154    0.0435    0.0149    0.0358    0.0367    0.0268    0.0223    0.0106    0.0190    0.0252    0.0280    0.0226    0.0142    0.0236    0.0443    0.0241    0.0336    0.0138    0.0310
+
+  Columns 281 through 300
+
+    0.0241    0.0201    0.0237    0.0203    0.0136    0.0160    0.0112    0.0161    0.0239    0.0073    0.0054    0.0637    0.0092    0.0252    0.0171    0.0602    0.0175    0.0272    0.0068    0.0276
+
+  Columns 301 through 320
+
+    0.0289    0.0061    0.0067    0.0063    0.0081    0.0075    0.0146    0.0082    0.0059    0.0042    0.0067    0.0176    0.0056    0.0154    0.0092    0.0140    0.0252    0.0716    0.0296    0.0485
+
+  Columns 321 through 340
+
+    0.0562    0.0279    0.0434    0.0616    0.0143    0.0193    0.0076    0.0070    0.0148    0.0159    0.0142    0.0066    0.0049    0.0217    0.0060    0.0113    0.0072    0.0085    0.0142    0.0242
+
+  Columns 341 through 360
+
+    0.0865    0.0577    0.0294    0.0966    0.0546    0.0116    0.0104    0.0102    0.0082    0.0102    0.0128    0.0162    0.0154    0.0141    0.0078    0.0274    0.0086    0.0114    0.0053    0.0095
+
+  Columns 361 through 380
+
+    0.0077    0.0211    0.0458    0.0101    0.0743    0.0713    0.0173    0.0154    0.0207    0.0093    0.0057    0.0076    0.0097    0.0061    0.0074    0.0156    0.0064    0.0047    0.0057    0.0392
+
+  Columns 381 through 400
+
+    0.0095    0.0262    0.0219    0.1096    0.0327    0.0388    0.0078    0.0091    0.0261    0.0045    0.0097    0.0100    0.0064    0.0077    0.0085    0.0068    0.0118    0.0078    0.0104    0.0122
+
+  Columns 401 through 420
+
+    0.0115    0.0085    0.0255    0.0085    0.0221    0.0089    0.0170    0.0061    0.0273    0.0107    0.0120    0.0102    0.0161    0.0176    0.0090    0.0181    0.0417    0.0095    0.0079    0.0130
+
+  Columns 421 through 440
+
+    0.0083    0.0216    0.0126    0.0069    0.0151    0.0103    0.0190    0.0094    0.0105    0.0190    0.0594    0.0341    0.0450    0.0327    0.0300    0.0668    0.0088    0.0380    0.0526    0.0310
+
+  Columns 441 through 460
+
+    0.0334    0.0725    0.0129    0.0087    0.0492    0.0186    0.0230    0.0197    0.0429    0.0580    0.0359    0.0290    0.0236    0.0207    0.0325    0.0206    0.0285    0.0268    0.0386    0.0229
+
+  Columns 461 through 480
+
+    0.0061    0.0098    0.0126    0.0085    0.0144    0.0097    0.0152    0.0168    0.0200    0.0093    0.0230    0.0304    0.0405    0.0296    0.0124    0.0085    0.0166    0.0143    0.0232    0.0145
+
+  Columns 481 through 500
+
+    0.0532    0.0200    0.0447    0.0389    0.0491    0.0291    0.0907    0.0142    0.0313    0.0438    0.0536    0.0350    0.0189    0.0052    0.0222    0.0084    0.0180    0.0233    0.0162    0.0189
+
+  Columns 501 through 502
+
+    0.0799    0.1309
+
+close all
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+s1_rs_frac = [s1_rs_frac_low', s1_rs_frac_high'];
+s1_fs_frac = [s1_fs_frac_low', s1_fs_frac_high'];
+pfc_rs_frac = [pfc_rs_frac_low', pfc_rs_frac_high'];
+pfc_fs_frac = [pfc_fs_frac_low', pfc_fs_frac_high'];
+striatum_rs_frac = [striatum_rs_frac_low', striatum_rs_frac_high'];
+striatum_fs_frac = [striatum_fs_frac_low', striatum_fs_frac_high'];
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([11,13], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_frac(:,2)), ste(pfc_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_frac(:,1)), nanmean(pfc_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([16,18], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_frac(:,2)), ste(pfc_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_frac(:,1)), nanmean(pfc_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([21,23], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_frac(:,2)), ste(striatum_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_frac(:,1)), nanmean(striatum_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([26,28], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_frac(:,2)), ste(striatum_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_frac(:,1)), nanmean(striatum_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+ylim([0,1.05])
+yticks([0,1]);
+yticklabels({'0', '100'})
+ylabel('% Alpha Modulated ', 'FontSize', 14)axs(2) = nexttile;
+ ylabel('% Alpha Modulated ', 'FontSize', 14)axs(2) = nexttile;
+                                             |
+{Invalid expression. Check for missing multiplication operator, missing or unbalanced delimiters, or other syntax error. To construct matrices, use brackets instead of parentheses.
+} 
+s1_rs_mi = [s1_rs_low_mi', s1_rs_high_mi'];
+s1_fs_mi = [s1_fs_low_mi', s1_fs_high_mi'];
+pfc_rs_mi = [pfc_rs_low_mi', pfc_rs_high_mi'];
+pfc_fs_mi = [pfc_fs_low_mi', pfc_fs_high_mi'];
+striatum_rs_mi = [striatum_rs_low_mi', striatum_rs_high_mi'];
+striatum_fs_mi = [striatum_fs_low_mi', striatum_fs_high_mi'];
+hold on 
+plot(zeros(1, size(s1_rs_mi,1))+1, s1_rs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_rs_mi,1))+3, s1_rs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([1,3], s1_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Error using plot
+Specify the coordinates as vectors or matrices of the same size, or as a vector and a matrix that share the same length in at least one dimension.
+} 
+errorbar(1, nanmean(s1_rs_mi(:,1)), ste(s1_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_mi(:,2)), ste(s1_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+i
+
+i =
+
+     1
+
+s1_rs_mi(i,:)
+
+ans =
+
+  Columns 1 through 20
+
+    0.0078    0.0062    0.0096    0.0079    0.0113    0.0110    0.0131    0.0130    0.0041    0.0092    0.0074    0.0133    0.0052    0.0274    0.0073    0.0055    0.0070    0.0055    0.0045    0.0221
+
+  Columns 21 through 40
+
+    0.0090    0.0054    0.0098    0.0046    0.0230    0.0095    0.0055    0.0072    0.0225    0.0050    0.0039    0.0073    0.0049    0.0051    0.0042    0.0060    0.0073    0.0127    0.0047    0.0052
+
+  Columns 41 through 60
+
+    0.0172    0.0059    0.0071    0.0057    0.0184    0.0054    0.0049    0.0047    0.0044    0.0123    0.0053    0.0046    0.0058    0.0052    0.0055    0.0069    0.0050    0.0041    0.0050    0.0055
+
+  Columns 61 through 80
+
+    0.0043    0.0079    0.0066    0.0045    0.0062    0.0069    0.0099    0.0125    0.0127    0.0067    0.0046    0.0075    0.0105    0.0056    0.0141    0.0058    0.0051    0.0055    0.0050    0.0058
+
+  Columns 81 through 100
+
+    0.0039    0.0049    0.0058    0.0043    0.0059    0.0047    0.0045    0.0072    0.0078    0.0091    0.0311    0.0105    0.0249    0.0124    0.0066    0.0052    0.0068    0.0049    0.0045    0.0046
+
+  Columns 101 through 120
+
+    0.0054    0.0056    0.0045    0.0046    0.0057    0.0069    0.0026    0.0056    0.0055    0.0061    0.0109    0.0070    0.0073    0.0119    0.0155    0.0063    0.0059    0.0107    0.0040    0.0050
+
+  Columns 121 through 140
+
+    0.0048    0.0048    0.0048    0.0046    0.0055    0.0056    0.0044    0.0048    0.0055    0.0044    0.0054    0.0064    0.0171    0.0088    0.0090    0.0051    0.0056    0.0168    0.0052    0.0055
+
+  Columns 141 through 160
+
+    0.0062    0.0058    0.0049    0.0053    0.0044    0.0078    0.0031    0.0054    0.0066    0.0069    0.0052    0.0048    0.0039    0.0036    0.0060    0.0050    0.0035    0.0052    0.0040    0.0064
+
+  Columns 161 through 180
+
+    0.0059    0.0061    0.0041    0.0060    0.0075    0.0146    0.0055    0.0042    0.0037    0.0048    0.0080    0.0051    0.0046    0.0049    0.0058    0.0081    0.0056    0.0057    0.0050    0.0112
+
+  Columns 181 through 200
+
+    0.0105    0.0098    0.0049    0.0058    0.0042    0.0051    0.0061    0.0050    0.0116    0.0053    0.0099    0.0049    0.0055    0.0064    0.0057    0.0064    0.0052    0.0048    0.0084    0.0121
+
+  Columns 201 through 220
+
+    0.0057    0.0044    0.0043    0.0042    0.0054    0.0064    0.0088    0.0057    0.0045    0.0086    0.0058    0.0047    0.0082    0.0055    0.0096    0.0038    0.0086    0.0047    0.0048    0.0051
+
+  Columns 221 through 240
+
+    0.0065    0.0050    0.0044    0.0053    0.0057    0.0063    0.0053    0.0059    0.0058    0.0054    0.0065    0.0062    0.0118    0.0079    0.0050    0.0052    0.0052    0.0044    0.0056    0.0049
+
+  Columns 241 through 260
+
+    0.0055    0.0072    0.0037    0.0067    0.0078    0.0043    0.0061    0.0062    0.0056    0.0104    0.0201    0.0441    0.0122    0.0441    0.0247    0.0331    0.0157    0.0407    0.0259    0.0206
+
+  Columns 261 through 280
+
+    0.0250    0.0154    0.0435    0.0149    0.0358    0.0367    0.0268    0.0223    0.0106    0.0190    0.0252    0.0280    0.0226    0.0142    0.0236    0.0443    0.0241    0.0336    0.0138    0.0310
+
+  Columns 281 through 300
+
+    0.0241    0.0201    0.0237    0.0203    0.0136    0.0160    0.0112    0.0161    0.0239    0.0073    0.0054    0.0637    0.0092    0.0252    0.0171    0.0602    0.0175    0.0272    0.0068    0.0276
+
+  Columns 301 through 320
+
+    0.0289    0.0061    0.0067    0.0063    0.0081    0.0075    0.0146    0.0082    0.0059    0.0042    0.0067    0.0176    0.0056    0.0154    0.0092    0.0140    0.0252    0.0716    0.0296    0.0485
+
+  Columns 321 through 340
+
+    0.0562    0.0279    0.0434    0.0616    0.0143    0.0193    0.0076    0.0070    0.0148    0.0159    0.0142    0.0066    0.0049    0.0217    0.0060    0.0113    0.0072    0.0085    0.0142    0.0242
+
+  Columns 341 through 360
+
+    0.0865    0.0577    0.0294    0.0966    0.0546    0.0116    0.0104    0.0102    0.0082    0.0102    0.0128    0.0162    0.0154    0.0141    0.0078    0.0274    0.0086    0.0114    0.0053    0.0095
+
+  Columns 361 through 380
+
+    0.0077    0.0211    0.0458    0.0101    0.0743    0.0713    0.0173    0.0154    0.0207    0.0093    0.0057    0.0076    0.0097    0.0061    0.0074    0.0156    0.0064    0.0047    0.0057    0.0392
+
+  Columns 381 through 400
+
+    0.0095    0.0262    0.0219    0.1096    0.0327    0.0388    0.0078    0.0091    0.0261    0.0045    0.0097    0.0100    0.0064    0.0077    0.0085    0.0068    0.0118    0.0078    0.0104    0.0122
+
+  Columns 401 through 420
+
+    0.0115    0.0085    0.0255    0.0085    0.0221    0.0089    0.0170    0.0061    0.0273    0.0107    0.0120    0.0102    0.0161    0.0176    0.0090    0.0181    0.0417    0.0095    0.0079    0.0130
+
+  Columns 421 through 440
+
+    0.0083    0.0216    0.0126    0.0069    0.0151    0.0103    0.0190    0.0094    0.0105    0.0190    0.0594    0.0341    0.0450    0.0327    0.0300    0.0668    0.0088    0.0380    0.0526    0.0310
+
+  Columns 441 through 460
+
+    0.0334    0.0725    0.0129    0.0087    0.0492    0.0186    0.0230    0.0197    0.0429    0.0580    0.0359    0.0290    0.0236    0.0207    0.0325    0.0206    0.0285    0.0268    0.0386    0.0229
+
+  Columns 461 through 480
+
+    0.0061    0.0098    0.0126    0.0085    0.0144    0.0097    0.0152    0.0168    0.0200    0.0093    0.0230    0.0304    0.0405    0.0296    0.0124    0.0085    0.0166    0.0143    0.0232    0.0145
+
+  Columns 481 through 500
+
+    0.0532    0.0200    0.0447    0.0389    0.0491    0.0291    0.0907    0.0142    0.0313    0.0438    0.0536    0.0350    0.0189    0.0052    0.0222    0.0084    0.0180    0.0233    0.0162    0.0189
+
+  Columns 501 through 502
+
+    0.0799    0.1309
+
+size(s1_rs_mi)
+
+ans =
+
+     1   502
+
+s1_rs_mi = [s1_rs_low_mi, s1_rs_high_mi];
+s1_fs_mi = [s1_fs_low_mi, s1_fs_high_mi];
+pfc_rs_mi = [pfc_rs_low_mi, pfc_rs_high_mi];
+pfc_fs_mi = [pfc_fs_low_mi, pfc_fs_high_mi];
+striatum_rs_mi = [striatum_rs_low_mi, striatum_rs_high_mi];
+striatum_fs_mi = [striatum_fs_low_mi, striatum_fs_high_mi];
+hold on 
+plot(zeros(1, size(s1_rs_mi,1))+1, s1_rs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_rs_mi,1))+3, s1_rs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([1,3], s1_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+s1_rs_frac = [s1_rs_frac_low', s1_rs_frac_high'];
+s1_fs_frac = [s1_fs_frac_low', s1_fs_frac_high'];
+pfc_rs_frac = [pfc_rs_frac_low', pfc_rs_frac_high'];
+pfc_fs_frac = [pfc_fs_frac_low', pfc_fs_frac_high'];
+striatum_rs_frac = [striatum_rs_frac_low', striatum_rs_frac_high'];
+striatum_fs_frac = [striatum_fs_frac_low', striatum_fs_frac_high'];
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([11,13], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_frac(:,2)), ste(pfc_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_frac(:,1)), nanmean(pfc_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([16,18], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_frac(:,2)), ste(pfc_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_frac(:,1)), nanmean(pfc_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([21,23], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_frac(:,2)), ste(striatum_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_frac(:,1)), nanmean(striatum_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([26,28], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_frac(:,2)), ste(striatum_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_frac(:,1)), nanmean(striatum_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+ylim([0,1.05])
+yticks([0,1]);
+yticklabels({'0', '100'})
+ylabel('% Alpha Modulated ', 'FontSize', 14)
+
+axs(2) = nexttile;
+s1_rs_mi = [s1_rs_low_mi, s1_rs_high_mi];
+s1_fs_mi = [s1_fs_low_mi, s1_fs_high_mi];
+pfc_rs_mi = [pfc_rs_low_mi, pfc_rs_high_mi];
+pfc_fs_mi = [pfc_fs_low_mi, pfc_fs_high_mi];
+striatum_rs_mi = [striatum_rs_low_mi, striatum_rs_high_mi];
+striatum_fs_mi = [striatum_fs_low_mi, striatum_fs_high_mi];
+hold on 
+plot(zeros(1, size(s1_rs_mi,1))+1, s1_rs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_rs_mi,1))+3, s1_rs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([1,3], s1_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_mi(:,1)), ste(s1_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_mi(:,2)), ste(s1_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_mi(:,1)), nanmean(s1_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+s1_rs_frac = [s1_rs_frac_low', s1_rs_frac_high'];
+s1_fs_frac = [s1_fs_frac_low', s1_fs_frac_high'];
+pfc_rs_frac = [pfc_rs_frac_low', pfc_rs_frac_high'];
+pfc_fs_frac = [pfc_fs_frac_low', pfc_fs_frac_high'];
+striatum_rs_frac = [striatum_rs_frac_low', striatum_rs_frac_high'];
+striatum_fs_frac = [striatum_fs_frac_low', striatum_fs_frac_high'];
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([11,13], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_frac(:,2)), ste(pfc_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_frac(:,1)), nanmean(pfc_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([16,18], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_frac(:,2)), ste(pfc_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_frac(:,1)), nanmean(pfc_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([21,23], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_frac(:,2)), ste(striatum_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_frac(:,1)), nanmean(striatum_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([26,28], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_frac(:,2)), ste(striatum_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_frac(:,1)), nanmean(striatum_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+ylim([0,1.05])
+yticks([0,1]);
+yticklabels({'0', '100'})
+ylabel('% Alpha Modulated ', 'FontSize', 14)
+
+axs(2) = nexttile;
+s1_rs_mi = [s1_rs_low_mi, s1_rs_high_mi];
+s1_fs_mi = [s1_fs_low_mi, s1_fs_high_mi];
+pfc_rs_mi = [pfc_rs_low_mi, pfc_rs_high_mi];
+pfc_fs_mi = [pfc_fs_low_mi, pfc_fs_high_mi];
+striatum_rs_mi = [striatum_rs_low_mi, striatum_rs_high_mi];
+striatum_fs_mi = [striatum_fs_low_mi, striatum_fs_high_mi];
+hold on 
+plot(zeros(1, size(s1_rs_mi,1))+1, s1_rs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_rs_mi,1))+3, s1_rs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([1,3], s1_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_mi(:,1)), ste(s1_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_mi(:,2)), ste(s1_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_mi(:,1)), nanmean(s1_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_mi,1))+6, s1_fs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_fs_mi,1))+8, s1_fs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([6,8], s1_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 138.
+} 
+errorbar(6, nanmean(s1_fs_mi(:,1)), ste(s1_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_mi(:,2)), ste(s1_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_mi(:,1)), nanmean(s1_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_mi,1))+11, pfc_rs_mi(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_mi,1))+13, pfc_rs_mi(:,2), 'bo')
+for i = 1:size(pfc_rs_mi,1)
+    plot([11,13], pfc_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_mi(:,1)), ste(pfc_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_mi(:,2)), ste(pfc_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_mi(:,1)), nanmean(pfc_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_mi,1))+16, pfc_fs_mi(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_mi,1))+18, pfc_fs_mi(:,2), 'bo')
+for i = 1:size(pfc_rs_mi,1)
+    plot([16,18], pfc_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 38.
+} 
+errorbar(16, nanmean(pfc_fs_mi(:,1)), ste(pfc_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_mi(:,2)), ste(pfc_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_mi(:,1)), nanmean(pfc_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_mi,1))+21, striatum_rs_mi(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_mi,1))+23, striatum_rs_mi(:,2), 'bo')
+for i = 1:size(striatum_rs_mi,1)
+    plot([21,23], striatum_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_mi(:,1)), ste(striatum_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_mi(:,2)), ste(striatum_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_mi(:,1)), nanmean(striatum_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_mi,1))+26, striatum_fs_mi(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_mi,1))+28, striatum_fs_mi(:,2), 'bo')
+for i = 1:size(striatum_rs_mi,1)
+    plot([26,28], striatum_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_mi(:,1)), ste(striatum_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_mi(:,2)), ste(striatum_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_mi(:,1)), nanmean(striatum_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+ste(s1_fs_mi)
+
+ans =
+
+    0.0002    0.0022
+
+size(s1_rs_low_fr)
+
+ans =
+
+   251     1
+
+close all
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+s1_rs_frac = [s1_rs_frac_low', s1_rs_frac_high'];
+s1_fs_frac = [s1_fs_frac_low', s1_fs_frac_high'];
+pfc_rs_frac = [pfc_rs_frac_low', pfc_rs_frac_high'];
+pfc_fs_frac = [pfc_fs_frac_low', pfc_fs_frac_high'];
+striatum_rs_frac = [striatum_rs_frac_low', striatum_rs_frac_high'];
+striatum_fs_frac = [striatum_fs_frac_low', striatum_fs_frac_high'];
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([11,13], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_frac(:,2)), ste(pfc_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_frac(:,1)), nanmean(pfc_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([16,18], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_frac(:,2)), ste(pfc_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_frac(:,1)), nanmean(pfc_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([21,23], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_frac(:,2)), ste(striatum_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_frac(:,1)), nanmean(striatum_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([26,28], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_frac(:,2)), ste(striatum_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_frac(:,1)), nanmean(striatum_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+ylim([0,1.05])
+yticks([0,1]);
+yticklabels({'0', '100'})
+ylabel('% Alpha Modulated ', 'FontSize', 14)
+
+axs(2) = nexttile;
+s1_rs_mi = [s1_rs_low_mi, s1_rs_high_mi];
+s1_fs_mi = [s1_fs_low_mi, s1_fs_high_mi];
+pfc_rs_mi = [pfc_rs_low_mi, pfc_rs_high_mi];
+pfc_fs_mi = [pfc_fs_low_mi, pfc_fs_high_mi];
+striatum_rs_mi = [striatum_rs_low_mi, striatum_rs_high_mi];
+striatum_fs_mi = [striatum_fs_low_mi, striatum_fs_high_mi];
+hold on 
+plot(zeros(1, size(s1_rs_mi,1))+1, s1_rs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_rs_mi,1))+3, s1_rs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([1,3], s1_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_mi(:,1)), ste(s1_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_mi(:,2)), ste(s1_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_mi(:,1)), nanmean(s1_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_mi,1))+6, s1_fs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_fs_mi,1))+8, s1_fs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([6,8], s1_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 138.
+} 
+errorbar(6, nanmean(s1_fs_mi(:,1)), ste(s1_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_mi(:,2)), ste(s1_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_mi(:,1)), nanmean(s1_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_mi,1))+11, pfc_rs_mi(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_mi,1))+13, pfc_rs_mi(:,2), 'bo')
+for i = 1:size(pfc_rs_mi,1)
+    plot([11,13], pfc_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_mi(:,1)), ste(pfc_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_mi(:,2)), ste(pfc_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_mi(:,1)), nanmean(pfc_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_mi,1))+16, pfc_fs_mi(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_mi,1))+18, pfc_fs_mi(:,2), 'bo')
+for i = 1:size(pfc_rs_mi,1)
+    plot([16,18], pfc_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 38.
+} 
+errorbar(16, nanmean(pfc_fs_mi(:,1)), ste(pfc_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_mi(:,2)), ste(pfc_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_mi(:,1)), nanmean(pfc_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_mi,1))+21, striatum_rs_mi(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_mi,1))+23, striatum_rs_mi(:,2), 'bo')
+for i = 1:size(striatum_rs_mi,1)
+    plot([21,23], striatum_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_mi(:,1)), ste(striatum_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_mi(:,2)), ste(striatum_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_mi(:,1)), nanmean(striatum_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_mi,1))+26, striatum_fs_mi(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_mi,1))+28, striatum_fs_mi(:,2), 'bo')
+for i = 1:size(striatum_rs_mi,1)
+    plot([26,28], striatum_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_mi(:,1)), ste(striatum_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_mi(:,2)), ste(striatum_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_mi(:,1)), nanmean(striatum_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+axs(3) = nexttile;
+s1_rs_fr = [s1_rs_low_fr, s1_rs_high_fr];
+s1_fs_fr = [s1_fs_low_fr, s1_fs_high_fr];
+pfc_rs_fr = [pfc_rs_low_fr, pfc_rs_high_fr];
+pfc_fs_fr = [pfc_fs_low_fr, pfc_fs_high_fr];
+striatum_rs_fr = [striatum_rs_low_fr, striatum_rs_high_fr];
+striatum_fs_fr = [striatum_fs_low_fr, striatum_fs_high_fr];
+hold on 
+plot(zeros(1, size(s1_rs_fr,1))+1, s1_rs_fr(:,1), 'ro')
+plot(zeros(1, size(s1_rs_fr,1))+3, s1_rs_fr(:,2), 'bo')
+for i = 1:size(s1_rs_fr,1)
+    plot([1,3], s1_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_fr(:,1)), ste(s1_rs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_fr(:,2)), ste(s1_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_fr(:,1)), nanmean(s1_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_fr,1))+6, s1_fs_fr(:,1), 'ro')
+plot(zeros(1, size(s1_fs_fr,1))+8, s1_fs_fr(:,2), 'bo')
+for i = 1:size(s1_rs_fr,1)
+    plot([6,8], s1_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 138.
+} 
+errorbar(6, nanmean(s1_fs_fr(:,1)), ste(s1_fs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_fr(:,2)), ste(s1_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_fr(:,1)), nanmean(s1_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_fr,1))+11, pfc_rs_fr(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_fr,1))+13, pfc_rs_fr(:,2), 'bo')
+for i = 1:size(pfc_rs_fr,1)
+    plot([11,13], pfc_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_fr(:,1)), ste(pfc_rs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_fr(:,2)), ste(pfc_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_fr(:,1)), nanmean(pfc_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_fr,1))+16, pfc_fs_fr(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_fr,1))+18, pfc_fs_fr(:,2), 'bo')
+for i = 1:size(pfc_rs_fr,1)
+    plot([16,18], pfc_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 38.
+} 
+errorbar(16, nanmean(pfc_fs_fr(:,1)), ste(pfc_fs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_fr(:,2)), ste(pfc_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_fr(:,1)), nanmean(pfc_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_fr,1))+21, striatum_rs_fr(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_fr,1))+23, striatum_rs_fr(:,2), 'bo')
+for i = 1:size(striatum_rs_fr,1)
+    plot([21,23], striatum_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_fr(:,1)), ste(striatum_rs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_fr(:,2)), ste(striatum_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_fr(:,1)), nanmean(striatum_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_fr,1))+26, striatum_fs_fr(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_fr,1))+28, striatum_fs_fr(:,2), 'bo')
+for i = 1:size(striatum_rs_fr,1)
+    plot([26,28], striatum_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_fr(:,1)), ste(striatum_fs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_fr(:,2)), ste(striatum_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_fr(:,1)), nanmean(striatum_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+s1_rs_frac = [s1_rs_frac_low', s1_rs_frac_high'];
+s1_fs_frac = [s1_fs_frac_low', s1_fs_frac_high'];
+pfc_rs_frac = [pfc_rs_frac_low', pfc_rs_frac_high'];
+pfc_fs_frac = [pfc_fs_frac_low', pfc_fs_frac_high'];
+striatum_rs_frac = [striatum_rs_frac_low', striatum_rs_frac_high'];
+striatum_fs_frac = [striatum_fs_frac_low', striatum_fs_frac_high'];
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([11,13], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_frac(:,2)), ste(pfc_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_frac(:,1)), nanmean(pfc_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([16,18], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_frac(:,2)), ste(pfc_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_frac(:,1)), nanmean(pfc_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([21,23], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_frac(:,2)), ste(striatum_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_frac(:,1)), nanmean(striatum_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([26,28], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_frac(:,2)), ste(striatum_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_frac(:,1)), nanmean(striatum_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+ylim([0,1.05])
+yticks([0,1]);
+yticklabels({'0', '100'})
+ylabel('% Alpha Modulated ', 'FontSize', 14)
+
+axs(2) = nexttile;
+s1_rs_mi = [s1_rs_low_mi, s1_rs_high_mi];
+s1_fs_mi = [s1_fs_low_mi, s1_fs_high_mi];
+pfc_rs_mi = [pfc_rs_low_mi, pfc_rs_high_mi];
+pfc_fs_mi = [pfc_fs_low_mi, pfc_fs_high_mi];
+striatum_rs_mi = [striatum_rs_low_mi, striatum_rs_high_mi];
+striatum_fs_mi = [striatum_fs_low_mi, striatum_fs_high_mi];
+hold on 
+plot(zeros(1, size(s1_rs_mi,1))+1, s1_rs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_rs_mi,1))+3, s1_rs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([1,3], s1_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_mi(:,1)), ste(s1_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_mi(:,2)), ste(s1_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_mi(:,1)), nanmean(s1_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_mi,1))+6, s1_fs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_fs_mi,1))+8, s1_fs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([6,8], s1_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 138.
+} 
+errorbar(6, nanmean(s1_fs_mi(:,1)), ste(s1_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_mi(:,2)), ste(s1_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_mi(:,1)), nanmean(s1_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_mi,1))+11, pfc_rs_mi(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_mi,1))+13, pfc_rs_mi(:,2), 'bo')
+for i = 1:size(pfc_rs_mi,1)
+    plot([11,13], pfc_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_mi(:,1)), ste(pfc_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_mi(:,2)), ste(pfc_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_mi(:,1)), nanmean(pfc_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_mi,1))+16, pfc_fs_mi(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_mi,1))+18, pfc_fs_mi(:,2), 'bo')
+for i = 1:size(pfc_rs_mi,1)
+    plot([16,18], pfc_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 38.
+} 
+errorbar(16, nanmean(pfc_fs_mi(:,1)), ste(pfc_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_mi(:,2)), ste(pfc_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_mi(:,1)), nanmean(pfc_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_mi,1))+21, striatum_rs_mi(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_mi,1))+23, striatum_rs_mi(:,2), 'bo')
+for i = 1:size(striatum_rs_mi,1)
+    plot([21,23], striatum_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_mi(:,1)), ste(striatum_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_mi(:,2)), ste(striatum_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_mi(:,1)), nanmean(striatum_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_mi,1))+26, striatum_fs_mi(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_mi,1))+28, striatum_fs_mi(:,2), 'bo')
+for i = 1:size(striatum_rs_mi,1)
+    plot([26,28], striatum_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_mi(:,1)), ste(striatum_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_mi(:,2)), ste(striatum_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_mi(:,1)), nanmean(striatum_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+axs(3) = nexttile;
+s1_rs_fr = [s1_rs_low_fr, s1_rs_high_fr];
+s1_fs_fr = [s1_fs_low_fr, s1_fs_high_fr];
+pfc_rs_fr = [pfc_rs_low_fr, pfc_rs_high_fr];
+pfc_fs_fr = [pfc_fs_low_fr, pfc_fs_high_fr];
+striatum_rs_fr = [striatum_rs_low_fr, striatum_rs_high_fr];
+striatum_fs_fr = [striatum_fs_low_fr, striatum_fs_high_fr];
+hold on 
+plot(zeros(1, size(s1_rs_fr,1))+1, s1_rs_fr(:,1), 'ro')
+plot(zeros(1, size(s1_rs_fr,1))+3, s1_rs_fr(:,2), 'bo')
+for i = 1:size(s1_rs_fr,1)
+    plot([1,3], s1_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_fr(:,1)), ste(s1_rs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_fr(:,2)), ste(s1_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_fr(:,1)), nanmean(s1_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_fr,1))+6, s1_fs_fr(:,1), 'ro')
+plot(zeros(1, size(s1_fs_fr,1))+8, s1_fs_fr(:,2), 'bo')
+for i = 1:size(s1_rs_fr,1)
+    plot([6,8], s1_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 138.
+} 
+errorbar(6, nanmean(s1_fs_fr(:,1)), ste(s1_fs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_fr(:,2)), ste(s1_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_fr(:,1)), nanmean(s1_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_fr,1))+11, pfc_rs_fr(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_fr,1))+13, pfc_rs_fr(:,2), 'bo')
+for i = 1:size(pfc_rs_fr,1)
+    plot([11,13], pfc_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_fr(:,1)), ste(pfc_rs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_fr(:,2)), ste(pfc_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_fr(:,1)), nanmean(pfc_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_fr,1))+16, pfc_fs_fr(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_fr,1))+18, pfc_fs_fr(:,2), 'bo')
+for i = 1:size(pfc_rs_fr,1)
+    plot([16,18], pfc_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 38.
+} 
+errorbar(16, nanmean(pfc_fs_fr(:,1)), ste(pfc_fs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_fr(:,2)), ste(pfc_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_fr(:,1)), nanmean(pfc_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_fr,1))+21, striatum_rs_fr(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_fr,1))+23, striatum_rs_fr(:,2), 'bo')
+for i = 1:size(striatum_rs_fr,1)
+    plot([21,23], striatum_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_fr(:,1)), ste(striatum_rs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_fr(:,2)), ste(striatum_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_fr(:,1)), nanmean(striatum_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_fr,1))+26, striatum_fs_fr(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_fr,1))+28, striatum_fs_fr(:,2), 'bo')
+for i = 1:size(striatum_rs_fr,1)
+    plot([26,28], striatum_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_fr(:,1)), ste(striatum_fs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_fr(:,2)), ste(striatum_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_fr(:,1)), nanmean(striatum_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+close all
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+s1_rs_frac = [s1_rs_frac_low', s1_rs_frac_high'];
+s1_fs_frac = [s1_fs_frac_low', s1_fs_frac_high'];
+pfc_rs_frac = [pfc_rs_frac_low', pfc_rs_frac_high'];
+pfc_fs_frac = [pfc_fs_frac_low', pfc_fs_frac_high'];
+striatum_rs_frac = [striatum_rs_frac_low', striatum_rs_frac_high'];
+striatum_fs_frac = [striatum_fs_frac_low', striatum_fs_frac_high'];
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([11,13], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_frac(:,2)), ste(pfc_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_frac(:,1)), nanmean(pfc_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([16,18], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_frac(:,2)), ste(pfc_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_frac(:,1)), nanmean(pfc_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([21,23], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_frac(:,2)), ste(striatum_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_frac(:,1)), nanmean(striatum_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([26,28], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_frac(:,2)), ste(striatum_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_frac(:,1)), nanmean(striatum_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+ylim([0,1.05])
+yticks([0,1]);
+yticklabels({'0', '100'})
+ylabel('% Alpha Modulated ', 'FontSize', 14)
+
+axs(2) = nexttile;
+s1_rs_mi = [s1_rs_low_mi, s1_rs_high_mi];
+s1_fs_mi = [s1_fs_low_mi, s1_fs_high_mi];
+pfc_rs_mi = [pfc_rs_low_mi, pfc_rs_high_mi];
+pfc_fs_mi = [pfc_fs_low_mi, pfc_fs_high_mi];
+striatum_rs_mi = [striatum_rs_low_mi, striatum_rs_high_mi];
+striatum_fs_mi = [striatum_fs_low_mi, striatum_fs_high_mi];
+hold on 
+plot(zeros(1, size(s1_rs_mi,1))+1, s1_rs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_rs_mi,1))+3, s1_rs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([1,3], s1_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_mi(:,1)), ste(s1_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_mi(:,2)), ste(s1_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_mi(:,1)), nanmean(s1_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_mi,1))+6, s1_fs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_fs_mi,1))+8, s1_fs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([6,8], s1_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 138.
+} 
+errorbar(6, nanmean(s1_fs_mi(:,1)), ste(s1_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_mi(:,2)), ste(s1_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_mi(:,1)), nanmean(s1_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_mi,1))+11, pfc_rs_mi(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_mi,1))+13, pfc_rs_mi(:,2), 'bo')
+for i = 1:size(pfc_rs_mi,1)
+    plot([11,13], pfc_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_mi(:,1)), ste(pfc_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_mi(:,2)), ste(pfc_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_mi(:,1)), nanmean(pfc_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_mi,1))+16, pfc_fs_mi(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_mi,1))+18, pfc_fs_mi(:,2), 'bo')
+for i = 1:size(pfc_rs_mi,1)
+    plot([16,18], pfc_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 38.
+} 
+errorbar(16, nanmean(pfc_fs_mi(:,1)), ste(pfc_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_mi(:,2)), ste(pfc_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_mi(:,1)), nanmean(pfc_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_mi,1))+21, striatum_rs_mi(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_mi,1))+23, striatum_rs_mi(:,2), 'bo')
+for i = 1:size(striatum_rs_mi,1)
+    plot([21,23], striatum_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_mi(:,1)), ste(striatum_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_mi(:,2)), ste(striatum_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_mi(:,1)), nanmean(striatum_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_mi,1))+26, striatum_fs_mi(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_mi,1))+28, striatum_fs_mi(:,2), 'bo')
+for i = 1:size(striatum_rs_mi,1)
+    plot([26,28], striatum_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_mi(:,1)), ste(striatum_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_mi(:,2)), ste(striatum_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_mi(:,1)), nanmean(striatum_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+ylabel('Modulation Index ', 'FontSize', 14)
+
+axs(3) = nexttile;
+s1_rs_fr = [s1_rs_low_fr, s1_rs_high_fr];
+s1_fs_fr = [s1_fs_low_fr, s1_fs_high_fr];
+pfc_rs_fr = [pfc_rs_low_fr, pfc_rs_high_fr];
+pfc_fs_fr = [pfc_fs_low_fr, pfc_fs_high_fr];
+striatum_rs_fr = [striatum_rs_low_fr, striatum_rs_high_fr];
+striatum_fs_fr = [striatum_fs_low_fr, striatum_fs_high_fr];
+hold on 
+plot(zeros(1, size(s1_rs_fr,1))+1, s1_rs_fr(:,1), 'ro')
+plot(zeros(1, size(s1_rs_fr,1))+3, s1_rs_fr(:,2), 'bo')
+for i = 1:size(s1_rs_fr,1)
+    plot([1,3], s1_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_fr(:,1)), ste(s1_rs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_fr(:,2)), ste(s1_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_fr(:,1)), nanmean(s1_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_fr,1))+6, s1_fs_fr(:,1), 'ro')
+plot(zeros(1, size(s1_fs_fr,1))+8, s1_fs_fr(:,2), 'bo')
+for i = 1:size(s1_rs_fr,1)
+    plot([6,8], s1_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 138.
+} 
+errorbar(6, nanmean(s1_fs_fr(:,1)), ste(s1_fs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_fr(:,2)), ste(s1_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_fr(:,1)), nanmean(s1_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_fr,1))+11, pfc_rs_fr(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_fr,1))+13, pfc_rs_fr(:,2), 'bo')
+for i = 1:size(pfc_rs_fr,1)
+    plot([11,13], pfc_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_fr(:,1)), ste(pfc_rs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_fr(:,2)), ste(pfc_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_fr(:,1)), nanmean(pfc_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_fr,1))+16, pfc_fs_fr(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_fr,1))+18, pfc_fs_fr(:,2), 'bo')
+for i = 1:size(pfc_rs_fr,1)
+    plot([16,18], pfc_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 38.
+} 
+errorbar(16, nanmean(pfc_fs_fr(:,1)), ste(pfc_fs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_fr(:,2)), ste(pfc_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_fr(:,1)), nanmean(pfc_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_fr,1))+21, striatum_rs_fr(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_fr,1))+23, striatum_rs_fr(:,2), 'bo')
+for i = 1:size(striatum_rs_fr,1)
+    plot([21,23], striatum_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_fr(:,1)), ste(striatum_rs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_fr(:,2)), ste(striatum_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_fr(:,1)), nanmean(striatum_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_fr,1))+26, striatum_fs_fr(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_fr,1))+28, striatum_fs_fr(:,2), 'bo')
+for i = 1:size(striatum_rs_fr,1)
+    plot([26,28], striatum_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_fr(:,1)), ste(striatum_fs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_fr(:,2)), ste(striatum_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_fr(:,1)), nanmean(striatum_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+ylabel('Firing Rate (Hz) ', 'FontSize', 14)
+
+axs(4) = nexttile;
+s1_rs_theta = [s1_rs__theta_bar_low, s1_rs__theta_bar_high];
+{Error using keyboard
+Unrecognized function or variable 's1_rs__theta_bar_low'.
+} 
+s1_fs_theta = [s1_fs__theta_bar_low, s1_fs__theta_bar_high];
+{Error using keyboard
+Unrecognized function or variable 's1_fs__theta_bar_low'.
+} 
+pfc_rs_theta = [pfc_rs__theta_bar_low, pfc_rs__theta_bar_high];
+{Error using keyboard
+Unrecognized function or variable 'pfc_rs__theta_bar_low'.
+} 
+pfc_fs_theta = [pfc_fs__theta_bar_low, pfc_fs__theta_bar_high];
+{Error using keyboard
+Unrecognized function or variable 'pfc_fs__theta_bar_low'.
+} 
+striatum_rs_theta = [striatum_rs__theta_bar_low, striatum_rs__theta_bar_high];
+{Error using keyboard
+Unrecognized function or variable 'striatum_rs__theta_bar_low'.
+} 
+striatum_fs_theta = [striatum_fs__theta_bar_low, striatum_fs__theta_bar_high];
+{Error using keyboard
+Unrecognized function or variable 'striatum_fs__theta_bar_low'.
+} 
+hold on 
+plot(zeros(1, size(s1_rs_theta,1))+1, s1_rs_theta(:,1), 'ro')
+{Error using keyboard
+Unrecognized function or variable 's1_rs_theta'.
+} 
+plot(zeros(1, size(s1_rs_theta,1))+3, s1_rs_theta(:,2), 'bo')
+{Error using keyboard
+Unrecognized function or variable 's1_rs_theta'.
+} 
+for i = 1:size(s1_rs_theta,1)
+    plot([1,3], s1_rs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Error using keyboard
+Unrecognized function or variable 's1_rs_theta'.
+} 
+errorbar(1, nanmean(s1_rs_theta(:,1)), ste(s1_rs_theta(:,1)), 'k.', 'LineWidth', 2)
+{Unrecognized function or variable 's1_rs_theta'.
+} 
+s1_rs_theta = [s1_rs_theta_bar_low, s1_rs_theta_bar_high];
+s1_fs_theta = [s1_fs_theta_bar_low, s1_fs_theta_bar_high];
+pfc_rs_theta = [pfc_rs_theta_bar_low, pfc_rs_theta_bar_high];
+pfc_fs_theta = [pfc_fs_theta_bar_low, pfc_fs_theta_bar_high];
+striatum_rs_theta = [striatum_rs_theta_bar_low, striatum_rs_theta_bar_high];
+striatum_fs_theta = [striatum_fs_theta_bar_low, striatum_fs_theta_bar_high];
+
+updated_fig = figure('Position', [1220 1334 1000 700]);
+tl = tiledlayout(2,2);
+axs(1) = nexttile;
+s1_rs_frac = [s1_rs_frac_low', s1_rs_frac_high'];
+s1_fs_frac = [s1_fs_frac_low', s1_fs_frac_high'];
+pfc_rs_frac = [pfc_rs_frac_low', pfc_rs_frac_high'];
+pfc_fs_frac = [pfc_fs_frac_low', pfc_fs_frac_high'];
+striatum_rs_frac = [striatum_rs_frac_low', striatum_rs_frac_high'];
+striatum_fs_frac = [striatum_fs_frac_low', striatum_fs_frac_high'];
+hold on 
+plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
+plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
+for i = 1:size(s1_rs_frac,1)
+    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([11,13], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_frac(:,2)), ste(pfc_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_frac(:,1)), nanmean(pfc_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo')
+for i = 1:size(pfc_rs_frac,1)
+    plot([16,18], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_frac(:,2)), ste(pfc_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_frac(:,1)), nanmean(pfc_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([21,23], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_frac(:,2)), ste(striatum_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_frac(:,1)), nanmean(striatum_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo')
+for i = 1:size(striatum_rs_frac,1)
+    plot([26,28], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_frac(:,2)), ste(striatum_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_frac(:,1)), nanmean(striatum_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+ylim([0,1.05])
+yticks([0,1]);
+yticklabels({'0', '100'})
+ylabel('% Alpha Modulated ', 'FontSize', 14)
+
+axs(2) = nexttile;
+s1_rs_mi = [s1_rs_low_mi, s1_rs_high_mi];
+s1_fs_mi = [s1_fs_low_mi, s1_fs_high_mi];
+pfc_rs_mi = [pfc_rs_low_mi, pfc_rs_high_mi];
+pfc_fs_mi = [pfc_fs_low_mi, pfc_fs_high_mi];
+striatum_rs_mi = [striatum_rs_low_mi, striatum_rs_high_mi];
+striatum_fs_mi = [striatum_fs_low_mi, striatum_fs_high_mi];
+hold on 
+plot(zeros(1, size(s1_rs_mi,1))+1, s1_rs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_rs_mi,1))+3, s1_rs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([1,3], s1_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_mi(:,1)), ste(s1_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_mi(:,2)), ste(s1_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_mi(:,1)), nanmean(s1_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_mi,1))+6, s1_fs_mi(:,1), 'ro')
+plot(zeros(1, size(s1_fs_mi,1))+8, s1_fs_mi(:,2), 'bo')
+for i = 1:size(s1_rs_mi,1)
+    plot([6,8], s1_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 138.
+} 
+errorbar(6, nanmean(s1_fs_mi(:,1)), ste(s1_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_mi(:,2)), ste(s1_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_mi(:,1)), nanmean(s1_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_mi,1))+11, pfc_rs_mi(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_mi,1))+13, pfc_rs_mi(:,2), 'bo')
+for i = 1:size(pfc_rs_mi,1)
+    plot([11,13], pfc_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_mi(:,1)), ste(pfc_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_mi(:,2)), ste(pfc_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_mi(:,1)), nanmean(pfc_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_mi,1))+16, pfc_fs_mi(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_mi,1))+18, pfc_fs_mi(:,2), 'bo')
+for i = 1:size(pfc_rs_mi,1)
+    plot([16,18], pfc_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 38.
+} 
+errorbar(16, nanmean(pfc_fs_mi(:,1)), ste(pfc_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_mi(:,2)), ste(pfc_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_mi(:,1)), nanmean(pfc_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_mi,1))+21, striatum_rs_mi(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_mi,1))+23, striatum_rs_mi(:,2), 'bo')
+for i = 1:size(striatum_rs_mi,1)
+    plot([21,23], striatum_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_mi(:,1)), ste(striatum_rs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_mi(:,2)), ste(striatum_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_mi(:,1)), nanmean(striatum_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_mi,1))+26, striatum_fs_mi(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_mi,1))+28, striatum_fs_mi(:,2), 'bo')
+for i = 1:size(striatum_rs_mi,1)
+    plot([26,28], striatum_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_mi(:,1)), ste(striatum_fs_mi(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_mi(:,2)), ste(striatum_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_mi(:,1)), nanmean(striatum_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+ylabel('Modulation Index ', 'FontSize', 14)
+
+axs(3) = nexttile;
+s1_rs_fr = [s1_rs_low_fr, s1_rs_high_fr];
+s1_fs_fr = [s1_fs_low_fr, s1_fs_high_fr];
+pfc_rs_fr = [pfc_rs_low_fr, pfc_rs_high_fr];
+pfc_fs_fr = [pfc_fs_low_fr, pfc_fs_high_fr];
+striatum_rs_fr = [striatum_rs_low_fr, striatum_rs_high_fr];
+striatum_fs_fr = [striatum_fs_low_fr, striatum_fs_high_fr];
+hold on 
+plot(zeros(1, size(s1_rs_fr,1))+1, s1_rs_fr(:,1), 'ro')
+plot(zeros(1, size(s1_rs_fr,1))+3, s1_rs_fr(:,2), 'bo')
+for i = 1:size(s1_rs_fr,1)
+    plot([1,3], s1_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_fr(:,1)), ste(s1_rs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_fr(:,2)), ste(s1_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_fr(:,1)), nanmean(s1_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_fr,1))+6, s1_fs_fr(:,1), 'ro')
+plot(zeros(1, size(s1_fs_fr,1))+8, s1_fs_fr(:,2), 'bo')
+for i = 1:size(s1_rs_fr,1)
+    plot([6,8], s1_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 138.
+} 
+errorbar(6, nanmean(s1_fs_fr(:,1)), ste(s1_fs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_fr(:,2)), ste(s1_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_fr(:,1)), nanmean(s1_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_fr,1))+11, pfc_rs_fr(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_fr,1))+13, pfc_rs_fr(:,2), 'bo')
+for i = 1:size(pfc_rs_fr,1)
+    plot([11,13], pfc_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_fr(:,1)), ste(pfc_rs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_fr(:,2)), ste(pfc_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_fr(:,1)), nanmean(pfc_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_fr,1))+16, pfc_fs_fr(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_fr,1))+18, pfc_fs_fr(:,2), 'bo')
+for i = 1:size(pfc_rs_fr,1)
+    plot([16,18], pfc_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 38.
+} 
+errorbar(16, nanmean(pfc_fs_fr(:,1)), ste(pfc_fs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(18, nanmean(pfc_fs_fr(:,2)), ste(pfc_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([16,18], [nanmean(pfc_fs_fr(:,1)), nanmean(pfc_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_rs_fr,1))+21, striatum_rs_fr(:,1), 'ro')
+plot(zeros(1, size(striatum_rs_fr,1))+23, striatum_rs_fr(:,2), 'bo')
+for i = 1:size(striatum_rs_fr,1)
+    plot([21,23], striatum_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(21, nanmean(striatum_rs_fr(:,1)), ste(striatum_rs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(23, nanmean(striatum_rs_fr(:,2)), ste(striatum_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([21,23], [nanmean(striatum_rs_fr(:,1)), nanmean(striatum_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(striatum_fs_fr,1))+26, striatum_fs_fr(:,1), 'ro')
+plot(zeros(1, size(striatum_fs_fr,1))+28, striatum_fs_fr(:,2), 'bo')
+for i = 1:size(striatum_rs_fr,1)
+    plot([26,28], striatum_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(26, nanmean(striatum_fs_fr(:,1)), ste(striatum_fs_fr(:,1)), 'k.', 'LineWidth', 2)
+errorbar(28, nanmean(striatum_fs_fr(:,2)), ste(striatum_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+plot([26,28], [nanmean(striatum_fs_fr(:,1)), nanmean(striatum_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+xticks([2, 7, 12, 17, 22, 27])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+ylabel('Firing Rate (Hz) ', 'FontSize', 14)
+
+axs(4) = nexttile;
+s1_rs_theta = [s1_rs_theta_bar_low, s1_rs_theta_bar_high];
+s1_fs_theta = [s1_fs_theta_bar_low, s1_fs_theta_bar_high];
+pfc_rs_theta = [pfc_rs_theta_bar_low, pfc_rs_theta_bar_high];
+pfc_fs_theta = [pfc_fs_theta_bar_low, pfc_fs_theta_bar_high];
+striatum_rs_theta = [striatum_rs_theta_bar_low, striatum_rs_theta_bar_high];
+striatum_fs_theta = [striatum_fs_theta_bar_low, striatum_fs_theta_bar_high];
+hold on 
+plot(zeros(1, size(s1_rs_theta,1))+1, s1_rs_theta(:,1), 'ro')
+plot(zeros(1, size(s1_rs_theta,1))+3, s1_rs_theta(:,2), 'bo')
+for i = 1:size(s1_rs_theta,1)
+    plot([1,3], s1_rs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(1, nanmean(s1_rs_theta(:,1)), circ_ste(s1_rs_theta(:,1)), 'k.', 'LineWidth', 2)
+errorbar(3, nanmean(s1_rs_theta(:,2)), circ_ste(s1_rs_theta(:,2)), 'k.', 'LineWidth', 2)
+plot([1,3], [nanmean(s1_rs_theta(:,1)), nanmean(s1_rs_theta(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(s1_fs_theta,1))+6, s1_fs_theta(:,1), 'ro')
+plot(zeros(1, size(s1_fs_theta,1))+8, s1_fs_theta(:,2), 'bo')
+for i = 1:size(s1_rs_theta,1)
+    plot([6,8], s1_fs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 138.
+} 
+errorbar(6, nanmean(s1_fs_theta(:,1)), circ_ste(s1_fs_theta(:,1)), 'k.', 'LineWidth', 2)
+errorbar(8, nanmean(s1_fs_theta(:,2)), circ_ste(s1_fs_theta(:,2)), 'k.', 'LineWidth', 2)
+plot([6,8], [nanmean(s1_fs_theta(:,1)), nanmean(s1_fs_theta(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_rs_theta,1))+11, pfc_rs_theta(:,1), 'ro')
+plot(zeros(1, size(pfc_rs_theta,1))+13, pfc_rs_theta(:,2), 'bo')
+for i = 1:size(pfc_rs_theta,1)
+    plot([11,13], pfc_rs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar(11, nanmean(pfc_rs_theta(:,1)), circ_ste(pfc_rs_theta(:,1)), 'k.', 'LineWidth', 2)
+errorbar(13, nanmean(pfc_rs_theta(:,2)), circ_ste(pfc_rs_theta(:,2)), 'k.', 'LineWidth', 2)
+plot([11,13], [nanmean(pfc_rs_theta(:,1)), nanmean(pfc_rs_theta(:,2))], 'k--', 'LineWidth', 1)
+
+plot(zeros(1, size(pfc_fs_theta,1))+16, pfc_fs_theta(:,1), 'ro')
+plot(zeros(1, size(pfc_fs_theta,1))+18, pfc_fs_theta(:,2), 'bo')
+for i = 1:size(pfc_rs_theta,1)
+    plot([16,18], pfc_fs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+end
+{Index in position 1 exceeds array bounds. Index must not exceed 38.
+} 

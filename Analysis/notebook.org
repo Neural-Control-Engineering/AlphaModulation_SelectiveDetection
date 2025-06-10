@@ -4376,12 +4376,12 @@ to MSE in Figs. 3-5) is better explained by an increased randomness in the relat
 of spikes are included in both analyses. My suggestion - re-do these analyses with similar spike numbers per trial type. This would greatly strengthen the robustness 
 of the findings. More generally, the dependence of spike rates / spike counts on phase modulation statistical analyses should be considered throughout the study.
 ** TODOS 
-*** TODO: plot spike count vs MI, MSE 
+*** DONE: plot spike count vs MI, MSE 
 **** added MSE and MI vs. average overall firing rate to phaseModSummaries.m
 **** may consider rejecting units w/ FR < 0.5 Hz 
 *** DONE: consider find neurons with high spike counts on incorrect trials 
 **** don't think that's way to go 
-*** TODO: maybe pick as many hits/correct rejection trials as there are miss/false alarm trials at random and generate distribution
+*** DONE: maybe pick as many hits/correct rejection trials as there are miss/false alarm trials at random and generate distribution
 ***** AlphaModFigScripts/correctIncorrectShuffle.m
 
 3. Interpretation of alpha modulation. The messaging here is unclear. The authors write on p17 “The strong alpha modulation observed prior to correct trials compared 
@@ -4398,7 +4398,7 @@ own data, alpha modulation levels did not influence spike rates. These inconsist
 alpha modulation and trial outcomes? If face/body movements were monitored during these experiments, their analyses relative to alpha modulations and trial outcomes 
 should be included.
 ** TODOS
-*** TODO: compare alpha modulation on trials with movements vs without 
+*** DONE: compare alpha modulation on trials with movements vs without 
 **** added FTR_Analysis/lfpPhaseHistSponLicking.m to extToFtrAP.m to compare phase modulation during trials with spontaneous licks vs those without 
 **** DONE: rerun ap_ftr_extraction.m 
 
@@ -4411,13 +4411,15 @@ reduced responding (including false alarms), rather than reduced correct outcome
 6. In the Results, the authors refer to hit and false alarm trials as 'action' vs miss and correct rejection trials as 'inaction'. These should be relabeled as 'response' 
 and 'no response', as there can be plenty of action/movement on all trial outcome types.
 ** TODOS:
-*** TODO: action -> response; inaction -> no response
+*** DONE: action -> response; inaction -> no response
 
 Minor concerns
 
 Introduction, p3, lines 24-25- clarify 'ipsilateral' vs 'contralateral' to the attended stimuli. Is 'contralateral' the hemisphere receiving the attended sensory input?
+** DONE 
 
 Methods, Behavioral task. Is there any requirement or monitoring for licking during the inter-trial interval?
+** DONE 
 
 Results, p7, lines 48-49. What is the interpretation of 44.8% of classified FSUs in the striatum?
 
@@ -4477,9 +4479,9 @@ cells.
 load ~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat
 excld_file = 'ExcldInds/3755_excld.mat';
 autocorrQC(ap_ftr, excld_file)
-*** TODO: consider PCA to assess waveform consistency 
+*** DONE: consider PCA to assess waveform consistency 
 **** would be very difficult, because dont get a waveform from each spike, just a template, from kilosort 
-*** TODO: make sure andy's paper cited 
+*** DONE: make sure andy's paper cited 
 
 3. While the results presented in Figure 4 are potentially interesting, it is difficult to assess whether the interpretations are fully supported by the analyses. Several methodological 
 and reporting issues limit the clarity and validity of the conclusions drawn from these data.
@@ -4489,7 +4491,7 @@ the authors assess binary outcomes (e.g., whether a unit was modulated or not) u
 signed-rank tests. However, these tests assume continuous or ordinal data, not proportions derived from binary classifications. Instead, tests designed for categorical data 
 (e.g., Chi-square tests) would be more appropriate. The authors should revise these analyses accordingly or provide a clear justification for the statistical approach used.
 ** TODOS:
-*** TODO: Chi-square tests for categorical data ... or not 
+*** DONE: Chi-square tests for categorical data ... or not 
 **** from chatgpt 
 If you have vectors of percentages from multiple subjects/sessions (e.g., 10 percentages per group), treat the percentages as continuous data:
 Use a two-sample t-test (Assumes normality. If in doubt, use a non-parametric test like ranksum).
@@ -4513,14 +4515,14 @@ from the alleged regions (e.g., ACC, PL, IL, ORB, DP).
 ** TODOS:
 *** DONE: CSD for S1 - now AlphaModFigScripts/s1CSD.m 
 **** avg across sessions 
-*** TODO: reinforce that PFC subregion assignments are estimates based on probe position 
+*** DONE: reinforce that PFC subregion assignments are estimates based on probe position 
 
 4. The rationale for selectively presenting only a subset of the data in Figure 6 is unclear. Specifically, the figure includes only fast-spiking (FS) neurons from S1 and 
 regular-spiking (RS) neurons from the prefrontal cortex, without explanation for the omission of other cell types or regions. The authors should clarify their criteria for 
 inclusion and justify why only these particular subsets are shown. If data from additional neuronal populations or regions were analyzed, those results should either be included 
 or the rationale for their exclusion explicitly stated.
 ** TODOS:
-*** TODO: consider combining example and summary figures
+*** DONE: consider combining example and summary figures
 
 5. While the introduction is clearly written, the remainder of the manuscript would benefit from substantial editorial refinement. One major concern is the considerable redundancy 
 throughout the Results section. In several instances, the authors reintroduce methodological details that have already been described in the Methods section. This repetition 
@@ -4601,7 +4603,7 @@ related to reward processing. Without aligning neural responses to the time of r
 responses to the stimulus, motor actions, reward anticipation, or the reward itself. The authors should either revise their interpretation accordingly or provide analyses 
 aligned to the actual time of reward delivery to substantiate these claims.
 ** TODOS:
-*** TODO: add dashed lines indicating reward time (where necessary)
+*** DONE: add dashed lines indicating reward time (where necessary)
 
 14. It is commendable that the animals were trained on a selective detection task; however, it remains unclear whether the rewarded side was fixed or alternated across sessions. 
 This detail is essential for interpreting whether the observed alpha-band modulations are associated with attention to the task-relevant target or with suppression of the distractor. 
@@ -4609,7 +4611,7 @@ Without this information, it is difficult to disentangle whether the neural sign
 that have raised concerns whether mechanisms of distracter suppression (e.g., the alpha suppression effect, see Snyder and Foxe, Frontiers in Psychology, 2011) are independent of 
 target enhancement. The findings from this paper can shed light onto this discussion by clarifying the reward structure and its implications for interpreting alpha dynamics.
 ** TODOS:
-*** TODO: clarify that rewarded side was fixed across sessions 
+*** DONE: clarify that rewarded side was fixed across sessions 
 
 15. The rationale for including more than twice as many trials in the no-go stimulus condition compared to the go condition is unclear. This imbalance in trial numbers could 
 introduce biases the responses of animals, and thus the findings on the neural data. The authors should clarify the reasoning behind this design choice and discuss whether 
@@ -4624,9 +4626,11 @@ lick in general). The authors should address this, and investigate whether it ca
 Minor concerns:
 
 • Figure numbers should be in the order described in the main text (swap Figure 2 with figure 1, or rework the figures).
+** DONE
 
 • Please point to a graph when making claims about different response properties of neurons (e.g., “Interestingly, unmodulated FS units exhibited a more prominent 
 local peak in firing rate following reward compared to phase-modulated FS units, ..”). Without the reference, it is challenging to validate whether the interpretations are merited.
+** DONE 
 
 • Figures with bar plots showing summary statistics need to have the associated 'Ns' for each conditions.
 
@@ -4638,6 +4642,7 @@ local peak in firing rate following reward compared to phase-modulated FS units,
 • I think that the references to the paper figures in lines 15 (page 10), 37 (page 10), 6 (page 11), and 18 (page 11) are incorrect. Please correct.
 
 • Were the whiskers secured to the tactile stimulator, or were animals allowed to freely-whisk throughout the trial?
+** DONE 
 
 • There is a missed opportunity to relate this work with the observations from Shin et al (2019) on gamma oscillations and tactile discrimination 
 in barrel cortex.
@@ -4878,7 +4883,7 @@ saveas(fig, 'tmp/lick_mod_unmod.png')
 
 * [2025-6-5 Thu] - working on text 
 ** TODOS:
-*** TODO: replace panels in figure 3 (include overall for fractions and MI)
+*** DONE: replace panels in figure 3 (include overall for fractions and MI)
 
 * [2025-6-6 Fri] - working on text 
 ** TODOS:

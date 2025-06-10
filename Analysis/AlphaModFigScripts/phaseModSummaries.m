@@ -2157,15 +2157,24 @@ mi = [s1_rs.pmi; ...
     s1_fs.pmi; ...
     striatum_rs.pmi; ...
     striatum_fs.pmi];
-figure();
 scatter(fr, mi, 'k')
-xlabel('Firing Rate (Hz)')
-hold on 
-x = 1:60;
-for i = 1:60
-    y(i) = (0.05 / i) + min(mi);
-end
-plot(x, y, 'r')
+lims = ylim;
+ylim([0,lims(2)])
+yticks([0,lims(2)])
+lims = xlim;
+xlim([0,lims(2)])
+xticks([0,lims(2)])
+ax = gca;
+ax.XAxis.FontSize = 14;
+ax.YAxis.FontSize = 14;
+xlabel('Firing Rate (Hz)', 'FontSize', 16)
+ylabel('Modulation Index', 'FontSize', 16)
+% hold on 
+% x = 1:60;
+% for i = 1:60
+%     y(i) = (0.05 / i) + min(mi);
+% end
+% plot(x, y, 'r')
 
 
 tl = tiledlayout(4,2);

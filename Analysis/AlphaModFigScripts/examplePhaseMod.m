@@ -10,7 +10,6 @@ trials = find(strcmp(slrt_data.categorical_outcome,'Hit'));
 trial_inds = 24:27;
 count = 1;
 for t = 107:109
-    t = 24;
     c = find(ap_data(t,:).spiking_data{1}.cluster_id == 218);
     cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
     lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
