@@ -606,41 +606,70 @@ s1_fs_theta_bar_high_err = circ_std(s1_fs_theta_bar_high) ./ sqrt(sum(~isnan(s1_
 fig = figure('Position', [1220 1334 1000 700]);
 tl = tiledlayout(2,2);
 axs(1) = nexttile;
+hold on 
+bar([2,5,8,11,14,17], ...
+    [nanmean(s1_rs_frac_high .* 100), nanmean(s1_fs_frac_high .* 100), ...
+    nanmean(pfc_rs_frac_high .* 100), nanmean(pfc_fs_frac_high .* 100), ...
+    nanmean(striatum_rs_frac_high .* 100), nanmean(striatum_fs_frac_high .* 100)], 0.3, ...
+    'EdgeColor', 'k', 'FaceColor', 'b')
+bar([1,4,7,10,13,16], ...
+    [nanmean(s1_rs_frac_low .* 100), nanmean(s1_fs_frac_low .* 100), ...
+    nanmean(pfc_rs_frac_low .* 100), nanmean(pfc_fs_frac_low .* 100), ...
+    nanmean(striatum_rs_frac_low .* 100), nanmean(striatum_fs_frac_low .* 100)], 0.3, ...
+    'EdgeColor', 'k', 'FaceColor', 'r')
+errorbar([2,5,8,11,14,17], ...
+    [nanmean(s1_rs_frac_high .* 100), nanmean(s1_fs_frac_high .* 100), ...
+    nanmean(pfc_rs_frac_high .* 100), nanmean(pfc_fs_frac_high .* 100), ...
+    nanmean(striatum_rs_frac_high .* 100), nanmean(striatum_fs_frac_high .* 100)], ...
+    [ste(s1_rs_frac_high .* 100), ste(s1_fs_frac_high .* 100), ...
+    ste(pfc_rs_frac_high .* 100), ste(pfc_fs_frac_high .* 100), ...
+    ste(striatum_rs_frac_high .* 100), ste(striatum_fs_frac_high .* 100)], ...
+    'k.', 'LineWidth', 1.5)
+errorbar([1,4,7,10,13,16], ...
+    [nanmean(s1_rs_frac_low .* 100), nanmean(s1_fs_frac_low .* 100), ...
+    nanmean(pfc_rs_frac_low .* 100), nanmean(pfc_fs_frac_low .* 100), ...
+    nanmean(striatum_rs_frac_low .* 100), nanmean(striatum_fs_frac_low .* 100)], ...
+    [ste(s1_rs_frac_low .* 100), ste(s1_fs_frac_low .* 100), ...
+    ste(pfc_rs_frac_low .* 100), ste(pfc_fs_frac_low .* 100), ...
+    ste(striatum_rs_frac_low .* 100), ste(striatum_fs_frac_low .* 100)], ...
+    'k.', 'LineWidth', 1.5)
+xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
+xtickangle(45)
+ylim([0,105])
+yticks([0,100])
+ylabel('% Modulated per Session', 'FontSize', 14)
+
+axs(2) = nexttile;
 hold on
-bar([2,5,8,11,14,17, 20, 23], ...
+bar([2,5,8,11,14,17], ...
     [s1_rs_high_mi_avg, s1_fs_high_mi_avg, ...
     pfc_rs_high_mi_avg, pfc_fs_high_mi_avg, ...
-    striatum_rs_high_mi_avg, striatum_fs_high_mi_avg, ...
-    amygdala_rs_high_mi_avg, amygdala_fs_high_mi_avg], 0.3, ...
+    striatum_rs_high_mi_avg, striatum_fs_high_mi_avg], 0.3, ...
     'EdgeColor', 'k', 'FaceColor', 'b')
-bar([1,4,7,10,13,16,19,22], ...
+bar([1,4,7,10,13,16], ...
     [s1_rs_low_mi_avg, s1_fs_low_mi_avg, ...
     pfc_rs_low_mi_avg, pfc_fs_low_mi_avg, ...
-    striatum_rs_low_mi_avg, striatum_fs_low_mi_avg, ...
-    amygdala_rs_low_mi_avg, amygdala_fs_low_mi_avg], 0.3, ...
+    striatum_rs_low_mi_avg, striatum_fs_low_mi_avg], 0.3, ...
     'EdgeColor', 'k', 'FaceColor', 'r')
-errorbar([2,5,8,11,14,17, 20, 23], ...
+errorbar([2,5,8,11,14,17], ...
     [s1_rs_high_mi_avg, s1_fs_high_mi_avg, ...
     pfc_rs_high_mi_avg, pfc_fs_high_mi_avg, ...
-    striatum_rs_high_mi_avg, striatum_fs_high_mi_avg, ...
-    amygdala_rs_high_mi_avg, amygdala_fs_high_mi_avg], ...
+    striatum_rs_high_mi_avg, striatum_fs_high_mi_avg], ...
     [s1_rs_high_mi_err, s1_fs_high_mi_err, ...
     pfc_rs_high_mi_err, pfc_fs_high_mi_err, ...
-    striatum_rs_high_mi_err, striatum_fs_high_mi_err, ...
-    amygdala_rs_high_mi_err, amygdala_fs_high_mi_err], ...
-    'k.')
-errorbar([1,4,7,10,13,16,19,22], ...
+    striatum_rs_high_mi_err, striatum_fs_high_mi_err], ...
+    'k.', 'LineWidth', 1.5)
+errorbar([1,4,7,10,13,16], ...
     [s1_rs_low_mi_avg, s1_fs_low_mi_avg, ...
     pfc_rs_low_mi_avg, pfc_fs_low_mi_avg, ...
-    striatum_rs_low_mi_avg, striatum_fs_low_mi_avg, ...
-    amygdala_rs_low_mi_avg, amygdala_fs_low_mi_avg], ...
+    striatum_rs_low_mi_avg, striatum_fs_low_mi_avg], ...
     [s1_rs_low_mi_err, s1_fs_low_mi_err, ...
     pfc_rs_low_mi_err, pfc_fs_low_mi_err, ...
-    striatum_rs_low_mi_err, striatum_fs_low_mi_err, ...
-    amygdala_rs_low_mi_err, amygdala_fs_low_mi_err], ...
-    'k.')
-xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5, 19.5, 22.5])
-xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS', 'Amygdala RS', 'Amygdala FS'})
+    striatum_rs_low_mi_err, striatum_fs_low_mi_err], ...
+    'k.', 'LineWidth', 1.5)
+xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
 xtickangle(45)
 % ylim([0,0.12])
 % yticks([0,0.12])
@@ -648,86 +677,36 @@ lims = ylim;
 yticks([0,lims(2)])
 ylabel('Modulation Index', 'FontSize', 14)
 
-axs(2) = nexttile;
-hold on
-bar([2,5,8,11,14,17, 20, 23], ...
-    [s1_rs_high_mse_avg, s1_fs_high_mse_avg, ...
-    pfc_rs_high_mse_avg, pfc_fs_high_mse_avg, ...
-    striatum_rs_high_mse_avg, striatum_fs_high_mse_avg, ...
-    amygdala_rs_high_mse_avg, amygdala_fs_high_mse_avg], 0.3, ...
-    'EdgeColor', 'k', 'FaceColor', 'b')
-bar([1,4,7,10,13,16,19,22], ...
-    [s1_rs_low_mse_avg, s1_fs_low_mse_avg, ...
-    pfc_rs_low_mse_avg, pfc_fs_low_mse_avg, ...
-    striatum_rs_low_mse_avg, striatum_fs_low_mse_avg, ...
-    amygdala_rs_low_mse_avg, amygdala_fs_low_mse_avg], 0.3, ...
-    'EdgeColor', 'k', 'FaceColor', 'r')
-errorbar([2,5,8,11,14,17, 20, 23], ...
-    [s1_rs_high_mse_avg, s1_fs_high_mse_avg, ...
-    pfc_rs_high_mse_avg, pfc_fs_high_mse_avg, ...
-    striatum_rs_high_mse_avg, striatum_fs_high_mse_avg, ...
-    amygdala_rs_high_mse_avg, amygdala_fs_high_mse_avg], ...
-    [s1_rs_high_mse_err, s1_fs_high_mse_err, ...
-    pfc_rs_high_mse_err, pfc_fs_high_mse_err, ...
-    striatum_rs_high_mse_err, striatum_fs_high_mse_err, ...
-    amygdala_rs_high_mse_err, amygdala_fs_high_mse_err], ...
-    'k.')
-errorbar([1,4,7,10,13,16,19,22], ...
-    [s1_rs_low_mse_avg, s1_fs_low_mse_avg, ...
-    pfc_rs_low_mse_avg, pfc_fs_low_mse_avg, ...
-    striatum_rs_low_mse_avg, striatum_fs_low_mse_avg, ...
-    amygdala_rs_low_mse_avg, amygdala_fs_low_mse_avg], ...
-    [s1_rs_low_mse_err, s1_fs_low_mse_err, ...
-    pfc_rs_low_mse_err, pfc_fs_low_mse_err, ...
-    striatum_rs_low_mse_err, striatum_fs_low_mse_err, ...
-    amygdala_rs_low_mse_err, amygdala_fs_low_mse_err], ...
-    'k.')
-xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5, 19.5, 22.5])
-xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS', 'Amygdala RS', 'Amygdala FS'})
-xtickangle(45)
-lims = ylim;
-yticks([0,lims(2)])
-% ylim([0,0.12])
-% lims = ylim;
-% yticks([0,lims(2)])
-ylabel('von Mises MSE', 'FontSize', 14)
-
 axs(3) = nexttile;
 hold on
-bar([2,5,8,11,14,17, 20, 23], ...
+bar([2,5,8,11,14,17], ...
     [s1_rs_high_fr_avg, s1_fs_high_fr_avg, ...
     pfc_rs_high_fr_avg, pfc_fs_high_fr_avg, ...
-    striatum_rs_high_fr_avg, striatum_fs_high_fr_avg, ...
-    amygdala_rs_high_fr_avg, amygdala_fs_high_fr_avg], 0.3, ...
+    striatum_rs_high_fr_avg, striatum_fs_high_fr_avg], 0.3, ...
     'EdgeColor', 'k', 'FaceColor', 'b')
-bar([1,4,7,10,13,16,19,22], ...
+bar([1,4,7,10,13,16], ...
     [s1_rs_low_fr_avg, s1_fs_low_fr_avg, ...
     pfc_rs_low_fr_avg, pfc_fs_low_fr_avg, ...
-    striatum_rs_low_fr_avg, striatum_fs_low_fr_avg, ...
-    amygdala_rs_low_fr_avg, amygdala_fs_low_fr_avg], 0.3, ...
+    striatum_rs_low_fr_avg, striatum_fs_low_fr_avg], 0.3, ...
     'EdgeColor', 'k', 'FaceColor', 'r')
-errorbar([2,5,8,11,14,17, 20, 23], ...
+errorbar([2,5,8,11,14,17], ...
     [s1_rs_high_fr_avg, s1_fs_high_fr_avg, ...
     pfc_rs_high_fr_avg, pfc_fs_high_fr_avg, ...
-    striatum_rs_high_fr_avg, striatum_fs_high_fr_avg, ...
-    amygdala_rs_high_fr_avg, amygdala_fs_high_fr_avg], ...
+    striatum_rs_high_fr_avg, striatum_fs_high_fr_avg], ...
     [s1_rs_high_fr_err, s1_fs_high_fr_err, ...
     pfc_rs_high_fr_err, pfc_fs_high_fr_err, ...
-    striatum_rs_high_fr_err, striatum_fs_high_fr_err, ...
-    amygdala_rs_high_fr_err, amygdala_fs_high_fr_err], ...
-    'k.')
-errorbar([1,4,7,10,13,16,19,22], ...
+    striatum_rs_high_fr_err, striatum_fs_high_fr_err], ...
+    'k.', 'LineWidth', 1.5)
+errorbar([1,4,7,10,13,16], ...
     [s1_rs_low_fr_avg, s1_fs_low_fr_avg, ...
     pfc_rs_low_fr_avg, pfc_fs_low_fr_avg, ...
-    striatum_rs_low_fr_avg, striatum_fs_low_fr_avg, ...
-    amygdala_rs_low_fr_avg, amygdala_fs_low_fr_avg], ...
+    striatum_rs_low_fr_avg, striatum_fs_low_fr_avg], ...
     [s1_rs_low_fr_err, s1_fs_low_fr_err, ...
     pfc_rs_low_fr_err, pfc_fs_low_fr_err, ...
-    striatum_rs_low_fr_err, striatum_fs_low_fr_err, ...
-    amygdala_rs_low_fr_err, amygdala_fs_low_fr_err], ...
-    'k.')
-xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5, 19.5, 22.5])
-xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS', 'Amygdala RS', 'Amygdala FS'})
+    striatum_rs_low_fr_err, striatum_fs_low_fr_err], ...
+    'k.', 'LineWidth', 1.5)
+xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5])
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
 xtickangle(45)
 % ylim([0,18])
 lims = ylim;
@@ -736,41 +715,35 @@ ylabel('Avg. Firing Rate (Hz)', 'FontSize', 14)
 
 axs(4) = nexttile;
 hold on
-bar([2,5,8,11,14,17, 20, 23], ...
+bar([2,5,8,11,14,17], ...
     [s1_rs_theta_bar_high_avg, s1_fs_theta_bar_high_avg, ...
     pfc_rs_theta_bar_high_avg, pfc_fs_theta_bar_high_avg, ...
-    striatum_rs_theta_bar_high_avg, striatum_fs_theta_bar_high_avg, ...
-    amygdala_rs_theta_bar_high_avg, amygdala_fs_theta_bar_high_avg], 0.3, ...
+    striatum_rs_theta_bar_high_avg, striatum_fs_theta_bar_high_avg], 0.3, ...
     'EdgeColor', 'k', 'FaceColor', 'b')
-bar([1,4,7,10,13,16,19,22], ...
+bar([1,4,7,10,13,16], ...
     [s1_rs_theta_bar_low_avg, s1_fs_theta_bar_low_avg, ...
     pfc_rs_theta_bar_low_avg, pfc_fs_theta_bar_low_avg, ...
-    striatum_rs_theta_bar_low_avg, striatum_fs_theta_bar_low_avg, ...
-    amygdala_rs_theta_bar_low_avg, amygdala_fs_theta_bar_low_avg], 0.3, ...
+    striatum_rs_theta_bar_low_avg, striatum_fs_theta_bar_low_avg], 0.3, ...
     'EdgeColor', 'k', 'FaceColor', 'r')
-errorbar([2,5,8,11,14,17, 20, 23], ...
+errorbar([2,5,8,11,14,17], ...
     [s1_rs_theta_bar_high_avg, s1_fs_theta_bar_high_avg, ...
     pfc_rs_theta_bar_high_avg, pfc_fs_theta_bar_high_avg, ...
-    striatum_rs_theta_bar_high_avg, striatum_fs_theta_bar_high_avg, ...
-    amygdala_rs_theta_bar_high_avg, amygdala_fs_theta_bar_high_avg], ...
+    striatum_rs_theta_bar_high_avg, striatum_fs_theta_bar_high_avg], ...
     [s1_rs_theta_bar_high_err, s1_fs_theta_bar_high_err, ...
     pfc_rs_theta_bar_high_err, pfc_fs_theta_bar_high_err, ...
-    striatum_rs_theta_bar_high_err, striatum_fs_theta_bar_high_err, ...
-    amygdala_rs_theta_bar_high_err, amygdala_fs_theta_bar_high_err], ...
-    'k.')
-errorbar([1,4,7,10,13,16,19,22], ...
+    striatum_rs_theta_bar_high_err, striatum_fs_theta_bar_high_err], ...
+    'k.', 'LineWidth', 1.5)
+errorbar([1,4,7,10,13,16], ...
     [s1_rs_theta_bar_low_avg, s1_fs_theta_bar_low_avg, ...
     pfc_rs_theta_bar_low_avg, pfc_fs_theta_bar_low_avg, ...
-    striatum_rs_theta_bar_low_avg, striatum_fs_theta_bar_low_avg, ...
-    amygdala_rs_theta_bar_low_avg, amygdala_fs_theta_bar_low_avg], ...
+    striatum_rs_theta_bar_low_avg, striatum_fs_theta_bar_low_avg], ...
     [s1_rs_theta_bar_low_err, s1_fs_theta_bar_low_err, ...
     pfc_rs_theta_bar_low_err, pfc_fs_theta_bar_low_err, ...
-    striatum_rs_theta_bar_low_err, striatum_fs_theta_bar_low_err, ...
-    amygdala_rs_theta_bar_low_err, amygdala_fs_theta_bar_low_err], ...
-    'k.')
-ylabel('Avg. Firing Phase (radians)', 'FontSize', 14)
+    striatum_rs_theta_bar_low_err, striatum_fs_theta_bar_low_err], ...
+    'k.', 'LineWidth', 1.5)
+ylabel('Avg. Firing Phase (rad)', 'FontSize', 14)
 xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5, 19.5, 22.5])
-xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS', 'Amygdala RS', 'Amygdala FS'})
+xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
 xtickangle(45)
 ylim([-4,4])
 yticks([-pi,pi])
@@ -1401,9 +1374,7 @@ fprintf(sprintf('Amygdala FS theta bar distribtions kuipers test: %d\n', circ_ku
 % % yticks([0,0.12])
 % lims = ylim;
 % yticks([0,lims(2)])
-% ylabel('% Alpha Modulated ', 'FontSize', 14)
-
-keyboard 
+% ylabel('% Alpha Modulated ', 'FontSize', 14) 
 
 updated_fig = figure('Position', [1220 1334 1000 700]);
 tl = tiledlayout(2,2);
@@ -1415,58 +1386,76 @@ pfc_fs_frac = [pfc_fs_frac_low', pfc_fs_frac_high'];
 striatum_rs_frac = [striatum_rs_frac_low', striatum_rs_frac_high'];
 striatum_fs_frac = [striatum_fs_frac_low', striatum_fs_frac_high'];
 hold on 
-plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro')
-plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo')
+% plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro', 'MarkerSize', 5)
+% plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo', 'MarkerSize', 5)
 for i = 1:size(s1_rs_frac,1)
-    plot([1,3], s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    x = (rand()-0.5) * 0.5;
+    plot(1+x, s1_rs_frac(i,1), 'ro', 'MarkerSize', 5)
+    plot(3+x, s1_rs_frac(i,2), 'bo', 'MarkerSize', 5)
+    plot([1,3]+x, s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 2)
-errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 1.5)
 plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro')
-plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo')
-for i = 1:size(s1_rs_frac,1)
-    plot([6,8], s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+% plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro', 'MarkerSize', 5)
+% plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo', 'MarkerSize', 5)
+for i = 1:size(s1_fs_frac,1)
+    x = (rand()-0.5) * 0.5;
+    plot(6+x, s1_fs_frac(i,1), 'ro', 'MarkerSize', 5)
+    plot(8+x, s1_fs_frac(i,2), 'bo', 'MarkerSize', 5)
+    plot([6,8]+x, s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 2)
-errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 1.5)
 plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro')
-plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo')
+% plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro', 'MarkerSize', 5)
+% plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo', 'MarkerSize', 5)
 for i = 1:size(pfc_rs_frac,1)
-    plot([11,13], pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    x = (rand()-0.5) * 0.5;
+    plot(11+x, pfc_rs_frac(i,1), 'ro', 'MarkerSize', 5)
+    plot(13+x, pfc_rs_frac(i,2), 'bo', 'MarkerSize', 5)
+    plot([11,13]+x, pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 2)
-errorbar(13, nanmean(pfc_rs_frac(:,2)), ste(pfc_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(13, nanmean(pfc_rs_frac(:,2)), ste(pfc_rs_frac(:,2)), 'k.', 'LineWidth', 1.5)
 plot([11,13], [nanmean(pfc_rs_frac(:,1)), nanmean(pfc_rs_frac(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro')
-plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo')
-for i = 1:size(pfc_rs_frac,1)
-    plot([16,18], pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+% plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro', 'MarkerSize', 5)
+% plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo', 'MarkerSize', 5)
+for i = 1:size(pfc_fs_frac,1)
+    x = (rand()-0.5) * 0.5;
+    plot(16+x, pfc_fs_frac(i,1), 'ro', 'MarkerSize', 5)
+    plot(18+x, pfc_fs_frac(i,2), 'bo', 'MarkerSize', 5)
+    plot([16,18]+x, pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 2)
-errorbar(18, nanmean(pfc_fs_frac(:,2)), ste(pfc_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(18, nanmean(pfc_fs_frac(:,2)), ste(pfc_fs_frac(:,2)), 'k.', 'LineWidth', 1.5)
 plot([16,18], [nanmean(pfc_fs_frac(:,1)), nanmean(pfc_fs_frac(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro')
-plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo')
+% plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro', 'MarkerSize', 5)
+% plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo', 'MarkerSize', 5)
 for i = 1:size(striatum_rs_frac,1)
-    plot([21,23], striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    x = (rand()-0.5) * 0.5;
+    plot(21+x, striatum_rs_frac(i,1), 'ro', 'MarkerSize', 5)
+    plot(23+x, striatum_rs_frac(i,2), 'bo', 'MarkerSize', 5)
+    plot([21,23]+x, striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 2)
-errorbar(23, nanmean(striatum_rs_frac(:,2)), ste(striatum_rs_frac(:,2)), 'k.', 'LineWidth', 2)
+errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(23, nanmean(striatum_rs_frac(:,2)), ste(striatum_rs_frac(:,2)), 'k.', 'LineWidth', 1.5)
 plot([21,23], [nanmean(striatum_rs_frac(:,1)), nanmean(striatum_rs_frac(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro')
-plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo')
-for i = 1:size(striatum_rs_frac,1)
-    plot([26,28], striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+% plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro', 'MarkerSize', 5)
+% plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo', 'MarkerSize', 5)
+for i = 1:size(striatum_fs_frac,1)
+    x = (rand()-0.5) * 0.5;
+    plot(26+x, striatum_fs_frac(i,1), 'ro', 'MarkerSize', 5)
+    plot(28+x, striatum_fs_frac(i,2), 'bo', 'MarkerSize', 5)
+    plot([26,28]+x, striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(26, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 2)
-errorbar(28, nanmean(striatum_fs_frac(:,2)), ste(striatum_fs_frac(:,2)), 'k.', 'LineWidth', 2)
+errorbar(26, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(28, nanmean(striatum_fs_frac(:,2)), ste(striatum_fs_frac(:,2)), 'k.', 'LineWidth', 1.5)
 plot([26,28], [nanmean(striatum_fs_frac(:,1)), nanmean(striatum_fs_frac(:,2))], 'k--', 'LineWidth', 1)
 xticks([2, 7, 12, 17, 22, 27])
 xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
@@ -1483,62 +1472,101 @@ pfc_fs_mi = [pfc_fs_low_mi, pfc_fs_high_mi];
 striatum_rs_mi = [striatum_rs_low_mi, striatum_rs_high_mi];
 striatum_fs_mi = [striatum_fs_low_mi, striatum_fs_high_mi];
 hold on 
-plot(zeros(1, size(s1_rs_mi,1))+1, s1_rs_mi(:,1), 'ro')
-plot(zeros(1, size(s1_rs_mi,1))+3, s1_rs_mi(:,2), 'bo')
+% violinplot(1, s1_rs_mi(:,1), 'FaceColor', 'r')
+% violinplot(3, s1_rs_mi(:,2), 'FaceColor', 'b')
+
+% violinplot(6, s1_fs_mi(:,1), 'FaceColor', 'r')
+% violinplot(8, s1_fs_mi(:,2), 'FaceColor', 'b')
+
+% violinplot(11, pfc_rs_mi(:,1), 'FaceColor', 'r')
+% violinplot(13, pfc_rs_mi(:,2), 'FaceColor', 'b')
+
+% violinplot(16, pfc_fs_mi(:,1), 'FaceColor', 'r')
+% violinplot(18, pfc_fs_mi(:,2), 'FaceColor', 'b')
+
+% violinplot(21, striatum_rs_mi(:,1), 'FaceColor', 'r')
+% violinplot(23, striatum_rs_mi(:,2), 'FaceColor', 'b')
+
+% violinplot(26, pfc_fs_mi(:,1), 'FaceColor', 'r')
+% violinplot(28, pfc_fs_mi(:,2), 'FaceColor', 'b')
+hold on 
+% plot(zeros(1, size(s1_rs_mi,1))+1, s1_rs_mi(:,1), 'ro')
+% plot(zeros(1, size(s1_rs_mi,1))+3, s1_rs_mi(:,2), 'bo')
 for i = 1:size(s1_rs_mi,1)
+    x = (rand()-0.5) * 0.5;
+    plot(1+x, s1_rs_mi(i,1), 'ro', 'MarkerSize', 5)
+    plot(3+x, s1_rs_mi(i,2), 'bo', 'MarkerSize', 5)
     plot([1,3], s1_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(1, nanmean(s1_rs_mi(:,1)), ste(s1_rs_mi(:,1)), 'k.', 'LineWidth', 2)
-errorbar(3, nanmean(s1_rs_mi(:,2)), ste(s1_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+errorbar(1, nanmean(s1_rs_mi(:,1)), ste(s1_rs_mi(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(3, nanmean(s1_rs_mi(:,2)), ste(s1_rs_mi(:,2)), 'k.', 'LineWidth', 1.5)
 plot([1,3], [nanmean(s1_rs_mi(:,1)), nanmean(s1_rs_mi(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(s1_fs_mi,1))+6, s1_fs_mi(:,1), 'ro')
-plot(zeros(1, size(s1_fs_mi,1))+8, s1_fs_mi(:,2), 'bo')
-for i = 1:size(s1_rs_mi,1)
+% plot(zeros(1, size(s1_fs_mi,1))+6, s1_fs_mi(:,1), 'ro')
+% plot(zeros(1, size(s1_fs_mi,1))+8, s1_fs_mi(:,2), 'bo')
+for i = 1:size(s1_fs_mi,1)
+    x = (rand()-0.5) * 0.5;
+    plot(6+x, s1_fs_mi(i,1), 'ro', 'MarkerSize', 5)
+    plot(8+x, s1_fs_mi(i,2), 'bo', 'MarkerSize', 5)
     plot([6,8], s1_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(6, nanmean(s1_fs_mi(:,1)), ste(s1_fs_mi(:,1)), 'k.', 'LineWidth', 2)
-errorbar(8, nanmean(s1_fs_mi(:,2)), ste(s1_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+errorbar(6, nanmean(s1_fs_mi(:,1)), ste(s1_fs_mi(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(8, nanmean(s1_fs_mi(:,2)), ste(s1_fs_mi(:,2)), 'k.', 'LineWidth', 1.5)
 plot([6,8], [nanmean(s1_fs_mi(:,1)), nanmean(s1_fs_mi(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(pfc_rs_mi,1))+11, pfc_rs_mi(:,1), 'ro')
-plot(zeros(1, size(pfc_rs_mi,1))+13, pfc_rs_mi(:,2), 'bo')
+% plot(zeros(1, size(pfc_rs_mi,1))+11, pfc_rs_mi(:,1), 'ro')
+% plot(zeros(1, size(pfc_rs_mi,1))+13, pfc_rs_mi(:,2), 'bo')
 for i = 1:size(pfc_rs_mi,1)
+    x = (rand()-0.5) * 0.5;
+    plot(11+x, pfc_rs_mi(i,1), 'ro', 'MarkerSize', 5)
+    plot(13+x, pfc_rs_mi(i,2), 'bo', 'MarkerSize', 5)
     plot([11,13], pfc_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(11, nanmean(pfc_rs_mi(:,1)), ste(pfc_rs_mi(:,1)), 'k.', 'LineWidth', 2)
-errorbar(13, nanmean(pfc_rs_mi(:,2)), ste(pfc_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+errorbar(11, nanmean(pfc_rs_mi(:,1)), ste(pfc_rs_mi(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(13, nanmean(pfc_rs_mi(:,2)), ste(pfc_rs_mi(:,2)), 'k.', 'LineWidth', 1.5)
 plot([11,13], [nanmean(pfc_rs_mi(:,1)), nanmean(pfc_rs_mi(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(pfc_fs_mi,1))+16, pfc_fs_mi(:,1), 'ro')
-plot(zeros(1, size(pfc_fs_mi,1))+18, pfc_fs_mi(:,2), 'bo')
-for i = 1:size(pfc_rs_mi,1)
+% plot(zeros(1, size(pfc_fs_mi,1))+16, pfc_fs_mi(:,1), 'ro')
+% plot(zeros(1, size(pfc_fs_mi,1))+18, pfc_fs_mi(:,2), 'bo')
+for i = 1:size(pfc_fs_mi,1)
+    x = (rand()-0.5) * 0.5;
+    plot(16+x, pfc_fs_mi(i,1), 'ro', 'MarkerSize', 5)
+    plot(18+x, pfc_fs_mi(i,2), 'bo', 'MarkerSize', 5)
     plot([16,18], pfc_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(16, nanmean(pfc_fs_mi(:,1)), ste(pfc_fs_mi(:,1)), 'k.', 'LineWidth', 2)
-errorbar(18, nanmean(pfc_fs_mi(:,2)), ste(pfc_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+errorbar(16, nanmean(pfc_fs_mi(:,1)), ste(pfc_fs_mi(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(18, nanmean(pfc_fs_mi(:,2)), ste(pfc_fs_mi(:,2)), 'k.', 'LineWidth', 1.5)
 plot([16,18], [nanmean(pfc_fs_mi(:,1)), nanmean(pfc_fs_mi(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(striatum_rs_mi,1))+21, striatum_rs_mi(:,1), 'ro')
-plot(zeros(1, size(striatum_rs_mi,1))+23, striatum_rs_mi(:,2), 'bo')
+% plot(zeros(1, size(striatum_rs_mi,1))+21, striatum_rs_mi(:,1), 'ro')
+% plot(zeros(1, size(striatum_rs_mi,1))+23, striatum_rs_mi(:,2), 'bo')
 for i = 1:size(striatum_rs_mi,1)
+    x = (rand()-0.5) * 0.5;
+    plot(21+x, striatum_rs_mi(i,1), 'ro', 'MarkerSize', 5)
+    plot(23+x, striatum_rs_mi(i,2), 'bo', 'MarkerSize', 5)
     plot([21,23], striatum_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(21, nanmean(striatum_rs_mi(:,1)), ste(striatum_rs_mi(:,1)), 'k.', 'LineWidth', 2)
-errorbar(23, nanmean(striatum_rs_mi(:,2)), ste(striatum_rs_mi(:,2)), 'k.', 'LineWidth', 2)
+errorbar(21, nanmean(striatum_rs_mi(:,1)), ste(striatum_rs_mi(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(23, nanmean(striatum_rs_mi(:,2)), ste(striatum_rs_mi(:,2)), 'k.', 'LineWidth', 1.5)
 plot([21,23], [nanmean(striatum_rs_mi(:,1)), nanmean(striatum_rs_mi(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(striatum_fs_mi,1))+26, striatum_fs_mi(:,1), 'ro')
-plot(zeros(1, size(striatum_fs_mi,1))+28, striatum_fs_mi(:,2), 'bo')
-for i = 1:size(striatum_rs_mi,1)
+% plot(zeros(1, size(striatum_fs_mi,1))+26, striatum_fs_mi(:,1), 'ro')
+% plot(zeros(1, size(striatum_fs_mi,1))+28, striatum_fs_mi(:,2), 'bo')
+for i = 1:size(striatum_fs_mi,1)
+    x = (rand()-0.5) * 0.5;
+    plot(26+x, striatum_fs_mi(i,1), 'ro', 'MarkerSize', 5)
+    plot(28+x, striatum_fs_mi(i,2), 'bo', 'MarkerSize', 5)
     plot([26,28], striatum_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(26, nanmean(striatum_fs_mi(:,1)), ste(striatum_fs_mi(:,1)), 'k.', 'LineWidth', 2)
-errorbar(28, nanmean(striatum_fs_mi(:,2)), ste(striatum_fs_mi(:,2)), 'k.', 'LineWidth', 2)
+errorbar(26, nanmean(striatum_fs_mi(:,1)), ste(striatum_fs_mi(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(28, nanmean(striatum_fs_mi(:,2)), ste(striatum_fs_mi(:,2)), 'k.', 'LineWidth', 1.5)
 plot([26,28], [nanmean(striatum_fs_mi(:,1)), nanmean(striatum_fs_mi(:,2))], 'k--', 'LineWidth', 1)
 xticks([2, 7, 12, 17, 22, 27])
 xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
 ylabel('Modulation Index ', 'FontSize', 14)
+lims = ylim;
+ylim([0, lims(2)])
+yticks([0, lims(2)])
 
 axs(3) = nexttile;
 s1_rs_fr = [s1_rs_low_fr, s1_rs_high_fr];
@@ -1548,62 +1576,90 @@ pfc_fs_fr = [pfc_fs_low_fr, pfc_fs_high_fr];
 striatum_rs_fr = [striatum_rs_low_fr, striatum_rs_high_fr];
 striatum_fs_fr = [striatum_fs_low_fr, striatum_fs_high_fr];
 hold on 
-plot(zeros(1, size(s1_rs_fr,1))+1, s1_rs_fr(:,1), 'ro')
-plot(zeros(1, size(s1_rs_fr,1))+3, s1_rs_fr(:,2), 'bo')
+% violinplot(1, s1_rs_fr(:,1), 'FaceColor', 'r')
+% violinplot(3, s1_rs_fr(:,2), 'FaceColor', 'b')
+
+% violinplot(6, s1_fs_fr(:,1), 'FaceColor', 'r')
+% violinplot(8, s1_fs_fr(:,2), 'FaceColor', 'b')
+
+% violinplot(11, pfc_rs_fr(:,1), 'FaceColor', 'r')
+% violinplot(13, pfc_rs_fr(:,2), 'FaceColor', 'b')
+
+% violinplot(16, pfc_fs_fr(:,1), 'FaceColor', 'r')
+% violinplot(18, pfc_fs_fr(:,2), 'FaceColor', 'b')
+
+% violinplot(21, striatum_rs_fr(:,1), 'FaceColor', 'r')
+% violinplot(23, striatum_rs_fr(:,2), 'FaceColor', 'b')
+
+% viollinplot(26, striatum_fs_fr(:,1), 'FaceColor', 'r')
+% viollinplot(28, striatum_fs_fr(:,2), 'FaceColor', 'b')
+
+hold on 
 for i = 1:size(s1_rs_fr,1)
+    x = (rand()-0.5) * 0.5;
+    plot(1+x, s1_rs_fr(i,1), 'ro', 'MarkerSize', 5)
+    plot(3+x, s1_rs_fr(i,2), 'bo', 'MarkerSize', 5)
     plot([1,3], s1_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(1, nanmean(s1_rs_fr(:,1)), ste(s1_rs_fr(:,1)), 'k.', 'LineWidth', 2)
-errorbar(3, nanmean(s1_rs_fr(:,2)), ste(s1_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+errorbar(1, nanmean(s1_rs_fr(:,1)), ste(s1_rs_fr(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(3, nanmean(s1_rs_fr(:,2)), ste(s1_rs_fr(:,2)), 'k.', 'LineWidth', 1.5)
 plot([1,3], [nanmean(s1_rs_fr(:,1)), nanmean(s1_rs_fr(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(s1_fs_fr,1))+6, s1_fs_fr(:,1), 'ro')
-plot(zeros(1, size(s1_fs_fr,1))+8, s1_fs_fr(:,2), 'bo')
-for i = 1:size(s1_rs_fr,1)
+for i = 1:size(s1_fs_fr,1)
+    x = (rand()-0.5) * 0.5;
+    plot(6+x, s1_fs_fr(i,1), 'ro', 'MarkerSize', 5)
+    plot(8+x, s1_fs_fr(i,2), 'bo', 'MarkerSize', 5)
     plot([6,8], s1_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(6, nanmean(s1_fs_fr(:,1)), ste(s1_fs_fr(:,1)), 'k.', 'LineWidth', 2)
-errorbar(8, nanmean(s1_fs_fr(:,2)), ste(s1_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+errorbar(6, nanmean(s1_fs_fr(:,1)), ste(s1_fs_fr(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(8, nanmean(s1_fs_fr(:,2)), ste(s1_fs_fr(:,2)), 'k.', 'LineWidth', 1.5)
 plot([6,8], [nanmean(s1_fs_fr(:,1)), nanmean(s1_fs_fr(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(pfc_rs_fr,1))+11, pfc_rs_fr(:,1), 'ro')
-plot(zeros(1, size(pfc_rs_fr,1))+13, pfc_rs_fr(:,2), 'bo')
 for i = 1:size(pfc_rs_fr,1)
+    x = (rand()-0.5) * 0.5;
+    plot(11+x, pfc_rs_fr(i,1), 'ro', 'MarkerSize', 5)
+    plot(13+x, pfc_rs_fr(i,2), 'bo', 'MarkerSize', 5)
     plot([11,13], pfc_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(11, nanmean(pfc_rs_fr(:,1)), ste(pfc_rs_fr(:,1)), 'k.', 'LineWidth', 2)
-errorbar(13, nanmean(pfc_rs_fr(:,2)), ste(pfc_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+errorbar(11, nanmean(pfc_rs_fr(:,1)), ste(pfc_rs_fr(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(13, nanmean(pfc_rs_fr(:,2)), ste(pfc_rs_fr(:,2)), 'k.', 'LineWidth', 1.5)
 plot([11,13], [nanmean(pfc_rs_fr(:,1)), nanmean(pfc_rs_fr(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(pfc_fs_fr,1))+16, pfc_fs_fr(:,1), 'ro')
-plot(zeros(1, size(pfc_fs_fr,1))+18, pfc_fs_fr(:,2), 'bo')
-for i = 1:size(pfc_rs_fr,1)
+for i = 1:size(pfc_fs_fr,1)
+    x = (rand()-0.5) * 0.5;
+    plot(16+x, pfc_fs_fr(i,1), 'ro', 'MarkerSize', 5)
+    plot(18+x, pfc_fs_fr(i,2), 'bo', 'MarkerSize', 5)
     plot([16,18], pfc_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(16, nanmean(pfc_fs_fr(:,1)), ste(pfc_fs_fr(:,1)), 'k.', 'LineWidth', 2)
-errorbar(18, nanmean(pfc_fs_fr(:,2)), ste(pfc_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+errorbar(16, nanmean(pfc_fs_fr(:,1)), ste(pfc_fs_fr(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(18, nanmean(pfc_fs_fr(:,2)), ste(pfc_fs_fr(:,2)), 'k.', 'LineWidth', 1.5)
 plot([16,18], [nanmean(pfc_fs_fr(:,1)), nanmean(pfc_fs_fr(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(striatum_rs_fr,1))+21, striatum_rs_fr(:,1), 'ro')
-plot(zeros(1, size(striatum_rs_fr,1))+23, striatum_rs_fr(:,2), 'bo')
 for i = 1:size(striatum_rs_fr,1)
+    x = (rand()-0.5) * 0.5;
+    plot(21+x, striatum_rs_fr(i,1), 'ro', 'MarkerSize', 5)
+    plot(23+x, striatum_rs_fr(i,2), 'bo', 'MarkerSize', 5)
     plot([21,23], striatum_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(21, nanmean(striatum_rs_fr(:,1)), ste(striatum_rs_fr(:,1)), 'k.', 'LineWidth', 2)
-errorbar(23, nanmean(striatum_rs_fr(:,2)), ste(striatum_rs_fr(:,2)), 'k.', 'LineWidth', 2)
+errorbar(21, nanmean(striatum_rs_fr(:,1)), ste(striatum_rs_fr(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(23, nanmean(striatum_rs_fr(:,2)), ste(striatum_rs_fr(:,2)), 'k.', 'LineWidth', 1.5)
 plot([21,23], [nanmean(striatum_rs_fr(:,1)), nanmean(striatum_rs_fr(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(striatum_fs_fr,1))+26, striatum_fs_fr(:,1), 'ro')
-plot(zeros(1, size(striatum_fs_fr,1))+28, striatum_fs_fr(:,2), 'bo')
-for i = 1:size(striatum_rs_fr,1)
+for i = 1:size(striatum_fs_fr,1)
+    x = (rand()-0.5) * 0.5;
+    plot(26+x, striatum_fs_fr(i,1), 'ro', 'MarkerSize', 5)
+    plot(28+x, striatum_fs_fr(i,2), 'bo', 'MarkerSize', 5)
     plot([26,28], striatum_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(26, nanmean(striatum_fs_fr(:,1)), ste(striatum_fs_fr(:,1)), 'k.', 'LineWidth', 2)
-errorbar(28, nanmean(striatum_fs_fr(:,2)), ste(striatum_fs_fr(:,2)), 'k.', 'LineWidth', 2)
+errorbar(26, nanmean(striatum_fs_fr(:,1)), ste(striatum_fs_fr(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(28, nanmean(striatum_fs_fr(:,2)), ste(striatum_fs_fr(:,2)), 'k.', 'LineWidth', 1.5)
 plot([26,28], [nanmean(striatum_fs_fr(:,1)), nanmean(striatum_fs_fr(:,2))], 'k--', 'LineWidth', 1)
 xticks([2, 7, 12, 17, 22, 27])
 xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
 ylabel('Firing Rate (Hz) ', 'FontSize', 14)
+lims = ylim;
+ylim([0, lims(2)])
+yticks([0, lims(2)])
 
 axs(4) = nexttile;
 s1_rs_theta = [s1_rs_theta_bar_low, s1_rs_theta_bar_high];
@@ -1613,212 +1669,71 @@ pfc_fs_theta = [pfc_fs_theta_bar_low, pfc_fs_theta_bar_high];
 striatum_rs_theta = [striatum_rs_theta_bar_low, striatum_rs_theta_bar_high];
 striatum_fs_theta = [striatum_fs_theta_bar_low, striatum_fs_theta_bar_high];
 hold on 
-plot(zeros(1, size(s1_rs_theta,1))+1, s1_rs_theta(:,1), 'ro')
-plot(zeros(1, size(s1_rs_theta,1))+3, s1_rs_theta(:,2), 'bo')
 for i = 1:size(s1_rs_theta,1)
+    x = (rand()-0.5) * 0.5;
+    plot(1+x, s1_rs_theta(i,1), 'ro', 'MarkerSize', 5)
+    plot(3+x, s1_rs_theta(i,2), 'bo', 'MarkerSize', 5)
     plot([1,3], s1_rs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(1, nanmean(s1_rs_theta(:,1)), circ_ste(s1_rs_theta(:,1)), 'k.', 'LineWidth', 2)
-errorbar(3, nanmean(s1_rs_theta(:,2)), circ_ste(s1_rs_theta(:,2)), 'k.', 'LineWidth', 2)
-plot([1,3], [nanmean(s1_rs_theta(:,1)), nanmean(s1_rs_theta(:,2))], 'k--', 'LineWidth', 1)
+errorbar(1, circ_mean(s1_rs_theta(:,1)), circ_ste(s1_rs_theta(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(3, circ_mean(s1_rs_theta(:,2)), circ_ste(s1_rs_theta(:,2)), 'k.', 'LineWidth', 1.5)
+plot([1,3], [circ_mean(s1_rs_theta(:,1)), circ_mean(s1_rs_theta(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(s1_fs_theta,1))+6, s1_fs_theta(:,1), 'ro')
-plot(zeros(1, size(s1_fs_theta,1))+8, s1_fs_theta(:,2), 'bo')
-for i = 1:size(s1_rs_theta,1)
+for i = 1:size(s1_fs_theta,1)
+    x = (rand()-0.5) * 0.5;
+    plot(6+x, s1_fs_theta(i,1), 'ro', 'MarkerSize', 5)
+    plot(8+x, s1_fs_theta(i,2), 'bo', 'MarkerSize', 5)
     plot([6,8], s1_fs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(6, nanmean(s1_fs_theta(:,1)), circ_ste(s1_fs_theta(:,1)), 'k.', 'LineWidth', 2)
-errorbar(8, nanmean(s1_fs_theta(:,2)), circ_ste(s1_fs_theta(:,2)), 'k.', 'LineWidth', 2)
-plot([6,8], [nanmean(s1_fs_theta(:,1)), nanmean(s1_fs_theta(:,2))], 'k--', 'LineWidth', 1)
+errorbar(6, circ_mean(s1_fs_theta(:,1)), circ_ste(s1_fs_theta(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(8, circ_mean(s1_fs_theta(:,2)), circ_ste(s1_fs_theta(:,2)), 'k.', 'LineWidth', 1.5)
+plot([6,8], [circ_mean(s1_fs_theta(:,1)), circ_ste(s1_fs_theta(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(pfc_rs_theta,1))+11, pfc_rs_theta(:,1), 'ro')
-plot(zeros(1, size(pfc_rs_theta,1))+13, pfc_rs_theta(:,2), 'bo')
 for i = 1:size(pfc_rs_theta,1)
+    x = (rand()-0.5) * 0.5;
+    plot(11+x, pfc_rs_theta(i,1), 'ro', 'MarkerSize', 5)
+    plot(13+x, pfc_rs_theta(i,2), 'bo', 'MarkerSize', 5)
     plot([11,13], pfc_rs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(11, nanmean(pfc_rs_theta(:,1)), circ_ste(pfc_rs_theta(:,1)), 'k.', 'LineWidth', 2)
-errorbar(13, nanmean(pfc_rs_theta(:,2)), circ_ste(pfc_rs_theta(:,2)), 'k.', 'LineWidth', 2)
-plot([11,13], [nanmean(pfc_rs_theta(:,1)), nanmean(pfc_rs_theta(:,2))], 'k--', 'LineWidth', 1)
+errorbar(11, circ_mean(pfc_rs_theta(:,1)), circ_ste(pfc_rs_theta(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(13, circ_mean(pfc_rs_theta(:,2)), circ_ste(pfc_rs_theta(:,2)), 'k.', 'LineWidth', 1.5)
+plot([11,13], [circ_mean(pfc_rs_theta(:,1)), circ_mean(pfc_rs_theta(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(pfc_fs_theta,1))+16, pfc_fs_theta(:,1), 'ro')
-plot(zeros(1, size(pfc_fs_theta,1))+18, pfc_fs_theta(:,2), 'bo')
-for i = 1:size(pfc_rs_theta,1)
+for i = 1:size(pfc_fs_theta,1)
+    x = (rand()-0.5) * 0.5;
+    plot(16+x, pfc_fs_theta(i,1), 'ro', 'MarkerSize', 5)
+    plot(18+x, pfc_fs_theta(i,2), 'bo', 'MarkerSize', 5)
     plot([16,18], pfc_fs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(16, nanmean(pfc_fs_theta(:,1)), circ_ste(pfc_fs_theta(:,1)), 'k.', 'LineWidth', 2)
-errorbar(18, nanmean(pfc_fs_theta(:,2)), circ_ste(pfc_fs_theta(:,2)), 'k.', 'LineWidth', 2)
-plot([16,18], [nanmean(pfc_fs_theta(:,1)), nanmean(pfc_fs_theta(:,2))], 'k--', 'LineWidth', 1)
+errorbar(16, circ_mean(pfc_fs_theta(:,1)), circ_ste(pfc_fs_theta(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(18, circ_mean(pfc_fs_theta(:,2)), circ_ste(pfc_fs_theta(:,2)), 'k.', 'LineWidth', 1.5)
+plot([16,18], [circ_mean(pfc_fs_theta(:,1)), circ_mean(pfc_fs_theta(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(striatum_rs_theta,1))+21, striatum_rs_theta(:,1), 'ro')
-plot(zeros(1, size(striatum_rs_theta,1))+23, striatum_rs_theta(:,2), 'bo')
 for i = 1:size(striatum_rs_theta,1)
+    x = (rand()-0.5) * 0.5;
+    plot(21+x, striatum_rs_theta(i,1), 'ro', 'MarkerSize', 5)
+    plot(23+x, striatum_rs_theta(i,2), 'bo', 'MarkerSize', 5)
     plot([21,23], striatum_rs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(21, nanmean(striatum_rs_theta(:,1)), circ_ste(striatum_rs_theta(:,1)), 'k.', 'LineWidth', 2)
-errorbar(23, nanmean(striatum_rs_theta(:,2)), circ_ste(striatum_rs_theta(:,2)), 'k.', 'LineWidth', 2)
-plot([21,23], [nanmean(striatum_rs_theta(:,1)), nanmean(striatum_rs_theta(:,2))], 'k--', 'LineWidth', 1)
+errorbar(21, circ_mean(striatum_rs_theta(:,1)), circ_ste(striatum_rs_theta(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(23, circ_mean(striatum_rs_theta(:,2)), circ_ste(striatum_rs_theta(:,2)), 'k.', 'LineWidth', 1.5)
+plot([21,23], [circ_mean(striatum_rs_theta(:,1)), circ_mean(striatum_rs_theta(:,2))], 'k--', 'LineWidth', 1)
 
-plot(zeros(1, size(striatum_fs_theta,1))+26, striatum_fs_theta(:,1), 'ro')
-plot(zeros(1, size(striatum_fs_theta,1))+28, striatum_fs_theta(:,2), 'bo')
-for i = 1:size(striatum_rs_theta,1)
+for i = 1:size(striatum_fs_theta,1)
+    x = (rand()-0.5) * 0.5;
+    plot(26+x, striatum_fs_theta(i,1), 'ro', 'MarkerSize', 5)
+    plot(28+x, striatum_fs_theta(i,2), 'bo', 'MarkerSize', 5)
     plot([26,28], striatum_fs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(26, nanmean(striatum_fs_theta(:,1)), circ_ste(striatum_fs_theta(:,1)), 'k.', 'LineWidth', 2)
-errorbar(28, nanmean(striatum_fs_theta(:,2)), circ_ste(striatum_fs_theta(:,2)), 'k.', 'LineWidth', 2)
-plot([26,28], [nanmean(striatum_fs_theta(:,1)), nanmean(striatum_fs_theta(:,2))], 'k--', 'LineWidth', 1)
+errorbar(26, circ_mean(striatum_fs_theta(:,1)), circ_ste(striatum_fs_theta(:,1)), 'k.', 'LineWidth', 1.5)
+errorbar(28, circ_mean(striatum_fs_theta(:,2)), circ_ste(striatum_fs_theta(:,2)), 'k.', 'LineWidth', 1.5)
+plot([26,28], [circ_mean(striatum_fs_theta(:,1)), circ_mean(striatum_fs_theta(:,2))], 'k--', 'LineWidth', 1)
 xticks([2, 7, 12, 17, 22, 27])
 xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
-
-
-
-% updated_fig = figure('Position', [1220 1334 1000 700]);
-% tl = tiledlayout(2,2);
-% axs(1) = nexttile;
-% hold on
-% bar([2,5,8,11,14,17], ...
-%     [s1_rs_frac_high_avg, s1_fs_frac_high_avg, ...
-%     pfc_rs_frac_high_avg, pfc_fs_frac_high_avg, ...
-%     striatum_rs_frac_high_avg, striatum_fs_frac_high_avg] .* 100, 0.3, ...
-%     'EdgeColor', 'k', 'FaceColor', 'b')
-% bar([1,4,7,10,13,16], ...
-%     [s1_rs_frac_low_avg, s1_fs_frac_low_avg, ...
-%     pfc_rs_frac_low_avg, pfc_fs_frac_low_avg, ...
-%     striatum_rs_frac_low_avg, striatum_fs_frac_low_avg] .* 100, 0.3, ...
-%     'EdgeColor', 'k', 'FaceColor', 'r')
-% errorbar([2,5,8,11,14,17], ...
-%     [s1_rs_frac_high_avg, s1_fs_frac_high_avg, ...
-%     pfc_rs_frac_high_avg, pfc_fs_frac_high_avg, ...
-%     striatum_rs_frac_high_avg, striatum_fs_frac_high_avg] .* 100, ...
-%     [s1_rs_frac_high_err, s1_fs_frac_high_err, ...
-%     pfc_rs_frac_high_err, pfc_fs_frac_high_err, ...
-%     striatum_rs_frac_high_err, striatum_fs_frac_high_err] .* 100, ...
-%     'k.')
-% errorbar([1,4,7,10,13,16], ...
-%     [s1_rs_frac_low_avg, s1_fs_frac_low_avg, ...
-%     pfc_rs_frac_low_avg, pfc_fs_frac_low_avg, ...
-%     striatum_rs_frac_low_avg, striatum_fs_frac_low_avg] .* 100, ...
-%     [s1_rs_frac_low_err, s1_fs_frac_low_err, ...
-%     pfc_rs_frac_low_err, pfc_fs_frac_low_err, ...
-%     striatum_rs_frac_low_err, striatum_fs_frac_low_err] .* 100, ...
-%     'k.')
-% xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5])
-% xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
-% xtickangle(45)
-% % ylim([0,0.12])
-% % yticks([0,0.12])
-% lims = ylim;
-% yticks([0,105])
-% yticks([0,100])
-% ylabel('% Alpha Modulated ', 'FontSize', 14)
-
-% axs(2) = nexttile;
-% hold on
-% bar([2,5,8,11,14,17], ...
-%     [s1_rs_high_mi_avg, s1_fs_high_mi_avg, ...
-%     pfc_rs_high_mi_avg, pfc_fs_high_mi_avg, ...
-%     striatum_rs_high_mi_avg, striatum_fs_high_mi_avg], 0.3, ...
-%     'EdgeColor', 'k', 'FaceColor', 'b')
-% bar([1,4,7,10,13,16], ...
-%     [s1_rs_low_mi_avg, s1_fs_low_mi_avg, ...
-%     pfc_rs_low_mi_avg, pfc_fs_low_mi_avg, ...
-%     striatum_rs_low_mi_avg, striatum_fs_low_mi_avg], 0.3, ...
-%     'EdgeColor', 'k', 'FaceColor', 'r')
-% errorbar([2,5,8,11,14,17], ...
-%     [s1_rs_high_mi_avg, s1_fs_high_mi_avg, ...
-%     pfc_rs_high_mi_avg, pfc_fs_high_mi_avg, ...
-%     striatum_rs_high_mi_avg, striatum_fs_high_mi_avg], ...
-%     [s1_rs_high_mi_err, s1_fs_high_mi_err, ...
-%     pfc_rs_high_mi_err, pfc_fs_high_mi_err, ...
-%     striatum_rs_high_mi_err, striatum_fs_high_mi_err], ...
-%     'k.')
-% errorbar([1,4,7,10,13,16], ...
-%     [s1_rs_low_mi_avg, s1_fs_low_mi_avg, ...
-%     pfc_rs_low_mi_avg, pfc_fs_low_mi_avg, ...
-%     striatum_rs_low_mi_avg, striatum_fs_low_mi_avg], ...
-%     [s1_rs_low_mi_err, s1_fs_low_mi_err, ...
-%     pfc_rs_low_mi_err, pfc_fs_low_mi_err, ...
-%     striatum_rs_low_mi_err, striatum_fs_low_mi_err], ...
-%     'k.')
-% xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5])
-% xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS', 'Amygdala RS', 'Amygdala FS'})
-% xtickangle(45)
-% % ylim([0,0.12])
-% % yticks([0,0.12])
-% lims = ylim;
-% yticks([0,lims(2)])
-% ylabel('Modulation Index', 'FontSize', 14)
-
-% axs(3) = nexttile;
-% hold on
-% bar([2,5,8,11,14,17], ...
-%     [s1_rs_high_fr_avg, s1_fs_high_fr_avg, ...
-%     pfc_rs_high_fr_avg, pfc_fs_high_fr_avg, ...
-%     striatum_rs_high_fr_avg, striatum_fs_high_fr_avg], 0.3, ...
-%     'EdgeColor', 'k', 'FaceColor', 'b')
-% bar([1,4,7,10,13,16], ...
-%     [s1_rs_low_fr_avg, s1_fs_low_fr_avg, ...
-%     pfc_rs_low_fr_avg, pfc_fs_low_fr_avg, ...
-%     striatum_rs_low_fr_avg, striatum_fs_low_fr_avg], 0.3, ...
-%     'EdgeColor', 'k', 'FaceColor', 'r')
-% errorbar([2,5,8,11,14,17], ...
-%     [s1_rs_high_fr_avg, s1_fs_high_fr_avg, ...
-%     pfc_rs_high_fr_avg, pfc_fs_high_fr_avg, ...
-%     striatum_rs_high_fr_avg, striatum_fs_high_fr_avg], ...
-%     [s1_rs_high_fr_err, s1_fs_high_fr_err, ...
-%     pfc_rs_high_fr_err, pfc_fs_high_fr_err, ...
-%     striatum_rs_high_fr_err, striatum_fs_high_fr_err], ...
-%     'k.')
-% errorbar([1,4,7,10,13,16], ...
-%     [s1_rs_low_fr_avg, s1_fs_low_fr_avg, ...
-%     pfc_rs_low_fr_avg, pfc_fs_low_fr_avg, ...
-%     striatum_rs_low_fr_avg, striatum_fs_low_fr_avg], ...
-%     [s1_rs_low_fr_err, s1_fs_low_fr_err, ...
-%     pfc_rs_low_fr_err, pfc_fs_low_fr_err, ...
-%     striatum_rs_low_fr_err, striatum_fs_low_fr_err], ...
-%     'k.')
-% xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5])
-% xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
-% xtickangle(45)
-% % ylim([0,18])
-% lims = ylim;
-% yticks([0,lims(2)])
-% ylabel('Avg. Firing Rate (Hz)', 'FontSize', 14)
-
-% axs(4) = nexttile;
-% hold on
-% bar([2,5,8,11,14,17], ...
-%     [s1_rs_theta_bar_high_avg, s1_fs_theta_bar_high_avg, ...
-%     pfc_rs_theta_bar_high_avg, pfc_fs_theta_bar_high_avg, ...
-%     striatum_rs_theta_bar_high_avg, striatum_fs_theta_bar_high_avg], 0.3, ...
-%     'EdgeColor', 'k', 'FaceColor', 'b')
-% bar([1,4,7,10,13,16], ...
-%     [s1_rs_theta_bar_low_avg, s1_fs_theta_bar_low_avg, ...
-%     pfc_rs_theta_bar_low_avg, pfc_fs_theta_bar_low_avg, ...
-%     striatum_rs_theta_bar_low_avg, striatum_fs_theta_bar_low_avg], 0.3, ...
-%     'EdgeColor', 'k', 'FaceColor', 'r')
-% errorbar([2,5,8,11,14,17], ...
-%     [s1_rs_theta_bar_high_avg, s1_fs_theta_bar_high_avg, ...
-%     pfc_rs_theta_bar_high_avg, pfc_fs_theta_bar_high_avg, ...
-%     striatum_rs_theta_bar_high_avg, striatum_fs_theta_bar_high_avg], ...
-%     [s1_rs_theta_bar_high_err, s1_fs_theta_bar_high_err, ...
-%     pfc_rs_theta_bar_high_err, pfc_fs_theta_bar_high_err, ...
-%     striatum_rs_theta_bar_high_err, striatum_fs_theta_bar_high_err], ...
-%     'k.')
-% errorbar([1,4,7,10,13,16], ...
-%     [s1_rs_theta_bar_low_avg, s1_fs_theta_bar_low_avg, ...
-%     pfc_rs_theta_bar_low_avg, pfc_fs_theta_bar_low_avg, ...
-%     striatum_rs_theta_bar_low_avg, striatum_fs_theta_bar_low_avg], ...
-%     [s1_rs_theta_bar_low_err, s1_fs_theta_bar_low_err, ...
-%     pfc_rs_theta_bar_low_err, pfc_fs_theta_bar_low_err, ...
-%     striatum_rs_theta_bar_low_err, striatum_fs_theta_bar_low_err], ...
-%     'k.')
-% ylabel('Avg. Firing Phase (radians)', 'FontSize', 14)
-% xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5])
-% xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
-% xtickangle(45)
-% ylim([-4,4])
-% yticks([-pi,pi])
-% yticklabels({'-\pi', '\pi'})
+ylim([-4,4])
+yticks([-pi,pi])
+yticklabels({'-\pi', '\pi'})
+ylabel('Avg. Firing Phase (rad)', 'FontSize', 14)
 
 if out_path
     mkdir('./Figures/')
@@ -1911,7 +1826,7 @@ end
 [x,y, ~, ~, ~] = vonMises(low_phases);
 bar(centers, Nlow, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
 hold on
-plot(x,y, 'k', 'LineWidth', 2);
+plot(x,y, 'k', 'LineWidth', 1.5);
 xticks([-pi, 0, pi])
 xticklabels({'-\pi', '0', '\pi'})
 title('Low Alpha Power')
@@ -1926,11 +1841,11 @@ end
 [x,y, ~, ~, ~] = vonMises(high_phases);
 bar(centers, Nhigh, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
 hold on
-plot(x,y, 'k', 'LineWidth', 2);
+plot(x,y, 'k', 'LineWidth', 1.5);
 xticks([-pi, 0, pi])
 xticklabels({'-\pi', '0', '\pi'})
 title('High Alpha Power')
-xlabel(tl, 'Alpha Phase (radians)', 'FontSize', 14)
+xlabel(tl, 'Alpha Phase (rad)', 'FontSize', 14)
 ylabel(tl, 'Spike PDF', 'FontSize', 14)
 ylim([0,0.35])
 yticks([0,0.35])

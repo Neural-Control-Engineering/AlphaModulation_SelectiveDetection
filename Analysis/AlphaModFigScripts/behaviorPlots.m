@@ -24,7 +24,7 @@ end
 
 % hit/false-alarm rates
 if visualize
-    fig = figure('Position', [1215 1358 413 468]);
+    fig = figure('Position', [[1210 1197 433 605]]);
 else
     fig = figure('Visible', 'off','Position', [1215 1358 413 468]);
 end
@@ -32,12 +32,13 @@ hold on
 hr = ftrs.qc_hr;
 far = ftrs.qc_far;
 for h = 1:length(hr)
-    plot([1,2], [hr, far], 'k.--', 'MarkerSize',20)
+    plot([1,2]+(rand()-0.5)*0.1, [hr(h), far(h)], 'o--', 'MarkerSize', 10, 'Color', [0.3, 0.3, 0.3])
 end
-% errorbar(1, mean(hr), std(hr) / sqrt(length(hr)), 'bo', 'MarkerSize', 8, 'MarkerFaceColor', 'b', 'LineWidth', 2)
-% errorbar(2, mean(far), std(far) / sqrt(length(far)), 'bo', 'MarkerSize', 8, 'MarkerFaceColor', 'b', 'LineWidth', 2)
-plot(1, mean(hr), 'bo', 'MarkerSize', 8, 'MarkerFaceColor', 'b')
-plot(2, mean(far), 'bo', 'MarkerSize', 8, 'MarkerFaceColor', 'b')
+errorbar(1, mean(hr), std(hr) / sqrt(length(hr)), 'bo', 'MarkerSize', 3, 'MarkerFaceColor', 'b', 'LineWidth', 2)
+errorbar(2, mean(far), std(far) / sqrt(length(far)), 'bo', 'MarkerSize', 3, 'MarkerFaceColor', 'b', 'LineWidth', 2)
+% plot(1, mean(hr), 'bo', 'MarkerSize', 8, 'MarkerFaceColor', 'b')
+% plot(2, mean(far), 'bo', 'MarkerSize', 8, 'MarkerFaceColor', 'b')
+% +(rand()-0.5)*0.1
 xticks([1,2])
 xticklabels({'Hit Rate', 'False Alarm Rate'})
 xtickangle(45)
@@ -54,19 +55,19 @@ if out_path
 end
 
 if visualize
-    fig = figure('Position', [1215 1358 413 468]);
+    fig = figure('Position', [[1210 1197 433 605]]);
 else
     fig = figure('Visible', 'off','Position', [1215 1358 413 468]);
 end
 hold on 
 rt_by_outcome = cell2mat(ftrs.qc_rt_by_outcome)-0.2;
 for i = 1:size(rt_by_outcome,1)
-    plot([1,2], rt_by_outcome(i,:), 'k.--', 'MarkerSize',20)
+    plot([1,2]+(rand()-0.5)*0.1, rt_by_outcome(i,:), 'o--', 'MarkerSize', 10, 'Color', [0.3, 0.3, 0.3])
 end
-% errorbar(1, mean(rt_by_outcome(:,1)), std(rt_by_outcome(:,1)) / sqrt(length(rt_by_outcome(:,1))), 'bo', 'MarkerSize', 8, 'MarkerFaceColor', 'b', 'LineWidth', 2)
-% errorbar(2, mean(rt_by_outcome(:,2)), std(rt_by_outcome(:,2)) / sqrt(length(rt_by_outcome(:,2))), 'bo', 'MarkerSize', 8, 'MarkerFaceColor', 'b', 'LineWidth', 2)
-plot(1,mean(rt_by_outcome(:,1)), 'bo', 'MarkerFaceColor', 'b', 'MarkerSize', 8)
-plot(2,mean(rt_by_outcome(:,2)), 'bo', 'MarkerFaceColor', 'b', 'MarkerSize', 8)
+errorbar(1, nanmean(rt_by_outcome(:,1)), nanstd(rt_by_outcome(:,1)) / sqrt(length(rt_by_outcome(:,1))), 'bo', 'MarkerSize', 3, 'MarkerFaceColor', 'b', 'LineWidth', 2)
+errorbar(2, nanmean(rt_by_outcome(:,2)), nanstd(rt_by_outcome(:,2)) / sqrt(length(rt_by_outcome(:,2))), 'bo', 'MarkerSize', 3, 'MarkerFaceColor', 'b', 'LineWidth', 2)
+% plot(1,mean(rt_by_outcome(:,1)), 'bo', 'MarkerFaceColor', 'b', 'MarkerSize', 8)
+% plot(2,mean(rt_by_outcome(:,2)), 'bo', 'MarkerFaceColor', 'b', 'MarkerSize', 8)
 xticks([1,2])
 xticklabels({'Hit', 'False Alarm'})
 xtickangle(45)

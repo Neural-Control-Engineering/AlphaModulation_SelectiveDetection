@@ -489,59 +489,37 @@ stats =
         df: 153
          s: 8.0436e-04
 
-PFC FS MSE ANOVA:
+PFC FS Theta Bar Watson Williams:
 
-p =
+pval =
 
-    0.3415
-
-
-stats = 
-
-  struct with fields:
-
-    gnames: {5x1 cell}
-         n: [19 3 13 2 1]
-    source: 'anova1'
-     means: [3.1091e-04 1.7885e-05 1.8842e-05 2.4859e-05 4.9477e-05]
-        df: 33
-         s: 4.1324e-04
-
-PFC FS Theta Bar ANOVA:
-
-p =
-
-    0.1253
+     0
 
 
-stats = 
+table =
 
-  struct with fields:
+  4x6 cell array
 
-    gnames: {5x1 cell}
-         n: [19 3 13 2 1]
-    source: 'anova1'
-     means: [-0.0909 -1.6448 0.6685 -2.4089 0.6775]
-        df: 33
-         s: 1.8267
+    {'Source'   }    {'d.f.'}    {'SS'     }    {'MS'      }    {'F'       }    {'P-Value' }
+    {'Columns'  }    {[   4]}    {[30.1263]}    {[  7.5316]}    {[125.1643]}    {[       0]}
+    {'Residual '}    {[  33]}    {[ 2.0643]}    {[  0.0626]}    {0x0 double}    {0x0 double}
+    {'Total'    }    {[  37]}    {[32.1907]}    {0x0 double}    {0x0 double}    {0x0 double}
 
-PFC RS MSE ANOVA:
+PFC RS Theta Bar Watson Williams:
 
-p =
+pval =
 
-    0.0325
+   2.4198e-12
 
 
-stats = 
+table =
 
-  struct with fields:
+  4x6 cell array
 
-    gnames: {5x1 cell}
-         n: [6 98 35 1 18]
-    source: 'anova1'
-     means: [-0.0638 0.4005 1.7696 -0.2271 1.4946]
-        df: 153
-         s: 2.4080
+    {'Source'   }    {'d.f.'}    {'SS'     }    {'MS'      }    {'F'       }    {'P-Value'   }
+    {'Columns'  }    {[   4]}    {[15.1670]}    {[  3.7917]}    {[ 18.3652]}    {[2.4198e-12]}
+    {'Residual '}    {[ 153]}    {[36.2420]}    {[  0.2369]}    {0x0 double}    {0x0 double  }
+    {'Total'    }    {[ 157]}    {[51.4089]}    {0x0 double}    {0x0 double}    {0x0 double  }
 
 S1 FS Theta Bar Watson Williams:
 

@@ -1,15 +1,5 @@
 [Warning: Directory already exists.] 
-[> In behaviorPlots (line 5)] 
-{Error using load
-Unable to find file or directory
-'/home/craig/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/SLRT/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'.
-
-Error in behaviorPlots (line 16)
-    f = load(ftr_files{i});
-        ^^^^^^^^^^^^^^^^^^
-} 
-[Warning: Directory already exists.] 
-[> In behaviorPlots (line 5)] 
+[> In behaviorPlots (line 6)] 
 Hit Rate vs FA Rate: Wilcoxon Signed Rank **p = 4.639297e-23
 Hit RT vs FA RT: Wilcoxon Signed Rank p = 6.007275e-01
 Mean d-prime: 2.277932e+00

@@ -4888,3 +4888,8 @@ saveas(fig, 'tmp/lick_mod_unmod.png')
 * [2025-6-6 Fri] - working on text 
 ** TODOS:
 *** TODO: read/cite Pala2022-ik (ipsilateral representations in S1)
+
+* [2025-6-16 Mon] - back to figures 
+** Behavior 
+*** may want to get rid of d-prime by day 
+*** open circles for data 
