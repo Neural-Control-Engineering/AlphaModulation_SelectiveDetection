@@ -90,10 +90,4 @@ In alphaPowerAndPhaseModSummaries (line 1332)]
 Striatum FS theta bar distribtions kuipers test: 1
 Amygdala FS theta bar distribtions kuipers test: 1
 [Warning: Directory already exists.] 
-[> In alphaPowerAndPhaseModSummaries (line 1739)] 
-Example Low Alpha Power MI: 0.0054
-Example Low Alpha Power von Mises MSE: 0.0003
-Example Low Alpha Power Rayleigh test: p = 1.025484e-01
-Example High Alpha Power MI: 0.0374
-Example High Alpha Power von Mises MSE: 0.0010
-Example High Alpha Power Rayleigh test: p = 1.604326e-11
+[> In alphaPowerAndPhaseModSummaries (line 1683)] 

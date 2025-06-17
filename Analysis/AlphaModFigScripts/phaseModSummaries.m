@@ -718,18 +718,30 @@ x = [1,2,3,...
     5,6,7, ...
     9,10,11, ...
     13,14,15];
-bar(x, frac_avgs .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+% bar(x, frac_avgs .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 hold on
-errorbar(x, frac_avgs .* 100, frac_errs .* 100, 'k.')
+plot(zeros(length(s1_rs_fracs),1)+1+(rand(length(s1_rs_fracs),1)-0.5)*0.3, s1_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
+plot(zeros(length(s1_fs_fracs),1)+2+(rand(length(s1_fs_fracs),1)-0.5)*0.3, s1_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
+plot(zeros(length(s1_combo_fracs),1)+3+(rand(length(s1_combo_fracs),1)-0.5)*0.3, s1_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
+plot(zeros(length(pfc_rs_fracs),1)+5+(rand(length(pfc_rs_fracs),1)-0.5)*0.3, pfc_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
+plot(zeros(length(pfc_fs_fracs),1)+6+(rand(length(pfc_fs_fracs),1)-0.5)*0.3, pfc_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
+plot(zeros(length(pfc_combo_fracs),1)+7+(rand(length(pfc_combo_fracs),1)-0.5)*0.3, pfc_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
+plot(zeros(length(striatum_rs_fracs),1)+9+(rand(length(striatum_rs_fracs),1)-0.5)*0.3, striatum_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
+plot(zeros(length(striatum_fs_fracs),1)+10+(rand(length(striatum_fs_fracs),1)-0.5)*0.3, striatum_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
+plot(zeros(length(striatum_combo_fracs),1)+11+(rand(length(striatum_combo_fracs),1)-0.5)*0.3, striatum_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
+plot(zeros(length(amygdala_rs_fracs),1)+13+(rand(length(amygdala_rs_fracs),1)-0.5)*0.3, amygdala_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
+plot(zeros(length(amygdala_fs_fracs),1)+14+(rand(length(amygdala_fs_fracs),1)-0.5)*0.3, amygdala_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
+plot(zeros(length(amygdala_combo_fracs),1)+15+(rand(length(amygdala_combo_fracs),1)-0.5)*0.3, amygdala_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
+errorbar(x, frac_avgs .* 100, frac_errs .* 100, 'k.', 'CapSize', 10, 'LineWidth', 1.5, 'MarkerSize', 15)
 xticks(x)
 xticklabels({'S1 RS', 'S1 FS', 'S1 Overall'...
     'PFC RS', 'PFC FS', 'PFC Overall'...
     'Striatum RS', 'Striatum FS', 'Striatum Overall', ...
     'Amygdala RS', 'Amygdala FS', 'Amygdala Overall'})
 xtickangle(45)
-ylim([0,100])
+ylim([0,115])
 yticks([0,100])
-ylabel('% Alpha Modulated', 'FontSize', 18)
+ylabel('% Alpha Modulated per Session', 'FontSize', 18)
 ax = gca;
 ax.XAxis.FontSize = 18;
 ax.YAxis.FontSize = 16;
@@ -2157,7 +2169,7 @@ mi = [s1_rs.pmi; ...
     s1_fs.pmi; ...
     striatum_rs.pmi; ...
     striatum_fs.pmi];
-scatter(fr, mi, 'k')
+plot(fr, mi, 'k.', 'MarkerSize', 5)
 lims = ylim;
 ylim([0,lims(2)])
 yticks([0,lims(2)])
@@ -2177,51 +2189,51 @@ ylabel('Modulation Index', 'FontSize', 16)
 % plot(x, y, 'r')
 
 
-tl = tiledlayout(4,2);
-axs = zeros(1,8);
-axs(1) = nexttile;
-plot(cell2mat(s1_rs.avg_trial_fr), s1_rs.pmi, 'k*')
-axs(2) = nexttile;
-plot(cell2mat(s1_fs.avg_trial_fr), s1_fs.pmi, 'k*')
-axs(3) = nexttile;
-plot(cell2mat(pfc_rs.avg_trial_fr), pfc_rs.pmi, 'k*')
-axs(4) = nexttile;
-plot(cell2mat(pfc_fs.avg_trial_fr), pfc_fs.pmi, 'k*')
-axs(5) = nexttile;
-plot(cell2mat(striatum_rs.avg_trial_fr), striatum_rs.pmi, 'k*')
-axs(6) = nexttile;
-plot(cell2mat(striatum_fs.avg_trial_fr), striatum_fs.pmi, 'k*')
-axs(7) = nexttile;
-plot(cell2mat(amygdala_rs.avg_trial_fr), amygdala_rs.pmi, 'k*')
-axs(8) = nexttile;
-plot(cell2mat(amygdala_fs.avg_trial_fr), amygdala_fs.pmi, 'k*')
-unifyYLimits(axs)
-xlabel(tl, 'Avg. Firing Rate (Hz)')
-ylabel(tl, 'Modulation Index')
+% tl = tiledlayout(4,2);
+% axs = zeros(1,8);
+% axs(1) = nexttile;
+% plot(cell2mat(s1_rs.avg_trial_fr), s1_rs.pmi, 'k*')
+% axs(2) = nexttile;
+% plot(cell2mat(s1_fs.avg_trial_fr), s1_fs.pmi, 'k*')
+% axs(3) = nexttile;
+% plot(cell2mat(pfc_rs.avg_trial_fr), pfc_rs.pmi, 'k*')
+% axs(4) = nexttile;
+% plot(cell2mat(pfc_fs.avg_trial_fr), pfc_fs.pmi, 'k*')
+% axs(5) = nexttile;
+% plot(cell2mat(striatum_rs.avg_trial_fr), striatum_rs.pmi, 'k*')
+% axs(6) = nexttile;
+% plot(cell2mat(striatum_fs.avg_trial_fr), striatum_fs.pmi, 'k*')
+% axs(7) = nexttile;
+% plot(cell2mat(amygdala_rs.avg_trial_fr), amygdala_rs.pmi, 'k*')
+% axs(8) = nexttile;
+% plot(cell2mat(amygdala_fs.avg_trial_fr), amygdala_fs.pmi, 'k*')
+% unifyYLimits(axs)
+% xlabel(tl, 'Avg. Firing Rate (Hz)')
+% ylabel(tl, 'Modulation Index')
 
-%% mse by frs
-mse_fr_fig = figure();
-tl = tiledlayout(4,2);
-axs = zeros(1,8);
-axs(1) = nexttile;
-plot(cell2mat(s1_rs.avg_trial_fr), s1_rs.mses, 'k*')
-axs(2) = nexttile;
-plot(cell2mat(s1_fs.avg_trial_fr), s1_fs.mses, 'k*')
-axs(3) = nexttile;
-plot(cell2mat(pfc_rs.avg_trial_fr), pfc_rs.mses, 'k*')
-axs(4) = nexttile;
-plot(cell2mat(pfc_fs.avg_trial_fr), pfc_fs.mses, 'k*')
-axs(5) = nexttile;
-plot(cell2mat(striatum_rs.avg_trial_fr), striatum_rs.mses, 'k*')
-axs(6) = nexttile;
-plot(cell2mat(striatum_fs.avg_trial_fr), striatum_fs.mses, 'k*')
-axs(7) = nexttile;
-plot(cell2mat(amygdala_rs.avg_trial_fr), amygdala_rs.mses, 'k*')
-axs(8) = nexttile;
-plot(cell2mat(amygdala_fs.avg_trial_fr), amygdala_fs.mses, 'k*')
-unifyYLimits(axs)
-xlabel(tl, 'Avg. Firing Rate (Hz)')
-ylabel(tl, 'von Mises MSE')
+% %% mse by frs
+% mse_fr_fig = figure();
+% tl = tiledlayout(4,2);
+% axs = zeros(1,8);
+% axs(1) = nexttile;
+% plot(cell2mat(s1_rs.avg_trial_fr), s1_rs.mses, 'k*')
+% axs(2) = nexttile;
+% plot(cell2mat(s1_fs.avg_trial_fr), s1_fs.mses, 'k*')
+% axs(3) = nexttile;
+% plot(cell2mat(pfc_rs.avg_trial_fr), pfc_rs.mses, 'k*')
+% axs(4) = nexttile;
+% plot(cell2mat(pfc_fs.avg_trial_fr), pfc_fs.mses, 'k*')
+% axs(5) = nexttile;
+% plot(cell2mat(striatum_rs.avg_trial_fr), striatum_rs.mses, 'k*')
+% axs(6) = nexttile;
+% plot(cell2mat(striatum_fs.avg_trial_fr), striatum_fs.mses, 'k*')
+% axs(7) = nexttile;
+% plot(cell2mat(amygdala_rs.avg_trial_fr), amygdala_rs.mses, 'k*')
+% axs(8) = nexttile;
+% plot(cell2mat(amygdala_fs.avg_trial_fr), amygdala_fs.mses, 'k*')
+% unifyYLimits(axs)
+% xlabel(tl, 'Avg. Firing Rate (Hz)')
+% ylabel(tl, 'von Mises MSE')
 
 %% baseline firing rates 
 mod_baseline = [s1_mod_rs_baseline; s1_mod_fs_baseline; pfc_mod_rs_baseline; pfc_mod_fs_baseline; striatum_mod_rs_baseline; striatum_mod_fs_baseline; amygdala_mod_rs_baseline; amygdala_mod_fs_baseline];
@@ -2229,7 +2241,9 @@ unmod_baseline = [s1_unmod_rs_baseline; s1_unmod_fs_baseline; pfc_unmod_rs_basel
 baseline_fig = figure(); 
 hold on 
 % bar(1:2, [mean(mod_baseline), mean(unmod_baseline)], 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5, 0.5])
-% errorbar(1:2, [mean(mod_baseline), mean(unmod_baseline)], [ste(mod_baseline), ste(unmod_baseline)], 'k.')
+plot(zeros(1,length(mod_baseline))+1+(rand(1,length(mod_baseline))-0.5)*0.3, mod_baseline, 'k.', 'MarkerSize', 0.1)
+plot(zeros(1,length(unmod_baseline))+2+(rand(1,length(unmod_baseline))-0.5)*0.3, unmod_baseline, 'k.', 'MarkerSize', 0.1)
+% errorbar(1:2, [mean(mod_baseline), mean(unmod_baseline)], [ste(mod_baseline), ste(unmod_baseline)], 'k.', 'CapSize', 60, 'LineWidth',1)
 violinplot(1, mod_baseline, 'FaceColor', 'b')
 violinplot(2, unmod_baseline, 'FaceColor', 'r')
 % scatter(ones(1,length(mod_baseline)), mod_baseline, 'k.', 'jitter', 'on')
@@ -2239,6 +2253,12 @@ xticklabels({'Modulated', 'Unmodulated'})
 ylabel('Baseline Firing Rate (Hz)')
 lims = ylim;
 ylim([0,lims(2)])
+yticks([0,lims(2)])
+ax = gca;
+ax.YAxis.FontSize = 14;
+ax.XAxis.FontSize = 14;
+
+
 if KStest(mod_baseline) || KStest(unmod_baseline)
     fprintf(sprintf('Mod vs. Unmod baseline FR (mann-whitney): p = %d\n', ranksum(mod_baseline, unmod_baseline)))
 else
@@ -2355,21 +2375,33 @@ rlim([0,2])
 
 %% MI fig 
 mi_fig = figure('Position', [1215 842 764 864]); %figure('Position', [1220 1274 963 444]);
-mi_avgs = [nanmean(s1_rs.pmi), nanmean(s1_fs.pmi), nanmean([s1_rs.pmi; s1_fs.pmi]), ...
-    nanmean(pfc_rs.pmi), nanmean(pfc_fs.pmi), nanmean([s1_rs.pmi; s1_fs.pmi]), ...
-    nanmean(striatum_rs.pmi), nanmean(striatum_fs.pmi), nanmean([striatum_rs.pmi; striatum_fs.pmi]), ...
-    nanmean(amygdala_rs.pmi), nanmean(amygdala_fs.pmi), nanmean([amygdala_rs.pmi; amygdala_fs.pmi])];
-mi_errs = [ste(s1_rs.pmi), ste(s1_fs.pmi), ste([s1_rs.pmi; s1_fs.pmi]), ...
-    ste(pfc_rs.pmi), ste(pfc_fs.pmi), ste([pfc_rs.pmi; pfc_fs.pmi]), ...
-    ste(striatum_rs.pmi), ste(striatum_fs.pmi), ste([striatum_rs.pmi; striatum_fs.pmi]), ...
-    ste(amygdala_rs.pmi), ste(amygdala_fs.pmi), ste([amygdala_rs.pmi; amygdala_fs.pmi])];
+mi_avgs = [nanmean(log(s1_rs.pmi)), nanmean(log(s1_fs.pmi)), nanmean(log([s1_rs.pmi; s1_fs.pmi])), ...
+    nanmean(log(pfc_rs.pmi)), nanmean(log(pfc_fs.pmi)), nanmean(log([s1_rs.pmi; s1_fs.pmi])), ...
+    nanmean(log(striatum_rs.pmi)), nanmean(log(striatum_fs.pmi)), nanmean(log([striatum_rs.pmi; striatum_fs.pmi])), ...
+    nanmean(log(amygdala_rs.pmi)), nanmean(log(amygdala_fs.pmi)), nanmean(log([amygdala_rs.pmi; amygdala_fs.pmi]))];
+mi_errs = [ste(log(s1_rs.pmi)), ste(log(s1_fs.pmi)), ste(log([s1_rs.pmi; s1_fs.pmi])), ...
+           ste(log(pfc_rs.pmi)), ste(log(pfc_fs.pmi)), ste(log([pfc_rs.pmi; pfc_fs.pmi])), ...
+           ste(log(striatum_rs.pmi)), ste(log(striatum_fs.pmi)), ste(log([striatum_rs.pmi; striatum_fs.pmi])), ...
+           ste(log(amygdala_rs.pmi)), ste(log(amygdala_fs.pmi)), ste(log([amygdala_rs.pmi; amygdala_fs.pmi]))];
 x = [1,2,3,...
     5,6,7, ...
     9,10,11, ...
     13,14,15];
-bar(x, mi_avgs, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+% bar(x, mi_avgs, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 hold on
-errorbar(x, mi_avgs, mi_errs, 'k.')
+plot(zeros(length(s1_rs.pmi),1)+1+(rand(length(s1_rs.pmi),1)-0.5)*0.3, log(s1_rs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
+plot(zeros(length(s1_fs.pmi),1)+2+(rand(length(s1_fs.pmi),1)-0.5)*0.3, log(s1_fs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
+plot(zeros(length(s1_rs.pmi)+length(s1_fs.pmi),1)+3+(rand(length(s1_rs.pmi)+length(s1_fs.pmi),1)-0.5)*0.3, log([s1_rs.pmi; s1_fs.pmi]) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
+plot(zeros(length(pfc_rs.pmi),1)+5+(rand(length(pfc_rs.pmi),1)-0.5)*0.3, log(pfc_rs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
+plot(zeros(length(pfc_fs.pmi),1)+6+(rand(length(pfc_fs.pmi),1)-0.5)*0.3, log(pfc_fs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
+plot(zeros(length(pfc_rs.pmi)+length(pfc_fs.pmi),1)+7+(rand(length(pfc_rs.pmi)+length(pfc_fs.pmi),1)-0.5)*0.3, log([pfc_rs.pmi; pfc_fs.pmi]) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
+plot(zeros(length(striatum_rs.pmi),1)+9+(rand(length(striatum_rs.pmi),1)-0.5)*0.3, log(striatum_rs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
+plot(zeros(length(striatum_fs.pmi),1)+10+(rand(length(striatum_fs.pmi),1)-0.5)*0.3, log(striatum_fs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
+plot(zeros(length(striatum_rs.pmi)+length(striatum_fs.pmi),1)+11+(rand(length(striatum_rs.pmi)+length(striatum_fs.pmi),1)-0.5)*0.3, log([striatum_rs.pmi; striatum_fs.pmi]) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
+plot(zeros(length(amygdala_rs.pmi),1)+13+(rand(length(amygdala_rs.pmi),1)-0.5)*0.3, log(amygdala_rs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
+plot(zeros(length(amygdala_fs.pmi),1)+14+(rand(length(amygdala_fs.pmi),1)-0.5)*0.3, log(amygdala_fs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
+plot(zeros(length(amygdala_rs.pmi)+length(amygdala_fs.pmi),1)+15+(rand(length(amygdala_rs.pmi)+length(amygdala_fs.pmi),1)-0.5)*0.3, log([amygdala_rs.pmi; amygdala_fs.pmi]) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
+errorbar(x, mi_avgs, mi_errs, 'k.', 'CapSize', 10, 'LineWidth', 1.5, 'MarkerSize', 15)
 xticks(x)
 xticklabels({'S1 RS', 'S1 FS', 'S1 Overall'...
     'PFC RS', 'PFC FS', 'PFC Overall'...
@@ -2377,9 +2409,9 @@ xticklabels({'S1 RS', 'S1 FS', 'S1 Overall'...
     'Amygdala RS', 'Amygdala FS', 'Amygdala Overall'})
 xtickangle(45)
 % ylim([0,100])
-ylim([0,0.012])
-yticks([0,0.012])
-ylabel('Mdulation Index', 'FontSize', 18)
+ylim([-6,-2.5])
+yticks([-6,-2.5])
+ylabel('Log Modulation Index', 'FontSize', 18)
 ax = gca;
 ax.XAxis.FontSize = 18;
 ax.YAxis.FontSize = 16;

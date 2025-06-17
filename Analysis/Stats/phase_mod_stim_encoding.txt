@@ -1,463 +1,255 @@
-
-
-Mod vs. Unmod on hit trials
-S1 mod RS vs unmod RS evoked fr (Mann-Whitney): p = 3.375243e-01
-S1 mod fs vs unmod fs evoked fr (Mann-Whitney): p = 2.713799e-05
-PFC mod RS vs unmod RS evoked fr (Mann-Whitney): p = 6.997336e-01
-PFC mod fs vs unmod fs evoked fr (Mann-Whitney): p = 3.225634e-05
-Striatum mod RS vs unmod RS evoked fr (Mann-Whitney): p = 1.883179e-03
-Striatum mod fs vs unmod fs evoked fr (Mann-Whitney): p = 3.514905e-01
-
-
-Mod vs. Unmod on cr trials
-S1 mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 9.079941e-02
-S1 mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 5.185093e-02
-PFC mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 9.773706e-01
-PFC mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 1.775465e-03
-Striatum mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 8.263932e-01
-Striatum mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 8.694021e-01
-
-
-Mod vs. Unmod on miss trials
-S1 mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 2.932369e-01
-S1 mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 2.616059e-04
-PFC mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 7.819052e-01
-PFC mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 1.688950e-02
-Striatum mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 3.194016e-02
-Striatum mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 4.452009e-01
-
-
-Mod vs. Unmod on fa trials
-S1 mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 5.299174e-01
-S1 mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 3.915473e-07
-PFC mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 7.886221e-01
-PFC mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 6.897619e-04
-Striatum mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 1.936248e-01
-Striatum mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 4.121208e-01
-
-
-Mod hit vs miss trials
-S1 mod RS vs mod RS evoked fr (signed-rank): p = 5.247193e-03
-S1 mod fs vs mod fs evoked fr (signed-rank): p = 8.174340e-05
-PFC mod RS vs mod RS evoked fr (signed-rank): p = 5.107782e-04
-PFC mod fs vs mod fs evoked fr (signed-rank): p = 3.458679e-01
-Striatum mod RS vs mod RS evoked fr (signed-rank): p = 1.041448e-02
-Striatum mod fs vs mod fs evoked fr (signed-rank): p = 1.022952e-01
-
-
-Unmod hit vs miss trials
-S1 unmod RS vs unmod RS evoked fr (signed-rank): p = 7.427152e-02
-S1 unmod fs vs unmod fs evoked fr (signed-rank): p = 3.254954e-02
-PFC unmod RS vs unmod RS evoked fr (signed-rank): p = 1.612153e-04
-PFC unmod fs vs unmod fs evoked fr (signed-rank): p = 1.049805e-02
-Striatum unmod RS vs unmod RS evoked fr (signed-rank): p = 2.115982e-01
-Striatum unmod fs vs unmod fs evoked fr (signed-rank): p = 2.730346e-01
-
-
-Mod vs. Unmod on hit trials
-S1 mod RS vs unmod RS iti fr (Mann-Whitney): p = 8.842423e-01
-S1 mod fs vs unmod fs iti fr (Mann-Whitney): p = 3.849046e-01
-PFC mod RS vs unmod RS iti fr (Mann-Whitney): p = 1.445661e-01
-PFC mod fs vs unmod fs iti fr (Mann-Whitney): p = 2.880363e-01
-Striatum mod RS vs unmod RS iti fr (Mann-Whitney): p = 6.290746e-02
-Striatum mod fs vs unmod fs iti fr (Mann-Whitney): p = 1.601473e-02
-Fisher exact test s1 rs mod vs unmod nonresponsive %
-
-h =
-
-  logical
-
-   0
-
-
-p =
-
-    0.7393
-
-
-stats = 
-
-  struct with fields:
-
-             OddsRatio: 0.9090
-    ConfidenceInterval: [0.5894 1.4020]
-
-Fisher exact test s1 fs mod vs unmod nonresponsive %
-
-h =
-
-  logical
-
-   1
-
-
-p =
-
-    0.0046
-
-
-stats = 
-
-  struct with fields:
-
-             OddsRatio: 0.2283
-    ConfidenceInterval: [0.0878 0.5935]
-
-Fisher exact test pfc rs mod vs unmod nonresponsive %
-
-h =
-
-  logical
-
-   1
-
-
-p =
-
-    0.0344
-
-
-stats = 
-
-  struct with fields:
-
-             OddsRatio: 0.6292
-    ConfidenceInterval: [0.4122 0.9602]
-
-Fisher exact test pfc fs mod vs unmod nonresponsive %
-
-h =
-
-  logical
-
-   1
-
-
-p =
-
-    0.0154
-
-
-stats = 
-
-  struct with fields:
-
-             OddsRatio: 0.0676
-    ConfidenceInterval: [0.0068 0.6739]
-
-Fisher exact test striatum rs mod vs unmod nonresponsive %
-
-h =
-
-  logical
-
-   0
-
-
-p =
-
-    0.1673
-
-
-stats = 
-
-  struct with fields:
-
-             OddsRatio: 0.4143
-    ConfidenceInterval: [0.1369 1.2540]
-
-Fisher exact test striatum fs mod vs unmod nonresponsive %
-
-h =
-
-  logical
-
-   0
-
-
-p =
-
-    0.8401
-
-
-stats = 
-
-  struct with fields:
-
-             OddsRatio: 0.8671
-    ConfidenceInterval: [0.3798 1.9797]
-
-
-s1_rs_ranova =
-
-  5x8 table
-
-                            SumSq        DF      MeanSq       F         pValue       pValueGG      pValueHF     pValueLB 
-                          __________    _____    ______    _______    __________    __________    __________    _________
-
-    (Intercept):Time          2131.8       49    43.506     7.7586    3.8288e-52    1.2472e-06    1.0865e-06    0.0056073
-    group:Time                218.51       49    4.4594    0.79526       0.84676       0.53924       0.54067      0.37307
-    subject:Time              3123.2       49    63.739     11.367    7.9075e-86    7.9899e-10    6.3605e-10    0.0008226
-    group:subject:Time        613.76       49    12.526     2.2338     1.724e-06      0.056586      0.055739      0.13583
-    Error(Time)           1.0688e+05    19061    5.6075                                                                  
-
-
-s1_fs_ranova =
-
-  5x8 table
-
-                            SumSq       DF     MeanSq      F         pValue       pValueGG      pValueHF      pValueLB 
-                          _________    ____    ______    ______    ___________    _________    __________    __________
-
-    (Intercept):Time          36979      49    754.68    24.446    8.7638e-204    2.546e-13    1.6961e-13    1.7359e-06
-    group:Time                 5872      49    119.84    3.8817     2.8462e-18      0.01252      0.012077      0.050339
-    subject:Time             5166.1      49    105.43    3.4151     1.1463e-14     0.022111      0.021487      0.066236
-    group:subject:Time       2295.1      49    46.839    1.5172       0.011502       0.2138       0.21327       0.21964
-    Error(Time)           2.738e+05    8869    30.872                                                                  
-
-
-pfc_rs_ranova =
-
-  5x8 table
-
-                          SumSq      DF      MeanSq      F         pValue       pValueGG      pValueHF     pValueLB
-                          ______    _____    ______    ______    __________    __________    __________    ________
-
-    (Intercept):Time      929.65       49    18.973    4.4661    3.7155e-23    0.00023724    0.00021508    0.035214
-    group:Time            1082.3       49    22.089    5.1997    2.3912e-29    3.9348e-05    3.4715e-05    0.023136
-    subject:Time          665.97       49    13.591    3.1994    3.9163e-13     0.0047793     0.0045285    0.074451
-    group:subject:Time    505.09       49    10.308    2.4265    1.0351e-07      0.027009      0.026214     0.12012
-    Error(Time)            80348    18914    4.2481                                                                
-
-
-pfc_fs_ranova =
-
-  5x8 table
-
-                          SumSq      DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
-                          ______    ____    ______    ______    ___________    __________    __________    __________
-
-    (Intercept):Time       15788      49     322.2     22.88    3.6221e-162    3.7544e-12    6.9612e-13    1.6791e-05
-    group:Time            2815.8      49    57.465    4.0808     4.0882e-19     0.0081793     0.0067245      0.048972
-    subject:Time          6863.3      49    140.07    9.9467     1.0856e-65    5.4131e-06    2.7357e-06     0.0027788
-    group:subject:Time    1247.7      49    25.463    1.8083     0.00054987       0.14843       0.14391       0.18504
-    Error(Time)            33120    2352    14.082                                                                   
-
-
-striatum_rs_ranova =
-
-  3x8 table
-
-                          SumSq       DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
-                        _________    ____    ______    ______    ___________    __________    __________    __________
-
-    (Intercept):Time        34634      49    706.82    18.532    2.8151e-150    4.8604e-10    3.7179e-10    2.6985e-05
-    group:Time              11217      49    228.92    6.0022     5.7219e-36     0.0010968     0.0010286      0.015213
-    Error(Time)         3.476e+05    9114    38.139                                                                   
-
-
-striatum_fs_ranova =
-
-  5x8 table
-
-                            SumSq        DF      MeanSq      F         pValue       pValueGG      pValueHF      pValueLB 
-                          __________    _____    ______    ______    __________    __________    __________    __________
-
-    (Intercept):Time           11191       49     228.4    11.443    4.6807e-86    1.3474e-10     9.304e-11    0.00081652
-    group:Time                4748.4       49    96.905    4.8549    2.4175e-26    0.00024788     0.0002218      0.028354
-    subject:Time                4778       49     97.51    4.8852    1.3427e-26    0.00023244    0.00020775      0.027868
-    group:subject:Time        5956.4       49    121.56      6.09    5.4273e-37    1.7553e-05    1.4996e-05      0.014172
-    Error(Time)           2.8364e+05    14210     19.96                                                                  
-
-
-s1_rs_driven_ranova =
-
-  5x8 table
-
-                          SumSq      DF      MeanSq       F         pValue        pValueGG      pValueHF      pValueLB 
-                          ______    _____    ______    _______    ___________    __________    __________    __________
-
-    (Intercept):Time      5766.8       49    117.69     16.727    6.6942e-135    3.5546e-15    1.7756e-15     5.972e-05
-    group:Time            224.43       49    4.5802    0.65095        0.97198       0.65142       0.65502       0.42061
-    subject:Time          4189.2       49    85.493     12.151     3.8036e-92    6.0255e-11     3.755e-11    0.00058759
-    group:subject:Time    739.14       49    15.085     2.1439     6.2642e-06      0.062184      0.060586       0.14451
-    Error(Time)            79297    11270    7.0361                                                                    
-
-
-s1_fs_driven_ranova =
-
-  5x8 table
-
-                            SumSq        DF     MeanSq       F         pValue        pValueGG      pValueHF      pValueLB 
-                          __________    ____    ______    _______    ___________    __________    __________    __________
-
-    (Intercept):Time           53160      49    1084.9     38.544    1.8414e-320    3.8889e-24    1.0811e-24    5.1911e-09
-    group:Time                6061.3      49     123.7     4.3948     2.6127e-22     0.0033691     0.0030858      0.037761
-    subject:Time              4261.5      49    86.969     3.0899     3.1826e-12      0.022761       0.02172      0.080863
-    group:subject:Time        1023.1      49     20.88    0.74181        0.90922       0.53971        0.5429       0.39048
-    Error(Time)           2.0274e+05    7203    28.147                                                                    
-
-
-pfc_rs_driven_ranova =
-
-  5x8 table
-
-                          SumSq      DF     MeanSq      F         pValue       pValueGG      pValueHF     pValueLB 
-                          ______    ____    ______    ______    __________    __________    __________    _________
-
-    (Intercept):Time        3316      49    67.673    10.118    1.0451e-72     1.164e-11    4.5322e-12    0.0017391
-    group:Time            1277.8      49    26.078    3.8989    2.1339e-18    0.00048094    0.00038254     0.049901
-    subject:Time          1285.9      49    26.242    3.9234    1.3653e-18    0.00045038    0.00035732     0.049193
-    group:subject:Time    452.71      49    9.2389    1.3813       0.04018        0.2138       0.21109      0.24149
-    Error(Time)            57027    8526    6.6886                                                                 
-
-
-pfc_fs_driven_ranova =
-
-  3x8 table
-
-                        SumSq      DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
-                        ______    ____    ______    ______    ___________    __________    __________    __________
-
-    (Intercept):Time     17049      49    347.94    20.738    3.4203e-144    1.2901e-09    4.0716e-10    4.2982e-05
-    group:Time          2371.2      49    48.392    2.8843     1.8978e-10      0.047977      0.044294      0.096674
-    Error(Time)          35351    2107    16.778                                                                   
-
-
-striatum_rs_driven_ranova =
-
-  3x8 table
-
-                          SumSq       DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
-                        _________    ____    ______    ______    ___________    __________    __________    __________
-
-    (Intercept):Time        42983      49    877.21    17.607    1.5638e-138    9.5508e-10    6.3541e-10    5.0861e-05
-    group:Time              10568      49    215.68     4.329     1.0356e-21     0.0072553     0.0068094      0.039494
-    Error(Time)         3.076e+05    6174    49.823                                                                   
-
-
-striatum_fs_driven_ranova =
-
-  5x8 table
-
-                            SumSq        DF      MeanSq      F         pValue       pValueGG      pValueHF      pValueLB 
-                          __________    _____    ______    ______    __________    __________    __________    __________
-
-    (Intercept):Time           14569       49    297.33    12.903    4.2698e-99    7.1568e-12    4.1443e-12    0.00040277
-    group:Time                  6074       49    123.96    5.3796    1.0402e-30    8.6772e-05    7.3459e-05       0.02127
-    subject:Time              6749.1       49    137.74    5.9776     7.101e-36    2.4321e-05    2.0007e-05      0.015258
-    group:subject:Time        8182.2       49    166.98    7.2468    4.2345e-47    1.5923e-06    1.2307e-06     0.0076366
-    Error(Time)           2.5404e+05    11025    23.042                                                                  
-
-
-s1_rs_suppressed_ranova =
-
-  3x8 table
-
-                        SumSq      DF     MeanSq      F         pValue      pValueGG      pValueHF     pValueLB 
-                        ______    ____    ______    ______    __________    _________    __________    _________
-
-    (Intercept):Time    1453.9      49    29.672    13.252    2.5311e-81    1.941e-08    7.9573e-10    0.0013003
-    group:Time          126.21      49    2.5757    1.1503       0.22472      0.33758       0.33797      0.29415
-    Error(Time)         2633.1    1176    2.2391                                                                
-
-
-s1_fs_suppressed_ranova =
-
-  3x8 table
-
-                        SumSq     DF     MeanSq      F         pValue       pValueGG      pValueHF      pValueLB 
-                        ______    ___    ______    ______    __________    __________    __________    __________
-
-    (Intercept):Time     21541     49     439.6    18.725    1.7632e-90    8.2955e-06    1.1818e-06    0.00098354
-    group:Time          1487.5     49    30.358    1.2931      0.092589       0.29312       0.29305       0.27768
-    Error(Time)          13805    588    23.477                                                                  
-
-
-pfc_rs_suppressed_ranova =
-
-  5x8 table
-
-                          SumSq      DF     MeanSq      F         pValue       pValueGG      pValueHF      pValueLB 
-                          ______    ____    ______    ______    ___________    _________    __________    __________
-
-    (Intercept):Time      1338.3      49    27.312    19.483    4.4234e-142    7.824e-20    3.7045e-22    4.5765e-05
-    group:Time            177.32      49    3.6187    2.5814     1.5616e-08     0.017889      0.013434       0.11365
-    subject:Time          225.88      49    4.6097    3.2883     2.1932e-13    0.0034979     0.0021846      0.075042
-    group:subject:Time    172.91      49    3.5288    2.5172     4.0468e-08     0.020664      0.015765       0.11814
-    Error(Time)           3915.4    2793    1.4019                                                                  
-
-[Warning: Model has 0 degrees of freedom for error. Consider not using group as a predictor.] 
-[> In manova.internal.validation.checkDFE (line 26)
-In manova.internal.fitting.fitCoefficients (line 19)
-In RepeatedMeasuresModel.fit (line 1391)
-In fitrm (line 77)
-In alphaModAndStimEncoding (line 2479)] 
-
-pfc_fs_suppressed_ranova =
-
-  3x8 table
-
-                        SumSq     DF    MeanSq     F     pValue    pValueGG    pValueHF    pValueLB
-                        ______    __    ______    ___    ______    ________    ________    ________
-
-    (Intercept):Time    402.21    49    8.2084    NaN     NaN        NaN         NaN         NaN   
-    group:Time           501.9    49    10.243    NaN     NaN        NaN         NaN         NaN   
-    Error(Time)            NaN     0       NaN                                                     
-
-
-striatum_rs_suppressed_ranova =
-
-  3x8 table
-
-                        SumSq     DF     MeanSq       F       pValue     pValueGG    pValueHF    pValueLB
-                        ______    ___    ______    _______    _______    ________    ________    ________
-
-    (Intercept):Time     104.3     49    2.1286    0.41043    0.99989    0.63703     0.66039      0.5321 
-    group:Time          146.05     49    2.9807    0.57473    0.99146    0.54492     0.56376     0.46096 
-    Error(Time)         3557.8    686    5.1862                                                          
-
-S1 RS Driven Mod vs Unmod on Hit (mann-whitney): p = 6.937754e-01
-S1 FS Driven Mod vs Unmod on Hit (mann-whitney): p = 1.453234e-06
-S1 RS Driven Mod vs Unmod on Miss (mann-whitney): p = 2.638164e-01
-S1 FS Driven Mod vs Unmod on Miss (mann-whitney): p = 1.255163e-05
-S1 RS Driven Mod vs Unmod on CR (mann-whitney): p = 2.669897e-02
-S1 FS Driven Mod vs Unmod on CR (mann-whitney): p = 9.598273e-02
-S1 RS Driven Mod vs Unmod on FA (mann-whitney): p = 2.123976e-01
-S1 FS Driven Mod vs Unmod on FA (mann-whitney): p = 3.245556e-07
-PFC RS Driven Mod vs Unmod on Hit (mann-whitney): p = 6.172171e-01
-PFC FS Driven Mod vs Unmod on Hit (mann-whitney): p = 6.967914e-04
-PFC RS Driven Mod vs Unmod on Miss (mann-whitney): p = 9.135122e-01
-PFC FS Driven Mod vs Unmod on Miss (mann-whitney): p = 1.316491e-01
-PFC RS Driven Mod vs Unmod on CR (mann-whitney): p = 3.054883e-01
-PFC FS Driven Mod vs Unmod on CR (mann-whitney): p = 9.692446e-02
-PFC RS Driven Mod vs Unmod on FA (mann-whitney): p = 2.339094e-01
-PFC FS Driven Mod vs Unmod on FA (mann-whitney): p = 2.408129e-02
-Striatum RS Driven Mod vs Unmod on Hit (mann-whitney): p = 3.276323e-03
-Striatum FS Driven Mod vs Unmod on Hit (mann-whitney): p = 4.958951e-01
-Striatum RS Driven Mod vs Unmod on Miss (mann-whitney): p = 8.641969e-02
-Striatum FS Driven Mod vs Unmod on Miss (mann-whitney): p = 5.063562e-01
-Striatum RS Driven Mod vs Unmod on CR (mann-whitney): p = 3.418228e-01
-Striatum FS Driven Mod vs Unmod on CR (mann-whitney): p = 5.169339e-01
-Striatum RS Driven Mod vs Unmod on FA (mann-whitney): p = 9.976372e-01
-Striatum FS Driven Mod vs Unmod on FA (mann-whitney): p = 6.541260e-01
-S1 RS Suppressed Mod vs Unmod on Hit (mann-whitney): p = 8.035664e-01
-S1 FS Suppressed Mod vs Unmod on Hit (mann-whitney): p = 1.428571e-01
-S1 RS Suppressed Mod vs Unmod on Miss (mann-whitney): p = 2.409547e-01
-S1 FS Suppressed Mod vs Unmod on Miss (mann-whitney): p = 1
-S1 RS Suppressed Mod vs Unmod on CR (mann-whitney): p = 1.098194e-01
-S1 FS Suppressed Mod vs Unmod on CR (mann-whitney): p = 7.142857e-01
-S1 RS Suppressed Mod vs Unmod on FA (mann-whitney): p = 9.151060e-01
-S1 FS Suppressed Mod vs Unmod on FA (mann-whitney): p = 8.571429e-01
-PFC RS Suppressed Mod vs Unmod on Hit (mann-whitney): p = 1.328794e-01
-PFC FS Suppressed Mod vs Unmod on Hit (2 sample t-test): p = NaN
-PFC RS Suppressed Mod vs Unmod on Miss (mann-whitney): p = 9.069261e-01
-PFC FS Suppressed Mod vs Unmod on Miss (2 sample t-test): p = NaN
-PFC RS Suppressed Mod vs Unmod on CR (mann-whitney): p = 3.106385e-02
-PFC FS Suppressed Mod vs Unmod on CR (2 sample t-test): p = NaN
-PFC RS Suppressed Mod vs Unmod on FA (mann-whitney): p = 5.181821e-01
-PFC FS Suppressed Mod vs Unmod on FA (2 sample t-test): p = NaN
-Striatum RS Suppressed Mod vs Unmod on Hit (mann-whitney): p = 2.000000e-01
-Striatum RS Suppressed Mod vs Unmod on Miss (mann-whitney): p = 5.000000e-01
-Striatum RS Suppressed Mod vs Unmod on CR (mann-whitney): p = 2.000000e-01
-Striatum RS Suppressed Mod vs Unmod on FA (mann-whitney): p = 6.666667e-02
+{Unrecognized function or variable 's1_ummod_rs_evoked_cr'.
+
+Error in alphaModAndStimEncoding (line 710)
+plot(zeros(length(s1_unmod_rs_evoked_cr),1)+8+(rand(length(s1_ummod_rs_evoked_cr),1)-0.5)*-0.3, 'k.', 'MarkerSize', 1)
+                                                           ^^^^^^^^^^^^^^^^^^^^^
+} 
+close all
+evoked_fig = figure('Position', [1220 770 1007 948]);
+tl = tiledlayout(3,2);
+axs(1,1) = nexttile;
+hold on
+plot(zeros(length(s1_mod_rs_evoked_hit),1)+1+(rand(length(s1_mod_rs_evoked_hit),1)-0.5)*-0.3, s1_mod_rs_evoked_hit, 'k.', 'MarkerSize', 1)
+violinplot(1, s1_mod_rs_evoked_hit, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_rs_evoked_hit),1)+2+(rand(length(s1_unmod_rs_evoked_hit),1)-0.5)*-0.3, s1_unmod_rs_evoked_hit, 'k.', 'MarkerSize', 1)
+violinplot(2, s1_unmod_rs_evoked_hit, 'FaceColor', 'r')
+plot(zeros(length(s1_mod_rs_evoked_miss),1)+4+(rand(length(s1_mod_rs_evoked_miss),1)-0.5)*-0.3, s1_mod_rs_evoked_miss, 'k.', 'MarkerSize', 1)
+violinplot(4, s1_mod_rs_evoked_miss, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_rs_evoked_miss),1)+5+(rand(length(s1_unmod_rs_evoked_miss),1)-0.5)*-0.3, s1_unmod_rs_evoked_miss, 'k.', 'MarkerSize', 1)
+violinplot(5, s1_unmod_rs_evoked_miss, 'FaceColor', 'r')
+plot(zeros(length(s1_mod_rs_evoked_cr),1)+7+(rand(length(s1_mod_rs_evoked_cr),1)-0.5)*-0.3, s1_mod_rs_evoked_cr, 'k.', 'MarkerSize', 1)
+violinplot(7, s1_mod_rs_evoked_cr, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_rs_evoked_cr),1)+8+(rand(length(s1_ummod_rs_evoked_cr),1)-0.5)*-0.3, s1_ummod_rs_evoked_cr, 'k.', 'MarkerSize', 1)
+{Unrecognized function or variable 's1_ummod_rs_evoked_cr'.
+} 
+violinplot(8, s1_unmod_rs_evoked_cr, 'FaceColor', 'r')
+plot(zeros(length(s1_mod_rs_evoked_fa),1)+10+(rand(length(s1_mod_rs_evoked_fa),1)-0.5)*-0.3, s1_mod_rs_evoked_fa, 'k.', 'MarkerSize', 1)
+violinplot(10, s1_mod_rs_evoked_fa, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_rs_evoked_fa),1)+11+(rand(length(s1_unmod_rs_evoked_fa),1)-0.5)*-0.3, s1_unmod_rs_evoked_fa, 'k.', 'MarkerSize', 1)
+violinplot(11, s1_unmod_rs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+ylabel('S1', 'FontSize', 16)
+title('Regular Spiking', 'FontWeight', 'normal', 'FontSize', 16)
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;evoked_fig = figure('Position', [1220 770 1007 948]);
+tl = tiledlayout(3,2);
+axs(1,1) = nexttile;
+hold on
+plot(zeros(length(s1_mod_rs_evoked_hit),1)+1+(rand(length(s1_mod_rs_evoked_hit),1)-0.5)*-0.3, s1_mod_rs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(1, s1_mod_rs_evoked_hit, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_rs_evoked_hit),1)+2+(rand(length(s1_unmod_rs_evoked_hit),1)-0.5)*-0.3, s1_unmod_rs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(2, s1_unmod_rs_evoked_hit, 'FaceColor', 'r')
+plot(zeros(length(s1_mod_rs_evoked_miss),1)+4+(rand(length(s1_mod_rs_evoked_miss),1)-0.5)*-0.3, s1_mod_rs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(4, s1_mod_rs_evoked_miss, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_rs_evoked_miss),1)+5+(rand(length(s1_unmod_rs_evoked_miss),1)-0.5)*-0.3, s1_unmod_rs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(5, s1_unmod_rs_evoked_miss, 'FaceColor', 'r')
+plot(zeros(length(s1_mod_rs_evoked_cr),1)+7+(rand(length(s1_mod_rs_evoked_cr),1)-0.5)*-0.3, s1_mod_rs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+violinplot(7, s1_mod_rs_evoked_cr, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_rs_evoked_cr),1)+8+(rand(length(s1_ummod_rs_evoked_cr),1)-0.5)*-0.3, s1_ummod_rs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+{Unrecognized function or variable 's1_ummod_rs_evoked_cr'.
+} 
+violinplot(8, s1_unmod_rs_evoked_cr, 'FaceColor', 'r')
+plot(zeros(length(s1_mod_rs_evoked_fa),1)+10+(rand(length(s1_mod_rs_evoked_fa),1)-0.5)*-0.3, s1_mod_rs_evoked_fa, 'k.', 'MarkerSize', 0.1)
+violinplot(10, s1_mod_rs_evoked_fa, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_rs_evoked_fa),1)+11+(rand(length(s1_unmod_rs_evoked_fa),1)-0.5)*-0.3, s1_unmod_rs_evoked_fa, 'k.', 'MarkerSize', 0.1)
+violinplot(11, s1_unmod_rs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+ylabel('S1', 'FontSize', 16)
+title('Regular Spiking', 'FontWeight', 'normal', 'FontSize', 16)
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+evoked_fig = figure('Position', [1220 770 1007 948]);
+tl = tiledlayout(3,2);
+axs(1,1) = nexttile;
+hold on
+plot(zeros(length(s1_mod_rs_evoked_hit),1)+1+(rand(length(s1_mod_rs_evoked_hit),1)-0.5)*-0.3, s1_mod_rs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(1, s1_mod_rs_evoked_hit, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_rs_evoked_hit),1)+2+(rand(length(s1_unmod_rs_evoked_hit),1)-0.5)*-0.3, s1_unmod_rs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(2, s1_unmod_rs_evoked_hit, 'FaceColor', 'r')
+plot(zeros(length(s1_mod_rs_evoked_miss),1)+4+(rand(length(s1_mod_rs_evoked_miss),1)-0.5)*-0.3, s1_mod_rs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(4, s1_mod_rs_evoked_miss, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_rs_evoked_miss),1)+5+(rand(length(s1_unmod_rs_evoked_miss),1)-0.5)*-0.3, s1_unmod_rs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(5, s1_unmod_rs_evoked_miss, 'FaceColor', 'r')
+plot(zeros(length(s1_mod_rs_evoked_cr),1)+7+(rand(length(s1_mod_rs_evoked_cr),1)-0.5)*-0.3, s1_mod_rs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+violinplot(7, s1_mod_rs_evoked_cr, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_rs_evoked_cr),1)+8+(rand(length(s1_ummod_rs_evoked_cr),1)-0.5)*-0.3, s1_ummod_rs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+{Unrecognized function or variable 's1_ummod_rs_evoked_cr'.
+} 
+violinplot(8, s1_unmod_rs_evoked_cr, 'FaceColor', 'r')
+plot(zeros(length(s1_mod_rs_evoked_fa),1)+10+(rand(length(s1_mod_rs_evoked_fa),1)-0.5)*-0.3, s1_mod_rs_evoked_fa, 'k.', 'MarkerSize', 0.1)
+violinplot(10, s1_mod_rs_evoked_fa, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_rs_evoked_fa),1)+11+(rand(length(s1_unmod_rs_evoked_fa),1)-0.5)*-0.3, s1_unmod_rs_evoked_fa, 'k.', 'MarkerSize', 0.1)
+violinplot(11, s1_unmod_rs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+ylabel('S1', 'FontSize', 16)
+title('Regular Spiking', 'FontWeight', 'normal', 'FontSize', 16)
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;
+keyboard 
+
+axs(1,2) = nexttile;
+hold on
+plot(zeros(length(s1_mod_fs_evoked_hit),1)+1+(rand(length(s1_mod_fs_evoked_hit),1)-0.5)*-0.3, s1_mod_fs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(1, s1_mod_fs_evoked_hit, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_fs_evoked_hit),1)+2+(rand(length(s1_unmod_fs_evoked_hit),1)-0.5)*-0.3, s1_unmod_fs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(2, s1_unmod_fs_evoked_hit, 'FaceColor', 'r')
+plot(zeros(length(s1_mod_fs_evoked_miss),1)+4+(rand(length(s1_mod_fs_evoked_miss),1)-0.5)*-0.3, s1_mod_fs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(4, s1_mod_fs_evoked_miss, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_fs_evoked_miss),1)+5+(rand(length(s1_unmod_fs_evoked_miss),1)-0.5)*-0.3, s1_unmod_fs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(5, s1_unmod_fs_evoked_miss, 'FaceColor', 'r')
+plot(zeros(length(s1_mod_fs_evoked_cr),1)+7+(rand(length(s1_mod_fs_evoked_cr),1)-0.5)*-0.3, s1_mod_fs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+violinplot(7, s1_mod_fs_evoked_cr, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_fs_evoked_cr),1)+8+(rand(length(s1_ummod_fs_evoked_cr),1)-0.5)*-0.3, s1_ummod_fs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+{Error using keyboard
+Unrecognized function or variable 's1_ummod_fs_evoked_cr'.
+} 
+violinplot(8, s1_unmod_fs_evoked_cr, 'FaceColor', 'r')
+plot(zeros(length(s1_mod_fs_evoked_fa),1)+10+(rand(length(s1_mod_fs_evoked_fa),1)-0.5)*-0.3, s1_mod_fs_evoked_fa, 'k.', 'MarkerSize', 0.1)
+violinplot(10, s1_mod_fs_evoked_fa, 'FaceColor', 'b')
+plot(zeros(length(s1_unmod_fs_evoked_fa),1)+11+(rand(length(s1_unmod_fs_evoked_fa),1)-0.5)*-0.3, s1_unmod_fs_evoked_fa, 'k.', 'MarkerSize', 0.1)
+violinplot(11, s1_unmod_fs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+title('Fast Spiking', 'FontWeight', 'normal', 'FontSize', 16)
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;
+
+axs(2,1) = nexttile;
+hold on
+plot(zeros(length(pfc_mod_rs_evoked_hit),1)+1+(rand(length(pfc_mod_rs_evoked_hit),1)-0.5)*-0.3, pfc_mod_rs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(1, pfc_mod_rs_evoked_hit, 'FaceColor', 'b')
+plot(zeros(length(pfc_unmod_rs_evoked_hit),1)+2+(rand(length(pfc_unmod_rs_evoked_hit),1)-0.5)*-0.3, pfc_unmod_rs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(2, pfc_unmod_rs_evoked_hit, 'FaceColor', 'r')
+plot(zeros(length(pfc_mod_rs_evoked_miss),1)+4+(rand(length(pfc_mod_rs_evoked_miss),1)-0.5)*-0.3, pfc_mod_rs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(4, pfc_mod_rs_evoked_miss, 'FaceColor', 'b')
+plot(zeros(length(pfc_unmod_rs_evoked_miss),1)+5+(rand(length(pfc_unmod_rs_evoked_miss),1)-0.5)*-0.3, pfc_unmod_rs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(5, pfc_unmod_rs_evoked_miss, 'FaceColor', 'r')
+plot(zeros(length(pfc_mod_rs_evoked_cr),1)+7+(rand(length(pfc_mod_rs_evoked_cr),1)-0.5)*-0.3, pfc_mod_rs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+violinplot(7, pfc_mod_rs_evoked_cr, 'FaceColor', 'b')
+plot(zeros(length(pfc_unmod_rs_evoked_cr),1)+8+(rand(length(pfc_ummod_rs_evoked_cr),1)-0.5)*-0.3, pfc_ummod_rs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+{Error using keyboard
+Unrecognized function or variable 'pfc_ummod_rs_evoked_cr'.
+} 
+violinplot(8, pfc_unmod_rs_evoked_cr, 'FaceColor', 'r')
+plot(zeros(length(pfc_mod_rs_evoked_fa),1)+10+(rand(length(pfc_mod_rs_evoked_fa),1)-0.5)*-0.3, 'k.', pfc_mod_rs_evoked_fa, 'MarkerSize', 0.1)
+{Error using plot
+Unrecognized property k. for class Line.
+} 
+violinplot(10, pfc_mod_rs_evoked_fa, 'FaceColor', 'b')
+plot(zeros(length(pfc_unmod_rs_evoked_fa),1)+11+(rand(length(pfc_unmod_rs_evoked_fa),1)-0.5)*-0.3, pfc_unmod_rs_evoked_fa, 'k.', 'MarkerSize', 0.1)
+violinplot(11, pfc_unmod_rs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+ylabel('PFC', 'FontSize', 16)
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;
+
+axs(2,2) = nexttile;
+hold on
+plot(zeros(length(pfc_mod_fs_evoked_hit),1)+1+(rand(length(pfc_mod_fs_evoked_hit),1)-0.5)*-0.3, pfc_mod_fs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(1, pfc_mod_fs_evoked_hit, 'FaceColor', 'b')
+plot(zeros(length(pfc_unmod_fs_evoked_hit),1)+2+(rand(length(pfc_unmod_fs_evoked_hit),1)-0.5)*-0.3, pfc_unmod_fs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(2, pfc_unmod_fs_evoked_hit, 'FaceColor', 'r')
+plot(zeros(length(pfc_mod_fs_evoked_miss),1)+4+(rand(length(pfc_mod_fs_evoked_miss),1)-0.5)*-0.3, pfc_mod_fs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(4, pfc_mod_fs_evoked_miss, 'FaceColor', 'b')
+plot(zeros(length(pfc_unmod_fs_evoked_miss),1)+5+(rand(length(pfc_unmod_fs_evoked_miss),1)-0.5)*-0.3, pfc_unmod_fs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(5, pfc_unmod_fs_evoked_miss, 'FaceColor', 'r')
+plot(zeros(length(pfc_mod_fs_evoked_cr),1)+7+(rand(length(pfc_mod_fs_evoked_cr),1)-0.5)*-0.3, pfc_mod_fs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+violinplot(7, pfc_mod_fs_evoked_cr, 'FaceColor', 'b')
+plot(zeros(length(pfc_unmod_fs_evoked_cr),1)+8+(rand(length(pfc_ummod_fs_evoked_cr),1)-0.5)*-0.3, pfc_ummod_fs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+{Error using keyboard
+Unrecognized function or variable 'pfc_ummod_fs_evoked_cr'.
+} 
+violinplot(8, pfc_unmod_fs_evoked_cr, 'FaceColor', 'r')
+plot(zeros(length(pfc_mod_fs_evoked_fa),1)+10+(rand(length(pfc_mod_fs_evoked_fa),1)-0.5)*-0.3, pfc_mod_fs_evoked_fa, 'k.', 'MarkerSize', 0.1)
+violinplot(10, pfc_mod_fs_evoked_fa, 'FaceColor', 'b')
+plot(zeros(length(pfc_unmod_fs_evoked_fa),1)+11+(rand(length(pfc_unmod_fs_evoked_fa),1)-0.5)*-0.3, pfc_unmod_fs_evoked_fa, 'k.', 'MarkerSize', 0.1)
+violinplot(11, pfc_unmod_fs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;
+
+axs(3,1) = nexttile;
+hold on
+plot(zeros(length(striatum_mod_rs_evoked_hit),1)+1+(rand(length(striatum_mod_rs_evoked_hit),1)-0.5)*-0.3, striatum_mod_rs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(1, striatum_mod_rs_evoked_hit, 'FaceColor', 'b')
+plot(zeros(length(striatum_unmod_rs_evoked_hit),1)+2+(rand(length(striatum_unmod_rs_evoked_hit),1)-0.5)*-0.3, striatum_unmod_rs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(2, striatum_unmod_rs_evoked_hit, 'FaceColor', 'r')
+plot(zeros(length(striatum_mod_rs_evoked_miss),1)+4+(rand(length(striatum_mod_rs_evoked_miss),1)-0.5)*-0.3, striatum_mod_rs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(4, striatum_mod_rs_evoked_miss, 'FaceColor', 'b')
+plot(zeros(length(striatum_unmod_rs_evoked_miss),1)+5+(rand(length(striatum_unmod_rs_evoked_miss),1)-0.5)*-0.3, striatum_unmod_rs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(5, striatum_unmod_rs_evoked_miss, 'FaceColor', 'r')
+plot(zeros(length(striatum_mod_rs_evoked_cr),1)+7+(rand(length(striatum_mod_rs_evoked_cr),1)-0.5)*-0.3, striatum_mod_rs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+violinplot(7, striatum_mod_rs_evoked_cr, 'FaceColor', 'b')
+plot(zeros(length(striatum_unmod_rs_evoked_cr),1)+8+(rand(length(striatum_ummod_rs_evoked_cr),1)-0.5)*-0.3, striatum_ummod_rs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+{Error using keyboard
+Unrecognized function or variable 'striatum_ummod_rs_evoked_cr'.
+} 
+violinplot(8, striatum_unmod_rs_evoked_cr, 'FaceColor', 'r')
+plot(zeros(length(striatum_mod_rs_evoked_fa),1)+10+(rand(length(striatum_mod_rs_evoked_fa),1)-0.5)*-0.3, striatum_mod_rs_evoked_fa, 'k.', 'MarkerSize', 0.1)
+violinplot(10, striatum_mod_rs_evoked_fa, 'FaceColor', 'b')
+plot(zeros(length(striatum_unmod_rs_evoked_fa),1)+11+(rand(length(striatum_unmod_rs_evoked_fa),1)-0.5)*-0.3, striatum_unmod_rs_evoked_fa, 'k.', 'MarkerSize', 0.1)
+violinplot(11, striatum_unmod_rs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+ylabel('Striatum', 'FontSize', 16)
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;
+
+axs(3,2) = nexttile;
+hold on
+plot(zeros(length(striatum_mod_fs_evoked_hit),1)+1+(rand(length(striatum_mod_fs_evoked_hit),1)-0.5)*-0.3, striatum_mod_fs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(1, striatum_mod_fs_evoked_hit, 'FaceColor', 'b')
+plot(zeros(length(striatum_unmod_fs_evoked_hit),1)+2+(rand(length(striatum_unmod_fs_evoked_hit),1)-0.5)*-0.3, striatum_unmod_fs_evoked_hit, 'k.', 'MarkerSize', 0.1)
+violinplot(2, striatum_unmod_fs_evoked_hit, 'FaceColor', 'r')
+plot(zeros(length(striatum_mod_fs_evoked_miss),1)+4+(rand(length(striatum_mod_fs_evoked_miss),1)-0.5)*-0.3, striatum_mod_fs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(4, striatum_mod_fs_evoked_miss, 'FaceColor', 'b')
+plot(zeros(length(striatum_unmod_fs_evoked_miss),1)+5+(rand(length(striatum_unmod_fs_evoked_miss),1)-0.5)*-0.3, striatum_unmod_fs_evoked_miss, 'k.', 'MarkerSize', 0.1)
+violinplot(5, striatum_unmod_fs_evoked_miss, 'FaceColor', 'r')
+plot(zeros(length(striatum_mod_fs_evoked_cr),1)+7+(rand(length(striatum_mod_fs_evoked_cr),1)-0.5)*-0.3, striatum_mod_fs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+violinplot(7, striatum_mod_fs_evoked_cr, 'FaceColor', 'b')
+plot(zeros(length(striatum_unmod_fs_evoked_cr),1)+8+(rand(length(striatum_ummod_fs_evoked_cr),1)-0.5)*-0.3, striatum_ummod_fs_evoked_cr, 'k.', 'MarkerSize', 0.1)
+{Error using keyboard
+Unrecognized function or variable 'striatum_ummod_fs_evoked_cr'.
+} 
+violinplot(8, striatum_unmod_fs_evoked_cr, 'FaceColor', 'r')
+plot(zeros(length(striatum_mod_fs_evoked_fa),1)+10+(rand(length(striatum_mod_fs_evoked_fa),1)-0.5)*-0.3, striatum_mod_fs_evoked_fa, 'k.', 'MarkerSize', 0.1)
+violinplot(10, striatum_mod_fs_evoked_fa, 'FaceColor', 'b')
+plot(zeros(length(striatum_unmod_fs_evoked_fa),1)+11+(rand(length(striatum_unmod_fs_evoked_fa),1)-0.5)*-0.3, striatum_unmod_fs_evoked_fa, 'k.', 'MarkerSize', 0.1)
+violinplot(11, striatum_unmod_fs_evoked_fa, 'FaceColor', 'r')
+xticks([1.5:3:10.5])
+xticklabels({'Hit', 'Miss', 'CR', 'FA'})
+lims = ylim;
+ylim([lims(1), lims(2)+20])
+ax = gca;
+ax.XAxis.FontSize = 18;
+ax.YAxis.FontSize = 16;
+xlabel(tl, 'Trial Outcome', 'FontSize', 18)
+close all
+clear
+clc
+alphaPowerAndPhaseModSummaries

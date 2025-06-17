@@ -1376,8 +1376,8 @@ fprintf(sprintf('Amygdala FS theta bar distribtions kuipers test: %d\n', circ_ku
 % yticks([0,lims(2)])
 % ylabel('% Alpha Modulated ', 'FontSize', 14) 
 
-updated_fig = figure('Position', [1220 1334 1000 700]);
-tl = tiledlayout(2,2);
+updated_fig = figure('Position', [1215 1296 1682 506]);
+tl = tiledlayout(1,3);
 axs(1) = nexttile;
 s1_rs_frac = [s1_rs_frac_low', s1_rs_frac_high'];
 s1_fs_frac = [s1_fs_frac_low', s1_fs_frac_high'];
@@ -1386,83 +1386,90 @@ pfc_fs_frac = [pfc_fs_frac_low', pfc_fs_frac_high'];
 striatum_rs_frac = [striatum_rs_frac_low', striatum_rs_frac_high'];
 striatum_fs_frac = [striatum_fs_frac_low', striatum_fs_frac_high'];
 hold on 
-% plot(zeros(1, size(s1_rs_frac,1))+1, s1_rs_frac(:,1), 'ro', 'MarkerSize', 5)
-% plot(zeros(1, size(s1_rs_frac,1))+3, s1_rs_frac(:,2), 'bo', 'MarkerSize', 5)
 for i = 1:size(s1_rs_frac,1)
     x = (rand()-0.5) * 0.5;
-    plot(1+x, s1_rs_frac(i,1), 'ro', 'MarkerSize', 5)
-    plot(3+x, s1_rs_frac(i,2), 'bo', 'MarkerSize', 5)
-    plot([1,3]+x, s1_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    y = (rand()-0.5) * 0.01;
+    plot(1+x, s1_rs_frac(i,1)+y, 'r.', 'MarkerSize', 20)
+    plot(3+x, s1_rs_frac(i,2)+y, 'b.', 'MarkerSize', 20)
+    plot([1,3]+x, s1_rs_frac(i,:)+y, '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 1.5)
-plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(3, nanmean(s1_rs_frac(:,2)), ste(s1_rs_frac(:,2)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWidth', 0.01)
 
-% plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'ro', 'MarkerSize', 5)
-% plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'bo', 'MarkerSize', 5)
+% plot(zeros(1, size(s1_fs_frac,1))+6, s1_fs_frac(:,1), 'r.')
+% plot(zeros(1, size(s1_fs_frac,1))+8, s1_fs_frac(:,2), 'b.')
 for i = 1:size(s1_fs_frac,1)
     x = (rand()-0.5) * 0.5;
-    plot(6+x, s1_fs_frac(i,1), 'ro', 'MarkerSize', 5)
-    plot(8+x, s1_fs_frac(i,2), 'bo', 'MarkerSize', 5)
-    plot([6,8]+x, s1_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    y = (rand()-0.5) * 0.01;
+    plot(6+x, s1_fs_frac(i,1)+y, 'r.', 'MarkerSize', 20)
+    plot(8+x, s1_fs_frac(i,2)+y, 'b.', 'MarkerSize', 20)
+    plot([6,8]+x, s1_fs_frac(i,:)+y, '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 1.5)
-plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(8, nanmean(s1_fs_frac(:,2)), ste(s1_fs_frac(:,2)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWidth', 0.01)
 
-% plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'ro', 'MarkerSize', 5)
-% plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'bo', 'MarkerSize', 5)
+% plot(zeros(1, size(pfc_rs_frac,1))+11, pfc_rs_frac(:,1), 'r.')
+% plot(zeros(1, size(pfc_rs_frac,1))+13, pfc_rs_frac(:,2), 'b.')
 for i = 1:size(pfc_rs_frac,1)
     x = (rand()-0.5) * 0.5;
-    plot(11+x, pfc_rs_frac(i,1), 'ro', 'MarkerSize', 5)
-    plot(13+x, pfc_rs_frac(i,2), 'bo', 'MarkerSize', 5)
-    plot([11,13]+x, pfc_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    y = (rand()-0.5) * 0.01;
+    plot(11+x, pfc_rs_frac(i,1)+y, 'r.', 'MarkerSize', 20)
+    plot(13+x, pfc_rs_frac(i,2)+y, 'b.', 'MarkerSize', 20)
+    plot([11,13]+x, pfc_rs_frac(i,:)+y, '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(13, nanmean(pfc_rs_frac(:,2)), ste(pfc_rs_frac(:,2)), 'k.', 'LineWidth', 1.5)
-plot([11,13], [nanmean(pfc_rs_frac(:,1)), nanmean(pfc_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(13, nanmean(pfc_rs_frac(:,2)), ste(pfc_rs_frac(:,2)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([11,13], [nanmean(pfc_rs_frac(:,1)), nanmean(pfc_rs_frac(:,2))], 'k--', 'LineWidth', 0.01)
 
-% plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'ro', 'MarkerSize', 5)
-% plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'bo', 'MarkerSize', 5)
+% plot(zeros(1, size(pfc_fs_frac,1))+16, pfc_fs_frac(:,1), 'r.')
+% plot(zeros(1, size(pfc_fs_frac,1))+18, pfc_fs_frac(:,2), 'b.')
 for i = 1:size(pfc_fs_frac,1)
     x = (rand()-0.5) * 0.5;
-    plot(16+x, pfc_fs_frac(i,1), 'ro', 'MarkerSize', 5)
-    plot(18+x, pfc_fs_frac(i,2), 'bo', 'MarkerSize', 5)
-    plot([16,18]+x, pfc_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    y = (rand()-0.5) * 0.01;
+    plot(16+x, pfc_fs_frac(i,1)+y, 'r.', 'MarkerSize', 20)
+    plot(18+x, pfc_fs_frac(i,2)+y, 'b.', 'MarkerSize', 20)
+    plot([16,18]+x, pfc_fs_frac(i,:)+y, '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(18, nanmean(pfc_fs_frac(:,2)), ste(pfc_fs_frac(:,2)), 'k.', 'LineWidth', 1.5)
-plot([16,18], [nanmean(pfc_fs_frac(:,1)), nanmean(pfc_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(18, nanmean(pfc_fs_frac(:,2)), ste(pfc_fs_frac(:,2)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([16,18], [nanmean(pfc_fs_frac(:,1)), nanmean(pfc_fs_frac(:,2))], 'k--', 'LineWidth', 0.01)
 
-% plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'ro', 'MarkerSize', 5)
-% plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'bo', 'MarkerSize', 5)
+% plot(zeros(1, size(striatum_rs_frac,1))+21, striatum_rs_frac(:,1), 'r.')
+% plot(zeros(1, size(striatum_rs_frac,1))+23, striatum_rs_frac(:,2), 'b.')
 for i = 1:size(striatum_rs_frac,1)
     x = (rand()-0.5) * 0.5;
-    plot(21+x, striatum_rs_frac(i,1), 'ro', 'MarkerSize', 5)
-    plot(23+x, striatum_rs_frac(i,2), 'bo', 'MarkerSize', 5)
-    plot([21,23]+x, striatum_rs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    y = (rand()-0.5) * 0.01;
+    plot(21+x, striatum_rs_frac(i,1)+y, 'r.', 'MarkerSize', 20)
+    plot(23+x, striatum_rs_frac(i,2)+y, 'b.', 'MarkerSize', 20)
+    plot([21,23]+x, striatum_rs_frac(i,:)+y, '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(23, nanmean(striatum_rs_frac(:,2)), ste(striatum_rs_frac(:,2)), 'k.', 'LineWidth', 1.5)
-plot([21,23], [nanmean(striatum_rs_frac(:,1)), nanmean(striatum_rs_frac(:,2))], 'k--', 'LineWidth', 1)
+errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(23, nanmean(striatum_rs_frac(:,2)), ste(striatum_rs_frac(:,2)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([21,23], [nanmean(striatum_rs_frac(:,1)), nanmean(striatum_rs_frac(:,2))], 'k--', 'LineWidth', 0.01)
 
-% plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'ro', 'MarkerSize', 5)
-% plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'bo', 'MarkerSize', 5)
+% plot(zeros(1, size(striatum_fs_frac,1))+26, striatum_fs_frac(:,1), 'r.')
+% plot(zeros(1, size(striatum_fs_frac,1))+28, striatum_fs_frac(:,2), 'b.')
 for i = 1:size(striatum_fs_frac,1)
     x = (rand()-0.5) * 0.5;
-    plot(26+x, striatum_fs_frac(i,1), 'ro', 'MarkerSize', 5)
-    plot(28+x, striatum_fs_frac(i,2), 'bo', 'MarkerSize', 5)
-    plot([26,28]+x, striatum_fs_frac(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    y = (rand()-0.5) * 0.01;
+    plot(26+x, striatum_fs_frac(i,1)+y, 'r.', 'MarkerSize', 20)
+    plot(28+x, striatum_fs_frac(i,2)+y, 'b.', 'MarkerSize', 20)
+    plot([26,28]+x, striatum_fs_frac(i,:)+y, '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(26, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(28, nanmean(striatum_fs_frac(:,2)), ste(striatum_fs_frac(:,2)), 'k.', 'LineWidth', 1.5)
-plot([26,28], [nanmean(striatum_fs_frac(:,1)), nanmean(striatum_fs_frac(:,2))], 'k--', 'LineWidth', 1)
+errorbar(26, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(28, nanmean(striatum_fs_frac(:,2)), ste(striatum_fs_frac(:,2)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([26,28], [nanmean(striatum_fs_frac(:,1)), nanmean(striatum_fs_frac(:,2))], 'k--', 'LineWidth', 0.01)
 xticks([2, 7, 12, 17, 22, 27])
 xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
 ylim([0,1.05])
 yticks([0,1]);
 yticklabels({'0', '100'})
-ylabel('% Alpha Modulated ', 'FontSize', 14)
+ylabel('% Modulated per Session ', 'FontSize', 14)
+ax = gca;
+ax.YAxis.FontSize = 14;
+ax.XAxis.FontSize = 14;
 
 axs(2) = nexttile;
 s1_rs_mi = [s1_rs_low_mi, s1_rs_high_mi];
@@ -1472,101 +1479,74 @@ pfc_fs_mi = [pfc_fs_low_mi, pfc_fs_high_mi];
 striatum_rs_mi = [striatum_rs_low_mi, striatum_rs_high_mi];
 striatum_fs_mi = [striatum_fs_low_mi, striatum_fs_high_mi];
 hold on 
-% violinplot(1, s1_rs_mi(:,1), 'FaceColor', 'r')
-% violinplot(3, s1_rs_mi(:,2), 'FaceColor', 'b')
-
-% violinplot(6, s1_fs_mi(:,1), 'FaceColor', 'r')
-% violinplot(8, s1_fs_mi(:,2), 'FaceColor', 'b')
-
-% violinplot(11, pfc_rs_mi(:,1), 'FaceColor', 'r')
-% violinplot(13, pfc_rs_mi(:,2), 'FaceColor', 'b')
-
-% violinplot(16, pfc_fs_mi(:,1), 'FaceColor', 'r')
-% violinplot(18, pfc_fs_mi(:,2), 'FaceColor', 'b')
-
-% violinplot(21, striatum_rs_mi(:,1), 'FaceColor', 'r')
-% violinplot(23, striatum_rs_mi(:,2), 'FaceColor', 'b')
-
-% violinplot(26, pfc_fs_mi(:,1), 'FaceColor', 'r')
-% violinplot(28, pfc_fs_mi(:,2), 'FaceColor', 'b')
-hold on 
-% plot(zeros(1, size(s1_rs_mi,1))+1, s1_rs_mi(:,1), 'ro')
-% plot(zeros(1, size(s1_rs_mi,1))+3, s1_rs_mi(:,2), 'bo')
 for i = 1:size(s1_rs_mi,1)
     x = (rand()-0.5) * 0.5;
-    plot(1+x, s1_rs_mi(i,1), 'ro', 'MarkerSize', 5)
-    plot(3+x, s1_rs_mi(i,2), 'bo', 'MarkerSize', 5)
-    plot([1,3], s1_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    plot(1+x, log(s1_rs_mi(i,1)), 'r.')
+    plot(3+x, log(s1_rs_mi(i,2)), 'b.')
+    plot([1,3], log(s1_rs_mi(i,:)), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(1, nanmean(s1_rs_mi(:,1)), ste(s1_rs_mi(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(3, nanmean(s1_rs_mi(:,2)), ste(s1_rs_mi(:,2)), 'k.', 'LineWidth', 1.5)
-plot([1,3], [nanmean(s1_rs_mi(:,1)), nanmean(s1_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+errorbar(1, nanmean(log(s1_rs_mi(:,1))), ste(log(s1_rs_mi(:,1))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(3, nanmean(log(s1_rs_mi(:,2))), ste(log(s1_rs_mi(:,2))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([1,3], [nanmean(log(s1_rs_mi(:,1))), nanmean(log(s1_rs_mi(:,2)))], 'k--', 'LineWidth', 0.01)
 
-% plot(zeros(1, size(s1_fs_mi,1))+6, s1_fs_mi(:,1), 'ro')
-% plot(zeros(1, size(s1_fs_mi,1))+8, s1_fs_mi(:,2), 'bo')
 for i = 1:size(s1_fs_mi,1)
     x = (rand()-0.5) * 0.5;
-    plot(6+x, s1_fs_mi(i,1), 'ro', 'MarkerSize', 5)
-    plot(8+x, s1_fs_mi(i,2), 'bo', 'MarkerSize', 5)
-    plot([6,8], s1_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    plot(6+x, log(s1_fs_mi(i,1)), 'r.')
+    plot(8+x, log(s1_fs_mi(i,2)), 'b.')
+    plot([6,8], log(s1_fs_mi(i,:)), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(6, nanmean(s1_fs_mi(:,1)), ste(s1_fs_mi(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(8, nanmean(s1_fs_mi(:,2)), ste(s1_fs_mi(:,2)), 'k.', 'LineWidth', 1.5)
-plot([6,8], [nanmean(s1_fs_mi(:,1)), nanmean(s1_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+errorbar(6, nanmean(log(s1_fs_mi(:,1))), ste(log(s1_fs_mi(:,1))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(8, nanmean(log(s1_fs_mi(:,2))), ste(log(s1_fs_mi(:,2))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([6,8], [nanmean(log(s1_fs_mi(:,1))), nanmean(log(s1_fs_mi(:,2)))], 'k--', 'LineWidth', 0.01)
 
-% plot(zeros(1, size(pfc_rs_mi,1))+11, pfc_rs_mi(:,1), 'ro')
-% plot(zeros(1, size(pfc_rs_mi,1))+13, pfc_rs_mi(:,2), 'bo')
 for i = 1:size(pfc_rs_mi,1)
     x = (rand()-0.5) * 0.5;
-    plot(11+x, pfc_rs_mi(i,1), 'ro', 'MarkerSize', 5)
-    plot(13+x, pfc_rs_mi(i,2), 'bo', 'MarkerSize', 5)
-    plot([11,13], pfc_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    plot(11+x, log(pfc_rs_mi(i,1)), 'r.')
+    plot(13+x, log(pfc_rs_mi(i,2)), 'b.')
+    plot([11,13], log(pfc_rs_mi(i,:)), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(11, nanmean(pfc_rs_mi(:,1)), ste(pfc_rs_mi(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(13, nanmean(pfc_rs_mi(:,2)), ste(pfc_rs_mi(:,2)), 'k.', 'LineWidth', 1.5)
-plot([11,13], [nanmean(pfc_rs_mi(:,1)), nanmean(pfc_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+errorbar(11, nanmean(log(pfc_rs_mi(:,1))), ste(log(pfc_rs_mi(:,1))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(13, nanmean(log(pfc_rs_mi(:,2))), ste(log(pfc_rs_mi(:,2))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([11,13], [nanmean(log(pfc_rs_mi(:,1))), nanmean(log(pfc_rs_mi(:,2)))], 'k--', 'LineWidth', 0.01)
 
-% plot(zeros(1, size(pfc_fs_mi,1))+16, pfc_fs_mi(:,1), 'ro')
-% plot(zeros(1, size(pfc_fs_mi,1))+18, pfc_fs_mi(:,2), 'bo')
 for i = 1:size(pfc_fs_mi,1)
     x = (rand()-0.5) * 0.5;
-    plot(16+x, pfc_fs_mi(i,1), 'ro', 'MarkerSize', 5)
-    plot(18+x, pfc_fs_mi(i,2), 'bo', 'MarkerSize', 5)
-    plot([16,18], pfc_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    plot(16+x, log(pfc_fs_mi(i,1)), 'r.')
+    plot(18+x, log(pfc_fs_mi(i,2)), 'b.')
+    plot([16,18], log(pfc_fs_mi(i,:)), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(16, nanmean(pfc_fs_mi(:,1)), ste(pfc_fs_mi(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(18, nanmean(pfc_fs_mi(:,2)), ste(pfc_fs_mi(:,2)), 'k.', 'LineWidth', 1.5)
-plot([16,18], [nanmean(pfc_fs_mi(:,1)), nanmean(pfc_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+errorbar(16, nanmean(log(pfc_fs_mi(:,1))), ste(log(pfc_fs_mi(:,1))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(18, nanmean(log(pfc_fs_mi(:,2))), ste(log(pfc_fs_mi(:,2))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([16,18], [nanmean(log(pfc_fs_mi(:,1))), nanmean(log(pfc_fs_mi(:,2)))], 'k--', 'LineWidth', 0.01)
 
-% plot(zeros(1, size(striatum_rs_mi,1))+21, striatum_rs_mi(:,1), 'ro')
-% plot(zeros(1, size(striatum_rs_mi,1))+23, striatum_rs_mi(:,2), 'bo')
 for i = 1:size(striatum_rs_mi,1)
     x = (rand()-0.5) * 0.5;
-    plot(21+x, striatum_rs_mi(i,1), 'ro', 'MarkerSize', 5)
-    plot(23+x, striatum_rs_mi(i,2), 'bo', 'MarkerSize', 5)
-    plot([21,23], striatum_rs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    plot(21+x, log(striatum_rs_mi(i,1)), 'r.')
+    plot(23+x, log(striatum_rs_mi(i,2)), 'b.')
+    plot([21,23], log(striatum_rs_mi(i,:)), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(21, nanmean(striatum_rs_mi(:,1)), ste(striatum_rs_mi(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(23, nanmean(striatum_rs_mi(:,2)), ste(striatum_rs_mi(:,2)), 'k.', 'LineWidth', 1.5)
-plot([21,23], [nanmean(striatum_rs_mi(:,1)), nanmean(striatum_rs_mi(:,2))], 'k--', 'LineWidth', 1)
+errorbar(21, nanmean(log(striatum_rs_mi(:,1))), ste(log(striatum_rs_mi(:,1))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(23, nanmean(log(striatum_rs_mi(:,2))), ste(log(striatum_rs_mi(:,2))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([21,23], [nanmean(log(striatum_rs_mi(:,1))), nanmean(log(striatum_rs_mi(:,2)))], 'k--', 'LineWidth', 0.01)
 
-% plot(zeros(1, size(striatum_fs_mi,1))+26, striatum_fs_mi(:,1), 'ro')
-% plot(zeros(1, size(striatum_fs_mi,1))+28, striatum_fs_mi(:,2), 'bo')
 for i = 1:size(striatum_fs_mi,1)
     x = (rand()-0.5) * 0.5;
-    plot(26+x, striatum_fs_mi(i,1), 'ro', 'MarkerSize', 5)
-    plot(28+x, striatum_fs_mi(i,2), 'bo', 'MarkerSize', 5)
-    plot([26,28], striatum_fs_mi(i,:), '--', 'Color', [0.5, 0.5, 0.5])
+    plot(26+x, log(striatum_fs_mi(i,1)), 'r.')
+    plot(28+x, log(striatum_fs_mi(i,2)), 'b.')
+    plot([26,28], log(striatum_fs_mi(i,:)), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(26, nanmean(striatum_fs_mi(:,1)), ste(striatum_fs_mi(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(28, nanmean(striatum_fs_mi(:,2)), ste(striatum_fs_mi(:,2)), 'k.', 'LineWidth', 1.5)
-plot([26,28], [nanmean(striatum_fs_mi(:,1)), nanmean(striatum_fs_mi(:,2))], 'k--', 'LineWidth', 1)
+errorbar(26, nanmean(log(striatum_fs_mi(:,1))), ste(log(striatum_fs_mi(:,1))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(28, nanmean(log(striatum_fs_mi(:,2))), ste(log(striatum_fs_mi(:,2))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([26,28], [nanmean(log(striatum_fs_mi(:,1))), nanmean(log(striatum_fs_mi(:,2)))], 'k--', 'LineWidth', 0.01)
 xticks([2, 7, 12, 17, 22, 27])
 xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
-ylabel('Modulation Index ', 'FontSize', 14)
+ylabel('log Modulation Index ', 'FontSize', 14)
 lims = ylim;
-ylim([0, lims(2)])
-yticks([0, lims(2)])
+% ylim([0, lims(2)])
+yticks([lims(1), lims(2)])
+ax = gca;
+ax.YAxis.FontSize = 14;
+ax.XAxis.FontSize = 14;
 
 axs(3) = nexttile;
 s1_rs_fr = [s1_rs_low_fr, s1_rs_high_fr];
@@ -1576,314 +1556,324 @@ pfc_fs_fr = [pfc_fs_low_fr, pfc_fs_high_fr];
 striatum_rs_fr = [striatum_rs_low_fr, striatum_rs_high_fr];
 striatum_fs_fr = [striatum_fs_low_fr, striatum_fs_high_fr];
 hold on 
-% violinplot(1, s1_rs_fr(:,1), 'FaceColor', 'r')
-% violinplot(3, s1_rs_fr(:,2), 'FaceColor', 'b')
-
-% violinplot(6, s1_fs_fr(:,1), 'FaceColor', 'r')
-% violinplot(8, s1_fs_fr(:,2), 'FaceColor', 'b')
-
-% violinplot(11, pfc_rs_fr(:,1), 'FaceColor', 'r')
-% violinplot(13, pfc_rs_fr(:,2), 'FaceColor', 'b')
-
-% violinplot(16, pfc_fs_fr(:,1), 'FaceColor', 'r')
-% violinplot(18, pfc_fs_fr(:,2), 'FaceColor', 'b')
-
-% violinplot(21, striatum_rs_fr(:,1), 'FaceColor', 'r')
-% violinplot(23, striatum_rs_fr(:,2), 'FaceColor', 'b')
-
-% viollinplot(26, striatum_fs_fr(:,1), 'FaceColor', 'r')
-% viollinplot(28, striatum_fs_fr(:,2), 'FaceColor', 'b')
-
-hold on 
 for i = 1:size(s1_rs_fr,1)
     x = (rand()-0.5) * 0.5;
-    plot(1+x, s1_rs_fr(i,1), 'ro', 'MarkerSize', 5)
-    plot(3+x, s1_rs_fr(i,2), 'bo', 'MarkerSize', 5)
+    plot(1+x, s1_rs_fr(i,1), 'r.')
+    plot(3+x, s1_rs_fr(i,2), 'b.')
     plot([1,3], s1_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(1, nanmean(s1_rs_fr(:,1)), ste(s1_rs_fr(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(3, nanmean(s1_rs_fr(:,2)), ste(s1_rs_fr(:,2)), 'k.', 'LineWidth', 1.5)
-plot([1,3], [nanmean(s1_rs_fr(:,1)), nanmean(s1_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+errorbar(1, nanmean(s1_rs_fr(:,1)), ste(s1_rs_fr(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(3, nanmean(s1_rs_fr(:,2)), ste(s1_rs_fr(:,2)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([1,3], [nanmean(s1_rs_fr(:,1)), nanmean(s1_rs_fr(:,2))], 'k--', 'LineWidth', 0.01)
 
 for i = 1:size(s1_fs_fr,1)
     x = (rand()-0.5) * 0.5;
-    plot(6+x, s1_fs_fr(i,1), 'ro', 'MarkerSize', 5)
-    plot(8+x, s1_fs_fr(i,2), 'bo', 'MarkerSize', 5)
+    plot(6+x, s1_fs_fr(i,1), 'r.')
+    plot(8+x, s1_fs_fr(i,2), 'b.')
     plot([6,8], s1_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(6, nanmean(s1_fs_fr(:,1)), ste(s1_fs_fr(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(8, nanmean(s1_fs_fr(:,2)), ste(s1_fs_fr(:,2)), 'k.', 'LineWidth', 1.5)
-plot([6,8], [nanmean(s1_fs_fr(:,1)), nanmean(s1_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+errorbar(6, nanmean(s1_fs_fr(:,1)), ste(s1_fs_fr(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(8, nanmean(s1_fs_fr(:,2)), ste(s1_fs_fr(:,2)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([6,8], [nanmean(s1_fs_fr(:,1)), nanmean(s1_fs_fr(:,2))], 'k--', 'LineWidth', 0.01)
 
 for i = 1:size(pfc_rs_fr,1)
     x = (rand()-0.5) * 0.5;
-    plot(11+x, pfc_rs_fr(i,1), 'ro', 'MarkerSize', 5)
-    plot(13+x, pfc_rs_fr(i,2), 'bo', 'MarkerSize', 5)
+    plot(11+x, pfc_rs_fr(i,1), 'r.')
+    plot(13+x, pfc_rs_fr(i,2), 'b.')
     plot([11,13], pfc_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(11, nanmean(pfc_rs_fr(:,1)), ste(pfc_rs_fr(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(13, nanmean(pfc_rs_fr(:,2)), ste(pfc_rs_fr(:,2)), 'k.', 'LineWidth', 1.5)
-plot([11,13], [nanmean(pfc_rs_fr(:,1)), nanmean(pfc_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+errorbar(11, nanmean(pfc_rs_fr(:,1)), ste(pfc_rs_fr(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(13, nanmean(pfc_rs_fr(:,2)), ste(pfc_rs_fr(:,2)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([11,13], [nanmean(pfc_rs_fr(:,1)), nanmean(pfc_rs_fr(:,2))], 'k--', 'LineWidth', 0.01)
 
 for i = 1:size(pfc_fs_fr,1)
     x = (rand()-0.5) * 0.5;
-    plot(16+x, pfc_fs_fr(i,1), 'ro', 'MarkerSize', 5)
-    plot(18+x, pfc_fs_fr(i,2), 'bo', 'MarkerSize', 5)
+    plot(16+x, pfc_fs_fr(i,1), 'r.')
+    plot(18+x, pfc_fs_fr(i,2), 'b.')
     plot([16,18], pfc_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(16, nanmean(pfc_fs_fr(:,1)), ste(pfc_fs_fr(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(18, nanmean(pfc_fs_fr(:,2)), ste(pfc_fs_fr(:,2)), 'k.', 'LineWidth', 1.5)
-plot([16,18], [nanmean(pfc_fs_fr(:,1)), nanmean(pfc_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+errorbar(16, nanmean(pfc_fs_fr(:,1)), ste(pfc_fs_fr(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(18, nanmean(pfc_fs_fr(:,2)), ste(pfc_fs_fr(:,2)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([16,18], [nanmean(pfc_fs_fr(:,1)), nanmean(pfc_fs_fr(:,2))], 'k--', 'LineWidth', 0.01)
 
 for i = 1:size(striatum_rs_fr,1)
     x = (rand()-0.5) * 0.5;
-    plot(21+x, striatum_rs_fr(i,1), 'ro', 'MarkerSize', 5)
-    plot(23+x, striatum_rs_fr(i,2), 'bo', 'MarkerSize', 5)
+    plot(21+x, striatum_rs_fr(i,1), 'r.')
+    plot(23+x, striatum_rs_fr(i,2), 'b.')
     plot([21,23], striatum_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(21, nanmean(striatum_rs_fr(:,1)), ste(striatum_rs_fr(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(23, nanmean(striatum_rs_fr(:,2)), ste(striatum_rs_fr(:,2)), 'k.', 'LineWidth', 1.5)
-plot([21,23], [nanmean(striatum_rs_fr(:,1)), nanmean(striatum_rs_fr(:,2))], 'k--', 'LineWidth', 1)
+errorbar(21, nanmean(striatum_rs_fr(:,1)), ste(striatum_rs_fr(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(23, nanmean(striatum_rs_fr(:,2)), ste(striatum_rs_fr(:,2)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([21,23], [nanmean(striatum_rs_fr(:,1)), nanmean(striatum_rs_fr(:,2))], 'k--', 'LineWidth', 0.01)
 
 for i = 1:size(striatum_fs_fr,1)
     x = (rand()-0.5) * 0.5;
-    plot(26+x, striatum_fs_fr(i,1), 'ro', 'MarkerSize', 5)
-    plot(28+x, striatum_fs_fr(i,2), 'bo', 'MarkerSize', 5)
+    plot(26+x, striatum_fs_fr(i,1), 'r.')
+    plot(28+x, striatum_fs_fr(i,2), 'b.')
     plot([26,28], striatum_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
-errorbar(26, nanmean(striatum_fs_fr(:,1)), ste(striatum_fs_fr(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(28, nanmean(striatum_fs_fr(:,2)), ste(striatum_fs_fr(:,2)), 'k.', 'LineWidth', 1.5)
-plot([26,28], [nanmean(striatum_fs_fr(:,1)), nanmean(striatum_fs_fr(:,2))], 'k--', 'LineWidth', 1)
+errorbar(26, nanmean(striatum_fs_fr(:,1)), ste(striatum_fs_fr(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+errorbar(28, nanmean(striatum_fs_fr(:,2)), ste(striatum_fs_fr(:,2)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
+plot([26,28], [nanmean(striatum_fs_fr(:,1)), nanmean(striatum_fs_fr(:,2))], 'k--', 'LineWidth', 0.01)
 xticks([2, 7, 12, 17, 22, 27])
 xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
 ylabel('Firing Rate (Hz) ', 'FontSize', 14)
 lims = ylim;
 ylim([0, lims(2)])
 yticks([0, lims(2)])
+ax = gca;
+ax.YAxis.FontSize = 14;
+ax.XAxis.FontSize = 14;
 
-axs(4) = nexttile;
-s1_rs_theta = [s1_rs_theta_bar_low, s1_rs_theta_bar_high];
-s1_fs_theta = [s1_fs_theta_bar_low, s1_fs_theta_bar_high];
-pfc_rs_theta = [pfc_rs_theta_bar_low, pfc_rs_theta_bar_high];
-pfc_fs_theta = [pfc_fs_theta_bar_low, pfc_fs_theta_bar_high];
-striatum_rs_theta = [striatum_rs_theta_bar_low, striatum_rs_theta_bar_high];
-striatum_fs_theta = [striatum_fs_theta_bar_low, striatum_fs_theta_bar_high];
+s1_rs_theta_fig = figure();
+polarhistogram(s1_rs_theta_bar_low, 36, 'FaceColor', 'r')
+hold on
+polarhistogram(s1_rs_theta_bar_high, 36, 'FaceColor', 'b')
+thetaticks([0 90 180 270])
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+s1_fs_theta_fig = figure();
+polarhistogram(s1_fs_theta_bar_low, 36, 'FaceColor', 'r')
+hold on
+polarhistogram(s1_fs_theta_bar_high, 36, 'FaceColor', 'b')
+thetaticks([0 90 180 270])
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+pfc_rs_theta_fig = figure();
+polarhistogram(pfc_rs_theta_bar_low, 36, 'FaceColor', 'r')
+hold on
+polarhistogram(pfc_rs_theta_bar_high, 36, 'FaceColor', 'b')
+thetaticks([0 90 180 270])
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+pfc_fs_theta_fig = figure();
+polarhistogram(pfc_fs_theta_bar_low, 36, 'FaceColor', 'r')
+hold on
+polarhistogram(pfc_fs_theta_bar_high, 36, 'FaceColor', 'b')
+thetaticks([0 90 180 270])
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+striatum_rs_theta_fig = figure();
+polarhistogram(striatum_rs_theta_bar_low, 36, 'FaceColor', 'r')
+hold on
+polarhistogram(striatum_rs_theta_bar_high, 36, 'FaceColor', 'b')
+thetaticks([0 90 180 270])
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+striatum_fs_theta_fig = figure();
+polarhistogram(striatum_fs_theta_bar_low, 36, 'FaceColor', 'r')
+hold on
+polarhistogram(striatum_fs_theta_bar_high, 36, 'FaceColor', 'b')
+thetaticks([0 90 180 270])
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+angle_diff_fig = figure('Position', [1475 1124 396 577]);
 hold on 
-for i = 1:size(s1_rs_theta,1)
-    x = (rand()-0.5) * 0.5;
-    plot(1+x, s1_rs_theta(i,1), 'ro', 'MarkerSize', 5)
-    plot(3+x, s1_rs_theta(i,2), 'bo', 'MarkerSize', 5)
-    plot([1,3], s1_rs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
-end
-errorbar(1, circ_mean(s1_rs_theta(:,1)), circ_ste(s1_rs_theta(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(3, circ_mean(s1_rs_theta(:,2)), circ_ste(s1_rs_theta(:,2)), 'k.', 'LineWidth', 1.5)
-plot([1,3], [circ_mean(s1_rs_theta(:,1)), circ_mean(s1_rs_theta(:,2))], 'k--', 'LineWidth', 1)
-
-for i = 1:size(s1_fs_theta,1)
-    x = (rand()-0.5) * 0.5;
-    plot(6+x, s1_fs_theta(i,1), 'ro', 'MarkerSize', 5)
-    plot(8+x, s1_fs_theta(i,2), 'bo', 'MarkerSize', 5)
-    plot([6,8], s1_fs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
-end
-errorbar(6, circ_mean(s1_fs_theta(:,1)), circ_ste(s1_fs_theta(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(8, circ_mean(s1_fs_theta(:,2)), circ_ste(s1_fs_theta(:,2)), 'k.', 'LineWidth', 1.5)
-plot([6,8], [circ_mean(s1_fs_theta(:,1)), circ_ste(s1_fs_theta(:,2))], 'k--', 'LineWidth', 1)
-
-for i = 1:size(pfc_rs_theta,1)
-    x = (rand()-0.5) * 0.5;
-    plot(11+x, pfc_rs_theta(i,1), 'ro', 'MarkerSize', 5)
-    plot(13+x, pfc_rs_theta(i,2), 'bo', 'MarkerSize', 5)
-    plot([11,13], pfc_rs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
-end
-errorbar(11, circ_mean(pfc_rs_theta(:,1)), circ_ste(pfc_rs_theta(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(13, circ_mean(pfc_rs_theta(:,2)), circ_ste(pfc_rs_theta(:,2)), 'k.', 'LineWidth', 1.5)
-plot([11,13], [circ_mean(pfc_rs_theta(:,1)), circ_mean(pfc_rs_theta(:,2))], 'k--', 'LineWidth', 1)
-
-for i = 1:size(pfc_fs_theta,1)
-    x = (rand()-0.5) * 0.5;
-    plot(16+x, pfc_fs_theta(i,1), 'ro', 'MarkerSize', 5)
-    plot(18+x, pfc_fs_theta(i,2), 'bo', 'MarkerSize', 5)
-    plot([16,18], pfc_fs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
-end
-errorbar(16, circ_mean(pfc_fs_theta(:,1)), circ_ste(pfc_fs_theta(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(18, circ_mean(pfc_fs_theta(:,2)), circ_ste(pfc_fs_theta(:,2)), 'k.', 'LineWidth', 1.5)
-plot([16,18], [circ_mean(pfc_fs_theta(:,1)), circ_mean(pfc_fs_theta(:,2))], 'k--', 'LineWidth', 1)
-
-for i = 1:size(striatum_rs_theta,1)
-    x = (rand()-0.5) * 0.5;
-    plot(21+x, striatum_rs_theta(i,1), 'ro', 'MarkerSize', 5)
-    plot(23+x, striatum_rs_theta(i,2), 'bo', 'MarkerSize', 5)
-    plot([21,23], striatum_rs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
-end
-errorbar(21, circ_mean(striatum_rs_theta(:,1)), circ_ste(striatum_rs_theta(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(23, circ_mean(striatum_rs_theta(:,2)), circ_ste(striatum_rs_theta(:,2)), 'k.', 'LineWidth', 1.5)
-plot([21,23], [circ_mean(striatum_rs_theta(:,1)), circ_mean(striatum_rs_theta(:,2))], 'k--', 'LineWidth', 1)
-
-for i = 1:size(striatum_fs_theta,1)
-    x = (rand()-0.5) * 0.5;
-    plot(26+x, striatum_fs_theta(i,1), 'ro', 'MarkerSize', 5)
-    plot(28+x, striatum_fs_theta(i,2), 'bo', 'MarkerSize', 5)
-    plot([26,28], striatum_fs_theta(i,:), '--', 'Color', [0.5, 0.5, 0.5])
-end
-errorbar(26, circ_mean(striatum_fs_theta(:,1)), circ_ste(striatum_fs_theta(:,1)), 'k.', 'LineWidth', 1.5)
-errorbar(28, circ_mean(striatum_fs_theta(:,2)), circ_ste(striatum_fs_theta(:,2)), 'k.', 'LineWidth', 1.5)
-plot([26,28], [circ_mean(striatum_fs_theta(:,1)), circ_mean(striatum_fs_theta(:,2))], 'k--', 'LineWidth', 1)
-xticks([2, 7, 12, 17, 22, 27])
+plot(zeros(length(s1_rs_theta_bar_low),1)+1+(rand(length(s1_rs_theta_bar_low),1)-0.5)*0.3, circ_dist(s1_rs_theta_bar_low, s1_rs_theta_bar_high), '.', 'Color', [0.5, 0.5, 0.5])
+plot(zeros(length(s1_fs_theta_bar_low),1)+2+(rand(length(s1_fs_theta_bar_low),1)-0.5)*0.3, circ_dist(s1_fs_theta_bar_low, s1_fs_theta_bar_high), '.', 'Color', [0.5, 0.5, 0.5])
+plot(zeros(length(pfc_rs_theta_bar_low),1)+4+(rand(length(pfc_rs_theta_bar_low),1)-0.5)*0.3, circ_dist(pfc_rs_theta_bar_low, pfc_rs_theta_bar_high), '.', 'Color', [0.5, 0.5, 0.5])
+plot(zeros(length(pfc_fs_theta_bar_low),1)+5+(rand(length(pfc_fs_theta_bar_low),1)-0.5)*0.3, circ_dist(pfc_fs_theta_bar_low, pfc_fs_theta_bar_high), '.', 'Color', [0.5, 0.5, 0.5])
+plot(zeros(length(striatum_rs_theta_bar_low),1)+7+(rand(length(striatum_rs_theta_bar_low),1)-0.5)*0.3, circ_dist(striatum_rs_theta_bar_low, striatum_rs_theta_bar_high), '.', 'Color', [0.5, 0.5, 0.5])
+plot(zeros(length(striatum_fs_theta_bar_low),1)+8+(rand(length(striatum_fs_theta_bar_low),1)-0.5)*0.3, circ_dist(striatum_fs_theta_bar_low, striatum_fs_theta_bar_high), '.', 'Color', [0.5, 0.5, 0.5])
+errorbar([1,2,4,5,7,8], ...
+    [circ_mean(circ_dist(s1_rs_theta_bar_low, s1_rs_theta_bar_high)), ...
+    circ_mean(circ_dist(s1_fs_theta_bar_low, s1_fs_theta_bar_high)), ...
+    circ_mean(circ_dist(pfc_rs_theta_bar_low, pfc_rs_theta_bar_high)), ...
+    circ_mean(circ_dist(pfc_fs_theta_bar_low, pfc_fs_theta_bar_high)), ...
+    circ_mean(circ_dist(striatum_rs_theta_bar_low, striatum_rs_theta_bar_high)), ...
+    circ_mean(circ_dist(striatum_fs_theta_bar_low, striatum_fs_theta_bar_high))], ...
+    [circ_ste(circ_dist(s1_rs_theta_bar_low, s1_rs_theta_bar_high)), ...
+    circ_ste(circ_dist(s1_fs_theta_bar_low, s1_fs_theta_bar_high)), ...
+    circ_ste(circ_dist(pfc_rs_theta_bar_low, pfc_rs_theta_bar_high)), ...
+    circ_ste(circ_dist(pfc_fs_theta_bar_low, pfc_fs_theta_bar_high)), ...
+    circ_ste(circ_dist(striatum_rs_theta_bar_low, striatum_rs_theta_bar_high)), ...
+    circ_ste(circ_dist(striatum_fs_theta_bar_low, striatum_fs_theta_bar_high))], ...
+    'k.', 'MarkerSize', 5, 'CapSize', 15, 'LineWidth', 1.5)
+xticks([1,2,4,5,7,8])
 xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
-ylim([-4,4])
-yticks([-pi,pi])
-yticklabels({'-\pi', '\pi'})
-ylabel('Avg. Firing Phase (rad)', 'FontSize', 14)
+ylim([-pi,pi])
+yticks([-pi,0,pi])
+yticklabels({'-\pi', '0', '\pi'})
+ylabel('Difference in Preferred Anlge (rad)')
+ax = gca;
+ax.YAxis.FontSize = 14;
+ax.XAxis.FontSize = 14;
 
 if out_path
     mkdir('./Figures/')
     saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.svg')
     saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.fig')
+    saveas(s1_rs_theta_fig, '../Figures/s1_rs_theta_low_vs_high.svg')
+    saveas(s1_rs_theta_fig, '../Figures/s1_rs_theta_low_vs_high.fig')
+    saveas(s1_fs_theta_fig, '../Figures/s1_fs_theta_low_vs_high.svg')
+    saveas(s1_fs_theta_fig, '../Figures/s1_fs_theta_low_vs_high.fig')
+    saveas(pfc_rs_theta_fig, '../Figures/pfc_rs_theta_low_vs_high.svg')
+    saveas(pfc_rs_theta_fig, '../Figures/pfc_rs_theta_low_vs_high.fig')
+    saveas(pfc_fs_theta_fig, '../Figures/pfc_fs_theta_low_vs_high.svg')
+    saveas(pfc_fs_theta_fig, '../Figures/pfc_fs_theta_low_vs_high.fig')
+    saveas(striatum_rs_theta_fig, '../Figures/striatum_rs_theta_low_vs_high.svg')
+    saveas(striatum_rs_theta_fig, '../Figures/striatum_rs_theta_low_vs_high.fig')
+    saveas(striatum_fs_theta_fig, '../Figures/striatum_fs_theta_low_vs_high.svg')
+    saveas(striatum_fs_theta_fig, '../Figures/striatum_fs_theta_low_vs_high.fig')
+    saveas(angle_diff_fig, '../Figures/angle_diff.svg')
+    saveas(angle_diff_fig, '../Figures/angle_diff.fig')
 end
 
-%% example figure
-load(strcat(ext_path, 'AP/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
-load(strcat(ext_path, 'LFP/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
-load(strcat(ext_path, 'SLRT/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
+% %% example figure
+% load(strcat(ext_path, 'AP/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
+% load(strcat(ext_path, 'LFP/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
+% load(strcat(ext_path, 'SLRT/date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'))
 
-alpha_powers = [];
-all_phases = [];
-all_times = [];
-cid = 218; % fast spiking 
-for t = 1:size(slrt_data,1)
-    c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
-    cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
-    lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-    lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
-    lfp_time = lfp_data(t,:).lfpTime{1};
-    alpha = bandpassFilter(lfp, 8, 12, 500);
-    spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
-    phi = angle(hilbert(alpha));
-    ALPHA = abs(hilbert(alpha)).^2;
-    delta = bandpassFilter(lfp, 1, 4, 500);
-    DELTA = abs(hilbert(delta)).^2;
-    spike_phases = zeros(1,length(spike_times));
-    for i = 1:length(spike_times)
-        [~, tind] = min((lfp_times - spike_times(i)).^2);
-        spike_phases(i) = phi(tind);
-    end
-    spike_phases = spike_phases(spike_times > -3 & spike_times < 0);
-    alpha_powers = [alpha_powers, ALPHA(lfp_times > -3 & lfp_times < 0)];
-    all_times = [all_times, lfp_time(lfp_times > -3 & lfp_times < 0)];
-end
+% alpha_powers = [];
+% all_phases = [];
+% all_times = [];
+% cid = 218; % fast spiking 
+% for t = 1:size(slrt_data,1)
+%     c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
+%     cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
+%     lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
+%     lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+%     lfp_time = lfp_data(t,:).lfpTime{1};
+%     alpha = bandpassFilter(lfp, 8, 12, 500);
+%     spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+%     phi = angle(hilbert(alpha));
+%     ALPHA = abs(hilbert(alpha)).^2;
+%     delta = bandpassFilter(lfp, 1, 4, 500);
+%     DELTA = abs(hilbert(delta)).^2;
+%     spike_phases = zeros(1,length(spike_times));
+%     for i = 1:length(spike_times)
+%         [~, tind] = min((lfp_times - spike_times(i)).^2);
+%         spike_phases(i) = phi(tind);
+%     end
+%     spike_phases = spike_phases(spike_times > -3 & spike_times < 0);
+%     alpha_powers = [alpha_powers, ALPHA(lfp_times > -3 & lfp_times < 0)];
+%     all_times = [all_times, lfp_time(lfp_times > -3 & lfp_times < 0)];
+% end
 
-high_phases = [];
-low_phases = [];
-high_frs = [];
-low_frs = [];
-for t = 1:size(slrt_data,1)
-    c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
-    cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
-    lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
-    lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
-    alpha = bandpassFilter(lfp, 8, 12, 500);
-    spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
-    phi = angle(hilbert(alpha));
-    ALPHA = abs(hilbert(alpha)).^2;
-    delta = bandpassFilter(lfp, 1, 4, 500);
-    DELTA = abs(hilbert(delta)).^2;
-    for i = 1:length(spike_times)
-        [~, tind] = min((lfp_times - spike_times(i)).^2);
-        spike_phases(i) = phi(tind);
-    end
-    spike_phases = spike_phases(spike_times > -3 & spike_times < 0);
-    spike_times = spike_times(spike_times > -3 & spike_times < 0);
-    ALPHA = ALPHA(lfp_times > -3 & lfp_times < 0);
-    lfp_times = lfp_times(lfp_times > -3 & lfp_times < 0);
-    high_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 75), 0.33, 0.2, 'above');
-    if size(high_inds,1)
-        for n = 1:size(high_inds,1)
-            begin = lfp_times(high_inds(n,1));
-            fin = lfp_times(high_inds(n,2));
-            high_phases = [high_phases, spike_phases(spike_times > begin & spike_times < fin)];
-            high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-        end
-    end
-    low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
-    if size(low_inds,1)
-        for n = 1:size(low_inds,1)
-            begin = lfp_times(low_inds(n,1));
-            fin = lfp_times(low_inds(n,2));
-            low_phases = [low_phases, spike_phases(spike_times >= begin & spike_times <= fin)];
-            low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
-        end
-    end
-end
+% high_phases = [];
+% low_phases = [];
+% high_frs = [];
+% low_frs = [];
+% for t = 1:size(slrt_data,1)
+%     c = find(ap_data(t,:).spiking_data{1}.cluster_id == cid);
+%     cluster_channel = ap_data(t,:).spiking_data{1}(c,:).channel{1};
+%     lfp = lfp_data(t,:).lfp{1}(cluster_channel,:);
+%     lfp_times = lfp_data(t,:).left_trigger_aligned_lfp_time{1};
+%     alpha = bandpassFilter(lfp, 8, 12, 500);
+%     spike_times = ap_data(t,:).spiking_data{1}(c,:).left_trigger_aligned_spike_times{1};
+%     phi = angle(hilbert(alpha));
+%     ALPHA = abs(hilbert(alpha)).^2;
+%     delta = bandpassFilter(lfp, 1, 4, 500);
+%     DELTA = abs(hilbert(delta)).^2;
+%     for i = 1:length(spike_times)
+%         [~, tind] = min((lfp_times - spike_times(i)).^2);
+%         spike_phases(i) = phi(tind);
+%     end
+%     spike_phases = spike_phases(spike_times > -3 & spike_times < 0);
+%     spike_times = spike_times(spike_times > -3 & spike_times < 0);
+%     ALPHA = ALPHA(lfp_times > -3 & lfp_times < 0);
+%     lfp_times = lfp_times(lfp_times > -3 & lfp_times < 0);
+%     high_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 75), 0.33, 0.2, 'above');
+%     if size(high_inds,1)
+%         for n = 1:size(high_inds,1)
+%             begin = lfp_times(high_inds(n,1));
+%             fin = lfp_times(high_inds(n,2));
+%             high_phases = [high_phases, spike_phases(spike_times > begin & spike_times < fin)];
+%             high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
+%         end
+%     end
+%     low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
+%     if size(low_inds,1)
+%         for n = 1:size(low_inds,1)
+%             begin = lfp_times(low_inds(n,1));
+%             fin = lfp_times(low_inds(n,2));
+%             low_phases = [low_phases, spike_phases(spike_times >= begin & spike_times <= fin)];
+%             low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
+%         end
+%     end
+% end
 
-example_fig = figure('Position', [1220 1318 984 400]);
-tl = tiledlayout(1, 2);
-axs(1) = nexttile;
-[Nlow, edges] = histcounts(low_phases, 20, 'Normalization', 'pdf');
-centers = zeros(length(edges)-1,1);
-for e = 1:(length(edges)-1)
-    centers(e) = mean(edges(e:(e+1)));
-end
-[x,y, ~, ~, ~] = vonMises(low_phases);
-bar(centers, Nlow, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
-hold on
-plot(x,y, 'k', 'LineWidth', 1.5);
-xticks([-pi, 0, pi])
-xticklabels({'-\pi', '0', '\pi'})
-title('Low Alpha Power')
-ylim([0,0.35])
-yticks([0,0.35])
-axs(2) = nexttile;
-[Nhigh, edges] = histcounts(high_phases, 20, 'Normalization', 'pdf');
-centers = zeros(length(edges)-1,1);
-for e = 1:(length(edges)-1)
-    centers(e) = mean(edges(e:(e+1)));
-end
-[x,y, ~, ~, ~] = vonMises(high_phases);
-bar(centers, Nhigh, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
-hold on
-plot(x,y, 'k', 'LineWidth', 1.5);
-xticks([-pi, 0, pi])
-xticklabels({'-\pi', '0', '\pi'})
-title('High Alpha Power')
-xlabel(tl, 'Alpha Phase (rad)', 'FontSize', 14)
-ylabel(tl, 'Spike PDF', 'FontSize', 14)
-ylim([0,0.35])
-yticks([0,0.35])
-yticklabels({})
+% example_fig = figure('Position', [1220 1318 984 400]);
+% tl = tiledlayout(1, 2);
+% axs(1) = nexttile;
+% [Nlow, edges] = histcounts(low_phases, 20, 'Normalization', 'pdf');
+% centers = zeros(length(edges)-1,1);
+% for e = 1:(length(edges)-1)
+%     centers(e) = mean(edges(e:(e+1)));
+% end
+% [x,y, ~, ~, ~] = vonMises(low_phases);
+% bar(centers, Nlow, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
+% hold on
+% plot(x,y, 'k', 'LineWidth', 1.5);
+% xticks([-pi, 0, pi])
+% xticklabels({'-\pi', '0', '\pi'})
+% title('Low Alpha Power')
+% ylim([0,0.35])
+% yticks([0,0.35])
+% axs(2) = nexttile;
+% [Nhigh, edges] = histcounts(high_phases, 20, 'Normalization', 'pdf');
+% centers = zeros(length(edges)-1,1);
+% for e = 1:(length(edges)-1)
+%     centers(e) = mean(edges(e:(e+1)));
+% end
+% [x,y, ~, ~, ~] = vonMises(high_phases);
+% bar(centers, Nhigh, 'EdgeColor', 'k', 'FaceColor', [0.5,0.5,0.5], 'BarWidth', 1)
+% hold on
+% plot(x,y, 'k', 'LineWidth', 1.5);
+% xticks([-pi, 0, pi])
+% xticklabels({'-\pi', '0', '\pi'})
+% title('High Alpha Power')
+% xlabel(tl, 'Alpha Phase (rad)', 'FontSize', 14)
+% ylabel(tl, 'Spike PDF', 'FontSize', 14)
+% ylim([0,0.35])
+% yticks([0,0.35])
+% yticklabels({})
 
-if out_path
-    saveas(example_fig, '../Figures/examp_high_low.svg')
-    saveas(example_fig, '../Figures/examp_high_low.fig')
-end
+% if out_path
+%     saveas(example_fig, '../Figures/examp_high_low.svg')
+%     saveas(example_fig, '../Figures/examp_high_low.fig')
+% end
 
-[Nlow, ~] = histcounts(low_phases, 20);
-[Nhigh, ~] = histcounts(high_phases, 20);
-low_mi = compute_modulation_index(Nlow);
-high_mi = compute_modulation_index(Nhigh);
-low_p = circ_rtest(low_phases);
-high_p = circ_rtest(high_phases);
-[Nlow, edges] = histcounts(low_phases, 20, 'Normalization', 'pdf');
-centers = zeros(length(edges)-1,1);
-for e = 1:(length(edges)-1)
-    centers(e) = mean(edges(e:(e+1)));
-end
-[x,y, theta_bar_low ~, ~] = vonMises(low_phases);
-y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
-low_mse = mean((Nlow(2:end-1) - y_interpolated').^2);
-[Nhigh, edges] = histcounts(high_phases, 20, 'Normalization', 'pdf');
-centers = zeros(length(edges)-1,1);
-for e = 1:(length(edges)-1)
-    centers(e) = mean(edges(e:(e+1)));
-end
-[x,y, theta_bar_high ~, ~] = vonMises(high_phases);
-y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
-high_mse = mean((Nhigh(2:end-1) - y_interpolated').^2);
+% [Nlow, ~] = histcounts(low_phases, 20);
+% [Nhigh, ~] = histcounts(high_phases, 20);
+% low_mi = compute_modulation_index(Nlow);
+% high_mi = compute_modulation_index(Nhigh);
+% low_p = circ_rtest(low_phases);
+% high_p = circ_rtest(high_phases);
+% [Nlow, edges] = histcounts(low_phases, 20, 'Normalization', 'pdf');
+% centers = zeros(length(edges)-1,1);
+% for e = 1:(length(edges)-1)
+%     centers(e) = mean(edges(e:(e+1)));
+% end
+% [x,y, theta_bar_low ~, ~] = vonMises(low_phases);
+% y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
+% low_mse = mean((Nlow(2:end-1) - y_interpolated').^2);
+% [Nhigh, edges] = histcounts(high_phases, 20, 'Normalization', 'pdf');
+% centers = zeros(length(edges)-1,1);
+% for e = 1:(length(edges)-1)
+%     centers(e) = mean(edges(e:(e+1)));
+% end
+% [x,y, theta_bar_high ~, ~] = vonMises(high_phases);
+% y_interpolated = interp1(x, y, centers(2:end-1), 'linear');
+% high_mse = mean((Nhigh(2:end-1) - y_interpolated').^2);
 
-fprintf(sprintf('Example Low Alpha Power MI: %.4f\n', low_mi))
-fprintf(sprintf('Example Low Alpha Power von Mises MSE: %.4f\n', low_mse))
-fprintf(sprintf('Example Low Alpha Power Rayleigh test: p = %d\n', low_p))
-fprintf(sprintf('Example High Alpha Power MI: %.4f\n', high_mi))
-fprintf(sprintf('Example High Alpha Power von Mises MSE: %.4f\n', high_mse))
-fprintf(sprintf('Example High Alpha Power Rayleigh test: p = %d\n', high_p))
+% fprintf(sprintf('Example Low Alpha Power MI: %.4f\n', low_mi))
+% fprintf(sprintf('Example Low Alpha Power von Mises MSE: %.4f\n', low_mse))
+% fprintf(sprintf('Example Low Alpha Power Rayleigh test: p = %d\n', low_p))
+% fprintf(sprintf('Example High Alpha Power MI: %.4f\n', high_mi))
+% fprintf(sprintf('Example High Alpha Power von Mises MSE: %.4f\n', high_mse))
+% fprintf(sprintf('Example High Alpha Power Rayleigh test: p = %d\n', high_p))
 
 diary off
