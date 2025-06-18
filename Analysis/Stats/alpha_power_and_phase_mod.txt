@@ -90,4 +90,4 @@ In alphaPowerAndPhaseModSummaries (line 1332)]
 Striatum FS theta bar distribtions kuipers test: 1
 Amygdala FS theta bar distribtions kuipers test: 1
 [Warning: Directory already exists.] 
-[> In alphaPowerAndPhaseModSummaries (line 1683)] 
+[> In alphaPowerAndPhaseModSummaries (line 1715)] 

@@ -720,19 +720,19 @@ x = [1,2,3,...
     13,14,15];
 % bar(x, frac_avgs .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 hold on
-plot(zeros(length(s1_rs_fracs),1)+1+(rand(length(s1_rs_fracs),1)-0.5)*0.3, s1_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
-plot(zeros(length(s1_fs_fracs),1)+2+(rand(length(s1_fs_fracs),1)-0.5)*0.3, s1_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
-plot(zeros(length(s1_combo_fracs),1)+3+(rand(length(s1_combo_fracs),1)-0.5)*0.3, s1_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
-plot(zeros(length(pfc_rs_fracs),1)+5+(rand(length(pfc_rs_fracs),1)-0.5)*0.3, pfc_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
-plot(zeros(length(pfc_fs_fracs),1)+6+(rand(length(pfc_fs_fracs),1)-0.5)*0.3, pfc_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
-plot(zeros(length(pfc_combo_fracs),1)+7+(rand(length(pfc_combo_fracs),1)-0.5)*0.3, pfc_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
-plot(zeros(length(striatum_rs_fracs),1)+9+(rand(length(striatum_rs_fracs),1)-0.5)*0.3, striatum_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
-plot(zeros(length(striatum_fs_fracs),1)+10+(rand(length(striatum_fs_fracs),1)-0.5)*0.3, striatum_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
-plot(zeros(length(striatum_combo_fracs),1)+11+(rand(length(striatum_combo_fracs),1)-0.5)*0.3, striatum_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
-plot(zeros(length(amygdala_rs_fracs),1)+13+(rand(length(amygdala_rs_fracs),1)-0.5)*0.3, amygdala_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
-plot(zeros(length(amygdala_fs_fracs),1)+14+(rand(length(amygdala_fs_fracs),1)-0.5)*0.3, amygdala_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
-plot(zeros(length(amygdala_combo_fracs),1)+15+(rand(length(amygdala_combo_fracs),1)-0.5)*0.3, amygdala_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
-errorbar(x, frac_avgs .* 100, frac_errs .* 100, 'k.', 'CapSize', 10, 'LineWidth', 1.5, 'MarkerSize', 15)
+plot(zeros(length(s1_rs_fracs),1)+1+(rand(length(s1_rs_fracs),1)-0.5)*0.3, s1_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(length(s1_fs_fracs),1)+2+(rand(length(s1_fs_fracs),1)-0.5)*0.3, s1_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(length(s1_combo_fracs),1)+3+(rand(length(s1_combo_fracs),1)-0.5)*0.3, s1_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(length(pfc_rs_fracs),1)+5+(rand(length(pfc_rs_fracs),1)-0.5)*0.3, pfc_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(length(pfc_fs_fracs),1)+6+(rand(length(pfc_fs_fracs),1)-0.5)*0.3, pfc_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(length(pfc_combo_fracs),1)+7+(rand(length(pfc_combo_fracs),1)-0.5)*0.3, pfc_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(length(striatum_rs_fracs),1)+9+(rand(length(striatum_rs_fracs),1)-0.5)*0.3, striatum_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(length(striatum_fs_fracs),1)+10+(rand(length(striatum_fs_fracs),1)-0.5)*0.3, striatum_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(length(striatum_combo_fracs),1)+11+(rand(length(striatum_combo_fracs),1)-0.5)*0.3, striatum_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(length(amygdala_rs_fracs),1)+13+(rand(length(amygdala_rs_fracs),1)-0.5)*0.3, amygdala_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(length(amygdala_fs_fracs),1)+14+(rand(length(amygdala_fs_fracs),1)-0.5)*0.3, amygdala_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(length(amygdala_combo_fracs),1)+15+(rand(length(amygdala_combo_fracs),1)-0.5)*0.3, amygdala_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+errorbar(x, frac_avgs .* 100, frac_errs .* 100, 'k.', 'CapSize', 10, 'LineWidth', 1.5, 'MarkerSize', 20)
 xticks(x)
 xticklabels({'S1 RS', 'S1 FS', 'S1 Overall'...
     'PFC RS', 'PFC FS', 'PFC Overall'...
@@ -2400,8 +2400,8 @@ plot(zeros(length(striatum_fs.pmi),1)+10+(rand(length(striatum_fs.pmi),1)-0.5)*0
 plot(zeros(length(striatum_rs.pmi)+length(striatum_fs.pmi),1)+11+(rand(length(striatum_rs.pmi)+length(striatum_fs.pmi),1)-0.5)*0.3, log([striatum_rs.pmi; striatum_fs.pmi]) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
 plot(zeros(length(amygdala_rs.pmi),1)+13+(rand(length(amygdala_rs.pmi),1)-0.5)*0.3, log(amygdala_rs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
 plot(zeros(length(amygdala_fs.pmi),1)+14+(rand(length(amygdala_fs.pmi),1)-0.5)*0.3, log(amygdala_fs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
-plot(zeros(length(amygdala_rs.pmi)+length(amygdala_fs.pmi),1)+15+(rand(length(amygdala_rs.pmi)+length(amygdala_fs.pmi),1)-0.5)*0.3, log([amygdala_rs.pmi; amygdala_fs.pmi]) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 15)
-errorbar(x, mi_avgs, mi_errs, 'k.', 'CapSize', 10, 'LineWidth', 1.5, 'MarkerSize', 15)
+plot(zeros(length(amygdala_rs.pmi)+length(amygdala_fs.pmi),1)+15+(rand(length(amygdala_rs.pmi)+length(amygdala_fs.pmi),1)-0.5)*0.3, log([amygdala_rs.pmi; amygdala_fs.pmi]) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
+errorbar(x, mi_avgs, mi_errs, 'k.', 'CapSize', 10, 'LineWidth', 1.5, 'MarkerSize', 20)
 xticks(x)
 xticklabels({'S1 RS', 'S1 FS', 'S1 Overall'...
     'PFC RS', 'PFC FS', 'PFC Overall'...
@@ -2439,6 +2439,7 @@ if out_path
     saveas(amygdala_rs_theta_fig, '../Figures/amygdala_rs_theta.fig')
     saveas(amygdala_fs_theta_fig, '../Figures/amygdala_fs_theta.fig')
     saveas(mi_fig, '../Figures/overall_mi.fig')
+    saveas(mi_fr_fig, '../Figures/mi_by_fr.fig')
 
     saveas(fracs_fig, '../Figures/fracs.svg')
     saveas(s1_mod_fig, '../Figures/s1_mod_fig.svg')
@@ -2457,6 +2458,7 @@ if out_path
     saveas(amygdala_rs_theta_fig, '../Figures/amygdala_rs_theta.svg')
     saveas(amygdala_fs_theta_fig, '../Figures/amygdala_fs_theta.svg')
     saveas(mi_fig, '../Figures/overall_mi.svg')
+    saveas(mi_fr_fig, '../Figures/mi_by_fr.svg')
     
 end
 

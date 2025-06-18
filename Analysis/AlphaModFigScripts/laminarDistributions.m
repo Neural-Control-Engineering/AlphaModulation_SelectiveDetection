@@ -808,7 +808,7 @@ ylim([0.5,5.5])
 xlim([-3.5,3.5])
 xticks([-pi,0,pi])
 xticklabels({'-\pi', '', '\pi'})
-xlabel('Avg. Firing Phase (radians)', 'FontSize', 14)
+xlabel('Avg. Firing Phase (rad)', 'FontSize', 14)
 ylabel('Cortical Layer', 'FontSize', 14)
 axs(8) = nexttile;
 barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
@@ -820,7 +820,7 @@ ylim([0.5,5.5])
 xlim([-3.5,3.5])
 xticks([-pi,0,pi])
 xticklabels({'-\pi', '', '\pi'})
-xlabel('Avg. Firing Phase (radians)', 'FontSize', 14, 'FontWeight', 'normal')
+xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
 
 if out_path
     saveas(s1_fig, '../Figures/s1_distribution.fig')
@@ -838,25 +838,25 @@ hold on
 % barh(1:5, fliplr(rs_avg) .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 for i = 1:length(s1_l1_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l1_rs_frac(i) * 100, 5+x, 'o', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l1_rs_frac(i) * 100, 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
 end
 for i = 1:length(s1_l2_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l2_rs_frac(i) * 100, 4+x, 'o', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l2_rs_frac(i) * 100, 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
 end
 for i = 1:length(s1_l4_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l4_rs_frac(i) * 100, 3+x, 'o', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l4_rs_frac(i) * 100, 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
 end
 for i = 1:length(s1_l5_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l5_rs_frac(i) * 100, 2+x, 'o', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l5_rs_frac(i) * 100, 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
 end
 for i = 1:length(s1_l6_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l6_rs_frac(i) * 100, 1+x, 'o', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l6_rs_frac(i) * 100, 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
 end
-errorbar(fliplr(rs_avg) .* 100, 1:5, fliplr(rs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2)
+errorbar(fliplr(rs_avg) .* 100, 1:5, fliplr(rs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
 yticks(1:5)
 yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
 ylim([0.5,5.5])
@@ -865,6 +865,9 @@ xlabel('% Alpha Modulated', 'FontSize', 14)
 % ylabel('Cortical Layer', 'FontSize', 14)
 lims = xlim;
 xticks(lims)
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
 
 axs(2) = nexttile;
 hold on
@@ -872,34 +875,34 @@ hold on
 for i = 1:length(s1_l1_fs_frac)
     if ~isnan(s1_l1_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(s1_l1_fs_frac(i) * 100, 5+x, 'o', 'Color', [0.3, 0.3, 0.3])
+        plot(s1_l1_fs_frac(i) * 100, 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
     end
 end
 for i = 1:length(s1_l2_fs_frac)
     if ~isnan(s1_l2_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(s1_l2_fs_frac(i) * 100, 4+x, 'o', 'Color', [0.3, 0.3, 0.3])
+        plot(s1_l2_fs_frac(i) * 100, 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
     end
 end
 for i = 1:length(s1_l4_fs_frac)
     if ~isnan(s1_l4_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(s1_l4_fs_frac(i) * 100, 3+x, 'o', 'Color', [0.3, 0.3, 0.3])
+        plot(s1_l4_fs_frac(i) * 100, 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
     end
 end
 for i = 1:length(s1_l5_fs_frac)
     if ~isnan(s1_l5_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(s1_l5_fs_frac(i) * 100, 2+x, 'o', 'Color', [0.3, 0.3, 0.3])
+        plot(s1_l5_fs_frac(i) * 100, 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
     end
 end
 for i = 1:length(s1_l6_fs_frac)
     if ~isnan(s1_l6_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(s1_l6_fs_frac(i) * 100, 1+x, 'o', 'Color', [0.3, 0.3, 0.3])
+        plot(s1_l6_fs_frac(i) * 100, 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
     end
 end
-errorbar(fliplr(fs_avg) .* 100, 1:5, fliplr(fs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2)
+errorbar(fliplr(fs_avg) .* 100, 1:5, fliplr(fs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
 yticks(1:5)
 yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
 ylim([0.5,5.5])
@@ -907,6 +910,9 @@ lims = xlim;
 xticks(lims)
 title('Fast Spiking', 'FontSize', 16, 'FontWeight', 'normal')
 xlabel('% Alpha Modulated', 'FontSize', 14, 'FontWeight', 'normal')
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
 
 rs_avg = [nanmean(s1_l1_rs_mi), nanmean(s1_l2_rs_mi), nanmean(s1_l4_rs_mi), nanmean(s1_l5_rs_mi), nanmean(s1_l6_rs_mi)];
 fs_avg = [nanmean(s1_l1_fs_mi), nanmean(s1_l2_fs_mi), nanmean(s1_l4_fs_mi), nanmean(s1_l5_fs_mi), nanmean(s1_l6_fs_mi)];
@@ -917,25 +923,25 @@ axs(3) = nexttile;
 hold on
 for i = 1:length(s1_l1_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l1_rs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l1_rs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l2_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l2_rs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l2_rs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l4_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l4_rs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l4_rs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l5_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l5_rs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l5_rs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l6_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l6_rs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l6_rs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
-errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2)
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
 yticks(1:5)
 yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
 ylim([0.5,5.5])
@@ -943,37 +949,43 @@ xlabel('Modulation Index', 'FontSize', 14)
 xlim([0,0.025])
 xticks([0,0.025])
 % ylabel('Cortical Layer', 'FontSize', 14)
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
 
 axs(4) = nexttile;
 % barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 hold on
 for i = 1:length(s1_l1_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l1_fs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l1_fs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l2_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l2_fs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l2_fs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l4_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l4_fs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l4_fs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l5_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l5_fs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l5_fs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l6_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l6_fs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l6_fs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
-errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2)
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
 yticks(1:5)
 yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
 ylim([0.5,5.5])
 xlabel('Modulation Index', 'FontSize', 14)
 xlim([0,0.025])
 xticks([0,0.025])
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
 
 rs_avg = [circ_mean(s1_l1_rs_theta_bar), circ_mean(s1_l2_rs_theta_bar), circ_mean(s1_l4_rs_theta_bar), circ_mean(s1_l5_rs_theta_bar), circ_mean(s1_l6_rs_theta_bar)];
 fs_avg = [circ_mean(s1_l1_fs_theta_bar), circ_mean(s1_l2_fs_theta_bar), circ_mean(s1_l4_fs_theta_bar), circ_mean(s1_l5_fs_theta_bar), circ_mean(s1_l6_fs_theta_bar)];
@@ -984,65 +996,72 @@ axs(5) = nexttile;
 hold on
 for i = 1:length(s1_l1_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l1_rs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l1_rs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l2_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l2_rs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l2_rs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l4_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l4_rs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l4_rs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l5_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l5_rs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l5_rs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l6_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l6_rs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l6_rs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
-errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2)
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
 yticks(1:5)
 yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
 ylim([0.5,5.5])
 xlim([-3.5,3.5])
 xticks([-pi,0,pi])
 xticklabels({'-\pi', '', '\pi'})
-xlabel('Avg. Firing Phase (radians)', 'FontSize', 14)
-% ylabel('Cortical Layer', 'FontSize', 14)
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
+
 axs(6) = nexttile;
 % barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 hold on
 for i = 1:length(s1_l1_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l1_fs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l1_fs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l2_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l2_fs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l2_fs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l4_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l4_fs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l4_fs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l5_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l5_fs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l5_fs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l6_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l6_fs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(s1_l6_fs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
-errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2)
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
 yticks(1:5)
 yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
 ylim([0.5,5.5])
 xlim([-3.5,3.5])
 xticks([-pi,0,pi])
 xticklabels({'-\pi', '', '\pi'})
-xlabel('Avg. Firing Phase (radians)', 'FontSize', 14, 'FontWeight', 'normal')
 ylabel(tl, 'Cortical Layer', 'FontSize', 16)
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
+
 
 if out_path
     saveas(s1_fig_v2, '../Figures/s1_distribution_v2.fig')
@@ -1693,7 +1712,7 @@ ylim([0.5,5.5])
 xlim([-3.5,3.5])
 xticks([-pi,0,pi])
 xticklabels({'-\pi', '', '\pi'})
-xlabel('Avg. Firing Phase (radians)', 'FontSize', 14)
+xlabel('Avg. Firing Phase (rad)', 'FontSize', 14)
 ylabel('Cortical Layer', 'FontSize', 14)
 axs(8) = nexttile;
 barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
@@ -1705,7 +1724,7 @@ ylim([0.5,5.5])
 xlim([-3.5,3.5])
 xticks([-pi,0,pi])
 xticklabels({'-\pi', '', '\pi'})
-xlabel('Avg. Firing Phase (radians)', 'FontSize', 14, 'FontWeight', 'normal')
+xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
 
 if out_path
     saveas(pfc_fig, '../Figures/pfc_distribution.fig')
@@ -1723,25 +1742,25 @@ hold on
 % barh(1:5, fliplr(rs_avg) .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 for i = 1:length(ac_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(ac_rs_frac(i) * 100, 5+x, 'o', 'Color', [0.3, 0.3, 0.3])
+    plot(ac_rs_frac(i) * 100, 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
 end
 for i = 1:length(pl_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(pl_rs_frac(i) * 100, 4+x, 'o', 'Color', [0.3, 0.3, 0.3])
+    plot(pl_rs_frac(i) * 100, 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
 end
 for i = 1:length(il_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(il_rs_frac(i) * 100, 3+x, 'o', 'Color', [0.3, 0.3, 0.3])
+    plot(il_rs_frac(i) * 100, 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
 end
 for i = 1:length(orb_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(orb_rs_frac(i) * 100, 2+x, 'o', 'Color', [0.3, 0.3, 0.3])
+    plot(orb_rs_frac(i) * 100, 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
 end
 for i = 1:length(dp_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(dp_rs_frac(i) * 100, 1+x, 'o', 'Color', [0.3, 0.3, 0.3])
+    plot(dp_rs_frac(i) * 100, 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
 end
-errorbar(fliplr(rs_avg) .* 100, 1:5, fliplr(rs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2)
+errorbar(fliplr(rs_avg) .* 100, 1:5, fliplr(rs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
 yticks(1:5)
 yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
 ylim([0.5,5.5])
@@ -1750,6 +1769,9 @@ xlabel('% Alpha Modulated', 'FontSize', 14)
 % ylabel('Cortical Layer', 'FontSize', 14)
 lims = xlim;
 xticks(lims)
+ax = gca;
+ax.XAxis.FontSize=14;
+ax.YAxis.FontSize=14;
 
 axs(2) = nexttile;
 hold on
@@ -1757,34 +1779,34 @@ hold on
 for i = 1:length(ac_fs_frac)
     if ~isnan(ac_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(ac_fs_frac(i) * 100, 5+x, 'o', 'Color', [0.3, 0.3, 0.3])
+        plot(ac_fs_frac(i) * 100, 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
     end
 end
 for i = 1:length(pl_fs_frac)
     if ~isnan(pl_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(pl_fs_frac(i) * 100, 4+x, 'o', 'Color', [0.3, 0.3, 0.3])
+        plot(pl_fs_frac(i) * 100, 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
     end
 end
 for i = 1:length(il_fs_frac)
     if ~isnan(il_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(il_fs_frac(i) * 100, 3+x, 'o', 'Color', [0.3, 0.3, 0.3])
+        plot(il_fs_frac(i) * 100, 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
     end
 end
 for i = 1:length(orb_fs_frac)
     if ~isnan(orb_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(orb_fs_frac(i) * 100, 2+x, 'o', 'Color', [0.3, 0.3, 0.3])
+        plot(orb_fs_frac(i) * 100, 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
     end
 end
 for i = 1:length(dp_fs_frac)
     if ~isnan(dp_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(dp_fs_frac(i) * 100, 1+x, 'o', 'Color', [0.3, 0.3, 0.3])
+        plot(dp_fs_frac(i) * 100, 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
     end
 end
-errorbar(fliplr(fs_avg) .* 100, 1:5, fliplr(fs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2)
+errorbar(fliplr(fs_avg) .* 100, 1:5, fliplr(fs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
 yticks(1:5)
 yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
 ylim([0.5,5.5])
@@ -1792,6 +1814,9 @@ lims = xlim;
 xticks(lims)
 title('Fast Spiking', 'FontSize', 16, 'FontWeight', 'normal')
 xlabel('% Alpha Modulated', 'FontSize', 14, 'FontWeight', 'normal')
+ax = gca;
+ax.XAxis.FontSize=14;
+ax.YAxis.FontSize=14;
 
 rs_avg = [nanmean(ac_rs_mi), nanmean(pl_rs_mi), nanmean(il_rs_mi), nanmean(orb_rs_mi), nanmean(dp_rs_mi)];
 fs_avg = [nanmean(ac_fs_mi), nanmean(pl_fs_mi), nanmean(il_fs_mi), nanmean(orb_fs_mi), nanmean(dp_fs_mi)];
@@ -1802,25 +1827,25 @@ axs(3) = nexttile;
 hold on
 for i = 1:length(ac_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(ac_rs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(ac_rs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(pl_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(pl_rs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(pl_rs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(il_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(il_rs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(il_rs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(orb_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(orb_rs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(orb_rs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(dp_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(dp_rs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(dp_rs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
-errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2)
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
 yticks(1:5)
 yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
 ylim([0.5,5.5])
@@ -1828,37 +1853,43 @@ xlabel('Modulation Index', 'FontSize', 14)
 xlim([0,0.025])
 xticks([0,0.025])
 % ylabel('Cortical Layer', 'FontSize', 14)
+ax = gca;
+ax.XAxis.FontSize=14;
+ax.YAxis.FontSize=14;
 
 axs(4) = nexttile;
 % barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 hold on
 for i = 1:length(ac_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(ac_fs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(ac_fs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(pl_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(pl_fs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(pl_fs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(il_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(il_fs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(il_fs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(orb_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(orb_fs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(orb_fs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(dp_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(dp_fs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(dp_fs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
-errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2)
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
 yticks(1:5)
 yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
 ylim([0.5,5.5])
 xlabel('Modulation Index', 'FontSize', 14)
 xlim([0,0.025])
 xticks([0,0.025])
+ax = gca;
+ax.XAxis.FontSize=14;
+ax.YAxis.FontSize=14;
 
 rs_avg = [circ_mean(ac_rs_theta_bar), circ_mean(pl_rs_theta_bar), circ_mean(il_rs_theta_bar), circ_mean(orb_rs_theta_bar), circ_mean(dp_rs_theta_bar)];
 fs_avg = [circ_mean(ac_fs_theta_bar), circ_mean(pl_fs_theta_bar), circ_mean(il_fs_theta_bar), circ_mean(orb_fs_theta_bar), circ_mean(dp_fs_theta_bar)];
@@ -1869,65 +1900,71 @@ axs(5) = nexttile;
 hold on
 for i = 1:length(ac_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(ac_rs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(ac_rs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(pl_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(pl_rs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(pl_rs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(il_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(il_rs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(il_rs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(orb_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(orb_rs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(orb_rs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(dp_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(dp_rs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(dp_rs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
-errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2)
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
 yticks(1:5)
 yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
 ylim([0.5,5.5])
 xlim([-3.5,3.5])
 xticks([-pi,0,pi])
 xticklabels({'-\pi', '', '\pi'})
-xlabel('Avg. Firing Phase (radians)', 'FontSize', 14)
-% ylabel('Cortical Layer', 'FontSize', 14)
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
+
 axs(6) = nexttile;
 % barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 hold on
 for i = 1:length(ac_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(ac_fs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(ac_fs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(pl_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(pl_fs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(pl_fs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(il_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(il_fs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(il_fs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(orb_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(orb_fs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(orb_fs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
 for i = 1:length(dp_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(dp_fs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3])
+    plot(dp_fs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
 end
-errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2)
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
 yticks(1:5)
 yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
 ylim([0.5,5.5])
 xlim([-3.5,3.5])
 xticks([-pi,0,pi])
 xticklabels({'-\pi', '', '\pi'})
-xlabel('Avg. Firing Phase (radians)', 'FontSize', 14, 'FontWeight', 'normal')
-ylabel(tl, 'Cortical Layer', 'FontSize', 16)
+ylabel(tl, 'PFC Subregion', 'FontSize', 16)
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
 
 if out_path
     saveas(pfc_fig_v2, '../Figures/pfc_distribution_v2.fig')
@@ -2092,5 +2129,479 @@ idx(isnan(angles)) = [];
 angles(isnan(angles)) = [];
 [pval, table] = circ_wwtest(angles, idx)
 % [p, ~, stats] = anova1(s1_rs_theta_bar_mat)
+
+combo_fig = figure('Position', [1151 721 1850 1081]);
+tl = tiledlayout(3,4);
+rs_avg = [nanmean(s1_l1_rs_frac), nanmean(s1_l2_rs_frac), nanmean(s1_l4_rs_frac), nanmean(s1_l5_rs_frac), nanmean(s1_l6_rs_frac)];
+fs_avg = [nanmean(s1_l1_fs_frac), nanmean(s1_l2_fs_frac), nanmean(s1_l4_fs_frac), nanmean(s1_l5_fs_frac), nanmean(s1_l6_fs_frac)];
+rs_err = [nanstd(s1_l1_rs_frac)/sqrt(sum(~isnan(s1_l1_rs_frac))), nanstd(s1_l2_rs_frac)/sqrt(sum(~isnan(s1_l2_rs_frac))), nanstd(s1_l4_rs_frac)/sqrt(sum(~isnan(s1_l4_rs_frac))), nanstd(s1_l5_rs_frac)/sqrt(sum(~isnan(s1_l5_rs_frac))), nanstd(s1_l6_rs_frac)/sqrt(sum(~isnan(s1_l6_rs_frac)))];
+fs_err = [nanstd(s1_l1_fs_frac)/sqrt(sum(~isnan(s1_l1_fs_frac))), nanstd(s1_l2_fs_frac)/sqrt(sum(~isnan(s1_l2_fs_frac))), nanstd(s1_l4_fs_frac)/sqrt(sum(~isnan(s1_l4_fs_frac))), nanstd(s1_l5_fs_frac)/sqrt(sum(~isnan(s1_l5_fs_frac))), nanstd(s1_l6_fs_frac)/sqrt(sum(~isnan(s1_l6_fs_frac)))];
+axs(1) = nexttile;
+hold on
+% barh(1:5, fliplr(rs_avg) .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+for i = 1:length(s1_l1_rs_frac)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l1_rs_frac(i) * 100, 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+end
+for i = 1:length(s1_l2_rs_frac)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l2_rs_frac(i) * 100, 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+end
+for i = 1:length(s1_l4_rs_frac)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l4_rs_frac(i) * 100, 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+end
+for i = 1:length(s1_l5_rs_frac)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l5_rs_frac(i) * 100, 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+end
+for i = 1:length(s1_l6_rs_frac)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l6_rs_frac(i) * 100, 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+end
+errorbar(fliplr(rs_avg) .* 100, 1:5, fliplr(rs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+yticks(1:5)
+yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+ylim([0.5,5.5])
+title('Regular Spiking', 'FontSize', 16, 'FontWeight', 'normal')
+xlabel('% Modulated per Session', 'FontSize', 14)
+% ylabel('Cortical Layer', 'FontSize', 14)
+lims = xlim;
+xticks(lims)
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+
+axs(2) = nexttile;
+hold on
+% barh(1:5, fliplr(fs_avg) .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+for i = 1:length(s1_l1_fs_frac)
+    if ~isnan(s1_l1_fs_frac(i))
+        x = (rand()-0.5) * 0.2;
+        plot(s1_l1_fs_frac(i) * 100, 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    end
+end
+for i = 1:length(s1_l2_fs_frac)
+    if ~isnan(s1_l2_fs_frac(i))
+        x = (rand()-0.5) * 0.2;
+        plot(s1_l2_fs_frac(i) * 100, 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    end
+end
+for i = 1:length(s1_l4_fs_frac)
+    if ~isnan(s1_l4_fs_frac(i))
+        x = (rand()-0.5) * 0.2;
+        plot(s1_l4_fs_frac(i) * 100, 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    end
+end
+for i = 1:length(s1_l5_fs_frac)
+    if ~isnan(s1_l5_fs_frac(i))
+        x = (rand()-0.5) * 0.2;
+        plot(s1_l5_fs_frac(i) * 100, 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    end
+end
+for i = 1:length(s1_l6_fs_frac)
+    if ~isnan(s1_l6_fs_frac(i))
+        x = (rand()-0.5) * 0.2;
+        plot(s1_l6_fs_frac(i) * 100, 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    end
+end
+errorbar(fliplr(fs_avg) .* 100, 1:5, fliplr(fs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+yticks(1:5)
+yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+ylim([0.5,5.5])
+lims = xlim;
+xticks(lims)
+title('Fast Spiking', 'FontSize', 16, 'FontWeight', 'normal')
+xlabel('% Modulated per Session', 'FontSize', 14, 'FontWeight', 'normal')
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+
+rs_avg = [nanmean(ac_rs_frac), nanmean(pl_rs_frac), nanmean(il_rs_frac), nanmean(orb_rs_frac), nanmean(dp_rs_frac)];
+fs_avg = [nanmean(ac_fs_frac), nanmean(pl_fs_frac), nanmean(il_fs_frac), nanmean(orb_fs_frac), nanmean(dp_fs_frac)];
+rs_err = [nanstd(ac_rs_frac)/sqrt(sum(~isnan(ac_rs_frac))), nanstd(pl_rs_frac)/sqrt(sum(~isnan(pl_rs_frac))), nanstd(il_rs_frac)/sqrt(sum(~isnan(il_rs_frac))), nanstd(orb_rs_frac)/sqrt(sum(~isnan(orb_rs_frac))), nanstd(dp_rs_frac)/sqrt(sum(~isnan(dp_rs_frac)))];
+fs_err = [nanstd(ac_fs_frac)/sqrt(sum(~isnan(ac_fs_frac))), nanstd(pl_fs_frac)/sqrt(sum(~isnan(pl_fs_frac))), nanstd(il_fs_frac)/sqrt(sum(~isnan(il_fs_frac))), nanstd(orb_fs_frac)/sqrt(sum(~isnan(orb_fs_frac))), nanstd(dp_fs_frac)/sqrt(sum(~isnan(dp_fs_frac)))];
+axs(3) = nexttile;
+hold on
+% barh(1:5, fliplr(rs_avg) .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+for i = 1:length(ac_rs_frac)
+    x = (rand()-0.5) * 0.2;
+    plot(ac_rs_frac(i) * 100, 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+end
+for i = 1:length(pl_rs_frac)
+    x = (rand()-0.5) * 0.2;
+    plot(pl_rs_frac(i) * 100, 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+end
+for i = 1:length(il_rs_frac)
+    x = (rand()-0.5) * 0.2;
+    plot(il_rs_frac(i) * 100, 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+end
+for i = 1:length(orb_rs_frac)
+    x = (rand()-0.5) * 0.2;
+    plot(orb_rs_frac(i) * 100, 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+end
+for i = 1:length(dp_rs_frac)
+    x = (rand()-0.5) * 0.2;
+    plot(dp_rs_frac(i) * 100, 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+end
+errorbar(fliplr(rs_avg) .* 100, 1:5, fliplr(rs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+yticks(1:5)
+yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
+ylim([0.5,5.5])
+title('Regular Spiking', 'FontSize', 16, 'FontWeight', 'normal')
+xlabel('% Modulated per Session', 'FontSize', 14)
+% ylabel('Cortical Layer', 'FontSize', 14)
+lims = xlim;
+xticks(lims)
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+
+axs(4) = nexttile;
+hold on
+% barh(1:5, fliplr(fs_avg) .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+for i = 1:length(ac_fs_frac)
+    if ~isnan(ac_fs_frac(i))
+        x = (rand()-0.5) * 0.2;
+        plot(ac_fs_frac(i) * 100, 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    end
+end
+for i = 1:length(pl_fs_frac)
+    if ~isnan(pl_fs_frac(i))
+        x = (rand()-0.5) * 0.2;
+        plot(pl_fs_frac(i) * 100, 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    end
+end
+for i = 1:length(il_fs_frac)
+    if ~isnan(il_fs_frac(i))
+        x = (rand()-0.5) * 0.2;
+        plot(il_fs_frac(i) * 100, 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    end
+end
+for i = 1:length(orb_fs_frac)
+    if ~isnan(orb_fs_frac(i))
+        x = (rand()-0.5) * 0.2;
+        plot(orb_fs_frac(i) * 100, 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    end
+end
+for i = 1:length(dp_fs_frac)
+    if ~isnan(dp_fs_frac(i))
+        x = (rand()-0.5) * 0.2;
+        plot(dp_fs_frac(i) * 100, 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    end
+end
+errorbar(fliplr(fs_avg) .* 100, 1:5, fliplr(fs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+yticks(1:5)
+yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
+ylim([0.5,5.5])
+lims = xlim;
+xticks(lims)
+title('Fast Spiking', 'FontSize', 16, 'FontWeight', 'normal')
+xlabel('% Modulated per Session', 'FontSize', 14, 'FontWeight', 'normal')
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+
+
+rs_avg = [nanmean(s1_l1_rs_mi), nanmean(s1_l2_rs_mi), nanmean(s1_l4_rs_mi), nanmean(s1_l5_rs_mi), nanmean(s1_l6_rs_mi)];
+fs_avg = [nanmean(s1_l1_fs_mi), nanmean(s1_l2_fs_mi), nanmean(s1_l4_fs_mi), nanmean(s1_l5_fs_mi), nanmean(s1_l6_fs_mi)];
+rs_err = [nanstd(s1_l1_rs_mi)/sqrt(sum(~isnan(s1_l1_rs_mi))), nanstd(s1_l2_rs_mi)/sqrt(sum(~isnan(s1_l2_rs_mi))), nanstd(s1_l4_rs_mi)/sqrt(sum(~isnan(s1_l4_rs_mi))), nanstd(s1_l5_rs_mi)/sqrt(sum(~isnan(s1_l5_rs_mi))), nanstd(s1_l6_rs_mi)/sqrt(sum(~isnan(s1_l6_rs_mi)))];
+fs_err = [nanstd(s1_l1_fs_mi)/sqrt(sum(~isnan(s1_l1_fs_mi))), nanstd(s1_l2_fs_mi)/sqrt(sum(~isnan(s1_l2_fs_mi))), nanstd(s1_l4_fs_mi)/sqrt(sum(~isnan(s1_l4_fs_mi))), nanstd(s1_l5_fs_mi)/sqrt(sum(~isnan(s1_l5_fs_mi))), nanstd(s1_l6_fs_mi)/sqrt(sum(~isnan(s1_l6_fs_mi)))];
+axs(5) = nexttile;
+% barh(1:5, fliplr(rs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+for i = 1:length(s1_l1_rs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l1_rs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l2_rs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l2_rs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l4_rs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l4_rs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l5_rs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l5_rs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l6_rs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l6_rs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+yticks(1:5)
+yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+ylim([0.5,5.5])
+xlabel('Modulation Index', 'FontSize', 14)
+xlim([0,0.025])
+xticks([0,0.025])
+% ylabel('Cortical Layer', 'FontSize', 14)
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+
+axs(6) = nexttile;
+% barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+for i = 1:length(s1_l1_fs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l1_fs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l2_fs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l2_fs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l4_fs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l4_fs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l5_fs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l5_fs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l6_fs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l6_fs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+yticks(1:5)
+yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+ylim([0.5,5.5])
+xlabel('Modulation Index', 'FontSize', 14)
+xlim([0,0.025])
+xticks([0,0.025])
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+
+rs_avg = [nanmean(ac_rs_mi), nanmean(pl_rs_mi), nanmean(il_rs_mi), nanmean(orb_rs_mi), nanmean(dp_rs_mi)];
+fs_avg = [nanmean(ac_fs_mi), nanmean(pl_fs_mi), nanmean(il_fs_mi), nanmean(orb_fs_mi), nanmean(dp_fs_mi)];
+rs_err = [nanstd(ac_rs_mi)/sqrt(sum(~isnan(ac_rs_mi))), nanstd(pl_rs_mi)/sqrt(sum(~isnan(pl_rs_mi))), nanstd(il_rs_mi)/sqrt(sum(~isnan(il_rs_mi))), nanstd(orb_rs_mi)/sqrt(sum(~isnan(orb_rs_mi))), nanstd(dp_rs_mi)/sqrt(sum(~isnan(dp_rs_mi)))];
+fs_err = [nanstd(ac_fs_mi)/sqrt(sum(~isnan(ac_fs_mi))), nanstd(pl_fs_mi)/sqrt(sum(~isnan(pl_fs_mi))), nanstd(il_fs_mi)/sqrt(sum(~isnan(il_fs_mi))), nanstd(orb_fs_mi)/sqrt(sum(~isnan(orb_fs_mi))), nanstd(dp_fs_mi)/sqrt(sum(~isnan(dp_fs_mi)))];
+axs(7) = nexttile;
+% barh(1:5, fliplr(rs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+for i = 1:length(ac_rs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(ac_rs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(pl_rs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(pl_rs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(il_rs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(il_rs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(orb_rs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(orb_rs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(dp_rs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(dp_rs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+yticks(1:5)
+yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
+ylim([0.5,5.5])
+xlabel('Modulation Index', 'FontSize', 14)
+xlim([0,0.025])
+xticks([0,0.025])
+% ylabel('Cortical Layer', 'FontSize', 14)
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+
+axs(8) = nexttile;
+% barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+for i = 1:length(ac_fs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(ac_fs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(pl_fs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(pl_fs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(il_fs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(il_fs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(orb_fs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(orb_fs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(dp_fs_mi)
+    x = (rand()-0.5) * 0.2;
+    plot(dp_fs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+yticks(1:5)
+yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
+ylim([0.5,5.5])
+xlabel('Modulation Index', 'FontSize', 14)
+xlim([0,0.025])
+xticks([0,0.025])
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+
+rs_avg = [circ_mean(s1_l1_rs_theta_bar), circ_mean(s1_l2_rs_theta_bar), circ_mean(s1_l4_rs_theta_bar), circ_mean(s1_l5_rs_theta_bar), circ_mean(s1_l6_rs_theta_bar)];
+fs_avg = [circ_mean(s1_l1_fs_theta_bar), circ_mean(s1_l2_fs_theta_bar), circ_mean(s1_l4_fs_theta_bar), circ_mean(s1_l5_fs_theta_bar), circ_mean(s1_l6_fs_theta_bar)];
+rs_err = [circ_std(s1_l1_rs_theta_bar)/sqrt(sum(~isnan(s1_l1_rs_theta_bar))), circ_std(s1_l2_rs_theta_bar)/sqrt(sum(~isnan(s1_l2_rs_theta_bar))), circ_std(s1_l4_rs_theta_bar)/sqrt(sum(~isnan(s1_l4_rs_theta_bar))), circ_std(s1_l5_rs_theta_bar)/sqrt(sum(~isnan(s1_l5_rs_theta_bar))), circ_std(s1_l6_rs_theta_bar)/sqrt(sum(~isnan(s1_l6_rs_theta_bar)))];
+fs_err = [circ_std(s1_l1_fs_theta_bar)/sqrt(sum(~isnan(s1_l1_fs_theta_bar))), circ_std(s1_l2_fs_theta_bar)/sqrt(sum(~isnan(s1_l2_fs_theta_bar))), circ_std(s1_l4_fs_theta_bar)/sqrt(sum(~isnan(s1_l4_fs_theta_bar))), circ_std(s1_l5_fs_theta_bar)/sqrt(sum(~isnan(s1_l5_fs_theta_bar))), circ_std(s1_l6_fs_theta_bar)/sqrt(sum(~isnan(s1_l6_fs_theta_bar)))];
+axs(9) = nexttile;
+% barh(1:5, fliplr(rs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+for i = 1:length(s1_l1_rs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l1_rs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l2_rs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l2_rs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l4_rs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l4_rs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l5_rs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l5_rs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l6_rs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l6_rs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+yticks(1:5)
+yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+ylim([0.5,5.5])
+xlim([-3.5,3.5])
+xticks([-pi,0,pi])
+xticklabels({'-\pi', '', '\pi'})
+xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+
+axs(10) = nexttile;
+% barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+for i = 1:length(s1_l1_fs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l1_fs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l2_fs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l2_fs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l4_fs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l4_fs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l5_fs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l5_fs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(s1_l6_fs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(s1_l6_fs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+yticks(1:5)
+yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+ylim([0.5,5.5])
+xlim([-3.5,3.5])
+xticks([-pi,0,pi])
+xticklabels({'-\pi', '', '\pi'})
+% ylabel(tl, 'Cortical Layer', 'FontSize', 16)
+xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+
+rs_avg = [circ_mean(ac_rs_theta_bar), circ_mean(pl_rs_theta_bar), circ_mean(il_rs_theta_bar), circ_mean(orb_rs_theta_bar), circ_mean(dp_rs_theta_bar)];
+fs_avg = [circ_mean(ac_fs_theta_bar), circ_mean(pl_fs_theta_bar), circ_mean(il_fs_theta_bar), circ_mean(orb_fs_theta_bar), circ_mean(dp_fs_theta_bar)];
+rs_err = [circ_std(ac_rs_theta_bar)/sqrt(sum(~isnan(ac_rs_theta_bar))), circ_std(pl_rs_theta_bar)/sqrt(sum(~isnan(pl_rs_theta_bar))), circ_std(il_rs_theta_bar)/sqrt(sum(~isnan(il_rs_theta_bar))), circ_std(orb_rs_theta_bar)/sqrt(sum(~isnan(orb_rs_theta_bar))), circ_std(dp_rs_theta_bar)/sqrt(sum(~isnan(dp_rs_theta_bar)))];
+fs_err = [circ_std(ac_fs_theta_bar)/sqrt(sum(~isnan(ac_fs_theta_bar))), circ_std(pl_fs_theta_bar)/sqrt(sum(~isnan(pl_fs_theta_bar))), circ_std(il_fs_theta_bar)/sqrt(sum(~isnan(il_fs_theta_bar))), circ_std(orb_fs_theta_bar)/sqrt(sum(~isnan(orb_fs_theta_bar))), circ_std(dp_fs_theta_bar)/sqrt(sum(~isnan(dp_fs_theta_bar)))];
+axs(11) = nexttile;
+% barh(1:5, fliplr(rs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+for i = 1:length(ac_rs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(ac_rs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(pl_rs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(pl_rs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(il_rs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(il_rs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(orb_rs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(orb_rs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(dp_rs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(dp_rs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+yticks(1:5)
+yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
+ylim([0.5,5.5])
+xlim([-3.5,3.5])
+xticks([-pi,0,pi])
+xticklabels({'-\pi', '', '\pi'})
+xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+
+axs(12) = nexttile;
+% barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+hold on
+for i = 1:length(ac_fs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(ac_fs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(pl_fs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(pl_fs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(il_fs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(il_fs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(orb_fs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(orb_fs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+for i = 1:length(dp_fs_theta_bar)
+    x = (rand()-0.5) * 0.2;
+    plot(dp_fs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+end
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+yticks(1:5)
+yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
+ylim([0.5,5.5])
+xlim([-3.5,3.5])
+xticks([-pi,0,pi])
+xticklabels({'-\pi', '', '\pi'})
+% ylabel(tl, 'PFC Subregion', 'FontSize', 16)
+xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
+ax = gca;
+ax.XAxis.FontSize=16;
+ax.YAxis.FontSize=14;
+
+if out_path
+    saveas(combo_fig, '../Figures/dorsoventral_distribution.fig')
+    saveas(combo_fig, '../Figures/dorsoventral_distribution.svg')
+end
 
 diary off
