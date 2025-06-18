@@ -1630,6 +1630,7 @@ polarhistogram(s1_rs_theta_bar_low, 36, 'FaceColor', 'r')
 hold on
 polarhistogram(s1_rs_theta_bar_high, 36, 'FaceColor', 'b')
 thetaticks([0 90 180 270])
+pax = gca;
 pax.GridColor = [0 0 0];          % Black grid lines
 pax.GridAlpha = 1;                % Fully opaque grid lines
 pax.GridLineStyle = '--';         % Dashed grid lines for visibility
@@ -1639,6 +1640,7 @@ polarhistogram(s1_fs_theta_bar_low, 36, 'FaceColor', 'r')
 hold on
 polarhistogram(s1_fs_theta_bar_high, 36, 'FaceColor', 'b')
 thetaticks([0 90 180 270])
+pax = gca;
 pax.GridColor = [0 0 0];          % Black grid lines
 pax.GridAlpha = 1;                % Fully opaque grid lines
 pax.GridLineStyle = '--';         % Dashed grid lines for visibility
@@ -1648,6 +1650,7 @@ polarhistogram(pfc_rs_theta_bar_low, 36, 'FaceColor', 'r')
 hold on
 polarhistogram(pfc_rs_theta_bar_high, 36, 'FaceColor', 'b')
 thetaticks([0 90 180 270])
+pax = gca;
 pax.GridColor = [0 0 0];          % Black grid lines
 pax.GridAlpha = 1;                % Fully opaque grid lines
 pax.GridLineStyle = '--';         % Dashed grid lines for visibility
@@ -1657,6 +1660,7 @@ polarhistogram(pfc_fs_theta_bar_low, 36, 'FaceColor', 'r')
 hold on
 polarhistogram(pfc_fs_theta_bar_high, 36, 'FaceColor', 'b')
 thetaticks([0 90 180 270])
+pax = gca;
 pax.GridColor = [0 0 0];          % Black grid lines
 pax.GridAlpha = 1;                % Fully opaque grid lines
 pax.GridLineStyle = '--';         % Dashed grid lines for visibility
@@ -1666,6 +1670,7 @@ polarhistogram(striatum_rs_theta_bar_low, 36, 'FaceColor', 'r')
 hold on
 polarhistogram(striatum_rs_theta_bar_high, 36, 'FaceColor', 'b')
 thetaticks([0 90 180 270])
+pax = gca;
 pax.GridColor = [0 0 0];          % Black grid lines
 pax.GridAlpha = 1;                % Fully opaque grid lines
 pax.GridLineStyle = '--';         % Dashed grid lines for visibility
@@ -1675,6 +1680,7 @@ polarhistogram(striatum_fs_theta_bar_low, 36, 'FaceColor', 'r')
 hold on
 polarhistogram(striatum_fs_theta_bar_high, 36, 'FaceColor', 'b')
 thetaticks([0 90 180 270])
+pax = gca;
 pax.GridColor = [0 0 0];          % Black grid lines
 pax.GridAlpha = 1;                % Fully opaque grid lines
 pax.GridLineStyle = '--';         % Dashed grid lines for visibility
