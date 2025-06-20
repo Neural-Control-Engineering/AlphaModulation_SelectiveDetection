@@ -4893,3 +4893,7 @@ saveas(fig, 'tmp/lick_mod_unmod.png')
 ** Behavior 
 *** may want to get rid of d-prime by day 
 *** open circles for data 
+
+* [2025-6-20 Fri] 
+** svg issue fix 
+print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg

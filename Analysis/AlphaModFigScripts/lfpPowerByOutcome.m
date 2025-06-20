@@ -121,7 +121,7 @@ for f = 1:length(ftr_files)
     pfc_fa = [pfc_fa; data.lfp_session(pfc_channel,:).right_trigger_baseline_spectra_FA{1}];
 end
 
-fig = figure('Position', [1194 982 779 659]); 
+fig = figure('Position', [1220 881 1314 957]); 
 tl = tiledlayout(4,4);
 axs(1) = nexttile;
 semshade(log10(s1_hit), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
@@ -241,7 +241,7 @@ yticklabels({})
 xlabel(tl, 'Frequency (Hz)', 'FontSize', 14)
 ylabel(tl, 'log LFP power', 'FontSize', 14)
 
-out_path = false; 
+out_path = true; 
 mkdir('./Figures/')
 if out_path
     saveas(fig, '../Figures/lfp_power_by_outcome.fig')

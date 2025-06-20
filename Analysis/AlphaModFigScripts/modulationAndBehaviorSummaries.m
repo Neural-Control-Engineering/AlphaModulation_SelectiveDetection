@@ -1,4 +1,4 @@
-out_path = true;
+out_path = false;
 addpath(genpath('./'))
 addpath(genpath('~/circstat-matlab/'))
 mkdir('../Figures/')
@@ -1030,166 +1030,156 @@ tl = tiledlayout(3,2);
 axs = zeros(3,2);
 axs(1,1) = nexttile;
 hold on
-bar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] * 100, ...
-     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+plot(zeros(1,length(s1_rs_justCorrect))+1+(rand(1,length(s1_rs_justCorrect))-0.5)*0.3, s1_rs_justCorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(s1_rs_justIncorrect))+2+(rand(1,length(s1_rs_justIncorrect))-0.5)*0.3, s1_rs_justIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(s1_rs_correctIncorrect))+3+(rand(1,length(s1_rs_correctIncorrect))-0.5)*0.3, s1_rs_correctIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
 errorbar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] * 100, ...
     [nanstd(s1_rs_justCorrect) ./ sqrt(sum(~isnan(s1_rs_justCorrect))), ...
     nanstd(s1_rs_justIncorrect) ./ sqrt(sum(~isnan(s1_rs_justIncorrect))), ...
-    nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))] * 100, 'k.')
-bar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] * 100, ...
-    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+    nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
+plot(zeros(1,length(s1_rs_justAction))+6+(rand(1,length(s1_rs_justAction))-0.5)*0.3, s1_rs_justAction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(s1_rs_justInaction))+7+(rand(1,length(s1_rs_justInaction))-0.5)*0.3, s1_rs_justInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(s1_rs_actionInaction))+8+(rand(1,length(s1_rs_actionInaction))-0.5)*0.3, s1_rs_actionInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
 errorbar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] * 100, ...
     [nanstd(s1_rs_justAction) ./ sqrt(sum(~isnan(s1_rs_justAction))), ...
     nanstd(s1_rs_justInaction) ./ sqrt(sum(~isnan(s1_rs_justInaction))), ...
-    nanstd(s1_rs_actionInaction) ./ sqrt(sum(~isnan(s1_rs_actionInaction)))] * 100, 'k.')
+    nanstd(s1_rs_actionInaction) ./ sqrt(sum(~isnan(s1_rs_actionInaction)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
 xticks([1:3,6:8])
 xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
 xtickangle(45)
-title('Somatosensory Cortex RS')
+title('S1 RS', 'FontWeight', 'normal', 'FontSize', 16)
 ylim([0,100])
 yticks([0,100])
+ax = gca;
+ax.XAxis.FontSize = 12;
+ax.YAxis.FontSize = 14;
 axs(1,2) = nexttile;
 hold on
-bar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)] * 100, ...
-     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+plot(zeros(1,length(s1_fs_justCorrect))+1+(rand(1,length(s1_fs_justCorrect))-0.5)*0.3, s1_fs_justCorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(s1_fs_justIncorrect))+2+(rand(1,length(s1_fs_justIncorrect))-0.5)*0.3, s1_fs_justIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(s1_fs_correctIncorrect))+3+(rand(1,length(s1_fs_correctIncorrect))-0.5)*0.3, s1_fs_correctIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
 errorbar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)] * 100, ...
     [nanstd(s1_fs_justCorrect) ./ sqrt(sum(~isnan(s1_fs_justCorrect))), ...
     nanstd(s1_fs_justIncorrect) ./ sqrt(sum(~isnan(s1_fs_justIncorrect))), ...
-    nanstd(s1_fs_correctIncorrect) ./ sqrt(sum(~isnan(s1_fs_correctIncorrect)))] * 100, 'k.')
-bar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)] * 100, ...
-    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+    nanstd(s1_fs_correctIncorrect) ./ sqrt(sum(~isnan(s1_fs_correctIncorrect)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
+plot(zeros(1,length(s1_fs_justAction))+6+(rand(1,length(s1_fs_justAction))-0.5)*0.3, s1_fs_justAction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(s1_fs_justInaction))+7+(rand(1,length(s1_fs_justInaction))-0.5)*0.3, s1_fs_justInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(s1_fs_actionInaction))+8+(rand(1,length(s1_fs_actionInaction))-0.5)*0.3, s1_fs_actionInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
 errorbar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)] * 100, ...
     [nanstd(s1_fs_justAction) ./ sqrt(sum(~isnan(s1_fs_justAction))), ...
     nanstd(s1_fs_justInaction) ./ sqrt(sum(~isnan(s1_fs_justInaction))), ...
-    nanstd(s1_fs_actionInaction) ./ sqrt(sum(~isnan(s1_fs_actionInaction)))] * 100, 'k.')
+    nanstd(s1_fs_actionInaction) ./ sqrt(sum(~isnan(s1_fs_actionInaction)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
 xticks([1:3,6:8])
 xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
 xtickangle(45)
-title('Somatosensory Cortex FS')
+title('S1 FS', 'FontWeight', 'normal', 'FontSize', 16)
 ylim([0,100])
 yticks([0,100])
+ax = gca;
+ax.XAxis.FontSize = 12;
+ax.YAxis.FontSize = 14;
 axs(2,1) = nexttile;
 hold on
-bar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)] * 100, ...
-     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+plot(zeros(1,length(pfc_rs_justCorrect))+1+(rand(1,length(pfc_rs_justCorrect))-0.5)*0.3, pfc_rs_justCorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(pfc_rs_justIncorrect))+2+(rand(1,length(pfc_rs_justIncorrect))-0.5)*0.3, pfc_rs_justIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(pfc_rs_correctIncorrect))+3+(rand(1,length(pfc_rs_correctIncorrect))-0.5)*0.3, pfc_rs_correctIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
 errorbar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)] * 100, ...
     [nanstd(pfc_rs_justCorrect) ./ sqrt(sum(~isnan(pfc_rs_justCorrect))), ...
     nanstd(pfc_rs_justIncorrect) ./ sqrt(sum(~isnan(pfc_rs_justIncorrect))), ...
-    nanstd(pfc_rs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_rs_correctIncorrect)))] * 100, 'k.')
-bar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)] * 100, ...
-    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+    nanstd(pfc_rs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_rs_correctIncorrect)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
+plot(zeros(1,length(pfc_rs_justAction))+6+(rand(1,length(pfc_rs_justAction))-0.5)*0.3, pfc_rs_justAction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(pfc_rs_justInaction))+7+(rand(1,length(pfc_rs_justInaction))-0.5)*0.3, pfc_rs_justInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(pfc_rs_actionInaction))+8+(rand(1,length(pfc_rs_actionInaction))-0.5)*0.3, pfc_rs_actionInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
 errorbar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)] * 100, ...
     [nanstd(pfc_rs_justAction) ./ sqrt(sum(~isnan(pfc_rs_justAction))), ...
     nanstd(pfc_rs_justInaction) ./ sqrt(sum(~isnan(pfc_rs_justInaction))), ...
-    nanstd(pfc_rs_actionInaction) ./ sqrt(sum(~isnan(pfc_rs_actionInaction)))] * 100, 'k.')
+    nanstd(pfc_rs_actionInaction) ./ sqrt(sum(~isnan(pfc_rs_actionInaction)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
 xticks([1:3,6:8])
 xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
 xtickangle(45)
-title('Prefrontal Cortex RS')
+title('PFC RS', 'FontWeight', 'normal', 'FontSize', 16)
 ylim([0,100])
 yticks([0,100])
+ax = gca;
+ax.XAxis.FontSize = 12;
+ax.YAxis.FontSize = 14;
 axs(2,2) = nexttile;
 hold on
-bar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)] * 100, ...
-     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+plot(zeros(1,length(pfc_fs_justCorrect))+1+(rand(1,length(pfc_fs_justCorrect))-0.5)*0.3, pfc_fs_justCorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(pfc_fs_justIncorrect))+2+(rand(1,length(pfc_fs_justIncorrect))-0.5)*0.3, pfc_fs_justIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(pfc_fs_correctIncorrect))+3+(rand(1,length(pfc_fs_correctIncorrect))-0.5)*0.3, pfc_fs_correctIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
 errorbar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)] * 100, ...
     [nanstd(pfc_fs_justCorrect) ./ sqrt(sum(~isnan(pfc_fs_justCorrect))), ...
     nanstd(pfc_fs_justIncorrect) ./ sqrt(sum(~isnan(pfc_fs_justIncorrect))), ...
-    nanstd(pfc_fs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_fs_correctIncorrect)))] * 100, 'k.')
-bar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)] * 100, ...
-    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+    nanstd(pfc_fs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_fs_correctIncorrect)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
+plot(zeros(1,length(pfc_fs_justAction))+6+(rand(1,length(pfc_fs_justAction))-0.5)*0.3, pfc_fs_justAction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(pfc_fs_justInaction))+7+(rand(1,length(pfc_fs_justInaction))-0.5)*0.3, pfc_fs_justInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(pfc_fs_actionInaction))+8+(rand(1,length(pfc_fs_actionInaction))-0.5)*0.3, pfc_fs_actionInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
 errorbar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)] * 100, ...
     [nanstd(pfc_fs_justAction) ./ sqrt(sum(~isnan(pfc_fs_justAction))), ...
     nanstd(pfc_fs_justInaction) ./ sqrt(sum(~isnan(pfc_fs_justInaction))), ...
-    nanstd(pfc_fs_actionInaction) ./ sqrt(sum(~isnan(pfc_fs_actionInaction)))] * 100, 'k.')
+    nanstd(pfc_fs_actionInaction) ./ sqrt(sum(~isnan(pfc_fs_actionInaction)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
 xticks([1:3,6:8])
 xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
 xtickangle(45)
-title('Prefrontal Cortex FS')
+title('PFC FS', 'FontWeight', 'normal', 'FontSize', 16)
 ylim([0,100])
 yticks([0,100])
+ax = gca;
+ax.XAxis.FontSize = 12;
+ax.YAxis.FontSize = 14;
 axs(3,1) = nexttile;
 hold on
-bar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)] * 100, ...
-     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+plot(zeros(1,length(striatum_rs_justCorrect))+1+(rand(1,length(striatum_rs_justCorrect))-0.5)*0.3, striatum_rs_justCorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(striatum_rs_justIncorrect))+2+(rand(1,length(striatum_rs_justIncorrect))-0.5)*0.3, striatum_rs_justIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(striatum_rs_correctIncorrect))+3+(rand(1,length(striatum_rs_correctIncorrect))-0.5)*0.3, striatum_rs_correctIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
 errorbar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)] * 100, ...
     [nanstd(striatum_rs_justCorrect) ./ sqrt(sum(~isnan(striatum_rs_justCorrect))), ...
     nanstd(striatum_rs_justIncorrect) ./ sqrt(sum(~isnan(striatum_rs_justIncorrect))), ...
-    nanstd(striatum_rs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_rs_correctIncorrect)))] * 100, 'k.')
-bar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)] * 100, ...
-    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+    nanstd(striatum_rs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_rs_correctIncorrect)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
+plot(zeros(1,length(striatum_rs_justAction))+6+(rand(1,length(striatum_rs_justAction))-0.5)*0.3, striatum_rs_justAction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(striatum_rs_justInaction))+7+(rand(1,length(striatum_rs_justInaction))-0.5)*0.3, striatum_rs_justInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(striatum_rs_actionInaction))+8+(rand(1,length(striatum_rs_actionInaction))-0.5)*0.3, striatum_rs_actionInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
 errorbar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)] * 100, ...
     [nanstd(striatum_rs_justAction) ./ sqrt(sum(~isnan(striatum_rs_justAction))), ...
     nanstd(striatum_rs_justInaction) ./ sqrt(sum(~isnan(striatum_rs_justInaction))), ...
-    nanstd(striatum_rs_actionInaction) ./ sqrt(sum(~isnan(striatum_rs_actionInaction)))] * 100, 'k.')
+    nanstd(striatum_rs_actionInaction) ./ sqrt(sum(~isnan(striatum_rs_actionInaction)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
 xticks([1:3,6:8])
 xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
 xtickangle(45)
-title('Striatum RS')
+title('Striatum RS', 'FontWeight', 'normal', 'FontSize', 16)
 ylim([0,100])
 yticks([0,100])
+ax = gca;
+ax.XAxis.FontSize = 12;
+ax.YAxis.FontSize = 14;
 axs(3,2) = nexttile;
 hold on
-bar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)] * 100, ...
-     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+plot(zeros(1,length(striatum_fs_justCorrect))+1+(rand(1,length(striatum_fs_justCorrect))-0.5)*0.3, striatum_fs_justCorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(striatum_fs_justIncorrect))+2+(rand(1,length(striatum_fs_justIncorrect))-0.5)*0.3, striatum_fs_justIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(striatum_fs_correctIncorrect))+3+(rand(1,length(striatum_fs_correctIncorrect))-0.5)*0.3, striatum_fs_correctIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
 errorbar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)] * 100, ...
     [nanstd(striatum_fs_justCorrect) ./ sqrt(sum(~isnan(striatum_fs_justCorrect))), ...
     nanstd(striatum_fs_justIncorrect) ./ sqrt(sum(~isnan(striatum_fs_justIncorrect))), ...
-    nanstd(striatum_fs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_fs_correctIncorrect)))] * 100, 'k.')
-bar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)] * 100, ...
-    'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+    nanstd(striatum_fs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_fs_correctIncorrect)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
+plot(zeros(1,length(striatum_fs_justAction))+6+(rand(1,length(striatum_fs_justAction))-0.5)*0.3, striatum_fs_justAction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(striatum_fs_justInaction))+7+(rand(1,length(striatum_fs_justInaction))-0.5)*0.3, striatum_fs_justInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(striatum_fs_actionInaction))+8+(rand(1,length(striatum_fs_actionInaction))-0.5)*0.3, striatum_fs_actionInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
 errorbar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)] * 100, ...
     [nanstd(striatum_fs_justAction) ./ sqrt(sum(~isnan(striatum_fs_justAction))), ...
     nanstd(striatum_fs_justInaction) ./ sqrt(sum(~isnan(striatum_fs_justInaction))), ...
-    nanstd(striatum_fs_actionInaction) ./ sqrt(sum(~isnan(striatum_fs_actionInaction)))] * 100, 'k.')
+    nanstd(striatum_fs_actionInaction) ./ sqrt(sum(~isnan(striatum_fs_actionInaction)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
 xticks([1:3,6:8])
 xticklabels({'Only Correct', 'Only Incorrect', 'Both', 'Only Response', 'Only No Response', 'Both'})
 xtickangle(45)
-title('Striatum FS')
+title('Striatum FS', 'FontWeight', 'normal', 'FontSize', 16)
 ylim([0,100])
 yticks([0,100])
-% axs(4,1) = nexttile;
-% hold on
-% bar(1:3, [nanmean(amygdala_rs_justCorrect), nanmean(amygdala_rs_justIncorrect), nanmean(amygdala_rs_correctIncorrect)], ...
-%      'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
-% errorbar(1:3, [nanmean(amygdala_rs_justCorrect), nanmean(amygdala_rs_justIncorrect), nanmean(amygdala_rs_correctIncorrect)], ...
-%     [nanstd(amygdala_rs_justCorrect) ./ sqrt(sum(~isnan(amygdala_rs_justCorrect))), ...
-%     nanstd(amygdala_rs_justIncorrect) ./ sqrt(sum(~isnan(amygdala_rs_justIncorrect))), ...
-%     nanstd(amygdala_rs_correctIncorrect) ./ sqrt(sum(~isnan(amygdala_rs_correctIncorrect)))], 'k.')
-% bar(6:8, [nanmean(amygdala_rs_justAction), nanmean(amygdala_rs_justInaction), nanmean(amygdala_rs_actionInaction)], ...
-%     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
-% errorbar(6:8, [nanmean(amygdala_rs_justAction), nanmean(amygdala_rs_justInaction), nanmean(amygdala_rs_actionInaction)], ...
-%     [nanstd(amygdala_rs_justAction) ./ sqrt(sum(~isnan(amygdala_rs_justAction))), ...
-%     nanstd(amygdala_rs_justInaction) ./ sqrt(sum(~isnan(amygdala_rs_justInaction))), ...
-%     nanstd(amygdala_rs_actionInaction) ./ sqrt(sum(~isnan(amygdala_rs_actionInaction)))], 'k.')
-% xticks([1:3,6:8])
-% xticklabels({'Corret', 'Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
-% xtickangle(45)
-% title('Amygdala RS')
-% ylim([0,1])
-% yticks([0,1])
-% axs(4,2) = nexttile;
-% hold on
-% bar(1:3, [nanmean(amygdala_fs_justCorrect), nanmean(amygdala_fs_justIncorrect), nanmean(amygdala_fs_correctIncorrect)], ...
-%      'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
-% errorbar(1:3, [nanmean(amygdala_fs_justCorrect), nanmean(amygdala_fs_justIncorrect), nanmean(amygdala_fs_correctIncorrect)], ...
-%     [nanstd(amygdala_fs_justCorrect) ./ sqrt(sum(~isnan(amygdala_fs_justCorrect))), ...
-%     nanstd(amygdala_fs_justIncorrect) ./ sqrt(sum(~isnan(amygdala_fs_justIncorrect))), ...
-%     nanstd(amygdala_fs_correctIncorrect) ./ sqrt(sum(~isnan(amygdala_fs_correctIncorrect)))], 'k.')
-% bar(6:8, [nanmean(amygdala_fs_justAction), nanmean(amygdala_fs_justInaction), nanmean(amygdala_fs_actionInaction)], ...
-%     'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
-% errorbar(6:8, [nanmean(amygdala_fs_justAction), nanmean(amygdala_fs_justInaction), nanmean(amygdala_fs_actionInaction)], ...
-%     [nanstd(amygdala_fs_justAction) ./ sqrt(sum(~isnan(amygdala_fs_justAction))), ...
-%     nanstd(amygdala_fs_justInaction) ./ sqrt(sum(~isnan(amygdala_fs_justInaction))), ...
-%     nanstd(amygdala_fs_actionInaction) ./ sqrt(sum(~isnan(amygdala_fs_actionInaction)))], 'k.')
-% xticks([1:3,6:8])
-% xticklabels({'Corret', 'Incorrect', 'Both', 'Action', 'Inaction', 'Both'})
-% xtickangle(45)
-% title('Amygdala FS')
-% ylim([0,1])
-% yticks([0,1])
-xlabel(tl, 'Trial Outcome')
-ylabel(tl, '% Alpha Modulated Neurons')
+ax = gca;
+ax.XAxis.FontSize = 12;
+ax.YAxis.FontSize = 14;
+xlabel(tl, 'Trial Outcome', 'FontSize', 16)
+ylabel(tl, '% Alpha Modulated Neurons', 'FontSize', 16)
 
 % saveas(mod_by_outcome_fig, 'tmp/mod_by_outcome_fig.png')
 if out_path
@@ -1263,7 +1253,7 @@ errorbar([1,2,3,4,6,7,9,10], amygdala_rs_mse_avgs, amygdala_rs_mse_errs, 'k.')
 xticks([1,2,3,4,6,7,9,10])
 xticklabels({'Hit', 'Miss', 'Correct Rejection', 'False Alarm', 'Correct', 'Incorrect', 'Action', 'Inaction'})
 ax = gca;
-ax.XAxis.FontSize = 14;
+ax.XAxis.FontSize = 12;
 title('Amygdala RS', 'FontSize', 16, 'FontWeight', 'normal')
 ylim([0,0.013])
 yticks([0,0.013])
@@ -1274,7 +1264,7 @@ errorbar([1,2,3,4,6,7,9,10], amygdala_fs_mse_avgs, amygdala_fs_mse_errs, 'k.')
 xticks([1,2,3,4,6,7,9,10])
 xticklabels({'Hit', 'Miss', 'Correct Rejection', 'False Alarm', 'Correct', 'Incorrect', 'Action', 'Inaction'})
 ax = gca;
-ax.XAxis.FontSize = 14;
+ax.XAxis.FontSize = 12;
 title('Amygdala FS', 'FontSize', 16, 'FontWeight', 'normal')
 ylim([0,0.007])
 yticks([0,0.007])
@@ -1351,7 +1341,7 @@ errorbar([1,2,3,4,6,7,9,10], amygdala_rs_pmi_avgs, amygdala_rs_pmi_errs, 'k.')
 xticks([1,2,3,4,6,7,9,10])
 xticklabels({'Hit', 'Miss', 'Correct Rejection', 'False Alarm', 'Correct', 'Incorrect', 'Action', 'Inaction'})
 ax = gca;
-ax.XAxis.FontSize = 14;
+ax.XAxis.FontSize = 12;
 title('Amygdala RS', 'FontSize', 16, 'FontWeight', 'normal')
 yticks([0,0.11])
 ylim([0,0.11])
@@ -1362,7 +1352,7 @@ errorbar([1,2,3,4,6,7,9,10], amygdala_fs_pmi_avgs, amygdala_fs_pmi_errs, 'k.')
 xticks([1,2,3,4,6,7,9,10])
 xticklabels({'Hit', 'Miss', 'Correct Rejection', 'False Alarm', 'Correct', 'Incorrect', 'Action', 'Inaction'})
 ax = gca;
-ax.XAxis.FontSize = 14;
+ax.XAxis.FontSize = 12;
 title('Amygdala FS', 'FontSize', 16, 'FontWeight', 'normal')
 ylabel(tl, 'Modulation Index', 'FontSize', 16)
 xlabel(tl, 'Trial Outcome', 'FontSize', 16)
@@ -1444,7 +1434,7 @@ errorbar([1,2,3,4,6,7,9,10], amygdala_rs_theta_bars_avgs, amygdala_rs_theta_bars
 xticks([1,2,3,4,6,7,9,10])
 xticklabels({'Hit', 'Miss', 'Correct Rejection', 'False Alarm', 'Correct', 'Incorrect', 'Action', 'Inaction'})
 ax = gca;
-ax.XAxis.FontSize = 14;
+ax.XAxis.FontSize = 12;
 title('Amygdala RS', 'FontSize', 16, 'FontWeight', 'normal')
 ylim([-3.5,3.5])
 yticks([-pi,pi])
@@ -1456,7 +1446,7 @@ errorbar([1,2,3,4,6,7,9,10], amygdala_fs_theta_bars_avgs, amygdala_fs_theta_bars
 xticks([1,2,3,4,6,7,9,10])
 xticklabels({'Hit', 'Miss', 'Correct Rejection', 'False Alarm', 'Correct', 'Incorrect', 'Action', 'Inaction'})
 ax = gca;
-ax.XAxis.FontSize = 14;
+ax.XAxis.FontSize = 12;
 title('Amygdala FS', 'FontSize', 16, 'FontWeight', 'normal')
 ylabel(tl, 'Avg. Spike Phase (radians)', 'FontSize', 16)
 xlabel(tl, 'Trial Outcome', 'FontSize', 16)
