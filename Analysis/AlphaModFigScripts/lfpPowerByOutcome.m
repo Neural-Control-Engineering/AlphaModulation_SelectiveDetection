@@ -242,7 +242,6 @@ xlabel(tl, 'Frequency (Hz)', 'FontSize', 14)
 ylabel(tl, 'log LFP power', 'FontSize', 14)
 
 out_path = true; 
-mkdir('./Figures/')
 if out_path
     saveas(fig, '../Figures/lfp_power_by_outcome.fig')
     saveas(fig, '../Figures/lfp_power_by_outcome.svg')

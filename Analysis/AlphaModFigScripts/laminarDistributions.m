@@ -3,7 +3,6 @@ delete Stats/laminar_distributions.txt
 diary Stats/laminar_distributions.txt 
 init_paths;
 addpath(genpath('~/circstat-matlab/'))
-mkdir('./Figures/')
 s1 = load(strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
 pfc = load(strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'));
 

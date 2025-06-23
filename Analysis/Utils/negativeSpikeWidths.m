@@ -108,8 +108,6 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     + startsWith(all_regions, 'PL') + startsWith(all_regions, 'IL') ...
     + startsWith(all_regions, 'OR') + startsWith(all_regions, 'MO');
     ss_inds = startsWith(all_regions, 'SS');
-
-    mkdir('./Figures/')
     
     fig = figure('Position', [1220 1298 560 420]); 
     hold on 
@@ -137,8 +135,8 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     title('Somatosensory Cortex')
     xlabel(tl, 'Trough-to-Peak (ms)')
     ylabel(tl, 'AP Half-Width (ms)')
-    saveas(fig, 'Figures/ss_spikeWidth_by_peak2trough.svg')
-    saveas(fig, 'Figures/ss_spikeWidth_by_peak2trough.fig')
+    saveas(fig, '../Figures/ss_spikeWidth_by_peak2trough.svg')
+    saveas(fig, '../Figures/ss_spikeWidth_by_peak2trough.fig')
 
     fig = figure('Position', [1220 1298 560 420]); 
     hold on 
@@ -166,8 +164,8 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     title('Prefrontal Cortex')
     xlabel(tl, 'Trough-to-Peak (ms)')
     ylabel(tl, 'AP Half-Width (ms)')
-    saveas(fig, 'Figures/pfc_spikeWidth_by_peak2trough.svg')
-    saveas(fig, 'Figures/pfc_spikeWidth_by_peak2trough.fig')
+    saveas(fig, '../Figures/pfc_spikeWidth_by_peak2trough.svg')
+    saveas(fig, '../Figures/pfc_spikeWidth_by_peak2trough.fig')
 
     fig = figure('Position', [1220 1298 560 420]); 
     hold on 
@@ -190,8 +188,8 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     title('Striatum')
     xlabel(tl, 'Trough-to-Peak (ms)')
     ylabel(tl, 'AP Half-Width (ms)')
-    saveas(fig, 'Figures/str_spikeWidth_by_peak2trough.svg')
-    saveas(fig, 'Figures/str_spikeWidth_by_peak2trough.fig')
+    saveas(fig, '../Figures/str_spikeWidth_by_peak2trough.svg')
+    saveas(fig, '../Figures/str_spikeWidth_by_peak2trough.fig')
 
     fig = figure('Position', [1220 1298 560 420]); 
     hold on 
@@ -214,48 +212,48 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     title('Amygdala')
     xlabel(tl, 'Trough-to-Peak (ms)')
     ylabel(tl, 'AP Half-Width (ms)')
-    saveas(fig, 'Figures/amyg_spikeWidth_by_peak2trough.svg')
-    saveas(fig, 'Figures/amyg_spikeWidth_by_peak2trough.fig')
+    saveas(fig, '../Figures/amyg_spikeWidth_by_peak2trough.svg')
+    saveas(fig, '../Figures/amyg_spikeWidth_by_peak2trough.fig')
 
     % ctx_fig = figure();
     % p = piechart([sum(ctx_t2p < 0.351), sum(ctx_t2p > 0.351)], {'FS', 'RS'});
     % colororder([0.5,0.5,0.5;0,0,0])
     % p.FaceAlpha = 1;
     % p.LabelStyle = None;
-    % saveas(ctx_fig, 'Figures/ctx_cellClass_pct.svg')
-    % saveas(ctx_fig, 'Figures/ctx_cellClass_pct.fig')
+    % saveas(ctx_fig, '../Figures/ctx_cellClass_pct.svg')
+    % saveas(ctx_fig, '../Figures/ctx_cellClass_pct.fig')
 
     ss_fig = figure();
     p = piechart([sum(ss_t2p < 0.351), sum(ss_t2p > 0.351)], {'FS', 'RS'});
     colororder([0,0,0; 0.5,0.5,0.5])
     p.FaceAlpha = 1;
     % p.LabelStyle = None;
-    saveas(ss_fig, 'Figures/ss_cellClass_pct.svg')
-    saveas(ss_fig, 'Figures/ss_cellClass_pct.fig')
+    saveas(ss_fig, '../Figures/ss_cellClass_pct.svg')
+    saveas(ss_fig, '../Figures/ss_cellClass_pct.fig')
 
     pfc_fig = figure();
     p = piechart([sum(pfc_t2p < 0.351), sum(pfc_t2p > 0.351)], {'FS', 'RS'});
     colororder([0,0,0; 0.5,0.5,0.5])
     p.FaceAlpha = 1;
     % p.LabelStyle = None;
-    saveas(pfc_fig, 'Figures/pfc_cellClass_pct.svg')
-    saveas(pfc_fig, 'Figures/pfc_cellClass_pct.fig')
+    saveas(pfc_fig, '../Figures/pfc_cellClass_pct.svg')
+    saveas(pfc_fig, '../Figures/pfc_cellClass_pct.fig')
 
     bg_fig = figure();
     p = piechart([sum(bg_t2p < 0.351), sum(bg_t2p > 0.351)], {'FS', 'RS'});
     % p.LabelStyle = None;
     colororder([0,0,0; 0.5,0.5,0.5])
     p.FaceAlpha = 1;
-    saveas(bg_fig, 'Figures/bg_cellClass_pct.svg')
-    saveas(bg_fig, 'Figures/bg_cellClass_pct.fig')
+    saveas(bg_fig, '../Figures/bg_cellClass_pct.svg')
+    saveas(bg_fig, '../Figures/bg_cellClass_pct.fig')
 
     ag_fig = figure();
     p = piechart([sum(ag_t2p < 0.351), sum(ag_t2p > 0.351)], {'FS', 'RS'});
     colororder([0,0,0; 0.5,0.5,0.5])
     p.FaceAlpha = 1;
     % p.LabelStyle = None;
-    saveas(ag_fig, 'Figures/ag_cellClass_pct.svg')
-    saveas(ag_fig, 'Figures/ag_cellClass_pct.fig')
+    saveas(ag_fig, '../Figures/ag_cellClass_pct.svg')
+    saveas(ag_fig, '../Figures/ag_cellClass_pct.fig')
 
     % ss k-means clustering and waveform plotting 
     X = [ss_widths, ss_t2p];
@@ -267,15 +265,15 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     plot(linspace(0,(size(rs_ss_wvfrms,1)/30),61), mean(rs_ss_wvfrms), 'k')
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
-    saveas(ss_rs_fig, 'Figures/ss_rs_wvfrm.svg')
-    saveas(ss_rs_fig, 'Figures/ss_rs_wvfrm.fig')
+    saveas(ss_rs_fig, '../Figures/ss_rs_wvfrm.svg')
+    saveas(ss_rs_fig, '../Figures/ss_rs_wvfrm.fig')
 
     ss_fs_fig = figure();
     plot(linspace(0,(size(fs_ss_wvfrms,1)/30),61), mean(fs_ss_wvfrms), 'k')
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
-    saveas(ss_fs_fig, 'Figures/ss_fs_wvfrm.svg')
-    saveas(ss_fs_fig, 'Figures/ss_fs_wvfrm.fig')
+    saveas(ss_fs_fig, '../Figures/ss_fs_wvfrm.svg')
+    saveas(ss_fs_fig, '../Figures/ss_fs_wvfrm.fig')
 
     % pfc k-means clustering and waveform plotting 
     X = [pfc_widths, pfc_t2p];
@@ -287,15 +285,15 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     plot(linspace(0,(size(rs_pfc_wvfrms,1)/30),61), mean(rs_pfc_wvfrms), 'k')
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
-    saveas(pfc_rs_fig, 'Figures/pfc_rs_wvfrm.svg')
-    saveas(pfc_rs_fig, 'Figures/pfc_rs_wvfrm.fig')
+    saveas(pfc_rs_fig, '../Figures/pfc_rs_wvfrm.svg')
+    saveas(pfc_rs_fig, '../Figures/pfc_rs_wvfrm.fig')
 
     pfc_fs_fig = figure();
     plot(linspace(0,(size(fs_pfc_wvfrms,1)/30),61), mean(fs_pfc_wvfrms), 'k')
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
-    saveas(pfc_fs_fig, 'Figures/pfc_fs_wvfrm.svg')
-    saveas(pfc_fs_fig, 'Figures/pfc_fs_wvfrm.fig')
+    saveas(pfc_fs_fig, '../Figures/pfc_fs_wvfrm.svg')
+    saveas(pfc_fs_fig, '../Figures/pfc_fs_wvfrm.fig')
 
     % pfc k-means clustering and waveform plotting 
     X = [pfc_widths, pfc_t2p];
@@ -307,15 +305,15 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     plot(linspace(0,(size(fs_ss_wvfrms,1)/30),61), mean(rs_pfc_wvfrms), 'k')
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
-    saveas(pfc_rs_fig, 'Figures/pfc_rs_wvfrm.svg')
-    saveas(pfc_rs_fig, 'Figures/pfc_rs_wvfrm.fig')
+    saveas(pfc_rs_fig, '../Figures/pfc_rs_wvfrm.svg')
+    saveas(pfc_rs_fig, '../Figures/pfc_rs_wvfrm.fig')
 
     pfc_fs_fig = figure();
     plot(linspace(0,(size(fs_ss_wvfrms,1)/30),61), mean(fs_pfc_wvfrms), 'k')
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
-    saveas(pfc_fs_fig, 'Figures/pfc_fs_wvfrm.svg')
-    saveas(pfc_fs_fig, 'Figures/pfc_fs_wvfrm.fig')
+    saveas(pfc_fs_fig, '../Figures/pfc_fs_wvfrm.svg')
+    saveas(pfc_fs_fig, '../Figures/pfc_fs_wvfrm.fig')
 
     % bg k-means clustering and waveform plotting 
     X = [bg_widths, bg_t2p];
@@ -327,15 +325,15 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     plot(linspace(0,(size(rs_bg_wvfrms,1)/30),61), mean(rs_bg_wvfrms), 'k')
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
-    saveas(bg_rs_fig, 'Figures/bg_rs_wvfrm.svg')
-    saveas(bg_rs_fig, 'Figures/bg_rs_wvfrm.fig')
+    saveas(bg_rs_fig, '../Figures/bg_rs_wvfrm.svg')
+    saveas(bg_rs_fig, '../Figures/bg_rs_wvfrm.fig')
 
     bg_fs_fig = figure();
     plot(linspace(0,(size(fs_bg_wvfrms,1)/30),61), mean(fs_bg_wvfrms), 'k')
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
-    saveas(bg_fs_fig, 'Figures/bg_fs_wvfrm.svg')
-    saveas(bg_fs_fig, 'Figures/bg_fs_wvfrm.fig')
+    saveas(bg_fs_fig, '../Figures/bg_fs_wvfrm.svg')
+    saveas(bg_fs_fig, '../Figures/bg_fs_wvfrm.fig')
 
     % ag k-means clustering and waveform plotting 
     X = [ag_widths, ag_t2p];
@@ -347,15 +345,15 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     plot(linspace(0,(size(rs_ag_wvfrms,1)/30),61), mean(rs_ag_wvfrms), 'k')
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
-    saveas(ag_rs_fig, 'Figures/ag_rs_wvfrm.svg')
-    saveas(ag_rs_fig, 'Figures/ag_rs_wvfrm.fig')
+    saveas(ag_rs_fig, '../Figures/ag_rs_wvfrm.svg')
+    saveas(ag_rs_fig, '../Figures/ag_rs_wvfrm.fig')
 
     ag_fs_fig = figure();
     plot(linspace(0,(size(fs_ag_wvfrms,1)/30),61), mean(fs_ag_wvfrms), 'k')
     xlabel('Time (ms)')
     ylabel('Voltage (\muV)')
-    saveas(ag_fs_fig, 'Figures/ag_fs_wvfrm.svg')
-    saveas(ag_fs_fig, 'Figures/ag_fs_wvfrm.fig')
+    saveas(ag_fs_fig, '../Figures/ag_fs_wvfrm.svg')
+    saveas(ag_fs_fig, '../Figures/ag_fs_wvfrm.fig')
 
     % ss k-means clustering and waveform plotting 
     X = [ss_widths, ss_t2p];
@@ -371,8 +369,8 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     ylabel('Voltage (\muV)')
     xlim([0,2])
     ylim([-8,4])
-    saveas(ss_rs_fig, 'Figures/ss_wvfrm.svg')
-    saveas(ss_rs_fig, 'Figures/ss_wvfrm.fig')
+    saveas(ss_rs_fig, '../Figures/ss_wvfrm.svg')
+    saveas(ss_rs_fig, '../Figures/ss_wvfrm.fig')
 
  
     % pfc k-means clustering and waveform plotting 
@@ -389,8 +387,8 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     ylabel('Voltage (\muV)')
     xlim([0,2])
     ylim([-8,4])
-    saveas(pfc_rs_fig, 'Figures/pfc_wvfrm.svg')
-    saveas(pfc_rs_fig, 'Figures/pfc_wvfrm.fig')
+    saveas(pfc_rs_fig, '../Figures/pfc_wvfrm.svg')
+    saveas(pfc_rs_fig, '../Figures/pfc_wvfrm.fig')
 
     % bg k-means clustering and waveform plotting 
     X = [bg_widths, bg_t2p];
@@ -406,8 +404,8 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     ylabel('Voltage (\muV)')
     xlim([0,2])
     ylim([-8,4])
-    saveas(bg_rs_fig, 'Figures/bg_wvfrm.svg')
-    saveas(bg_rs_fig, 'Figures/bg_wvfrm.fig')
+    saveas(bg_rs_fig, '../Figures/bg_wvfrm.svg')
+    saveas(bg_rs_fig, '../Figures/bg_wvfrm.fig')
 
     % ag k-means clustering and waveform plotting 
     X = [ag_widths, ag_t2p];
@@ -423,8 +421,8 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     ylabel('Voltage (\muV)')
     xlim([0,2])
     ylim([-8,4])
-    saveas(ag_rs_fig, 'Figures/ag_wvfrm.svg')
-    saveas(ag_rs_fig, 'Figures/ag_wvfrm.fig')
+    saveas(ag_rs_fig, '../Figures/ag_wvfrm.svg')
+    saveas(ag_rs_fig, '../Figures/ag_wvfrm.fig')
 
     save('spike_classification_data.mat')
 

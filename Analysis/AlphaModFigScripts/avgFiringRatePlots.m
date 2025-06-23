@@ -2,7 +2,6 @@ delete Stats/avg_firing_rates.txt
 diary Stats/avg_firing_rates.txt
 init_paths;
 out_path = true; %% toggle to save figures
-mkdir('./Figures/')
 
 ftr_files = {strcat(ftr_path, 'AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat')};

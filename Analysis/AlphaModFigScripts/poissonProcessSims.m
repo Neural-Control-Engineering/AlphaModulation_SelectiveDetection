@@ -124,6 +124,5 @@ cbar3.Label.String = 'MSE';
 xlabel(tl, 'Neuronal Firing Rate (Hz)')
 ylabel(tl, 'LFP Frequency (Hz)')
 
-mkdir('./Figures/')
-saveas(summary_fig, 'Figures/poisson_sim_results.fig')
-saveas(summary_fig, 'Figures/poisson_sim_results.svg')
+saveas(summary_fig, '../Figures/poisson_sim_results.fig')
+saveas(summary_fig, '../Figures/poisson_sim_results.svg')

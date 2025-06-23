@@ -4391,8 +4391,8 @@ However, this seems to contradict their own data showing a lack of difference in
 “this global cortical low amplitude state is, at least in part, a result of the ubiquity of alpha modulation and pulsed inhibition in neocortex.” And yet, from their 
 own data, alpha modulation levels did not influence spike rates. These inconsistencies need to be reconciled.
 ** TODOS 
-*** TODO: lean into lapse in attention 
-*** TODO: move away from "low amplitude state"
+*** DONE: lean into lapse in attention 
+*** DONE: move away from "low amplitude state"
 
 4. In the Marrero et al study, pre-stimulus movements appeared to play a major role in predicting trial outcome. Can pre-trial movements account for differences in 
 alpha modulation and trial outcomes? If face/body movements were monitored during these experiments, their analyses relative to alpha modulations and trial outcomes 
@@ -4406,7 +4406,7 @@ should be included.
 to alpha oscillations may characterize lapses in task engagement or attention.” However, if low alpha modulation reflected poor task engagement, one would expect 
 reduced responding (including false alarms), rather than reduced correct outcomes. Impairments in attention, however, would be consistent with reduced correct outcomes.
 ** TODOS
-*** TODO: play down task engagement, play up attention 
+*** DONE: play down task engagement, play up attention 
 
 6. In the Results, the authors refer to hit and false alarm trials as 'action' vs miss and correct rejection trials as 'inaction'. These should be relabeled as 'response' 
 and 'no response', as there can be plenty of action/movement on all trial outcome types.
@@ -4500,7 +4500,7 @@ o Interpretation of Firing Rate Changes: The changes in firing rate presented in
 to—baseline, another condition, or a specific event. This lack of clarity undermines the interpretability of these results. The authors should explicitly define the reference 
 period or condition used in these comparisons.
 ** TODOS:
-*** TODO: make clear that those are changes in FR from baseline 
+*** DONE: make clear that those are changes in FR from baseline 
 
 o Figure Legend and Analytical Clarity: The figure legend for Figure 4 lacks sufficient detail to guide the reader through the analyses. More thorough descriptions of the 
 computations and statistical methods used are necessary to allow proper evaluation of the results.
@@ -4546,7 +4546,7 @@ these limitations by restricting analyses to neurons with waveform properties at
 appears that such thresholding was not implemented in the current study. Given that the work is performed in mice, why not consider leveraging molecular biology tools 
 (e.g., optogenetics) to more definitively classify cell types, which would substantially strengthen the interpretability of their findings.
 ** TODOS:
-*** TODO: check out Shin and Moore, Neuron, 2019
+*** DONE: check out Shin and Moore, Neuron, 2019
 *** TODO: for RS/FS comparisons, consider sampling from extremes of the distributions 
 
 7. The statistical analyses appear to be conducted primarily at the population level (i.e., across cells), but it is unclear whether significance was also evaluated at 
@@ -4682,14 +4682,14 @@ xticks(1:2)
 xticklabels({'Spon. Lick Trials', 'Spon. No-Lick Trials'})
 ylabel('Number of trials')
 *** DONE: percent modulated on high vs low 
-*** TODO: flesh out stats for mod vs unmod firing rates 
-*** TODO: basline firing rates between mod and unmod neurons 
+*** DONE: flesh out stats for mod vs unmod firing rates 
+*** DONE: basline firing rates between mod and unmod neurons 
 **** significant with ranksum (not normally distributed)
 **** means very close though 
-*** TODO: consider removing amygdala 
+*** DONE: consider removing amygdala 
 **** so few neurons (modulated or otherwise)
 **** much less confident what is amygdala given layer adjustments w/ CSD 
-*** TODO: retry alpha modulation of population on trial basis 
+*** DONE: retry alpha modulation of population on trial basis 
 **** example code 
 load /insomnia001/depts/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/SELECT_DETECT/Data/FTR/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat
 session_ids = unique(out.alpha_modulated.session_id);
@@ -4750,9 +4750,9 @@ end
 ** laminarDistributions.m 
 * [2025-5-20 Tue] - wishlists 
 ** Wishlist for phaseModAndPower.m 
-*** TODO: number of events per trial 
-*** TODO: n events by outcome 
-*** TODO: rerun 
+*** DONE: number of events per trial 
+*** DONE: n events by outcome 
+*** DONE: rerun 
 
 * [2025-5-27 Tue] - rerunning analyses with 1Hz cutoff 
 
@@ -4800,7 +4800,7 @@ end
 ** Figure 8 - alpha modulation and trial outcome 
 *** DONE: consider combining examples (current figure 6) and summaries (current figure 7)
 *** DONE: for summaries, consider just % phase modulated 
-*** TODO: add panels or create supplemental figure for boostrapping method 
+*** DONE: add panels or create supplemental figure for boostrapping method 
 
 * [2025-5-29 Thu] - logging stats 
 ** all stats now logged in separate txt files (./Stats/)
@@ -4809,19 +4809,57 @@ end
 ** firing rate and lick/no-lick trials 
 *** AlphaModFigScripts/licksAndFr.m 
 load phase_mod_licking_frs.mat
-fig = figure();
+fig = figure('Position', [1243 1123 1601 548]);
 subplot(1,2,1)
 hold on 
-bar([2,5,8,11,14,17], ...
-    [nanmean(cellfun(@nanmean, out.s1_rs_all_lick_frs)), nanmean(cellfun(@nanmean, out.s1_fs_all_lick_frs)), ...
-    nanmean(cellfun(@nanmean, out.pfc_rs_all_lick_frs)), nanmean(cellfun(@nanmean, out.pfc_fs_all_lick_frs)), ...
-    nanmean(cellfun(@nanmean, out.striatum_rs_all_lick_frs)), nanmean(cellfun(@nanmean, out.striatum_fs_all_lick_frs))], 0.3, ...
-    'EdgeColor', 'k', 'FaceColor', 'b')
-bar([1,4,7,10,13,16], ...
-    [nanmean(cellfun(@nanmean, out.s1_rs_all_no_lick_frs)), nanmean(cellfun(@nanmean, out.s1_fs_all_no_lick_frs)), ...
-    nanmean(cellfun(@nanmean, out.pfc_rs_all_no_lick_frs)), nanmean(cellfun(@nanmean, out.pfc_fs_all_no_lick_frs)), ...
-    nanmean(cellfun(@nanmean, out.striatum_rs_all_no_lick_frs)), nanmean(cellfun(@nanmean, out.striatum_fs_all_no_lick_frs))], 0.3, ...
-    'EdgeColor', 'k', 'FaceColor', 'r')
+s1_rs_all_lick_frs = cellfun(@nanmean, out.s1_rs_all_lick_frs);
+s1_fs_all_lick_frs = cellfun(@nanmean, out.s1_fs_all_lick_frs);
+pfc_rs_all_lick_frs = cellfun(@nanmean, out.pfc_rs_all_lick_frs);
+pfc_fs_all_lick_frs = cellfun(@nanmean, out.pfc_fs_all_lick_frs);
+striatum_rs_all_lick_frs = cellfun(@nanmean, out.striatum_rs_all_lick_frs);
+striatum_fs_all_lick_frs = cellfun(@nanmean, out.striatum_fs_all_lick_frs);
+s1_rs_all_no_lick_frs = cellfun(@nanmean, out.s1_rs_all_no_lick_frs);
+s1_fs_all_no_lick_frs = cellfun(@nanmean, out.s1_fs_all_no_lick_frs);
+pfc_rs_all_no_lick_frs = cellfun(@nanmean, out.pfc_rs_all_no_lick_frs);
+pfc_fs_all_no_lick_frs = cellfun(@nanmean, out.pfc_fs_all_no_lick_frs);
+striatum_rs_all_no_lick_frs = cellfun(@nanmean, out.striatum_rs_all_no_lick_frs);
+striatum_fs_all_no_lick_frs = cellfun(@nanmean, out.striatum_fs_all_no_lick_frs);
+for i = 1:length(s1_rs_all_lick_frs)
+    x = (rand()-0.5) * 0.5;
+    plot(1+x, s1_rs_all_no_lick_frs(i), 'r.')
+    plot(2+x, s1_rs_all_lick_frs(i), 'b.')
+    plot([1,2]+x, [s1_rs_all_no_lick_frs(i), s1_rs_all_lick_frs(i)], '--', 'Color', [0.5, 0.5, 0.5], 'LineWidth', 0.1)
+end
+for i = 1:length(s1_fs_all_lick_frs)
+    x = (rand()-0.5) * 0.5;
+    plot(4+x, s1_fs_all_no_lick_frs(i), 'r.')
+    plot(5+x, s1_fs_all_lick_frs(i), 'b.')
+    plot([4,5]+x, [s1_fs_all_no_lick_frs(i), s1_fs_all_lick_frs(i)], '--', 'Color', [0.5, 0.5, 0.5], 'LineWidth', 0.1)
+end
+for i = 1:length(pfc_rs_all_lick_frs)
+    x = (rand()-0.5) * 0.5;
+    plot(7+x, pfc_rs_all_no_lick_frs(i), 'r.')
+    plot(8+x, pfc_rs_all_lick_frs(i), 'b.')
+    plot([7,8]+x, [pfc_rs_all_no_lick_frs(i), pfc_rs_all_lick_frs(i)], '--', 'Color', [0.5, 0.5, 0.5], 'LineWidth', 0.1)
+end
+for i = 1:length(pfc_fs_all_lick_frs)
+    x = (rand()-0.5) * 0.5;
+    plot(10+x, pfc_fs_all_no_lick_frs(i), 'r.')
+    plot(11+x, pfc_fs_all_lick_frs(i), 'b.')
+    plot([10,11]+x, [pfc_fs_all_no_lick_frs(i), pfc_fs_all_lick_frs(i)], '--', 'Color', [0.5, 0.5, 0.5], 'LineWidth', 0.1)
+end
+for i = 1:length(striatum_rs_all_lick_frs)
+    x = (rand()-0.5) * 0.5;
+    plot(13+x, striatum_rs_all_no_lick_frs(i), 'r.')
+    plot(14+x, striatum_rs_all_lick_frs(i), 'b.')
+    plot([13,14]+x, [striatum_rs_all_no_lick_frs(i), striatum_rs_all_lick_frs(i)], '--', 'Color', [0.5, 0.5, 0.5], 'LineWidth', 0.1)
+end
+for i = 1:length(striatum_fs_all_lick_frs)
+    x = (rand()-0.5) * 0.5;
+    plot(16+x, striatum_fs_all_no_lick_frs(i), 'r.')
+    plot(17+x, striatum_fs_all_lick_frs(i), 'b.')
+    plot([16,17]+x, [striatum_fs_all_no_lick_frs(i), striatum_fs_all_lick_frs(i)], '--', 'Color', [0.5, 0.5, 0.5], 'LineWidth', 0.1)
+end
 errorbar([2,5,8,11,14,17], ...
     [nanmean(cellfun(@nanmean, out.s1_rs_all_lick_frs)), nanmean(cellfun(@nanmean, out.s1_fs_all_lick_frs)), ...
     nanmean(cellfun(@nanmean, out.pfc_rs_all_lick_frs)), nanmean(cellfun(@nanmean, out.pfc_fs_all_lick_frs)), ...
@@ -4829,7 +4867,7 @@ errorbar([2,5,8,11,14,17], ...
     [ste(cellfun(@nanmean, out.s1_rs_all_lick_frs)), ste(cellfun(@nanmean, out.s1_fs_all_lick_frs)), ...
     ste(cellfun(@nanmean, out.pfc_rs_all_lick_frs)), ste(cellfun(@nanmean, out.pfc_fs_all_lick_frs)), ...
     ste(cellfun(@nanmean, out.striatum_rs_all_lick_frs)), ste(cellfun(@nanmean, out.striatum_fs_all_lick_frs))], ...
-    'k.')
+    'k.', 'CapSize', 10, 'MarkerSize', 10, 'LineWidth', 2)
 errorbar([1,4,7,10,13,16], ...
     [nanmean(cellfun(@nanmean, out.s1_rs_all_no_lick_frs)), nanmean(cellfun(@nanmean, out.s1_fs_all_no_lick_frs)), ...
     nanmean(cellfun(@nanmean, out.pfc_rs_all_no_lick_frs)), nanmean(cellfun(@nanmean, out.pfc_fs_all_no_lick_frs)), ...
@@ -4837,7 +4875,7 @@ errorbar([1,4,7,10,13,16], ...
     [ste(cellfun(@nanmean, out.s1_rs_all_no_lick_frs)), ste(cellfun(@nanmean, out.s1_fs_all_no_lick_frs)), ...
     ste(cellfun(@nanmean, out.pfc_rs_all_no_lick_frs)), ste(cellfun(@nanmean, out.pfc_fs_all_no_lick_frs)), ...
     ste(cellfun(@nanmean, out.striatum_rs_all_no_lick_frs)), ste(cellfun(@nanmean, out.striatum_fs_all_no_lick_frs))], ...
-    'k.')
+    'k.', 'CapSize', 10, 'MarkerSize', 10, 'LineWidth', 2)
 ylabel('Firing Rate (Hz)')
 xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5])
 xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
@@ -4847,16 +4885,54 @@ yticks([0, lims(2)])
 
 subplot(1,2,2)
 hold on 
-bar([2,5,8,11,14,17], ...
-    [nanmean(cellfun(@nanmean, out.S1_rs_all_lick_frs)), nanmean(cellfun(@nanmean, out.S1_fs_all_lick_frs)), ...
-    nanmean(cellfun(@nanmean, out.PFC_rs_all_lick_frs)), nanmean(cellfun(@nanmean, out.PFC_fs_all_lick_frs)), ...
-    nanmean(cellfun(@nanmean, out.Striatum_rs_all_lick_frs)), nanmean(cellfun(@nanmean, out.Striatum_fs_all_lick_frs))], 0.3, ...
-    'EdgeColor', 'k', 'FaceColor', 'b')
-bar([1,4,7,10,13,16], ...
-    [nanmean(cellfun(@nanmean, out.S1_rs_all_no_lick_frs)), nanmean(cellfun(@nanmean, out.S1_fs_all_no_lick_frs)), ...
-    nanmean(cellfun(@nanmean, out.PFC_rs_all_no_lick_frs)), nanmean(cellfun(@nanmean, out.PFC_fs_all_no_lick_frs)), ...
-    nanmean(cellfun(@nanmean, out.Striatum_rs_all_no_lick_frs)), nanmean(cellfun(@nanmean, out.Striatum_fs_all_no_lick_frs))], 0.3, ...
-    'EdgeColor', 'k', 'FaceColor', 'r')
+S1_rs_all_lick_frs = cellfun(@nanmean, out.S1_rs_all_lick_frs);
+S1_fs_all_lick_frs = cellfun(@nanmean, out.S1_fs_all_lick_frs);
+PFC_rs_all_lick_frs = cellfun(@nanmean, out.PFC_rs_all_lick_frs);
+PFC_fs_all_lick_frs = cellfun(@nanmean, out.PFC_fs_all_lick_frs);
+Striatum_rs_all_lick_frs = cellfun(@nanmean, out.Striatum_rs_all_lick_frs);
+Striatum_fs_all_lick_frs = cellfun(@nanmean, out.Striatum_fs_all_lick_frs);
+S1_rs_all_no_lick_frs = cellfun(@nanmean, out.S1_rs_all_no_lick_frs);
+S1_fs_all_no_lick_frs = cellfun(@nanmean, out.S1_fs_all_no_lick_frs);
+PFC_rs_all_no_lick_frs = cellfun(@nanmean, out.PFC_rs_all_no_lick_frs);
+PFC_fs_all_no_lick_frs = cellfun(@nanmean, out.PFC_fs_all_no_lick_frs);
+Striatum_rs_all_no_lick_frs = cellfun(@nanmean, out.Striatum_rs_all_no_lick_frs);
+Striatum_fs_all_no_lick_frs = cellfun(@nanmean, out.Striatum_fs_all_no_lick_frs);
+for i = 1:length(S1_rs_all_lick_frs)
+    x = (rand()-0.5) * 0.5;
+    plot(1+x, S1_rs_all_no_lick_frs(i), 'r.')
+    plot(2+x, S1_rs_all_lick_frs(i), 'b.')
+    plot([1,2]+x, [S1_rs_all_no_lick_frs(i), S1_rs_all_lick_frs(i)], '--', 'Color', [0.5, 0.5, 0.5], 'LineWidth', 0.1)
+end
+for i = 1:length(S1_fs_all_lick_frs)
+    x = (rand()-0.5) * 0.5;
+    plot(4+x, S1_fs_all_no_lick_frs(i), 'r.')
+    plot(5+x, S1_fs_all_lick_frs(i), 'b.')
+    plot([4,5]+x, [S1_fs_all_no_lick_frs(i), S1_fs_all_lick_frs(i)], '--', 'Color', [0.5, 0.5, 0.5], 'LineWidth', 0.1)
+end
+for i = 1:length(PFC_rs_all_lick_frs)
+    x = (rand()-0.5) * 0.5;
+    plot(7+x, PFC_rs_all_no_lick_frs(i), 'r.')
+    plot(8+x, PFC_rs_all_lick_frs(i), 'b.')
+    plot([7,8]+x, [PFC_rs_all_no_lick_frs(i), PFC_rs_all_lick_frs(i)], '--', 'Color', [0.5, 0.5, 0.5], 'LineWidth', 0.1)
+end
+for i = 1:length(PFC_fs_all_lick_frs)
+    x = (rand()-0.5) * 0.5;
+    plot(10+x, PFC_fs_all_no_lick_frs(i), 'r.')
+    plot(11+x, PFC_fs_all_lick_frs(i), 'b.')
+    plot([10,11]+x, [PFC_fs_all_no_lick_frs(i), PFC_fs_all_lick_frs(i)], '--', 'Color', [0.5, 0.5, 0.5], 'LineWidth', 0.1)
+end
+for i = 1:length(Striatum_rs_all_lick_frs)
+    x = (rand()-0.5) * 0.5;
+    plot(13+x, Striatum_rs_all_no_lick_frs(i), 'r.')
+    plot(14+x, Striatum_rs_all_lick_frs(i), 'b.')
+    plot([13,14]+x, [Striatum_rs_all_no_lick_frs(i), Striatum_rs_all_lick_frs(i)], '--', 'Color', [0.5, 0.5, 0.5], 'LineWidth', 0.1)
+end
+for i = 1:length(Striatum_fs_all_lick_frs)
+    x = (rand()-0.5) * 0.5;
+    plot(16+x, Striatum_fs_all_no_lick_frs(i), 'r.')
+    plot(17+x, Striatum_fs_all_lick_frs(i), 'b.')
+    plot([16,17]+x, [Striatum_fs_all_no_lick_frs(i), Striatum_fs_all_lick_frs(i)], '--', 'Color', [0.5, 0.5, 0.5], 'LineWidth', 0.1)
+end
 errorbar([2,5,8,11,14,17], ...
     [nanmean(cellfun(@nanmean, out.S1_rs_all_lick_frs)), nanmean(cellfun(@nanmean, out.S1_fs_all_lick_frs)), ...
     nanmean(cellfun(@nanmean, out.PFC_rs_all_lick_frs)), nanmean(cellfun(@nanmean, out.PFC_fs_all_lick_frs)), ...
@@ -4864,7 +4940,7 @@ errorbar([2,5,8,11,14,17], ...
     [ste(cellfun(@nanmean, out.S1_rs_all_lick_frs)), ste(cellfun(@nanmean, out.S1_fs_all_lick_frs)), ...
     ste(cellfun(@nanmean, out.PFC_rs_all_lick_frs)), ste(cellfun(@nanmean, out.PFC_fs_all_lick_frs)), ...
     ste(cellfun(@nanmean, out.Striatum_rs_all_lick_frs)), ste(cellfun(@nanmean, out.Striatum_fs_all_lick_frs))], ...
-    'k.')
+    'k.', 'CapSize', 10, 'MarkerSize', 10, 'LineWidth', 2)
 errorbar([1,4,7,10,13,16], ...
     [nanmean(cellfun(@nanmean, out.S1_rs_all_no_lick_frs)), nanmean(cellfun(@nanmean, out.S1_fs_all_no_lick_frs)), ...
     nanmean(cellfun(@nanmean, out.PFC_rs_all_no_lick_frs)), nanmean(cellfun(@nanmean, out.PFC_fs_all_no_lick_frs)), ...
@@ -4872,7 +4948,7 @@ errorbar([1,4,7,10,13,16], ...
     [ste(cellfun(@nanmean, out.S1_rs_all_no_lick_frs)), ste(cellfun(@nanmean, out.S1_fs_all_no_lick_frs)), ...
     ste(cellfun(@nanmean, out.PFC_rs_all_no_lick_frs)), ste(cellfun(@nanmean, out.PFC_fs_all_no_lick_frs)), ...
     ste(cellfun(@nanmean, out.Striatum_rs_all_no_lick_frs)), ste(cellfun(@nanmean, out.Striatum_fs_all_no_lick_frs))], ...
-    'k.')
+    'k.', 'CapSize', 10, 'MarkerSize', 10, 'LineWidth', 2)
 ylabel('Firing Rate (Hz)')
 xticks([1.5, 4.5, 7.5, 10.5, 13.5, 16.5])
 xticklabels({'S1 RS', 'S1 FS', 'PFC RS', 'PFC FS', 'Striatum RS', 'Striatum FS'})
