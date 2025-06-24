@@ -4973,3 +4973,16 @@ saveas(fig, 'tmp/lick_mod_unmod.png')
 * [2025-6-20 Fri] 
 ** svg issue fix 
 print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
+
+* [2025-6-24 Tue] 
+** TODOS 
+*** TODO: shuffle versions for lick / no-lick 
+*** TODO: filled dots for figure 1 
+*** TODO: add panel for aperiodic component to figure 2G
+*** TODO: add region labels to figure 2G 
+*** TODO: label y-limits for figure 3G 
+*** TODO: figure 4B fix */ns 
+*** TODO: double check 0% phase modulated per session fig 5A 
+*** TODO: double check significance  figure 6E 
+*** TODO: align E with A & B in figure 6 
+*** TODO: move A & B down in figure 7

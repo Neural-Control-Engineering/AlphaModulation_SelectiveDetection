@@ -9,9 +9,9 @@
    id="svg1"
    inkscape:version="1.4.2 (1:1.4.2+202505120738+ebf0e940d0)"
    sodipodi:docname="behavior_trim.svg"
-   inkscape:export-filename="behavior.pdf"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
+   inkscape:export-filename="behavior.png"
+   inkscape:export-xdpi="600"
+   inkscape:export-ydpi="600"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -28,7 +28,7 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.5839366"
-     inkscape:cx="151.52122"
+     inkscape:cx="151.83689"
      inkscape:cy="199.18727"
      inkscape:window-width="1850"
      inkscape:window-height="1136"
@@ -36,7 +36,8 @@
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
-     showguides="false" />
+     showguides="false"
+     inkscape:export-bgcolor="#ffffffea" />
   <defs
      id="defs1">
     <clipPath

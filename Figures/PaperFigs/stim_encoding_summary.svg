@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    xml:space="preserve"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.4.2 (1:1.4.2+202505120738+ebf0e940d0)"
    sodipodi:docname="stim_encoding_summary.svg"
    inkscape:export-filename="stim_encoding_summary.png"
    inkscape:export-xdpi="600"
@@ -28,16 +28,17 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showguides="false"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="465.27625"
-     inkscape:cy="427.09248"
-     inkscape:window-width="1920"
-     inkscape:window-height="1094"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
+     inkscape:zoom="1"
+     inkscape:cx="491.49999"
+     inkscape:cy="267.49999"
+     inkscape:window-width="1850"
+     inkscape:window-height="1136"
+     inkscape:window-x="1150"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
-     showgrid="false" /><defs
+     showgrid="false"
+     inkscape:export-bgcolor="#ffffffff" /><defs
      id="defs1"><clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath1"><path
@@ -3721,20 +3722,14 @@
          width="5"
          height="5"
          preserveAspectRatio="none"
-         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADZJREFU
-SIntzkERgDAABLED/57LawcJ/SQK8pzt7LL3dmCT+ElEIhKRiEQkIhGJSEQiEpGIRD7s4wI6XO+4
-PAAAAABJRU5ErkJggg==
-"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADZJREFU SIntzkERgDAABLED/57LawcJ/SQK8pzt7LL3dmCT+ElEIhKRiEQkIhGJSEQiEpGIRD7s4wI6XO+4 PAAAAABJRU5ErkJggg== "
          id="image1-79"
          x="5.0089207"
          y="21.473394" /><image
          width="5"
          height="5"
          preserveAspectRatio="none"
-         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADZJREFU
-SIntzkERgDAABLED/57LawcJ/SQK8mzn7LL3dmCT+ElEIhKRiEQkIhGJSEQiEpGIRD7q5QI6r7xz
-rwAAAABJRU5ErkJggg==
-"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADZJREFU SIntzkERgDAABLED/57LawcJ/SQK8mzn7LL3dmCT+ElEIhKRiEQkIhGJSEQiEpGIRD7q5QI6r7xz rwAAAABJRU5ErkJggg== "
          id="image1-6"
          x="4.9097004"
          y="15.024173" /><text
@@ -52879,30 +52874,21 @@ rwAAAABJRU5ErkJggg==
          width="2.5339174"
          height="2.5339174"
          preserveAspectRatio="none"
-         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADtJREFU
-SIntzkERgDAQALEDz2ipRVzAa6cS+kkU5HrX881h9+nAjMQmEYlIRCISkYhEJCIRiUhEIhL5AdXc
-Ay8p7t0TAAAAAElFTkSuQmCC
-"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADtJREFU SIntzkERgDAQALEDz2ipRVzAa6cS+kkU5HrX881h9+nAjMQmEYlIRCISkYhEJCIRiUhEIhL5AdXc Ay8p7t0TAAAAAElFTkSuQmCC "
          id="image1"
          x="88.999619"
          y="85.168938" /><image
          width="2.5339174"
          height="2.5339174"
          preserveAspectRatio="none"
-         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADpJREFU
-SIntzjEVgDAQQLED17isGHaY/quELomCXO96vjnsPh2YkdgkIhGJSEQiEpGIRCQiEYlIRCI/R2MD
-eHU0z2sAAAAASUVORK5CYII=
-"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADpJREFU SIntzjEVgDAQQLED17isGHaY/quELomCXO96vjnsPh2YkdgkIhGJSEQiEpGIRCQiEYlIRCI/R2MD eHU0z2sAAAAASUVORK5CYII= "
          id="image1-2"
          x="88.999619"
          y="88.358536" /><image
          width="2.5339174"
          height="2.5339174"
          preserveAspectRatio="none"
-         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADtJREFU
-SIntzkERgDAQALEDsYirIeTAa6cS+kkU5HrW+81h9+nAjMQmEYlIRCISkYhEJCIRiUhEIhL5AQp0
-AyLGcy1zAAAAAElFTkSuQmCC
-"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADtJREFU SIntzkERgDAQALEDsYirIeTAa6cS+kkU5HrW+81h9+nAjMQmEYlIRCISkYhEJCIRiUhEIhL5AQp0 AyLGcy1zAAAAAElFTkSuQmCC "
          id="image1-7"
          x="88.999619"
          y="82.053268" /><text
@@ -52961,20 +52947,14 @@ AyLGcy1zAAAAAElFTkSuQmCC
          width="5"
          height="5"
          preserveAspectRatio="none"
-         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADZJREFU
-SIntzkERgDAABLED/57LawcJ/SQK8pzt7LL3dmCT+ElEIhKRiEQkIhGJSEQiEpGIRD7s4wI6XO+4
-PAAAAABJRU5ErkJggg==
-"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADZJREFU SIntzkERgDAABLED/57LawcJ/SQK8pzt7LL3dmCT+ElEIhKRiEQkIhGJSEQiEpGIRD7s4wI6XO+4 PAAAAABJRU5ErkJggg== "
          id="image1-79-7"
          x="5.0089207"
          y="21.473394" /><image
          width="5"
          height="5"
          preserveAspectRatio="none"
-         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADZJREFU
-SIntzkERgDAABLED/57LawcJ/SQK8mzn7LL3dmCT+ElEIhKRiEQkIhGJSEQiEpGIRD7q5QI6r7xz
-rwAAAABJRU5ErkJggg==
-"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAeCAYAAACiyHcXAAAABHNCSVQICAgIfAhkiAAAADZJREFU SIntzkERgDAABLED/57LawcJ/SQK8mzn7LL3dmCT+ElEIhKRiEQkIhGJSEQiEpGIRD7q5QI6r7xz rwAAAABJRU5ErkJggg== "
          id="image1-6-3"
          x="4.9097004"
          y="15.024173" /><text

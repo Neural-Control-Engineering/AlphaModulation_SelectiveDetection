@@ -1718,7 +1718,8 @@ ax.YAxis.FontSize = 14;
 ax.XAxis.FontSize = 14;
 
 if out_path
-    saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.svg')
+    % saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.svg')
+    print(updated_fig,'-vector','-dsvg','../Figures/lowVsHighAlpha_summary.svg') % svg
     saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.fig')
     saveas(s1_rs_theta_fig, '../Figures/s1_rs_theta_low_vs_high.svg')
     saveas(s1_rs_theta_fig, '../Figures/s1_rs_theta_low_vs_high.fig')
