@@ -58,11 +58,11 @@ if run_bootstrap
                     tmp_ap(1,:).spiking_data{1}.quality, ...
                     tmp_ap(1,:).spiking_data{1}.template, tmp_ap(1,:).spiking_data{1}.template_amplitude, positions, ...
                     'VariableNames', {'session_id', 'cluster_id', 'quality', 'template', 'template_amplitude', 'position'});
-            tmp_session = lfpPhaseHistByOutcome(tmp_session, tmp_ap, tmp_slrt, {'left_trigger', 'right_trigger'});
+            tmp_session = lfpPhaseHists(tmp_session, tmp_ap, {'left_trigger', 'right_trigger'});
             % figure(); hist([tmp_session(ind, :).spon_alpha_spike_phases_hit{1}, tmp_session(ind, :).spon_alpha_spike_phases_cr{1}])
             for j = 1:size(alpha_modulated,1)
                 ind = find(tmp_ap(1,:).spiking_data{1}.cluster_id == alpha_modulated(j,:).cluster_id);
-                [p, ~] = circ_rtest([tmp_session(ind, :).spon_alpha_spike_phases_hit{1}, tmp_session(ind, :).spon_alpha_spike_phases_cr{1}]);
+                [p, ~] = circ_rtest(tmp_session(ind, :).spon_alpha_spike_phases{1});
                 shuff_p(j,i) = p;
             end
         end
