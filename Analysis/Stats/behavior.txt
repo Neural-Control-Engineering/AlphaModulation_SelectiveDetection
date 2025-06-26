@@ -1,5 +1,3 @@
-[Warning: Directory already exists.] 
-[> In behaviorPlots (line 6)] 
 Hit Rate vs FA Rate: Wilcoxon Signed Rank **p = 4.639297e-23
 Hit RT vs FA RT: Wilcoxon Signed Rank p = 6.007275e-01
 Mean d-prime: 2.277932e+00

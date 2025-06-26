@@ -31,10 +31,11 @@ hold on
 hr = ftrs.qc_hr;
 far = ftrs.qc_far;
 for h = 1:length(hr)
-    plot([1,2]+(rand()-0.5)*0.1, [hr(h), far(h)], 'o--', 'MarkerSize', 10, 'Color', [0.3, 0.3, 0.3])
+    plot([1,2]+(rand()-0.5)*0.1, [hr(h), far(h)], 'o', 'MarkerSize', 10, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+    plot([1,2]+(rand()-0.5)*0.1, [hr(h), far(h)], '--', 'Color', [0.3, 0.3, 0.3])
 end
-errorbar(1, mean(hr), std(hr) / sqrt(length(hr)), 'bo', 'MarkerSize', 3, 'MarkerFaceColor', 'b', 'LineWidth', 2)
-errorbar(2, mean(far), std(far) / sqrt(length(far)), 'bo', 'MarkerSize', 3, 'MarkerFaceColor', 'b', 'LineWidth', 2)
+errorbar(1, mean(hr), std(hr) / sqrt(length(hr)), 'bo', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', 'b', 'LineWidth', 2, 'CapSize', 20)
+errorbar(2, mean(far), std(far) / sqrt(length(far)), 'bo', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', 'b', 'LineWidth', 2, 'CapSize', 20)
 % plot(1, mean(hr), 'bo', 'MarkerSize', 8, 'MarkerFaceColor', 'b')
 % plot(2, mean(far), 'bo', 'MarkerSize', 8, 'MarkerFaceColor', 'b')
 % +(rand()-0.5)*0.1
@@ -61,10 +62,11 @@ end
 hold on 
 rt_by_outcome = cell2mat(ftrs.qc_rt_by_outcome)-0.2;
 for i = 1:size(rt_by_outcome,1)
-    plot([1,2]+(rand()-0.5)*0.1, rt_by_outcome(i,:), 'o--', 'MarkerSize', 10, 'Color', [0.3, 0.3, 0.3])
+    plot([1,2]+(rand()-0.5)*0.1, rt_by_outcome(i,:), 'o', 'MarkerSize', 10, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+    plot([1,2]+(rand()-0.5)*0.1, rt_by_outcome(i,:), '--', 'Color', [0.3, 0.3, 0.3])
 end
-errorbar(1, nanmean(rt_by_outcome(:,1)), nanstd(rt_by_outcome(:,1)) / sqrt(length(rt_by_outcome(:,1))), 'bo', 'MarkerSize', 3, 'MarkerFaceColor', 'b', 'LineWidth', 2)
-errorbar(2, nanmean(rt_by_outcome(:,2)), nanstd(rt_by_outcome(:,2)) / sqrt(length(rt_by_outcome(:,2))), 'bo', 'MarkerSize', 3, 'MarkerFaceColor', 'b', 'LineWidth', 2)
+errorbar(1, nanmean(rt_by_outcome(:,1)), nanstd(rt_by_outcome(:,1)) / sqrt(length(rt_by_outcome(:,1))), 'bo', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', 'b', 'LineWidth', 2, 'CapSize', 20)
+errorbar(2, nanmean(rt_by_outcome(:,2)), nanstd(rt_by_outcome(:,2)) / sqrt(length(rt_by_outcome(:,2))), 'bo', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', 'b', 'LineWidth', 2, 'CapSize', 20)
 % plot(1,mean(rt_by_outcome(:,1)), 'bo', 'MarkerFaceColor', 'b', 'MarkerSize', 8)
 % plot(2,mean(rt_by_outcome(:,2)), 'bo', 'MarkerFaceColor', 'b', 'MarkerSize', 8)
 xticks([1,2])

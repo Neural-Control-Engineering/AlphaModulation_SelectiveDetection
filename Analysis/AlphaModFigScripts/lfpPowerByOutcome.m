@@ -101,12 +101,18 @@ for f = 1:length(ftr_files)
     end
 end
 
+% ftr_files = {strcat(ftr_path, 'LFP/date--2024-11.5-20_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-11.5-19_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-11.5-18_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-11.5-17_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-11.5-16_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g1.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-11.5-16_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-11.5-15_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
 ftr_files = {strcat(ftr_path, 'LFP/date--2024-12-20_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'LFP/date--2024-12-19_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'LFP/date--2024-12-18_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'LFP/date--2024-12-17_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'LFP/date--2024-12-16_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g1.mat'), ...
-    strcat(ftr_path, 'LFP/date--2024-12-16_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'LFP/date--2024-12-15_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
 
 pfc_channel = 180;
@@ -126,31 +132,31 @@ tl = tiledlayout(4,4);
 axs(1) = nexttile;
 semshade(log10(s1_hit), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
 xlim([0,30])
-ylim([-11,-9])
-yticks([-11,-9])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 xticklabels({})
 title('Hit', 'FontSize', 14, 'FontWeight', 'normal')
 ylabel('S1', 'FontSize', 14)
 axs(2) = nexttile;
 semshade(log10(s1_miss), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11,-9])
-yticks([-11,-9])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 xticklabels({})
 yticklabels({})
 title('Miss', 'FontSize', 14, 'FontWeight', 'normal')
 axs(3) = nexttile;
 semshade(log10(s1_cr), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
 xlim([0,30])
-ylim([-11,-9])
-yticks([-11,-9])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 xticklabels({})
 yticklabels({})
 title('Correct Rejection', 'FontSize', 14, 'FontWeight', 'normal')
 axs(4) = nexttile;
 semshade(log10(s1_fa), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1});
-ylim([-11,-9])
-yticks([-11,-9])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 xlim([0,30])
 xticklabels({})
 yticklabels({})
@@ -159,57 +165,57 @@ title('False Alarm', 'FontSize', 14, 'FontWeight', 'normal')
 axs(5) = nexttile;
 semshade(log10(pfc_hit), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
 xlim([0,30])
-ylim([-11,-8])
-yticks([-11,-8])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 xticklabels({})
 ylabel('PFC', 'FontSize', 14)
 axs(6) = nexttile;
 semshade(log10(pfc_miss), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11,-8])
-yticks([-11,-8])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 xticklabels({})
 yticklabels({})
 axs(7) = nexttile;
 semshade(log10(pfc_cr), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
 xlim([0,30])
-ylim([-11,-8])
-yticks([-11,-8])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 xticklabels({})
 yticklabels({})
 axs(8) = nexttile;
 semshade(log10(pfc_fa), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11,-8])
-yticks([-11,-8])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 xticklabels({})
 yticklabels({})
 
 axs(9) = nexttile;
 semshade(log10(striatum_hit), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
 xlim([0,30])
-ylim([-11,-9])
-yticks([-11,-9])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 xticklabels({})
 ylabel('Striatum', 'FontSize', 14)
 axs(10) = nexttile;
 semshade(log10(striatum_miss), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11,-9])
-yticks([-11,-9])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 xticklabels({})
 yticklabels({})
 axs(11) = nexttile;
 semshade(log10(striatum_cr), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
 xlim([0,30])
-ylim([-11,-9])
-yticks([-11,-9])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 xticklabels({})
 yticklabels({})
 axs(12) = nexttile;
 semshade(log10(striatum_fa), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1});
-ylim([-11,-9])
-yticks([-11,-9])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 xlim([0,30])
 xticklabels({})
 yticklabels({})
@@ -217,25 +223,25 @@ yticklabels({})
 axs(13) = nexttile;
 semshade(log10(amygdala_hit), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
 xlim([0,30])
-ylim([-11,-9])
-yticks([-11,-9])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 ylabel('Amygdala', 'FontSize', 14)
 axs(14) = nexttile;
 semshade(log10(amygdala_miss), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11,-9])
-yticks([-11,-9])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 yticklabels({})
 axs(15) = nexttile;
 semshade(log10(amygdala_cr), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
 xlim([0,30])
-ylim([-11,-9])
-yticks([-11,-9])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 yticklabels({})
 axs(16) = nexttile;
 semshade(log10(amygdala_fa), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1});
-ylim([-11,-9])
-yticks([-11,-9])
+ylim([-11.5,-8])
+yticks([-11.5,-8])
 xlim([0,30])
 yticklabels({})
 xlabel(tl, 'Frequency (Hz)', 'FontSize', 14)
@@ -328,35 +334,57 @@ end
 % mat = [pparams_hit(:,3), pparams_miss(:,3), pparams_cr(:,3), pparams_fa(:,3)];
 % anova1(mat)
 
-figure('Position', [1461 983 661 659]);
-tl = tiledlayout(4,3);
-% axs(1,1) = nexttile;
-% avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
-%     mean(DF_specs_miss.aperiodic_params(:,1)), ...
-%     mean(DF_specs_cr.aperiodic_params(:,1)), ...
-%     mean(DF_specs_fa.aperiodic_params(:,1))];
-% err = [std(DF_specs_hit.aperiodic_params(:,1)) / sqrt(size(DF_specs_hit,1)), ...
-%     std(DF_specs_miss.aperiodic_params(:,1)) / sqrt(size(DF_specs_miss,1)), ...
-%     std(DF_specs_cr.aperiodic_params(:,1)) / sqrt(size(DF_specs_cr,1)), ...
-%     std(DF_specs_fa.aperiodic_params(:,1)) / sqrt(size(DF_specs_fa,1))];
-% hold on 
-% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-% errorbar(1:4, avg, err, 'k.')
-
-% axs(1,2) = nexttile;
-% avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
-%     mean(DF_specs_miss.aperiodic_params(:,2)), ...
-%     mean(DF_specs_cr.aperiodic_params(:,2)), ...
-%     mean(DF_specs_fa.aperiodic_params(:,2))];
-% err = [std(DF_specs_hit.aperiodic_params(:,2)) / sqrt(size(DF_specs_hit,1)), ...
-%     std(DF_specs_miss.aperiodic_params(:,2)) / sqrt(size(DF_specs_miss,1)), ...
-%     std(DF_specs_cr.aperiodic_params(:,2)) / sqrt(size(DF_specs_cr,1)), ...
-%     std(DF_specs_fa.aperiodic_params(:,2)) / sqrt(size(DF_specs_fa,1))];
-% hold on 
-% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-% errorbar(1:4, avg, err, 'k.')
-
+period_fig = figure('Position', [1475 745 1316 978]);
+tl = tiledlayout(4,5);
 axs(1,1) = nexttile;
+hold on
+avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
+    mean(DF_specs_miss.aperiodic_params(:,1)), ...
+    mean(DF_specs_cr.aperiodic_params(:,1)), ...
+    mean(DF_specs_fa.aperiodic_params(:,1))];
+err = [std(DF_specs_hit.aperiodic_params(:,1)) / sqrt(size(DF_specs_hit,1)), ...
+    std(DF_specs_miss.aperiodic_params(:,1)) / sqrt(size(DF_specs_miss,1)), ...
+    std(DF_specs_cr.aperiodic_params(:,1)) / sqrt(size(DF_specs_cr,1)), ...
+    std(DF_specs_fa.aperiodic_params(:,1)) / sqrt(size(DF_specs_fa,1))];
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_hit.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_miss.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_cr.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_fa.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
+xlim([0.5,4.5])
+xticks([])
+ylim([-10,-4])
+yticks([-10,-4])
+
+axs(1,2) = nexttile;
+avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
+    mean(DF_specs_miss.aperiodic_params(:,2)), ...
+    mean(DF_specs_cr.aperiodic_params(:,2)), ...
+    mean(DF_specs_fa.aperiodic_params(:,2))];
+err = [std(DF_specs_hit.aperiodic_params(:,2)) / sqrt(size(DF_specs_hit,1)), ...
+    std(DF_specs_miss.aperiodic_params(:,2)) / sqrt(size(DF_specs_miss,1)), ...
+    std(DF_specs_cr.aperiodic_params(:,2)) / sqrt(size(DF_specs_cr,1)), ...
+    std(DF_specs_fa.aperiodic_params(:,2)) / sqrt(size(DF_specs_fa,1))];
+hold on 
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_hit.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_miss.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_cr.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_fa.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
+xlim([0.5,4.5])
+xticks([])
+ylim([0,2])
+yticks([0,2])
+
+axs(1,3) = nexttile;
 avg = [mean(pparams_hit(:,1)), ...
     mean(pparams_miss(:,1)), ...
     mean(pparams_cr(:,1)), ...
@@ -366,15 +394,23 @@ err = [std(pparams_hit(:,1)) / sqrt(size(pparams_hit,1)), ...
     std(pparams_cr(:,1)) / sqrt(size(pparams_cr,1)), ...
     std(pparams_fa(:,1)) / sqrt(size(pparams_fa,1))];
 hold on 
-bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-errorbar(1:4, avg, err, 'k.')
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_hit(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_miss(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_cr(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_fa(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
 ylim([0,20])
 yticks([0,20])
-ylabel('Peak Frequency (Hz)')
+xlim([0.5,4.5])
+% ylabel('Peak Frequency (Hz)')
 
-axs(1,2) = nexttile;
+axs(1,4) = nexttile;
 avg = [mean(pparams_hit(:,2)), ...
     mean(pparams_miss(:,2)), ...
     mean(pparams_cr(:,2)), ...
@@ -384,15 +420,23 @@ err = [std(pparams_hit(:,2)) / sqrt(size(pparams_hit,1)), ...
     std(pparams_cr(:,2)) / sqrt(size(pparams_cr,1)), ...
     std(pparams_fa(:,2)) / sqrt(size(pparams_fa,1))];
 hold on 
-bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-errorbar(1:4, avg, err, 'k.')
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_hit(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_miss(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_cr(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_fa(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
 ylim([0,0.8])
 yticks([0,0.8])
-ylabel('Relative Power (a.u.)')
+xlim([0.5,4.5])
+% ylabel('Relative Power (a.u.)')
 
-axs(1,3) = nexttile;
+axs(1,5) = nexttile;
 avg = [mean(pparams_hit(:,3)), ...
     mean(pparams_miss(:,3)), ...
     mean(pparams_cr(:,3)), ...
@@ -402,13 +446,21 @@ err = [std(pparams_hit(:,3)) / sqrt(size(pparams_hit,1)), ...
     std(pparams_cr(:,3)) / sqrt(size(pparams_cr,1)), ...
     std(pparams_fa(:,3)) / sqrt(size(pparams_fa,1))];
 hold on 
-bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-errorbar(1:4, avg, err, 'k.')
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_hit(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_miss(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_cr(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_fa(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
 ylim([0,8])
 yticks([0,8])
-ylabel('Bandwidth (Hz)')
+xlim([0.5,4.5])
+% ylabel('Bandwidth (Hz)')
 
 mat = pfc_hit;
 DF_chg = struct();
@@ -493,33 +545,55 @@ end
 % mat(:,4) = pparams_fa(:,3);
 % anova1(mat)
 
-% axs(2,1) = nexttile;
-% avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
-%     mean(DF_specs_miss.aperiodic_params(:,1)), ...
-%     mean(DF_specs_cr.aperiodic_params(:,1)), ...
-%     mean(DF_specs_fa.aperiodic_params(:,1))];
-% err = [std(DF_specs_hit.aperiodic_params(:,1)) / sqrt(size(DF_specs_hit,1)), ...
-%     std(DF_specs_miss.aperiodic_params(:,1)) / sqrt(size(DF_specs_miss,1)), ...
-%     std(DF_specs_cr.aperiodic_params(:,1)) / sqrt(size(DF_specs_cr,1)), ...
-%     std(DF_specs_fa.aperiodic_params(:,1)) / sqrt(size(DF_specs_fa,1))];
-% hold on 
-% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-% errorbar(1:4, avg, err, 'k.')
-
-% axs(2,2) = nexttile;
-% avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
-%     mean(DF_specs_miss.aperiodic_params(:,2)), ...
-%     mean(DF_specs_cr.aperiodic_params(:,2)), ...
-%     mean(DF_specs_fa.aperiodic_params(:,2))];
-% err = [std(DF_specs_hit.aperiodic_params(:,2)) / sqrt(size(DF_specs_hit,1)), ...
-%     std(DF_specs_miss.aperiodic_params(:,2)) / sqrt(size(DF_specs_miss,1)), ...
-%     std(DF_specs_cr.aperiodic_params(:,2)) / sqrt(size(DF_specs_cr,1)), ...
-%     std(DF_specs_fa.aperiodic_params(:,2)) / sqrt(size(DF_specs_fa,1))];
-% hold on 
-% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-% errorbar(1:4, avg, err, 'k.')
-
 axs(2,1) = nexttile;
+avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
+    mean(DF_specs_miss.aperiodic_params(:,1)), ...
+    mean(DF_specs_cr.aperiodic_params(:,1)), ...
+    mean(DF_specs_fa.aperiodic_params(:,1))];
+err = [std(DF_specs_hit.aperiodic_params(:,1)) / sqrt(size(DF_specs_hit,1)), ...
+    std(DF_specs_miss.aperiodic_params(:,1)) / sqrt(size(DF_specs_miss,1)), ...
+    std(DF_specs_cr.aperiodic_params(:,1)) / sqrt(size(DF_specs_cr,1)), ...
+    std(DF_specs_fa.aperiodic_params(:,1)) / sqrt(size(DF_specs_fa,1))];
+hold on 
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_hit.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_miss.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_cr.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_fa.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
+xlim([0.5,4.5])
+xticks([])
+ylim([-10,-4])
+yticks([-10,-4])
+
+axs(2,2) = nexttile;
+avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
+    mean(DF_specs_miss.aperiodic_params(:,2)), ...
+    mean(DF_specs_cr.aperiodic_params(:,2)), ...
+    mean(DF_specs_fa.aperiodic_params(:,2))];
+err = [std(DF_specs_hit.aperiodic_params(:,2)) / sqrt(size(DF_specs_hit,1)), ...
+    std(DF_specs_miss.aperiodic_params(:,2)) / sqrt(size(DF_specs_miss,1)), ...
+    std(DF_specs_cr.aperiodic_params(:,2)) / sqrt(size(DF_specs_cr,1)), ...
+    std(DF_specs_fa.aperiodic_params(:,2)) / sqrt(size(DF_specs_fa,1))];
+hold on 
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_hit.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_miss.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_cr.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_fa.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
+xlim([0.5,4.5])
+xticks([])
+ylim([0,2])
+yticks([0,2])
+
+axs(2,3) = nexttile;
 avg = [mean(pparams_hit(:,1)), ...
     mean(pparams_miss(:,1)), ...
     mean(pparams_cr(:,1)), ...
@@ -529,15 +603,23 @@ err = [std(pparams_hit(:,1)) / sqrt(size(pparams_hit,1)), ...
     std(pparams_cr(:,1)) / sqrt(size(pparams_cr,1)), ...
     std(pparams_fa(:,1)) / sqrt(size(pparams_fa,1))];
 hold on 
-bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-errorbar(1:4, avg, err, 'k.')
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_hit(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_miss(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_cr(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_fa(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
 ylim([0,20])
 yticks([0,20])
-ylabel('Peak Frequency (Hz)')
+xlim([0.5,4.5])
+% ylabel('Peak Frequency (Hz)')
 
-axs(2,2) = nexttile;
+axs(2,4) = nexttile;
 avg = [mean(pparams_hit(:,2)), ...
     mean(pparams_miss(:,2)), ...
     mean(pparams_cr(:,2)), ...
@@ -547,16 +629,24 @@ err = [std(pparams_hit(:,2)) / sqrt(size(pparams_hit,1)), ...
     std(pparams_cr(:,2)) / sqrt(size(pparams_cr,1)), ...
     std(pparams_fa(:,2)) / sqrt(size(pparams_fa,1))];
 hold on 
-bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-errorbar(1:4, avg, err, 'k.')
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_hit(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_miss(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_cr(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_fa(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
 ylim([0,0.8])
 yticks([0,0.8])
-ylabel('Relative Power (a.u.)')
+xlim([0.5,4.5])
+% ylabel('Relative Power (a.u.)')
 
 
-axs(2,3) = nexttile;
+axs(2,5) = nexttile;
 avg = [mean(pparams_hit(:,3)), ...
     mean(pparams_miss(:,3)), ...
     mean(pparams_cr(:,3)), ...
@@ -566,13 +656,21 @@ err = [std(pparams_hit(:,3)) / sqrt(size(pparams_hit,1)), ...
     std(pparams_cr(:,3)) / sqrt(size(pparams_cr,1)), ...
     std(pparams_fa(:,3)) / sqrt(size(pparams_fa,1))];
 hold on 
-bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-errorbar(1:4, avg, err, 'k.')
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_hit(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_miss(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_cr(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_fa(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
 ylim([0,8])
 yticks([0,8])
-ylabel('Bandwidth (Hz)')
+xlim([0.5,4.5])
+% ylabel('Bandwidth (Hz)')
 
 mat = striatum_hit;
 DF_chg = struct();
@@ -645,33 +743,56 @@ end
 % mat = [pparams_hit(:,3), pparams_miss(:,3), pparams_cr(:,3), pparams_fa(:,3)];
 % anova1(mat)
 
-% axs(3,1) = nexttile;
-% avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
-%     mean(DF_specs_miss.aperiodic_params(:,1)), ...
-%     mean(DF_specs_cr.aperiodic_params(:,1)), ...
-%     mean(DF_specs_fa.aperiodic_params(:,1))];
-% err = [std(DF_specs_hit.aperiodic_params(:,1)) / sqrt(size(DF_specs_hit,1)), ...
-%     std(DF_specs_miss.aperiodic_params(:,1)) / sqrt(size(DF_specs_miss,1)), ...
-%     std(DF_specs_cr.aperiodic_params(:,1)) / sqrt(size(DF_specs_cr,1)), ...
-%     std(DF_specs_fa.aperiodic_params(:,1)) / sqrt(size(DF_specs_fa,1))];
-% hold on 
-% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-% errorbar(1:4, avg, err, 'k.')
-
-% axs(3,2) = nexttile;
-% avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
-%     mean(DF_specs_miss.aperiodic_params(:,2)), ...
-%     mean(DF_specs_cr.aperiodic_params(:,2)), ...
-%     mean(DF_specs_fa.aperiodic_params(:,2))];
-% err = [std(DF_specs_hit.aperiodic_params(:,2)) / sqrt(size(DF_specs_hit,1)), ...
-%     std(DF_specs_miss.aperiodic_params(:,2)) / sqrt(size(DF_specs_miss,1)), ...
-%     std(DF_specs_cr.aperiodic_params(:,2)) / sqrt(size(DF_specs_cr,1)), ...
-%     std(DF_specs_fa.aperiodic_params(:,2)) / sqrt(size(DF_specs_fa,1))];
-% hold on 
-% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-% errorbar(1:4, avg, err, 'k.')
-
 axs(3,1) = nexttile;
+avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
+    mean(DF_specs_miss.aperiodic_params(:,1)), ...
+    mean(DF_specs_cr.aperiodic_params(:,1)), ...
+    mean(DF_specs_fa.aperiodic_params(:,1))];
+err = [std(DF_specs_hit.aperiodic_params(:,1)) / sqrt(size(DF_specs_hit,1)), ...
+    std(DF_specs_miss.aperiodic_params(:,1)) / sqrt(size(DF_specs_miss,1)), ...
+    std(DF_specs_cr.aperiodic_params(:,1)) / sqrt(size(DF_specs_cr,1)), ...
+    std(DF_specs_fa.aperiodic_params(:,1)) / sqrt(size(DF_specs_fa,1))];
+hold on 
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_hit.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_miss.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_cr.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_fa.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
+xlim([0.5,4.5])
+xticks([])
+ylim([-10,-4])
+yticks([-10,-4])
+
+axs(3,2) = nexttile;
+avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
+    mean(DF_specs_miss.aperiodic_params(:,2)), ...
+    mean(DF_specs_cr.aperiodic_params(:,2)), ...
+    mean(DF_specs_fa.aperiodic_params(:,2))];
+err = [std(DF_specs_hit.aperiodic_params(:,2)) / sqrt(size(DF_specs_hit,1)), ...
+    std(DF_specs_miss.aperiodic_params(:,2)) / sqrt(size(DF_specs_miss,1)), ...
+    std(DF_specs_cr.aperiodic_params(:,2)) / sqrt(size(DF_specs_cr,1)), ...
+    std(DF_specs_fa.aperiodic_params(:,2)) / sqrt(size(DF_specs_fa,1))];
+hold on 
+hold on 
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_hit.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_miss.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_cr.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_fa.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
+xlim([0.5,4.5])
+xticks([])
+ylim([0,2])
+yticks([0,2])
+
+axs(3,3) = nexttile;
 avg = [mean(pparams_hit(:,1)), ...
     mean(pparams_miss(:,1)), ...
     mean(pparams_cr(:,1)), ...
@@ -681,15 +802,23 @@ err = [std(pparams_hit(:,1)) / sqrt(size(pparams_hit,1)), ...
     std(pparams_cr(:,1)) / sqrt(size(pparams_cr,1)), ...
     std(pparams_fa(:,1)) / sqrt(size(pparams_fa,1))];
 hold on 
-bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-errorbar(1:4, avg, err, 'k.')
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_hit(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_miss(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_cr(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_fa(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
 ylim([0,20])
+xlim([0.5,4.5])
 yticks([0,20])
-ylabel('Peak Frequency (Hz)')
+% ylabel('Peak Frequency (Hz)')
 
-axs(3,2) = nexttile;
+axs(3,4) = nexttile;
 avg = [mean(pparams_hit(:,2)), ...
     mean(pparams_miss(:,2)), ...
     mean(pparams_cr(:,2)), ...
@@ -699,15 +828,23 @@ err = [std(pparams_hit(:,2)) / sqrt(size(pparams_hit,1)), ...
     std(pparams_cr(:,2)) / sqrt(size(pparams_cr,1)), ...
     std(pparams_fa(:,2)) / sqrt(size(pparams_fa,1))];
 hold on 
-bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-errorbar(1:4, avg, err, 'k.')
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_hit(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_miss(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_cr(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_fa(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
 ylim([0,0.8])
 yticks([0,0.8])
-ylabel('Relative Power (a.u.)')
+xlim([0.5,4.5])
+% ylabel('Relative Power (a.u.)')
 
-axs(3,3) = nexttile;
+axs(3,5) = nexttile;
 avg = [mean(pparams_hit(:,3)), ...
     mean(pparams_miss(:,3)), ...
     mean(pparams_cr(:,3)), ...
@@ -717,13 +854,21 @@ err = [std(pparams_hit(:,3)) / sqrt(size(pparams_hit,1)), ...
     std(pparams_cr(:,3)) / sqrt(size(pparams_cr,1)), ...
     std(pparams_fa(:,3)) / sqrt(size(pparams_fa,1))];
 hold on 
-bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-errorbar(1:4, avg, err, 'k.')
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_hit(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_miss(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_cr(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_fa(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
 ylim([0,8])
 yticks([0,8])
-ylabel('Bandwidth (Hz)')
+xlim([0.5,4.5])
+% ylabel('Bandwidth (Hz)')
 
 mat = amygdala_hit;
 DF_chg = struct();
@@ -796,33 +941,57 @@ end
 % mat = [pparams_hit(:,3), pparams_miss(:,3), pparams_cr(:,3), pparams_fa(:,3)];
 % anova1(mat)
 
-% axs(4,1) = nexttile;
-% avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
-%     mean(DF_specs_miss.aperiodic_params(:,1)), ...
-%     mean(DF_specs_cr.aperiodic_params(:,1)), ...
-%     mean(DF_specs_fa.aperiodic_params(:,1))];
-% err = [std(DF_specs_hit.aperiodic_params(:,1)) / sqrt(size(DF_specs_hit,1)), ...
-%     std(DF_specs_miss.aperiodic_params(:,1)) / sqrt(size(DF_specs_miss,1)), ...
-%     std(DF_specs_cr.aperiodic_params(:,1)) / sqrt(size(DF_specs_cr,1)), ...
-%     std(DF_specs_fa.aperiodic_params(:,1)) / sqrt(size(DF_specs_fa,1))];
-% hold on 
-% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-% errorbar(1:4, avg, err, 'k.')
-
-% axs(4,2) = nexttile;
-% avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
-%     mean(DF_specs_miss.aperiodic_params(:,2)), ...
-%     mean(DF_specs_cr.aperiodic_params(:,2)), ...
-%     mean(DF_specs_fa.aperiodic_params(:,2))];
-% err = [std(DF_specs_hit.aperiodic_params(:,2)) / sqrt(size(DF_specs_hit,1)), ...
-%     std(DF_specs_miss.aperiodic_params(:,2)) / sqrt(size(DF_specs_miss,1)), ...
-%     std(DF_specs_cr.aperiodic_params(:,2)) / sqrt(size(DF_specs_cr,1)), ...
-%     std(DF_specs_fa.aperiodic_params(:,2)) / sqrt(size(DF_specs_fa,1))];
-% hold on 
-% bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-% errorbar(1:4, avg, err, 'k.')
-
 axs(4,1) = nexttile;
+avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
+    mean(DF_specs_miss.aperiodic_params(:,1)), ...
+    mean(DF_specs_cr.aperiodic_params(:,1)), ...
+    mean(DF_specs_fa.aperiodic_params(:,1))];
+err = [std(DF_specs_hit.aperiodic_params(:,1)) / sqrt(size(DF_specs_hit,1)), ...
+    std(DF_specs_miss.aperiodic_params(:,1)) / sqrt(size(DF_specs_miss,1)), ...
+    std(DF_specs_cr.aperiodic_params(:,1)) / sqrt(size(DF_specs_cr,1)), ...
+    std(DF_specs_fa.aperiodic_params(:,1)) / sqrt(size(DF_specs_fa,1))];
+hold on 
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_hit.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_miss.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_cr.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_fa.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
+xlim([0.5,4.5])
+xticks(1:4)
+xticklabels({'Hit','Miss','CR','FA'})
+ylim([-10,-4])
+yticks([-10,-4])
+
+axs(4,2) = nexttile;
+avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
+    mean(DF_specs_miss.aperiodic_params(:,2)), ...
+    mean(DF_specs_cr.aperiodic_params(:,2)), ...
+    mean(DF_specs_fa.aperiodic_params(:,2))];
+err = [std(DF_specs_hit.aperiodic_params(:,2)) / sqrt(size(DF_specs_hit,1)), ...
+    std(DF_specs_miss.aperiodic_params(:,2)) / sqrt(size(DF_specs_miss,1)), ...
+    std(DF_specs_cr.aperiodic_params(:,2)) / sqrt(size(DF_specs_cr,1)), ...
+    std(DF_specs_fa.aperiodic_params(:,2)) / sqrt(size(DF_specs_fa,1))];
+hold on 
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_hit.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_miss.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_cr.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    DF_specs_fa.aperiodic_params(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
+xlim([0.5,4.5])
+xticks(1:4)
+xticklabels({'Hit','Miss','CR','FA'})
+ylim([0,2])
+yticks([0,2])
+
+axs(4,3) = nexttile;
 avg = [mean(pparams_hit(:,1)), ...
     mean(pparams_miss(:,1)), ...
     mean(pparams_cr(:,1)), ...
@@ -832,15 +1001,23 @@ err = [std(pparams_hit(:,1)) / sqrt(size(pparams_hit,1)), ...
     std(pparams_cr(:,1)) / sqrt(size(pparams_cr,1)), ...
     std(pparams_fa(:,1)) / sqrt(size(pparams_fa,1))];
 hold on 
-bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-errorbar(1:4, avg, err, 'k.')
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_hit(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_miss(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_cr(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_fa(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'Hit','Miss','CR','FA'})
 ylim([0,20])
 yticks([0,20])
-ylabel('Peak Frequency (Hz)')
+xlim([0.5,4.5])
+% ylabel('Peak Frequency (Hz)')
 
-axs(4,2) = nexttile;
+axs(4,4) = nexttile;
 avg = [mean(pparams_hit(:,2)), ...
     mean(pparams_miss(:,2)), ...
     mean(pparams_cr(:,2)), ...
@@ -850,15 +1027,23 @@ err = [std(pparams_hit(:,2)) / sqrt(size(pparams_hit,1)), ...
     std(pparams_cr(:,2)) / sqrt(size(pparams_cr,1)), ...
     std(pparams_fa(:,2)) / sqrt(size(pparams_fa,1))];
 hold on 
-bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-errorbar(1:4, avg, err, 'k.')
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_hit(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_miss(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_cr(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_fa(:,2), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'Hit','Miss','CR','FA'})
 ylim([0,0.8])
 yticks([0,0.8])
-ylabel('Relative Power (a.u.)')
+xlim([0.5,4.5])
+% ylabel('Relative Power (a.u.)')
 
-axs(4,3) = nexttile;
+axs(4,5) = nexttile;
 avg = [mean(pparams_hit(:,3)), ...
     mean(pparams_miss(:,3)), ...
     mean(pparams_cr(:,3)), ...
@@ -868,10 +1053,23 @@ err = [std(pparams_hit(:,3)) / sqrt(size(pparams_hit,1)), ...
     std(pparams_cr(:,3)) / sqrt(size(pparams_cr,1)), ...
     std(pparams_fa(:,3)) / sqrt(size(pparams_fa,1))];
 hold on 
-bar(1:4, avg, 'EdgeColor', [0.5, 0.5, 0.5], 'FaceColor', [0.5, 0.5,0.5])
-errorbar(1:4, avg, err, 'k.')
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+1+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_hit(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+2+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_miss(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+3+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_cr(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.aperiodic_params,1))-0.5)*0.3, ...
+    pparams_fa(:,3), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'Hit','Miss','CR','FA'})
 ylim([0,8])
+xlim([0.5,4.5])
 yticks([0,8])
-ylabel('Bandwidth (Hz)')
+% ylabel('Bandwidth (Hz)')
+
+if out_path
+    saveas(period_fig, '../Figures/periodic_aperiodic.fig')
+    saveas(period_fig, '../Figures/periodic_aperiodic.svg')
+end
