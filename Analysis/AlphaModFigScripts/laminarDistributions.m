@@ -1,4 +1,4 @@
-out_path = true;
+out_path = false; %true;
 delete Stats/laminar_distributions.txt 
 diary Stats/laminar_distributions.txt 
 init_paths;
@@ -2135,30 +2135,31 @@ rs_avg = [nanmean(s1_l1_rs_frac), nanmean(s1_l2_rs_frac), nanmean(s1_l4_rs_frac)
 fs_avg = [nanmean(s1_l1_fs_frac), nanmean(s1_l2_fs_frac), nanmean(s1_l4_fs_frac), nanmean(s1_l5_fs_frac), nanmean(s1_l6_fs_frac)];
 rs_err = [nanstd(s1_l1_rs_frac)/sqrt(sum(~isnan(s1_l1_rs_frac))), nanstd(s1_l2_rs_frac)/sqrt(sum(~isnan(s1_l2_rs_frac))), nanstd(s1_l4_rs_frac)/sqrt(sum(~isnan(s1_l4_rs_frac))), nanstd(s1_l5_rs_frac)/sqrt(sum(~isnan(s1_l5_rs_frac))), nanstd(s1_l6_rs_frac)/sqrt(sum(~isnan(s1_l6_rs_frac)))];
 fs_err = [nanstd(s1_l1_fs_frac)/sqrt(sum(~isnan(s1_l1_fs_frac))), nanstd(s1_l2_fs_frac)/sqrt(sum(~isnan(s1_l2_fs_frac))), nanstd(s1_l4_fs_frac)/sqrt(sum(~isnan(s1_l4_fs_frac))), nanstd(s1_l5_fs_frac)/sqrt(sum(~isnan(s1_l5_fs_frac))), nanstd(s1_l6_fs_frac)/sqrt(sum(~isnan(s1_l6_fs_frac)))];
+axs = zeros(1,12);
 axs(1) = nexttile;
 hold on
 % barh(1:5, fliplr(rs_avg) .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 for i = 1:length(s1_l1_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l1_rs_frac(i) * 100, 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    plot(s1_l1_rs_frac(i) * 100, 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l2_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l2_rs_frac(i) * 100, 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    plot(s1_l2_rs_frac(i) * 100, 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l4_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l4_rs_frac(i) * 100, 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    plot(s1_l4_rs_frac(i) * 100, 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l5_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l5_rs_frac(i) * 100, 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    plot(s1_l5_rs_frac(i) * 100, 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l6_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l6_rs_frac(i) * 100, 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    plot(s1_l6_rs_frac(i) * 100, 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
-errorbar(fliplr(rs_avg) .* 100, 1:5, fliplr(rs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+errorbar(fliplr(rs_avg) .* 100, 1:5, fliplr(rs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
 yticks(1:5)
 yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
 ylim([0.5,5.5])
@@ -2177,34 +2178,34 @@ hold on
 for i = 1:length(s1_l1_fs_frac)
     if ~isnan(s1_l1_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(s1_l1_fs_frac(i) * 100, 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+        plot(s1_l1_fs_frac(i) * 100, 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
     end
 end
 for i = 1:length(s1_l2_fs_frac)
     if ~isnan(s1_l2_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(s1_l2_fs_frac(i) * 100, 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+        plot(s1_l2_fs_frac(i) * 100, 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
     end
 end
 for i = 1:length(s1_l4_fs_frac)
     if ~isnan(s1_l4_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(s1_l4_fs_frac(i) * 100, 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+        plot(s1_l4_fs_frac(i) * 100, 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
     end
 end
 for i = 1:length(s1_l5_fs_frac)
     if ~isnan(s1_l5_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(s1_l5_fs_frac(i) * 100, 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+        plot(s1_l5_fs_frac(i) * 100, 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
     end
 end
 for i = 1:length(s1_l6_fs_frac)
     if ~isnan(s1_l6_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(s1_l6_fs_frac(i) * 100, 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+        plot(s1_l6_fs_frac(i) * 100, 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
     end
 end
-errorbar(fliplr(fs_avg) .* 100, 1:5, fliplr(fs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+errorbar(fliplr(fs_avg) .* 100, 1:5, fliplr(fs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
 yticks(1:5)
 yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
 ylim([0.5,5.5])
@@ -2225,25 +2226,25 @@ hold on
 % barh(1:5, fliplr(rs_avg) .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 for i = 1:length(ac_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(ac_rs_frac(i) * 100, 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    plot(ac_rs_frac(i) * 100, 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(pl_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(pl_rs_frac(i) * 100, 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    plot(pl_rs_frac(i) * 100, 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(il_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(il_rs_frac(i) * 100, 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    plot(il_rs_frac(i) * 100, 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(orb_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(orb_rs_frac(i) * 100, 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    plot(orb_rs_frac(i) * 100, 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(dp_rs_frac)
     x = (rand()-0.5) * 0.2;
-    plot(dp_rs_frac(i) * 100, 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+    plot(dp_rs_frac(i) * 100, 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
-errorbar(fliplr(rs_avg) .* 100, 1:5, fliplr(rs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+errorbar(fliplr(rs_avg) .* 100, 1:5, fliplr(rs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
 yticks(1:5)
 yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
 ylim([0.5,5.5])
@@ -2262,34 +2263,34 @@ hold on
 for i = 1:length(ac_fs_frac)
     if ~isnan(ac_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(ac_fs_frac(i) * 100, 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+        plot(ac_fs_frac(i) * 100, 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
     end
 end
 for i = 1:length(pl_fs_frac)
     if ~isnan(pl_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(pl_fs_frac(i) * 100, 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+        plot(pl_fs_frac(i) * 100, 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
     end
 end
 for i = 1:length(il_fs_frac)
     if ~isnan(il_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(il_fs_frac(i) * 100, 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+        plot(il_fs_frac(i) * 100, 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
     end
 end
 for i = 1:length(orb_fs_frac)
     if ~isnan(orb_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(orb_fs_frac(i) * 100, 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+        plot(orb_fs_frac(i) * 100, 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
     end
 end
 for i = 1:length(dp_fs_frac)
     if ~isnan(dp_fs_frac(i))
         x = (rand()-0.5) * 0.2;
-        plot(dp_fs_frac(i) * 100, 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 20)
+        plot(dp_fs_frac(i) * 100, 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
     end
 end
-errorbar(fliplr(fs_avg) .* 100, 1:5, fliplr(fs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+errorbar(fliplr(fs_avg) .* 100, 1:5, fliplr(fs_err) .* 100, 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
 yticks(1:5)
 yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
 ylim([0.5,5.5])
@@ -2311,25 +2312,25 @@ axs(5) = nexttile;
 hold on
 for i = 1:length(s1_l1_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l1_rs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l1_rs_mi(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l2_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l2_rs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l2_rs_mi(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l4_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l4_rs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l4_rs_mi(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l5_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l5_rs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l5_rs_mi(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l6_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l6_rs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l6_rs_mi(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
-errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
 yticks(1:5)
 yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
 ylim([0.5,5.5])
@@ -2346,25 +2347,25 @@ axs(6) = nexttile;
 hold on
 for i = 1:length(s1_l1_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l1_fs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l1_fs_mi(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l2_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l2_fs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l2_fs_mi(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l4_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l4_fs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l4_fs_mi(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l5_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l5_fs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l5_fs_mi(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l6_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l6_fs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l6_fs_mi(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
-errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
 yticks(1:5)
 yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
 ylim([0.5,5.5])
@@ -2384,25 +2385,25 @@ axs(7) = nexttile;
 hold on
 for i = 1:length(ac_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(ac_rs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(ac_rs_mi(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(pl_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(pl_rs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(pl_rs_mi(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(il_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(il_rs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(il_rs_mi(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(orb_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(orb_rs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(orb_rs_mi(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(dp_rs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(dp_rs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(dp_rs_mi(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
-errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
 yticks(1:5)
 yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
 ylim([0.5,5.5])
@@ -2419,25 +2420,25 @@ axs(8) = nexttile;
 hold on
 for i = 1:length(ac_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(ac_fs_mi(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(ac_fs_mi(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(pl_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(pl_fs_mi(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(pl_fs_mi(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(il_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(il_fs_mi(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(il_fs_mi(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(orb_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(orb_fs_mi(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(orb_fs_mi(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(dp_fs_mi)
     x = (rand()-0.5) * 0.2;
-    plot(dp_fs_mi(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(dp_fs_mi(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
-errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
 yticks(1:5)
 yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
 ylim([0.5,5.5])
@@ -2457,25 +2458,25 @@ axs(9) = nexttile;
 hold on
 for i = 1:length(s1_l1_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l1_rs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l1_rs_theta_bar(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l2_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l2_rs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l2_rs_theta_bar(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l4_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l4_rs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l4_rs_theta_bar(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l5_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l5_rs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l5_rs_theta_bar(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l6_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l6_rs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l6_rs_theta_bar(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
-errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
 yticks(1:5)
 yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
 ylim([0.5,5.5])
@@ -2492,25 +2493,25 @@ axs(10) = nexttile;
 hold on
 for i = 1:length(s1_l1_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l1_fs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l1_fs_theta_bar(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l2_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l2_fs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l2_fs_theta_bar(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l4_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l4_fs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l4_fs_theta_bar(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l5_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l5_fs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l5_fs_theta_bar(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(s1_l6_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(s1_l6_fs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(s1_l6_fs_theta_bar(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
-errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
 yticks(1:5)
 yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
 ylim([0.5,5.5])
@@ -2532,25 +2533,25 @@ axs(11) = nexttile;
 hold on
 for i = 1:length(ac_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(ac_rs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(ac_rs_theta_bar(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(pl_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(pl_rs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(pl_rs_theta_bar(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(il_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(il_rs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(il_rs_theta_bar(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(orb_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(orb_rs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(orb_rs_theta_bar(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(dp_rs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(dp_rs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(dp_rs_theta_bar(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
-errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
 yticks(1:5)
 yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
 ylim([0.5,5.5])
@@ -2567,25 +2568,25 @@ axs(12) = nexttile;
 hold on
 for i = 1:length(ac_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(ac_fs_theta_bar(i), 5+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(ac_fs_theta_bar(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(pl_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(pl_fs_theta_bar(i), 4+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(pl_fs_theta_bar(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(il_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(il_fs_theta_bar(i), 3+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(il_fs_theta_bar(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(orb_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(orb_fs_theta_bar(i), 2+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(orb_fs_theta_bar(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
 for i = 1:length(dp_fs_theta_bar)
     x = (rand()-0.5) * 0.2;
-    plot(dp_fs_theta_bar(i), 1+x, '.', 'Color', [0.3, 0.3, 0.3], 'MarkerSize', 10)
+    plot(dp_fs_theta_bar(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
 end
-errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 20)
+errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
 yticks(1:5)
 yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
 ylim([0.5,5.5])
