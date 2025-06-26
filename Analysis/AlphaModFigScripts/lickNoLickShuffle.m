@@ -1,6 +1,6 @@
 addpath(genpath('~/circstat-matlab/'))
 init_paths;
-run_bootstrap = false;
+run_bootstrap = true;
 
 if run_bootstrap
     % S1
@@ -23,7 +23,7 @@ if run_bootstrap
         out.alpha_modulated(strcmp(out.alpha_modulated.session_id, session_id) & out.alpha_modulated.cluster_id == cid,:) = [];
     end
 
-    out_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/Correct_Incorrect_Shuffles/');
+    out_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
     if ~exist(out_path, 'dir')
         mkdir(out_path)
     end
@@ -35,15 +35,16 @@ if run_bootstrap
         end
         alpha_modulated = out.alpha_modulated(strcmp(out.alpha_modulated.session_id, session_ids{s}),:);
         alpha_modulated = alpha_modulated(strcmp(alpha_modulated.waveform_class, 'RS') | strcmp(alpha_modulated.waveform_class, 'FS'),:);
-        alpha_modulated = alpha_modulated(alpha_modulated.p_correct < out.overall_p_threshold & alpha_modulated.p_incorrect > out.overall_p_threshold, :);
         slrt_ext = load(strcat(ext_path, 'SLRT/', session_ids{s}, '.mat'));
         ap_ext = load(strcat(ext_path, 'AP/', session_ids{s}, '.mat'));
-        shuff_p = zeros(size(alpha_modulated,1),20);
-        numIncorrect = sum(strcmp(slrt_ext.slrt_data.categorical_outcome, 'Miss')) + sum(strcmp(slrt_ext.slrt_data.categorical_outcome, 'FA'));
-        correctInds = find(strcmp(slrt_ext.slrt_data.categorical_outcome, 'Hit') | strcmp(slrt_ext.slrt_data.categorical_outcome, 'CR'));
-        alpha_modulated = alpha_modulated(cell2mat(alpha_modulated.avg_trial_fr) > 0.5,:);
+        shuff_p = zeros(size(alpha_modulated,1),10);
+        contains_lick = spontaneousLicks(slrt_ext.slrt_data);
+        trial_inds = find(contains_lick);
+        numLick = length(trial_inds);
+        noLickInds = find(~contains_lick);
+        alpha_modulated = alpha_modulated(cell2mat(alpha_modulated.avg_trial_fr) > 1,:);
         for i = 1:100
-            choice_inds = correctInds(randperm(length(correctInds), numIncorrect));
+            choice_inds = noLickInds(randperm(length(noLickInds), numLick));
             tmp_ap = ap_ext.ap_data(choice_inds,:);
             tmp_slrt = slrt_ext.slrt_data(choice_inds,:);
             % table for session 
@@ -65,32 +66,28 @@ if run_bootstrap
                 shuff_p(j,i) = p;
             end
         end
-        correct_ptiles = [];
-        for c = 1:size(alpha_modulated)
-            correct = [alpha_modulated(c,:).spon_alpha_spike_phases_hit{1}, alpha_modulated(c,:).spon_alpha_spike_phases_cr{1}];
-            incorrect = [alpha_modulated(c,:).spon_alpha_spike_phases_miss{1}, alpha_modulated(c,:).spon_alpha_spike_phases_fa{1}];
-            [p_incorrect, ~] = circ_rtest(incorrect);
-            [p_correct, ~] = circ_rtest(correct);
-            % fprintf(sprintf('neuron %i\n', c))
-            % disp(p_incorrect)
-            % disp(prctile(shuff_p(c,:),80))
+        nolick_ptiles = [];
+        for c = 1:size(alpha_modulated, 1)
+            p_lick = alpha_modulated(c,:).p_lick;
+            p_nolick = alpha_modulated(c,:).p_nolick;
             ptiles = zeros(1,100);
             for i = 1:100
                 ptiles(i) = prctile(shuff_p(c,:),i);
             end
-            [~, min_ind] = min((ptiles - p_incorrect) .^ 2);
-            correct_ptiles = [correct_ptiles, min_ind];
-            fig = figure();
+            [~, min_ind] = min((ptiles - p_lick) .^ 2);
+            nolick_ptiles = [nolick_ptiles, min_ind];
+            fig = figure('Visible', 'off');
             hold on 
             histogram(shuff_p(c,:),20)
             lims = ylim;
-            plot([p_incorrect,p_incorrect], [0, lims(2)], 'r--')
+            plot([p_lick,p_lick], [0, lims(2)], 'r--')
             xlabel('Rayleigh Test p-value')
             ylabel('Count')
             cluster_id = alpha_modulated(c,:).cluster_id;
             saveas(fig, sprintf('%scluster_%i.svg', fig_path, cluster_id))
             saveas(fig, sprintf('%scluster_%i.fig', fig_path, cluster_id))
+            close
         end
-        save(sprintf('%sshuffle_data.mat', fig_path), 'correct_ptiles')
+        save(sprintf('%sshuffle_data.mat', fig_path), 'nolick_ptiles')
     end
 end
