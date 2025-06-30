@@ -1,5 +1,6 @@
-addpath(genpath('./'))
 addpath(genpath('~/circstat-matlab/'))
+delete Stats/alpha_mod_and_licking.txt 
+diary Stats/alpha_mod_and_licking.txt 
 init_paths;
 load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'))
 out_path = true;
@@ -408,9 +409,51 @@ xticklabels({'Lick', 'No-Lick'})
 xlabel('Spontaneous Trials')
 ylabel('Number of trials')
 
+ldprime = nan(1,length(session_ids));
+nldprime = nan(1,length(session_ids));
+for s = 1:length(session_ids)
+    load(strcat(ext_path, 'SLRT/', session_ids{s}, '.mat'))
+    slrt_data.dprime = [];
+    contains_lick = spontaneousLicks(slrt_data);
+    lick_trials = slrt_data(logical(contains_lick),:);
+    no_lick_trials = slrt_data(~logical(contains_lick),:);
+    if ~isempty(lick_trials)
+        lick_trials = dPrime(lick_trials);
+        ldprime(s) = lick_trials(1,:).dprime;
+    end 
+    if ~isempty(no_lick_trials)
+        no_lick_trials = dPrime(no_lick_trials);
+        nldprime(s) = no_lick_trials(1,:).dprime;
+    end
+end
+dprime_fig = figure();
+hold on 
+for i = 1:length(ldprime)
+    x = (rand()-0.5)*0.3;
+    plot(1+x, nldprime(i), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot(2+x, ldprime(i), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot([1,2]+x, [nldprime(i), ldprime(i)], '--', 'Color', [0.5, 0.5, 0.5])
+end
+errorbar([1,2], [nanmean(nldprime), nanmean(ldprime)], [ste(nldprime), ste(ldprime)], 'k.', 'CapSize', 20, 'LineWidth', 2)
+xticks(1:2)
+xticklabels({'No Lick', 'Lick'})
+ylabel('D-prime')
+if KStest(ldprime) || KStest(nldprime)
+    p = signrank(ldprime, nldprime);
+    fprintf(sprintf('No lick trials vs. lick trials dprime (signed-rank): p = %d\n', p))
+else
+    [~, p] = ttest(ldprime, nldprime)
+    fprintf(sprintf('No lick trials vs. lick trials dprime (t-test): p = %d\n', p))
+end
+
+
 saveas(summary_fig, '../Figures/lick_summary.svg')
 saveas(summary_fig, '../Figures/lick_summary.fig')
 saveas(trial_fig, '../Figures/lick_trials.fig')
 saveas(trial_fig, '../Figures/lick_trials.svg')
 saveas(all_fig, '../Figures/lick_pct.fig')
 saveas(all_fig, '../Figures/lick_pct.svg')
+saveas(dprime_fig, '../Figures/lick_nolick_dprime.svg')
+saveas(dprime_fig, '../Figures/lick_nolick_dprime.fig')
+
+diary off 
