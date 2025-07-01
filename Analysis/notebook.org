@@ -4989,3 +4989,5 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 *** DONE: double check significance figure 6E 
 *** DONE: align E with A & B in figure 6 
 *** DONE: move A & B down in figure 7
+*** TODO: fix figure panel references in discussion and results (especially for fig 3)
+*** TODO: finalize figures
