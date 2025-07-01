@@ -114,7 +114,7 @@ if run_bootstrap
         out.alpha_modulated(strcmp(out.alpha_modulated.session_id, session_id) & out.alpha_modulated.cluster_id == cid,:) = [];
     end
 
-    out_path = strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/Correct_Incorrect_Shuffles/');
+    out_path = strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
     if ~exist(out_path, 'dir')
         mkdir(out_path)
     end

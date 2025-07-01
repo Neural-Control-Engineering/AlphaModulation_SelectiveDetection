@@ -4991,3 +4991,10 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 *** DONE: move A & B down in figure 7
 *** TODO: fix figure panel references in discussion and results (especially for fig 3)
 *** TODO: finalize figures
+
+* [2025-7-1 Tue] - working through manuscript and lick v no-lick
+** lick v no-lick
+*** accidentally overwrote some of correct v incorrect shuffles for PFC, may need to rerun
+*** now running on insomnia 
+** manuscript 
+*** still need figure legends but text (sans lick v no lick) is mostly squared away
