@@ -3,7 +3,7 @@ delete Stats/alpha_power_and_phase_mod.txt
 diary Stats/alpha_power_and_phase_mod.txt 
 init_paths;
 load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'))
-out_path = true;
+out_path = false; %true;
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
@@ -1389,8 +1389,8 @@ hold on
 for i = 1:size(s1_rs_frac,1)
     x = (rand()-0.5) * 0.5;
     y = (rand()-0.5) * 0.01;
-    plot(1+x, s1_rs_frac(i,1)+y, 'r.', 'MarkerSize', 20)
-    plot(3+x, s1_rs_frac(i,2)+y, 'b.', 'MarkerSize', 20)
+    plot(1+x, s1_rs_frac(i,1)+y, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(3+x, s1_rs_frac(i,2)+y, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([1,3]+x, s1_rs_frac(i,:)+y, '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(1, nanmean(s1_rs_frac(:,1)), ste(s1_rs_frac(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1402,8 +1402,8 @@ plot([1,3], [nanmean(s1_rs_frac(:,1)), nanmean(s1_rs_frac(:,2))], 'k--', 'LineWi
 for i = 1:size(s1_fs_frac,1)
     x = (rand()-0.5) * 0.5;
     y = (rand()-0.5) * 0.01;
-    plot(6+x, s1_fs_frac(i,1)+y, 'r.', 'MarkerSize', 20)
-    plot(8+x, s1_fs_frac(i,2)+y, 'b.', 'MarkerSize', 20)
+    plot(6+x, s1_fs_frac(i,1)+y, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(8+x, s1_fs_frac(i,2)+y, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([6,8]+x, s1_fs_frac(i,:)+y, '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(6, nanmean(s1_fs_frac(:,1)), ste(s1_fs_frac(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1415,8 +1415,8 @@ plot([6,8], [nanmean(s1_fs_frac(:,1)), nanmean(s1_fs_frac(:,2))], 'k--', 'LineWi
 for i = 1:size(pfc_rs_frac,1)
     x = (rand()-0.5) * 0.5;
     y = (rand()-0.5) * 0.01;
-    plot(11+x, pfc_rs_frac(i,1)+y, 'r.', 'MarkerSize', 20)
-    plot(13+x, pfc_rs_frac(i,2)+y, 'b.', 'MarkerSize', 20)
+    plot(11+x, pfc_rs_frac(i,1)+y, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(13+x, pfc_rs_frac(i,2)+y, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([11,13]+x, pfc_rs_frac(i,:)+y, '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(11, nanmean(pfc_rs_frac(:,1)), ste(pfc_rs_frac(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1428,8 +1428,8 @@ plot([11,13], [nanmean(pfc_rs_frac(:,1)), nanmean(pfc_rs_frac(:,2))], 'k--', 'Li
 for i = 1:size(pfc_fs_frac,1)
     x = (rand()-0.5) * 0.5;
     y = (rand()-0.5) * 0.01;
-    plot(16+x, pfc_fs_frac(i,1)+y, 'r.', 'MarkerSize', 20)
-    plot(18+x, pfc_fs_frac(i,2)+y, 'b.', 'MarkerSize', 20)
+    plot(16+x, pfc_fs_frac(i,1)+y, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(18+x, pfc_fs_frac(i,2)+y, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([16,18]+x, pfc_fs_frac(i,:)+y, '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(16, nanmean(pfc_fs_frac(:,1)), ste(pfc_fs_frac(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1441,8 +1441,8 @@ plot([16,18], [nanmean(pfc_fs_frac(:,1)), nanmean(pfc_fs_frac(:,2))], 'k--', 'Li
 for i = 1:size(striatum_rs_frac,1)
     x = (rand()-0.5) * 0.5;
     y = (rand()-0.5) * 0.01;
-    plot(21+x, striatum_rs_frac(i,1)+y, 'r.', 'MarkerSize', 20)
-    plot(23+x, striatum_rs_frac(i,2)+y, 'b.', 'MarkerSize', 20)
+    plot(21+x, striatum_rs_frac(i,1)+y, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(23+x, striatum_rs_frac(i,2)+y, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([21,23]+x, striatum_rs_frac(i,:)+y, '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(21, nanmean(striatum_rs_frac(:,1)), ste(striatum_rs_frac(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1454,8 +1454,8 @@ plot([21,23], [nanmean(striatum_rs_frac(:,1)), nanmean(striatum_rs_frac(:,2))], 
 for i = 1:size(striatum_fs_frac,1)
     x = (rand()-0.5) * 0.5;
     y = (rand()-0.5) * 0.01;
-    plot(26+x, striatum_fs_frac(i,1)+y, 'r.', 'MarkerSize', 20)
-    plot(28+x, striatum_fs_frac(i,2)+y, 'b.', 'MarkerSize', 20)
+    plot(26+x, striatum_fs_frac(i,1)+y, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(28+x, striatum_fs_frac(i,2)+y, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([26,28]+x, striatum_fs_frac(i,:)+y, '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(26, nanmean(striatum_fs_frac(:,1)), ste(striatum_fs_frac(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1481,8 +1481,8 @@ striatum_fs_mi = [striatum_fs_low_mi, striatum_fs_high_mi];
 hold on 
 for i = 1:size(s1_rs_mi,1)
     x = (rand()-0.5) * 0.5;
-    plot(1+x, log(s1_rs_mi(i,1)), 'r.')
-    plot(3+x, log(s1_rs_mi(i,2)), 'b.')
+    plot(1+x, log(s1_rs_mi(i,1)), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(3+x, log(s1_rs_mi(i,2)), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([1,3], log(s1_rs_mi(i,:)), '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(1, nanmean(log(s1_rs_mi(:,1))), ste(log(s1_rs_mi(:,1))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1491,8 +1491,8 @@ plot([1,3], [nanmean(log(s1_rs_mi(:,1))), nanmean(log(s1_rs_mi(:,2)))], 'k--', '
 
 for i = 1:size(s1_fs_mi,1)
     x = (rand()-0.5) * 0.5;
-    plot(6+x, log(s1_fs_mi(i,1)), 'r.')
-    plot(8+x, log(s1_fs_mi(i,2)), 'b.')
+    plot(6+x, log(s1_fs_mi(i,1)), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(8+x, log(s1_fs_mi(i,2)), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([6,8], log(s1_fs_mi(i,:)), '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(6, nanmean(log(s1_fs_mi(:,1))), ste(log(s1_fs_mi(:,1))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1501,8 +1501,8 @@ plot([6,8], [nanmean(log(s1_fs_mi(:,1))), nanmean(log(s1_fs_mi(:,2)))], 'k--', '
 
 for i = 1:size(pfc_rs_mi,1)
     x = (rand()-0.5) * 0.5;
-    plot(11+x, log(pfc_rs_mi(i,1)), 'r.')
-    plot(13+x, log(pfc_rs_mi(i,2)), 'b.')
+    plot(11+x, log(pfc_rs_mi(i,1)), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(13+x, log(pfc_rs_mi(i,2)), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([11,13], log(pfc_rs_mi(i,:)), '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(11, nanmean(log(pfc_rs_mi(:,1))), ste(log(pfc_rs_mi(:,1))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1511,8 +1511,8 @@ plot([11,13], [nanmean(log(pfc_rs_mi(:,1))), nanmean(log(pfc_rs_mi(:,2)))], 'k--
 
 for i = 1:size(pfc_fs_mi,1)
     x = (rand()-0.5) * 0.5;
-    plot(16+x, log(pfc_fs_mi(i,1)), 'r.')
-    plot(18+x, log(pfc_fs_mi(i,2)), 'b.')
+    plot(16+x, log(pfc_fs_mi(i,1)), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(18+x, log(pfc_fs_mi(i,2)), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([16,18], log(pfc_fs_mi(i,:)), '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(16, nanmean(log(pfc_fs_mi(:,1))), ste(log(pfc_fs_mi(:,1))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1521,8 +1521,8 @@ plot([16,18], [nanmean(log(pfc_fs_mi(:,1))), nanmean(log(pfc_fs_mi(:,2)))], 'k--
 
 for i = 1:size(striatum_rs_mi,1)
     x = (rand()-0.5) * 0.5;
-    plot(21+x, log(striatum_rs_mi(i,1)), 'r.')
-    plot(23+x, log(striatum_rs_mi(i,2)), 'b.')
+    plot(21+x, log(striatum_rs_mi(i,1)), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(23+x, log(striatum_rs_mi(i,2)), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([21,23], log(striatum_rs_mi(i,:)), '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(21, nanmean(log(striatum_rs_mi(:,1))), ste(log(striatum_rs_mi(:,1))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1531,8 +1531,8 @@ plot([21,23], [nanmean(log(striatum_rs_mi(:,1))), nanmean(log(striatum_rs_mi(:,2
 
 for i = 1:size(striatum_fs_mi,1)
     x = (rand()-0.5) * 0.5;
-    plot(26+x, log(striatum_fs_mi(i,1)), 'r.')
-    plot(28+x, log(striatum_fs_mi(i,2)), 'b.')
+    plot(26+x, log(striatum_fs_mi(i,1)), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(28+x, log(striatum_fs_mi(i,2)), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([26,28], log(striatum_fs_mi(i,:)), '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(26, nanmean(log(striatum_fs_mi(:,1))), ste(log(striatum_fs_mi(:,1))), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1558,8 +1558,8 @@ striatum_fs_fr = [striatum_fs_low_fr, striatum_fs_high_fr];
 hold on 
 for i = 1:size(s1_rs_fr,1)
     x = (rand()-0.5) * 0.5;
-    plot(1+x, s1_rs_fr(i,1), 'r.')
-    plot(3+x, s1_rs_fr(i,2), 'b.')
+    plot(1+x, s1_rs_fr(i,1), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(3+x, s1_rs_fr(i,2), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([1,3], s1_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(1, nanmean(s1_rs_fr(:,1)), ste(s1_rs_fr(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1568,8 +1568,8 @@ plot([1,3], [nanmean(s1_rs_fr(:,1)), nanmean(s1_rs_fr(:,2))], 'k--', 'LineWidth'
 
 for i = 1:size(s1_fs_fr,1)
     x = (rand()-0.5) * 0.5;
-    plot(6+x, s1_fs_fr(i,1), 'r.')
-    plot(8+x, s1_fs_fr(i,2), 'b.')
+    plot(6+x, s1_fs_fr(i,1), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(8+x, s1_fs_fr(i,2), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([6,8], s1_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(6, nanmean(s1_fs_fr(:,1)), ste(s1_fs_fr(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1578,8 +1578,8 @@ plot([6,8], [nanmean(s1_fs_fr(:,1)), nanmean(s1_fs_fr(:,2))], 'k--', 'LineWidth'
 
 for i = 1:size(pfc_rs_fr,1)
     x = (rand()-0.5) * 0.5;
-    plot(11+x, pfc_rs_fr(i,1), 'r.')
-    plot(13+x, pfc_rs_fr(i,2), 'b.')
+    plot(11+x, pfc_rs_fr(i,1), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(13+x, pfc_rs_fr(i,2), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([11,13], pfc_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(11, nanmean(pfc_rs_fr(:,1)), ste(pfc_rs_fr(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1588,8 +1588,8 @@ plot([11,13], [nanmean(pfc_rs_fr(:,1)), nanmean(pfc_rs_fr(:,2))], 'k--', 'LineWi
 
 for i = 1:size(pfc_fs_fr,1)
     x = (rand()-0.5) * 0.5;
-    plot(16+x, pfc_fs_fr(i,1), 'r.')
-    plot(18+x, pfc_fs_fr(i,2), 'b.')
+    plot(16+x, pfc_fs_fr(i,1), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(18+x, pfc_fs_fr(i,2), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([16,18], pfc_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(16, nanmean(pfc_fs_fr(:,1)), ste(pfc_fs_fr(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1598,8 +1598,8 @@ plot([16,18], [nanmean(pfc_fs_fr(:,1)), nanmean(pfc_fs_fr(:,2))], 'k--', 'LineWi
 
 for i = 1:size(striatum_rs_fr,1)
     x = (rand()-0.5) * 0.5;
-    plot(21+x, striatum_rs_fr(i,1), 'r.')
-    plot(23+x, striatum_rs_fr(i,2), 'b.')
+    plot(21+x, striatum_rs_fr(i,1), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(23+x, striatum_rs_fr(i,2), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([21,23], striatum_rs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(21, nanmean(striatum_rs_fr(:,1)), ste(striatum_rs_fr(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
@@ -1608,8 +1608,8 @@ plot([21,23], [nanmean(striatum_rs_fr(:,1)), nanmean(striatum_rs_fr(:,2))], 'k--
 
 for i = 1:size(striatum_fs_fr,1)
     x = (rand()-0.5) * 0.5;
-    plot(26+x, striatum_fs_fr(i,1), 'r.')
-    plot(28+x, striatum_fs_fr(i,2), 'b.')
+    plot(26+x, striatum_fs_fr(i,1), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1])
+    plot(28+x, striatum_fs_fr(i,2), 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1])
     plot([26,28], striatum_fs_fr(i,:), '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar(26, nanmean(striatum_fs_fr(:,1)), ste(striatum_fs_fr(:,1)), 'k.', 'LineWidth', 1.5, 'CapSize', 20)
