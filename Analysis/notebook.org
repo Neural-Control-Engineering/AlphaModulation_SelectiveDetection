@@ -4991,6 +4991,7 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 *** DONE: move A & B down in figure 7
 *** TODO: fix figure panel references in discussion and results (especially for fig 3)
 *** TODO: finalize figures
+*** TODO: same sized dots for alpha power and phase mod fig 
 
 * [2025-7-1 Tue] - working through manuscript and lick v no-lick
 ** lick v no-lick
