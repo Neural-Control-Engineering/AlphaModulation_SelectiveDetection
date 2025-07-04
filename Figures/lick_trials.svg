@@ -32,9 +32,7 @@
         /><glyph unicode="S" horiz-adv-x="63.476562" d="M53.5156 70.5156 L53.5156 60.8906 Q47.9062 63.5781 42.9219 64.8984 Q37.9375 66.2188 33.2969 66.2188 Q25.25 66.2188 20.875 63.0938 Q16.5 59.9688 16.5 54.2031 Q16.5 49.3594 19.4062 46.8984 Q22.3125 44.4375 30.4219 42.9219 L36.375 41.7031 Q47.4062 39.5938 52.6562 34.2969 Q57.9062 29 57.9062 20.125 Q57.9062 9.5156 50.8047 4.0469 Q43.7031 -1.4219 29.9844 -1.4219 Q24.8125 -1.4219 18.9766 -0.25 Q13.1406 0.9219 6.8906 3.2188 L6.8906 13.375 Q12.8906 10.0156 18.6562 8.3047 Q24.4219 6.5938 29.9844 6.5938 Q38.4219 6.5938 43.0156 9.9141 Q47.6094 13.2344 47.6094 19.3906 Q47.6094 24.75 44.3125 27.7812 Q41.0156 30.8125 33.5 32.3281 L27.4844 33.5 Q16.4531 35.6875 11.5234 40.375 Q6.5938 45.0625 6.5938 53.4219 Q6.5938 63.0938 13.4062 68.6562 Q20.2188 74.2188 32.1719 74.2188 Q37.3125 74.2188 42.6328 73.2891 Q47.9531 72.3594 53.5156 70.5156 Z"
         /><glyph unicode="0" horiz-adv-x="63.623047" d="M31.7812 66.4062 Q24.1719 66.4062 20.3359 58.9141 Q16.5 51.4219 16.5 36.375 Q16.5 21.3906 20.3359 13.8906 Q24.1719 6.3906 31.7812 6.3906 Q39.4531 6.3906 43.2891 13.8906 Q47.125 21.3906 47.125 36.375 Q47.125 51.4219 43.2891 58.9141 Q39.4531 66.4062 31.7812 66.4062 ZM31.7812 74.2188 Q44.0469 74.2188 50.5156 64.5234 Q56.9844 54.8281 56.9844 36.375 Q56.9844 17.9688 50.5156 8.2734 Q44.0469 -1.4219 31.7812 -1.4219 Q19.5312 -1.4219 13.0625 8.2734 Q6.5938 17.9688 6.5938 36.375 Q6.5938 54.8281 13.0625 64.5234 Q19.5312 74.2188 31.7812 74.2188 Z"
         /><glyph unicode="5" horiz-adv-x="63.623047" d="M10.7969 72.9062 L49.5156 72.9062 L49.5156 64.5938 L19.8281 64.5938 L19.8281 46.7344 Q21.9688 47.4688 24.1172 47.8281 Q26.2656 48.1875 28.4219 48.1875 Q40.625 48.1875 47.7578 41.5 Q54.8906 34.8125 54.8906 23.3906 Q54.8906 11.625 47.5625 5.1016 Q40.2344 -1.4219 26.9062 -1.4219 Q22.3125 -1.4219 17.5547 -0.6406 Q12.7969 0.1406 7.7188 1.7031 L7.7188 11.625 Q12.1094 9.2344 16.7969 8.0625 Q21.4844 6.8906 26.7031 6.8906 Q35.1562 6.8906 40.0859 11.3281 Q45.0156 15.7656 45.0156 23.3906 Q45.0156 31 40.0859 35.4453 Q35.1562 39.8906 26.7031 39.8906 Q22.75 39.8906 18.8203 39.0156 Q14.8906 38.1406 10.7969 36.2812 L10.7969 72.9062 Z"
-        /><glyph unicode="1" horiz-adv-x="63.623047" d="M12.4062 8.2969 L28.5156 8.2969 L28.5156 63.9219 L10.9844 60.4062 L10.9844 69.3906 L28.4219 72.9062 L38.2812 72.9062 L38.2812 8.2969 L54.3906 8.2969 L54.3906 0 L12.4062 0 L12.4062 8.2969 Z"
-        /><glyph unicode="2" horiz-adv-x="63.623047" d="M19.1875 8.2969 L53.6094 8.2969 L53.6094 0 L7.3281 0 L7.3281 8.2969 Q12.9375 14.1094 22.6328 23.8984 Q32.3281 33.6875 34.8125 36.5312 Q39.5469 41.8438 41.4297 45.5312 Q43.3125 49.2188 43.3125 52.7812 Q43.3125 58.5938 39.2344 62.2578 Q35.1562 65.9219 28.6094 65.9219 Q23.9688 65.9219 18.8203 64.3125 Q13.6719 62.7031 7.8125 59.4219 L7.8125 69.3906 Q13.7656 71.7812 18.9453 73 Q24.125 74.2188 28.4219 74.2188 Q39.75 74.2188 46.4844 68.5547 Q53.2188 62.8906 53.2188 53.4219 Q53.2188 48.9219 51.5391 44.8984 Q49.8594 40.875 45.4062 35.4062 Q44.1875 33.9844 37.6484 27.2188 Q31.1094 20.4531 19.1875 8.2969 Z"
-        /><glyph unicode="3" horiz-adv-x="63.623047" d="M40.5781 39.3125 Q47.6562 37.7969 51.6328 33.0078 Q55.6094 28.2188 55.6094 21.1875 Q55.6094 10.4062 48.1875 4.4922 Q40.7656 -1.4219 27.0938 -1.4219 Q22.5156 -1.4219 17.6562 -0.5156 Q12.7969 0.3906 7.625 2.2031 L7.625 11.7188 Q11.7188 9.3281 16.6016 8.1094 Q21.4844 6.8906 26.8125 6.8906 Q36.0781 6.8906 40.9375 10.5469 Q45.7969 14.2031 45.7969 21.1875 Q45.7969 27.6406 41.2812 31.2734 Q36.7656 34.9062 28.7188 34.9062 L20.2188 34.9062 L20.2188 43.0156 L29.1094 43.0156 Q36.375 43.0156 40.2344 45.9219 Q44.0938 48.8281 44.0938 54.2969 Q44.0938 59.9062 40.1172 62.9141 Q36.1406 65.9219 28.7188 65.9219 Q24.6562 65.9219 20.0156 65.0391 Q15.375 64.1562 9.8125 62.3125 L9.8125 71.0938 Q15.4375 72.6562 20.3438 73.4375 Q25.25 74.2188 29.5938 74.2188 Q40.8281 74.2188 47.3672 69.1172 Q53.9062 64.0156 53.9062 55.3281 Q53.9062 49.2656 50.4375 45.0938 Q46.9688 40.9219 40.5781 39.3125 Z"
+        /><glyph unicode="4" horiz-adv-x="63.623047" d="M37.7969 64.3125 L12.8906 25.3906 L37.7969 25.3906 L37.7969 64.3125 ZM35.2031 72.9062 L47.6094 72.9062 L47.6094 25.3906 L58.0156 25.3906 L58.0156 17.1875 L47.6094 17.1875 L47.6094 0 L37.7969 0 L37.7969 17.1875 L4.8906 17.1875 L4.8906 26.7031 L35.2031 72.9062 Z"
         /><glyph unicode="f" horiz-adv-x="35.20508" d="M37.1094 75.9844 L37.1094 68.5 L28.5156 68.5 Q23.6875 68.5 21.8047 66.5469 Q19.9219 64.5938 19.9219 59.5156 L19.9219 54.6875 L34.7188 54.6875 L34.7188 47.7031 L19.9219 47.7031 L19.9219 0 L10.8906 0 L10.8906 47.7031 L2.2969 47.7031 L2.2969 54.6875 L10.8906 54.6875 L10.8906 58.5 Q10.8906 67.625 15.1406 71.8047 Q19.3906 75.9844 28.6094 75.9844 L37.1094 75.9844 Z"
         /><glyph unicode="b" horiz-adv-x="63.476562" d="M48.6875 27.2969 Q48.6875 37.2031 44.6094 42.8438 Q40.5312 48.4844 33.4062 48.4844 Q26.2656 48.4844 22.1875 42.8438 Q18.1094 37.2031 18.1094 27.2969 Q18.1094 17.3906 22.1875 11.75 Q26.2656 6.1094 33.4062 6.1094 Q40.5312 6.1094 44.6094 11.75 Q48.6875 17.3906 48.6875 27.2969 ZM18.1094 46.3906 Q20.9531 51.2656 25.2734 53.6328 Q29.5938 56 35.5938 56 Q45.5625 56 51.7891 48.0938 Q58.0156 40.1875 58.0156 27.2969 Q58.0156 14.4062 51.7891 6.4922 Q45.5625 -1.4219 35.5938 -1.4219 Q29.5938 -1.4219 25.2734 0.9531 Q20.9531 3.3281 18.1094 8.2031 L18.1094 0 L9.0781 0 L9.0781 75.9844 L18.1094 75.9844 L18.1094 46.3906 Z"
         /><glyph unicode="m" horiz-adv-x="97.41211" d="M52 44.1875 Q55.375 50.25 60.0625 53.125 Q64.75 56 71.0938 56 Q79.6406 56 84.2812 50.0234 Q88.9219 44.0469 88.9219 33.0156 L88.9219 0 L79.8906 0 L79.8906 32.7188 Q79.8906 40.5781 77.1016 44.3828 Q74.3125 48.1875 68.6094 48.1875 Q61.625 48.1875 57.5703 43.5547 Q53.5156 38.9219 53.5156 30.9062 L53.5156 0 L44.4844 0 L44.4844 32.7188 Q44.4844 40.625 41.7031 44.4062 Q38.9219 48.1875 33.1094 48.1875 Q26.2188 48.1875 22.1641 43.5312 Q18.1094 38.875 18.1094 30.9062 L18.1094 0 L9.0781 0 L9.0781 54.6875 L18.1094 54.6875 L18.1094 46.1875 Q21.1875 51.2188 25.4844 53.6094 Q29.7812 56 35.6875 56 Q41.6562 56 45.8281 52.9766 Q50 49.9531 52 44.1875 Z"
@@ -49,14 +47,14 @@
     /></g
     ><g style="fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:round; stroke:rgb(38,38,38); color-interpolation:linearRGB; stroke-width:0.5;"
     ><line y2="374" style="fill:none;" x1="73" x2="507" y1="374"
-      /><line y2="369.66" style="fill:none;" x1="226.1765" x2="226.1765" y1="374"
-      /><line y2="369.66" style="fill:none;" x1="353.8235" x2="353.8235" y1="374"
+      /><line y2="369.66" style="fill:none;" x1="181.5" x2="181.5" y1="374"
+      /><line y2="369.66" style="fill:none;" x1="398.5" x2="398.5" y1="374"
     /></g
-    ><g transform="translate(226.1765,378)" style="font-size:10px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB;"
+    ><g transform="translate(181.5,378)" style="font-size:10px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB;"
     ><text x="-10" xml:space="preserve" y="10" style="stroke:none;"
       >Lick</text
     ></g
-    ><g transform="translate(353.8235,378)" style="font-size:10px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB;"
+    ><g transform="translate(398.5,378)" style="font-size:10px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB;"
     ><text x="-18.5" xml:space="preserve" y="10" style="stroke:none;"
       >No-Lick</text
     ></g
@@ -67,91 +65,497 @@
     ><g style="fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:round; stroke:rgb(38,38,38); color-interpolation:linearRGB; stroke-width:0.5;"
     ><line y2="31" style="fill:none;" x1="73" x2="73" y1="374"
       /><line y2="374" style="fill:none;" x1="73" x2="77.34" y1="374"
-      /><line y2="325" style="fill:none;" x1="73" x2="77.34" y1="325"
-      /><line y2="276" style="fill:none;" x1="73" x2="77.34" y1="276"
-      /><line y2="227" style="fill:none;" x1="73" x2="77.34" y1="227"
-      /><line y2="178" style="fill:none;" x1="73" x2="77.34" y1="178"
-      /><line y2="129" style="fill:none;" x1="73" x2="77.34" y1="129"
-      /><line y2="80" style="fill:none;" x1="73" x2="77.34" y1="80"
       /><line y2="31" style="fill:none;" x1="73" x2="77.34" y1="31"
     /></g
     ><g transform="translate(69,374)" style="font-size:10px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB;"
     ><text x="-7" xml:space="preserve" y="3.5" style="stroke:none;"
       >0</text
     ></g
-    ><g transform="translate(69,325)" style="font-size:10px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB;"
-    ><text x="-13" xml:space="preserve" y="3.5" style="stroke:none;"
-      >50</text
-    ></g
-    ><g transform="translate(69,276)" style="font-size:10px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB;"
-    ><text x="-20" xml:space="preserve" y="3.5" style="stroke:none;"
-      >100</text
-    ></g
-    ><g transform="translate(69,227)" style="font-size:10px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB;"
-    ><text x="-20" xml:space="preserve" y="3.5" style="stroke:none;"
-      >150</text
-    ></g
-    ><g transform="translate(69,178)" style="font-size:10px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB;"
-    ><text x="-20" xml:space="preserve" y="3.5" style="stroke:none;"
-      >200</text
-    ></g
-    ><g transform="translate(69,129)" style="font-size:10px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB;"
-    ><text x="-20" xml:space="preserve" y="3.5" style="stroke:none;"
-      >250</text
-    ></g
-    ><g transform="translate(69,80)" style="font-size:10px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB;"
-    ><text x="-20" xml:space="preserve" y="3.5" style="stroke:none;"
-      >300</text
-    ></g
     ><g transform="translate(69,31)" style="font-size:10px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB;"
     ><text x="-20" xml:space="preserve" y="3.5" style="stroke:none;"
-      >350</text
+      >450</text
     ></g
     ><g transform="translate(46,202.4998) rotate(-90)" style="font-size:11px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB;"
     ><text x="-45" xml:space="preserve" y="-3" style="stroke:none;"
       >Number of trials</text
     ></g
-    ><g style="stroke-linecap:butt; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:round; stroke:rgb(38,38,38); color-interpolation:linearRGB; stroke-width:0.5;"
-    ><line y2="374" style="fill:none;" x1="73" x2="507" y1="374"
+    ><g transform="translate(193.028,236.8)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
     /></g
-    ><g style="fill:gray; text-rendering:optimizeSpeed; color-rendering:optimizeSpeed; image-rendering:optimizeSpeed; shape-rendering:crispEdges; stroke:gray; color-interpolation:sRGB;"
-    ><path style="stroke:none;" d="M277.2353 374 L277.2353 306.4377 L175.1176 306.4377 L175.1176 374 ZM404.8824 374 L404.8824 71.1223 L302.7647 71.1223 L302.7647 374 Z"
+    ><g transform="translate(193.028,236.8)" style="fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:round; stroke:white; color-interpolation:linearRGB; stroke-width:0.5;"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
     /></g
-    ><g style="stroke-linecap:butt; fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke:gray; color-interpolation:linearRGB; stroke-width:0.5;"
-    ><path d="M175.1176 374 L175.1176 306.4377 L277.2353 306.4377 L277.2353 374 Z" style="fill:none; fill-rule:evenodd;"
-      /><path d="M302.7647 374 L302.7647 71.1223 L404.8824 71.1223 L404.8824 374 Z" style="fill:none; fill-rule:evenodd;"
-      /><line x1="226.1765" x2="226.1765" y1="306.4377" style="fill:none; stroke-linejoin:round; stroke:black;" y2="316.0172"
-      /><line x1="353.8235" x2="353.8235" y1="71.1223" style="fill:none; stroke-linejoin:round; stroke:black;" y2="83.5085"
-      /><line x1="226.1765" x2="226.1765" y1="306.4377" style="fill:none; stroke-linejoin:round; stroke:black;" y2="296.8581"
-      /><line x1="353.8235" x2="353.8235" y1="71.1223" style="fill:none; stroke-linejoin:round; stroke:black;" y2="58.7362"
-      /><circle transform="translate(226.1765,306.4377)" style="fill:black; stroke-linejoin:round; stroke:none;" r="1" cx="0" cy="0"
+    ><g transform="translate(410.028,353.42)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
     /></g
-    ><g transform="translate(353.8235,71.1223)" style="stroke-linecap:butt; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke-linejoin:round; color-interpolation:linearRGB; stroke-width:0.5;"
+    ><g transform="translate(410.028,353.42)" style="fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:round; stroke:white; color-interpolation:linearRGB; stroke-width:0.5;"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g style="stroke-linecap:butt; fill:gray; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:gray; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;"
+    ><line y2="353.42" style="fill:none;" x1="193.028" x2="410.028" y1="236.8"
+    /></g
+    ><g transform="translate(180.5803,218.5067)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(180.5803,218.5067)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(397.5803,365.6156)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(397.5803,365.6156)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-397.5803,-365.6156)" x1="180.5803" x2="397.5803" y1="218.5067" style="fill:none; stroke:gray;" y2="365.6156"
+    /></g
+    ><g transform="translate(201.8196,145.3333)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(201.8196,145.3333)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(418.8196,362.5667)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(418.8196,362.5667)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-418.8196,-362.5667)" x1="201.8196" x2="418.8196" y1="145.3333" style="fill:none; stroke:gray;" y2="362.5667"
+    /></g
+    ><g transform="translate(153.8974,174.2978)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(153.8974,174.2978)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(370.8974,341.9867)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(370.8974,341.9867)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-370.8974,-341.9867)" x1="153.8974" x2="370.8974" y1="174.2978" style="fill:none; stroke:gray;" y2="341.9867"
+    /></g
+    ><g transform="translate(150.7945,246.7089)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(150.7945,246.7089)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(367.7945,337.4133)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(367.7945,337.4133)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-367.7945,-337.4133)" x1="150.7945" x2="367.7945" y1="246.7089" style="fill:none; stroke:gray;" y2="337.4133"
+    /></g
+    ><g transform="translate(177.1713,216.22)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(177.1713,216.22)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(394.1713,362.5667)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(394.1713,362.5667)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-394.1713,-362.5667)" x1="177.1713" x2="394.1713" y1="216.22" style="fill:none; stroke:gray;" y2="362.5667"
+    /></g
+    ><g transform="translate(158.2904,107.2222)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(158.2904,107.2222)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(375.2904,372.4756)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(375.2904,372.4756)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-375.2904,-372.4756)" x1="158.2904" x2="375.2904" y1="107.2222" style="fill:none; stroke:gray;" y2="372.4756"
+    /></g
+    ><g transform="translate(201.5532,135.4244)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(201.5532,135.4244)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(418.5532,364.8533)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(418.5532,364.8533)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-418.5532,-364.8533)" x1="201.5532" x2="418.5532" y1="135.4244" style="fill:none; stroke:gray;" y2="364.8533"
+    /></g
+    ><g transform="translate(149.0642,105.6978)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(149.0642,105.6978)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(366.0642,367.9022)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(366.0642,367.9022)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-366.0642,-367.9022)" x1="149.0642" x2="366.0642" y1="105.6978" style="fill:none; stroke:gray;" y2="367.9022"
+    /></g
+    ><g transform="translate(155.214,87.4044)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(155.214,87.4044)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(372.214,370.9511)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(372.214,370.9511)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-372.214,-370.9511)" x1="155.214" x2="372.214" y1="87.4044" style="fill:none; stroke:gray;" y2="370.9511"
+    /></g
+    ><g transform="translate(176.401,129.3267)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(176.401,129.3267)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(393.4011,297.7778)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(393.4011,297.7778)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-393.4011,-297.7778)" x1="176.401" x2="393.4011" y1="129.3267" style="fill:none; stroke:gray;" y2="297.7778"
+    /></g
+    ><g transform="translate(164.2559,178.1089)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(164.2559,178.1089)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(381.2559,253.5689)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(381.2559,253.5689)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-381.2559,-253.5689)" x1="164.2559" x2="381.2559" y1="178.1089" style="fill:none; stroke:gray;" y2="253.5689"
+    /></g
+    ><g transform="translate(211.2052,104.9356)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(211.2052,104.9356)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(428.2052,319.8822)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(428.2052,319.8822)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-428.2052,-319.8822)" x1="211.2052" x2="428.2052" y1="104.9356" style="fill:none; stroke:gray;" y2="319.8822"
+    /></g
+    ><g transform="translate(173.1338,168.2)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(173.1338,168.2)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(390.1338,259.6667)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(390.1338,259.6667)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-390.1338,-259.6667)" x1="173.1338" x2="390.1338" y1="168.2" style="fill:none; stroke:gray;" y2="259.6667"
+    /></g
+    ><g transform="translate(180.9349,133.1378)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(180.9349,133.1378)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(397.9349,281.0089)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(397.9349,281.0089)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-397.9349,-281.0089)" x1="180.9349" x2="397.9349" y1="133.1378" style="fill:none; stroke:gray;" y2="281.0089"
+    /></g
+    ><g transform="translate(166.3649,191.0667)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(166.3649,191.0667)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(383.3649,262.7155)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(383.3649,262.7155)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-383.3649,-262.7155)" x1="166.3649" x2="383.3649" y1="191.0667" style="fill:none; stroke:gray;" y2="262.7155"
+    /></g
+    ><g transform="translate(186.4659,197.1644)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(186.4659,197.1644)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(403.4659,234.5133)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(403.4659,234.5133)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-403.4659,-234.5133)" x1="186.4659" x2="403.4659" y1="197.1644" style="fill:none; stroke:gray;" y2="234.5133"
+    /></g
+    ><g transform="translate(182.805,146.8578)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(182.805,146.8578)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(399.805,282.5333)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(399.805,282.5333)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-399.805,-282.5333)" x1="182.805" x2="399.805" y1="146.8578" style="fill:none; stroke:gray;" y2="282.5333"
+    /></g
+    ><g transform="translate(212.6744,133.1378)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(212.6744,133.1378)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(429.6744,309.9733)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(429.6744,309.9733)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-429.6744,-309.9733)" x1="212.6744" x2="429.6744" y1="133.1378" style="fill:none; stroke:gray;" y2="309.9733"
+    /></g
+    ><g transform="translate(191.9642,149.1444)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(191.9642,149.1444)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(408.9642,288.6311)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(408.9642,288.6311)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-408.9642,-288.6311)" x1="191.9642" x2="408.9642" y1="149.1444" style="fill:none; stroke:gray;" y2="288.6311"
+    /></g
+    ><g transform="translate(204.0404,215.4578)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(204.0404,215.4578)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(421.0404,228.4156)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(421.0404,228.4156)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-421.0404,-228.4156)" x1="204.0404" x2="421.0404" y1="215.4578" style="fill:none; stroke:gray;" y2="228.4156"
+    /></g
+    ><g transform="translate(154.623,57.6778)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(154.623,57.6778)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(371.623,351.8956)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(371.623,351.8956)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-371.623,-351.8956)" x1="154.623" x2="371.623" y1="57.6778" style="fill:none; stroke:gray;" y2="351.8956"
+    /></g
+    ><g transform="translate(176.4792,98.8378)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(176.4792,98.8378)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(393.4792,326.7422)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(393.4792,326.7422)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-393.4792,-326.7422)" x1="176.4792" x2="393.4792" y1="98.8378" style="fill:none; stroke:gray;" y2="326.7422"
+    /></g
+    ><g transform="translate(151.6456,58.44)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(151.6456,58.44)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(368.6456,362.5667)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(368.6456,362.5667)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-368.6456,-362.5667)" x1="151.6456" x2="368.6456" y1="58.44" style="fill:none; stroke:gray;" y2="362.5667"
+    /></g
+    ><g transform="translate(188.1488,147.62)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(188.1488,147.62)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(405.1488,299.3022)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(405.1488,299.3022)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-405.1488,-299.3022)" x1="188.1488" x2="405.1488" y1="147.62" style="fill:none; stroke:gray;" y2="299.3022"
+    /></g
+    ><g transform="translate(196.5672,87.4044)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(196.5672,87.4044)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(413.5672,334.3644)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(413.5672,334.3644)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-413.5672,-334.3644)" x1="196.5672" x2="413.5672" y1="87.4044" style="fill:none; stroke:gray;" y2="334.3644"
+    /></g
+    ><g transform="translate(193.3891,54.6289)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(193.3891,54.6289)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(410.3891,363.3289)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(410.3891,363.3289)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-410.3891,-363.3289)" x1="193.3891" x2="410.3891" y1="54.6289" style="fill:none; stroke:gray;" y2="363.3289"
+    /></g
+    ><g transform="translate(152.9232,213.9333)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(152.9232,213.9333)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(369.9232,262.7155)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(369.9232,262.7155)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-369.9232,-262.7155)" x1="152.9232" x2="369.9232" y1="213.9333" style="fill:none; stroke:gray;" y2="262.7155"
+    /></g
+    ><g transform="translate(192.9903,140.76)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(192.9903,140.76)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(409.9903,305.4)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(409.9903,305.4)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-409.9903,-305.4)" x1="192.9903" x2="409.9903" y1="140.76" style="fill:none; stroke:gray;" y2="305.4"
+    /></g
+    ><g transform="translate(168.9406,143.0467)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(168.9406,143.0467)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(385.9406,297.7778)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(385.9406,297.7778)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-385.9406,-297.7778)" x1="168.9406" x2="385.9406" y1="143.0467" style="fill:none; stroke:gray;" y2="297.7778"
+    /></g
+    ><g transform="translate(171.6239,77.4956)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(171.6239,77.4956)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(388.6239,345.7978)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(388.6239,345.7978)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-388.6239,-345.7978)" x1="171.6239" x2="388.6239" y1="77.4956" style="fill:none; stroke:gray;" y2="345.7978"
+    /></g
+    ><g transform="translate(196.2451,72.9222)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(196.2451,72.9222)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(413.2451,348.8467)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(413.2451,348.8467)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-413.2451,-348.8467)" x1="196.2451" x2="413.2451" y1="72.9222" style="fill:none; stroke:gray;" y2="348.8467"
+    /></g
+    ><g transform="translate(155.9217,70.6356)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(155.9217,70.6356)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(372.9217,349.6089)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(372.9217,349.6089)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-372.9217,-349.6089)" x1="155.9217" x2="372.9217" y1="70.6356" style="fill:none; stroke:gray;" y2="349.6089"
+    /></g
+    ><g transform="translate(165.3877,63.0133)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(165.3877,63.0133)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+    /></g
+    ><g transform="translate(382.3877,362.5667)" style="fill:gray; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:gray;"
+    ><circle r="5" style="stroke:none;" cx="0" cy="0"
+    /></g
+    ><g style="stroke-linecap:butt; fill:white; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:10,6; stroke:white; color-interpolation:linearRGB; stroke-width:0.5; stroke-miterlimit:1;" transform="translate(382.3877,362.5667)"
+    ><path style="stroke:none;" d="M0 -4.75 C2.6234 -4.75 4.75 -2.6234 4.75 0 L4.75 0 C4.75 2.6234 2.6234 4.75 -0 4.75 C-2.6234 4.75 -4.75 2.6234 -4.75 -0 C-4.75 -2.6234 -2.6234 -4.75 0 -4.75 ZM0 -5.25 C-2.8995 -5.25 -5.25 -2.8995 -5.25 -0 C-5.25 2.8995 -2.8995 5.25 -0 5.25 C2.8995 5.25 5.25 2.8995 5.25 0 L5.25 0 C5.25 -2.8995 2.8995 -5.25 0 -5.25 Z"
+      /><line transform="translate(-382.3877,-362.5667)" x1="165.3877" x2="382.3877" y1="63.0133" style="fill:none; stroke:gray;" y2="362.5667"
+    /></g
+    ><g style="stroke-linecap:butt; fill:blue; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:round; stroke:blue; color-interpolation:linearRGB; stroke-width:2;"
+    ><line y2="148.0622" style="fill:none;" x1="181.5" x2="181.5" y1="138.4285"
+      /><line y2="328.9023" style="fill:none;" x1="398.5" x2="398.5" y1="321.4515"
+      /><line y2="128.7948" style="fill:none;" x1="181.5" x2="181.5" y1="138.4285"
+      /><line y2="314.0007" style="fill:none;" x1="398.5" x2="398.5" y1="321.4515"
+      /><circle r="1" style="stroke:none;" cx="0" transform="translate(181.5,138.4285)" cy="0"
+    /></g
+    ><g transform="translate(398.5,321.4515)" style="stroke-linecap:butt; fill:blue; text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; stroke-linejoin:round; stroke:blue; color-interpolation:linearRGB; stroke-width:2;"
     ><circle r="1" style="stroke:none;" cx="0" cy="0"
     /></g
-    ><g style="text-rendering:geometricPrecision; color-rendering:optimizeQuality; color-interpolation:linearRGB; image-rendering:optimizeQuality;" transform="translate(226.1765,316.0172)"
-    ><path style="stroke:none;" d="M-3 0 L3 0"
+    ><g transform="translate(181.5,148.0622)" style="fill:blue; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:blue;"
+    ><path style="stroke:none;" d="M-10 0 L10 0"
     /></g
-    ><g transform="translate(226.1765,316.0172)" style="stroke-linecap:butt; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke-width:0.5;"
-    ><path style="fill:none;" d="M-3 0 L3 0"
+    ><g transform="translate(181.5,148.0622)" style="stroke-linecap:butt; fill:blue; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke:blue; color-interpolation:linearRGB; stroke-width:2;"
+    ><path style="fill:none;" d="M-10 0 L10 0"
     /></g
-    ><g style="text-rendering:geometricPrecision; color-rendering:optimizeQuality; color-interpolation:linearRGB; image-rendering:optimizeQuality;" transform="translate(353.8235,83.5085)"
-    ><path style="stroke:none;" d="M-3 0 L3 0"
+    ><g transform="translate(398.5,328.9023)" style="fill:blue; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:blue;"
+    ><path style="stroke:none;" d="M-10 0 L10 0"
     /></g
-    ><g transform="translate(353.8235,83.5085)" style="stroke-linecap:butt; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke-width:0.5;"
-    ><path style="fill:none;" d="M-3 0 L3 0"
+    ><g transform="translate(398.5,328.9023)" style="stroke-linecap:butt; fill:blue; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke:blue; color-interpolation:linearRGB; stroke-width:2;"
+    ><path style="fill:none;" d="M-10 0 L10 0"
     /></g
-    ><g style="text-rendering:geometricPrecision; color-rendering:optimizeQuality; color-interpolation:linearRGB; image-rendering:optimizeQuality;" transform="translate(226.1765,296.8581)"
-    ><path style="stroke:none;" d="M-3 0 L3 0"
+    ><g transform="translate(181.5,128.7948)" style="fill:blue; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:blue;"
+    ><path style="stroke:none;" d="M-10 0 L10 0"
     /></g
-    ><g transform="translate(226.1765,296.8581)" style="stroke-linecap:butt; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke-width:0.5;"
-    ><path style="fill:none;" d="M-3 0 L3 0"
+    ><g transform="translate(181.5,128.7948)" style="stroke-linecap:butt; fill:blue; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke:blue; color-interpolation:linearRGB; stroke-width:2;"
+    ><path style="fill:none;" d="M-10 0 L10 0"
     /></g
-    ><g style="text-rendering:geometricPrecision; color-rendering:optimizeQuality; color-interpolation:linearRGB; image-rendering:optimizeQuality;" transform="translate(353.8235,58.7362)"
-    ><path style="stroke:none;" d="M-3 0 L3 0"
+    ><g transform="translate(398.5,314.0007)" style="fill:blue; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:blue;"
+    ><path style="stroke:none;" d="M-10 0 L10 0"
     /></g
-    ><g transform="translate(353.8235,58.7362)" style="stroke-linecap:butt; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke-width:0.5;"
-    ><path style="fill:none;" d="M-3 0 L3 0"
+    ><g transform="translate(398.5,314.0007)" style="stroke-linecap:butt; fill:blue; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke:blue; color-interpolation:linearRGB; stroke-width:2;"
+    ><path style="fill:none;" d="M-10 0 L10 0"
     /></g
   ></g
 ></svg
