@@ -4991,7 +4991,7 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 *** DONE: move A & B down in figure 7
 *** TODO: fix figure panel references in discussion and results (especially for fig 3)
 *** TODO: finalize figures
-*** TODO: same sized dots for alpha power and phase mod fig 
+*** DONE: same sized dots for alpha power and phase mod fig 
 
 * [2025-7-1 Tue] - working through manuscript and lick v no-lick
 ** lick v no-lick
@@ -5003,3 +5003,7 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 * [2025-7-4 Fri] - lick v no-lick 
 ** TODO: add that only 1.3% in correct incorrect shuffle were in <5th percentile 
 ** bimodal distribution for lick v no lick 
+
+* [2025-7-5 Sat] - lick figs 
+** TODO: add legend for figure 8 
+** TODO:
