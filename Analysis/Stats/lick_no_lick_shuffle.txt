@@ -1,0 +1,2 @@
+Proportion of neurons > 95th percentile: 2.934947e-01
+Proportion of neurons < 5th percentile: 1.497731e-01
