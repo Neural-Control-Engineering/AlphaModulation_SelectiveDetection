@@ -4976,7 +4976,7 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 
 * [2025-6-24 Tue] 
 ** TODOS 
-*** TODO: shuffle versions for lick / no-lick 
+*** DONE: shuffle versions for lick / no-lick 
 **** running S1 on convolution
 *** DONE: filled dots for figure 1 
 *** DONE: add panel for aperiodic component to figure 2G
@@ -5001,9 +5001,9 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 *** still need figure legends but text (sans lick v no lick) is mostly squared away
 
 * [2025-7-4 Fri] - lick v no-lick 
-** TODO: add that only 1.3% in correct incorrect shuffle were in <5th percentile 
+** DONE: add that only 1.3% in correct incorrect shuffle were in <5th percentile 
 ** bimodal distribution for lick v no lick 
 
 * [2025-7-5 Sat] - lick figs 
-** TODO: add legend for figure 8 
-** TODO:
+** TODO: add (red/blue) legend for figure 8 
+** TODO: graphical abstract
