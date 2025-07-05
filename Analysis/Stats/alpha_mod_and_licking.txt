@@ -1,3 +1,5 @@
+pct modulated on no lick trials vs. pct modulated on lick trials (signed-rank): p = 3.552086e-07
+No lick trials vs. lick trials N (signed-rank): p = 3.652833e-07
 D-prime = 2.24
 D-prime = 1.77
 D-prime = 2.68

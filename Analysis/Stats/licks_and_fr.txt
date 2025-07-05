@@ -1,0 +1,12 @@
+S1 RS unmod lick vs no lick (signed-rank): p = = 1.800608e-01
+S1 FS unmod lick vs no lick (signed-rank): p = = 4.723992e-01
+PFC RS unmod lick vs no lick (signed-rank): p = = 4.377493e-02
+PFC FS unmod lick vs no lick (signed-rank): p = = 1.937256e-01
+Striatum RS unmod lick vs no lick (signed-rank): p = = 5.737166e-01
+Striatum FS unmod lick vs no lick (signed-rank): p = = 1.329658e-02
+S1 RS mod lick vs no lick (signed-rank): p = = 1.960943e-02
+S1 FS mod lick vs no lick (signed-rank): p = = 6.200204e-07
+PFC RS mod lick vs no lick (signed-rank): p = = 2.981045e-02
+PFC FS mod lick vs no lick (signed-rank): p = = 1.075345e-05
+Striatum RS mod lick vs no lick (signed-rank): p = = 9.106699e-01
+Striatum FS mod lick vs no lick (signed-rank): p = = 3.398794e-07

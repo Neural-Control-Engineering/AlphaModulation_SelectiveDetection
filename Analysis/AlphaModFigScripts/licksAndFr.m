@@ -1113,6 +1113,9 @@ if run_analysis
     save('phase_mod_licking_frs.mat', 'out')
 end
 
+delete Stats/licks_and_fr.txt
+diary Stats/licks_and_fr.txt
+
 load phase_mod_licking_frs.mat
 fig = figure('Position', [1220 1122 1432 596]);
 tl = tiledlayout(1,2);
@@ -1420,3 +1423,5 @@ xlabel(tl, 'Time (s)', 'FontSize', 16)
 ylabel(tl, 'Firing Rate (Hz)', 'FontSize', 16)
 saveas(lick_aligned_fig, '../Figures/lick_aligned.svg')
 saveas(lick_aligned_fig, '../Figures/lick_aligned.fig')
+
+diary off

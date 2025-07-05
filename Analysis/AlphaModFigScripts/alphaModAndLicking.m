@@ -3,7 +3,7 @@ delete Stats/alpha_mod_and_licking.txt
 diary Stats/alpha_mod_and_licking.txt 
 init_paths;
 load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'))
-out_path = true; %true;
+out_path = false; %true;
 alpha_modulated = out.alpha_modulated;
 
 s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
@@ -542,6 +542,14 @@ xlim([0.5,2.5])
 ylim([0,105])
 yticks([0,100])
 
+if KStest(fracs_lick) || KStest(fracs_nolick)
+    p = signrank(fracs_lick, fracs_nolick);
+    fprintf(sprintf('pct modulated on no lick trials vs. pct modulated on lick trials (signed-rank): p = %d\n', p))
+else
+    [~, p] = ttest(fracs_lick, fracs_nolick)
+    fprintf(sprintf('pct modulated on no lick trials vs. pct modulated on lick trials (t-test): p = %d\n', p))
+end
+
 sessionIDs;
 session_ids = horzcat(expert_3387_session_ids, expert_3738_session_ids_v2, expert_3755_session_ids, expert_1075_session_ids);
 n_lick = zeros(length(session_ids),1);
@@ -571,6 +579,14 @@ xlim([0.5,2.5])
 lims = ylim;
 ylim([0, lims(2)])
 yticks([0, lims(2)])
+
+if KStest(n_lick) || KStest(n_nolick)
+    p = signrank(n_lick, n_nolick);
+    fprintf(sprintf('No lick trials vs. lick trials N (signed-rank): p = %d\n', p))
+else
+    [~, p] = ttest(n_lick, n_nolick)
+    fprintf(sprintf('No lick trials vs. lick trials N (t-test): p = %d\n', p))
+end
 
 ldprime = nan(1,length(session_ids));
 nldprime = nan(1,length(session_ids));
