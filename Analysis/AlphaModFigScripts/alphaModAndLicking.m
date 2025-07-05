@@ -3,7 +3,7 @@ delete Stats/alpha_mod_and_licking.txt
 diary Stats/alpha_mod_and_licking.txt 
 init_paths;
 load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'))
-out_path = false; %true;
+out_path = true; %true;
 alpha_modulated = out.alpha_modulated;
 
 s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
@@ -525,7 +525,7 @@ for s = 1:length(all_session_ids)
     % fracs_nolick(s) = sum(tmp.p_nolick < 0.01) / size(tmp,1) * 100;
 end
 
-all_fig = figure();
+all_fig = figure('Position', [[1210 1197 433 605]]);
 hold on 
 % bar(1:2, [nanmean(fracs_nolick), nanmean(fracs_lick)], 'FaceColor', [0.5, 0.5, 0.5], 'EdgeColor', [0.5, 0.5, 0.5])
 for i = 1:length(fracs_nolick)
@@ -553,7 +553,7 @@ for s = 1:length(session_ids)
     n_lick(s) = sum(contains_lick == 1);
     n_nolick(s) = sum(contains_lick == 0);
 end
-trial_fig = figure();
+trial_fig = figure('Position', [[1210 1197 433 605]]);
 hold on 
 % bar([1,2], [mean(n_lick), mean(n_nolick)], 'FaceColor', [0.5, 0.5, 0.5], 'EdgeColor', [0.5, 0.5, 0.5])
 for i = 1:length(n_lick)
@@ -589,7 +589,7 @@ for s = 1:length(session_ids)
         nldprime(s) = no_lick_trials(1,:).dprime;
     end
 end
-dprime_fig = figure();
+dprime_fig = figure('Position', [[1210 1197 433 605]]);
 hold on 
 for i = 1:length(ldprime)
     x = (rand()-0.5)*0.3;

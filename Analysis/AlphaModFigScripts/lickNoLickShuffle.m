@@ -351,3 +351,8 @@ saveas(fig, '../Figures/lick_bootstrap_summary.svg')
 saveas(fig, '../Figures/lick_bootstrap_summary.fig')
 
 diary off
+
+% ptiles = [];
+% s = 4;
+% load(sprintf('%s%s/shuffle_data.mat', s1_path, session_ids{s}));
+% ptiles = [ptiles, nolick_ptiles];
