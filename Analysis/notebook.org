@@ -5005,5 +5005,5 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 ** bimodal distribution for lick v no lick 
 
 * [2025-7-5 Sat] - lick figs 
-** TODO: add (red/blue) legend for figure 8 
+** DONE: add (red/blue) legend for figure 8 
 ** TODO: graphical abstract
