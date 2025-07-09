@@ -5007,3 +5007,8 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 * [2025-7-5 Sat] - lick figs 
 ** DONE: add (red/blue) legend for figure 8 
 ** DONE: graphical abstract
+
+* [2025-7-9 Wed] 
+** TODOS 
+*** TODO: regional lfp differences 
+*** TODO: percent of trials w/ / w/out licks (rather than count)
