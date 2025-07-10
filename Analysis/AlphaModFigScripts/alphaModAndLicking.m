@@ -562,7 +562,7 @@ for s = 1:length(session_ids)
     n_nolick(s) = sum(contains_lick == 0);
 end
 n_lick = n_lick ./ (n_lick + n_nolick);
-n_nolick = n_lick ./ (n_lick + n_nolick);
+n_nolick = ones(length(n_lick),1) - n_lick;
 trial_fig = figure('Position', [[1210 1197 433 605]]);
 hold on 
 % bar([1,2], [mean(n_lick), mean(n_nolick)], 'FaceColor', [0.5, 0.5, 0.5], 'EdgeColor', [0.5, 0.5, 0.5])

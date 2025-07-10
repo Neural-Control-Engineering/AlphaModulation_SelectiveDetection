@@ -102,19 +102,23 @@ for f = 1:length(ftr_files)
     end
 end
 
-% ftr_files = {strcat(ftr_path, 'LFP/date--2024-11.5-20_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
-%     strcat(ftr_path, 'LFP/date--2024-11.5-19_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
-%     strcat(ftr_path, 'LFP/date--2024-11.5-18_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
-%     strcat(ftr_path, 'LFP/date--2024-11.5-17_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
-%     strcat(ftr_path, 'LFP/date--2024-11.5-16_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g1.mat'), ...
-%     strcat(ftr_path, 'LFP/date--2024-11.5-16_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
-%     strcat(ftr_path, 'LFP/date--2024-11.5-15_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
+% ftr_files = {strcat(ftr_path, 'LFP/date--2024-12-20_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-12-19_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-12-18_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-12-17_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-12-16_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g1.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-12-16_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-12-15_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
 ftr_files = {strcat(ftr_path, 'LFP/date--2024-12-20_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'LFP/date--2024-12-19_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'LFP/date--2024-12-18_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'LFP/date--2024-12-17_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'LFP/date--2024-12-16_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g1.mat'), ...
     strcat(ftr_path, 'LFP/date--2024-12-15_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
+% ftr_files = {strcat(ftr_path, 'LFP/date--2024-12-20_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-12-18_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-12-16_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g1.mat'), ...
+%     strcat(ftr_path, 'LFP/date--2024-12-15_subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
 
 pfc_channel = 180;
 
@@ -133,31 +137,31 @@ tl = tiledlayout(4,4);
 axs(1) = nexttile;
 semshade(log10(s1_hit), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
 xlim([0,30])
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 xticklabels({})
 title('Hit', 'FontSize', 14, 'FontWeight', 'normal')
 ylabel('S1', 'FontSize', 14)
 axs(2) = nexttile;
 semshade(log10(s1_miss), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 title('Miss', 'FontSize', 14, 'FontWeight', 'normal')
 axs(3) = nexttile;
 semshade(log10(s1_cr), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
 xlim([0,30])
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 title('Correct Rejection', 'FontSize', 14, 'FontWeight', 'normal')
 axs(4) = nexttile;
 semshade(log10(s1_fa), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1});
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 xlim([0,30])
 xticklabels({})
 yticklabels({})
@@ -166,57 +170,57 @@ title('False Alarm', 'FontSize', 14, 'FontWeight', 'normal')
 axs(5) = nexttile;
 semshade(log10(pfc_hit), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
 xlim([0,30])
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 xticklabels({})
 ylabel('PFC', 'FontSize', 14)
 axs(6) = nexttile;
 semshade(log10(pfc_miss), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 axs(7) = nexttile;
 semshade(log10(pfc_cr), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
 xlim([0,30])
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 axs(8) = nexttile;
 semshade(log10(pfc_fa), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 
 axs(9) = nexttile;
 semshade(log10(striatum_hit), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
 xlim([0,30])
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 xticklabels({})
 ylabel('Striatum', 'FontSize', 14)
 axs(10) = nexttile;
 semshade(log10(striatum_miss), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 axs(11) = nexttile;
 semshade(log10(striatum_cr), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
 xlim([0,30])
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 axs(12) = nexttile;
 semshade(log10(striatum_fa), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1});
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 xlim([0,30])
 xticklabels({})
 yticklabels({})
@@ -224,25 +228,25 @@ yticklabels({})
 axs(13) = nexttile;
 semshade(log10(amygdala_hit), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
 xlim([0,30])
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 ylabel('Amygdala', 'FontSize', 14)
 axs(14) = nexttile;
 semshade(log10(amygdala_miss), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 yticklabels({})
 axs(15) = nexttile;
 semshade(log10(amygdala_cr), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
 xlim([0,30])
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 yticklabels({})
 axs(16) = nexttile;
 semshade(log10(amygdala_fa), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1});
-ylim([-11.5,-8])
-yticks([-11.5,-8])
+ylim([-11.5,-8.5])
+yticks([-11.5,-8.5])
 xlim([0,30])
 yticklabels({})
 xlabel(tl, 'Frequency (Hz)', 'FontSize', 14)
@@ -251,7 +255,8 @@ ylabel(tl, 'log LFP power', 'FontSize', 14)
 out_path = true; 
 if out_path
     saveas(fig, '../Figures/lfp_power_by_outcome.fig')
-    saveas(fig, '../Figures/lfp_power_by_outcome.svg')
+    % saveas(fig, '../Figures/lfp_power_by_outcome.svg')
+    print(gcf,'-vector','-dsvg','../Figures/lfp_power_by_outcome.svg')
 end
 
 args = struct();
@@ -325,18 +330,16 @@ for i = 1:size(DF_specs_fa,1)
     end
 end
 
-pparams_s1 = pparams_hit;
+pparams_s1= pparams_hit;
+pparams_s1_hit= pparams_hit;
+pparams_s1_miss= pparams_miss;
+pparams_s1_cr= pparams_cr;
+pparams_s1_fa= pparams_fa;
+DF_specs_s1_hit = DF_specs_hit;
+DF_specs_s1_miss = DF_specs_miss;
+DF_specs_s1_cr = DF_specs_cr;
+DF_specs_s1_fa = DF_specs_fa;
 DF_specs_s1 = DF_specs_hit;
-
-% fprintf('S1 params\n')
-% mat = [pparams_hit(:,1), pparams_miss(:,1), pparams_cr(:,1), pparams_fa(:,1)];
-% anova1(mat)
-
-% mat = [pparams_hit(:,2), pparams_miss(:,2), pparams_cr(:,2), pparams_fa(:,2)];
-% anova1(mat)
-
-% mat = [pparams_hit(:,3), pparams_miss(:,3), pparams_cr(:,3), pparams_fa(:,3)];
-% anova1(mat)
 
 period_fig = figure('Position', [1475 745 1316 978]);
 tl = tiledlayout(4,5);
@@ -361,8 +364,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-ylim([-10,-4])
-yticks([-10,-4])
+ylim([-10,-8])
+yticks([-10,-8])
 
 axs(1,2) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
@@ -526,32 +529,6 @@ for i = 1:size(DF_specs_fa,1)
     end
 end
 
-pparams_pfc= pparams_hit;
-DF_specs_pfc = DF_specs_hit;
-
-% fprintf('PFC params\n')
-
-% mat = nan(13,4);
-% mat(:,1) = pparams_hit(:,1);
-% mat(1:12,2) = pparams_miss(:,1);
-% mat(:,3) = pparams_cr(:,1);
-% mat(:,4) = pparams_fa(:,1);
-% anova1(mat)
-
-% mat = nan(13,4);
-% mat(:,1) = pparams_hit(:,2);
-% mat(1:12,2) = pparams_miss(:,2);
-% mat(:,3) = pparams_cr(:,2);
-% mat(:,4) = pparams_fa(:,2);
-% anova1(mat)
-
-% mat = nan(13,4);
-% mat(:,1) = pparams_hit(:,3);
-% mat(1:12,2) = pparams_miss(:,3);
-% mat(:,3) = pparams_cr(:,3);
-% mat(:,4) = pparams_fa(:,3);
-% anova1(mat)
-
 axs(2,1) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
     mean(DF_specs_miss.aperiodic_params(:,1)), ...
@@ -573,8 +550,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-ylim([-10,-4])
-yticks([-10,-4])
+ylim([-10,-8])
+yticks([-10,-8])
 
 axs(2,2) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
@@ -679,6 +656,17 @@ yticks([0,8])
 xlim([0.5,4.5])
 % ylabel('Bandwidth (Hz)')
 
+pparams_pfc= pparams_hit;
+pparams_pfc_hit= pparams_hit;
+pparams_pfc_miss= pparams_miss;
+pparams_pfc_cr= pparams_cr;
+pparams_pfc_fa= pparams_fa;
+DF_specs_pfc_hit = DF_specs_hit;
+DF_specs_pfc_miss = DF_specs_miss;
+DF_specs_pfc_cr = DF_specs_cr;
+DF_specs_pfc_fa = DF_specs_fa;
+DF_specs_pfc = DF_specs_hit;
+
 mat = striatum_hit;
 DF_chg = struct();
 DF_chg.df = mat(:,f<30)';
@@ -739,20 +727,6 @@ for i = 1:size(DF_specs_fa,1)
     end
 end
 
-pparams_bg = pparams_hit;
-DF_specs_bg = DF_specs_hit;
-
-% fprintf('Striatum params\n')
-
-% mat = [pparams_hit(:,1), pparams_miss(:,1), pparams_cr(:,1), pparams_fa(:,1)];
-% anova1(mat)
-
-% mat = [pparams_hit(:,2), pparams_miss(:,2), pparams_cr(:,2), pparams_fa(:,2)];
-% anova1(mat)
-
-% mat = [pparams_hit(:,3), pparams_miss(:,3), pparams_cr(:,3), pparams_fa(:,3)];
-% anova1(mat)
-
 axs(3,1) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
     mean(DF_specs_miss.aperiodic_params(:,1)), ...
@@ -774,8 +748,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-ylim([-10,-4])
-yticks([-10,-4])
+ylim([-10,-8])
+yticks([-10,-8])
 
 axs(3,2) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
@@ -880,6 +854,17 @@ yticks([0,8])
 xlim([0.5,4.5])
 % ylabel('Bandwidth (Hz)')
 
+pparams_bg= pparams_hit;
+pparams_bg_hit= pparams_hit;
+pparams_bg_miss= pparams_miss;
+pparams_bg_cr= pparams_cr;
+pparams_bg_fa= pparams_fa;
+DF_specs_bg_hit = DF_specs_hit;
+DF_specs_bg_miss = DF_specs_miss;
+DF_specs_bg_cr = DF_specs_cr;
+DF_specs_bg_fa = DF_specs_fa;
+DF_specs_bg = DF_specs_hit;
+
 mat = amygdala_hit;
 DF_chg = struct();
 DF_chg.df = mat(:,f<30)';
@@ -940,16 +925,6 @@ for i = 1:size(DF_specs_fa,1)
     end
 end
 
-% fprintf('Amygdala params\n')
-
-% mat = [pparams_hit(:,1), pparams_miss(:,1), pparams_cr(:,1), pparams_fa(:,1)];
-% anova1(mat)
-
-% mat = [pparams_hit(:,2), pparams_miss(:,2), pparams_cr(:,2), pparams_fa(:,2)];
-% anova1(mat)
-
-% mat = [pparams_hit(:,3), pparams_miss(:,3), pparams_cr(:,3), pparams_fa(:,3)];
-% anova1(mat)
 
 axs(4,1) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,1)), ...
@@ -973,8 +948,8 @@ errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks(1:4)
 xticklabels({'Hit','Miss','CR','FA'})
-ylim([-10,-4])
-yticks([-10,-4])
+ylim([-10,-8])
+yticks([-10,-8])
 
 axs(4,2) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
@@ -1077,9 +1052,16 @@ xticklabels({'Hit','Miss','CR','FA'})
 ylim([0,8])
 xlim([0.5,4.5])
 yticks([0,8])
-% ylabel('Bandwidth (Hz)')
 
-pparams_ag = pparams_hit;
+pparams_ag= pparams_hit;
+pparams_ag_hit= pparams_hit;
+pparams_ag_miss= pparams_miss;
+pparams_ag_cr= pparams_cr;
+pparams_ag_fa= pparams_fa;
+DF_specs_ag_hit = DF_specs_hit;
+DF_specs_ag_miss = DF_specs_miss;
+DF_specs_ag_cr = DF_specs_cr;
+DF_specs_ag_fa = DF_specs_fa;
 DF_specs_ag = DF_specs_hit;
 
 if out_path
@@ -1087,7 +1069,7 @@ if out_path
     saveas(period_fig, '../Figures/periodic_aperiodic.svg')
 end
 
-ap1_fig = figure();
+ap1_fig = figure('Position', [1215 1378 381 328]);
 avg = [mean(DF_specs_s1.aperiodic_params(:,1)), ...
     mean(DF_specs_pfc.aperiodic_params(:,1)), ...
     mean(DF_specs_bg.aperiodic_params(:,1)), ...
@@ -1105,7 +1087,7 @@ plot(zeros(1,size(DF_specs_bg.aperiodic_params,1))+3+(rand(1,size(DF_specs_bg.ap
     DF_specs_bg.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
 plot(zeros(1,size(DF_specs_ag.aperiodic_params,1))+4+(rand(1,size(DF_specs_ag.aperiodic_params,1))-0.5)*0.3, ...
     DF_specs_ag.aperiodic_params(:,1), 'o', 'MarkerSize', 5, 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1, 1, 1])
-errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
+errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 3)
 xlim([0.5,4.5])
 xticks(1:4)
 xticklabels({'S1', 'PFC', 'Striatum', 'Amygdala'})
@@ -1113,7 +1095,7 @@ ylim([-10,-4])
 yticks([-10,-4])
 xtickangle(45)
 
-ap2_fig = figure();
+ap2_fig = figure('Position', [1215 1378 381 328]);
 avg = [mean(DF_specs_s1.aperiodic_params(:,2)), ...
     mean(DF_specs_pfc.aperiodic_params(:,2)), ...
     mean(DF_specs_bg.aperiodic_params(:,2)), ...
@@ -1139,7 +1121,7 @@ xtickangle(45)
 ylim([0,2])
 yticks([0,2])
 
-pfig1 = figure();
+pfig1 = figure('Position', [1215 1378 381 328]);
 avg = [mean(pparams_s1(:,1)), ...
     mean(pparams_pfc(:,1)), ...
     mean(pparams_bg(:,1)), ...
@@ -1165,7 +1147,7 @@ yticks([0,20])
 xlim([0.5,4.5])
 % ylabel('Peak Frequency (Hz)')
 
-pfig2 = figure();
+pfig2 = figure('Position', [1215 1378 381 328]);
 avg = [mean(pparams_s1(:,2)), ...
     mean(pparams_pfc(:,2)), ...
     mean(pparams_bg(:,2)), ...
@@ -1191,7 +1173,7 @@ yticks([0,0.8])
 xlim([0.5,4.5])
 % ylabel('Relative Power (a.u.)')
 
-pfig3 = figure();
+pfig3 = figure('Position', [1215 1378 381 328]);
 avg = [mean(pparams_s1(:,3)), ...
     mean(pparams_pfc(:,3)), ...
     mean(pparams_bg(:,3)), ...
@@ -1216,6 +1198,75 @@ ylim([0,8])
 xlim([0.5,4.5])
 yticks([0,8])
 
+fprintf('S1 params\n')
+fprintf('Aperiodic 1:\n')
+mat = [DF_specs_s1_hit.aperiodic_params(:,1), DF_specs_s1_miss.aperiodic_params(:,1), DF_specs_s1_cr.aperiodic_params(:,1), DF_specs_s1_fa.aperiodic_params(:,1)];
+anova1(mat)
+fprintf('Aperiodic 2:\n')
+mat = [DF_specs_s1_hit.aperiodic_params(:,2), DF_specs_s1_miss.aperiodic_params(:,2), DF_specs_s1_cr.aperiodic_params(:,2), DF_specs_s1_fa.aperiodic_params(:,2)];
+anova1(mat)
+fprintf('Periodic 1:\n')
+mat = [pparams_s1_hit(:,1), pparams_s1_miss(:,1), pparams_s1_cr(:,1), pparams_s1_fa(:,1)];
+anova1(mat)
+fprintf('Periodic 2:\n')
+mat = [pparams_s1_hit(:,2), pparams_s1_miss(:,2), pparams_s1_cr(:,2), pparams_s1_fa(:,2)];
+anova1(mat)
+fprintf('Periodic 3:\n')
+mat = [pparams_s1_hit(:,3), pparams_s1_miss(:,3), pparams_s1_cr(:,3), pparams_s1_fa(:,3)];
+anova1(mat)
+
+fprintf('PFC params\n')
+fprintf('Aperiodic 1:\n')
+mat = [DF_specs_pfc_hit.aperiodic_params(:,1), DF_specs_pfc_miss.aperiodic_params(:,1), DF_specs_pfc_cr.aperiodic_params(:,1), DF_specs_pfc_fa.aperiodic_params(:,1)];
+anova1(mat)
+fprintf('Aperiodic 2:\n')
+mat = [DF_specs_pfc_hit.aperiodic_params(:,2), DF_specs_pfc_miss.aperiodic_params(:,2), DF_specs_pfc_cr.aperiodic_params(:,2), DF_specs_pfc_fa.aperiodic_params(:,2)];
+anova1(mat)
+fprintf('Periodic 1:\n')
+mat = [pparams_pfc_hit(:,1), pparams_pfc_miss(:,1), pparams_pfc_cr(:,1), pparams_pfc_fa(:,1)];
+anova1(mat)
+fprintf('Periodic 2:\n')
+mat = [pparams_pfc_hit(:,2), pparams_pfc_miss(:,2), pparams_pfc_cr(:,2), pparams_pfc_fa(:,2)];
+anova1(mat)
+fprintf('Periodic 3:\n')
+mat = [pparams_pfc_hit(:,3), pparams_pfc_miss(:,3), pparams_pfc_cr(:,3), pparams_pfc_fa(:,3)];
+anova1(mat)
+
+fprintf('Striatum params\n')
+fprintf('Aperiodic 1:\n')
+mat = [DF_specs_bg_hit.aperiodic_params(:,1), DF_specs_bg_miss.aperiodic_params(:,1), DF_specs_bg_cr.aperiodic_params(:,1), DF_specs_bg_fa.aperiodic_params(:,1)];
+anova1(mat)
+fprintf('Aperiodic 2:\n')
+mat = [DF_specs_bg_hit.aperiodic_params(:,2), DF_specs_bg_miss.aperiodic_params(:,2), DF_specs_bg_cr.aperiodic_params(:,2), DF_specs_bg_fa.aperiodic_params(:,2)];
+anova1(mat)
+fprintf('Periodic 1:\n')
+mat = [pparams_bg_hit(:,1), pparams_bg_miss(:,1), pparams_bg_cr(:,1), pparams_bg_fa(:,1)];
+anova1(mat)
+fprintf('Periodic 2:\n')
+mat = [pparams_bg_hit(:,2), pparams_bg_miss(:,2), pparams_bg_cr(:,2), pparams_bg_fa(:,2)];
+anova1(mat)
+fprintf('Periodic 3:\n')
+mat = [pparams_bg_hit(:,3), pparams_bg_miss(:,3), pparams_bg_cr(:,3), pparams_bg_fa(:,3)];
+anova1(mat)
+
+fprintf('Amygdala params\n')
+fprintf('Aperiodic 1:\n')
+mat = [DF_specs_ag_hit.aperiodic_params(:,1), DF_specs_ag_miss.aperiodic_params(:,1), DF_specs_ag_cr.aperiodic_params(:,1), DF_specs_ag_fa.aperiodic_params(:,1)];
+anova1(mat)
+fprintf('Aperiodic 2:\n')
+mat = [DF_specs_ag_hit.aperiodic_params(:,2), DF_specs_ag_miss.aperiodic_params(:,2), DF_specs_ag_cr.aperiodic_params(:,2), DF_specs_ag_fa.aperiodic_params(:,2)];
+anova1(mat)
+fprintf('Periodic 1:\n')
+mat = [pparams_ag_hit(:,1), pparams_ag_miss(:,1), pparams_ag_cr(:,1), pparams_ag_fa(:,1)];
+anova1(mat)
+fprintf('Periodic 2:\n')
+mat = [pparams_ag_hit(:,2), pparams_ag_miss(:,2), pparams_ag_cr(:,2), pparams_ag_fa(:,2)];
+anova1(mat)
+fprintf('Periodic 3:\n')
+mat = [pparams_ag_hit(:,3), pparams_ag_miss(:,3), pparams_ag_cr(:,3), pparams_ag_fa(:,3)];
+anova1(mat)
+
+fprintf('\nInter-region\n')
 fprintf('Aperiodic 1:\n')
 if KStest(DF_specs_s1.aperiodic_params(:,1)) || KStest(DF_specs_pfc.aperiodic_params(:,1))
     p = ranksum(DF_specs_s1.aperiodic_params(:,1), DF_specs_pfc.aperiodic_params(:,1));
@@ -1314,7 +1365,7 @@ else
     fprintf(sprintf('Amygdala vs PFC (2-sample t-test): p = %d\n', p))
 end
 
-fprintf('\Periodic 1:\n')
+fprintf('\nPeriodic 1:\n')
 if KStest(pparams_s1(:,1)) || KStest(pparams_pfc(:,1))
     p = ranksum(pparams_s1(:,1), pparams_pfc(:,1));
     fprintf(sprintf('S1 vs PFC (mann-whitney): p = %d\n', p))
@@ -1363,7 +1414,7 @@ else
     fprintf(sprintf('Amygdala vs PFC (2-sample t-test): p = %d\n', p))
 end
 
-fprintf('\Periodic 2:\n')
+fprintf('\nPeriodic 2:\n')
 if KStest(pparams_s1(:,2)) || KStest(pparams_pfc(:,2))
     p = ranksum(pparams_s1(:,2), pparams_pfc(:,2));
     fprintf(sprintf('S1 vs PFC (mann-whitney): p = %d\n', p))
@@ -1412,7 +1463,7 @@ else
     fprintf(sprintf('Amygdala vs PFC (2-sample t-test): p = %d\n', p))
 end
 
-fprintf('\Periodic 3:\n')
+fprintf('\nPeriodic 3:\n')
 if KStest(pparams_s1(:,3)) || KStest(pparams_pfc(:,3))
     p = ranksum(pparams_s1(:,3), pparams_pfc(:,3));
     fprintf(sprintf('S1 vs PFC (mann-whitney): p = %d\n', p))
@@ -1473,3 +1524,5 @@ if out_path
     saveas(pfig2, '../Figures/p2.svg')
     saveas(pfig3, '../Figures/p3.svg')
 end
+
+diary off
