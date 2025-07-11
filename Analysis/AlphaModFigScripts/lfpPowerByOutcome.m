@@ -1284,20 +1284,20 @@ else
     fprintf(sprintf('S1 vs Striatum (paired t-test): p = %d\n', p))
 end
 
+if KStest(DF_specs_s1.aperiodic_params(:,1)) || KStest(DF_specs_ag.aperiodic_params(:,1))
+    p = signrank(DF_specs_s1.aperiodic_params(:,1), DF_specs_ag.aperiodic_params(:,1));
+    fprintf(sprintf('S1 vs Amygdala (wilcoxon sign-rank): p = %d\n', p))
+else
+    [~,p] = ttest(DF_specs_s1.aperiodic_params(:,1), DF_specs_ag.aperiodic_params(:,1));
+    fprintf(sprintf('S1 vs Amygdala (paired t-test): p = %d\n', p))
+end
+
 if KStest(DF_specs_ag.aperiodic_params(:,1)) || KStest(DF_specs_bg.aperiodic_params(:,1))
     p = signrank(DF_specs_ag.aperiodic_params(:,1), DF_specs_bg.aperiodic_params(:,1));
     fprintf(sprintf('Amygdala vs Striatum (wilcoxon sign-rank): p = %d\n', p))
 else
     [~,p] = ttest(DF_specs_ag.aperiodic_params(:,1), DF_specs_bg.aperiodic_params(:,1));
     fprintf(sprintf('Amygdala vs Striatum (paired t-test): p = %d\n', p))
-end
-
-if KStest(DF_specs_s1.aperiodic_params(:,1)) || KStest(DF_specs_ag.aperiodic_params(:,1))
-    p = signrank(DF_specs_s1.aperiodic_params(:,1), DF_specs_ag.aperiodic_params(:,1));
-    fprintf(sprintf('S1 vs Striatum (wilcoxon sign-rank): p = %d\n', p))
-else
-    [~,p] = ttest(DF_specs_s1.aperiodic_params(:,1), DF_specs_ag.aperiodic_params(:,1));
-    fprintf(sprintf('S1 vs Striatum (paired t-test): p = %d\n', p))
 end
 
 if KStest(DF_specs_bg.aperiodic_params(:,1)) || KStest(DF_specs_pfc.aperiodic_params(:,1))
@@ -1333,20 +1333,20 @@ else
     fprintf(sprintf('S1 vs Striatum (paired t-test): p = %d\n', p))
 end
 
+if KStest(DF_specs_s1.aperiodic_params(:,2)) || KStest(DF_specs_ag.aperiodic_params(:,2))
+    p = signrank(DF_specs_s1.aperiodic_params(:,2), DF_specs_ag.aperiodic_params(:,2));
+    fprintf(sprintf('S1 vs Amygdala (wilcoxon sign-rank): p = %d\n', p))
+else
+    [~,p] = ttest(DF_specs_s1.aperiodic_params(:,2), DF_specs_ag.aperiodic_params(:,2));
+    fprintf(sprintf('S1 vs Amygdala (paired t-test): p = %d\n', p))
+end
+
 if KStest(DF_specs_ag.aperiodic_params(:,2)) || KStest(DF_specs_bg.aperiodic_params(:,2))
     p = signrank(DF_specs_ag.aperiodic_params(:,2), DF_specs_bg.aperiodic_params(:,2));
     fprintf(sprintf('Amygdala vs Striatum (wilcoxon sign-rank): p = %d\n', p))
 else
     [~,p] = ttest(DF_specs_ag.aperiodic_params(:,2), DF_specs_bg.aperiodic_params(:,2));
     fprintf(sprintf('Amygdala vs Striatum (paired t-test): p = %d\n', p))
-end
-
-if KStest(DF_specs_s1.aperiodic_params(:,2)) || KStest(DF_specs_ag.aperiodic_params(:,2))
-    p = signrank(DF_specs_s1.aperiodic_params(:,2), DF_specs_ag.aperiodic_params(:,2));
-    fprintf(sprintf('S1 vs Striatum (wilcoxon sign-rank): p = %d\n', p))
-else
-    [~,p] = ttest(DF_specs_s1.aperiodic_params(:,2), DF_specs_ag.aperiodic_params(:,2));
-    fprintf(sprintf('S1 vs Striatum (paired t-test): p = %d\n', p))
 end
 
 if KStest(DF_specs_bg.aperiodic_params(:,2)) || KStest(DF_specs_pfc.aperiodic_params(:,2))
@@ -1374,14 +1374,6 @@ else
     fprintf(sprintf('S1 vs PFC (2-sample t-test): p = %d\n', p))
 end
 
-if KStest(pparams_s1(:,1)) || KStest(pparams_bg(:,1))
-    p = signrank(pparams_s1(:,1), pparams_bg(:,1));
-    fprintf(sprintf('S1 vs Striatum (wilcoxon sign-rank): p = %d\n', p))
-else
-    [~,p] = ttest(pparams_s1(:,1), pparams_bg(:,1));
-    fprintf(sprintf('S1 vs Striatum (paired t-test): p = %d\n', p))
-end
-
 if KStest(pparams_ag(:,1)) || KStest(pparams_bg(:,1))
     p = signrank(pparams_ag(:,1), pparams_bg(:,1));
     fprintf(sprintf('Amygdala vs Striatum (wilcoxon sign-rank): p = %d\n', p))
@@ -1390,12 +1382,20 @@ else
     fprintf(sprintf('Amygdala vs Striatum (paired t-test): p = %d\n', p))
 end
 
-if KStest(pparams_s1(:,1)) || KStest(pparams_ag(:,1))
-    p = signrank(pparams_s1(:,1), pparams_ag(:,1));
+if KStest(pparams_s1(:,1)) || KStest(pparams_bg(:,1))
+    p = signrank(pparams_s1(:,1), pparams_bg(:,1));
     fprintf(sprintf('S1 vs Striatum (wilcoxon sign-rank): p = %d\n', p))
 else
-    [~,p] = ttest(pparams_s1(:,1), pparams_ag(:,1));
+    [~,p] = ttest(pparams_s1(:,1), pparams_bg(:,1));
     fprintf(sprintf('S1 vs Striatum (paired t-test): p = %d\n', p))
+end
+
+if KStest(pparams_s1(:,1)) || KStest(pparams_ag(:,1))
+    p = signrank(pparams_s1(:,1), pparams_ag(:,1));
+    fprintf(sprintf('S1 vs Amygdala (wilcoxon sign-rank): p = %d\n', p))
+else
+    [~,p] = ttest(pparams_s1(:,1), pparams_ag(:,1));
+    fprintf(sprintf('S1 vs Amygdala (paired t-test): p = %d\n', p))
 end
 
 if KStest(pparams_bg(:,1)) || KStest(pparams_pfc(:,1))
@@ -1423,14 +1423,6 @@ else
     fprintf(sprintf('S1 vs PFC (2-sample t-test): p = %d\n', p))
 end
 
-if KStest(pparams_s1(:,2)) || KStest(pparams_bg(:,2))
-    p = signrank(pparams_s1(:,2), pparams_bg(:,2));
-    fprintf(sprintf('S1 vs Striatum (wilcoxon sign-rank): p = %d\n', p))
-else
-    [~,p] = ttest(pparams_s1(:,2), pparams_bg(:,2));
-    fprintf(sprintf('S1 vs Striatum (paired t-test): p = %d\n', p))
-end
-
 if KStest(pparams_ag(:,2)) || KStest(pparams_bg(:,2))
     p = signrank(pparams_ag(:,2), pparams_bg(:,2));
     fprintf(sprintf('Amygdala vs Striatum (wilcoxon sign-rank): p = %d\n', p))
@@ -1439,12 +1431,20 @@ else
     fprintf(sprintf('Amygdala vs Striatum (paired t-test): p = %d\n', p))
 end
 
-if KStest(pparams_s1(:,2)) || KStest(pparams_ag(:,2))
-    p = signrank(pparams_s1(:,2), pparams_ag(:,2));
+if KStest(pparams_s1(:,2)) || KStest(pparams_bg(:,2))
+    p = signrank(pparams_s1(:,2), pparams_bg(:,2));
     fprintf(sprintf('S1 vs Striatum (wilcoxon sign-rank): p = %d\n', p))
 else
-    [~,p] = ttest(pparams_s1(:,2), pparams_ag(:,2));
+    [~,p] = ttest(pparams_s1(:,2), pparams_bg(:,2));
     fprintf(sprintf('S1 vs Striatum (paired t-test): p = %d\n', p))
+end
+
+if KStest(pparams_s1(:,2)) || KStest(pparams_ag(:,2))
+    p = signrank(pparams_s1(:,2), pparams_ag(:,2));
+    fprintf(sprintf('S1 vs Amygdala (wilcoxon sign-rank): p = %d\n', p))
+else
+    [~,p] = ttest(pparams_s1(:,2), pparams_ag(:,2));
+    fprintf(sprintf('S1 vs Amygdala (paired t-test): p = %d\n', p))
 end
 
 if KStest(pparams_bg(:,2)) || KStest(pparams_pfc(:,2))
@@ -1472,14 +1472,6 @@ else
     fprintf(sprintf('S1 vs PFC (2-sample t-test): p = %d\n', p))
 end
 
-if KStest(pparams_s1(:,3)) || KStest(pparams_bg(:,3))
-    p = signrank(pparams_s1(:,3), pparams_bg(:,3));
-    fprintf(sprintf('S1 vs Striatum (wilcoxon sign-rank): p = %d\n', p))
-else
-    [~,p] = ttest(pparams_s1(:,3), pparams_bg(:,3));
-    fprintf(sprintf('S1 vs Striatum (paired t-test): p = %d\n', p))
-end
-
 if KStest(pparams_ag(:,3)) || KStest(pparams_bg(:,3))
     p = signrank(pparams_ag(:,3), pparams_bg(:,3));
     fprintf(sprintf('Amygdala vs Striatum (wilcoxon sign-rank): p = %d\n', p))
@@ -1488,12 +1480,20 @@ else
     fprintf(sprintf('Amygdala vs Striatum (paired t-test): p = %d\n', p))
 end
 
-if KStest(pparams_s1(:,3)) || KStest(pparams_ag(:,3))
-    p = signrank(pparams_s1(:,3), pparams_ag(:,3));
+if KStest(pparams_s1(:,3)) || KStest(pparams_bg(:,3))
+    p = signrank(pparams_s1(:,3), pparams_bg(:,3));
     fprintf(sprintf('S1 vs Striatum (wilcoxon sign-rank): p = %d\n', p))
 else
-    [~,p] = ttest(pparams_s1(:,3), pparams_ag(:,3));
+    [~,p] = ttest(pparams_s1(:,3), pparams_bg(:,3));
     fprintf(sprintf('S1 vs Striatum (paired t-test): p = %d\n', p))
+end
+
+if KStest(pparams_s1(:,3)) || KStest(pparams_ag(:,3))
+    p = signrank(pparams_s1(:,3), pparams_ag(:,3));
+    fprintf(sprintf('S1 vs Amygdala (wilcoxon sign-rank): p = %d\n', p))
+else
+    [~,p] = ttest(pparams_s1(:,3), pparams_ag(:,3));
+    fprintf(sprintf('S1 vs Amygdala (paired t-test): p = %d\n', p))
 end
 
 if KStest(pparams_bg(:,3)) || KStest(pparams_pfc(:,3))
