@@ -5012,5 +5012,5 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 ** TODOS 
 *** DONE: regional lfp differences 
 *** DONE: percent of trials w/ / w/out licks (rather than count)
-*** TODO: replace figures 2 and 8 in text 
-*** TODO: flesh out stats on LFPs in text 
+*** DONE: replace figures 2 and 8 in text 
+*** DONE: flesh out stats on LFPs in text 
