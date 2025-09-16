@@ -1,4 +1,4 @@
-function spontaneousAlphaModulation(ap_session, visualize, out_path)
+function spontaneousAlphaModulation(ap_session, visualize, out_path, overall_p_threshold)
 
     if out_path
         fig_path = strcat(out_path, 'Spontaneous_Alpha_Modulation/');
@@ -104,23 +104,22 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
     end
 
     % alpha_modulated = ap_session(cell2mat(p_value) < cell2mat(p_threshold),:);
-    alpha_modulated = ap_session(p_value < (0.5 / size(ap_session,1)),:);
+    alpha_modulated = ap_session(p_value <= overall_p_threshold,:);
     pct_alpha_modulated = size(alpha_modulated,1) / size(ap_session,1);
-    overall_p_threshold = (0.5 / size(ap_session,1));
     
-    p_value_hit = p_value_hit(p_value < overall_p_threshold);
-    p_value_miss = p_value_miss(p_value < overall_p_threshold);
-    p_value_cr = p_value_cr(p_value < overall_p_threshold);
-    p_value_fa = p_value_fa(p_value < overall_p_threshold);
-    p_value = p_value(p_value < overall_p_threshold);
+    p_value_hit = p_value_hit(p_value <= overall_p_threshold);
+    p_value_miss = p_value_miss(p_value <= overall_p_threshold);
+    p_value_cr = p_value_cr(p_value <= overall_p_threshold);
+    p_value_fa = p_value_fa(p_value <= overall_p_threshold);
+    p_value = p_value(p_value <= overall_p_threshold);
 
-    mi = mi(p_value < overall_p_threshold);
-    mi_hit = mi_hit(p_value < overall_p_threshold);
-    mi_miss = mi_miss(p_value < overall_p_threshold);
-    mi_cr = mi_cr(p_value < overall_p_threshold);
-    mi_fa = mi_fa(p_value < overall_p_threshold);
-    mi_lick = mi_lick(p_value < overall_p_threshold);
-    mi_nolick = mi_nolick(p_value < overall_p_threshold);
+    mi = mi(p_value <= overall_p_threshold);
+    mi_hit = mi_hit(p_value <= overall_p_threshold);
+    mi_miss = mi_miss(p_value <= overall_p_threshold);
+    mi_cr = mi_cr(p_value <= overall_p_threshold);
+    mi_fa = mi_fa(p_value <= overall_p_threshold);
+    mi_lick = mi_lick(p_value <= overall_p_threshold);
+    mi_nolick = mi_nolick(p_value <= overall_p_threshold);
 
     theta_bars = zeros(size(alpha_modulated,1),1);
     Rs = zeros(size(alpha_modulated,1),1);
@@ -967,7 +966,7 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
     else
         correct_fraction_fig = figure('Visible', 'off');
     end
-    bar([1,2], [sum(p_correct < overall_p_threshold) / size(alpha_modulated,1), sum(p_incorrect < overall_p_threshold) / size(alpha_modulated,1)], ...
+    bar([1,2], [sum(p_correct <= overall_p_threshold) / size(alpha_modulated,1), sum(p_incorrect <= overall_p_threshold) / size(alpha_modulated,1)], ...
         'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
     ylabel('Fraction of Modulated Neurons')
     xticks([1,2])
@@ -983,8 +982,8 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
         tmp = alpha_modulated(strcmp(alpha_modulated.session_id, session_ids{s}),:);
         p_correct_bySession{s} = p_correct(strcmp(alpha_modulated.session_id, session_ids{s}));
         p_incorrect_bySession{s} = p_incorrect(strcmp(alpha_modulated.session_id, session_ids{s}));
-        correct_fractions(s) = sum(p_correct_bySession{s} < overall_p_threshold) / size(tmp,1);
-        incorrect_fractions(s) = sum(p_incorrect_bySession{s} < overall_p_threshold) / size(tmp,1);
+        correct_fractions(s) = sum(p_correct_bySession{s} <= overall_p_threshold) / size(tmp,1);
+        incorrect_fractions(s) = sum(p_incorrect_bySession{s} <= overall_p_threshold) / size(tmp,1);
     end
 
     if visualize
@@ -1011,8 +1010,8 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
         tmp = alpha_modulated(strcmp(alpha_modulated.session_id, session_ids{s}),:);
         p_action_bySession{s} = p_action(strcmp(alpha_modulated.session_id, session_ids{s}));
         p_inaction_bySession{s} = p_inaction(strcmp(alpha_modulated.session_id, session_ids{s}));
-        action_fractions(s) = sum(p_action_bySession{s} < overall_p_threshold) / size(tmp,1);
-        inaction_fractions(s) = sum(p_inaction_bySession{s} < overall_p_threshold) / size(tmp,1);
+        action_fractions(s) = sum(p_action_bySession{s} <= overall_p_threshold) / size(tmp,1);
+        inaction_fractions(s) = sum(p_inaction_bySession{s} <= overall_p_threshold) / size(tmp,1);
     end
     
     if visualize
@@ -1086,7 +1085,7 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
     else
         action_fraction_fig = figure('Visible', 'off');
     end
-    bar([1,2], [sum(p_action < overall_p_threshold) / size(alpha_modulated,1), sum(p_inaction < overall_p_threshold) / size(alpha_modulated,1)], ...
+    bar([1,2], [sum(p_action <= overall_p_threshold) / size(alpha_modulated,1), sum(p_inaction <= overall_p_threshold) / size(alpha_modulated,1)], ...
         'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
     ylabel('Fraction of Modulated Neurons')
     xticks([1,2])
@@ -1201,7 +1200,7 @@ function spontaneousAlphaModulation(ap_session, visualize, out_path)
     else
         lick_nolick_fig = figure('Visible', 'off');
     end
-    bar([1,2], [sum(p_lick < overall_p_threshold) / size(alpha_modulated,1), sum(p_nolick < overall_p_threshold) / size(alpha_modulated,1)], ...
+    bar([1,2], [sum(p_lick <= overall_p_threshold) / size(alpha_modulated,1), sum(p_nolick <= overall_p_threshold) / size(alpha_modulated,1)], ...
         'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
     ylabel('Frlick of Modulated Neurons')
     xticks([1,2])

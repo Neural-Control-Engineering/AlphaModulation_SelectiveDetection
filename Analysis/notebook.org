@@ -1192,10 +1192,10 @@ ap_dir = '~/neuralctrl/projects/nCORTEx/Project_Selective-Attention/Experiments/
 % ap_files = horzcat(expert_3387_session_ids, expert_3738_session_ids, ... 
 %     dcz_3387_session_ids, half_dcz_3387_session_ids, saline_3387_session_ids, ...
 %     dcz_3738_session_ids, half_dcz_3738_session_ids, saline_3738_session_ids);
-% ap_files = horzcat(expert_3387_session_ids, expert_3738_session_ids, expert_3755_session_ids, expert_1075_session_ids);
+ap_files = horzcat(expert_3387_session_ids, expert_3738_session_ids, expert_3755_session_ids, expert_1075_session_ids);
 % ap_files = expert_3387_session_ids;
 % ap_files = expert_3738_session_ids;
-ap_files = expert_1075_session_ids;
+% ap_files = expert_1075_session_ids;
 for i = 1:length(ap_files)
     ap_files{i} = strcat(ap_files{i}, '.mat');
     if contains(ap_files{i}, '3755')
@@ -5014,3 +5014,11 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 *** DONE: percent of trials w/ / w/out licks (rather than count)
 *** DONE: replace figures 2 and 8 in text 
 *** DONE: flesh out stats on LFPs in text 
+
+* [2025-9-11 Thu] - received reviews 
+** revisiting cell class classification 
+*** plotting silhoutte scores for each session 
+
+* [2025-9-16 Tue] - different significance computation 
+** false discovery rate Benjamini-Hochberg procedure 
+*** fdrBenjaminiHochberg.m - gives adjusted p-value for false detection rate of 0.01: 0.0043

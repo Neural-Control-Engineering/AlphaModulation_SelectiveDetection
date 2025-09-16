@@ -3,15 +3,15 @@ diary Stats/phase_mod_summaries.txt
 
 addpath(genpath('~/circstat-matlab/'))
 init_paths;
-s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
-pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'));
-striatum = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
-amygdala = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/data.mat'));
+s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
+pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/data.mat'));
+striatum = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
+amygdala = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Amygdala/Spontaneous_Alpha_Modulation/data.mat'));
 
 %% s1 sessions
 % combine animals
-ftr_files = {strcat(ftr_path, '/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat'), ...
-    strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat')};
+ftr_files = {strcat(ftr_path, '/AP/subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted_sill.mat'), ...
+    strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted_sill.mat')};
 for i = 1:length(ftr_files)
     f = load(ftr_files{i});
     if i == 1
@@ -26,8 +26,8 @@ Striatum = ftrs(logical(striatum_inds), :);
 amygdala_inds = strcmp(ftrs.region, 'BLAp') + strcmp(ftrs.region, 'LA');
 Amygdala = ftrs(logical(amygdala_inds), :);
 
-ftr_files = {strcat(ftr_path, '/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
-    strcat(ftr_path, '/AP/subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
+ftr_files = {strcat(ftr_path, '/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_sill.mat'), ...
+    strcat(ftr_path, '/AP/subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0_sill.mat')};
 for i = 1:length(ftr_files)
     f = load(ftr_files{i});
     if i == 1
@@ -120,26 +120,26 @@ for s = 1:length(s1_sessions)
     s1_combo_fracs(s) = (sum(strcmp(tmp.waveform_class, 'FS')) + sum(strcmp(tmp.waveform_class, 'RS'))) / (sum(strcmp(tmp_all.waveform_class, 'FS')) + sum(strcmp(tmp_all.waveform_class, 'RS')));
     s1_ts_fracs(s) = sum(strcmp(tmp.waveform_class, 'TS')) / sum(strcmp(tmp_all.waveform_class, 'TS'));
     s1_ps_fracs(s) = sum(strcmp(tmp.waveform_class, 'PS')) / sum(strcmp(tmp_all.waveform_class, 'PS'));
-    s1_justAction_fractions(s) = sum(tmp.p_action < s1.out.overall_p_threshold & tmp.p_inaction > s1.out.overall_p_threshold) / size(tmp,1);
-    s1_justInaction_fractions(s) = sum(tmp.p_inaction < s1.out.overall_p_threshold & tmp.p_action > s1.out.overall_p_threshold) / size(tmp,1);
-    s1_actionInaction_fractions(s) = sum(tmp.p_action < s1.out.overall_p_threshold & tmp.p_inaction < s1.out.overall_p_threshold) / size(tmp,1);
-    s1_justCorrect_fractions(s) = sum(tmp.p_correct < s1.out.overall_p_threshold & tmp.p_incorrect > s1.out.overall_p_threshold) / size(tmp,1);
-    s1_justIncorrect_fractions(s) = sum(tmp.p_incorrect < s1.out.overall_p_threshold & tmp.p_correct > s1.out.overall_p_threshold) / size(tmp,1);
-    s1_correctIncorrect_fractions(s) = sum(tmp.p_correct < s1.out.overall_p_threshold & tmp.p_incorrect < s1.out.overall_p_threshold) / size(tmp,1);
+    s1_justAction_fractions(s) = sum(tmp.p_action <= s1.out.overall_p_threshold & tmp.p_inaction > s1.out.overall_p_threshold) / size(tmp,1);
+    s1_justInaction_fractions(s) = sum(tmp.p_inaction <= s1.out.overall_p_threshold & tmp.p_action > s1.out.overall_p_threshold) / size(tmp,1);
+    s1_actionInaction_fractions(s) = sum(tmp.p_action <= s1.out.overall_p_threshold & tmp.p_inaction <= s1.out.overall_p_threshold) / size(tmp,1);
+    s1_justCorrect_fractions(s) = sum(tmp.p_correct <= s1.out.overall_p_threshold & tmp.p_incorrect > s1.out.overall_p_threshold) / size(tmp,1);
+    s1_justIncorrect_fractions(s) = sum(tmp.p_incorrect <= s1.out.overall_p_threshold & tmp.p_correct > s1.out.overall_p_threshold) / size(tmp,1);
+    s1_correctIncorrect_fractions(s) = sum(tmp.p_correct <= s1.out.overall_p_threshold & tmp.p_incorrect <= s1.out.overall_p_threshold) / size(tmp,1);
     s1_rs = tmp(strcmp(tmp.waveform_class,'RS'),:);
     s1_fs = tmp(strcmp(tmp.waveform_class,'FS'),:);
-    s1_rs_justCorrect(s) = sum(s1_rs.p_correct < s1.out.overall_p_threshold & s1_rs.p_incorrect > s1.out.overall_p_threshold) / size(s1_rs,1);
-    s1_fs_justCorrect(s) = sum(s1_fs.p_correct < s1.out.overall_p_threshold & s1_fs.p_incorrect > s1.out.overall_p_threshold) / size(s1_fs,1);
-    s1_rs_justIncorrect(s) = sum(s1_rs.p_incorrect < s1.out.overall_p_threshold & s1_rs.p_correct > s1.out.overall_p_threshold) / size(s1_rs,1);
-    s1_fs_justIncorrect(s) = sum(s1_fs.p_incorrect < s1.out.overall_p_threshold & s1_fs.p_correct > s1.out.overall_p_threshold) / size(s1_fs,1);
-    s1_rs_correctIncorrect(s) = sum(s1_rs.p_incorrect < s1.out.overall_p_threshold & s1_rs.p_correct < s1.out.overall_p_threshold) / size(s1_rs,1);
-    s1_fs_correctIncorrect(s) = sum(s1_fs.p_incorrect < s1.out.overall_p_threshold & s1_fs.p_correct < s1.out.overall_p_threshold) / size(s1_fs,1);
-    s1_rs_justAction(s) = sum(s1_rs.p_action < s1.out.overall_p_threshold & s1_rs.p_inaction > s1.out.overall_p_threshold) / size(s1_rs,1);
-    s1_fs_justAction(s) = sum(s1_fs.p_action < s1.out.overall_p_threshold & s1_fs.p_inaction > s1.out.overall_p_threshold) / size(s1_fs,1);
-    s1_rs_justInaction(s) = sum(s1_rs.p_inaction < s1.out.overall_p_threshold & s1_rs.p_action > s1.out.overall_p_threshold) / size(s1_rs,1);
-    s1_fs_justInaction(s) = sum(s1_fs.p_inaction < s1.out.overall_p_threshold & s1_fs.p_action > s1.out.overall_p_threshold) / size(s1_fs,1);
-    s1_rs_actionInaction(s) = sum(s1_rs.p_inaction < s1.out.overall_p_threshold & s1_rs.p_action < s1.out.overall_p_threshold) / size(s1_rs,1);
-    s1_fs_actionInaction(s) = sum(s1_fs.p_inaction < s1.out.overall_p_threshold & s1_fs.p_action < s1.out.overall_p_threshold) / size(s1_fs,1);
+    s1_rs_justCorrect(s) = sum(s1_rs.p_correct <= s1.out.overall_p_threshold & s1_rs.p_incorrect > s1.out.overall_p_threshold) / size(s1_rs,1);
+    s1_fs_justCorrect(s) = sum(s1_fs.p_correct <= s1.out.overall_p_threshold & s1_fs.p_incorrect > s1.out.overall_p_threshold) / size(s1_fs,1);
+    s1_rs_justIncorrect(s) = sum(s1_rs.p_incorrect <= s1.out.overall_p_threshold & s1_rs.p_correct > s1.out.overall_p_threshold) / size(s1_rs,1);
+    s1_fs_justIncorrect(s) = sum(s1_fs.p_incorrect <= s1.out.overall_p_threshold & s1_fs.p_correct > s1.out.overall_p_threshold) / size(s1_fs,1);
+    s1_rs_correctIncorrect(s) = sum(s1_rs.p_incorrect <= s1.out.overall_p_threshold & s1_rs.p_correct <= s1.out.overall_p_threshold) / size(s1_rs,1);
+    s1_fs_correctIncorrect(s) = sum(s1_fs.p_incorrect <= s1.out.overall_p_threshold & s1_fs.p_correct <= s1.out.overall_p_threshold) / size(s1_fs,1);
+    s1_rs_justAction(s) = sum(s1_rs.p_action <= s1.out.overall_p_threshold & s1_rs.p_inaction > s1.out.overall_p_threshold) / size(s1_rs,1);
+    s1_fs_justAction(s) = sum(s1_fs.p_action <= s1.out.overall_p_threshold & s1_fs.p_inaction > s1.out.overall_p_threshold) / size(s1_fs,1);
+    s1_rs_justInaction(s) = sum(s1_rs.p_inaction <= s1.out.overall_p_threshold & s1_rs.p_action > s1.out.overall_p_threshold) / size(s1_rs,1);
+    s1_fs_justInaction(s) = sum(s1_fs.p_inaction <= s1.out.overall_p_threshold & s1_fs.p_action > s1.out.overall_p_threshold) / size(s1_fs,1);
+    s1_rs_actionInaction(s) = sum(s1_rs.p_inaction <= s1.out.overall_p_threshold & s1_rs.p_action <= s1.out.overall_p_threshold) / size(s1_rs,1);
+    s1_fs_actionInaction(s) = sum(s1_fs.p_inaction <= s1.out.overall_p_threshold & s1_fs.p_action <= s1.out.overall_p_threshold) / size(s1_fs,1);
 end
 
 striatum_sessions = unique(Striatum.session_id);
@@ -161,26 +161,26 @@ for s = 1:length(striatum_sessions)
     striatum_combo_fracs(s) = (sum(strcmp(tmp.waveform_class, 'FS')) + sum(strcmp(tmp.waveform_class, 'RS'))) / (sum(strcmp(tmp_all.waveform_class, 'FS')) + sum(strcmp(tmp_all.waveform_class, 'RS')));
     striatum_ts_fracs(s) = sum(strcmp(tmp.waveform_class, 'TS')) / sum(strcmp(tmp_all.waveform_class, 'TS'));
     striatum_ps_fracs(s) = sum(strcmp(tmp.waveform_class, 'PS')) / sum(strcmp(tmp_all.waveform_class, 'PS'));
-    striatum_justAction_fractions(s) = sum(tmp.p_action < striatum.out.overall_p_threshold & tmp.p_inaction > striatum.out.overall_p_threshold) / size(tmp,1);
-    striatum_justInaction_fractions(s) = sum(tmp.p_inaction < striatum.out.overall_p_threshold & tmp.p_action > striatum.out.overall_p_threshold) / size(tmp,1);
-    striatum_actionInaction_fractions(s) = sum(tmp.p_action < striatum.out.overall_p_threshold & tmp.p_inaction < striatum.out.overall_p_threshold) / size(tmp,1);
-    striatum_justCorrect_fractions(s) = sum(tmp.p_correct < striatum.out.overall_p_threshold & tmp.p_incorrect > striatum.out.overall_p_threshold) / size(tmp,1);
-    striatum_justIncorrect_fractions(s) = sum(tmp.p_incorrect < striatum.out.overall_p_threshold & tmp.p_correct > striatum.out.overall_p_threshold) / size(tmp,1);
-    striatum_correctIncorrect_fractions(s) = sum(tmp.p_correct < striatum.out.overall_p_threshold & tmp.p_incorrect < striatum.out.overall_p_threshold) / size(tmp,1);
+    striatum_justAction_fractions(s) = sum(tmp.p_action <= striatum.out.overall_p_threshold & tmp.p_inaction > striatum.out.overall_p_threshold) / size(tmp,1);
+    striatum_justInaction_fractions(s) = sum(tmp.p_inaction <= striatum.out.overall_p_threshold & tmp.p_action > striatum.out.overall_p_threshold) / size(tmp,1);
+    striatum_actionInaction_fractions(s) = sum(tmp.p_action <= striatum.out.overall_p_threshold & tmp.p_inaction <= striatum.out.overall_p_threshold) / size(tmp,1);
+    striatum_justCorrect_fractions(s) = sum(tmp.p_correct <= striatum.out.overall_p_threshold & tmp.p_incorrect > striatum.out.overall_p_threshold) / size(tmp,1);
+    striatum_justIncorrect_fractions(s) = sum(tmp.p_incorrect <= striatum.out.overall_p_threshold & tmp.p_correct > striatum.out.overall_p_threshold) / size(tmp,1);
+    striatum_correctIncorrect_fractions(s) = sum(tmp.p_correct <= striatum.out.overall_p_threshold & tmp.p_incorrect <= striatum.out.overall_p_threshold) / size(tmp,1);
     striatum_rs = tmp(strcmp(tmp.waveform_class,'RS'),:);
     striatum_fs = tmp(strcmp(tmp.waveform_class,'FS'),:);
-    striatum_rs_justCorrect(s) = sum(striatum_rs.p_correct < striatum.out.overall_p_threshold & striatum_rs.p_incorrect > striatum.out.overall_p_threshold) / size(striatum_rs,1);
-    striatum_fs_justCorrect(s) = sum(striatum_fs.p_correct < striatum.out.overall_p_threshold & striatum_fs.p_incorrect > striatum.out.overall_p_threshold) / size(striatum_fs,1);
-    striatum_rs_justIncorrect(s) = sum(striatum_rs.p_incorrect < striatum.out.overall_p_threshold & striatum_rs.p_correct > striatum.out.overall_p_threshold) / size(striatum_rs,1);
-    striatum_fs_justIncorrect(s) = sum(striatum_fs.p_incorrect < striatum.out.overall_p_threshold & striatum_fs.p_correct > striatum.out.overall_p_threshold) / size(striatum_fs,1);
-    striatum_rs_correctIncorrect(s) = sum(striatum_rs.p_incorrect < striatum.out.overall_p_threshold & striatum_rs.p_correct < striatum.out.overall_p_threshold) / size(striatum_rs,1);
-    striatum_fs_correctIncorrect(s) = sum(striatum_fs.p_incorrect < striatum.out.overall_p_threshold & striatum_fs.p_correct < striatum.out.overall_p_threshold) / size(striatum_fs,1);
-    striatum_rs_justAction(s) = sum(striatum_rs.p_action < striatum.out.overall_p_threshold & striatum_rs.p_inaction > striatum.out.overall_p_threshold) / size(striatum_rs,1);
-    striatum_fs_justAction(s) = sum(striatum_fs.p_action < striatum.out.overall_p_threshold & striatum_fs.p_inaction > striatum.out.overall_p_threshold) / size(striatum_fs,1);
-    striatum_rs_justInaction(s) = sum(striatum_rs.p_inaction < striatum.out.overall_p_threshold & striatum_rs.p_action > striatum.out.overall_p_threshold) / size(striatum_rs,1);
-    striatum_fs_justInaction(s) = sum(striatum_fs.p_inaction < striatum.out.overall_p_threshold & striatum_fs.p_action > striatum.out.overall_p_threshold) / size(striatum_fs,1);
-    striatum_rs_actionInaction(s) = sum(striatum_rs.p_inaction < striatum.out.overall_p_threshold & striatum_rs.p_action < striatum.out.overall_p_threshold) / size(striatum_rs,1);
-    striatum_fs_actionInaction(s) = sum(striatum_fs.p_inaction < striatum.out.overall_p_threshold & striatum_fs.p_action < striatum.out.overall_p_threshold) / size(striatum_fs,1);
+    striatum_rs_justCorrect(s) = sum(striatum_rs.p_correct <= striatum.out.overall_p_threshold & striatum_rs.p_incorrect > striatum.out.overall_p_threshold) / size(striatum_rs,1);
+    striatum_fs_justCorrect(s) = sum(striatum_fs.p_correct <= striatum.out.overall_p_threshold & striatum_fs.p_incorrect > striatum.out.overall_p_threshold) / size(striatum_fs,1);
+    striatum_rs_justIncorrect(s) = sum(striatum_rs.p_incorrect <= striatum.out.overall_p_threshold & striatum_rs.p_correct > striatum.out.overall_p_threshold) / size(striatum_rs,1);
+    striatum_fs_justIncorrect(s) = sum(striatum_fs.p_incorrect <= striatum.out.overall_p_threshold & striatum_fs.p_correct > striatum.out.overall_p_threshold) / size(striatum_fs,1);
+    striatum_rs_correctIncorrect(s) = sum(striatum_rs.p_incorrect <= striatum.out.overall_p_threshold & striatum_rs.p_correct <= striatum.out.overall_p_threshold) / size(striatum_rs,1);
+    striatum_fs_correctIncorrect(s) = sum(striatum_fs.p_incorrect <= striatum.out.overall_p_threshold & striatum_fs.p_correct <= striatum.out.overall_p_threshold) / size(striatum_fs,1);
+    striatum_rs_justAction(s) = sum(striatum_rs.p_action <= striatum.out.overall_p_threshold & striatum_rs.p_inaction > striatum.out.overall_p_threshold) / size(striatum_rs,1);
+    striatum_fs_justAction(s) = sum(striatum_fs.p_action <= striatum.out.overall_p_threshold & striatum_fs.p_inaction > striatum.out.overall_p_threshold) / size(striatum_fs,1);
+    striatum_rs_justInaction(s) = sum(striatum_rs.p_inaction <= striatum.out.overall_p_threshold & striatum_rs.p_action > striatum.out.overall_p_threshold) / size(striatum_rs,1);
+    striatum_fs_justInaction(s) = sum(striatum_fs.p_inaction <= striatum.out.overall_p_threshold & striatum_fs.p_action > striatum.out.overall_p_threshold) / size(striatum_fs,1);
+    striatum_rs_actionInaction(s) = sum(striatum_rs.p_inaction <= striatum.out.overall_p_threshold & striatum_rs.p_action <= striatum.out.overall_p_threshold) / size(striatum_rs,1);
+    striatum_fs_actionInaction(s) = sum(striatum_fs.p_inaction <= striatum.out.overall_p_threshold & striatum_fs.p_action <= striatum.out.overall_p_threshold) / size(striatum_fs,1);
 end
 
 %% amygdala sessions 
@@ -203,26 +203,26 @@ for s = 1:length(amygdala_sessions)
     amygdala_combo_fracs(s) = (sum(strcmp(tmp.waveform_class, 'FS')) + sum(strcmp(tmp.waveform_class, 'RS'))) / (sum(strcmp(tmp_all.waveform_class, 'FS')) + sum(strcmp(tmp_all.waveform_class, 'RS')));
     amygdala_ts_fracs(s) = sum(strcmp(tmp.waveform_class, 'TS')) / sum(strcmp(tmp_all.waveform_class, 'TS'));
     amygdala_ps_fracs(s) = sum(strcmp(tmp.waveform_class, 'PS')) / sum(strcmp(tmp_all.waveform_class, 'PS'));
-    amygdala_justAction_fractions(s) = sum(tmp.p_action < amygdala.out.overall_p_threshold & tmp.p_inaction > amygdala.out.overall_p_threshold) / size(tmp,1);
-    amygdala_justInaction_fractions(s) = sum(tmp.p_inaction < amygdala.out.overall_p_threshold & tmp.p_action > amygdala.out.overall_p_threshold) / size(tmp,1);
-    amygdala_actionInaction_fractions(s) = sum(tmp.p_action < amygdala.out.overall_p_threshold & tmp.p_inaction < amygdala.out.overall_p_threshold) / size(tmp,1);
-    amygdala_justCorrect_fractions(s) = sum(tmp.p_correct < amygdala.out.overall_p_threshold & tmp.p_incorrect > amygdala.out.overall_p_threshold) / size(tmp,1);
-    amygdala_justIncorrect_fractions(s) = sum(tmp.p_incorrect < amygdala.out.overall_p_threshold & tmp.p_correct > amygdala.out.overall_p_threshold) / size(tmp,1);
-    amygdala_correctIncorrect_fractions(s) = sum(tmp.p_correct < amygdala.out.overall_p_threshold & tmp.p_incorrect < amygdala.out.overall_p_threshold) / size(tmp,1);
+    amygdala_justAction_fractions(s) = sum(tmp.p_action <= amygdala.out.overall_p_threshold & tmp.p_inaction > amygdala.out.overall_p_threshold) / size(tmp,1);
+    amygdala_justInaction_fractions(s) = sum(tmp.p_inaction <= amygdala.out.overall_p_threshold & tmp.p_action > amygdala.out.overall_p_threshold) / size(tmp,1);
+    amygdala_actionInaction_fractions(s) = sum(tmp.p_action <= amygdala.out.overall_p_threshold & tmp.p_inaction <= amygdala.out.overall_p_threshold) / size(tmp,1);
+    amygdala_justCorrect_fractions(s) = sum(tmp.p_correct <= amygdala.out.overall_p_threshold & tmp.p_incorrect > amygdala.out.overall_p_threshold) / size(tmp,1);
+    amygdala_justIncorrect_fractions(s) = sum(tmp.p_incorrect <= amygdala.out.overall_p_threshold & tmp.p_correct > amygdala.out.overall_p_threshold) / size(tmp,1);
+    amygdala_correctIncorrect_fractions(s) = sum(tmp.p_correct <= amygdala.out.overall_p_threshold & tmp.p_incorrect <= amygdala.out.overall_p_threshold) / size(tmp,1);
     amygdala_rs = tmp(strcmp(tmp.waveform_class,'RS'),:);
     amygdala_fs = tmp(strcmp(tmp.waveform_class,'FS'),:);
-    amygdala_rs_justCorrect(s) = sum(amygdala_rs.p_correct < amygdala.out.overall_p_threshold & amygdala_rs.p_incorrect > amygdala.out.overall_p_threshold) / size(amygdala_rs,1);
-    amygdala_fs_justCorrect(s) = sum(amygdala_fs.p_correct < amygdala.out.overall_p_threshold & amygdala_fs.p_incorrect > amygdala.out.overall_p_threshold) / size(amygdala_fs,1);
-    amygdala_rs_justIncorrect(s) = sum(amygdala_rs.p_incorrect < amygdala.out.overall_p_threshold & amygdala_rs.p_correct > amygdala.out.overall_p_threshold) / size(amygdala_rs,1);
-    amygdala_fs_justIncorrect(s) = sum(amygdala_fs.p_incorrect < amygdala.out.overall_p_threshold & amygdala_fs.p_correct > amygdala.out.overall_p_threshold) / size(amygdala_fs,1);
-    amygdala_rs_correctIncorrect(s) = sum(amygdala_rs.p_incorrect < amygdala.out.overall_p_threshold & amygdala_rs.p_correct < amygdala.out.overall_p_threshold) / size(amygdala_rs,1);
-    amygdala_fs_correctIncorrect(s) = sum(amygdala_fs.p_incorrect < amygdala.out.overall_p_threshold & amygdala_fs.p_correct < amygdala.out.overall_p_threshold) / size(amygdala_fs,1);
-    amygdala_rs_justAction(s) = sum(amygdala_rs.p_action < amygdala.out.overall_p_threshold & amygdala_rs.p_inaction > amygdala.out.overall_p_threshold) / size(amygdala_rs,1);
-    amygdala_fs_justAction(s) = sum(amygdala_fs.p_action < amygdala.out.overall_p_threshold & amygdala_fs.p_inaction > amygdala.out.overall_p_threshold) / size(amygdala_fs,1);
-    amygdala_rs_justInaction(s) = sum(amygdala_rs.p_inaction < amygdala.out.overall_p_threshold & amygdala_rs.p_action > amygdala.out.overall_p_threshold) / size(amygdala_rs,1);
-    amygdala_fs_justInaction(s) = sum(amygdala_fs.p_inaction < amygdala.out.overall_p_threshold & amygdala_fs.p_action > amygdala.out.overall_p_threshold) / size(amygdala_fs,1);
-    amygdala_rs_actionInaction(s) = sum(amygdala_rs.p_inaction < amygdala.out.overall_p_threshold & amygdala_rs.p_action < amygdala.out.overall_p_threshold) / size(amygdala_rs,1);
-    amygdala_fs_actionInaction(s) = sum(amygdala_fs.p_inaction < amygdala.out.overall_p_threshold & amygdala_fs.p_action < amygdala.out.overall_p_threshold) / size(amygdala_fs,1);
+    amygdala_rs_justCorrect(s) = sum(amygdala_rs.p_correct <= amygdala.out.overall_p_threshold & amygdala_rs.p_incorrect > amygdala.out.overall_p_threshold) / size(amygdala_rs,1);
+    amygdala_fs_justCorrect(s) = sum(amygdala_fs.p_correct <= amygdala.out.overall_p_threshold & amygdala_fs.p_incorrect > amygdala.out.overall_p_threshold) / size(amygdala_fs,1);
+    amygdala_rs_justIncorrect(s) = sum(amygdala_rs.p_incorrect <= amygdala.out.overall_p_threshold & amygdala_rs.p_correct > amygdala.out.overall_p_threshold) / size(amygdala_rs,1);
+    amygdala_fs_justIncorrect(s) = sum(amygdala_fs.p_incorrect <= amygdala.out.overall_p_threshold & amygdala_fs.p_correct > amygdala.out.overall_p_threshold) / size(amygdala_fs,1);
+    amygdala_rs_correctIncorrect(s) = sum(amygdala_rs.p_incorrect <= amygdala.out.overall_p_threshold & amygdala_rs.p_correct <= amygdala.out.overall_p_threshold) / size(amygdala_rs,1);
+    amygdala_fs_correctIncorrect(s) = sum(amygdala_fs.p_incorrect <= amygdala.out.overall_p_threshold & amygdala_fs.p_correct <= amygdala.out.overall_p_threshold) / size(amygdala_fs,1);
+    amygdala_rs_justAction(s) = sum(amygdala_rs.p_action <= amygdala.out.overall_p_threshold & amygdala_rs.p_inaction > amygdala.out.overall_p_threshold) / size(amygdala_rs,1);
+    amygdala_fs_justAction(s) = sum(amygdala_fs.p_action <= amygdala.out.overall_p_threshold & amygdala_fs.p_inaction > amygdala.out.overall_p_threshold) / size(amygdala_fs,1);
+    amygdala_rs_justInaction(s) = sum(amygdala_rs.p_inaction <= amygdala.out.overall_p_threshold & amygdala_rs.p_action > amygdala.out.overall_p_threshold) / size(amygdala_rs,1);
+    amygdala_fs_justInaction(s) = sum(amygdala_fs.p_inaction <= amygdala.out.overall_p_threshold & amygdala_fs.p_action > amygdala.out.overall_p_threshold) / size(amygdala_fs,1);
+    amygdala_rs_actionInaction(s) = sum(amygdala_rs.p_inaction <= amygdala.out.overall_p_threshold & amygdala_rs.p_action <= amygdala.out.overall_p_threshold) / size(amygdala_rs,1);
+    amygdala_fs_actionInaction(s) = sum(amygdala_fs.p_inaction <= amygdala.out.overall_p_threshold & amygdala_fs.p_action <= amygdala.out.overall_p_threshold) / size(amygdala_fs,1);
 end
 
 %% pfc sessions
@@ -245,26 +245,26 @@ for s = 1:length(pfc_sessions)
     pfc_combo_fracs(s) = (sum(strcmp(tmp.waveform_class, 'FS')) + sum(strcmp(tmp.waveform_class, 'RS'))) / (sum(strcmp(tmp_all.waveform_class, 'FS')) + sum(strcmp(tmp_all.waveform_class, 'RS')));
     pfc_ts_fracs(s) = sum(strcmp(tmp.waveform_class, 'TS')) / sum(strcmp(tmp_all.waveform_class, 'TS'));
     pfc_ps_fracs(s) = sum(strcmp(tmp.waveform_class, 'PS')) / sum(strcmp(tmp_all.waveform_class, 'PS'));
-    pfc_justAction_fractions(s) = sum(tmp.p_action < pfc.out.overall_p_threshold & tmp.p_inaction > pfc.out.overall_p_threshold) / size(tmp,1);
-    pfc_justInaction_fractions(s) = sum(tmp.p_inaction < pfc.out.overall_p_threshold & tmp.p_action > pfc.out.overall_p_threshold) / size(tmp,1);
-    pfc_actionInaction_fractions(s) = sum(tmp.p_action < pfc.out.overall_p_threshold & tmp.p_inaction < pfc.out.overall_p_threshold) / size(tmp,1);
-    pfc_justCorrect_fractions(s) = sum(tmp.p_correct < pfc.out.overall_p_threshold & tmp.p_incorrect > pfc.out.overall_p_threshold) / size(tmp,1);
-    pfc_justIncorrect_fractions(s) = sum(tmp.p_incorrect < pfc.out.overall_p_threshold & tmp.p_correct > pfc.out.overall_p_threshold) / size(tmp,1);
-    pfc_correctIncorrect_fractions(s) = sum(tmp.p_correct < pfc.out.overall_p_threshold & tmp.p_incorrect < pfc.out.overall_p_threshold) / size(tmp,1);
+    pfc_justAction_fractions(s) = sum(tmp.p_action <= pfc.out.overall_p_threshold & tmp.p_inaction > pfc.out.overall_p_threshold) / size(tmp,1);
+    pfc_justInaction_fractions(s) = sum(tmp.p_inaction <= pfc.out.overall_p_threshold & tmp.p_action > pfc.out.overall_p_threshold) / size(tmp,1);
+    pfc_actionInaction_fractions(s) = sum(tmp.p_action <= pfc.out.overall_p_threshold & tmp.p_inaction <= pfc.out.overall_p_threshold) / size(tmp,1);
+    pfc_justCorrect_fractions(s) = sum(tmp.p_correct <= pfc.out.overall_p_threshold & tmp.p_incorrect > pfc.out.overall_p_threshold) / size(tmp,1);
+    pfc_justIncorrect_fractions(s) = sum(tmp.p_incorrect <= pfc.out.overall_p_threshold & tmp.p_correct > pfc.out.overall_p_threshold) / size(tmp,1);
+    pfc_correctIncorrect_fractions(s) = sum(tmp.p_correct <= pfc.out.overall_p_threshold & tmp.p_incorrect <= pfc.out.overall_p_threshold) / size(tmp,1);
     pfc_rs = tmp(strcmp(tmp.waveform_class,'RS'),:);
     pfc_fs = tmp(strcmp(tmp.waveform_class,'FS'),:);
-    pfc_rs_justCorrect(s) = sum(pfc_rs.p_correct < pfc.out.overall_p_threshold & pfc_rs.p_incorrect > pfc.out.overall_p_threshold) / size(pfc_rs,1);
-    pfc_fs_justCorrect(s) = sum(pfc_fs.p_correct < pfc.out.overall_p_threshold & pfc_fs.p_incorrect > pfc.out.overall_p_threshold) / size(pfc_fs,1);
-    pfc_rs_justIncorrect(s) = sum(pfc_rs.p_incorrect < pfc.out.overall_p_threshold & pfc_rs.p_correct > pfc.out.overall_p_threshold) / size(pfc_rs,1);
-    pfc_fs_justIncorrect(s) = sum(pfc_fs.p_incorrect < pfc.out.overall_p_threshold & pfc_fs.p_correct > pfc.out.overall_p_threshold) / size(pfc_fs,1);
-    pfc_rs_correctIncorrect(s) = sum(pfc_rs.p_incorrect < pfc.out.overall_p_threshold & pfc_rs.p_correct < pfc.out.overall_p_threshold) / size(pfc_rs,1);
-    pfc_fs_correctIncorrect(s) = sum(pfc_fs.p_incorrect < pfc.out.overall_p_threshold & pfc_fs.p_correct < pfc.out.overall_p_threshold) / size(pfc_fs,1);
-    pfc_rs_justAction(s) = sum(pfc_rs.p_action < pfc.out.overall_p_threshold & pfc_rs.p_inaction > pfc.out.overall_p_threshold) / size(pfc_rs,1);
-    pfc_fs_justAction(s) = sum(pfc_fs.p_action < pfc.out.overall_p_threshold & pfc_fs.p_inaction > pfc.out.overall_p_threshold) / size(pfc_fs,1);
-    pfc_rs_justInaction(s) = sum(pfc_rs.p_inaction < pfc.out.overall_p_threshold & pfc_rs.p_action > pfc.out.overall_p_threshold) / size(pfc_rs,1);
-    pfc_fs_justInaction(s) = sum(pfc_fs.p_inaction < pfc.out.overall_p_threshold & pfc_fs.p_action > pfc.out.overall_p_threshold) / size(pfc_fs,1);
-    pfc_rs_actionInaction(s) = sum(pfc_rs.p_inaction < pfc.out.overall_p_threshold & pfc_rs.p_action < pfc.out.overall_p_threshold) / size(pfc_rs,1);
-    pfc_fs_actionInaction(s) = sum(pfc_fs.p_inaction < pfc.out.overall_p_threshold & pfc_fs.p_action < pfc.out.overall_p_threshold) / size(pfc_fs,1);
+    pfc_rs_justCorrect(s) = sum(pfc_rs.p_correct <= pfc.out.overall_p_threshold & pfc_rs.p_incorrect > pfc.out.overall_p_threshold) / size(pfc_rs,1);
+    pfc_fs_justCorrect(s) = sum(pfc_fs.p_correct <= pfc.out.overall_p_threshold & pfc_fs.p_incorrect > pfc.out.overall_p_threshold) / size(pfc_fs,1);
+    pfc_rs_justIncorrect(s) = sum(pfc_rs.p_incorrect <= pfc.out.overall_p_threshold & pfc_rs.p_correct > pfc.out.overall_p_threshold) / size(pfc_rs,1);
+    pfc_fs_justIncorrect(s) = sum(pfc_fs.p_incorrect <= pfc.out.overall_p_threshold & pfc_fs.p_correct > pfc.out.overall_p_threshold) / size(pfc_fs,1);
+    pfc_rs_correctIncorrect(s) = sum(pfc_rs.p_incorrect <= pfc.out.overall_p_threshold & pfc_rs.p_correct <= pfc.out.overall_p_threshold) / size(pfc_rs,1);
+    pfc_fs_correctIncorrect(s) = sum(pfc_fs.p_incorrect <= pfc.out.overall_p_threshold & pfc_fs.p_correct <= pfc.out.overall_p_threshold) / size(pfc_fs,1);
+    pfc_rs_justAction(s) = sum(pfc_rs.p_action <= pfc.out.overall_p_threshold & pfc_rs.p_inaction > pfc.out.overall_p_threshold) / size(pfc_rs,1);
+    pfc_fs_justAction(s) = sum(pfc_fs.p_action <= pfc.out.overall_p_threshold & pfc_fs.p_inaction > pfc.out.overall_p_threshold) / size(pfc_fs,1);
+    pfc_rs_justInaction(s) = sum(pfc_rs.p_inaction <= pfc.out.overall_p_threshold & pfc_rs.p_action > pfc.out.overall_p_threshold) / size(pfc_rs,1);
+    pfc_fs_justInaction(s) = sum(pfc_fs.p_inaction <= pfc.out.overall_p_threshold & pfc_fs.p_action > pfc.out.overall_p_threshold) / size(pfc_fs,1);
+    pfc_rs_actionInaction(s) = sum(pfc_rs.p_inaction <= pfc.out.overall_p_threshold & pfc_rs.p_action <= pfc.out.overall_p_threshold) / size(pfc_rs,1);
+    pfc_fs_actionInaction(s) = sum(pfc_fs.p_inaction <= pfc.out.overall_p_threshold & pfc_fs.p_action <= pfc.out.overall_p_threshold) / size(pfc_fs,1);
 end
 
 s1_mod_rs_hit = [];
