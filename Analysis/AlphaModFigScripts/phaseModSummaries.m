@@ -807,25 +807,25 @@ striatum_unmod_rs_evoked_miss = max(striatum_unmod_rs_delta_miss(:,time > 0 & ti
 striatum_unmod_fs_delta_miss = striatum_unmod_fs_miss-mean(striatum_unmod_fs_miss(:,time<0),2);
 striatum_unmod_fs_evoked_miss = max(striatum_unmod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
 
-amygdala_mod_rs_delta_hit = amygdala_mod_rs_hit-mean(amygdala_mod_rs_hit(:,time<0),2);
-amygdala_mod_rs_evoked_hit = max(amygdala_mod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
-amygdala_mod_fs_delta_hit = amygdala_mod_fs_hit-mean(amygdala_mod_fs_hit(:,time<0),2);
-amygdala_mod_fs_evoked_hit = max(amygdala_mod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_rs_delta_hit = amygdala_mod_rs_hit-mean(amygdala_mod_rs_hit(:,time<0),2);
+% amygdala_mod_rs_evoked_hit = max(amygdala_mod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_fs_delta_hit = amygdala_mod_fs_hit-mean(amygdala_mod_fs_hit(:,time<0),2);
+% amygdala_mod_fs_evoked_hit = max(amygdala_mod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
 
-amygdala_unmod_rs_delta_hit = amygdala_unmod_rs_hit-mean(amygdala_unmod_rs_hit(:,time<0),2);
-amygdala_unmod_rs_evoked_hit = max(amygdala_unmod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
-amygdala_unmod_fs_delta_hit = amygdala_unmod_fs_hit-mean(amygdala_unmod_fs_hit(:,time<0),2);
-amygdala_unmod_fs_evoked_hit = max(amygdala_unmod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_rs_delta_hit = amygdala_unmod_rs_hit-mean(amygdala_unmod_rs_hit(:,time<0),2);
+% amygdala_unmod_rs_evoked_hit = max(amygdala_unmod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_fs_delta_hit = amygdala_unmod_fs_hit-mean(amygdala_unmod_fs_hit(:,time<0),2);
+% amygdala_unmod_fs_evoked_hit = max(amygdala_unmod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
 
-amygdala_mod_rs_delta_miss = amygdala_mod_rs_miss-mean(amygdala_mod_rs_miss(:,time<0),2);
-amygdala_mod_rs_evoked_miss = max(amygdala_mod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
-amygdala_mod_fs_delta_miss = amygdala_mod_fs_miss-mean(amygdala_mod_fs_miss(:,time<0),2);
-amygdala_mod_fs_evoked_miss = max(amygdala_mod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_rs_delta_miss = amygdala_mod_rs_miss-mean(amygdala_mod_rs_miss(:,time<0),2);
+% amygdala_mod_rs_evoked_miss = max(amygdala_mod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_fs_delta_miss = amygdala_mod_fs_miss-mean(amygdala_mod_fs_miss(:,time<0),2);
+% amygdala_mod_fs_evoked_miss = max(amygdala_mod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
 
-amygdala_unmod_rs_delta_miss = amygdala_unmod_rs_miss-mean(amygdala_unmod_rs_miss(:,time<0),2);
-amygdala_unmod_rs_evoked_miss = max(amygdala_unmod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
-amygdala_unmod_fs_delta_miss = amygdala_unmod_fs_miss-mean(amygdala_unmod_fs_miss(:,time<0),2);
-amygdala_unmod_fs_evoked_miss = max(amygdala_unmod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_rs_delta_miss = amygdala_unmod_rs_miss-mean(amygdala_unmod_rs_miss(:,time<0),2);
+% amygdala_unmod_rs_evoked_miss = max(amygdala_unmod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_fs_delta_miss = amygdala_unmod_fs_miss-mean(amygdala_unmod_fs_miss(:,time<0),2);
+% amygdala_unmod_fs_evoked_miss = max(amygdala_unmod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
 
 s1_mod_rs_delta_cr = s1_mod_rs_cr-mean(s1_mod_rs_cr(:,time<0),2);
 s1_mod_rs_evoked_cr = max(s1_mod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
@@ -887,25 +887,25 @@ striatum_unmod_rs_evoked_fa = max(striatum_unmod_rs_delta_fa(:,time > 0 & time <
 striatum_unmod_fs_delta_fa = striatum_unmod_fs_fa-mean(striatum_unmod_fs_fa(:,time<0),2);
 striatum_unmod_fs_evoked_fa = max(striatum_unmod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
 
-amygdala_mod_rs_delta_cr = amygdala_mod_rs_cr-mean(amygdala_mod_rs_cr(:,time<0),2);
-amygdala_mod_rs_evoked_cr = max(amygdala_mod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
-amygdala_mod_fs_delta_cr = amygdala_mod_fs_cr-mean(amygdala_mod_fs_cr(:,time<0),2);
-amygdala_mod_fs_evoked_cr = max(amygdala_mod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_rs_delta_cr = amygdala_mod_rs_cr-mean(amygdala_mod_rs_cr(:,time<0),2);
+% amygdala_mod_rs_evoked_cr = max(amygdala_mod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_fs_delta_cr = amygdala_mod_fs_cr-mean(amygdala_mod_fs_cr(:,time<0),2);
+% amygdala_mod_fs_evoked_cr = max(amygdala_mod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
 
-amygdala_unmod_rs_delta_cr = amygdala_unmod_rs_cr-mean(amygdala_unmod_rs_cr(:,time<0),2);
-amygdala_unmod_rs_evoked_cr = max(amygdala_unmod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
-amygdala_unmod_fs_delta_cr = amygdala_unmod_fs_cr-mean(amygdala_unmod_fs_cr(:,time<0),2);
-amygdala_unmod_fs_evoked_cr = max(amygdala_unmod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_rs_delta_cr = amygdala_unmod_rs_cr-mean(amygdala_unmod_rs_cr(:,time<0),2);
+% amygdala_unmod_rs_evoked_cr = max(amygdala_unmod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_fs_delta_cr = amygdala_unmod_fs_cr-mean(amygdala_unmod_fs_cr(:,time<0),2);
+% amygdala_unmod_fs_evoked_cr = max(amygdala_unmod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
 
-amygdala_mod_rs_delta_fa = amygdala_mod_rs_fa-mean(amygdala_mod_rs_fa(:,time<0),2);
-amygdala_mod_rs_evoked_fa = max(amygdala_mod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
-amygdala_mod_fs_delta_fa = amygdala_mod_fs_fa-mean(amygdala_mod_fs_fa(:,time<0),2);
-amygdala_mod_fs_evoked_fa = max(amygdala_mod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_rs_delta_fa = amygdala_mod_rs_fa-mean(amygdala_mod_rs_fa(:,time<0),2);
+% amygdala_mod_rs_evoked_fa = max(amygdala_mod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_fs_delta_fa = amygdala_mod_fs_fa-mean(amygdala_mod_fs_fa(:,time<0),2);
+% amygdala_mod_fs_evoked_fa = max(amygdala_mod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
 
-amygdala_unmod_rs_delta_fa = amygdala_unmod_rs_fa-mean(amygdala_unmod_rs_fa(:,time<0),2);
-amygdala_unmod_rs_evoked_fa = max(amygdala_unmod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
-amygdala_unmod_fs_delta_fa = amygdala_unmod_fs_fa-mean(amygdala_unmod_fs_fa(:,time<0),2);
-amygdala_unmod_fs_evoked_fa = max(amygdala_unmod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_rs_delta_fa = amygdala_unmod_rs_fa-mean(amygdala_unmod_rs_fa(:,time<0),2);
+% amygdala_unmod_rs_evoked_fa = max(amygdala_unmod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_fs_delta_fa = amygdala_unmod_fs_fa-mean(amygdala_unmod_fs_fa(:,time<0),2);
+% amygdala_unmod_fs_evoked_fa = max(amygdala_unmod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
 
 evoked_fig = figure('Position', [1220 770 1007 948]);
 tl = tiledlayout(3,2);
@@ -1300,22 +1300,22 @@ striatum_mod_rs_iti_fa = mean(striatum_mod_rs_delta_fa(:,time>2 & time < 5),2);
 striatum_mod_fs_iti_fa = mean(striatum_mod_fs_delta_fa(:,time>2 & time < 5),2);
 striatum_unmod_rs_iti_fa = mean(striatum_unmod_rs_delta_fa(:,time>2 & time < 5),2);
 striatum_unmod_fs_iti_fa = mean(striatum_unmod_fs_delta_fa(:,time>2 & time < 5),2);
-amygdala_mod_rs_iti_hit = mean(amygdala_mod_rs_delta_hit(:,time>2 & time < 5),2);
-amygdala_mod_fs_iti_hit = mean(amygdala_mod_fs_delta_hit(:,time>2 & time < 5),2);
-amygdala_unmod_rs_iti_hit = mean(amygdala_unmod_rs_delta_hit(:,time>2 & time < 5),2);
-amygdala_unmod_fs_iti_hit = mean(amygdala_unmod_fs_delta_hit(:,time>2 & time < 5),2);
-amygdala_mod_rs_iti_miss = mean(amygdala_mod_rs_delta_miss(:,time>2 & time < 5),2);
-amygdala_mod_fs_iti_miss = mean(amygdala_mod_fs_delta_miss(:,time>2 & time < 5),2);
-amygdala_unmod_rs_iti_miss = mean(amygdala_unmod_rs_delta_miss(:,time>2 & time < 5),2);
-amygdala_unmod_fs_iti_miss = mean(amygdala_unmod_fs_delta_miss(:,time>2 & time < 5),2);
-amygdala_mod_rs_iti_cr = mean(amygdala_mod_rs_delta_cr(:,time>2 & time < 5),2);
-amygdala_mod_fs_iti_cr = mean(amygdala_mod_fs_delta_cr(:,time>2 & time < 5),2);
-amygdala_unmod_rs_iti_cr = mean(amygdala_unmod_rs_delta_cr(:,time>2 & time < 5),2);
-amygdala_unmod_fs_iti_cr = mean(amygdala_unmod_fs_delta_cr(:,time>2 & time < 5),2);
-amygdala_mod_rs_iti_fa = mean(amygdala_mod_rs_delta_fa(:,time>2 & time < 5),2);
-amygdala_mod_fs_iti_fa = mean(amygdala_mod_fs_delta_fa(:,time>2 & time < 5),2);
-amygdala_unmod_rs_iti_fa = mean(amygdala_unmod_rs_delta_fa(:,time>2 & time < 5),2);
-amygdala_unmod_fs_iti_fa = mean(amygdala_unmod_fs_delta_fa(:,time>2 & time < 5),2);
+% amygdala_mod_rs_iti_hit = mean(amygdala_mod_rs_delta_hit(:,time>2 & time < 5),2);
+% amygdala_mod_fs_iti_hit = mean(amygdala_mod_fs_delta_hit(:,time>2 & time < 5),2);
+% amygdala_unmod_rs_iti_hit = mean(amygdala_unmod_rs_delta_hit(:,time>2 & time < 5),2);
+% amygdala_unmod_fs_iti_hit = mean(amygdala_unmod_fs_delta_hit(:,time>2 & time < 5),2);
+% amygdala_mod_rs_iti_miss = mean(amygdala_mod_rs_delta_miss(:,time>2 & time < 5),2);
+% amygdala_mod_fs_iti_miss = mean(amygdala_mod_fs_delta_miss(:,time>2 & time < 5),2);
+% amygdala_unmod_rs_iti_miss = mean(amygdala_unmod_rs_delta_miss(:,time>2 & time < 5),2);
+% amygdala_unmod_fs_iti_miss = mean(amygdala_unmod_fs_delta_miss(:,time>2 & time < 5),2);
+% amygdala_mod_rs_iti_cr = mean(amygdala_mod_rs_delta_cr(:,time>2 & time < 5),2);
+% amygdala_mod_fs_iti_cr = mean(amygdala_mod_fs_delta_cr(:,time>2 & time < 5),2);
+% amygdala_unmod_rs_iti_cr = mean(amygdala_unmod_rs_delta_cr(:,time>2 & time < 5),2);
+% amygdala_unmod_fs_iti_cr = mean(amygdala_unmod_fs_delta_cr(:,time>2 & time < 5),2);
+% amygdala_mod_rs_iti_fa = mean(amygdala_mod_rs_delta_fa(:,time>2 & time < 5),2);
+% amygdala_mod_fs_iti_fa = mean(amygdala_mod_fs_delta_fa(:,time>2 & time < 5),2);
+% amygdala_unmod_rs_iti_fa = mean(amygdala_unmod_rs_delta_fa(:,time>2 & time < 5),2);
+% amygdala_unmod_fs_iti_fa = mean(amygdala_unmod_fs_delta_fa(:,time>2 & time < 5),2);
 
 iti_fig = figure();
 tl = tiledlayout(3,2);
@@ -1806,101 +1806,101 @@ fprintf(sprintf('Striatum RS mean theta bar: %d +/- %d\n', circ_mean(striatum_rs
 fprintf(sprintf('Striatum FS mean theta bar: %d +/- %d\n\n', circ_mean(striatum_fs.theta_bars), circ_std(striatum_fs.theta_bars) / sqrt(length(striatum_fs.theta_bars))))
 
 %% parts for overview figure - amygdala
-amygdala_mod_fig = figure('Position', [1220 1269 1071 569]);
-tl = tiledlayout(2,3, 'TileSpacing', 'compact');
-% axs(1) = nexttile([2,1]);
-% hold on
-% bar(1:2, [mean(amygdala_rs_fracs), mean(amygdala_fs_fracs)], 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
-% errorbar(1:2, [mean(amygdala_rs_fracs), mean(amygdala_fs_fracs)], ... 
-%     [std(amygdala_rs_fracs)/sqrt(length((amygdala_rs_fracs))), std(amygdala_fs_fracs)/sqrt(length((amygdala_fs_fracs)))], 'k.')
-% ylim([0,1])
-% yticks([0,0.5,1])
+% amygdala_mod_fig = figure('Position', [1220 1269 1071 569]);
+% tl = tiledlayout(2,3, 'TileSpacing', 'compact');
+% % axs(1) = nexttile([2,1]);
+% % hold on
+% % bar(1:2, [mean(amygdala_rs_fracs), mean(amygdala_fs_fracs)], 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+% % errorbar(1:2, [mean(amygdala_rs_fracs), mean(amygdala_fs_fracs)], ... 
+% %     [std(amygdala_rs_fracs)/sqrt(length((amygdala_rs_fracs))), std(amygdala_fs_fracs)/sqrt(length((amygdala_fs_fracs)))], 'k.')
+% % ylim([0,1])
+% % yticks([0,0.5,1])
+% % xticks(1:2)
+% % xticklabels({'RS', 'FS'})
+% % ylabel('Fraction of Alpha Modulated Units')
+% axs(1) = nexttile;
+% hold on 
+% bar(1:2, [nanmean(amygdala_rs.pmi), nanmean(amygdala_fs.pmi)], 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+% errorbar(1:2, [nanmean(amygdala_rs.pmi), nanmean(amygdala_fs.pmi)], ... 
+%     [nanstd(amygdala_rs.pmi)/sqrt(sum(~isnan((amygdala_rs.pmi)))), nanstd(amygdala_fs.pmi)/sqrt(sum(~isnan((amygdala_fs.pmi))))], 'k.')
+% % ylim([0,1])
+% % yticks([0,0.5,1])
+% lims = ylim;
+% ylim([0,lims(2)])
+% yticks([0,lims(2)])
 % xticks(1:2)
 % xticklabels({'RS', 'FS'})
-% ylabel('Fraction of Alpha Modulated Units')
-axs(1) = nexttile;
-hold on 
-bar(1:2, [nanmean(amygdala_rs.pmi), nanmean(amygdala_fs.pmi)], 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
-errorbar(1:2, [nanmean(amygdala_rs.pmi), nanmean(amygdala_fs.pmi)], ... 
-    [nanstd(amygdala_rs.pmi)/sqrt(sum(~isnan((amygdala_rs.pmi)))), nanstd(amygdala_fs.pmi)/sqrt(sum(~isnan((amygdala_fs.pmi))))], 'k.')
-% ylim([0,1])
-% yticks([0,0.5,1])
-lims = ylim;
-ylim([0,lims(2)])
-yticks([0,lims(2)])
-xticks(1:2)
-xticklabels({'RS', 'FS'})
-ylabel('Modulation Index')
+% ylabel('Modulation Index')
 
-axs(2) = nexttile;
-polarhistogram(amygdala_rs.theta_bars, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
-hold on 
-polarplot([circ_mean(amygdala_rs.theta_bars), circ_mean(amygdala_rs.theta_bars)], [0, 10], 'r--', 'LineWidth', 2)
-thetaticks([0 90 180 270])
-% Access the current polar axes
-pax = gca;
-% Customize the radial grid (axis markers)
-pax.GridColor = [0 0 0];          % Black grid lines
-pax.GridAlpha = 1;                % Fully opaque grid lines
-pax.GridLineStyle = '--';         % Dashed grid lines for visibility
-rlim([0,2])
-% title({'Somatosensory Cortex', 'Regular Spiking'}, 'FontWeight', 'normal')
-title({'Regular Spiking'}, 'FontWeight', 'normal')
+% axs(2) = nexttile;
+% polarhistogram(amygdala_rs.theta_bars, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+% hold on 
+% polarplot([circ_mean(amygdala_rs.theta_bars), circ_mean(amygdala_rs.theta_bars)], [0, 10], 'r--', 'LineWidth', 2)
+% thetaticks([0 90 180 270])
+% % Access the current polar axes
+% pax = gca;
+% % Customize the radial grid (axis markers)
+% pax.GridColor = [0 0 0];          % Black grid lines
+% pax.GridAlpha = 1;                % Fully opaque grid lines
+% pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+% rlim([0,2])
+% % title({'Somatosensory Cortex', 'Regular Spiking'}, 'FontWeight', 'normal')
+% title({'Regular Spiking'}, 'FontWeight', 'normal')
 
-axs(3) = nexttile;
-polarhistogram(amygdala_fs.theta_bars, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
-hold on
-polarplot([circ_mean(amygdala_fs.theta_bars), circ_mean(amygdala_fs.theta_bars)], [0, 10], 'r--', 'LineWidth', 2)
-thetaticks([0 90 180 270])
-% Access the current polar axes
-pax = gca;
-% Customize the radial grid (axis markers)
-pax.GridColor = [0 0 0];          % Black grid lines
-pax.GridAlpha = 1;                % Fully opaque grid lines
-pax.GridLineStyle = '--';         % Dashed grid lines for visibility
-rlim([0,2])
-title({'Fast Spiking'}, 'FontWeight', 'normal')
+% axs(3) = nexttile;
+% polarhistogram(amygdala_fs.theta_bars, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+% hold on
+% polarplot([circ_mean(amygdala_fs.theta_bars), circ_mean(amygdala_fs.theta_bars)], [0, 10], 'r--', 'LineWidth', 2)
+% thetaticks([0 90 180 270])
+% % Access the current polar axes
+% pax = gca;
+% % Customize the radial grid (axis markers)
+% pax.GridColor = [0 0 0];          % Black grid lines
+% pax.GridAlpha = 1;                % Fully opaque grid lines
+% pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+% rlim([0,2])
+% title({'Fast Spiking'}, 'FontWeight', 'normal')
 
-axs(4) = nexttile;
-hold on 
-bar(1:2, [nanmean(amygdala_rs.mses), nanmean(amygdala_fs.mses)], 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
-errorbar(1:2, [nanmean(amygdala_rs.mses), nanmean(amygdala_fs.mses)], ... 
-    [nanstd(amygdala_rs.mses)/sqrt(sum(~isnan((amygdala_rs.mses)))), nanstd(amygdala_fs.mses)/sqrt(sum(~isnan((amygdala_fs.mses))))], 'k.')
-% ylim([0,1])
-% yticks([0,0.5,1])
-lims = ylim;
-ylim([0,lims(2)])
-yticks([0,lims(2)])
-xticks(1:2)
-xticklabels({'RS', 'FS'})
-ylabel('von Mises MSE')
+% axs(4) = nexttile;
+% hold on 
+% bar(1:2, [nanmean(amygdala_rs.mses), nanmean(amygdala_fs.mses)], 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+% errorbar(1:2, [nanmean(amygdala_rs.mses), nanmean(amygdala_fs.mses)], ... 
+%     [nanstd(amygdala_rs.mses)/sqrt(sum(~isnan((amygdala_rs.mses)))), nanstd(amygdala_fs.mses)/sqrt(sum(~isnan((amygdala_fs.mses))))], 'k.')
+% % ylim([0,1])
+% % yticks([0,0.5,1])
+% lims = ylim;
+% ylim([0,lims(2)])
+% yticks([0,lims(2)])
+% xticks(1:2)
+% xticklabels({'RS', 'FS'})
+% ylabel('von Mises MSE')
 
-axs(5) = nexttile;
-semshade(amygdala_mod_rs_hit-mean(amygdala_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, sprintf('Modulated (n=%i)', size(amygdala_mod_rs_hit,1)));
-hold on;
-semshade(amygdala_unmod_rs_hit-mean(amygdala_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, sprintf('Unmodulated (n=%i)', size(amygdala_unmod_rs_hit,1)));
-xlim([-2.8,4.8])
-ylim([-10,70])
-plot([1.2, 1.2], [-10, 70], 'k--', 'HandleVisibility','off')
-yticks([-10,70])
-xticks([-2,0,2,4])
-ylabel('\Delta Firing Rate (Hz)')
-xlabel('Time (s)')
-legend()
+% axs(5) = nexttile;
+% semshade(amygdala_mod_rs_hit-mean(amygdala_mod_rs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, sprintf('Modulated (n=%i)', size(amygdala_mod_rs_hit,1)));
+% hold on;
+% semshade(amygdala_unmod_rs_hit-mean(amygdala_unmod_rs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, sprintf('Unmodulated (n=%i)', size(amygdala_unmod_rs_hit,1)));
+% xlim([-2.8,4.8])
+% ylim([-10,70])
+% plot([1.2, 1.2], [-10, 70], 'k--', 'HandleVisibility','off')
+% yticks([-10,70])
+% xticks([-2,0,2,4])
+% ylabel('\Delta Firing Rate (Hz)')
+% xlabel('Time (s)')
+% legend()
 
-axs(6) = nexttile;
-semshade(amygdala_mod_fs_hit-mean(amygdala_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, sprintf('Modulated (n=%i)', size(amygdala_mod_fs_hit,1)));
-hold on;
-semshade(amygdala_unmod_fs_hit-mean(amygdala_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, sprintf('Unmodulated (n=%i)', size(amygdala_unmod_fs_hit,1)));
-xlim([-2.8,4.8])
-ylim([-10,50])
-plot([1.2, 1.2], [-10, 50], 'k--', 'HandleVisibility','off')
-yticks([-10,50])
-xticks([-2,0,2,4])
-ylabel('\Delta Firing Rate (Hz)')
-xlabel('Time (s)')
-title(tl, 'Amygdala')
-legend()
+% axs(6) = nexttile;
+% semshade(amygdala_mod_fs_hit-mean(amygdala_mod_fs_hit(:,time<0),2), 0.3, 'b', 'b', time, 1, sprintf('Modulated (n=%i)', size(amygdala_mod_fs_hit,1)));
+% hold on;
+% semshade(amygdala_unmod_fs_hit-mean(amygdala_unmod_fs_hit(:,time<0),2), 0.3, 'r', 'r', time, 1, sprintf('Unmodulated (n=%i)', size(amygdala_unmod_fs_hit,1)));
+% xlim([-2.8,4.8])
+% ylim([-10,50])
+% plot([1.2, 1.2], [-10, 50], 'k--', 'HandleVisibility','off')
+% yticks([-10,50])
+% xticks([-2,0,2,4])
+% ylabel('\Delta Firing Rate (Hz)')
+% xlabel('Time (s)')
+% title(tl, 'Amygdala')
+% legend()
 
 % fprintf(sprintf('Amygdala RS theta bars vs FS theta bars Kuiper test: p = %d\n', circ_kuipertest(amygdala_rs.theta_bars, amygdala_fs.theta_bars)))
 fprintf(sprintf('Amygdala RS theta bars vs FS theta bars Kuiper test: p = NaN\n'))
@@ -2426,7 +2426,7 @@ if out_path
     saveas(s1_mod_fig, '../Figures/s1_mod_fig.fig')
     saveas(pfc_mod_fig, '../Figures/pfc_mod_fig.fig')
     saveas(striatum_mod_fig, '../Figures/striatum_mod_fig.fig')
-    saveas(amygdala_mod_fig, '../Figures/amygdala_mod_fig.fig')
+    % saveas(amygdala_mod_fig, '../Figures/amygdala_mod_fig.fig')
     saveas(baseline_fig, '../Figures/baseline_mod_v_unmod.fig')
     % saveas(evoked_fig, '../Figures/evoked.fig')
     % saveas(iti_fig, '../Figures/iti.fig')
@@ -2445,7 +2445,7 @@ if out_path
     saveas(s1_mod_fig, '../Figures/s1_mod_fig.svg')
     saveas(pfc_mod_fig, '../Figures/pfc_mod_fig.svg')
     saveas(striatum_mod_fig, '../Figures/striatum_mod_fig.svg')
-    saveas(amygdala_mod_fig, '../Figures/amygdala_mod_fig.svg')
+    % saveas(amygdala_mod_fig, '../Figures/amygdala_mod_fig.svg')
     saveas(baseline_fig, '../Figures/baseline_mod_v_unmod.svg')
     % saveas(evoked_fig, '../Figures/evoked.svg')
     % saveas(iti_fig, '../Figures/iti.svg')
