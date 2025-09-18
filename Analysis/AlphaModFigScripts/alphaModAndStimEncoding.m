@@ -3,15 +3,15 @@ diary Stats/phase_mod_stim_encoding.txt
 
 addpath(genpath('~/circstat-matlab/'))
 init_paths;
-s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
-pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'));
-striatum = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
-amygdala = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/data.mat'));
+s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
+pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/data.mat'));
+striatum = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
+amygdala = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Amygdala/Spontaneous_Alpha_Modulation/data.mat'));
 
 %% s1 sessions
 % combine animals
-ftr_files = {strcat(ftr_path, '/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat'), ...
-    strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted.mat')};
+ftr_files = {strcat(ftr_path, '/AP/subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted_sill.mat'), ...
+    strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted_sill.mat')};
 for i = 1:length(ftr_files)
     f = load(ftr_files{i});
     if i == 1
@@ -26,8 +26,8 @@ Striatum = ftrs(logical(striatum_inds), :);
 amygdala_inds = strcmp(ftrs.region, 'BLAp') + strcmp(ftrs.region, 'LA');
 Amygdala = ftrs(logical(amygdala_inds), :);
 
-ftr_files = {strcat(ftr_path, '/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
-    strcat(ftr_path, '/AP/subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
+ftr_files = {strcat(ftr_path, '/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_sill.mat'), ...
+    strcat(ftr_path, '/AP/subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0_sill.mat')};
 for i = 1:length(ftr_files)
     f = load(ftr_files{i});
     if i == 1
@@ -593,25 +593,25 @@ striatum_unmod_rs_evoked_miss = max(striatum_unmod_rs_delta_miss(:,time > 0 & ti
 striatum_unmod_fs_delta_miss = striatum_unmod_fs_miss-mean(striatum_unmod_fs_miss(:,time<0),2);
 striatum_unmod_fs_evoked_miss = max(striatum_unmod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
 
-amygdala_mod_rs_delta_hit = amygdala_mod_rs_hit-mean(amygdala_mod_rs_hit(:,time<0),2);
-amygdala_mod_rs_evoked_hit = max(amygdala_mod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
-amygdala_mod_fs_delta_hit = amygdala_mod_fs_hit-mean(amygdala_mod_fs_hit(:,time<0),2);
-amygdala_mod_fs_evoked_hit = max(amygdala_mod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_rs_delta_hit = amygdala_mod_rs_hit-mean(amygdala_mod_rs_hit(:,time<0),2);
+% amygdala_mod_rs_evoked_hit = max(amygdala_mod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_fs_delta_hit = amygdala_mod_fs_hit-mean(amygdala_mod_fs_hit(:,time<0),2);
+% amygdala_mod_fs_evoked_hit = max(amygdala_mod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
 
-amygdala_unmod_rs_delta_hit = amygdala_unmod_rs_hit-mean(amygdala_unmod_rs_hit(:,time<0),2);
-amygdala_unmod_rs_evoked_hit = max(amygdala_unmod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
-amygdala_unmod_fs_delta_hit = amygdala_unmod_fs_hit-mean(amygdala_unmod_fs_hit(:,time<0),2);
-amygdala_unmod_fs_evoked_hit = max(amygdala_unmod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_rs_delta_hit = amygdala_unmod_rs_hit-mean(amygdala_unmod_rs_hit(:,time<0),2);
+% amygdala_unmod_rs_evoked_hit = max(amygdala_unmod_rs_delta_hit(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_fs_delta_hit = amygdala_unmod_fs_hit-mean(amygdala_unmod_fs_hit(:,time<0),2);
+% amygdala_unmod_fs_evoked_hit = max(amygdala_unmod_fs_delta_hit(:,time > 0 & time < 0.4),[],2);
 
-amygdala_mod_rs_delta_miss = amygdala_mod_rs_miss-mean(amygdala_mod_rs_miss(:,time<0),2);
-amygdala_mod_rs_evoked_miss = max(amygdala_mod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
-amygdala_mod_fs_delta_miss = amygdala_mod_fs_miss-mean(amygdala_mod_fs_miss(:,time<0),2);
-amygdala_mod_fs_evoked_miss = max(amygdala_mod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_rs_delta_miss = amygdala_mod_rs_miss-mean(amygdala_mod_rs_miss(:,time<0),2);
+% amygdala_mod_rs_evoked_miss = max(amygdala_mod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_fs_delta_miss = amygdala_mod_fs_miss-mean(amygdala_mod_fs_miss(:,time<0),2);
+% amygdala_mod_fs_evoked_miss = max(amygdala_mod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
 
-amygdala_unmod_rs_delta_miss = amygdala_unmod_rs_miss-mean(amygdala_unmod_rs_miss(:,time<0),2);
-amygdala_unmod_rs_evoked_miss = max(amygdala_unmod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
-amygdala_unmod_fs_delta_miss = amygdala_unmod_fs_miss-mean(amygdala_unmod_fs_miss(:,time<0),2);
-amygdala_unmod_fs_evoked_miss = max(amygdala_unmod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_rs_delta_miss = amygdala_unmod_rs_miss-mean(amygdala_unmod_rs_miss(:,time<0),2);
+% amygdala_unmod_rs_evoked_miss = max(amygdala_unmod_rs_delta_miss(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_fs_delta_miss = amygdala_unmod_fs_miss-mean(amygdala_unmod_fs_miss(:,time<0),2);
+% amygdala_unmod_fs_evoked_miss = max(amygdala_unmod_fs_delta_miss(:,time > 0 & time < 0.4),[],2);
 
 s1_mod_rs_delta_cr = s1_mod_rs_cr-mean(s1_mod_rs_cr(:,time<0),2);
 s1_mod_rs_evoked_cr = max(s1_mod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
@@ -673,25 +673,25 @@ striatum_unmod_rs_evoked_fa = max(striatum_unmod_rs_delta_fa(:,time > 0 & time <
 striatum_unmod_fs_delta_fa = striatum_unmod_fs_fa-mean(striatum_unmod_fs_fa(:,time<0),2);
 striatum_unmod_fs_evoked_fa = max(striatum_unmod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
 
-amygdala_mod_rs_delta_cr = amygdala_mod_rs_cr-mean(amygdala_mod_rs_cr(:,time<0),2);
-amygdala_mod_rs_evoked_cr = max(amygdala_mod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
-amygdala_mod_fs_delta_cr = amygdala_mod_fs_cr-mean(amygdala_mod_fs_cr(:,time<0),2);
-amygdala_mod_fs_evoked_cr = max(amygdala_mod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_rs_delta_cr = amygdala_mod_rs_cr-mean(amygdala_mod_rs_cr(:,time<0),2);
+% amygdala_mod_rs_evoked_cr = max(amygdala_mod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_fs_delta_cr = amygdala_mod_fs_cr-mean(amygdala_mod_fs_cr(:,time<0),2);
+% amygdala_mod_fs_evoked_cr = max(amygdala_mod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
 
-amygdala_unmod_rs_delta_cr = amygdala_unmod_rs_cr-mean(amygdala_unmod_rs_cr(:,time<0),2);
-amygdala_unmod_rs_evoked_cr = max(amygdala_unmod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
-amygdala_unmod_fs_delta_cr = amygdala_unmod_fs_cr-mean(amygdala_unmod_fs_cr(:,time<0),2);
-amygdala_unmod_fs_evoked_cr = max(amygdala_unmod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_rs_delta_cr = amygdala_unmod_rs_cr-mean(amygdala_unmod_rs_cr(:,time<0),2);
+% amygdala_unmod_rs_evoked_cr = max(amygdala_unmod_rs_delta_cr(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_fs_delta_cr = amygdala_unmod_fs_cr-mean(amygdala_unmod_fs_cr(:,time<0),2);
+% amygdala_unmod_fs_evoked_cr = max(amygdala_unmod_fs_delta_cr(:,time > 0 & time < 0.4),[],2);
 
-amygdala_mod_rs_delta_fa = amygdala_mod_rs_fa-mean(amygdala_mod_rs_fa(:,time<0),2);
-amygdala_mod_rs_evoked_fa = max(amygdala_mod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
-amygdala_mod_fs_delta_fa = amygdala_mod_fs_fa-mean(amygdala_mod_fs_fa(:,time<0),2);
-amygdala_mod_fs_evoked_fa = max(amygdala_mod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_rs_delta_fa = amygdala_mod_rs_fa-mean(amygdala_mod_rs_fa(:,time<0),2);
+% amygdala_mod_rs_evoked_fa = max(amygdala_mod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
+% amygdala_mod_fs_delta_fa = amygdala_mod_fs_fa-mean(amygdala_mod_fs_fa(:,time<0),2);
+% amygdala_mod_fs_evoked_fa = max(amygdala_mod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
 
-amygdala_unmod_rs_delta_fa = amygdala_unmod_rs_fa-mean(amygdala_unmod_rs_fa(:,time<0),2);
-amygdala_unmod_rs_evoked_fa = max(amygdala_unmod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
-amygdala_unmod_fs_delta_fa = amygdala_unmod_fs_fa-mean(amygdala_unmod_fs_fa(:,time<0),2);
-amygdala_unmod_fs_evoked_fa = max(amygdala_unmod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_rs_delta_fa = amygdala_unmod_rs_fa-mean(amygdala_unmod_rs_fa(:,time<0),2);
+% amygdala_unmod_rs_evoked_fa = max(amygdala_unmod_rs_delta_fa(:,time > 0 & time < 0.4),[],2);
+% amygdala_unmod_fs_delta_fa = amygdala_unmod_fs_fa-mean(amygdala_unmod_fs_fa(:,time<0),2);
+% amygdala_unmod_fs_evoked_fa = max(amygdala_unmod_fs_delta_fa(:,time > 0 & time < 0.4),[],2);
 
 evoked_fig = figure('Position', [1220 770 1007 948]);
 tl = tiledlayout(3,2);
@@ -1134,22 +1134,22 @@ striatum_mod_rs_iti_fa = mean(striatum_mod_rs_delta_fa(:,time>2 & time < 5),2);
 striatum_mod_fs_iti_fa = mean(striatum_mod_fs_delta_fa(:,time>2 & time < 5),2);
 striatum_unmod_rs_iti_fa = mean(striatum_unmod_rs_delta_fa(:,time>2 & time < 5),2);
 striatum_unmod_fs_iti_fa = mean(striatum_unmod_fs_delta_fa(:,time>2 & time < 5),2);
-amygdala_mod_rs_iti_hit = mean(amygdala_mod_rs_delta_hit(:,time>2 & time < 5),2);
-amygdala_mod_fs_iti_hit = mean(amygdala_mod_fs_delta_hit(:,time>2 & time < 5),2);
-amygdala_unmod_rs_iti_hit = mean(amygdala_unmod_rs_delta_hit(:,time>2 & time < 5),2);
-amygdala_unmod_fs_iti_hit = mean(amygdala_unmod_fs_delta_hit(:,time>2 & time < 5),2);
-amygdala_mod_rs_iti_miss = mean(amygdala_mod_rs_delta_miss(:,time>2 & time < 5),2);
-amygdala_mod_fs_iti_miss = mean(amygdala_mod_fs_delta_miss(:,time>2 & time < 5),2);
-amygdala_unmod_rs_iti_miss = mean(amygdala_unmod_rs_delta_miss(:,time>2 & time < 5),2);
-amygdala_unmod_fs_iti_miss = mean(amygdala_unmod_fs_delta_miss(:,time>2 & time < 5),2);
-amygdala_mod_rs_iti_cr = mean(amygdala_mod_rs_delta_cr(:,time>2 & time < 5),2);
-amygdala_mod_fs_iti_cr = mean(amygdala_mod_fs_delta_cr(:,time>2 & time < 5),2);
-amygdala_unmod_rs_iti_cr = mean(amygdala_unmod_rs_delta_cr(:,time>2 & time < 5),2);
-amygdala_unmod_fs_iti_cr = mean(amygdala_unmod_fs_delta_cr(:,time>2 & time < 5),2);
-amygdala_mod_rs_iti_fa = mean(amygdala_mod_rs_delta_fa(:,time>2 & time < 5),2);
-amygdala_mod_fs_iti_fa = mean(amygdala_mod_fs_delta_fa(:,time>2 & time < 5),2);
-amygdala_unmod_rs_iti_fa = mean(amygdala_unmod_rs_delta_fa(:,time>2 & time < 5),2);
-amygdala_unmod_fs_iti_fa = mean(amygdala_unmod_fs_delta_fa(:,time>2 & time < 5),2);
+% amygdala_mod_rs_iti_hit = mean(amygdala_mod_rs_delta_hit(:,time>2 & time < 5),2);
+% amygdala_mod_fs_iti_hit = mean(amygdala_mod_fs_delta_hit(:,time>2 & time < 5),2);
+% amygdala_unmod_rs_iti_hit = mean(amygdala_unmod_rs_delta_hit(:,time>2 & time < 5),2);
+% amygdala_unmod_fs_iti_hit = mean(amygdala_unmod_fs_delta_hit(:,time>2 & time < 5),2);
+% amygdala_mod_rs_iti_miss = mean(amygdala_mod_rs_delta_miss(:,time>2 & time < 5),2);
+% amygdala_mod_fs_iti_miss = mean(amygdala_mod_fs_delta_miss(:,time>2 & time < 5),2);
+% amygdala_unmod_rs_iti_miss = mean(amygdala_unmod_rs_delta_miss(:,time>2 & time < 5),2);
+% amygdala_unmod_fs_iti_miss = mean(amygdala_unmod_fs_delta_miss(:,time>2 & time < 5),2);
+% amygdala_mod_rs_iti_cr = mean(amygdala_mod_rs_delta_cr(:,time>2 & time < 5),2);
+% amygdala_mod_fs_iti_cr = mean(amygdala_mod_fs_delta_cr(:,time>2 & time < 5),2);
+% amygdala_unmod_rs_iti_cr = mean(amygdala_unmod_rs_delta_cr(:,time>2 & time < 5),2);
+% amygdala_unmod_fs_iti_cr = mean(amygdala_unmod_fs_delta_cr(:,time>2 & time < 5),2);
+% amygdala_mod_rs_iti_fa = mean(amygdala_mod_rs_delta_fa(:,time>2 & time < 5),2);
+% amygdala_mod_fs_iti_fa = mean(amygdala_mod_fs_delta_fa(:,time>2 & time < 5),2);
+% amygdala_unmod_rs_iti_fa = mean(amygdala_unmod_rs_delta_fa(:,time>2 & time < 5),2);
+% amygdala_unmod_fs_iti_fa = mean(amygdala_unmod_fs_delta_fa(:,time>2 & time < 5),2);
 
 iti_fig = figure();
 tl = tiledlayout(3,2);
@@ -2211,7 +2211,7 @@ s1_rs_table = table(s1_rs_group, s1_rs_subj, ...
     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-s1_rs_rm = fitrm(s1_rs_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
+s1_rs_rm = fitrm(s1_rs_table, 't1-t50 ~ group', 'WithinDesign', Time);
 s1_rs_ranova = ranova(s1_rs_rm)
 
 s1_mod_fs_delta = s1_mod_fs_hit-mean(s1_mod_fs_hit(:,time<0),2);
@@ -2233,7 +2233,7 @@ s1_fs_table = table(s1_fs_group, s1_fs_subj, ...
     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-s1_fs_rm = fitrm(s1_fs_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
+s1_fs_rm = fitrm(s1_fs_table, 't1-t50 ~ group', 'WithinDesign', Time);
 s1_fs_ranova = ranova(s1_fs_rm)
 
 pfc_mod_rs_delta = pfc_mod_rs_hit-mean(pfc_mod_rs_hit(:,time<0),2);
@@ -2255,7 +2255,7 @@ pfc_rs_table = table(pfc_rs_group, pfc_rs_subj, ...
     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-pfc_rs_rm = fitrm(pfc_rs_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
+pfc_rs_rm = fitrm(pfc_rs_table, 't1-t50 ~ group', 'WithinDesign', Time);
 % pfc_rs_rm = fitrm(pfc_rs_table, 't1-t50 ~ group', 'WithinDesign', Time);
 pfc_rs_ranova = ranova(pfc_rs_rm)
 
@@ -2278,7 +2278,7 @@ pfc_fs_table = table(pfc_fs_group, pfc_fs_subj, ...
     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-pfc_fs_rm = fitrm(pfc_fs_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
+pfc_fs_rm = fitrm(pfc_fs_table, 't1-t50 ~ group', 'WithinDesign', Time);
 % pfc_fs_rm = fitrm(pfc_fs_table, 't1-t50 ~ group', 'WithinDesign', Time);
 pfc_fs_ranova = ranova(pfc_fs_rm)
 
@@ -2323,7 +2323,7 @@ striatum_fs_table = table(striatum_fs_group, striatum_fs_subj, ...
     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-striatum_fs_rm = fitrm(striatum_fs_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
+striatum_fs_rm = fitrm(striatum_fs_table, 't1-t50 ~ group', 'WithinDesign', Time);
 striatum_fs_ranova = ranova(striatum_fs_rm)
 
 %% anova driven/suppressed firing rates 
@@ -2344,7 +2344,7 @@ s1_rs_driven_table = table(s1_rs_group, s1_rs_subj, ...
     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-s1_rs_driven_rm = fitrm(s1_rs_driven_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
+s1_rs_driven_rm = fitrm(s1_rs_driven_table, 't1-t50 ~ group', 'WithinDesign', Time);
 s1_rs_driven_ranova = ranova(s1_rs_driven_rm)
 
 s1_mod_driven_fs_delta_hit = s1_mod_driven_fs_delta_hit(:,time > 0);
@@ -2364,7 +2364,7 @@ s1_fs_driven_table = table(s1_fs_group, s1_fs_subj, ...
     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-s1_fs_driven_rm = fitrm(s1_fs_driven_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
+s1_fs_driven_rm = fitrm(s1_fs_driven_table, 't1-t50 ~ group', 'WithinDesign', Time);
 s1_fs_driven_ranova = ranova(s1_fs_driven_rm)
 
 pfc_mod_driven_rs_delta_hit = pfc_mod_driven_rs_delta_hit(:,time > 0);
@@ -2384,7 +2384,7 @@ pfc_rs_driven_table = table(pfc_rs_group, pfc_rs_subj, ...
     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-pfc_rs_driven_rm = fitrm(pfc_rs_driven_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
+pfc_rs_driven_rm = fitrm(pfc_rs_driven_table, 't1-t50 ~ group', 'WithinDesign', Time);
 pfc_rs_driven_ranova = ranova(pfc_rs_driven_rm)
 
 pfc_mod_driven_fs_delta_hit = pfc_mod_driven_fs_delta_hit(:,time > 0);
@@ -2444,7 +2444,7 @@ striatum_fs_driven_table = table(striatum_fs_group, striatum_fs_subj, ...
     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-striatum_fs_driven_rm = fitrm(striatum_fs_driven_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
+striatum_fs_driven_rm = fitrm(striatum_fs_driven_table, 't1-t50 ~ group', 'WithinDesign', Time);
 striatum_fs_driven_ranova = ranova(striatum_fs_driven_rm)
 
 s1_mod_suppressed_rs_delta_hit = s1_mod_suppressed_rs_delta_hit(:,time > 0);
@@ -2504,7 +2504,7 @@ pfc_rs_suppressed_table = table(pfc_rs_group, pfc_rs_subj, ...
     't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30', ...
     't31', 't32', 't33', 't34', 't35', 't36', 't37', 't38', 't39', 't40', ...
     't41', 't42', 't43', 't44', 't45', 't46', 't47', 't48', 't49', 't50'});
-pfc_rs_suppressed_rm = fitrm(pfc_rs_suppressed_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
+pfc_rs_suppressed_rm = fitrm(pfc_rs_suppressed_table, 't1-t50 ~ group', 'WithinDesign', Time);
 pfc_rs_suppressed_ranova = ranova(pfc_rs_suppressed_rm)
 
 pfc_mod_suppressed_fs_delta_hit = pfc_mod_suppressed_fs_delta_hit(:,time > 0);

@@ -152,10 +152,10 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
         for c = 1:size(ap_ftr,1)
             if strcmp(ap_ftr(c,:).session_id, session) & (strcmp(ap_ftr(c,:).waveform_class, 'RS') || strcmp(ap_ftr(c,:).waveform_class, 'FS'))
                 if idx_tmp(cell_count) == 1 && s_tmp(cell_count) > 0.25
-                    ap_ftr(c,:).waveform_class{1} = 'FS';
+                    ap_ftr(c,:).waveform_class{1} = 'RS';
                     cell_count = cell_count + 1;
                 elseif idx_tmp(cell_count) == 2 && s_tmp(cell_count) > 0.25
-                    ap_ftr(c,:).waveform_class{1} = 'RS';
+                    ap_ftr(c,:).waveform_class{1} = 'FS';
                     cell_count = cell_count + 1;
                 elseif s_tmp(cell_count) <= 0.25
                     ap_ftr(c,:).waveform_class{1} = 'NS';
@@ -170,8 +170,6 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
         ftr_file = strcat(ftr_parts{1}, '.', ftr_parts{2});
         save(ftr_file, 'ap_ftr', '-v7.3')
     end
-
-    keyboard 
     
     % fig = figure('Position', [1220 1298 560 420]); 
     % hold on 

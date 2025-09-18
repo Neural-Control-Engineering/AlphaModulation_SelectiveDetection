@@ -1783,7 +1783,11 @@ xlabel('Time (s)')
 legend()
 title(tl, 'Striatum')
 
-fprintf(sprintf('Striatum RS theta bars vs FS theta bars Kuiper test: p = %d\n', circ_kuipertest(striatum_rs.theta_bars, striatum_fs.theta_bars)))
+try
+    fprintf(sprintf('Striatum RS theta bars vs FS theta bars Kuiper test: p = %d\n', circ_kuipertest(striatum_rs.theta_bars, striatum_fs.theta_bars)))
+catch
+    fprintf(sprintf('Striatum RS theta bars vs FS theta bars Kuiper test: n too low\n'))
+end
 if KStest(striatum_rs.pmi) || KStest(striatum_fs.pmi)
     fprintf(sprintf('Striatum RS MI vs FS MI Mann Whitney: p = %d\n', ranksum(striatum_rs.pmi, striatum_fs.pmi)))
 else
@@ -1904,26 +1908,26 @@ fprintf(sprintf('Striatum FS mean theta bar: %d +/- %d\n\n', circ_mean(striatum_
 
 % fprintf(sprintf('Amygdala RS theta bars vs FS theta bars Kuiper test: p = %d\n', circ_kuipertest(amygdala_rs.theta_bars, amygdala_fs.theta_bars)))
 fprintf(sprintf('Amygdala RS theta bars vs FS theta bars Kuiper test: p = NaN\n'))
-if KStest(amygdala_rs.pmi) || KStest(amygdala_fs.pmi)
-    fprintf(sprintf('Amygdala RS MI vs FS MI Mann Whitney: p = %d\n', ranksum(amygdala_rs.pmi, amygdala_fs.pmi)))
-else
-    [~,p] = ttest2(amygdala_rs.pmi, amygdala_fs.pmi);
-    fprintf(sprintf('Amygdala RS MI vs FS MI 2-sample t-test: p = %d\n', p))
-end
-if KStest(amygdala_rs.mses) || KStest(amygdala_fs.mses)
-    fprintf(sprintf('Amygdala RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = %d\n', ranksum(amygdala_rs.mses, amygdala_fs.mses)))
-else
-    [~,p] = ttest2(amygdala_rs.mses, amygdala_fs.mses);
-    fprintf(sprintf('Amygdala RS von Mises MSE vs FS von Mises MSE 2-sample t-test: p = %d\n', p))
-end
-if KStest(amygdala_rs_fracs) || KStest(amygdala_fs_fracs)
-    fprintf(sprintf('Amygdala RS vs FS fraction (Mann-Whitney): p = %d\n', ranksum(amygdala_rs_fracs, amygdala_fs_fracs)))
-else
-    [~,p] = ttest2(amygdala_rs_fracs, amygdala_fs_fracs);
-    fprintf(sprintf('Amygdala RS vs FS fraction (Mann-Whitney): p = %d\n', p))
-end
+% if KStest(amygdala_rs.pmi) || KStest(amygdala_fs.pmi)
+%     fprintf(sprintf('Amygdala RS MI vs FS MI Mann Whitney: p = %d\n', ranksum(amygdala_rs.pmi, amygdala_fs.pmi)))
+% else
+%     [~,p] = ttest2(amygdala_rs.pmi, amygdala_fs.pmi);
+%     fprintf(sprintf('Amygdala RS MI vs FS MI 2-sample t-test: p = %d\n', p))
+% end
+% if KStest(amygdala_rs.mses) || KStest(amygdala_fs.mses)
+%     fprintf(sprintf('Amygdala RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = %d\n', ranksum(amygdala_rs.mses, amygdala_fs.mses)))
+% else
+%     [~,p] = ttest2(amygdala_rs.mses, amygdala_fs.mses);
+%     fprintf(sprintf('Amygdala RS von Mises MSE vs FS von Mises MSE 2-sample t-test: p = %d\n', p))
+% end
+% if KStest(amygdala_rs_fracs) || KStest(amygdala_fs_fracs)
+%     fprintf(sprintf('Amygdala RS vs FS fraction (Mann-Whitney): p = %d\n', ranksum(amygdala_rs_fracs, amygdala_fs_fracs)))
+% else
+%     [~,p] = ttest2(amygdala_rs_fracs, amygdala_fs_fracs);
+%     fprintf(sprintf('Amygdala RS vs FS fraction (Mann-Whitney): p = %d\n', p))
+% end
 fprintf(sprintf('Amygdala RS mean theta bar: %d +/- %d\n', circ_mean(amygdala_rs.theta_bars), circ_std(amygdala_rs.theta_bars)/sqrt(length(amygdala_rs.theta_bars))))
-fprintf(sprintf('Amygdala FS mean theta bar: %d +/- %d\n\n', circ_mean(amygdala_fs.theta_bars), circ_std(amygdala_fs.theta_bars)/sqrt(length(amygdala_fs.theta_bars))))
+% fprintf(sprintf('Amygdala FS mean theta bar: %d +/- %d\n\n', circ_mean(amygdala_fs.theta_bars), circ_std(amygdala_fs.theta_bars)/sqrt(length(amygdala_fs.theta_bars))))
 
 % amygdala_mod_rs_delta = amygdala_mod_rs_hit-mean(amygdala_mod_rs_hit(:,time<0),2);
 % amygdala_unmod_rs_delta = amygdala_unmod_rs_hit-mean(amygdala_unmod_rs_hit(:,time<0),2);
@@ -2012,12 +2016,12 @@ else
     [~,p] = ttest(striatum_rs_fracs, striatum_fs_fracs);
     fprintf(sprintf('Striatum RS vs FS fraction (paired t-test): p = %d\n', p))
 end
-if KStest(amygdala_rs_fracs) || KStest(amygdala_fs_fracs)
-    fprintf(sprintf('Amygdala RS vs FS fraction (signed-rank): p = %d\n', signrank(amygdala_rs_fracs, amygdala_fs_fracs)))
-else
-    [~,p] = ttest(amygdala_rs_fracs, amygdala_fs_fracs);
-    fprintf(sprintf('Amygdala RS vs FS fraction (paired t-test): p = %d\n', p))
-end
+% if KStest(amygdala_rs_fracs) || KStest(amygdala_fs_fracs)
+%     fprintf(sprintf('Amygdala RS vs FS fraction (signed-rank): p = %d\n', signrank(amygdala_rs_fracs, amygdala_fs_fracs)))
+% else
+%     [~,p] = ttest(amygdala_rs_fracs, amygdala_fs_fracs);
+%     fprintf(sprintf('Amygdala RS vs FS fraction (paired t-test): p = %d\n', p))
+% end
 fprintf('\n')
 if KStest(s1_rs_fracs) || KStest(pfc_rs_fracs)
     fprintf(sprintf('S1 RS vs PFC RS fraction (mann-whitney): p = %d\n', ranksum(s1_rs_fracs, pfc_rs_fracs)))
@@ -2043,36 +2047,36 @@ else
     [~,p] = ttest2(striatum_fs_fracs, pfc_fs_fracs);
     fprintf(sprintf('Striatum FS vs PFC FS fraction (two-sample t-test): p = %d\n', p))
 end
-if KStest(amygdala_rs_fracs) || KStest(pfc_rs_fracs)
-    fprintf(sprintf('Amygdala RS vs PFC RS fraction (mann-whitney): p = %d\n', ranksum(amygdala_rs_fracs, pfc_rs_fracs)))
-else
-    [~,p] = ttest2(amygdala_rs_fracs, pfc_rs_fracs);
-    fprintf(sprintf('Amygdala RS vs PFC RS fraction (two-sample t-test): p = %d\n', p))
-end
-if KStest(amygdala_fs_fracs) || KStest(pfc_fs_fracs)
-    fprintf(sprintf('Amygdala FS vs PFC FS fraction (mann-whitney): p = %d\n', ranksum(amygdala_fs_fracs, pfc_fs_fracs)))
-else
-    [~,p] = ttest2(amygdala_fs_fracs, pfc_fs_fracs);
-    fprintf(sprintf('Amygdala FS vs PFC FS fraction (two-sample t-test): p = %d\n', p))
-end
+% if KStest(amygdala_rs_fracs) || KStest(pfc_rs_fracs)
+%     fprintf(sprintf('Amygdala RS vs PFC RS fraction (mann-whitney): p = %d\n', ranksum(amygdala_rs_fracs, pfc_rs_fracs)))
+% else
+%     [~,p] = ttest2(amygdala_rs_fracs, pfc_rs_fracs);
+%     fprintf(sprintf('Amygdala RS vs PFC RS fraction (two-sample t-test): p = %d\n', p))
+% end
+% if KStest(amygdala_fs_fracs) || KStest(pfc_fs_fracs)
+%     fprintf(sprintf('Amygdala FS vs PFC FS fraction (mann-whitney): p = %d\n', ranksum(amygdala_fs_fracs, pfc_fs_fracs)))
+% else
+%     [~,p] = ttest2(amygdala_fs_fracs, pfc_fs_fracs);
+%     fprintf(sprintf('Amygdala FS vs PFC FS fraction (two-sample t-test): p = %d\n', p))
+% end
 if KStest(striatum_fs_fracs) || KStest(s1_fs_fracs)
     fprintf(sprintf('Striatum FS vs S1 FS fraction (signed-rank): p = %d\n', signrank(striatum_fs_fracs, s1_fs_fracs)))
 else
     [~,p] = ttest(striatum_fs_fracs, s1_fs_fracs);
     fprintf(sprintf('Striatum FS vs S1 FS fraction (paired t-test): p = %d\n', p))
 end
-if KStest(amygdala_rs_fracs) || KStest(s1_rs_fracs)
-    fprintf(sprintf('Amygdala RS vs S1 RS fraction (signed-rank): p = %d\n', signrank(amygdala_rs_fracs, s1_rs_fracs)))
-else
-    [~,p] = ttest(amygdala_rs_fracs, s1_rs_fracs);
-    fprintf(sprintf('Amygdala RS vs S1 RS fraction (paired t-test): p = %d\n', p))
-end
-if KStest(amygdala_fs_fracs) || KStest(s1_fs_fracs)
-    fprintf(sprintf('Amygdala FS vs S1 FS fraction (signed-rank): p = %d\n', signrank(amygdala_fs_fracs, s1_fs_fracs)))
-else
-    [~,p] = ttest(amygdala_fs_fracs, s1_fs_fracs);
-    fprintf(sprintf('Amygdala FS vs S1 FS fraction (paired t-test): p = %d\n', p))
-end
+% if KStest(amygdala_rs_fracs) || KStest(s1_rs_fracs)
+%     fprintf(sprintf('Amygdala RS vs S1 RS fraction (signed-rank): p = %d\n', signrank(amygdala_rs_fracs, s1_rs_fracs)))
+% else
+%     [~,p] = ttest(amygdala_rs_fracs, s1_rs_fracs);
+%     fprintf(sprintf('Amygdala RS vs S1 RS fraction (paired t-test): p = %d\n', p))
+% end
+% if KStest(amygdala_fs_fracs) || KStest(s1_fs_fracs)
+%     fprintf(sprintf('Amygdala FS vs S1 FS fraction (signed-rank): p = %d\n', signrank(amygdala_fs_fracs, s1_fs_fracs)))
+% else
+%     [~,p] = ttest(amygdala_fs_fracs, s1_fs_fracs);
+%     fprintf(sprintf('Amygdala FS vs S1 FS fraction (paired t-test): p = %d\n', p))
+% end
 fprintf('\n')
 if KStest(s1_combo_fracs) || KStest(pfc_combo_fracs)
     fprintf(sprintf('S1 overall vs PFC overall (mann-whitney) p = %d\n', ranksum(s1_combo_fracs, pfc_combo_fracs)))
