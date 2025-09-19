@@ -21,12 +21,16 @@ high_outcomes = {};
 low_outcomes = {};
 event_inds_low = {};
 event_inds_high = {};
+event_times_low = {};
+event_times_high = {};
 
 for nrn = 1:size(alpha_modulated,1)
     high_outcomes{nrn} = {};
     low_outcomes{nrn} = {};
     event_inds_low{nrn} = {};
     event_inds_high{nrn} = {};
+    event_times_low{nrn} = {};
+    event_times_high{nrn} = {};
 
     cid = alpha_modulated(nrn,:).cluster_id;
     if nrn == 1
@@ -109,6 +113,7 @@ for nrn = 1:size(alpha_modulated,1)
                 high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
                 high_outcomes{nrn} = horzcat(high_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
                 event_inds_high{nrn} = horzcat(event_inds_high{nrn}, {high_inds(n,:)});
+                event_times_high{nrn} = horzcat(event_times_high{nrn}, {slrt_data(t,:).clock_time{1}(1)});
             end
         end
         low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
@@ -120,6 +125,7 @@ for nrn = 1:size(alpha_modulated,1)
                 low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
                 low_outcomes{nrn} = horzcat(low_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
                 event_inds_low{nrn} = horzcat(event_inds_low{nrn}, {low_inds(n,:)});
+                event_times_low{nrn} = horzcat(event_times_low{nrn}, {slrt_data(t,:).clock_time{1}(1)});
             end
         end
     end
@@ -197,12 +203,17 @@ high_outcomes = {};
 low_outcomes = {};
 event_inds_low = {};
 event_inds_high = {};
+event_times_low = {};
+event_times_high = {};
+
 
 for nrn = 1:size(alpha_modulated,1)
     high_outcomes{nrn} = {};
     low_outcomes{nrn} = {};
     event_inds_low{nrn} = {};
     event_inds_high{nrn} = {};
+    event_times_low{nrn} = {};
+    event_times_high{nrn} = {};
 
     cid = alpha_modulated(nrn,:).cluster_id;
     if nrn == 1
@@ -285,6 +296,7 @@ for nrn = 1:size(alpha_modulated,1)
                 high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
                 high_outcomes{nrn} = horzcat(high_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
                 event_inds_high{nrn} = horzcat(event_inds_high{nrn}, {high_inds(n,:)});
+                event_times_high{nrn} = horzcat(event_times_high{nrn}, {slrt_data(t,:).clock_time{1}(1)});
             end
         end
         low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
@@ -296,6 +308,7 @@ for nrn = 1:size(alpha_modulated,1)
                 low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
                 low_outcomes{nrn} = horzcat(low_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
                 event_inds_low{nrn} = horzcat(event_inds_low{nrn}, {low_inds(n,:)});
+                event_times_low{nrn} = horzcat(event_times_low{nrn}, {slrt_data(t,:).clock_time{1}(1)});
             end
         end
     end
@@ -373,12 +386,17 @@ high_outcomes = {};
 low_outcomes = {};
 event_inds_low = {};
 event_inds_high = {};
+event_times_low = {};
+event_times_high = {};
+
 
 for nrn = 1:size(alpha_modulated,1)
     high_outcomes{nrn} = {};
     low_outcomes{nrn} = {};
     event_inds_low{nrn} = {};
     event_inds_high{nrn} = {};
+    event_times_low{nrn} = {};
+    event_times_high{nrn} = {};
     cid = alpha_modulated(nrn,:).cluster_id;
     if nrn == 1
         last_session_id = '';
@@ -460,6 +478,7 @@ for nrn = 1:size(alpha_modulated,1)
                 high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
                 high_outcomes{nrn} = horzcat(high_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
                 event_inds_high{nrn} = horzcat(event_inds_high{nrn}, {high_inds(n,:)});
+                event_times_high{nrn} = horzcat(event_times_high{nrn}, {slrt_data(t,:).clock_time{1}(1)});
             end
         end
         low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
@@ -471,6 +490,7 @@ for nrn = 1:size(alpha_modulated,1)
                 low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
                 low_outcomes{nrn} = horzcat(low_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
                 event_inds_low{nrn} = horzcat(event_inds_low{nrn}, {low_inds(n,:)});
+                event_times_low{nrn} = horzcat(event_times_low{nrn}, {slrt_data(t,:).clock_time{1}(1)});
             end
         end
     end
@@ -548,12 +568,17 @@ high_outcomes = {};
 low_outcomes = {};
 event_inds_high = {};
 event_inds_low = {};
+event_times_low = {};
+event_times_high = {};
 
 for nrn = 1:size(alpha_modulated,1)
     high_outcomes{nrn} = {};
     low_outcomes{nrn} = {};
     event_inds_low{nrn} = {};
     event_inds_high{nrn} = {};
+    event_times_low{nrn} = {};
+    event_times_high{nrn} = {};
+
     cid = alpha_modulated(nrn,:).cluster_id;
     if nrn == 1
         last_session_id = '';
@@ -635,6 +660,7 @@ for nrn = 1:size(alpha_modulated,1)
                 high_frs = [high_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
                 high_outcomes{nrn} = horzcat(high_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
                 event_inds_high{nrn} = horzcat(event_inds_high{nrn}, {high_inds(n,:)});
+                event_times_high{nrn} = horzcat(event_times_high{nrn}, {slrt_data(t,:).clock_time{1}(1)});
             end
         end
         low_inds = findEvents(ALPHA, lfp_times, prctile(alpha_powers, 50), 0.33, 0.2, 'below');
@@ -646,6 +672,7 @@ for nrn = 1:size(alpha_modulated,1)
                 low_frs = [low_frs, length(spike_phases(spike_times > begin & spike_times < fin)) / (fin-begin)];
                 low_outcomes{nrn} = horzcat(low_outcomes{nrn}, slrt_data(t,:).categorical_outcome{1});
                 event_inds_low{nrn} = horzcat(event_inds_low{nrn}, {low_inds(n,:)});
+                event_times_low{nrn} = horzcat(event_times_low{nrn}, {slrt_data(t,:).clock_time{1}(1)});
             end
         end
     end
