@@ -179,6 +179,8 @@ out.low_outcomes = low_outcomes;
 out.event_inds_low = event_inds_low;
 out.high_outcomes = high_outcomes;
 out.event_inds_high = event_inds_high;
+out.event_times_high = event_times_high;
+out.event_times_low = event_times_low;
 save(out_file, 'out', '-v7.3');
 
 clear 
@@ -362,6 +364,8 @@ out.low_outcomes = low_outcomes;
 out.event_inds_low = event_inds_low;
 out.high_outcomes = high_outcomes;
 out.event_inds_high = event_inds_high;
+out.event_times_high = event_times_high;
+out.event_times_low = event_times_low;
 save(out_file, 'out', '-v7.3');
 
 clear
@@ -544,6 +548,8 @@ out.low_outcomes = low_outcomes;
 out.event_inds_low = event_inds_low;
 out.high_outcomes = high_outcomes;
 out.event_inds_high = event_inds_high;
+out.event_times_high = event_times_high;
+out.event_times_low = event_times_low;
 save(out_file, 'out', '-v7.3');
 
 clear
@@ -726,4 +732,6 @@ out.low_outcomes = low_outcomes;
 out.event_inds_low = event_inds_low;
 out.high_outcomes = high_outcomes;
 out.event_inds_high = event_inds_high;
+out.event_times_high = event_times_high;
+out.event_times_low = event_times_low;
 save(out_file, 'out', '-v7.3');

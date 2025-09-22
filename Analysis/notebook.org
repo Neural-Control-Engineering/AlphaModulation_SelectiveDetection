@@ -5022,3 +5022,5 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 * [2025-9-16 Tue] - different significance computation 
 ** false discovery rate Benjamini-Hochberg procedure 
 *** fdrBenjaminiHochberg.m - gives adjusted p-value for false detection rate of 0.01: 0.0043
+
+* [2025-9-22 Mon] - distribution of alpha events 

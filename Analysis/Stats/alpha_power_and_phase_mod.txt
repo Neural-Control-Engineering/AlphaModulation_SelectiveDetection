@@ -1,91 +1,172 @@
-S1 RS low alpha fraction vs high alpha fraction (signed-rank): **p = 8.596886e-05
-S1 RS avg high minus low fraction: 6.142408e-01
-S1 FS low alpha fraction vs high alpha fraction (signed-rank): **p = 8.732638e-05
-S1 FS avg high minus low fraction: 4.487539e-01
-PFC RS low alpha fraction vs high alpha fraction (signed-rank): *p = 3.125000e-02
-PFC RS avg high minus low fraction: 2.079563e-01
-PFC FS low alpha fraction vs high alpha fraction (signed-rank): *p = 3.125000e-02
-PFC FS avg high minus low fraction: 1.666667e-01
-Striatum RS low alpha fraction vs high alpha fraction (signed-rank): p = 1
-Striatum RS avg high minus low fraction: -4.545455e-02
-Striatum FS low alpha fraction vs high alpha fraction (signed-rank): p = 1.875000e-01
-Striatum FS avg high minus low fraction: 1.755556e-01
-S1 RS low alpha MI vs high alpha MI (signed-rank): **p = 1.796647e-42
-S1 RS avg high minus low MI: 1.621710e-02
-S1 FS low alpha MI vs high alpha MI (signed-rank): **p = 2.927388e-24
-S1 FS avg high minus low MI: 2.497078e-02
-PFC RS low alpha MI vs high alpha MI (signed-rank): **p = 1.831252e-27
-PFC RS avg high minus low MI: 2.194924e-02
-PFC FS low alpha MI vs high alpha MI (signed-rank): **p = 1.154343e-07
-PFC FS avg high minus low MI: 5.361083e-03
-Striatum RS low alpha MI vs high alpha MI (signed-rank): **p = 1.542669e-06
-Striatum RS avg high minus low MI: 6.081282e-03
-Striatum FS low alpha MI vs high alpha MI (signed-rank): **p = 9.371154e-09
-Striatum FS avg high minus low MI: 7.092364e-03
-Amygdala RS low alpha MI vs high alpha MI (t-test): p = 1.344174e-01
-Amygdala RS avg high minus low MI: 3.246996e-03
-Amygdala FS low alpha MI vs high alpha MI (signed-rank): **p = 6.430412e-04
-Amygdala FS avg high minus low MI: 7.749807e-03
-S1 RS low alpha MSE vs high alpha MSE (signed-rank): **p = 1.392015e-35
-S1 RS avg high minus low MSE: 5.849187e-04
-S1 FS low alpha MSE vs high alpha MSE (signed-rank): **p = 3.885173e-24
-S1 FS avg high minus low MSE: 2.841992e-04
-PFC RS low alpha MSE vs high alpha MSE (signed-rank): **p = 1.300048e-27
-PFC RS avg high minus low MSE: 2.764392e-03
-PFC FS low alpha MSE vs high alpha MSE (signed-rank): **p = 7.739732e-08
-PFC FS avg high minus low MSE: 3.713277e-04
-Striatum RS low alpha MSE vs high alpha MSE (signed-rank): **p = 7.952884e-07
-Striatum RS avg high minus low MSE: 6.475099e-04
-Striatum FS low alpha MSE vs high alpha MSE (signed-rank): **p = 7.615943e-09
-Striatum FS avg high minus low MSE: 5.725392e-04
-Amygdala RS low alpha MSE vs high alpha MSE (t-test): p = 3.254738e-01
-Amygdala RS avg high minus low MSE: 1.190841e-04
-Amygdala FS low alpha MSE vs high alpha MSE (signed-rank): **p = 6.430412e-04
-Amygdala FS avg high minus low MSE: 3.754883e-04
-S1 RS low alpha FR vs high alpha FR (signed-rank): p = 8.115788e-02
-S1 RS avg high minus low FR: -7.390949e-01
-S1 FS low alpha FR vs high alpha FR (signed-rank): *p = 7.942960e-04
-S1 FS avg high minus low FR: 1.033726e+00
-PFC RS low alpha FR vs high alpha FR (signed-rank): *p = 2.852715e-02
-PFC RS avg high minus low FR: -2.693956e-01
-PFC FS low alpha FR vs high alpha FR (signed-rank): *p = 1.993254e-02
-PFC FS avg high minus low FR: -8.980810e-01
-Striatum RS low alpha FR vs high alpha FR (signed-rank): p = 4.213656e-01
-Striatum RS avg high minus low FR: -5.520521e-03
-Striatum FS low alpha FR vs high alpha FR (signed-rank): p = 7.175195e-01
-Striatum FS avg high minus low FR: 5.017157e-02
-Amygdala RS low alpha FR vs high alpha FR (signed-rank): p = 7.500000e-01
-Amygdala RS avg high minus low FR: 7.383359e-01
-Amygdala FS low alpha FR vs high alpha FR (signed-rank): p = 9.798930e-02
-Amygdala FS avg high minus low FR: -1.329904e+00
-[Warning: N=251 not found in table, using closest N=200 present.] 
+S1 RS low alpha fraction vs high alpha fraction (signed-rank): **p = 3.906250e-03
+S1 RS avg high minus low fraction: 7.966667e-01
+S1 FS low alpha fraction vs high alpha fraction (signed-rank): **p = 3.906250e-03
+S1 FS avg high minus low fraction: 7.259259e-01
+PFC RS low alpha fraction vs high alpha fraction (signed-rank): *p = 1.318359e-02
+PFC RS avg high minus low fraction: 2.255260e-01
+PFC FS low alpha fraction vs high alpha fraction (signed-rank): p = 1.250000e-01
+PFC FS avg high minus low fraction: 2.878788e-01
+Striatum RS low alpha fraction vs high alpha fraction (t-test): p = NaN
+Striatum RS avg high minus low fraction: 1
+Striatum FS low alpha fraction vs high alpha fraction (t-test): p = 7.048400e-02
+Striatum FS avg high minus low fraction: 6.000000e-01
+S1 RS low alpha MI vs high alpha MI (signed-rank): **p = 7.821880e-15
+S1 RS avg high minus low MI: 1.867989e-02
+S1 FS low alpha MI vs high alpha MI (signed-rank): **p = 4.887348e-12
+S1 FS avg high minus low MI: 1.356628e-02
+PFC RS low alpha MI vs high alpha MI (signed-rank): **p = 5.174652e-35
+PFC RS avg high minus low MI: 2.150763e-02
+PFC FS low alpha MI vs high alpha MI (signed-rank): **p = 1.488691e-05
+PFC FS avg high minus low MI: 5.269816e-03
+Striatum RS low alpha MI vs high alpha MI (t-test): *p = 0
+Striatum RS avg high minus low MI: 5.381672e-04
+Striatum FS low alpha MI vs high alpha MI (signed-rank): **p = 1.953125e-03
+Striatum FS avg high minus low MI: 1.956464e-02
+S1 RS low alpha MSE vs high alpha MSE (signed-rank): **p = 6.396899e-07
+S1 RS avg high minus low MSE: 4.450181e-04
+S1 FS low alpha MSE vs high alpha MSE (signed-rank): **p = 2.087000e-08
+S1 FS avg high minus low MSE: 3.636761e-04
+PFC RS low alpha MSE vs high alpha MSE (signed-rank): **p = 4.109083e-35
+PFC RS avg high minus low MSE: 2.896826e-03
+PFC FS low alpha MSE vs high alpha MSE (signed-rank): **p = 8.298099e-06
+PFC FS avg high minus low MSE: 4.019546e-04
+Striatum RS low alpha MSE vs high alpha MSE (t-test): *p = 0
+Striatum RS avg high minus low MSE: 5.362635e-05
+Striatum FS low alpha MSE vs high alpha MSE (signed-rank): **p = 4.882812e-04
+Striatum FS avg high minus low MSE: 1.273450e-03
+S1 RS low alpha FR vs high alpha FR (signed-rank): p = 3.958859e-01
+S1 RS avg high minus low FR: -3.535032e-01
+S1 FS low alpha FR vs high alpha FR (signed-rank): p = 1.358442e-01
+S1 FS avg high minus low FR: -1.242441e+00
+PFC RS low alpha FR vs high alpha FR (signed-rank): *p = 3.075077e-02
+PFC RS avg high minus low FR: -2.628306e-01
+PFC FS low alpha FR vs high alpha FR (signed-rank): p = 6.937722e-02
+PFC FS avg high minus low FR: -9.782698e-01
+Striatum RS low alpha FR vs high alpha FR (t-test): *p = 0
+Striatum RS avg high minus low FR: -4.065687e-01
+Striatum FS low alpha FR vs high alpha FR (signed-rank): p = 9.008789e-01
+Striatum FS avg high minus low FR: 1.074112e-01
+[Warning: N=80 not found in table, using closest N=50 present.] 
 [> In circ_kuipertest>kuiperlookup (line 100)
 In circ_kuipertest (line 59)
 In alphaPowerAndPhaseModSummaries (line 1327)] 
 S1 RS theta bar distribtions kuipers test: 1.000000e-03
-[Warning: N=138 not found in table, using closest N=100 present.] 
+[Warning: N=64 not found in table, using closest N=50 present.] 
 [> In circ_kuipertest>kuiperlookup (line 100)
 In circ_kuipertest (line 59)
 In alphaPowerAndPhaseModSummaries (line 1328)] 
-S1 FS theta bar distribtions kuipers test: 1
-[Warning: N=158 not found in table, using closest N=100 present.] 
+S1 FS theta bar distribtions kuipers test: 1.000000e-03
+[Warning: N=207 not found in table, using closest N=200 present.] 
 [> In circ_kuipertest>kuiperlookup (line 100)
 In circ_kuipertest (line 59)
 In alphaPowerAndPhaseModSummaries (line 1329)] 
 PFC RS theta bar distribtions kuipers test: 1
-[Warning: N=38 not found in table, using closest N=35 present.] 
-[> In circ_kuipertest>kuiperlookup (line 100)
-In circ_kuipertest (line 59)
-In alphaPowerAndPhaseModSummaries (line 1330)] 
-PFC FS theta bar distribtions kuipers test: 1
-[Warning: N=32 not found in table, using closest N=30 present.] 
+[Warning: N=26 not found in table, using closest N=25 present.] 
 [> In circ_kuipertest>kuiperlookup (line 100)
 In circ_kuipertest (line 59)
 In alphaPowerAndPhaseModSummaries (line 1331)] 
-Striatum RS theta bar distribtions kuipers test: 1
-[Warning: N=44 not found in table, using closest N=40 present.] 
-[> In circ_kuipertest>kuiperlookup (line 100)
-In circ_kuipertest (line 59)
-In alphaPowerAndPhaseModSummaries (line 1332)] 
-Striatum FS theta bar distribtions kuipers test: 1
-Amygdala FS theta bar distribtions kuipers test: 1
+PFC FS theta bar distribtions kuipers test: 1
+Striatum FS theta bar distribtions kuipers test: 1.000000e-01
+who
+
+Your variables are:
+
+alpha_modulated                 amygdala_rs_low_mi              pfc_fs_low_mi                   s                               s1_rs_high_mse_err              striatum_fs_theta_bar_high      
+amygdala_fs_frac_high           amygdala_rs_low_mi_avg          pfc_fs_low_mi_avg               s1_fs_fr                        s1_rs_high_n_events             striatum_fs_theta_bar_high_avg  
+amygdala_fs_frac_high_avg       amygdala_rs_low_mi_err          pfc_fs_low_mi_err               s1_fs_frac                      s1_rs_high_p                    striatum_fs_theta_bar_high_err  
+amygdala_fs_frac_high_err       amygdala_rs_low_mse             pfc_fs_low_mse                  s1_fs_frac_high                 s1_rs_low_fr                    striatum_fs_theta_bar_low       
+amygdala_fs_frac_low            amygdala_rs_low_mse_avg         pfc_fs_low_mse_avg              s1_fs_frac_high_avg             s1_rs_low_fr_avg                striatum_fs_theta_bar_low_avg   
+amygdala_fs_frac_low_avg        amygdala_rs_low_mse_err         pfc_fs_low_mse_err              s1_fs_frac_high_err             s1_rs_low_fr_err                striatum_fs_theta_bar_low_err   
+amygdala_fs_frac_low_err        amygdala_rs_low_n_events        pfc_fs_low_n_events             s1_fs_frac_low                  s1_rs_low_mi                    striatum_fs_theta_fig           
+amygdala_fs_high_fr             amygdala_rs_low_p               pfc_fs_low_p                    s1_fs_frac_low_avg              s1_rs_low_mi_avg                striatum_rs_excld               
+amygdala_fs_high_fr_avg         amygdala_rs_theta_bar_high      pfc_fs_mi                       s1_fs_frac_low_err              s1_rs_low_mi_err                striatum_rs_fr                  
+amygdala_fs_high_fr_err         amygdala_rs_theta_bar_high_avg  pfc_fs_theta_bar_high           s1_fs_high_fr                   s1_rs_low_mse                   striatum_rs_frac                
+amygdala_fs_high_mi             amygdala_rs_theta_bar_high_err  pfc_fs_theta_bar_high_avg       s1_fs_high_fr_avg               s1_rs_low_mse_avg               striatum_rs_frac_high           
+amygdala_fs_high_mi_avg         amygdala_rs_theta_bar_low       pfc_fs_theta_bar_high_err       s1_fs_high_fr_err               s1_rs_low_mse_err               striatum_rs_frac_high_avg       
+amygdala_fs_high_mi_err         amygdala_rs_theta_bar_low_avg   pfc_fs_theta_bar_low            s1_fs_high_mi                   s1_rs_low_n_events              striatum_rs_frac_high_err       
+amygdala_fs_high_mse            amygdala_rs_theta_bar_low_err   pfc_fs_theta_bar_low_avg        s1_fs_high_mi_avg               s1_rs_low_p                     striatum_rs_frac_low            
+amygdala_fs_high_mse_avg        angle_diff_fig                  pfc_fs_theta_bar_low_err        s1_fs_high_mi_err               s1_rs_mi                        striatum_rs_frac_low_avg        
+amygdala_fs_high_mse_err        ax                              pfc_fs_theta_fig                s1_fs_high_mse                  s1_rs_theta_bar_high            striatum_rs_frac_low_err        
+amygdala_fs_high_n_events       axs                             pfc_rs_excld                    s1_fs_high_mse_avg              s1_rs_theta_bar_high_avg        striatum_rs_high_fr             
+amygdala_fs_high_p              cid                             pfc_rs_fr                       s1_fs_high_mse_err              s1_rs_theta_bar_high_err        striatum_rs_high_fr_avg         
+amygdala_fs_low_fr              exinds                          pfc_rs_frac                     s1_fs_high_n_events             s1_rs_theta_bar_low             striatum_rs_high_fr_err         
+amygdala_fs_low_fr_avg          ext_log_path                    pfc_rs_frac_high                s1_fs_high_p                    s1_rs_theta_bar_low_avg         striatum_rs_high_mi             
+amygdala_fs_low_fr_err          ext_path                        pfc_rs_frac_high_avg            s1_fs_low_fr                    s1_rs_theta_bar_low_err         striatum_rs_high_mi_avg         
+amygdala_fs_low_mi              fig                             pfc_rs_frac_high_err            s1_fs_low_fr_avg                s1_rs_theta_fig                 striatum_rs_high_mi_err         
+amygdala_fs_low_mi_avg          ftr_path                        pfc_rs_frac_low                 s1_fs_low_fr_err                session_id                      striatum_rs_high_mse            
+amygdala_fs_low_mi_err          high_p                          pfc_rs_frac_low_avg             s1_fs_low_mi                    session_ids                     striatum_rs_high_mse_avg        
+amygdala_fs_low_mse             i                               pfc_rs_frac_low_err             s1_fs_low_mi_avg                slrt_path                       striatum_rs_high_mse_err        
+amygdala_fs_low_mse_avg         inds                            pfc_rs_high_fr                  s1_fs_low_mi_err                striatum_fs_fr                  striatum_rs_high_n_events       
+amygdala_fs_low_mse_err         lims                            pfc_rs_high_fr_avg              s1_fs_low_mse                   striatum_fs_frac                striatum_rs_high_p              
+amygdala_fs_low_n_events        low_p                           pfc_rs_high_fr_err              s1_fs_low_mse_avg               striatum_fs_frac_high           striatum_rs_low_fr              
+amygdala_fs_low_p               out                             pfc_rs_high_mi                  s1_fs_low_mse_err               striatum_fs_frac_high_avg       striatum_rs_low_fr_avg          
+amygdala_fs_theta_bar_high      out_file                        pfc_rs_high_mi_avg              s1_fs_low_n_events              striatum_fs_frac_high_err       striatum_rs_low_fr_err          
+amygdala_fs_theta_bar_high_avg  out_path                        pfc_rs_high_mi_err              s1_fs_low_p                     striatum_fs_frac_low            striatum_rs_low_mi              
+amygdala_fs_theta_bar_high_err  p                               pfc_rs_high_mse                 s1_fs_mi                        striatum_fs_frac_low_avg        striatum_rs_low_mi_avg          
+amygdala_fs_theta_bar_low       p_threshold                     pfc_rs_high_mse_avg             s1_fs_theta_bar_high            striatum_fs_frac_low_err        striatum_rs_low_mi_err          
+amygdala_fs_theta_bar_low_avg   pax                             pfc_rs_high_mse_err             s1_fs_theta_bar_high_avg        striatum_fs_high_fr             striatum_rs_low_mse             
+amygdala_fs_theta_bar_low_err   pfc_fs_fr                       pfc_rs_high_n_events            s1_fs_theta_bar_high_err        striatum_fs_high_fr_avg         striatum_rs_low_mse_avg         
+amygdala_rs_excld               pfc_fs_frac                     pfc_rs_high_p                   s1_fs_theta_bar_low             striatum_fs_high_fr_err         striatum_rs_low_mse_err         
+amygdala_rs_frac_high           pfc_fs_frac_high                pfc_rs_low_fr                   s1_fs_theta_bar_low_avg         striatum_fs_high_mi             striatum_rs_low_n_events        
+amygdala_rs_frac_high_avg       pfc_fs_frac_high_avg            pfc_rs_low_fr_avg               s1_fs_theta_bar_low_err         striatum_fs_high_mi_avg         striatum_rs_low_p               
+amygdala_rs_frac_high_err       pfc_fs_frac_high_err            pfc_rs_low_fr_err               s1_fs_theta_fig                 striatum_fs_high_mi_err         striatum_rs_mi                  
+amygdala_rs_frac_low            pfc_fs_frac_low                 pfc_rs_low_mi                   s1_rs_excld                     striatum_fs_high_mse            striatum_rs_theta_bar_high      
+amygdala_rs_frac_low_avg        pfc_fs_frac_low_avg             pfc_rs_low_mi_avg               s1_rs_fr                        striatum_fs_high_mse_avg        striatum_rs_theta_bar_high_avg  
+amygdala_rs_frac_low_err        pfc_fs_frac_low_err             pfc_rs_low_mi_err               s1_rs_frac                      striatum_fs_high_mse_err        striatum_rs_theta_bar_high_err  
+amygdala_rs_high_fr             pfc_fs_high_fr                  pfc_rs_low_mse                  s1_rs_frac_high                 striatum_fs_high_n_events       striatum_rs_theta_bar_low       
+amygdala_rs_high_fr_avg         pfc_fs_high_fr_avg              pfc_rs_low_mse_avg              s1_rs_frac_high_avg             striatum_fs_high_p              striatum_rs_theta_bar_low_avg   
+amygdala_rs_high_fr_err         pfc_fs_high_fr_err              pfc_rs_low_mse_err              s1_rs_frac_high_err             striatum_fs_low_fr              striatum_rs_theta_bar_low_err   
+amygdala_rs_high_mi             pfc_fs_high_mi                  pfc_rs_low_n_events             s1_rs_frac_low                  striatum_fs_low_fr_avg          striatum_rs_theta_fig           
+amygdala_rs_high_mi_avg         pfc_fs_high_mi_avg              pfc_rs_low_p                    s1_rs_frac_low_avg              striatum_fs_low_fr_err          subject_path                    
+amygdala_rs_high_mi_err         pfc_fs_high_mi_err              pfc_rs_mi                       s1_rs_frac_low_err              striatum_fs_low_mi              tl                              
+amygdala_rs_high_mse            pfc_fs_high_mse                 pfc_rs_theta_bar_high           s1_rs_high_fr                   striatum_fs_low_mi_avg          updated_fig                     
+amygdala_rs_high_mse_avg        pfc_fs_high_mse_avg             pfc_rs_theta_bar_high_avg       s1_rs_high_fr_avg               striatum_fs_low_mi_err          x                               
+amygdala_rs_high_mse_err        pfc_fs_high_mse_err             pfc_rs_theta_bar_high_err       s1_rs_high_fr_err               striatum_fs_low_mse             y                               
+amygdala_rs_high_n_events       pfc_fs_high_n_events            pfc_rs_theta_bar_low            s1_rs_high_mi                   striatum_fs_low_mse_avg         
+amygdala_rs_high_p              pfc_fs_high_p                   pfc_rs_theta_bar_low_avg        s1_rs_high_mi_avg               striatum_fs_low_mse_err         
+amygdala_rs_low_fr              pfc_fs_low_fr                   pfc_rs_theta_bar_low_err        s1_rs_high_mi_err               striatum_fs_low_n_events        
+amygdala_rs_low_fr_avg          pfc_fs_low_fr_avg               pfc_rs_theta_fig                s1_rs_high_mse                  striatum_fs_low_p               
+amygdala_rs_low_fr_err          pfc_fs_low_fr_err               raw_path                        s1_rs_high_mse_avg              striatum_fs_mi                  
+
+clear
+clc
+dbquit
+close all
+out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
+{Unrecognized function or variable 'ftr_path'.
+} 
+init_pathsl
+{Unrecognized function or variable 'init_pathsl'.
+} 
+init_paths;
+out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
+load(out_file)
+who
+
+Your variables are:
+
+ext_log_path  ext_path      ftr_path      out           out_file      raw_path      slrt_path     subject_path  
+
+out
+
+out = 
+
+  struct with fields:
+
+               low_mi: [186x1 double]
+              high_mi: [186x1 double]
+                low_p: [186x1 double]
+               high_p: [186x1 double]
+     low_firing_rates: [186x1 double]
+    high_firing_rates: [186x1 double]
+         n_low_events: [186x1 double]
+        n_high_events: [186x1 double]
+              low_mse: [186x1 double]
+             high_mse: [186x1 double]
+        theta_bar_low: [186x1 double]
+       theta_bar_high: [186x1 double]
+         low_outcomes: {1x186 cell}
+       event_inds_low: {1x186 cell}
+        high_outcomes: {1x186 cell}
+      event_inds_high: {1x186 cell}
+

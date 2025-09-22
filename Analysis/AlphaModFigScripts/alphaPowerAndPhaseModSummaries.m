@@ -2,12 +2,12 @@ addpath(genpath('~/circstat-matlab/'))
 delete Stats/alpha_power_and_phase_mod.txt 
 diary Stats/alpha_power_and_phase_mod.txt 
 init_paths;
-load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'))
+load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/data.mat'))
 out_path = false; %true;
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
-out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
+out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
 load(out_file)
 
 out.low_mi = out.low_mi(cell2mat(alpha_modulated.avg_trial_fr) > 1.0, :);
@@ -135,11 +135,11 @@ s1_fs_high_mse_avg = nanmean(s1_fs_high_mse);
 s1_fs_low_mse_err = nanstd(s1_fs_low_mse) ./ sqrt(sum(~isnan(s1_fs_low_mse)));
 s1_fs_high_mse_err = nanstd(s1_fs_high_mse) ./ sqrt(sum(~isnan(s1_fs_high_mse)));
 
-load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'))
+load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/data.mat'))
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
-out_file = strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
+out_file = strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
 load(out_file)
 
 
@@ -273,11 +273,11 @@ for s = 1:length(session_ids)
     pfc_fs_frac_high(s) = sum(high_p < p_threshold) / length(high_p);
 end
 
-load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'))
+load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'))
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
-out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
+out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Basal_Ganglia/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
 load(out_file)
 
 out.low_mi = out.low_mi(cell2mat(alpha_modulated.avg_trial_fr) > 1.0, :);
@@ -405,11 +405,11 @@ for s = 1:length(session_ids)
     striatum_fs_frac_high(s) = sum(high_p < p_threshold) / length(high_p);
 end
 
-load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/data.mat'))
+load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Amygdala/Spontaneous_Alpha_Modulation/data.mat'))
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
-out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
+out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Amygdala/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
 load(out_file)
 
 out.low_mi = out.low_mi(cell2mat(alpha_modulated.avg_trial_fr) > 1.0, :);
@@ -982,43 +982,43 @@ else
 end
 fprintf('Striatum FS avg high minus low MI: %d\n', nanmean(striatum_fs_high_mi-striatum_fs_low_mi))
 
-if KStest(amygdala_rs_low_mi) || KStest(amygdala_rs_high_mi)
-    p = signrank(amygdala_rs_low_mi,amygdala_rs_high_mi);
-    if p < (0.05 / length(amygdala_rs_low_mi))
-        fprintf(sprintf('Amygdala RS low alpha MI vs high alpha MI (signed-rank): **p = %d\n', p))
-    elseif p < 0.05 
-        fprintf(sprintf('Amygdala RS low alpha MI vs high alpha MI (signed-rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS low alpha MI vs high alpha MI (signed-rank): p = %d\n', p))
-    end
-else
-    [~, p] = ttest(amygdala_rs_low_mi, amygdala_rs_high_mi);
-    if p < 0.05 
-        fprintf(sprintf('Amygdala RS low alpha MI vs high alpha MI (t-test): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS low alpha MI vs high alpha MI (t-test): p = %d\n', p))
-    end
-end
-fprintf('Amygdala RS avg high minus low MI: %d\n', nanmean(amygdala_rs_high_mi-amygdala_rs_low_mi))
+% if KStest(amygdala_rs_low_mi) || KStest(amygdala_rs_high_mi)
+%     p = signrank(amygdala_rs_low_mi,amygdala_rs_high_mi);
+%     if p < (0.05 / length(amygdala_rs_low_mi))
+%         fprintf(sprintf('Amygdala RS low alpha MI vs high alpha MI (signed-rank): **p = %d\n', p))
+%     elseif p < 0.05 
+%         fprintf(sprintf('Amygdala RS low alpha MI vs high alpha MI (signed-rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS low alpha MI vs high alpha MI (signed-rank): p = %d\n', p))
+%     end
+% else
+%     [~, p] = ttest(amygdala_rs_low_mi, amygdala_rs_high_mi);
+%     if p < 0.05 
+%         fprintf(sprintf('Amygdala RS low alpha MI vs high alpha MI (t-test): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS low alpha MI vs high alpha MI (t-test): p = %d\n', p))
+%     end
+% end
+% fprintf('Amygdala RS avg high minus low MI: %d\n', nanmean(amygdala_rs_high_mi-amygdala_rs_low_mi))
 
-if KStest(amygdala_fs_low_mi) || KStest(amygdala_fs_high_mi)
-    p = signrank(amygdala_fs_low_mi,amygdala_fs_high_mi);
-    if p < (0.05 / length(amygdala_fs_low_mi))
-        fprintf(sprintf('Amygdala FS low alpha MI vs high alpha MI (signed-rank): **p = %d\n', p))
-    elseif p < 0.05 
-        fprintf(sprintf('Amygdala FS low alpha MI vs high alpha MI (signed-rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS low alpha MI vs high alpha MI (signed-rank): p = %d\n', p))
-    end
-else
-    [~, p] = ttest(amygdala_fs_low_mi, amygdala_fs_high_mi);
-    if p < 0.05 
-        fprintf(sprintf('Amygdala FS low alpha MI vs high alpha MI (t-test): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS low alpha MI vs high alpha MI (t-test): p = %d\n', p))
-    end
-end
-fprintf('Amygdala FS avg high minus low MI: %d\n', nanmean(amygdala_fs_high_mi-amygdala_fs_low_mi))
+% if KStest(amygdala_fs_low_mi) || KStest(amygdala_fs_high_mi)
+%     p = signrank(amygdala_fs_low_mi,amygdala_fs_high_mi);
+%     if p < (0.05 / length(amygdala_fs_low_mi))
+%         fprintf(sprintf('Amygdala FS low alpha MI vs high alpha MI (signed-rank): **p = %d\n', p))
+%     elseif p < 0.05 
+%         fprintf(sprintf('Amygdala FS low alpha MI vs high alpha MI (signed-rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS low alpha MI vs high alpha MI (signed-rank): p = %d\n', p))
+%     end
+% else
+%     [~, p] = ttest(amygdala_fs_low_mi, amygdala_fs_high_mi);
+%     if p < 0.05 
+%         fprintf(sprintf('Amygdala FS low alpha MI vs high alpha MI (t-test): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS low alpha MI vs high alpha MI (t-test): p = %d\n', p))
+%     end
+% end
+% fprintf('Amygdala FS avg high minus low MI: %d\n', nanmean(amygdala_fs_high_mi-amygdala_fs_low_mi))
 
 if KStest(s1_rs_low_mse) || KStest(s1_rs_high_mse)
     p = signrank(s1_rs_low_mse,s1_rs_high_mse);
@@ -1134,43 +1134,43 @@ else
 end
 fprintf('Striatum FS avg high minus low MSE: %d\n', nanmean(striatum_fs_high_mse-striatum_fs_low_mse))
 
-if KStest(amygdala_rs_low_mse) || KStest(amygdala_rs_high_mse)
-    p = signrank(amygdala_rs_low_mse,amygdala_rs_high_mse);
-    if p < (0.05 / length(amygdala_rs_low_mse))
-        fprintf(sprintf('Amygdala RS low alpha MSE vs high alpha MSE (signed-rank): **p = %d\n', p))
-    elseif p < 0.05 
-        fprintf(sprintf('Amygdala RS low alpha MSE vs high alpha MSE (signed-rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS low alpha MSE vs high alpha MSE (signed-rank): p = %d\n', p))
-    end
-else
-    [~, p] = ttest(amygdala_rs_low_mse, amygdala_rs_high_mse);
-    if p < 0.05 
-        fprintf(sprintf('Amygdala RS low alpha MSE vs high alpha MSE (t-test): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS low alpha MSE vs high alpha MSE (t-test): p = %d\n', p))
-    end
-end
-fprintf('Amygdala RS avg high minus low MSE: %d\n', nanmean(amygdala_rs_high_mse-amygdala_rs_low_mse))
+% if KStest(amygdala_rs_low_mse) || KStest(amygdala_rs_high_mse)
+%     p = signrank(amygdala_rs_low_mse,amygdala_rs_high_mse);
+%     if p < (0.05 / length(amygdala_rs_low_mse))
+%         fprintf(sprintf('Amygdala RS low alpha MSE vs high alpha MSE (signed-rank): **p = %d\n', p))
+%     elseif p < 0.05 
+%         fprintf(sprintf('Amygdala RS low alpha MSE vs high alpha MSE (signed-rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS low alpha MSE vs high alpha MSE (signed-rank): p = %d\n', p))
+%     end
+% else
+%     [~, p] = ttest(amygdala_rs_low_mse, amygdala_rs_high_mse);
+%     if p < 0.05 
+%         fprintf(sprintf('Amygdala RS low alpha MSE vs high alpha MSE (t-test): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS low alpha MSE vs high alpha MSE (t-test): p = %d\n', p))
+%     end
+% end
+% fprintf('Amygdala RS avg high minus low MSE: %d\n', nanmean(amygdala_rs_high_mse-amygdala_rs_low_mse))
 
-if KStest(amygdala_fs_low_mse) || KStest(amygdala_fs_high_mse)
-    p = signrank(amygdala_fs_low_mse,amygdala_fs_high_mse);
-    if p < (0.05 / length(amygdala_fs_low_mse))
-        fprintf(sprintf('Amygdala FS low alpha MSE vs high alpha MSE (signed-rank): **p = %d\n', p))
-    elseif p < 0.05 
-        fprintf(sprintf('Amygdala FS low alpha MSE vs high alpha MSE (signed-rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS low alpha MSE vs high alpha MSE (signed-rank): p = %d\n', p))
-    end
-else
-    [~, p] = ttest(amygdala_fs_low_mse, amygdala_fs_high_mse);
-    if p < 0.05 
-        fprintf(sprintf('Amygdala FS low alpha MSE vs high alpha MSE (t-test): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS low alpha MSE vs high alpha MSE (t-test): p = %d\n', p))
-    end
-end
-fprintf('Amygdala FS avg high minus low MSE: %d\n', nanmean(amygdala_fs_high_mse-amygdala_fs_low_mse))
+% if KStest(amygdala_fs_low_mse) || KStest(amygdala_fs_high_mse)
+%     p = signrank(amygdala_fs_low_mse,amygdala_fs_high_mse);
+%     if p < (0.05 / length(amygdala_fs_low_mse))
+%         fprintf(sprintf('Amygdala FS low alpha MSE vs high alpha MSE (signed-rank): **p = %d\n', p))
+%     elseif p < 0.05 
+%         fprintf(sprintf('Amygdala FS low alpha MSE vs high alpha MSE (signed-rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS low alpha MSE vs high alpha MSE (signed-rank): p = %d\n', p))
+%     end
+% else
+%     [~, p] = ttest(amygdala_fs_low_mse, amygdala_fs_high_mse);
+%     if p < 0.05 
+%         fprintf(sprintf('Amygdala FS low alpha MSE vs high alpha MSE (t-test): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS low alpha MSE vs high alpha MSE (t-test): p = %d\n', p))
+%     end
+% end
+% fprintf('Amygdala FS avg high minus low MSE: %d\n', nanmean(amygdala_fs_high_mse-amygdala_fs_low_mse))
 
 if KStest(s1_rs_low_fr) || KStest(s1_rs_high_fr)
     p = signrank(s1_rs_low_fr,s1_rs_high_fr);
@@ -1286,52 +1286,58 @@ else
 end
 fprintf('Striatum FS avg high minus low FR: %d\n', nanmean(striatum_fs_high_fr-striatum_fs_low_fr))
 
-if KStest(amygdala_rs_low_fr) || KStest(amygdala_rs_high_fr)
-    p = signrank(amygdala_rs_low_fr,amygdala_rs_high_fr);
-    if p < (0.05 / length(amygdala_rs_low_fr))
-        fprintf(sprintf('Amygdala RS low alpha FR vs high alpha FR (signed-rank): **p = %d\n', p))
-    elseif p < 0.05 
-        fprintf(sprintf('Amygdala RS low alpha FR vs high alpha FR (signed-rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS low alpha FR vs high alpha FR (signed-rank): p = %d\n', p))
-    end
-else
-    [~, p] = ttest(amygdala_rs_low_fr, amygdala_rs_high_fr);
-    if p < 0.05 
-        fprintf(sprintf('Amygdala RS low alpha FR vs high alpha FR (t-test): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS low alpha FR vs high alpha FR (t-test): p = %d\n', p))
-    end
-end
-fprintf('Amygdala RS avg high minus low FR: %d\n', nanmean(amygdala_rs_high_fr-amygdala_rs_low_fr))
+% if KStest(amygdala_rs_low_fr) || KStest(amygdala_rs_high_fr)
+%     p = signrank(amygdala_rs_low_fr,amygdala_rs_high_fr);
+%     if p < (0.05 / length(amygdala_rs_low_fr))
+%         fprintf(sprintf('Amygdala RS low alpha FR vs high alpha FR (signed-rank): **p = %d\n', p))
+%     elseif p < 0.05 
+%         fprintf(sprintf('Amygdala RS low alpha FR vs high alpha FR (signed-rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS low alpha FR vs high alpha FR (signed-rank): p = %d\n', p))
+%     end
+% else
+%     [~, p] = ttest(amygdala_rs_low_fr, amygdala_rs_high_fr);
+%     if p < 0.05 
+%         fprintf(sprintf('Amygdala RS low alpha FR vs high alpha FR (t-test): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS low alpha FR vs high alpha FR (t-test): p = %d\n', p))
+%     end
+% end
+% fprintf('Amygdala RS avg high minus low FR: %d\n', nanmean(amygdala_rs_high_fr-amygdala_rs_low_fr))
 
-if KStest(amygdala_fs_low_fr) || KStest(amygdala_fs_high_fr)
-    p = signrank(amygdala_fs_low_fr,amygdala_fs_high_fr);
-    if p < (0.05 / length(amygdala_fs_low_fr))
-        fprintf(sprintf('Amygdala FS low alpha FR vs high alpha FR (signed-rank): **p = %d\n', p))
-    elseif p < 0.05 
-        fprintf(sprintf('Amygdala FS low alpha FR vs high alpha FR (signed-rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS low alpha FR vs high alpha FR (signed-rank): p = %d\n', p))
-    end
-else
-    [~, p] = ttest(amygdala_fs_low_fr, amygdala_fs_high_fr);
-    if p < 0.05 
-        fprintf(sprintf('Amygdala FS low alpha FR vs high alpha FR (t-test): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS low alpha FR vs high alpha FR (t-test): p = %d\n', p))
-    end
-end
-fprintf('Amygdala FS avg high minus low FR: %d\n', nanmean(amygdala_fs_high_fr-amygdala_fs_low_fr))
+% if KStest(amygdala_fs_low_fr) || KStest(amygdala_fs_high_fr)
+%     p = signrank(amygdala_fs_low_fr,amygdala_fs_high_fr);
+%     if p < (0.05 / length(amygdala_fs_low_fr))
+%         fprintf(sprintf('Amygdala FS low alpha FR vs high alpha FR (signed-rank): **p = %d\n', p))
+%     elseif p < 0.05 
+%         fprintf(sprintf('Amygdala FS low alpha FR vs high alpha FR (signed-rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS low alpha FR vs high alpha FR (signed-rank): p = %d\n', p))
+%     end
+% else
+%     [~, p] = ttest(amygdala_fs_low_fr, amygdala_fs_high_fr);
+%     if p < 0.05 
+%         fprintf(sprintf('Amygdala FS low alpha FR vs high alpha FR (t-test): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS low alpha FR vs high alpha FR (t-test): p = %d\n', p))
+%     end
+% end
+% fprintf('Amygdala FS avg high minus low FR: %d\n', nanmean(amygdala_fs_high_fr-amygdala_fs_low_fr))
 
 fprintf(sprintf('S1 RS theta bar distribtions kuipers test: %d\n', circ_kuipertest(s1_rs_theta_bar_low,s1_rs_theta_bar_high)))
 fprintf(sprintf('S1 FS theta bar distribtions kuipers test: %d\n', circ_kuipertest(s1_fs_theta_bar_low,s1_fs_theta_bar_high)))
 fprintf(sprintf('PFC RS theta bar distribtions kuipers test: %d\n', circ_kuipertest(pfc_rs_theta_bar_low,pfc_rs_theta_bar_high)))
-fprintf(sprintf('PFC FS theta bar distribtions kuipers test: %d\n', circ_kuipertest(pfc_fs_theta_bar_low,pfc_fs_theta_bar_high)))
-fprintf(sprintf('Striatum RS theta bar distribtions kuipers test: %d\n', circ_kuipertest(striatum_rs_theta_bar_low,striatum_rs_theta_bar_high)))
-fprintf(sprintf('Striatum FS theta bar distribtions kuipers test: %d\n', circ_kuipertest(striatum_fs_theta_bar_low,striatum_fs_theta_bar_high)))
+try
+    fprintf(sprintf('PFC FS theta bar distribtions kuipers test: %d\n', circ_kuipertest(pfc_fs_theta_bar_low,pfc_fs_theta_bar_high)))
+end
+try
+    fprintf(sprintf('Striatum RS theta bar distribtions kuipers test: %d\n', circ_kuipertest(striatum_rs_theta_bar_low,striatum_rs_theta_bar_high)))
+end
+try
+    fprintf(sprintf('Striatum FS theta bar distribtions kuipers test: %d\n', circ_kuipertest(striatum_fs_theta_bar_low,striatum_fs_theta_bar_high)))
+end
 % fprintf(sprintf('Amygdala RS theta bar distribtions kuipers test: %d\n', circ_kuipertest(amygdala_rs_theta_bar_low,amygdala_rs_theta_bar_high)))
-fprintf(sprintf('Amygdala FS theta bar distribtions kuipers test: %d\n', circ_kuipertest(amygdala_fs_theta_bar_low,amygdala_fs_theta_bar_high)))
+% fprintf(sprintf('Amygdala FS theta bar distribtions kuipers test: %d\n', circ_kuipertest(amygdala_fs_theta_bar_low,amygdala_fs_theta_bar_high)))
 
 % fig = figure('Position', [1220 1334 1000 700]);
 % hold on
@@ -1716,6 +1722,8 @@ ylabel('Difference in Preferred Anlge (rad)')
 ax = gca;
 ax.YAxis.FontSize = 14;
 ax.XAxis.FontSize = 14;
+
+keyboard 
 
 if out_path
     % saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.svg')
