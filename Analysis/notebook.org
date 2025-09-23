@@ -5024,3 +5024,32 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 *** fdrBenjaminiHochberg.m - gives adjusted p-value for false detection rate of 0.01: 0.0043
 
 * [2025-9-22 Mon] - distribution of alpha events 
+*** sample code 
+addpath(genpath('./'))
+init_paths;
+out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
+load(out_file)
+high_starts = [];
+for i = 1:length(out.event_times_high)
+    for j = 1:length(out.event_times_high{i})
+        high_starts = [high_starts, out.event_times_high{i}{j}];
+    end
+end
+low_starts = [];
+for i = 1:length(out.event_times_low)
+    for j = 1:length(out.event_times_low{i})
+        low_starts = [low_starts, out.event_times_low{i}{j}];
+    end
+end
+out_file = strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
+load(out_file)
+for i = 1:length(out.event_times_high)
+    for j = 1:length(out.event_times_high{i})
+        high_starts = [high_starts, out.event_times_high{i}{j}];
+    end
+end
+for i = 1:length(out.event_times_low)
+    for j = 1:length(out.event_times_low{i})
+        low_starts = [low_starts, out.event_times_low{i}{j}];
+    end
+end

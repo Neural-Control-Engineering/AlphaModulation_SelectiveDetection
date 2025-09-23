@@ -3,7 +3,7 @@ addpath(genpath('~/mvmdist/'))
 if ~exist('../Figures/', 'dir')
     mkdir('../Figures/')
 end
-pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'));
+pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/data.mat'));
 pfc = pfc.out.alpha_modulated;
 
 [N, edges] = histcounts(pfc(1,:).spon_alpha_spike_phases{1}, 20, 'Normalization', 'pdf');
@@ -46,9 +46,9 @@ bimodal_total = sum(idx == bmidx);
 pfc_tmp = pfc;
 pfc_tmp(idx == bmidx,:) = [];
 
-s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
-striatum = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
-amygdala = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Adjusted/Amygdala/Spontaneous_Alpha_Modulation/data.mat'));
+s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
+striatum = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
+amygdala = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Amygdala/Spontaneous_Alpha_Modulation/data.mat'));
 s1 = s1.out.alpha_modulated;
 striatum = striatum.out.alpha_modulated;
 amygdala = amygdala.out.alpha_modulated;
@@ -101,7 +101,8 @@ for i = 1:length(pcts)
     ttls{i} = sprintf('%s(%.1f%%)', ttls{i}, pcts(i));
 end
 
-cs = [270, 278, 210];
+% cs = [100, 240, 210];
+cs = [100, 312, 210];
 fig = figure('Position', [1220 1280 1480 438]);
 tl = tiledlayout(1,3);
 for i = 1:length(cs)
@@ -134,7 +135,7 @@ for i = 1:length(cs)
     ax.XAxis.FontSize = 16;
     title(ttls{i}, 'FontSize', 16, 'FontWeight', 'normal')
 end
-unifyYLimits(axs)
+% unifyYLimits(axs)
 xlabel(tl, 'Alpha Phase (radians)', 'FontSize', 16)
 ylabel(tl, 'Spike PDF', 'FontSize', 16)
 saveas(fig, '../Figures/phase_mod_classes.svg')

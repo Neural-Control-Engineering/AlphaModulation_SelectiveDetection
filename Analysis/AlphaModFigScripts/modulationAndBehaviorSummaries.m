@@ -5,14 +5,14 @@ mkdir('../Figures/')
 delete Stats/correct_vs_incorrect_overview.txt
 diary Stats/correct_vs_incorrect_overview.txt
 init_paths;
-s1 = load(strcat(ftr_path, '/AP/FIG/Expert_Combo/Cortex/Spontaneous_Alpha_Modulation_v2/data.mat'));
-pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo/PFC/Spontaneous_Alpha_Modulation_v2/data.mat'));
-striatum = load(strcat(ftr_path, '/AP/FIG/Expert_Combo/Basal_Ganglia/Spontaneous_Alpha_Modulation_v2/data.mat'));
-amygdala = load(strcat(ftr_path, '/AP/FIG/Expert_Combo/Amygdala/Spontaneous_Alpha_Modulation_v2/data.mat'));
+s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
+pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/data.mat'));
+striatum = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
+amygdala = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Amygdala/Spontaneous_Alpha_Modulation/data.mat'));
 
-all_ftr_files = {strcat(ftr_path, '/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
-    strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
-    strcat(ftr_path, '/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_rx--DCZ-01mgpkg_phase--phase3_g0.mat'), ...
+all_ftr_files = {strcat(ftr_path, '/AP/subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted_sill.mat'), ...
+    strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted_sill.mat'), ...
+    strcat(ftr_path, '/AP/subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_rx--DCZ-01mgpkg_phase--phase3_g0.mat'), ...
     strcat(ftr_path, '/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_rx--DCZ-005mgpkg_phase--phase3_g0.mat'), ...
     strcat(ftr_path, '/AP/subj--3387-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_rx--Saline_phase--phase3_g0.mat'), ...
     strcat(ftr_path, '/AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_rx--DCZ-01mgpkg_phase--phase3_g0.mat'), ...
@@ -36,8 +36,8 @@ Striatum = ftrs(logical(striatum_inds), :);
 amygdala_inds = strcmp(ftrs.region, 'BLAp') + strcmp(ftrs.region, 'LA');
 Amygdala = ftrs(logical(amygdala_inds), :);
 
-ftr_files = {strcat(ftr_path, '/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
-    strcat(ftr_path, '/AP/subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0.mat')};
+ftr_files = {strcat(ftr_path, '/AP/subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0_sill.mat'), ...
+    strcat(ftr_path, '/AP/subj--1075-20241202_geno--Wt_npxls--R-npx10_phase--phase3_g0_sill.mat')};
 for i = 1:length(ftr_files)
     f = load(ftr_files{i});
     if i == 1
@@ -1918,158 +1918,158 @@ else
     end
 end
 
-if KStest(amygdala_rs_pmi_correct) || KStest(amygdala_rs_pmi_incorrect)
-    p = signrank(amygdala_rs_pmi_correct, amygdala_rs_pmi_incorrect);
-    if p < (0.05 / size(amygdala_rs,1))
-        fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
-    end
-else
-    [~,p] = ttest(amygdala_rs_pmi_correct, amygdala_rs_pmi_incorrect);
-    if p < (0.05 / size(amygdala_rs,1))
-        fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (t-test): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (t-test: *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (t-test): p = %d\n', p))
-    end
-end
-if KStest(amygdala_rs_pmi_action) || KStest(amygdala_rs_pmi_inaction)
-    p = signrank(amygdala_rs_pmi_action, amygdala_rs_pmi_inaction);
-    if p < (0.05 / size(amygdala_rs,1))
-        fprintf(sprintf('Amygdala RS MI Action vs. Inaction (signed rank): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala RS MI Action vs. Inaction (signed rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS MI Action vs. Inaction (signed rank): p = %d\n', p))
-    end
-else
-    [~,p] = ttest(amygdala_rs_pmi_action, amygdala_rs_pmi_inaction);
-    if p < (0.05 / size(amygdala_rs,1))
-        fprintf(sprintf('Amygdala RS MI Action vs. Inaction (t-test): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala RS MI Action vs. Inaction (t-test: *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS MI Action vs. Inaction (t-test): p = %d\n', p))
-    end
-end
-if KStest(amygdala_rs_mses_correct) || KStest(amygdala_rs_mses_incorrect)
-    p = signrank(amygdala_rs_mses_correct, amygdala_rs_mses_incorrect);
-    if p < (0.05 / size(amygdala_rs,1))
-        fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
-    end
-else
-    [~,p] = ttest(amygdala_rs_mses_correct, amygdala_rs_mses_incorrect);
-    if p < (0.05 / size(amygdala_rs,1))
-        fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (t-test): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (t-test: *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (t-test): p = %d\n', p))
-    end
-end
-if KStest(amygdala_rs_mses_action) || KStest(amygdala_rs_mses_inaction)
-    p = signrank(amygdala_rs_mses_action, amygdala_rs_mses_inaction);
-    if p < (0.05 / size(amygdala_rs,1))
-        fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (signed rank): p = %d\n', p))
-    end
-else
-    [~,p] = ttest(amygdala_rs_mses_action, amygdala_rs_mses_inaction);
-    if p < (0.05 / size(amygdala_rs,1))
-        fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (t-test): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (t-test: *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (t-test): p = %d\n', p))
-    end
-end
-if KStest(amygdala_fs_pmi_correct) || KStest(amygdala_fs_pmi_incorrect)
-    p = signrank(amygdala_fs_pmi_correct, amygdala_fs_pmi_incorrect);
-    if p < (0.05 / size(amygdala_fs,1))
-        fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
-    end
-else
-    [~,p] = ttest(amygdala_fs_pmi_correct, amygdala_fs_pmi_incorrect);
-    if p < (0.05 / size(amygdala_fs,1))
-        fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (t-test): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (t-test: *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (t-test): p = %d\n', p))
-    end
-end
-if KStest(amygdala_fs_pmi_action) || KStest(amygdala_fs_pmi_inaction)
-    p = signrank(amygdala_fs_pmi_action, amygdala_fs_pmi_inaction);
-    if p < (0.05 / size(amygdala_fs,1))
-        fprintf(sprintf('Amygdala FS MI Action vs. Inaction (signed rank): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala FS MI Action vs. Inaction (signed rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS MI Action vs. Inaction (signed rank): p = %d\n', p))
-    end
-else
-    [~,p] = ttest(amygdala_fs_pmi_action, amygdala_fs_pmi_inaction);
-    if p < (0.05 / size(amygdala_fs,1))
-        fprintf(sprintf('Amygdala FS MI Action vs. Inaction (t-test): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala FS MI Action vs. Inaction (t-test: *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS MI Action vs. Inaction (t-test): p = %d\n', p))
-    end
-end
-if KStest(amygdala_fs_mses_correct) || KStest(amygdala_fs_mses_incorrect)
-    p = signrank(amygdala_fs_mses_correct, amygdala_fs_mses_incorrect);
-    if p < (0.05 / size(amygdala_fs,1))
-        fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
-    end
-else
-    [~,p] = ttest(amygdala_fs_mses_correct, amygdala_fs_mses_incorrect);
-    if p < (0.05 / size(amygdala_fs,1))
-        fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (t-test): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (t-test: *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (t-test): p = %d\n', p))
-    end
-end
-if KStest(amygdala_fs_mses_action) || KStest(amygdala_fs_mses_inaction)
-    p = signrank(amygdala_fs_mses_action, amygdala_fs_mses_inaction);
-    if p < (0.05 / size(amygdala_fs,1))
-        fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (signed rank): p = %d\n', p))
-    end
-else
-    [~,p] = ttest(amygdala_fs_mses_action, amygdala_fs_mses_inaction);
-    if p < (0.05 / size(amygdala_fs,1))
-        fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (t-test): **p = %d\n', p))
-    elseif p < 0.05
-        fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (t-test: *p = %d\n', p))
-    else
-        fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (t-test): p = %d\n', p))
-    end
-end
+% if KStest(amygdala_rs_pmi_correct) || KStest(amygdala_rs_pmi_incorrect)
+%     p = signrank(amygdala_rs_pmi_correct, amygdala_rs_pmi_incorrect);
+%     if p < (0.05 / size(amygdala_rs,1))
+%         fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+%     end
+% else
+%     [~,p] = ttest(amygdala_rs_pmi_correct, amygdala_rs_pmi_incorrect);
+%     if p < (0.05 / size(amygdala_rs,1))
+%         fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (t-test): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (t-test: *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS MI Correct vs. Incorrect (t-test): p = %d\n', p))
+%     end
+% end
+% if KStest(amygdala_rs_pmi_action) || KStest(amygdala_rs_pmi_inaction)
+%     p = signrank(amygdala_rs_pmi_action, amygdala_rs_pmi_inaction);
+%     if p < (0.05 / size(amygdala_rs,1))
+%         fprintf(sprintf('Amygdala RS MI Action vs. Inaction (signed rank): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala RS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS MI Action vs. Inaction (signed rank): p = %d\n', p))
+%     end
+% else
+%     [~,p] = ttest(amygdala_rs_pmi_action, amygdala_rs_pmi_inaction);
+%     if p < (0.05 / size(amygdala_rs,1))
+%         fprintf(sprintf('Amygdala RS MI Action vs. Inaction (t-test): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala RS MI Action vs. Inaction (t-test: *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS MI Action vs. Inaction (t-test): p = %d\n', p))
+%     end
+% end
+% if KStest(amygdala_rs_mses_correct) || KStest(amygdala_rs_mses_incorrect)
+%     p = signrank(amygdala_rs_mses_correct, amygdala_rs_mses_incorrect);
+%     if p < (0.05 / size(amygdala_rs,1))
+%         fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+%     end
+% else
+%     [~,p] = ttest(amygdala_rs_mses_correct, amygdala_rs_mses_incorrect);
+%     if p < (0.05 / size(amygdala_rs,1))
+%         fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (t-test): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (t-test: *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS MSE Correct vs. Incorrect (t-test): p = %d\n', p))
+%     end
+% end
+% if KStest(amygdala_rs_mses_action) || KStest(amygdala_rs_mses_inaction)
+%     p = signrank(amygdala_rs_mses_action, amygdala_rs_mses_inaction);
+%     if p < (0.05 / size(amygdala_rs,1))
+%         fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+%     end
+% else
+%     [~,p] = ttest(amygdala_rs_mses_action, amygdala_rs_mses_inaction);
+%     if p < (0.05 / size(amygdala_rs,1))
+%         fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (t-test): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (t-test: *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala RS MSE Action vs. Inaction (t-test): p = %d\n', p))
+%     end
+% end
+% if KStest(amygdala_fs_pmi_correct) || KStest(amygdala_fs_pmi_incorrect)
+%     p = signrank(amygdala_fs_pmi_correct, amygdala_fs_pmi_incorrect);
+%     if p < (0.05 / size(amygdala_fs,1))
+%         fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (signed rank): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (signed rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (signed rank): p = %d\n', p))
+%     end
+% else
+%     [~,p] = ttest(amygdala_fs_pmi_correct, amygdala_fs_pmi_incorrect);
+%     if p < (0.05 / size(amygdala_fs,1))
+%         fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (t-test): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (t-test: *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS MI Correct vs. Incorrect (t-test): p = %d\n', p))
+%     end
+% end
+% if KStest(amygdala_fs_pmi_action) || KStest(amygdala_fs_pmi_inaction)
+%     p = signrank(amygdala_fs_pmi_action, amygdala_fs_pmi_inaction);
+%     if p < (0.05 / size(amygdala_fs,1))
+%         fprintf(sprintf('Amygdala FS MI Action vs. Inaction (signed rank): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala FS MI Action vs. Inaction (signed rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS MI Action vs. Inaction (signed rank): p = %d\n', p))
+%     end
+% else
+%     [~,p] = ttest(amygdala_fs_pmi_action, amygdala_fs_pmi_inaction);
+%     if p < (0.05 / size(amygdala_fs,1))
+%         fprintf(sprintf('Amygdala FS MI Action vs. Inaction (t-test): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala FS MI Action vs. Inaction (t-test: *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS MI Action vs. Inaction (t-test): p = %d\n', p))
+%     end
+% end
+% if KStest(amygdala_fs_mses_correct) || KStest(amygdala_fs_mses_incorrect)
+%     p = signrank(amygdala_fs_mses_correct, amygdala_fs_mses_incorrect);
+%     if p < (0.05 / size(amygdala_fs,1))
+%         fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (signed rank): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (signed rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (signed rank): p = %d\n', p))
+%     end
+% else
+%     [~,p] = ttest(amygdala_fs_mses_correct, amygdala_fs_mses_incorrect);
+%     if p < (0.05 / size(amygdala_fs,1))
+%         fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (t-test): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (t-test: *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS MSE Correct vs. Incorrect (t-test): p = %d\n', p))
+%     end
+% end
+% if KStest(amygdala_fs_mses_action) || KStest(amygdala_fs_mses_inaction)
+%     p = signrank(amygdala_fs_mses_action, amygdala_fs_mses_inaction);
+%     if p < (0.05 / size(amygdala_fs,1))
+%         fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (signed rank): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (signed rank): *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (signed rank): p = %d\n', p))
+%     end
+% else
+%     [~,p] = ttest(amygdala_fs_mses_action, amygdala_fs_mses_inaction);
+%     if p < (0.05 / size(amygdala_fs,1))
+%         fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (t-test): **p = %d\n', p))
+%     elseif p < 0.05
+%         fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (t-test: *p = %d\n', p))
+%     else
+%         fprintf(sprintf('Amygdala FS MSE Action vs. Inaction (t-test): p = %d\n', p))
+%     end
+% end
 
 fprintf(sprintf('S1 RS MI Incorrect minus Correct: %d +/- %d\n', ...
     nanmean(s1_rs_pmi_incorrect - s1_rs_pmi_correct), ...
@@ -2107,18 +2107,18 @@ fprintf(sprintf('Striatum RS von Mises MSE Incorrect minus Correct: %d +/- %d\n'
 fprintf(sprintf('Striatum RS von Mises MSE Inaction minus Action: %d +/- %d\n', ...
     nanmean(striatum_rs_mses_inaction - striatum_rs_mses_action), ...
     nanstd(striatum_rs_mses_inaction-striatum_rs_mses_action)/sqrt(sum(~isnan(striatum_rs_mses_inaction)))))
-fprintf(sprintf('Amygdala RS MI Incorrect minus Correct: %d +/- %d\n', ...
-    nanmean(amygdala_rs_pmi_incorrect - amygdala_rs_pmi_correct), ...
-    nanstd(amygdala_rs_pmi_incorrect-amygdala_rs_pmi_correct)/sqrt(sum(~isnan(amygdala_rs_pmi_incorrect)))))
-fprintf(sprintf('Amygdala RS MI Inaction minus Action: %d +/- %d\n', ...
-    nanmean(amygdala_rs_pmi_inaction - amygdala_rs_pmi_action), ...
-    nanstd(amygdala_rs_pmi_inaction-amygdala_rs_pmi_action)/sqrt(sum(~isnan(amygdala_rs_pmi_inaction)))))
-fprintf(sprintf('Amygdala RS von Mises MSE Incorrect minus Correct: %d +/- %d\n', ...
-    nanmean(amygdala_rs_mses_incorrect - amygdala_rs_mses_correct), ...
-    nanstd(amygdala_rs_mses_incorrect-amygdala_rs_mses_correct)/sqrt(sum(~isnan(amygdala_rs_mses_incorrect)))))
-fprintf(sprintf('Amygdala RS von Mises MSE Inaction minus Action: %d +/- %d\n', ...
-    nanmean(amygdala_rs_mses_inaction - amygdala_rs_mses_action), ...
-    nanstd(amygdala_rs_mses_inaction-amygdala_rs_mses_action)/sqrt(sum(~isnan(amygdala_rs_mses_inaction)))))
+% fprintf(sprintf('Amygdala RS MI Incorrect minus Correct: %d +/- %d\n', ...
+%     nanmean(amygdala_rs_pmi_incorrect - amygdala_rs_pmi_correct), ...
+%     nanstd(amygdala_rs_pmi_incorrect-amygdala_rs_pmi_correct)/sqrt(sum(~isnan(amygdala_rs_pmi_incorrect)))))
+% fprintf(sprintf('Amygdala RS MI Inaction minus Action: %d +/- %d\n', ...
+%     nanmean(amygdala_rs_pmi_inaction - amygdala_rs_pmi_action), ...
+%     nanstd(amygdala_rs_pmi_inaction-amygdala_rs_pmi_action)/sqrt(sum(~isnan(amygdala_rs_pmi_inaction)))))
+% fprintf(sprintf('Amygdala RS von Mises MSE Incorrect minus Correct: %d +/- %d\n', ...
+%     nanmean(amygdala_rs_mses_incorrect - amygdala_rs_mses_correct), ...
+%     nanstd(amygdala_rs_mses_incorrect-amygdala_rs_mses_correct)/sqrt(sum(~isnan(amygdala_rs_mses_incorrect)))))
+% fprintf(sprintf('Amygdala RS von Mises MSE Inaction minus Action: %d +/- %d\n', ...
+%     nanmean(amygdala_rs_mses_inaction - amygdala_rs_mses_action), ...
+%     nanstd(amygdala_rs_mses_inaction-amygdala_rs_mses_action)/sqrt(sum(~isnan(amygdala_rs_mses_inaction)))))
 fprintf(sprintf('S1 FS MI Incorrect minus Correct: %d +/- %d\n', ...
     nanmean(s1_fs_pmi_incorrect - s1_fs_pmi_correct), ...
     nanstd(s1_fs_pmi_incorrect-s1_fs_pmi_correct)/sqrt(sum(~isnan(s1_fs_pmi_incorrect)))))
@@ -2155,18 +2155,18 @@ fprintf(sprintf('Striatum FS von Mises MSE Incorrect minus Correct: %d +/- %d\n'
 fprintf(sprintf('Striatum FS von Mises MSE Inaction minus Action: %d +/- %d\n', ...
     nanmean(striatum_fs_mses_inaction - striatum_fs_mses_action), ...
     nanstd(striatum_fs_mses_inaction-striatum_fs_mses_action)/sqrt(sum(~isnan(striatum_fs_mses_inaction)))))
-fprintf(sprintf('Amygdala FS MI Incorrect minus Correct: %d +/- %d\n', ...
-    nanmean(amygdala_fs_pmi_incorrect - amygdala_fs_pmi_correct), ...
-    nanstd(amygdala_fs_pmi_incorrect-amygdala_fs_pmi_correct)/sqrt(sum(~isnan(amygdala_fs_pmi_incorrect)))))
-fprintf(sprintf('Amygdala FS MI Inaction minus Action: %d +/- %d\n', ...
-    nanmean(amygdala_fs_pmi_inaction - amygdala_fs_pmi_action), ...
-    nanstd(amygdala_fs_pmi_inaction-amygdala_fs_pmi_action)/sqrt(sum(~isnan(amygdala_fs_pmi_inaction)))))
-fprintf(sprintf('Amygdala FS von Mises MSE Incorrect minus Correct: %d +/- %d\n', ...
-    nanmean(amygdala_fs_mses_incorrect - amygdala_fs_mses_correct), ...
-    nanstd(amygdala_fs_mses_incorrect-amygdala_fs_mses_correct)/sqrt(sum(~isnan(amygdala_fs_mses_incorrect)))))
-fprintf(sprintf('Amygdala FS von Mises MSE Inaction minus Action: %d +/- %d\n', ...
-    nanmean(amygdala_fs_mses_inaction - amygdala_fs_mses_action), ...
-    nanstd(amygdala_fs_mses_inaction-amygdala_fs_mses_action)/sqrt(sum(~isnan(amygdala_fs_mses_inaction)))))
+% fprintf(sprintf('Amygdala FS MI Incorrect minus Correct: %d +/- %d\n', ...
+%     nanmean(amygdala_fs_pmi_incorrect - amygdala_fs_pmi_correct), ...
+%     nanstd(amygdala_fs_pmi_incorrect-amygdala_fs_pmi_correct)/sqrt(sum(~isnan(amygdala_fs_pmi_incorrect)))))
+% fprintf(sprintf('Amygdala FS MI Inaction minus Action: %d +/- %d\n', ...
+%     nanmean(amygdala_fs_pmi_inaction - amygdala_fs_pmi_action), ...
+%     nanstd(amygdala_fs_pmi_inaction-amygdala_fs_pmi_action)/sqrt(sum(~isnan(amygdala_fs_pmi_inaction)))))
+% fprintf(sprintf('Amygdala FS von Mises MSE Incorrect minus Correct: %d +/- %d\n', ...
+%     nanmean(amygdala_fs_mses_incorrect - amygdala_fs_mses_correct), ...
+%     nanstd(amygdala_fs_mses_incorrect-amygdala_fs_mses_correct)/sqrt(sum(~isnan(amygdala_fs_mses_incorrect)))))
+% fprintf(sprintf('Amygdala FS von Mises MSE Inaction minus Action: %d +/- %d\n', ...
+%     nanmean(amygdala_fs_mses_inaction - amygdala_fs_mses_action), ...
+%     nanstd(amygdala_fs_mses_inaction-amygdala_fs_mses_action)/sqrt(sum(~isnan(amygdala_fs_mses_inaction)))))
                         
 
 pfc_rs_theta_bars_mat = [pfc_rs_theta_bars_hit, pfc_rs_theta_bars_miss, pfc_rs_theta_bars_cr, pfc_rs_theta_bars_fa];
