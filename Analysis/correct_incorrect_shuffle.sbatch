@@ -4,7 +4,7 @@
 #SBATCH -J outShuff
 #SBATCH -N 1
 #SBATCH -c 1
-#SBATCH --time=0-48:00
+#SBATCH --time=0-72:00
 #SBATCH -o logs/correct_incorrect_shuffle.log 
 #SBATCH -e errs/correct_incorrect_shuffle.err
 #SBATCH --mem 40gb

@@ -6,7 +6,7 @@ init_paths;
 %% s1-striatum-amygdala sessions
 % combine animals
 ftr_files = {strcat(ftr_path, 'AP/subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted_sill.mat'), ...
-    strcat(ftr_path, 'AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_adjusted_sill.mat')};
+    strcat(ftr_path, 'AP/subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat')};
 for i = 1:length(ftr_files)
     f = load(ftr_files{i});
     if i == 1

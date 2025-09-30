@@ -132,17 +132,19 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
         session = ap_files{i}(1:end-4);
         sesh_parts = strsplit(session, '_');
         subj = sesh_parts{2};
-        idx_tmp = idx(strcmp(all_sessions, ap_files{i}),:);
-        s_tmp = s(strcmp(all_sessions, ap_files{i}),:);
+        % idx_tmp = idx(strcmp(all_sessions, ap_files{i}),:);
+        % s_tmp = s(strcmp(all_sessions, ap_files{i}),:);
         cell_count = 1;
         if ~strcmp(subj, last_animal)
             try 
                 ftr_file = strcat(ftr_path, 'AP/', session(18:end-3), '_adjusted.mat');
                 load(ftr_file)
                 last_ftr_file = ftr_file;
+                disp(ftr_file)
             catch
                 ftr_file = strcat(ftr_path, 'AP/', session(18:end), '.mat');
                 load(ftr_file)
+                disp(ftr_file)
                 last_ftr_file = ftr_file;
             end
         else
