@@ -5060,4 +5060,5 @@ end
 
 * [2025-10-13 Mon] - remaking figures 
 ** phaseModSummaries.m 
-*** TODO: need to get running without phase mod striatum rs 
+*** DONE: need to get running without phase mod striatum rs 
+** lick raster done 

@@ -1,10 +1,10 @@
-Hit Rate vs FA Rate: Wilcoxon Signed Rank **p = 4.639297e-23
-Hit RT vs FA RT: Wilcoxon Signed Rank p = 6.007275e-01
-Mean d-prime: 2.277932e+00
-d-prime Standard Error: 1.357380e-01
-Avg Hit RT: 6.399760e-01
-Hit RT Standard Error: 1.457324e-01
-Avg FA RT: 4.958647e-01
+Hit Rate vs FA Rate: Wilcoxon Signed Rank **p = 2.881344e-23
+Hit RT vs FA RT: Wilcoxon Signed Rank p = 7.234435e-01
+Mean d-prime: 2.284867e+00
+d-prime Standard Error: 1.343794e-01
+Avg Hit RT: 5.442279e-01
+Hit RT Standard Error: 4.898427e-02
+Avg FA RT: 4.968647e-01
 FA RT Standard Error: 5.309723e-02
 Avg. Hit Rate: 8.690240e-01 +/ 2.745494e-02
-Avg. FA Rate: 1.750135e-01 +/ 1.891937e-02
+Avg. FA Rate: 1.734209e-01 +/ 1.899068e-02
