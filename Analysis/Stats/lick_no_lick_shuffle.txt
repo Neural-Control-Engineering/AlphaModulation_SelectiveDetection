@@ -1,2 +1,5 @@
-Proportion of neurons > 95th percentile: 2.934947e-01
-Proportion of neurons < 5th percentile: 1.497731e-01
+[Warning: MATLAB has disabled some advanced graphics rendering features by
+switching to software OpenGL. For more information, click <a
+href="matlab:opengl('problems')">here</a>.] 
+Proportion of neurons > 95th percentile: NaN
+Proportion of neurons < 5th percentile: NaN

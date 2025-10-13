@@ -3,7 +3,7 @@ run_bootstrap = false;
 
 if run_bootstrap
     % S1
-    s1 = load(strcat(ftr_path,'/AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
+    s1 = load(strcat(ftr_path,'/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
     s1.out.alpha_modulated = s1.out.alpha_modulated(cell2mat(s1.out.alpha_modulated.avg_trial_fr) > 1, :);
     out = s1.out; clear s1;
     session_ids = unique(out.alpha_modulated.session_id);
@@ -22,12 +22,12 @@ if run_bootstrap
         out.alpha_modulated(strcmp(out.alpha_modulated.session_id, session_id) & out.alpha_modulated.cluster_id == cid,:) = [];
     end
 
-    out_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
+    out_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
     if ~exist(out_path, 'dir')
         mkdir(out_path)
     end
 
-    for s = 7:length(session_ids)
+    for s = 1:length(session_ids)
         fig_path = strcat(out_path, session_ids{s}, '/');
         if ~exist(fig_path, 'dir')
             mkdir(fig_path)
@@ -95,7 +95,7 @@ if run_bootstrap
     end
 
     %% PFC
-    pfc = load(strcat(ftr_path,'/AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/data.mat'));
+    pfc = load(strcat(ftr_path,'/AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/data.mat'));
     pfc.out.alpha_modulated = pfc.out.alpha_modulated(cell2mat(pfc.out.alpha_modulated.avg_trial_fr) > 1, :);
     out = pfc.out; clear pfc;
     session_ids = unique(out.alpha_modulated.session_id);
@@ -114,7 +114,7 @@ if run_bootstrap
         out.alpha_modulated(strcmp(out.alpha_modulated.session_id, session_id) & out.alpha_modulated.cluster_id == cid,:) = [];
     end
 
-    out_path = strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
+    out_path = strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
     if ~exist(out_path, 'dir')
         mkdir(out_path)
     end
@@ -187,7 +187,7 @@ if run_bootstrap
     end
 
     % Striatum
-    s1 = load(strcat(ftr_path,'/AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
+    s1 = load(strcat(ftr_path,'/AP/FIG/S1_Expert_Combo_Revision/Basal_Ganglia/Spontaneous_Alpha_Modulation/data.mat'));
     s1.out.alpha_modulated = s1.out.alpha_modulated(cell2mat(s1.out.alpha_modulated.avg_trial_fr) > 1, :);
     out = s1.out; clear s1;
     session_ids = unique(out.alpha_modulated.session_id);
@@ -206,12 +206,12 @@ if run_bootstrap
         out.alpha_modulated(strcmp(out.alpha_modulated.session_id, session_id) & out.alpha_modulated.cluster_id == cid,:) = [];
     end
 
-    out_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
+    out_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Revision/Basal_Ganglia/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
     if ~exist(out_path, 'dir')
         mkdir(out_path)
     end
 
-    for s = 15:length(session_ids)
+    for s = 1:length(session_ids)
         fig_path = strcat(out_path, session_ids{s}, '/');
         if ~exist(fig_path, 'dir')
             mkdir(fig_path)
@@ -316,9 +316,9 @@ session_ids = {'date--2024-12-20_subj--1075-20241202_geno--Wt_npxls--R-npx10_pha
     'date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0'};
 session_ids = fliplr(session_ids);
 
-s1_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Cortex/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
-str_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Adjusted/Basal_Ganglia/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
-pfc_path = strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo_Adjusted/PFC/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
+s1_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
+str_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Revision/Basal_Ganglia/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
+pfc_path = strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/Lick_NoLick_Shuffles/');
 ptiles = [];
 for s = 1:length(session_ids)
     try
