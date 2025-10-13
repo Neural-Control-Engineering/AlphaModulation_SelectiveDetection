@@ -1,6 +1,3 @@
-[Warning: MATLAB has disabled some advanced graphics rendering features by
-switching to software OpenGL. For more information, click <a
-href="matlab:opengl('problems')">here</a>.] 
 S1 RS unmod lick vs no lick (signed-rank): p = = 1.969241e-01
 S1 FS unmod lick vs no lick (signed-rank): p = = 3.980629e-01
 PFC RS unmod lick vs no lick (signed-rank): p = = 1.137086e-02
