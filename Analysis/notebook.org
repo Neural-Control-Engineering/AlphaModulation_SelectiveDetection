@@ -5053,3 +5053,11 @@ for i = 1:length(out.event_times_low)
         low_starts = [low_starts, out.event_times_low{i}{j}];
     end
 end
+
+* [2025-9-30 Tue] - 
+** added other lfp sessions to lfpSpecGrmByOutcome.m 
+*** need to add to lfpPowerByOutcome.m
+
+* [2025-10-13 Mon] - remaking figures 
+** phaseModSummaries.m 
+*** TODO: need to get running without phase mod striatum rs 

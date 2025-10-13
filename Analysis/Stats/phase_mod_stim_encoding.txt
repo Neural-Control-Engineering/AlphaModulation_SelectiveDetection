@@ -1,66 +1,66 @@
 
 
 Mod vs. Unmod on hit trials
-S1 mod RS vs unmod RS evoked fr (Mann-Whitney): p = 3.547677e-02
-S1 mod fs vs unmod fs evoked fr (Mann-Whitney): p = 1.094198e-02
-PFC mod RS vs unmod RS evoked fr (Mann-Whitney): p = 6.010028e-01
-PFC mod fs vs unmod fs evoked fr (Mann-Whitney): p = 1.422372e-03
-Striatum mod RS vs unmod RS evoked fr (Mann-Whitney): p = 2.666548e-01
-Striatum mod fs vs unmod fs evoked fr (Mann-Whitney): p = 1.204495e-01
+S1 mod RS vs unmod RS evoked fr (Mann-Whitney): p = 6.179482e-01
+S1 mod fs vs unmod fs evoked fr (Mann-Whitney): p = 1.948585e-03
+PFC mod RS vs unmod RS evoked fr (Mann-Whitney): p = 6.028340e-01
+PFC mod fs vs unmod fs evoked fr (Mann-Whitney): p = 8.296011e-04
+Striatum mod RS vs unmod RS evoked fr (Mann-Whitney): p = 7.219358e-03
+Striatum mod fs vs unmod fs evoked fr (Mann-Whitney): p = 9.476269e-04
 
 
 Mod vs. Unmod on cr trials
-S1 mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 8.104367e-01
-S1 mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 9.664123e-01
-PFC mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 7.951111e-01
-PFC mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 1.085584e-04
-Striatum mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 6.935986e-02
-Striatum mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 6.540085e-02
+S1 mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 4.641725e-01
+S1 mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 3.026946e-02
+PFC mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 8.241949e-01
+PFC mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 5.199880e-05
+Striatum mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 9.577436e-01
+Striatum mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 1.486850e-01
 
 
 Mod vs. Unmod on miss trials
-S1 mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 8.356236e-02
-S1 mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 3.388396e-01
-PFC mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 7.199793e-01
+S1 mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 5.257451e-01
+S1 mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 1.154962e-02
+PFC mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 7.732797e-01
 PFC mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 5.279552e-02
-Striatum mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 6.850672e-01
-Striatum mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 5.332346e-01
+Striatum mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 2.224099e-02
+Striatum mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 2.292698e-02
 
 
 Mod vs. Unmod on fa trials
-S1 mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 8.321696e-01
-S1 mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 2.122673e-02
-PFC mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 6.082256e-01
-PFC mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 1.533675e-04
-Striatum mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 2.513075e-02
-Striatum mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 8.039768e-03
+S1 mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 9.971370e-01
+S1 mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 2.851168e-04
+PFC mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 5.905194e-01
+PFC mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 7.331703e-05
+Striatum mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 2.461340e-01
+Striatum mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 3.148214e-02
 
 
 Mod hit vs miss trials
-S1 mod RS vs mod RS evoked fr (signed-rank): p = 3.138011e-01
-S1 mod fs vs mod fs evoked fr (signed-rank): p = 4.699264e-02
-PFC mod RS vs mod RS evoked fr (signed-rank): p = 6.377673e-04
+S1 mod RS vs mod RS evoked fr (signed-rank): p = 5.108525e-03
+S1 mod fs vs mod fs evoked fr (signed-rank): p = 2.737044e-04
+PFC mod RS vs mod RS evoked fr (signed-rank): p = 7.683553e-04
 PFC mod fs vs mod fs evoked fr (signed-rank): p = 2.478415e-01
-Striatum mod RS vs mod RS evoked fr (paired t-test): p = 0
-Striatum mod fs vs mod fs evoked fr (signed-rank): p = 9.277344e-03
+Striatum mod RS vs mod RS evoked fr (signed-rank): p = 1.638940e-02
+Striatum mod fs vs mod fs evoked fr (signed-rank): p = 2.479270e-02
 
 
 Unmod hit vs miss trials
-S1 unmod RS vs unmod RS evoked fr (signed-rank): p = 5.937776e-02
-S1 unmod fs vs unmod fs evoked fr (signed-rank): p = 6.787098e-01
-PFC unmod RS vs unmod RS evoked fr (signed-rank): p = 2.723934e-04
+S1 unmod RS vs unmod RS evoked fr (signed-rank): p = 3.271202e-01
+S1 unmod fs vs unmod fs evoked fr (signed-rank): p = 3.840882e-01
+PFC unmod RS vs unmod RS evoked fr (signed-rank): p = 3.897761e-04
 PFC unmod fs vs unmod fs evoked fr (signed-rank): p = 3.271484e-02
-Striatum unmod RS vs unmod RS evoked fr (signed-rank): p = 2.481115e-01
-Striatum unmod fs vs unmod fs evoked fr (signed-rank): p = 4.549845e-01
+Striatum unmod RS vs unmod RS evoked fr (signed-rank): p = 5.436128e-01
+Striatum unmod fs vs unmod fs evoked fr (signed-rank): p = 7.543218e-01
 
 
 Mod vs. Unmod on hit trials
-S1 mod RS vs unmod RS iti fr (Mann-Whitney): p = 7.391242e-01
-S1 mod fs vs unmod fs iti fr (Mann-Whitney): p = 4.740892e-01
-PFC mod RS vs unmod RS iti fr (Mann-Whitney): p = 4.939264e-01
-PFC mod fs vs unmod fs iti fr (Mann-Whitney): p = 6.740339e-02
-Striatum mod RS vs unmod RS iti fr (Mann-Whitney): p = 1.729930e-02
-Striatum mod fs vs unmod fs iti fr (Mann-Whitney): p = 8.533006e-02
+S1 mod RS vs unmod RS iti fr (Mann-Whitney): p = 6.912977e-01
+S1 mod fs vs unmod fs iti fr (Mann-Whitney): p = 4.281417e-01
+PFC mod RS vs unmod RS iti fr (Mann-Whitney): p = 5.059910e-01
+PFC mod fs vs unmod fs iti fr (Mann-Whitney): p = 3.839668e-02
+Striatum mod RS vs unmod RS iti fr (Mann-Whitney): p = 1.426680e-01
+Striatum mod fs vs unmod fs iti fr (Mann-Whitney): p = 1.933626e-03
 Fisher exact test s1 rs mod vs unmod nonresponsive %
 
 h =
@@ -79,8 +79,8 @@ stats =
 
   struct with fields:
 
-             OddsRatio: 0.9677
-    ConfidenceInterval: [0.4213 2.2229]
+             OddsRatio: 1.0020
+    ConfidenceInterval: [0.6106 1.6443]
 
 Fisher exact test s1 fs mod vs unmod nonresponsive %
 
@@ -93,15 +93,15 @@ h =
 
 p =
 
-    0.1065
+    0.0524
 
 
 stats = 
 
   struct with fields:
 
-             OddsRatio: 0.3103
-    ConfidenceInterval: [0.0758 1.2706]
+             OddsRatio: 0.4107
+    ConfidenceInterval: [0.1776 0.9499]
 
 Fisher exact test pfc rs mod vs unmod nonresponsive %
 
@@ -109,20 +109,20 @@ h =
 
   logical
 
-   0
+   1
 
 
 p =
 
-    0.0583
+    0.0451
 
 
 stats = 
 
   struct with fields:
 
-             OddsRatio: 0.6588
-    ConfidenceInterval: [0.4357 0.9961]
+             OddsRatio: 0.6475
+    ConfidenceInterval: [0.4275 0.9806]
 
 Fisher exact test pfc fs mod vs unmod nonresponsive %
 
@@ -135,15 +135,15 @@ h =
 
 p =
 
-    0.0180
+    0.0083
 
 
 stats = 
 
   struct with fields:
 
-             OddsRatio: 0.1304
-    ConfidenceInterval: [0.0265 0.6430]
+             OddsRatio: 0.1141
+    ConfidenceInterval: [0.0237 0.5506]
 
 Fisher exact test striatum rs mod vs unmod nonresponsive %
 
@@ -156,15 +156,15 @@ h =
 
 p =
 
-    1.0000
+    0.3763
 
 
 stats = 
 
   struct with fields:
 
-             OddsRatio: 0
-    ConfidenceInterval: [-Inf Inf]
+             OddsRatio: 0.6207
+    ConfidenceInterval: [0.2363 1.6305]
 
 Fisher exact test striatum fs mod vs unmod nonresponsive %
 
@@ -177,39 +177,39 @@ h =
 
 p =
 
-    1.0000
+    0.0525
 
 
 stats = 
 
   struct with fields:
 
-             OddsRatio: 0.8667
-    ConfidenceInterval: [0.1839 4.0844]
+             OddsRatio: 0.4375
+    ConfidenceInterval: [0.1885 1.0154]
 
 
 s1_rs_ranova =
 
   3x8 table
 
-                        SumSq      DF     MeanSq      F         pValue      pValueGG      pValueHF      pValueLB 
-                        ______    ____    ______    ______    __________    _________    __________    __________
+                          SumSq        DF      MeanSq      F         pValue       pValueGG     pValueHF     pValueLB
+                        __________    _____    ______    ______    __________    __________    _________    ________
 
-    (Intercept):Time    8170.9      49    166.75     17.23    1.696e-135    1.834e-12    8.4625e-13    5.9488e-05
-    group:Time          969.94      49    19.795    2.0454    2.4909e-05     0.092393      0.090064       0.15507
-    Error(Time)          61648    6370    9.6778                                                                 
+    (Intercept):Time        2122.4       49    43.315    6.3332     3.208e-39    8.4078e-05    7.751e-05    0.012301
+    group:Time              816.51       49    16.664    2.4364    8.9881e-08      0.050387     0.049649     0.11946
+    Error(Time)         1.1595e+05    16954    6.8393                                                               
 
 
 s1_fs_ranova =
 
   3x8 table
 
-                        SumSq      DF     MeanSq      F         pValue       pValueGG      pValueHF      pValueLB 
-                        ______    ____    ______    ______    __________    __________    __________    __________
+                          SumSq        DF      MeanSq      F         pValue        pValueGG      pValueHF     pValueLB 
+                        __________    _____    ______    ______    ___________    __________    __________    _________
 
-    (Intercept):Time     25819      49    526.92    21.416    1.196e-163    4.3315e-13    1.2992e-13    1.4479e-05
-    group:Time          4403.6      49    89.868    3.6527    3.2498e-16      0.011104     0.0098835      0.059653
-    Error(Time)          94035    3822    24.604                                                                  
+    (Intercept):Time         44576       49    909.72    33.149    4.2765e-284    4.3812e-18    2.6105e-18    3.051e-08
+    group:Time              4209.4       49    85.906    3.1303     1.4469e-12      0.030121       0.02946     0.078322
+    Error(Time)         2.7836e+05    10143    27.443                                                                  
 
 
 pfc_rs_ranova =
@@ -219,9 +219,9 @@ pfc_rs_ranova =
                         SumSq      DF      MeanSq      F         pValue       pValueGG      pValueHF     pValueLB 
                         ______    _____    ______    ______    __________    __________    __________    _________
 
-    (Intercept):Time    1970.6       49    40.216     8.678    1.3102e-60    4.3612e-09    3.3252e-09    0.0034149
-    group:Time          1399.4       49    28.558    6.1625    9.4253e-38    2.9617e-06    2.5051e-06     0.013471
-    Error(Time)          88105    19012    4.6342                                                                 
+    (Intercept):Time      1988       49    40.572    8.7211    5.3047e-61    3.9789e-09    3.0237e-09    0.0033385
+    group:Time          1411.3       49    28.802    6.1911    5.2953e-38    2.7882e-06    2.3535e-06     0.013261
+    Error(Time)          87763    18865    4.6521                                                                 
 
 
 pfc_fs_ranova =
@@ -231,21 +231,21 @@ pfc_fs_ranova =
                         SumSq      DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
                         ______    ____    ______    ______    ___________    __________    __________    __________
 
-    (Intercept):Time     12775      49    260.71    14.791    8.3145e-100    2.9463e-06    1.6822e-06    0.00044475
-    group:Time          3440.5      49    70.214    3.9835     3.7753e-18      0.021667       0.01958      0.053152
-    Error(Time)          32820    1862    17.626                                                                   
+    (Intercept):Time     12775      49    260.71    15.163    6.3937e-103    2.1227e-06    1.2093e-06    0.00037543
+    group:Time          3677.5      49    75.051     4.365     5.1653e-21      0.015157      0.013515      0.043256
+    Error(Time)          32857    1911    17.194                                                                   
 
 
 striatum_rs_ranova =
 
   3x8 table
 
-                          SumSq        DF     MeanSq      F         pValue      pValueGG     pValueHF     pValueLB
-                        __________    ____    ______    ______    __________    _________    _________    ________
+                          SumSq        DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
+                        __________    ____    ______    ______    ___________    __________    __________    __________
 
-    (Intercept):Time         21465      49    438.07    5.2894    5.5297e-29    0.0059979    0.0055078    0.024531
-    group:Time               18186      49    371.15    4.4814    1.5929e-22     0.012812     0.011994    0.037927
-    Error(Time)         2.7596e+05    3332     82.82                                                              
+    (Intercept):Time         29088      49    593.63    16.168    1.2446e-127    3.5429e-08    2.8718e-08    8.8862e-05
+    group:Time                7634      49    155.79    4.2433     4.0463e-21      0.011371      0.010985      0.041015
+    Error(Time)         2.8965e+05    7889    36.716                                                                   
 
 
 striatum_fs_ranova =
@@ -255,17 +255,189 @@ striatum_fs_ranova =
                           SumSq        DF      MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
                         __________    _____    ______    ______    ___________    __________    __________    __________
 
-    (Intercept):Time         26394       49    538.65    15.968    1.8857e-128    1.1892e-14    6.6598e-15    8.3474e-05
-    group:Time               18264       49    372.73    11.049     3.2845e-82    5.0058e-10    3.4581e-10     0.0010119
-    Error(Time)         4.3968e+05    13034    33.733                                                                   
+    (Intercept):Time         17336       49     353.8    15.924    1.4902e-128    1.7161e-14    1.0484e-14    8.2715e-05
+    group:Time              2996.3       49     61.15    2.7522     6.7788e-10       0.02008      0.019388      0.098151
+    Error(Time)         3.3096e+05    14896    22.218                                                                   
 
-{Error using RepeatedMeasuresModel.fit (line 1380)
-The between-subjects design must have full column rank.
 
-Error in fitrm (line 77)
-s = RepeatedMeasuresModel.fit(ds,model,varargin{:});
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Error in alphaModAndStimEncoding (line 2347)
-s1_rs_driven_rm = fitrm(s1_rs_driven_table, 't1-t50 ~ group*subject', 'WithinDesign', Time);
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-} 
+s1_rs_driven_ranova =
+
+  3x8 table
+
+                        SumSq      DF      MeanSq       F         pValue       pValueGG      pValueHF     pValueLB 
+                        ______    _____    ______    _______    __________    __________    __________    _________
+
+    (Intercept):Time    4661.6       49    95.135     10.937    1.3285e-80    2.0766e-08    1.5188e-08    0.0011133
+    group:Time          255.75       49    5.2193    0.60001       0.98798       0.65666        0.6602      0.43947
+    Error(Time)          87379    10045    8.6988                                                                  
+
+
+s1_fs_driven_ranova =
+
+  3x8 table
+
+                          SumSq        DF     MeanSq      F         pValue       pValueGG      pValueHF      pValueLB 
+                        __________    ____    ______    ______    __________    __________    __________    __________
+
+    (Intercept):Time         77891      49    1589.6    59.908             0    1.9809e-36    3.0842e-37    1.0594e-12
+    group:Time              6826.2      49    139.31    5.2502    1.9598e-29    0.00088334    0.00079153      0.023249
+    Error(Time)         2.0803e+05    7840    26.534                                                                  
+
+
+pfc_rs_driven_ranova =
+
+  3x8 table
+
+                        SumSq      DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
+                        ______    ____    ______    ______    ___________    __________    __________    __________
+
+    (Intercept):Time    6056.8      49    123.61    17.152    1.9094e-137    1.9626e-20    3.5626e-21    5.2756e-05
+    group:Time          2369.4      49    48.354    6.7096     3.8918e-42      2.04e-07    1.2204e-07      0.010366
+    Error(Time)          64269    8918    7.2067                                                                   
+
+
+pfc_fs_driven_ranova =
+
+  3x8 table
+
+                        SumSq      DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
+                        ______    ____    ______    ______    ___________    __________    __________    __________
+
+    (Intercept):Time     17041      49    347.77    17.624    3.9347e-110    8.0555e-07    2.9746e-07    0.00027839
+    group:Time          1900.1      49    38.777    1.9652     0.00010189        0.1476        0.1428       0.17279
+    Error(Time)          25139    1274    19.732                                                                   
+
+
+striatum_rs_driven_ranova =
+
+  3x8 table
+
+                          SumSq        DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
+                        __________    ____    ______    ______    ___________    __________    __________    __________
+
+    (Intercept):Time         38363      49    782.91    16.543    7.0307e-128    2.4675e-08    1.7764e-08    8.9697e-05
+    group:Time              8304.6      49    169.48    3.5811     8.3167e-16      0.022812      0.021918      0.061069
+    Error(Time)         2.5509e+05    5390    47.326                                                                   
+
+
+striatum_fs_driven_ranova =
+
+  3x8 table
+
+                          SumSq        DF      MeanSq      F         pValue       pValueGG      pValueHF      pValueLB 
+                        __________    _____    ______    ______    ___________    _________    __________    __________
+
+    (Intercept):Time         19441       49    396.75    15.086    1.2054e-119    2.066e-13    1.1627e-13    0.00013358
+    group:Time              1990.7       49    40.627    1.5448      0.0086989       0.1786       0.17716       0.21515
+    Error(Time)         3.0284e+05    11515      26.3                                                                  
+
+
+s1_rs_suppressed_ranova =
+
+  3x8 table
+
+                        SumSq     DF     MeanSq      F         pValue      pValueGG      pValueHF     pValueLB 
+                        ______    ___    ______    ______    __________    _________    __________    _________
+
+    (Intercept):Time    2332.8     49    47.608    9.2482    8.5706e-52    0.0008299    0.00050162    0.0070279
+    group:Time          224.22     49    4.5759    0.8889       0.68961      0.41343       0.42218      0.35826
+    Error(Time)         4540.4    882    5.1479                                                                
+
+
+s1_fs_suppressed_ranova =
+
+  3x8 table
+
+                        SumSq     DF     MeanSq      F         pValue      pValueGG      pValueHF     pValueLB 
+                        ______    ___    ______    ______    __________    _________    __________    _________
+
+    (Intercept):Time     15026     49    306.64    14.562    9.3303e-82    4.779e-05    2.0489e-05    0.0013819
+    group:Time          1479.3     49    30.189    1.4336      0.029513      0.25315       0.25209       0.2476
+    Error(Time)          17541    833    21.058                                                                
+
+
+pfc_rs_suppressed_ranova =
+
+  3x8 table
+
+                        SumSq      DF     MeanSq      F         pValue        pValueGG      pValueHF      pValueLB 
+                        ______    ____    ______    ______    ___________    __________    __________    __________
+
+    (Intercept):Time    1648.9      49     33.65    19.866    2.4157e-145    1.3522e-20    5.0555e-23    3.8574e-05
+    group:Time          56.342      49    1.1498    0.6788        0.95743       0.67212       0.69094       0.41338
+    Error(Time)         4814.1    2842    1.6939                                                                   
+
+[Warning: Model has 0 degrees of freedom for error. Consider not using group as a predictor.] 
+[> In manova.internal.validation.checkDFE (line 26)
+In manova.internal.fitting.fitCoefficients (line 19)
+In RepeatedMeasuresModel.fit (line 1391)
+In fitrm (line 77)
+In alphaModAndStimEncoding (line 2527)] 
+
+pfc_fs_suppressed_ranova =
+
+  3x8 table
+
+                        SumSq     DF    MeanSq     F     pValue    pValueGG    pValueHF    pValueLB
+                        ______    __    ______    ___    ______    ________    ________    ________
+
+    (Intercept):Time    402.21    49    8.2084    NaN     NaN        NaN         NaN         NaN   
+    group:Time          360.55    49    7.3582    NaN     NaN        NaN         NaN         NaN   
+    Error(Time)            NaN     0       NaN                                                     
+
+
+striatum_rs_suppressed_ranova =
+
+  3x8 table
+
+                        SumSq     DF     MeanSq       F       pValue     pValueGG    pValueHF    pValueLB
+                        ______    ___    ______    _______    _______    ________    ________    ________
+
+    (Intercept):Time    160.13     49    3.2679    0.63554    0.97552    0.52021     0.53846     0.43864 
+    group:Time          154.22     49    3.1474    0.61211    0.98324     0.5317      0.5507     0.44703 
+    Error(Time)         3527.3    686    5.1419                                                          
+
+S1 RS Driven Mod vs Unmod on Hit (mann-whitney): p = 3.501268e-01
+S1 FS Driven Mod vs Unmod on Hit (mann-whitney): p = 2.918532e-05
+S1 RS Driven Mod vs Unmod on Miss (mann-whitney): p = 4.851946e-02
+S1 FS Driven Mod vs Unmod on Miss (mann-whitney): p = 4.888229e-04
+S1 RS Driven Mod vs Unmod on CR (mann-whitney): p = 9.250445e-02
+S1 FS Driven Mod vs Unmod on CR (mann-whitney): p = 7.934827e-02
+S1 RS Driven Mod vs Unmod on FA (mann-whitney): p = 1.421848e-01
+S1 FS Driven Mod vs Unmod on FA (mann-whitney): p = 2.213602e-05
+PFC RS Driven Mod vs Unmod on Hit (mann-whitney): p = 2.638721e-01
+PFC FS Driven Mod vs Unmod on Hit (mann-whitney): p = 4.685391e-02
+PFC RS Driven Mod vs Unmod on Miss (mann-whitney): p = 4.681644e-01
+PFC FS Driven Mod vs Unmod on Miss (mann-whitney): p = 5.947967e-01
+PFC RS Driven Mod vs Unmod on CR (mann-whitney): p = 1.686644e-01
+PFC FS Driven Mod vs Unmod on CR (mann-whitney): p = 3.288105e-03
+PFC RS Driven Mod vs Unmod on FA (mann-whitney): p = 2.704451e-01
+PFC FS Driven Mod vs Unmod on FA (mann-whitney): p = 9.227722e-03
+Striatum RS Driven Mod vs Unmod on Hit (mann-whitney): p = 2.798924e-03
+Striatum FS Driven Mod vs Unmod on Hit (mann-whitney): p = 2.016912e-02
+Striatum RS Driven Mod vs Unmod on Miss (mann-whitney): p = 1.322786e-02
+Striatum FS Driven Mod vs Unmod on Miss (mann-whitney): p = 1.293187e-01
+Striatum RS Driven Mod vs Unmod on CR (mann-whitney): p = 5.499734e-01
+Striatum FS Driven Mod vs Unmod on CR (mann-whitney): p = 5.131598e-01
+Striatum RS Driven Mod vs Unmod on FA (mann-whitney): p = 9.682100e-01
+Striatum FS Driven Mod vs Unmod on FA (mann-whitney): p = 2.563535e-01
+S1 RS Suppressed Mod vs Unmod on Hit (mann-whitney): p = 7.508235e-01
+S1 FS Suppressed Mod vs Unmod on Hit (mann-whitney): p = 1.871345e-01
+S1 RS Suppressed Mod vs Unmod on Miss (mann-whitney): p = 3.407618e-01
+S1 FS Suppressed Mod vs Unmod on Miss (mann-whitney): p = 8.421053e-01
+S1 RS Suppressed Mod vs Unmod on CR (mann-whitney): p = 1.123387e-01
+S1 FS Suppressed Mod vs Unmod on CR (mann-whitney): p = 2.923977e-01
+S1 RS Suppressed Mod vs Unmod on FA (mann-whitney): p = 6.719999e-01
+S1 FS Suppressed Mod vs Unmod on FA (mann-whitney): p = 8.421053e-01
+PFC RS Suppressed Mod vs Unmod on Hit (mann-whitney): p = 9.549762e-01
+PFC FS Suppressed Mod vs Unmod on Hit (2 sample t-test): p = NaN
+PFC RS Suppressed Mod vs Unmod on Miss (mann-whitney): p = 7.056549e-01
+PFC FS Suppressed Mod vs Unmod on Miss (2 sample t-test): p = NaN
+PFC RS Suppressed Mod vs Unmod on CR (mann-whitney): p = 2.981272e-01
+PFC FS Suppressed Mod vs Unmod on CR (2 sample t-test): p = NaN
+PFC RS Suppressed Mod vs Unmod on FA (mann-whitney): p = 9.935647e-01
+PFC FS Suppressed Mod vs Unmod on FA (2 sample t-test): p = NaN
+Striatum RS Suppressed Mod vs Unmod on Hit (mann-whitney): p = 9.000000e-01
+Striatum RS Suppressed Mod vs Unmod on Miss (mann-whitney): p = 4.392857e-01
+Striatum RS Suppressed Mod vs Unmod on CR (mann-whitney): p = 3.642857e-01
+Striatum RS Suppressed Mod vs Unmod on FA (mann-whitney): p = 1.464286e-01

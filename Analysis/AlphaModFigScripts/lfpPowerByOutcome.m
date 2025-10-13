@@ -59,7 +59,13 @@ ftr_files = {strcat(ftr_path, 'LFP/date--2024-07-17_subj--3738-20240702_geno--Db
     strcat(ftr_path, 'LFP/date--2024-07-16_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'LFP/date--2024-07-15_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
     strcat(ftr_path, 'LFP/date--2024-07-13_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
-    strcat(ftr_path, 'LFP/date--2024-07-12_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat')};
+    strcat(ftr_path, 'LFP/date--2024-07-12_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
+    strcat(ftr_path, 'LFP/date--2024-07-24_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
+    strcat(ftr_path, 'LFP/date--2024-07-25_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
+    strcat(ftr_path, 'LFP/date--2024-07-29_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
+    strcat(ftr_path, 'LFP/date--2024-07-31_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
+    strcat(ftr_path, 'LFP/date--2024-08-01_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat'), ...
+    strcat(ftr_path, 'LFP/date--2024-08-02_subj--3738-20240702_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0.mat')};
 
 for f = 1:length(ftr_files)
     data = load(ftr_files{f});
@@ -364,8 +370,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-ylim([-10,-8])
-yticks([-10,-8])
+%ylim([-10,-8])
+%yticks([-10,-8])
 
 axs(1,2) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
@@ -388,8 +394,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-ylim([0,2])
-yticks([0,2])
+%ylim([0,2])
+%yticks([0,2])
 
 axs(1,3) = nexttile;
 avg = [mean(pparams_hit(:,1)), ...
@@ -412,8 +418,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-ylim([0,20])
-yticks([0,20])
+%ylim([0,20])
+%yticks([0,20])
 xlim([0.5,4.5])
 % ylabel('Peak Frequency (Hz)')
 
@@ -438,8 +444,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-ylim([0,0.8])
-yticks([0,0.8])
+%ylim([0,0.8])
+%yticks([0,0.8])
 xlim([0.5,4.5])
 % ylabel('Relative Power (a.u.)')
 
@@ -464,8 +470,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-ylim([0,8])
-yticks([0,8])
+%ylim([0,8])
+%yticks([0,8])
 xlim([0.5,4.5])
 % ylabel('Bandwidth (Hz)')
 
@@ -550,8 +556,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-ylim([-10,-8])
-yticks([-10,-8])
+%ylim([-10,-8])
+%yticks([-10,-8])
 
 axs(2,2) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
@@ -574,8 +580,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-ylim([0,2])
-yticks([0,2])
+%ylim([0,2])
+%yticks([0,2])
 
 axs(2,3) = nexttile;
 avg = [mean(pparams_hit(:,1)), ...
@@ -598,8 +604,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-ylim([0,20])
-yticks([0,20])
+%ylim([0,20])
+%yticks([0,20])
 xlim([0.5,4.5])
 % ylabel('Peak Frequency (Hz)')
 
@@ -624,8 +630,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-ylim([0,0.8])
-yticks([0,0.8])
+%ylim([0,0.8])
+%yticks([0,0.8])
 xlim([0.5,4.5])
 % ylabel('Relative Power (a.u.)')
 
@@ -651,8 +657,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-ylim([0,8])
-yticks([0,8])
+%ylim([0,8])
+%yticks([0,8])
 xlim([0.5,4.5])
 % ylabel('Bandwidth (Hz)')
 
@@ -748,8 +754,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-ylim([-10,-8])
-yticks([-10,-8])
+%ylim([-10,-8])
+%yticks([-10,-8])
 
 axs(3,2) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
@@ -773,8 +779,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-ylim([0,2])
-yticks([0,2])
+%ylim([0,2])
+%yticks([0,2])
 
 axs(3,3) = nexttile;
 avg = [mean(pparams_hit(:,1)), ...
@@ -797,9 +803,9 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-ylim([0,20])
+%ylim([0,20])
 xlim([0.5,4.5])
-yticks([0,20])
+%yticks([0,20])
 % ylabel('Peak Frequency (Hz)')
 
 axs(3,4) = nexttile;
@@ -823,8 +829,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-ylim([0,0.8])
-yticks([0,0.8])
+%ylim([0,0.8])
+%yticks([0,0.8])
 xlim([0.5,4.5])
 % ylabel('Relative Power (a.u.)')
 
@@ -849,8 +855,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-ylim([0,8])
-yticks([0,8])
+%ylim([0,8])
+%yticks([0,8])
 xlim([0.5,4.5])
 % ylabel('Bandwidth (Hz)')
 
@@ -948,8 +954,8 @@ errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks(1:4)
 xticklabels({'Hit','Miss','CR','FA'})
-ylim([-10,-8])
-yticks([-10,-8])
+%ylim([-10,-8])
+%yticks([-10,-8])
 
 axs(4,2) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
@@ -973,8 +979,8 @@ errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks(1:4)
 xticklabels({'Hit','Miss','CR','FA'})
-ylim([0,2])
-yticks([0,2])
+%ylim([0,2])
+%yticks([0,2])
 
 axs(4,3) = nexttile;
 avg = [mean(pparams_hit(:,1)), ...
@@ -997,8 +1003,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'Hit','Miss','CR','FA'})
-ylim([0,20])
-yticks([0,20])
+%ylim([0,20])
+%yticks([0,20])
 xlim([0.5,4.5])
 % ylabel('Peak Frequency (Hz)')
 
@@ -1023,8 +1029,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'Hit','Miss','CR','FA'})
-ylim([0,0.8])
-yticks([0,0.8])
+%ylim([0,0.8])
+%yticks([0,0.8])
 xlim([0.5,4.5])
 % ylabel('Relative Power (a.u.)')
 
@@ -1049,9 +1055,9 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'Hit','Miss','CR','FA'})
-ylim([0,8])
+%ylim([0,8])
 xlim([0.5,4.5])
-yticks([0,8])
+%yticks([0,8])
 
 pparams_ag= pparams_hit;
 pparams_ag_hit= pparams_hit;

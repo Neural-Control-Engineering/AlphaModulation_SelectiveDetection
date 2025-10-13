@@ -1,145 +1,149 @@
 
 
 Mod vs. Unmod on hit trials
-S1 mod RS vs unmod RS evoked fr (Mann-Whitney): p = 3.547677e-02
-S1 mod fs vs unmod fs evoked fr (Mann-Whitney): p = 1.094198e-02
-PFC mod RS vs unmod RS evoked fr (Mann-Whitney): p = 6.010028e-01
-PFC mod fs vs unmod fs evoked fr (Mann-Whitney): p = 1.422372e-03
-Striatum mod RS vs unmod RS evoked fr (Mann-Whitney): p = 2.666548e-01
-Striatum mod fs vs unmod fs evoked fr (Mann-Whitney): p = 1.204495e-01
+S1 mod RS vs unmod RS evoked fr (Mann-Whitney): p = 6.179482e-01
+S1 mod fs vs unmod fs evoked fr (Mann-Whitney): p = 1.948585e-03
+PFC mod RS vs unmod RS evoked fr (Mann-Whitney): p = 6.028340e-01
+PFC mod fs vs unmod fs evoked fr (Mann-Whitney): p = 8.296011e-04
+Striatum mod RS vs unmod RS evoked fr (Mann-Whitney): p = 7.219358e-03
+Striatum mod fs vs unmod fs evoked fr (Mann-Whitney): p = 9.476269e-04
 
 
 Mod vs. Unmod on cr trials
-S1 mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 8.104367e-01
-S1 mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 9.664123e-01
-PFC mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 7.951111e-01
-PFC mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 1.085584e-04
-Striatum mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 6.935986e-02
-Striatum mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 6.540085e-02
+S1 mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 4.641725e-01
+S1 mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 3.026946e-02
+PFC mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 8.241949e-01
+PFC mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 5.199880e-05
+Striatum mod RS vs unmod RS evoked fr (Mann-Wcrney): p = 9.577436e-01
+Striatum mod fs vs unmod fs evoked fr (Mann-Wcrney): p = 1.486850e-01
 
 
 Mod vs. Unmod on miss trials
-S1 mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 8.356236e-02
-S1 mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 3.388396e-01
-PFC mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 7.199793e-01
+S1 mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 5.257451e-01
+S1 mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 1.154962e-02
+PFC mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 7.732797e-01
 PFC mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 5.279552e-02
-Striatum mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 6.850672e-01
-Striatum mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 5.332346e-01
+Striatum mod RS vs unmod RS evoked fr (Mann-Wmissney): p = 2.224099e-02
+Striatum mod fs vs unmod fs evoked fr (Mann-Wmissney): p = 2.292698e-02
 
 
 Mod vs. Unmod on fa trials
-S1 mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 8.321696e-01
-S1 mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 2.122673e-02
-PFC mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 6.082256e-01
-PFC mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 1.533675e-04
-Striatum mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 2.513075e-02
-Striatum mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 8.039768e-03
+S1 mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 9.971370e-01
+S1 mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 2.851168e-04
+PFC mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 5.905194e-01
+PFC mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 7.331703e-05
+Striatum mod RS vs unmod RS evoked fr (Mann-Wfaney): p = 2.461340e-01
+Striatum mod fs vs unmod fs evoked fr (Mann-Wfaney): p = 3.148214e-02
 
 
 Mod hit vs miss trials
-S1 mod RS vs mod RS evoked fr (signed-rank): p = 3.138011e-01
-S1 mod fs vs mod fs evoked fr (signed-rank): p = 4.699264e-02
-PFC mod RS vs mod RS evoked fr (signed-rank): p = 6.377673e-04
+S1 mod RS vs mod RS evoked fr (signed-rank): p = 5.108525e-03
+S1 mod fs vs mod fs evoked fr (signed-rank): p = 2.737044e-04
+PFC mod RS vs mod RS evoked fr (signed-rank): p = 7.683553e-04
 PFC mod fs vs mod fs evoked fr (signed-rank): p = 2.478415e-01
-Striatum mod RS vs mod RS evoked fr (paired t-test): p = 0
-Striatum mod fs vs mod fs evoked fr (signed-rank): p = 9.277344e-03
+Striatum mod RS vs mod RS evoked fr (signed-rank): p = 1.638940e-02
+Striatum mod fs vs mod fs evoked fr (signed-rank): p = 2.479270e-02
 
 
 Unmod hit vs miss trials
-S1 unmod RS vs unmod RS evoked fr (signed-rank): p = 5.937776e-02
-S1 unmod fs vs unmod fs evoked fr (signed-rank): p = 6.787098e-01
-PFC unmod RS vs unmod RS evoked fr (signed-rank): p = 2.723934e-04
+S1 unmod RS vs unmod RS evoked fr (signed-rank): p = 3.271202e-01
+S1 unmod fs vs unmod fs evoked fr (signed-rank): p = 3.840882e-01
+PFC unmod RS vs unmod RS evoked fr (signed-rank): p = 3.897761e-04
 PFC unmod fs vs unmod fs evoked fr (signed-rank): p = 3.271484e-02
-Striatum unmod RS vs unmod RS evoked fr (signed-rank): p = 2.481115e-01
-Striatum unmod fs vs unmod fs evoked fr (signed-rank): p = 4.549845e-01
+Striatum unmod RS vs unmod RS evoked fr (signed-rank): p = 5.436128e-01
+Striatum unmod fs vs unmod fs evoked fr (signed-rank): p = 7.543218e-01
 
 
 Mod vs. Unmod on hit trials
-S1 mod RS vs unmod RS iti fr (Mann-Whitney): p = 7.391242e-01
-S1 mod fs vs unmod fs iti fr (Mann-Whitney): p = 4.740892e-01
-PFC mod RS vs unmod RS iti fr (Mann-Whitney): p = 4.939264e-01
-PFC mod fs vs unmod fs iti fr (Mann-Whitney): p = 6.740339e-02
-Striatum mod RS vs unmod RS iti fr (Mann-Whitney): p = 1.729930e-02
-Striatum mod fs vs unmod fs iti fr (Mann-Whitney): p = 8.533006e-02
-[Warning: N=64 not found in table, using closest N=50 present.] 
+S1 mod RS vs unmod RS iti fr (Mann-Whitney): p = 6.912977e-01
+S1 mod fs vs unmod fs iti fr (Mann-Whitney): p = 4.281417e-01
+PFC mod RS vs unmod RS iti fr (Mann-Whitney): p = 5.059910e-01
+PFC mod fs vs unmod fs iti fr (Mann-Whitney): p = 3.839668e-02
+Striatum mod RS vs unmod RS iti fr (Mann-Whitney): p = 1.426680e-01
+Striatum mod fs vs unmod fs iti fr (Mann-Whitney): p = 1.933626e-03
+[Warning: N=160 not found in table, using closest N=100 present.] 
 [> In circ_kuipertest>kuiperlookup (line 100)
 In circ_kuipertest (line 59)
 In phaseModSummaries (line 1548)] 
-S1 RS theta bars vs FS theta bars Kuiper test: p = 2.000000e-02
-S1 RS MI vs FS MI Mann Whitney: p = 9.672326e-03
-S1 RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 9.378895e-05
-S1 RS vs FS fraction (Mann-Whitney): p = 2.633058e-01
-S1 RS mean theta bar: 2.790921e+00 +/- 5.462464e-02
-S1 FS mean theta bar: 2.980523e+00 +/- 5.912584e-02
+S1 RS theta bars vs FS theta bars Kuiper test: p = 1
+S1 RS MI vs FS MI Mann Whitney: p = 1.990999e-03
+S1 RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 1.161952e-09
+S1 RS vs FS fraction (Mann-Whitney): p = 6.557213e-01
+S1 RS mean theta bar: 2.491732e+00 +/- 5.055314e-02
+S1 FS mean theta bar: 2.633881e+00 +/- 6.655267e-02
 [Warning: N=26 not found in table, using closest N=25 present.] 
 [> In circ_kuipertest>kuiperlookup (line 100)
 In circ_kuipertest (line 59)
 In phaseModSummaries (line 1667)] 
 PFC RS theta bars vs FS theta bars Kuiper test: p = 1.000000e-02
-PFC RS MI vs FS MI Mann Whitney: p = 8.583063e-02
-PFC RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 2.082353e-04
-PFC RS vs FS fraction (Mann-Whitney): p = 3.811134e-01
-PFC RS mean theta bar: 2.787663e+00 +/- 7.054069e-02
+PFC RS MI vs FS MI Mann Whitney: p = 9.466370e-02
+PFC RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 2.327002e-04
+PFC RS vs FS fraction (Mann-Whitney): p = 3.810312e-01
+PFC RS mean theta bar: 2.779794e+00 +/- 7.062738e-02
 PFC FS mean theta bar: 5.689574e-01 +/- 2.450192e-01
-Striatum RS theta bars vs FS theta bars Kuiper test: n too low
-Striatum RS MI vs FS MI Mann Whitney: p = 2.197802e-01
-Striatum RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 2.197802e-01
-Striatum RS vs FS fraction (Mann-Whitney): p = 1.826625e-01
-Striatum RS mean theta bar: -2.385286e+00 +/- 0
-Striatum FS mean theta bar: -5.332073e-01 +/- 2.374977e-01
+[Warning: N=38 not found in table, using closest N=35 present.] 
+[> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In phaseModSummaries (line 1787)] 
+Striatum RS theta bars vs FS theta bars Kuiper test: p = 1
+Striatum RS MI vs FS MI Mann Whitney: p = 1.191437e-02
+Striatum RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 1.740850e-02
+Striatum RS vs FS fraction (Mann-Whitney): p = 4.401329e-01
+Striatum RS mean theta bar: -2.814949e+00 +/- 1.436654e-01
+Striatum FS mean theta bar: -2.907123e+00 +/- 1.120781e-01
 
 Amygdala RS theta bars vs FS theta bars Kuiper test: p = NaN
 Amygdala RS mean theta bar: 0 +/- NaN
-Total modulated S1 RS: 80
-Total modulated S1 FS: 64
-Total modulated S1: 144
-S1 RS fraction modulated: 6.494444e-01 +/- 8.406041e-02
-S1 FS fraction modulated: 7.547619e-01 +/- 9.588405e-02
-Total modulated PFC RS: 207
+Total modulated S1 RS: 253
+Total modulated S1 FS: 160
+Total modulated S1: 413
+S1 RS fraction modulated: 7.177396e-01 +/- 4.255913e-02
+S1 FS fraction modulated: 7.755193e-01 +/- 3.749109e-02
+Total modulated PFC RS: 205
 Total modulated PFC FS: 26
-Total modulated PFC: 233
-PFC RS fraction modulated: 5.208573e-01 +/- 2.924621e-02
+Total modulated PFC: 231
+PFC RS fraction modulated: 5.200345e-01 +/- 2.831507e-02
 PFC FS fraction modulated: 6.153846e-01 +/- 1.040227e-01
-Total modulated Striatum RS: 2
-Total modulated Striatum FS: 12
-Total modulated Striatum: 14
-Striatum RS fraction modulated: 5.555556e-02 +/- 5.555556e-02
-Striatum FS fraction modulated: 4.411255e-02 +/- 1.769986e-02
+Total modulated Striatum RS: 38
+Total modulated Striatum FS: 61
+Total modulated Striatum: 99
+Striatum RS fraction modulated: 1.720051e-01 +/- 4.569729e-02
+Striatum FS fraction modulated: 2.032323e-01 +/- 4.245561e-02
 Total modulated Amygdala RS: 0
-Total modulated Amygdala FS: 22
-Total modulated Amygdala: 22
-Amygdala RS fraction modulated: NaN +/- NaN
-Amygdala FS fraction modulated: 4.666667e-01 +/- 1.401058e-01
+Total modulated Amygdala FS: 21
+Total modulated Amygdala: 21
+Amygdala RS fraction modulated: 0 +/- 0
+Amygdala FS fraction modulated: 2.773088e-01 +/- 7.994335e-02
 
-S1 RS vs FS fraction (signed-rank): p = 3.085938e-01
-PFC RS vs FS fraction (signed-rank): p = 3.757324e-01
-Striatum RS vs FS fraction (signed-rank): p = 4.375000e-01
+S1 RS vs FS fraction (signed-rank): p = 2.320221e-01
+PFC RS vs FS fraction (signed-rank): p = 3.395996e-01
+Striatum RS vs FS fraction (signed-rank): p = 5.571932e-02
 
-S1 RS vs PFC RS fraction (mann-whitney): p = 7.125341e-02
-S1 FS vs PFC FS fraction (mann-whitney): p = 3.194674e-01
-Striatum RS vs PFC RS fraction (mann-whitney): p = 3.267228e-04
-Striatum FS vs PFC FS fraction (mann-whitney): p = 1.738664e-03
-Striatum FS vs S1 FS fraction (signed-rank): p = 3.906250e-03
+S1 RS vs PFC RS fraction (mann-whitney): p = 2.278772e-04
+S1 FS vs PFC FS fraction (mann-whitney): p = 2.326326e-01
+Striatum RS vs PFC RS fraction (mann-whitney): p = 2.388734e-05
+Striatum FS vs PFC FS fraction (mann-whitney): p = 2.736448e-03
+Striatum FS vs S1 FS fraction (signed-rank): p = 6.881328e-05
 
-S1 overall vs PFC overall (mann-whitney) p = 7.569139e-03
-Striatum overall vs PFC overall (mann-whitney) p = 6.070880e-05
-Amygdala overall vs PFC overall (mann-whitney) p = 9.008973e-01
-S1 overall vs Striatum overall (sign-rank) p = 1.953125e-03
-S1 overall vs Amygdala overall (sign-rank) p = 1.640625e-01
-Striatum overall vs Amygdala overall (sign-rank) p = 5.468750e-02
+S1 overall vs PFC overall (mann-whitney) p = 7.177468e-05
+Striatum overall vs PFC overall (mann-whitney) p = 3.948792e-06
+Amygdala overall vs PFC overall (mann-whitney) p = 1.287440e-02
+S1 overall vs Striatum overall (sign-rank) p = 5.956978e-05
+S1 overall vs Amygdala overall (sign-rank) p = 4.493369e-04
+Striatum overall vs Amygdala overall (sign-rank) p = 7.088811e-01
 
-S1 overall fraction: 7.065659e-01 +/- 4.630431e-02
-PFC overall fraction: 5.307139e-01 +/- 3.084945e-02
-Striatum overall fraction: 4.083550e-02 +/- 1.368700e-02
-Amygdala overall fraction: 4.666667e-01 +/- 1.401058e-01
+S1 overall fraction: 7.365844e-01 +/- 2.581839e-02
+PFC overall fraction: 5.286602e-01 +/- 2.970693e-02
+Striatum overall fraction: 1.807500e-01 +/- 3.506359e-02
+Amygdala overall fraction: 2.714165e-01 +/- 7.973440e-02
 
-S1 vs PFC MI (mann-whitney): p = 4.624765e-03
-Striatum vs PFC MI (mann-whitney): p = 9.370688e-01
-Amygdala vs PFC MI (mann-whitney): p = 1.181773e-03
-Striatum vs S1 MI (mann-whitney): p = 2.412902e-01
-Amygdala vs S1 MI (two-sample t-test): p = 6.223175e-02
-Striatum vs Amygdala MI (mann-whitney): p = 3.334208e-02
+S1 vs PFC MI (mann-whitney): p = 5.495945e-02
+Striatum vs PFC MI (mann-whitney): p = 5.564600e-13
+Amygdala vs PFC MI (mann-whitney): p = 1.733262e-02
+Striatum vs S1 MI (mann-whitney): p = 5.020994e-12
+Amygdala vs S1 MI (two-sample t-test): p = 9.226320e-02
+Striatum vs Amygdala MI (mann-whitney): p = 1.750595e-02
 
-Mod vs. Unmod baseline FR (mann-whitney): p = 9.891717e-04
-Mod avg baseline FR: 9.733298e+00 +/- 5.180034e-01
-Unmod avg baseline FR: 1.101111e+01 +/- 6.442300e-01
+Mod vs. Unmod baseline FR (mann-whitney): p = 1.828618e-11
+Mod avg baseline FR: 1.044681e+01 +/- 3.665296e-01
+Unmod avg baseline FR: 1.155709e+01 +/- 6.641290e-01

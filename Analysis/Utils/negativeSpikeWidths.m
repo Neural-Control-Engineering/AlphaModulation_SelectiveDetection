@@ -123,17 +123,19 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
     hold on
     plot(all_t2p(idx == 2 & s > 0.25), all_widths(idx == 2 & s > 0.25), 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     plot(all_t2p(s <= 0.25), all_widths(s < 0.25), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    xlim([0,0.9])
     % figure(); plot(all_t2p(idx == 1), all_widths(idx == 1), 'o', 'MarkerFaceColor', [0,0,0], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     % hold on
     % plot(all_t2p(idx == 2), all_widths(idx == 2), 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    keyboard 
 
     last_animal = '';
     for i = 1:length(ap_files)
         session = ap_files{i}(1:end-4);
         sesh_parts = strsplit(session, '_');
         subj = sesh_parts{2};
-        % idx_tmp = idx(strcmp(all_sessions, ap_files{i}),:);
-        % s_tmp = s(strcmp(all_sessions, ap_files{i}),:);
+        idx_tmp = idx(strcmp(all_sessions, ap_files{i}),:);
+        s_tmp = s(strcmp(all_sessions, ap_files{i}),:);
         cell_count = 1;
         if ~strcmp(subj, last_animal)
             try 
@@ -168,7 +170,7 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps)
             end
         end
         ftr_parts = strsplit(ftr_file, '.');
-        ftr_parts{1} = strcat(ftr_parts{1}, '_sill');
+        ftr_parts{1} = strcat(ftr_parts{1}, '_sill_v2');
         ftr_file = strcat(ftr_parts{1}, '.', ftr_parts{2});
         save(ftr_file, 'ap_ftr', '-v7.3')
     end
