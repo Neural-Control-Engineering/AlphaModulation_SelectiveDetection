@@ -1,0 +1,213 @@
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 21 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 21 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 21 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 21 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 12 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 12 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 12 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 12 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 21 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 21 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 21 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 21 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 21 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 21 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 21 power spectra.
+
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+Fitting model across 21 power spectra.
+S1 params
+Aperiodic 1:
+
+ans =
+
+    0.9341
+
+Aperiodic 2:
+
+ans =
+
+    0.9964
+
+Periodic 1:
+
+ans =
+
+    0.0758
+
+Periodic 2:
+
+ans =
+
+    0.9256
+
+Periodic 3:
+
+ans =
+
+    0.7251
+
+PFC params
+Aperiodic 1:
+
+ans =
+
+    0.6732
+
+Aperiodic 2:
+
+ans =
+
+    0.6163
+
+Periodic 1:
+
+ans =
+
+    0.0323
+
+Periodic 2:
+
+ans =
+
+    0.1868
+
+Periodic 3:
+
+ans =
+
+    0.5560
+
+Striatum params
+Aperiodic 1:
+
+ans =
+
+    0.9944
+
+Aperiodic 2:
+
+ans =
+
+    0.9914
+
+Periodic 1:
+
+ans =
+
+    0.6453
+
+Periodic 2:
+
+ans =
+
+    0.7302
+
+Periodic 3:
+
+ans =
+
+    0.8812
+
+Amygdala params
+Aperiodic 1:
+
+ans =
+
+    0.9764
+
+Aperiodic 2:
+
+ans =
+
+    0.9197
+
+Periodic 1:
+
+ans =
+
+    0.5663
+
+Periodic 2:
+
+ans =
+
+    0.8329
+
+Periodic 3:
+
+ans =
+
+    0.9100
+
+
+Inter-region
+Aperiodic 1:
+S1 vs PFC (mann-whitney): p = 9.583883e-02
+S1 vs Striatum (wilcoxon sign-rank): p = 5.956978e-05
+S1 vs Amygdala (wilcoxon sign-rank): p = 5.956978e-05
+Amygdala vs Striatum (wilcoxon sign-rank): p = 1.866385e-04
+Striatum vs PFC (mann-whitney): p = 4.944166e-02
+Amygdala vs PFC (mann-whitney): p = 8.860649e-02
+
+Aperiodic 2:
+S1 vs PFC (mann-whitney): p = 2.238775e-01
+S1 vs Striatum (wilcoxon sign-rank): p = 7.943375e-01
+S1 vs Amygdala (wilcoxon sign-rank): p = 9.584199e-01
+Amygdala vs Striatum (wilcoxon sign-rank): p = 2.097612e-03
+Striatum vs PFC (mann-whitney): p = 1.058097e-03
+Amygdala vs PFC (mann-whitney): p = 9.262186e-04
+
+Periodic 1:
+S1 vs PFC (mann-whitney): p = 2.536894e-01
+Amygdala vs Striatum (wilcoxon sign-rank): p = 7.151448e-01
+S1 vs Striatum (wilcoxon sign-rank): p = 3.863248e-02
+S1 vs Amygdala (wilcoxon sign-rank): p = 3.863248e-02
+Striatum vs PFC (mann-whitney): p = 2.099489e-01
+Amygdala vs PFC (mann-whitney): p = 1.496338e-01
+
+Periodic 2:
+S1 vs PFC (mann-whitney): p = 1.933524e-02
+Amygdala vs Striatum (wilcoxon sign-rank): p = 5.663054e-01
+S1 vs Striatum (wilcoxon sign-rank): p = 7.921462e-02
+S1 vs Amygdala (wilcoxon sign-rank): p = 6.295145e-02
+Striatum vs PFC (mann-whitney): p = 1.036084e-02
+Amygdala vs PFC (mann-whitney): p = 2.135889e-02
+
+Periodic 3:
+S1 vs PFC (mann-whitney): p = 1.375435e-03
+Amygdala vs Striatum (wilcoxon sign-rank): p = 5.349252e-01
+S1 vs Striatum (wilcoxon sign-rank): p = 2.097612e-03
+S1 vs Amygdala (wilcoxon sign-rank): p = 1.865752e-03
+Striatum vs PFC (mann-whitney): p = 1.477245e-01
+Amygdala vs PFC (mann-whitney): p = 1.489528e-01

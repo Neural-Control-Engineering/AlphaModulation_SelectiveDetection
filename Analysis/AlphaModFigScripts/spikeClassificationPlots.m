@@ -19,4 +19,4 @@ for i = 1:length(ap_files)
         regMaps{i} = map0.regMap;
     end
 end
-negativeSpikeWidths(ap_dir, ap_files, regMaps)
+negativeSpikeWidths(ap_dir, ap_files, regMaps, false, true)

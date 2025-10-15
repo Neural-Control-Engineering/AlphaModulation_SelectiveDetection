@@ -141,119 +141,151 @@ end
 fig = figure('Position', [1220 881 1314 957]); 
 tl = tiledlayout(4,4);
 axs(1) = nexttile;
-semshade(log10(s1_hit), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
+semshade(20*log10(s1_hit), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
 xlim([0,30])
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
+ylim([-230,-160])
+yticks([-230,-160])
 xticklabels({})
 title('Hit', 'FontSize', 14, 'FontWeight', 'normal')
 ylabel('S1', 'FontSize', 14)
 axs(2) = nexttile;
-semshade(log10(s1_miss), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1});
+semshade(20*log10(s1_miss), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+ylim([-230,-160])
+yticks([-230,-160])
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 title('Miss', 'FontSize', 14, 'FontWeight', 'normal')
 axs(3) = nexttile;
-semshade(log10(s1_cr), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
+semshade(20*log10(s1_cr), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
 xlim([0,30])
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+ylim([-230,-160])
+yticks([-230,-160])
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 title('Correct Rejection', 'FontSize', 14, 'FontWeight', 'normal')
 axs(4) = nexttile;
-semshade(log10(s1_fa), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1});
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+semshade(20*log10(s1_fa), 0.3, 'k', 'k', data.lfp_session(s1_channel,:).left_trigger_baseline_spectra_Hit_f{1});
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 xlim([0,30])
+ylim([-230,-160])
+yticks([-230,-160])
 xticklabels({})
 yticklabels({})
 title('False Alarm', 'FontSize', 14, 'FontWeight', 'normal')
 
 axs(5) = nexttile;
-semshade(log10(pfc_hit), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
+semshade(20*log10(pfc_hit), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
 xlim([0,30])
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+ylim([-230,-160])
+yticks([-230,-160])
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 xticklabels({})
 ylabel('PFC', 'FontSize', 14)
 axs(6) = nexttile;
-semshade(log10(pfc_miss), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1});
+semshade(20*log10(pfc_miss), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+ylim([-230,-160])
+yticks([-230,-160])
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 axs(7) = nexttile;
-semshade(log10(pfc_cr), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
+semshade(20*log10(pfc_cr), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
 xlim([0,30])
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+ylim([-230,-160])
+yticks([-230,-160])
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 axs(8) = nexttile;
-semshade(log10(pfc_fa), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1});
+semshade(20*log10(pfc_fa), 0.3, 'k', 'k', data.lfp_session(pfc_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+ylim([-230,-160])
+yticks([-230,-160])
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 
 axs(9) = nexttile;
-semshade(log10(striatum_hit), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
+semshade(20*log10(striatum_hit), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
 xlim([0,30])
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+ylim([-230,-160])
+yticks([-230,-160])
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 xticklabels({})
 ylabel('Striatum', 'FontSize', 14)
 axs(10) = nexttile;
-semshade(log10(striatum_miss), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1});
+semshade(20*log10(striatum_miss), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+ylim([-230,-160])
+yticks([-230,-160])
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 axs(11) = nexttile;
-semshade(log10(striatum_cr), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
+semshade(20*log10(striatum_cr), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
 xlim([0,30])
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+ylim([-230,-160])
+yticks([-230,-160])
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 xticklabels({})
 yticklabels({})
 axs(12) = nexttile;
-semshade(log10(striatum_fa), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1});
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+semshade(20*log10(striatum_fa), 0.3, 'k', 'k', data.lfp_session(striatum_channel,:).left_trigger_baseline_spectra_Hit_f{1});
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 xlim([0,30])
+ylim([-230,-160])
+yticks([-230,-160])
 xticklabels({})
 yticklabels({})
 
 axs(13) = nexttile;
-semshade(log10(amygdala_hit), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
+semshade(20*log10(amygdala_hit), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1}); 
 xlim([0,30])
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+ylim([-230,-160])
+yticks([-230,-160])
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 ylabel('Amygdala', 'FontSize', 14)
 axs(14) = nexttile;
-semshade(log10(amygdala_miss), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1});
+semshade(20*log10(amygdala_miss), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1});
 xlim([0,30])
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+ylim([-230,-160])
+yticks([-230,-160])
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 yticklabels({})
 axs(15) = nexttile;
-semshade(log10(amygdala_cr), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
+semshade(20*log10(amygdala_cr), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1});  
 xlim([0,30])
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+ylim([-230,-160])
+yticks([-230,-160])
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 yticklabels({})
 axs(16) = nexttile;
-semshade(log10(amygdala_fa), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1});
-ylim([-11.5,-8.5])
-yticks([-11.5,-8.5])
+semshade(20*log10(amygdala_fa), 0.3, 'k', 'k', data.lfp_session(amygdala_channel,:).left_trigger_baseline_spectra_Hit_f{1});
+% ylim([-11.5,-8.5])
+% yticks([-11.5,-8.5])
 xlim([0,30])
+ylim([-230,-160])
+yticks([-230,-160])
 yticklabels({})
 xlabel(tl, 'Frequency (Hz)', 'FontSize', 14)
 ylabel(tl, 'log LFP power', 'FontSize', 14)
@@ -370,8 +402,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-%ylim([-10,-8])
-%yticks([-10,-8])
+ylim([-10,-4])
+yticks([-10,-4])
 
 axs(1,2) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
@@ -394,8 +426,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-%ylim([0,2])
-%yticks([0,2])
+ylim([0,2])
+yticks([0,2])
 
 axs(1,3) = nexttile;
 avg = [mean(pparams_hit(:,1)), ...
@@ -418,8 +450,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-%ylim([0,20])
-%yticks([0,20])
+ylim([0,30])
+yticks([0,30])
 xlim([0.5,4.5])
 % ylabel('Peak Frequency (Hz)')
 
@@ -444,8 +476,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-%ylim([0,0.8])
-%yticks([0,0.8])
+ylim([0,1.5])
+yticks([0,1.5])
 xlim([0.5,4.5])
 % ylabel('Relative Power (a.u.)')
 
@@ -470,8 +502,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-%ylim([0,8])
-%yticks([0,8])
+ylim([0,8])
+yticks([0,8])
 xlim([0.5,4.5])
 % ylabel('Bandwidth (Hz)')
 
@@ -556,8 +588,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-%ylim([-10,-8])
-%yticks([-10,-8])
+ylim([-10,-4])
+yticks([-10,-4])
 
 axs(2,2) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
@@ -580,8 +612,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-%ylim([0,2])
-%yticks([0,2])
+ylim([0,2])
+yticks([0,2])
 
 axs(2,3) = nexttile;
 avg = [mean(pparams_hit(:,1)), ...
@@ -604,8 +636,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-%ylim([0,20])
-%yticks([0,20])
+ylim([0,30])
+yticks([0,30])
 xlim([0.5,4.5])
 % ylabel('Peak Frequency (Hz)')
 
@@ -630,8 +662,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-%ylim([0,0.8])
-%yticks([0,0.8])
+ylim([0,1.5])
+yticks([0,1.5])
 xlim([0.5,4.5])
 % ylabel('Relative Power (a.u.)')
 
@@ -657,8 +689,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-%ylim([0,8])
-%yticks([0,8])
+ylim([0,8])
+yticks([0,8])
 xlim([0.5,4.5])
 % ylabel('Bandwidth (Hz)')
 
@@ -754,8 +786,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-%ylim([-10,-8])
-%yticks([-10,-8])
+ylim([-10,-4])
+yticks([-10,-4])
 
 axs(3,2) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
@@ -779,8 +811,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks([])
-%ylim([0,2])
-%yticks([0,2])
+ylim([0,2])
+yticks([0,2])
 
 axs(3,3) = nexttile;
 avg = [mean(pparams_hit(:,1)), ...
@@ -803,9 +835,9 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-%ylim([0,20])
+ylim([0,30])
 xlim([0.5,4.5])
-%yticks([0,20])
+yticks([0,30])
 % ylabel('Peak Frequency (Hz)')
 
 axs(3,4) = nexttile;
@@ -829,8 +861,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-%ylim([0,0.8])
-%yticks([0,0.8])
+ylim([0,1.5])
+yticks([0,1.5])
 xlim([0.5,4.5])
 % ylabel('Relative Power (a.u.)')
 
@@ -855,8 +887,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'','','',''})
-%ylim([0,8])
-%yticks([0,8])
+ylim([0,8])
+yticks([0,8])
 xlim([0.5,4.5])
 % ylabel('Bandwidth (Hz)')
 
@@ -954,8 +986,8 @@ errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks(1:4)
 xticklabels({'Hit','Miss','CR','FA'})
-%ylim([-10,-8])
-%yticks([-10,-8])
+ylim([-10,-4])
+yticks([-10,-4])
 
 axs(4,2) = nexttile;
 avg = [mean(DF_specs_hit.aperiodic_params(:,2)), ...
@@ -979,8 +1011,8 @@ errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xlim([0.5,4.5])
 xticks(1:4)
 xticklabels({'Hit','Miss','CR','FA'})
-%ylim([0,2])
-%yticks([0,2])
+ylim([0,2])
+yticks([0,2])
 
 axs(4,3) = nexttile;
 avg = [mean(pparams_hit(:,1)), ...
@@ -1003,8 +1035,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'Hit','Miss','CR','FA'})
-%ylim([0,20])
-%yticks([0,20])
+ylim([0,30])
+yticks([0,30])
 xlim([0.5,4.5])
 % ylabel('Peak Frequency (Hz)')
 
@@ -1029,8 +1061,8 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'Hit','Miss','CR','FA'})
-%ylim([0,0.8])
-%yticks([0,0.8])
+ylim([0,1.5])
+yticks([0,1.5])
 xlim([0.5,4.5])
 % ylabel('Relative Power (a.u.)')
 
@@ -1055,9 +1087,9 @@ plot(zeros(1,size(DF_specs_hit.aperiodic_params,1))+4+(rand(1,size(DF_specs_hit.
 errorbar(1:4, avg, err, 'bo', 'CapSize', 10, 'MarkerSize', 1, 'LineWidth', 2)
 xticks([1,2,3,4])
 xticklabels({'Hit','Miss','CR','FA'})
-%ylim([0,8])
+ylim([0,8])
 xlim([0.5,4.5])
-%yticks([0,8])
+yticks([0,8])
 
 pparams_ag= pparams_hit;
 pparams_ag_hit= pparams_hit;

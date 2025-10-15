@@ -1,0 +1,24 @@
+[Warning: Columns of X are linearly dependent to within machine precision.
+Using only the first 19 components to compute TSQUARED.] 
+[> In pca>localTSquared (line 515)
+In pca (line 361)
+In phaseModClasses (line 27)] 
+Enter bimodal index: 2
+PFC RS Bimodal Pct: 6.1
+PFC FS Bimodal Pct: 0.8
+PFC RS Peak Pct: 11.8
+PFC RS Trough Pct: 52.0
+PFC FS Peak Pct: 38.5
+PFC FS Trough Pct: 30.8
+S1 RS Peak Pct: 1.8
+S1 RS Trough Pct: 44.9
+S1 FS Peak Pct: 5.1
+S1 FS Trough Pct: 55.4
+Striatum RS Peak Pct: 7.4
+Striatum RS Trough Pct: 47.1
+Striatum FS Peak Pct: 9.4
+Striatum FS Trough Pct: 67.2
+Amygdala RS Peak Pct: NaN
+Amygdala RS Trough Pct: NaN
+Amygdala FS Peak Pct: 38.1
+Amygdala FS Trough Pct: 9.5

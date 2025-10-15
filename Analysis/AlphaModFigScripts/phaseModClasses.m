@@ -3,6 +3,10 @@ addpath(genpath('~/mvmdist/'))
 if ~exist('../Figures/', 'dir')
     mkdir('../Figures/')
 end
+
+delete Stats/phase_mod_classes.txt 
+diary Stats/phase_mod_classes.txt 
+
 pfc = load(strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/data.mat'));
 pfc = pfc.out.alpha_modulated;
 
@@ -227,3 +231,5 @@ fprintf(sprintf('Amygdala RS Peak Pct: %.1f\n', amygdala_rs_peak_total / length(
 fprintf(sprintf('Amygdala RS Trough Pct: %.1f\n', amygdala_rs_trough_total / length(theta_amygdala_rs) * 100))
 fprintf(sprintf('Amygdala FS Peak Pct: %.1f\n', amygdala_fs_peak_total / length(theta_amygdala_fs) * 100))
 fprintf(sprintf('Amygdala FS Trough Pct: %.1f\n', amygdala_fs_trough_total / length(theta_amygdala_fs) * 100))
+
+diary off

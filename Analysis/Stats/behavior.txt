@@ -1,3 +1,47 @@
+
+Hit Rates:
+Animal 1 vs Animal 2 HR (2-sample t-test): p = 1.088149e-01
+Animal 1 vs Animal 3 HR (2-sample t-test): p = 2.397164e-02
+Animal 1 vs Animal 4 HR (2-sample t-test): p = 1.460756e-02
+Animal 2 vs Animal 4 HR (2-sample t-test): p = 6.624106e-01
+Animal 3 vs Animal 4 HR (2-sample t-test): p = 1.607143e-01
+Animal 3 vs Animal 2 HR (2-sample t-test): p = 4.671284e-01
+
+False Alarm Rates:
+Animal 1 vs Animal 2 HR (2-sample t-test): p = 1.964660e-01
+Animal 1 vs Animal 3 HR (2-sample t-test): p = 2.891004e-01
+Animal 1 vs Animal 4 HR (2-sample t-test): p = 4.564903e-01
+Animal 2 vs Animal 4 HR (2-sample t-test): p = 3.018154e-01
+Animal 3 vs Animal 4 HR (2-sample t-test): p = 3.603335e-01
+Animal 3 vs Animal 2 HR (2-sample t-test): p = 9.526620e-01
+
+Hit Rate vs. False Alarm Rate
+Animal 1 (t-test): p = 2.205558e-05
+Animal 2 (t-test): p = 3.098322e-07
+Animal 3 (t-test): p = 1.236033e-03
+Animal 4 (t-test): p = 4.337482e-10
+
+Hit Reaction Time:
+Animal 1 vs Animal 2 Hit Reaction Time (2-sample t-test): p = 1.819555e-01
+Animal 1 vs Animal 3 Hit Reaction Time (2-sample t-test): p = 7.649168e-01
+Animal 1 vs Animal 4 Hit Reaction Time (2-sample t-test): p = 5.417536e-01
+Animal 2 vs Animal 4 Hit Reaction Time (2-sample t-test): p = 8.453397e-03
+Animal 3 vs Animal 4 Hit Reaction Time (2-sample t-test): p = 2.906942e-01
+Animal 3 vs Animal 2 Hit Reaction Time (2-sample t-test): p = 3.130634e-01
+
+False Alarm Reaction Time:
+Animal 1 vs Animal 2 HR (2-sample t-test): p = 1.964660e-01
+Animal 1 vs Animal 3 HR (2-sample t-test): p = 2.891004e-01
+Animal 1 vs Animal 4 HR (2-sample t-test): p = 4.564903e-01
+Animal 2 vs Animal 4 HR (2-sample t-test): p = 3.018154e-01
+Animal 3 vs Animal 4 HR (2-sample t-test): p = 3.603335e-01
+Animal 3 vs Animal 2 HR (2-sample t-test): p = 9.526620e-01
+
+Hit Rate vs. False Alarm Rate
+Animal 1 (t-test): p = 2.205558e-05
+Animal 2 (t-test): p = 3.098322e-07
+Animal 3 (t-test): p = 1.236033e-03
+Animal 4 (t-test): p = 4.337482e-10
 Hit Rate vs FA Rate: Wilcoxon Signed Rank **p = 2.881344e-23
 Hit RT vs FA RT: Wilcoxon Signed Rank p = 7.234435e-01
 Mean d-prime: 2.284867e+00
@@ -8,3 +52,17 @@ Avg FA RT: 4.968647e-01
 FA RT Standard Error: 5.309723e-02
 Avg. Hit Rate: 8.690240e-01 +/ 2.745494e-02
 Avg. FA Rate: 1.734209e-01 +/ 1.899068e-02
+
+ans = 
+
+  Patch with properties:
+
+    FaceColor: [0 0 0]
+    FaceAlpha: 0.3000
+    EdgeColor: [0 0 0]
+    LineStyle: 'none'
+        Faces: [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 ... ] (1x160 double)
+     Vertices: [160x2 double]
+
+  Use GET to show all properties
+

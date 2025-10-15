@@ -241,29 +241,80 @@ pfc_miss(:,:,exlc_inds) = [];
 pfc_cr(:,:,exlc_inds) = [];
 pfc_fa(:,:,exlc_inds) = [];
 
-fig = figure();
+fig = figure('Position', [1220 899 1420 819]);
 tl = tiledlayout(4,4);
-axs(1) = nexttile; imagesc(t, f, nanmean(20*log10(s1_hit),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]); ylabel('S1'); title('Hit')
-axs(2) = nexttile; imagesc(t, f, nanmean(20*log10(s1_miss),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]); title('Miss')
-axs(3) = nexttile; imagesc(t, f, nanmean(20*log10(s1_cr),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]); title('Correct Rejection')
-axs(4) = nexttile; imagesc(t, f, nanmean(20*log10(s1_fa),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]); title('False Alarm')
+axs(1) = nexttile; imagesc(t, f, nanmean(20*log10(s1_hit),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]); ylabel('S1', 'FontSize', 18); title('Hit', 'FontWeight', 'normal', 'FontSize', 18)
+yticks([0,100])
+xticks([])
+ax = gca;
+ax.YAxis.FontSize = 16;
+axs(2) = nexttile; imagesc(t, f, nanmean(20*log10(s1_miss),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]); title('Miss', 'FontSize', 18, 'FontWeight', 'normal')
+xticks([])
+yticks([])
+axs(3) = nexttile; imagesc(t, f, nanmean(20*log10(s1_cr),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]); title('Correct Rejection', 'FontSize', 18, 'FontWeight', 'normal')
+xticks([])
+yticks([])
+axs(4) = nexttile; imagesc(t, f, nanmean(20*log10(s1_fa),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]); title('False Alarm', 'FontSize', 18, 'FontWeight', 'normal')
+xticks([])
+yticks([])
 
-axs(5) = nexttile; imagesc(t, f, nanmean(20*log10(striatum_hit),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]); ylabel('Striatum')
-axs(6) = nexttile; imagesc(t, f, nanmean(20*log10(striatum_miss),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]);
-axs(7) = nexttile; imagesc(t, f, nanmean(20*log10(striatum_cr),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]);
-axs(8) = nexttile; imagesc(t, f, nanmean(20*log10(striatum_fa),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]);
+axs(5) = nexttile; imagesc(t, f, nanmean(20*log10(pfc_hit),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-210,-190]); ylabel('PFC', 'FontSize', 18)
+yticks([0,100])
+xticks([])
+ax = gca;
+ax.YAxis.FontSize = 16;
+axs(6) = nexttile; imagesc(t, f, nanmean(20*log10(pfc_miss),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-210,-190]);
+yticks([])
+xticks([])
+axs(7) = nexttile; imagesc(t, f, nanmean(20*log10(pfc_cr),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-210,-190]);
+yticks([])
+xticks([])
+axs(8) = nexttile; imagesc(t, f, nanmean(20*log10(pfc_fa),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-210,-190]);
+yticks([])
+xticks([])
 
-axs(9) = nexttile; imagesc(t, f, nanmean(20*log10(amygdala_hit),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]); ylabel('Amygdala')
-axs(10) = nexttile; imagesc(t, f, nanmean(20*log10(amygdala_miss),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]);
-axs(11) = nexttile; imagesc(t, f, nanmean(20*log10(amygdala_cr),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]);
-axs(12) = nexttile; imagesc(t, f, nanmean(20*log10(amygdala_fa),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]);
+axs(9) = nexttile; imagesc(t, f, nanmean(20*log10(striatum_hit),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]); ylabel('Striatum', 'FontSize', 18)
+yticks([0,100])
+xticks([])
+ax = gca;
+ax.YAxis.FontSize = 16;
+axs(10) = nexttile; imagesc(t, f, nanmean(20*log10(striatum_miss),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]);
+xticks([])
+yticks([])
+axs(11) = nexttile; imagesc(t, f, nanmean(20*log10(striatum_cr),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]);
+xticks([])
+yticks([])
+axs(12) = nexttile; imagesc(t, f, nanmean(20*log10(striatum_fa),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]);
+xticks([])
+yticks([])
 
-axs(13) = nexttile; imagesc(t, f, nanmean(20*log10(pfc_hit),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-210,-190]); ylabel('PFC')
-axs(14) = nexttile; imagesc(t, f, nanmean(20*log10(pfc_miss),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-210,-190]);
-axs(15) = nexttile; imagesc(t, f, nanmean(20*log10(pfc_cr),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-210,-190]);
-axs(16) = nexttile; imagesc(t, f, nanmean(20*log10(pfc_fa),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-210,-190]);
-ylabel(tl, 'Frequency (Hz)')
-xlabel(tl, 'Time (s)')
+axs(13) = nexttile; imagesc(t, f, nanmean(20*log10(amygdala_hit),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]); ylabel('Amygdala', 'FontSize', 18)
+yticks([0,100])
+ax = gca;
+ax.YAxis.FontSize = 16;
+ax.XAxis.FontSize = 16;
+axs(14) = nexttile; imagesc(t, f, nanmean(20*log10(amygdala_miss),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]);
+yticks([])
+ax = gca;
+ax.YAxis.FontSize = 16;
+ax.XAxis.FontSize = 16;
+axs(15) = nexttile; imagesc(t, f, nanmean(20*log10(amygdala_cr),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]);
+yticks([])
+ax = gca;
+ax.YAxis.FontSize = 16;
+ax.XAxis.FontSize = 16;
+axs(16) = nexttile; imagesc(t, f, nanmean(20*log10(amygdala_fa),3)); set(gca, 'YDir', 'normal'); ylim([0,100]); clim([-215,-184]);
+yticks([])
+ax = gca;
+ax.YAxis.FontSize = 16;
+ax.XAxis.FontSize = 16;
+ylabel(tl, 'Frequency (Hz)', 'FontSize', 18)
+xlabel(tl, 'Time (s)', 'FontSize', 18)
+colorbar()
+
+saveas(fig, '../Figures/specGrmByOutcome.svg')
+saveas(fig, '../Figures/specGrmByOutcome.fig')
+
 
 % if out_path
 %     saveas(ap1_fig, '../Figures/ap1.fig')
