@@ -3,7 +3,7 @@ delete Stats/alpha_power_and_phase_mod.txt
 diary Stats/alpha_power_and_phase_mod.txt 
 init_paths;
 load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/data.mat'))
-out_path = false; %true;
+out_path = true;
 alpha_modulated = out.alpha_modulated;
 p_threshold = out.overall_p_threshold;
 clear out 
@@ -1723,10 +1723,88 @@ ax = gca;
 ax.YAxis.FontSize = 14;
 ax.XAxis.FontSize = 14;
 
-keyboard 
+out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
+load(out_file)
+high_starts = [];
+for i = 1:length(out.event_times_high)
+    for j = 1:length(out.event_times_high{i})
+        high_starts = [high_starts, out.event_times_high{i}{j}];
+    end
+end
+low_starts = [];
+for i = 1:length(out.event_times_low)
+    for j = 1:length(out.event_times_low{i})
+        low_starts = [low_starts, out.event_times_low{i}{j}];
+    end
+end
+out_file = strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
+load(out_file)
+for i = 1:length(out.event_times_high)
+    for j = 1:length(out.event_times_high{i})
+        high_starts = [high_starts, out.event_times_high{i}{j}];
+    end
+end
+for i = 1:length(out.event_times_low)
+    for j = 1:length(out.event_times_low{i})
+        low_starts = [low_starts, out.event_times_low{i}{j}];
+    end
+end
+
+
+out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
+load(out_file)
+high_starts = [];
+for i = 1:length(out.event_times_high)
+    for j = 1:length(out.event_times_high{i})
+        high_starts = [high_starts, out.event_times_high{i}{j}];
+    end
+end
+low_starts = [];
+for i = 1:length(out.event_times_low)
+    for j = 1:length(out.event_times_low{i})
+        low_starts = [low_starts, out.event_times_low{i}{j}];
+    end
+end
+out_file = strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
+load(out_file)
+for i = 1:length(out.event_times_high)
+    for j = 1:length(out.event_times_high{i})
+        high_starts = [high_starts, out.event_times_high{i}{j}];
+    end
+end
+for i = 1:length(out.event_times_low)
+    for j = 1:length(out.event_times_low{i})
+        low_starts = [low_starts, out.event_times_low{i}{j}];
+    end
+end
+event_fig = figure('Position', [220 1294 1223 424]);
+tl = tiledlayout(1,2);
+axs(1) = nexttile;
+histogram(low_starts, 50, 'Normalization', 'probability', 'FaceColor', 'r')
+xlim([0,3600])
+xticks([0,3600])
+yticks([0,0.025])
+ax = gca;
+ax.XAxis.FontSize = 16;
+ax.YAxis.FontSize = 16;
+title('Low Alpha Events', 'FontSize', 18, 'FontWeight', 'normal')
+axs(2) = nexttile;
+histogram(high_starts, 50, 'Normalization', 'probability', 'FaceColor', 'b')
+xlim([0,3600])
+xticks([0,3600])
+yticks([0,0.025])
+ax = gca;
+ax.XAxis.FontSize = 16;
+ax.YAxis.FontSize = 16;
+title('High Alpha Events', 'FontSize', 18, 'FontWeight', 'normal')
+xlabel(tl, 'Session Time (s)', 'FontSize', 18)
+ylabel(tl, 'Fraction of Events', 'FontSize', 18)
+
 
 if out_path
     % saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.svg')
+    print(updated_fig,'-vector','-dsvg','../Figures/lowVsHighAlpha_summary.svg') % svg
+    saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.fig')
     print(updated_fig,'-vector','-dsvg','../Figures/lowVsHighAlpha_summary.svg') % svg
     saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.fig')
     saveas(s1_rs_theta_fig, '../Figures/s1_rs_theta_low_vs_high.svg')

@@ -1,62 +1,62 @@
-S1 RS low alpha fraction vs high alpha fraction (signed-rank): **p = 3.906250e-03
-S1 RS avg high minus low fraction: 7.966667e-01
-S1 FS low alpha fraction vs high alpha fraction (signed-rank): **p = 3.906250e-03
-S1 FS avg high minus low fraction: 7.259259e-01
-PFC RS low alpha fraction vs high alpha fraction (signed-rank): *p = 1.318359e-02
-PFC RS avg high minus low fraction: 2.255260e-01
+S1 RS low alpha fraction vs high alpha fraction (signed-rank): **p = 1.295720e-04
+S1 RS avg high minus low fraction: 5.979885e-01
+S1 FS low alpha fraction vs high alpha fraction (signed-rank): **p = 8.402304e-05
+S1 FS avg high minus low fraction: 4.892037e-01
+PFC RS low alpha fraction vs high alpha fraction (signed-rank): *p = 1.171875e-02
+PFC RS avg high minus low fraction: 2.276703e-01
 PFC FS low alpha fraction vs high alpha fraction (signed-rank): p = 1.250000e-01
 PFC FS avg high minus low fraction: 2.878788e-01
-Striatum RS low alpha fraction vs high alpha fraction (t-test): p = NaN
-Striatum RS avg high minus low fraction: 1
-Striatum FS low alpha fraction vs high alpha fraction (t-test): p = 7.048400e-02
-Striatum FS avg high minus low fraction: 6.000000e-01
-S1 RS low alpha MI vs high alpha MI (signed-rank): **p = 7.821880e-15
-S1 RS avg high minus low MI: 1.867989e-02
-S1 FS low alpha MI vs high alpha MI (signed-rank): **p = 4.887348e-12
-S1 FS avg high minus low MI: 1.356628e-02
-PFC RS low alpha MI vs high alpha MI (signed-rank): **p = 5.174652e-35
-PFC RS avg high minus low MI: 2.150763e-02
+Striatum RS low alpha fraction vs high alpha fraction (signed-rank): *p = 3.125000e-02
+Striatum RS avg high minus low fraction: 2.181818e-01
+Striatum FS low alpha fraction vs high alpha fraction (signed-rank): *p = 2.148438e-02
+Striatum FS avg high minus low fraction: 2.459821e-01
+S1 RS low alpha MI vs high alpha MI (signed-rank): **p = 8.384446e-43
+S1 RS avg high minus low MI: 1.593743e-02
+S1 FS low alpha MI vs high alpha MI (signed-rank): **p = 8.543866e-28
+S1 FS avg high minus low MI: 2.362565e-02
+PFC RS low alpha MI vs high alpha MI (signed-rank): **p = 1.118162e-34
+PFC RS avg high minus low MI: 2.130797e-02
 PFC FS low alpha MI vs high alpha MI (signed-rank): **p = 1.488691e-05
 PFC FS avg high minus low MI: 5.269816e-03
-Striatum RS low alpha MI vs high alpha MI (t-test): *p = 0
-Striatum RS avg high minus low MI: 5.381672e-04
-Striatum FS low alpha MI vs high alpha MI (signed-rank): **p = 1.953125e-03
-Striatum FS avg high minus low MI: 1.956464e-02
-S1 RS low alpha MSE vs high alpha MSE (signed-rank): **p = 6.396899e-07
-S1 RS avg high minus low MSE: 4.450181e-04
-S1 FS low alpha MSE vs high alpha MSE (signed-rank): **p = 2.087000e-08
-S1 FS avg high minus low MSE: 3.636761e-04
-PFC RS low alpha MSE vs high alpha MSE (signed-rank): **p = 4.109083e-35
-PFC RS avg high minus low MSE: 2.896826e-03
+Striatum RS low alpha MI vs high alpha MI (signed-rank): **p = 1.249656e-07
+Striatum RS avg high minus low MI: 7.614579e-03
+Striatum FS low alpha MI vs high alpha MI (signed-rank): **p = 2.012394e-11
+Striatum FS avg high minus low MI: 6.357022e-03
+S1 RS low alpha MSE vs high alpha MSE (signed-rank): **p = 1.071969e-38
+S1 RS avg high minus low MSE: 6.666002e-04
+S1 FS low alpha MSE vs high alpha MSE (signed-rank): **p = 1.436371e-25
+S1 FS avg high minus low MSE: 3.174723e-04
+PFC RS low alpha MSE vs high alpha MSE (signed-rank): **p = 8.859450e-35
+PFC RS avg high minus low MSE: 2.900637e-03
 PFC FS low alpha MSE vs high alpha MSE (signed-rank): **p = 8.298099e-06
 PFC FS avg high minus low MSE: 4.019546e-04
-Striatum RS low alpha MSE vs high alpha MSE (t-test): *p = 0
-Striatum RS avg high minus low MSE: 5.362635e-05
-Striatum FS low alpha MSE vs high alpha MSE (signed-rank): **p = 4.882812e-04
-Striatum FS avg high minus low MSE: 1.273450e-03
-S1 RS low alpha FR vs high alpha FR (signed-rank): p = 3.958859e-01
-S1 RS avg high minus low FR: -3.535032e-01
-S1 FS low alpha FR vs high alpha FR (signed-rank): p = 1.358442e-01
-S1 FS avg high minus low FR: -1.242441e+00
-PFC RS low alpha FR vs high alpha FR (signed-rank): *p = 3.075077e-02
-PFC RS avg high minus low FR: -2.628306e-01
+Striatum RS low alpha MSE vs high alpha MSE (signed-rank): **p = 7.739732e-08
+Striatum RS avg high minus low MSE: 7.764547e-04
+Striatum FS low alpha MSE vs high alpha MSE (signed-rank): **p = 1.289908e-11
+Striatum FS avg high minus low MSE: 5.556775e-04
+S1 RS low alpha FR vs high alpha FR (signed-rank): p = 1.332146e-01
+S1 RS avg high minus low FR: -5.188386e-01
+S1 FS low alpha FR vs high alpha FR (signed-rank): *p = 4.633531e-03
+S1 FS avg high minus low FR: 7.311269e-01
+PFC RS low alpha FR vs high alpha FR (signed-rank): *p = 2.981841e-02
+PFC RS avg high minus low FR: -2.653392e-01
 PFC FS low alpha FR vs high alpha FR (signed-rank): p = 6.937722e-02
 PFC FS avg high minus low FR: -9.782698e-01
-Striatum RS low alpha FR vs high alpha FR (t-test): *p = 0
-Striatum RS avg high minus low FR: -4.065687e-01
-Striatum FS low alpha FR vs high alpha FR (signed-rank): p = 9.008789e-01
-Striatum FS avg high minus low FR: 1.074112e-01
-[Warning: N=80 not found in table, using closest N=50 present.] 
+Striatum RS low alpha FR vs high alpha FR (signed-rank): p = 8.054645e-02
+Striatum RS avg high minus low FR: 2.157174e-01
+Striatum FS low alpha FR vs high alpha FR (signed-rank): p = 1.850975e-01
+Striatum FS avg high minus low FR: -3.879110e-01
+[Warning: N=253 not found in table, using closest N=200 present.] 
 [> In circ_kuipertest>kuiperlookup (line 100)
 In circ_kuipertest (line 59)
 In alphaPowerAndPhaseModSummaries (line 1327)] 
 S1 RS theta bar distribtions kuipers test: 1.000000e-03
-[Warning: N=64 not found in table, using closest N=50 present.] 
+[Warning: N=160 not found in table, using closest N=100 present.] 
 [> In circ_kuipertest>kuiperlookup (line 100)
 In circ_kuipertest (line 59)
 In alphaPowerAndPhaseModSummaries (line 1328)] 
-S1 FS theta bar distribtions kuipers test: 1.000000e-03
-[Warning: N=207 not found in table, using closest N=200 present.] 
+S1 FS theta bar distribtions kuipers test: 1
+[Warning: N=205 not found in table, using closest N=200 present.] 
 [> In circ_kuipertest>kuiperlookup (line 100)
 In circ_kuipertest (line 59)
 In alphaPowerAndPhaseModSummaries (line 1329)] 
@@ -66,382 +66,13 @@ PFC RS theta bar distribtions kuipers test: 1
 In circ_kuipertest (line 59)
 In alphaPowerAndPhaseModSummaries (line 1331)] 
 PFC FS theta bar distribtions kuipers test: 1
-Striatum FS theta bar distribtions kuipers test: 1.000000e-01
-who
-
-Your variables are:
-
-alpha_modulated                 amygdala_rs_low_mi              pfc_fs_low_mi                   s                               s1_rs_high_mse_err              striatum_fs_theta_bar_high      
-amygdala_fs_frac_high           amygdala_rs_low_mi_avg          pfc_fs_low_mi_avg               s1_fs_fr                        s1_rs_high_n_events             striatum_fs_theta_bar_high_avg  
-amygdala_fs_frac_high_avg       amygdala_rs_low_mi_err          pfc_fs_low_mi_err               s1_fs_frac                      s1_rs_high_p                    striatum_fs_theta_bar_high_err  
-amygdala_fs_frac_high_err       amygdala_rs_low_mse             pfc_fs_low_mse                  s1_fs_frac_high                 s1_rs_low_fr                    striatum_fs_theta_bar_low       
-amygdala_fs_frac_low            amygdala_rs_low_mse_avg         pfc_fs_low_mse_avg              s1_fs_frac_high_avg             s1_rs_low_fr_avg                striatum_fs_theta_bar_low_avg   
-amygdala_fs_frac_low_avg        amygdala_rs_low_mse_err         pfc_fs_low_mse_err              s1_fs_frac_high_err             s1_rs_low_fr_err                striatum_fs_theta_bar_low_err   
-amygdala_fs_frac_low_err        amygdala_rs_low_n_events        pfc_fs_low_n_events             s1_fs_frac_low                  s1_rs_low_mi                    striatum_fs_theta_fig           
-amygdala_fs_high_fr             amygdala_rs_low_p               pfc_fs_low_p                    s1_fs_frac_low_avg              s1_rs_low_mi_avg                striatum_rs_excld               
-amygdala_fs_high_fr_avg         amygdala_rs_theta_bar_high      pfc_fs_mi                       s1_fs_frac_low_err              s1_rs_low_mi_err                striatum_rs_fr                  
-amygdala_fs_high_fr_err         amygdala_rs_theta_bar_high_avg  pfc_fs_theta_bar_high           s1_fs_high_fr                   s1_rs_low_mse                   striatum_rs_frac                
-amygdala_fs_high_mi             amygdala_rs_theta_bar_high_err  pfc_fs_theta_bar_high_avg       s1_fs_high_fr_avg               s1_rs_low_mse_avg               striatum_rs_frac_high           
-amygdala_fs_high_mi_avg         amygdala_rs_theta_bar_low       pfc_fs_theta_bar_high_err       s1_fs_high_fr_err               s1_rs_low_mse_err               striatum_rs_frac_high_avg       
-amygdala_fs_high_mi_err         amygdala_rs_theta_bar_low_avg   pfc_fs_theta_bar_low            s1_fs_high_mi                   s1_rs_low_n_events              striatum_rs_frac_high_err       
-amygdala_fs_high_mse            amygdala_rs_theta_bar_low_err   pfc_fs_theta_bar_low_avg        s1_fs_high_mi_avg               s1_rs_low_p                     striatum_rs_frac_low            
-amygdala_fs_high_mse_avg        angle_diff_fig                  pfc_fs_theta_bar_low_err        s1_fs_high_mi_err               s1_rs_mi                        striatum_rs_frac_low_avg        
-amygdala_fs_high_mse_err        ax                              pfc_fs_theta_fig                s1_fs_high_mse                  s1_rs_theta_bar_high            striatum_rs_frac_low_err        
-amygdala_fs_high_n_events       axs                             pfc_rs_excld                    s1_fs_high_mse_avg              s1_rs_theta_bar_high_avg        striatum_rs_high_fr             
-amygdala_fs_high_p              cid                             pfc_rs_fr                       s1_fs_high_mse_err              s1_rs_theta_bar_high_err        striatum_rs_high_fr_avg         
-amygdala_fs_low_fr              exinds                          pfc_rs_frac                     s1_fs_high_n_events             s1_rs_theta_bar_low             striatum_rs_high_fr_err         
-amygdala_fs_low_fr_avg          ext_log_path                    pfc_rs_frac_high                s1_fs_high_p                    s1_rs_theta_bar_low_avg         striatum_rs_high_mi             
-amygdala_fs_low_fr_err          ext_path                        pfc_rs_frac_high_avg            s1_fs_low_fr                    s1_rs_theta_bar_low_err         striatum_rs_high_mi_avg         
-amygdala_fs_low_mi              fig                             pfc_rs_frac_high_err            s1_fs_low_fr_avg                s1_rs_theta_fig                 striatum_rs_high_mi_err         
-amygdala_fs_low_mi_avg          ftr_path                        pfc_rs_frac_low                 s1_fs_low_fr_err                session_id                      striatum_rs_high_mse            
-amygdala_fs_low_mi_err          high_p                          pfc_rs_frac_low_avg             s1_fs_low_mi                    session_ids                     striatum_rs_high_mse_avg        
-amygdala_fs_low_mse             i                               pfc_rs_frac_low_err             s1_fs_low_mi_avg                slrt_path                       striatum_rs_high_mse_err        
-amygdala_fs_low_mse_avg         inds                            pfc_rs_high_fr                  s1_fs_low_mi_err                striatum_fs_fr                  striatum_rs_high_n_events       
-amygdala_fs_low_mse_err         lims                            pfc_rs_high_fr_avg              s1_fs_low_mse                   striatum_fs_frac                striatum_rs_high_p              
-amygdala_fs_low_n_events        low_p                           pfc_rs_high_fr_err              s1_fs_low_mse_avg               striatum_fs_frac_high           striatum_rs_low_fr              
-amygdala_fs_low_p               out                             pfc_rs_high_mi                  s1_fs_low_mse_err               striatum_fs_frac_high_avg       striatum_rs_low_fr_avg          
-amygdala_fs_theta_bar_high      out_file                        pfc_rs_high_mi_avg              s1_fs_low_n_events              striatum_fs_frac_high_err       striatum_rs_low_fr_err          
-amygdala_fs_theta_bar_high_avg  out_path                        pfc_rs_high_mi_err              s1_fs_low_p                     striatum_fs_frac_low            striatum_rs_low_mi              
-amygdala_fs_theta_bar_high_err  p                               pfc_rs_high_mse                 s1_fs_mi                        striatum_fs_frac_low_avg        striatum_rs_low_mi_avg          
-amygdala_fs_theta_bar_low       p_threshold                     pfc_rs_high_mse_avg             s1_fs_theta_bar_high            striatum_fs_frac_low_err        striatum_rs_low_mi_err          
-amygdala_fs_theta_bar_low_avg   pax                             pfc_rs_high_mse_err             s1_fs_theta_bar_high_avg        striatum_fs_high_fr             striatum_rs_low_mse             
-amygdala_fs_theta_bar_low_err   pfc_fs_fr                       pfc_rs_high_n_events            s1_fs_theta_bar_high_err        striatum_fs_high_fr_avg         striatum_rs_low_mse_avg         
-amygdala_rs_excld               pfc_fs_frac                     pfc_rs_high_p                   s1_fs_theta_bar_low             striatum_fs_high_fr_err         striatum_rs_low_mse_err         
-amygdala_rs_frac_high           pfc_fs_frac_high                pfc_rs_low_fr                   s1_fs_theta_bar_low_avg         striatum_fs_high_mi             striatum_rs_low_n_events        
-amygdala_rs_frac_high_avg       pfc_fs_frac_high_avg            pfc_rs_low_fr_avg               s1_fs_theta_bar_low_err         striatum_fs_high_mi_avg         striatum_rs_low_p               
-amygdala_rs_frac_high_err       pfc_fs_frac_high_err            pfc_rs_low_fr_err               s1_fs_theta_fig                 striatum_fs_high_mi_err         striatum_rs_mi                  
-amygdala_rs_frac_low            pfc_fs_frac_low                 pfc_rs_low_mi                   s1_rs_excld                     striatum_fs_high_mse            striatum_rs_theta_bar_high      
-amygdala_rs_frac_low_avg        pfc_fs_frac_low_avg             pfc_rs_low_mi_avg               s1_rs_fr                        striatum_fs_high_mse_avg        striatum_rs_theta_bar_high_avg  
-amygdala_rs_frac_low_err        pfc_fs_frac_low_err             pfc_rs_low_mi_err               s1_rs_frac                      striatum_fs_high_mse_err        striatum_rs_theta_bar_high_err  
-amygdala_rs_high_fr             pfc_fs_high_fr                  pfc_rs_low_mse                  s1_rs_frac_high                 striatum_fs_high_n_events       striatum_rs_theta_bar_low       
-amygdala_rs_high_fr_avg         pfc_fs_high_fr_avg              pfc_rs_low_mse_avg              s1_rs_frac_high_avg             striatum_fs_high_p              striatum_rs_theta_bar_low_avg   
-amygdala_rs_high_fr_err         pfc_fs_high_fr_err              pfc_rs_low_mse_err              s1_rs_frac_high_err             striatum_fs_low_fr              striatum_rs_theta_bar_low_err   
-amygdala_rs_high_mi             pfc_fs_high_mi                  pfc_rs_low_n_events             s1_rs_frac_low                  striatum_fs_low_fr_avg          striatum_rs_theta_fig           
-amygdala_rs_high_mi_avg         pfc_fs_high_mi_avg              pfc_rs_low_p                    s1_rs_frac_low_avg              striatum_fs_low_fr_err          subject_path                    
-amygdala_rs_high_mi_err         pfc_fs_high_mi_err              pfc_rs_mi                       s1_rs_frac_low_err              striatum_fs_low_mi              tl                              
-amygdala_rs_high_mse            pfc_fs_high_mse                 pfc_rs_theta_bar_high           s1_rs_high_fr                   striatum_fs_low_mi_avg          updated_fig                     
-amygdala_rs_high_mse_avg        pfc_fs_high_mse_avg             pfc_rs_theta_bar_high_avg       s1_rs_high_fr_avg               striatum_fs_low_mi_err          x                               
-amygdala_rs_high_mse_err        pfc_fs_high_mse_err             pfc_rs_theta_bar_high_err       s1_rs_high_fr_err               striatum_fs_low_mse             y                               
-amygdala_rs_high_n_events       pfc_fs_high_n_events            pfc_rs_theta_bar_low            s1_rs_high_mi                   striatum_fs_low_mse_avg         
-amygdala_rs_high_p              pfc_fs_high_p                   pfc_rs_theta_bar_low_avg        s1_rs_high_mi_avg               striatum_fs_low_mse_err         
-amygdala_rs_low_fr              pfc_fs_low_fr                   pfc_rs_theta_bar_low_err        s1_rs_high_mi_err               striatum_fs_low_n_events        
-amygdala_rs_low_fr_avg          pfc_fs_low_fr_avg               pfc_rs_theta_fig                s1_rs_high_mse                  striatum_fs_low_p               
-amygdala_rs_low_fr_err          pfc_fs_low_fr_err               raw_path                        s1_rs_high_mse_avg              striatum_fs_mi                  
-
-clear
-clc
-dbquit
-close all
-out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
-{Unrecognized function or variable 'ftr_path'.
-} 
-init_pathsl
-{Unrecognized function or variable 'init_pathsl'.
-} 
-init_paths;
-out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
-load(out_file)
-who
-
-Your variables are:
-
-ext_log_path  ext_path      ftr_path      out           out_file      raw_path      slrt_path     subject_path  
-
-out
-
-out = 
-
-  struct with fields:
-
-               low_mi: [186x1 double]
-              high_mi: [186x1 double]
-                low_p: [186x1 double]
-               high_p: [186x1 double]
-     low_firing_rates: [186x1 double]
-    high_firing_rates: [186x1 double]
-         n_low_events: [186x1 double]
-        n_high_events: [186x1 double]
-              low_mse: [186x1 double]
-             high_mse: [186x1 double]
-        theta_bar_low: [186x1 double]
-       theta_bar_high: [186x1 double]
-         low_outcomes: {1x186 cell}
-       event_inds_low: {1x186 cell}
-        high_outcomes: {1x186 cell}
-      event_inds_high: {1x186 cell}
-
-clear
-clc
-addpath(genpath('./'))
-addpath(genpath('~/circstat-matlab/'))
-init_paths;
-load(strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/data.mat'))
-alpha_modulated = out.alpha_modulated;
-out
-
-out = 
-
-  struct with fields:
-
-        alpha_modulated: [186x224 table]
-                rs_frac: 0.5769
-                fs_frac: 0.7556
-                ps_frac: 0.0333
-                ts_frac: 0.2143
-    pct_alpha_modulated: 0.4306
-    overall_p_threshold: 0.0043
-
-clear
-clc
-init_paths;
-out_file = strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
-load(out_file)
-out
-
-out = 
-
-  struct with fields:
-
-               low_mi: [186x1 double]
-              high_mi: [186x1 double]
-                low_p: [186x1 double]
-               high_p: [186x1 double]
-     low_firing_rates: [186x1 double]
-    high_firing_rates: [186x1 double]
-         n_low_events: [186x1 double]
-        n_high_events: [186x1 double]
-              low_mse: [186x1 double]
-             high_mse: [186x1 double]
-        theta_bar_low: [186x1 double]
-       theta_bar_high: [186x1 double]
-         low_outcomes: {1x186 cell}
-       event_inds_low: {1x186 cell}
-        high_outcomes: {1x186 cell}
-      event_inds_high: {1x186 cell}
-     event_times_high: {1x186 cell}
-      event_times_low: {1x186 cell}
-
-out.event_times_high{1}
-
-ans =
-
-  1x125 cell array
-
-  Columns 1 through 13
-
-    {[1.0000e-03]}    {[5.9890]}    {[5.9890]}    {[19.6560]}    {[26.3720]}    {[33.2830]}    {[39.6550]}    {[39.6550]}    {[45.4440]}    {[56.5150]}    {[64.1170]}    {[71.3140]}    {[71.3140]}
-
-  Columns 14 through 25
-
-    {[77.7420]}    {[102.5580]}    {[116.8210]}    {[129.2010]}    {[147.2440]}    {[159.4840]}    {[171.3160]}    {[171.3160]}    {[188.0580]}    {[188.0580]}    {[188.0580]}    {[194.0120]}
-
-  Columns 26 through 37
-
-    {[194.0120]}    {[201.1610]}    {[213.8830]}    {[232.7950]}    {[246.4930]}    {[266.1620]}    {[272.9910]}    {[280.6700]}    {[319.0770]}    {[386.8470]}    {[455.1580]}    {[495.0490]}
-
-  Columns 38 through 49
-
-    {[495.0490]}    {[515.6900]}    {[515.6900]}    {[550.5620]}    {[581.9070]}    {[618.4700]}    {[624.9010]}    {[631.2200]}    {[652.9360]}    {[721.5750]}    {[735.4430]}    {[735.4430]}
-
-  Columns 50 through 61
-
-    {[735.4430]}    {[761.6870]}    {[781.6690]}    {[781.6690]}    {[815.1260]}    {[858.7840]}    {[904.2600]}    {[904.2600]}    {[910.0610]}    {[962.9160]}    {[975.0130]}    {[988.0280]}
-
-  Columns 62 through 72
-
-    {[993.9060]}    {[993.9060]}    {[1.0011e+03]}    {[1.0188e+03]}    {[1.0250e+03]}    {[1.0829e+03]}    {[1.1035e+03]}    {[1.1164e+03]}    {[1.1263e+03]}    {[1.1328e+03]}    {[1.1603e+03]}
-
-  Columns 73 through 84
-
-    {[1167]}    {[1167]}    {[1.1808e+03]}    {[1.1808e+03]}    {[1.1877e+03]}    {[1.1934e+03]}    {[1.1934e+03]}    {[1.2010e+03]}    {[1.2083e+03]}    {[1.2083e+03]}    {[1.2157e+03]}    {[1.2265e+03]}
-
-  Columns 85 through 95
-
-    {[1.2337e+03]}    {[1.2337e+03]}    {[1.2337e+03]}    {[1.2545e+03]}    {[1.2545e+03]}    {[1.2853e+03]}    {[1.2853e+03]}    {[1.2924e+03]}    {[1.2924e+03]}    {[1.3053e+03]}    {[1.3116e+03]}
-
-  Columns 96 through 106
-
-    {[1.3116e+03]}    {[1.3241e+03]}    {[1.3356e+03]}    {[1.3470e+03]}    {[1.3826e+03]}    {[1.4753e+03]}    {[1.4753e+03]}    {[1.4883e+03]}    {[1.4989e+03]}    {[1.5047e+03]}    {[1.5047e+03]}
-
-  Columns 107 through 117
-
-    {[1.5122e+03]}    {[1.5122e+03]}    {[1.5180e+03]}    {[1.5473e+03]}    {[1.5855e+03]}    {[1.5855e+03]}    {[1.6120e+03]}    {[1.6670e+03]}    {[1.6670e+03]}    {[1.6769e+03]}    {[1.6881e+03]}
-
-  Columns 118 through 125
-
-    {[1.6941e+03]}    {[1.7045e+03]}    {[1.7179e+03]}    {[1.7248e+03]}    {[1.7309e+03]}    {[1.7587e+03]}    {[1.7787e+03]}    {[1.7910e+03]}
-
-out.event_times_high{1}{1}
-
-ans =
-
-   1.0000e-03
-
-high_starts = [];
-for i = 1:length(out.event_times_high)
-    for j = 1:length(out.event_times_high{i})
-        high_starts = [high_starts, out.event_times_high{i}{j}];
-    end
-end
-figure(); histogram(high_starts)
-low_starts = [];
-for i = 1:length(out.event_times_low)
-    for j = 1:length(out.event_times_low{i})
-        low_starts = [low_starts, out.event_times_low{i}{j}];
-    end
-end
-
-figure(); histogmra(low_starts)
-{Unrecognized function or variable 'histogmra'.
-} 
-figure(); histogram(low_starts)
-out_file = strcat(ftr_path, '/AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/high_v_low_alpha.mat');
-load(out_file)
-for i = 1:length(out.event_times_high)
-    for j = 1:length(out.event_times_high{i})
-        high_starts = [high_starts, out.event_times_high{i}{j}];
-    end
-end
-for i = 1:length(out.event_times_low)
-    for j = 1:length(out.event_times_low{i})
-        low_starts = [low_starts, out.event_times_low{i}{j}];
-    end
-end
-figure(); histogram(high_starts, 'Normalization', 'pdf')
-help histogram
- histogram - Histogram plot
-    Histograms are a type of bar plot that group data into bins.
-
-    Creation
-      Syntax
-        histogram(X)
-        histogram(X,nbins)
-        histogram(X,edges)
-        histogram('BinEdges',edges,'BinCounts',counts)
-
-        histogram(C)
-        histogram(C,Categories)
-        histogram('Categories',Categories,'BinCounts',counts)
-
-        histogram(___,Name,Value)
-        histogram(ax,___)
-        h = histogram(___)
-
-      Input Arguments
-        X - Data to distribute among bins
-          vector | matrix | multidimensional array
-        C - Categorical data
-          categorical array
-        nbins - Number of bins
-          positive integer
-        edges - Bin edges
-          vector
-        Categories - Categories included in histogram
-          cell array of character vectors | categorical array |
-          string array | pattern scalar
-        counts - Bin counts
-          vector
-        ax - Target axes
-          Axes object | PolarAxes object
-
-      Name-Value Arguments
-        Bins
-          BinWidth - Width of bins
-            positive scalar
-          BinLimits - Bin limits
-            two-element vector
-          BinLimitsMode - Selection mode for bin limits
-            'auto' (default) | 'manual'
-          BinMethod - Binning algorithm
-            'auto' (default) | 'scott' | 'fd' | 'integers' | 'sturges' |
-            'sqrt' | ...
-
-        Categories
-          DisplayOrder - Category display order
-            'data' (default) | 'ascend' | 'descend'
-          NumDisplayBins - Number of categories to display
-            scalar
-          ShowOthers - Toggle summary display of data belonging to undisplayed categories
-            'off' (default) | on/off logical value
-
-        Data
-          Normalization - Type of normalization
-            'count' (default) | 'probability' | 'percentage' |
-            'countdensity' | 'cumcount' | 'pdf' | 'cdf'
-
-        Color and Styling
-          DisplayStyle - Histogram display style
-            'bar' (default) | 'stairs'
-          Orientation - Orientation of bars
-            'vertical' (default) | 'horizontal'
-          BarWidth - Relative width of categorical bars
-            0.9 (default) | scalar in range [0,1]
-          FaceColor - Histogram bar color
-            'auto' (default) | 'none' | RGB triplet |
-            hexadecimal color code | color name
-          EdgeColor - Histogram edge color
-            [0 0 0] or black (default) | 'none' | 'auto' | RGB triplet |
-            hexadecimal color code | color name
-          FaceAlpha - Transparency of histogram bars
-            0.6 (default) | scalar value in range [0,1]
-          EdgeAlpha - Transparency of histogram bar edges
-            1 (default) | scalar in range [0,1]
-          LineStyle - Line style
-            "-" (default) | "--" | ":" | "-." | "none"
-          LineWidth - Width of bar outlines
-            0.5 (default) | positive value
-
-      Output Arguments
-        h - Histogram
-          object
-
-    Examples
-      openExample('matlab/HistogramOfVectorDataExample')
-      openExample('matlab/SpecifyNumOfHistogramBinsExample')
-      openExample('matlab/ChangeNumberOfHistogramBinsExample')
-      openExample('matlab/SpecifyBinEdgesOfHistogramExample')
-      openExample('matlab/PlotCategoricalHistogramExample')
-      openExample('matlab/HistogramWithSpecifiedNormalizationExample')
-      openExample('matlab/HistogramUsingPercentagesExample')
-      openExample('matlab/PlotMultipleHistogramsExample')
-      openExample('matlab/AdjustHistogramPropertiesExample')
-      openExample('matlab/LabelBarsWithBinCountsExample')
-      openExample('matlab/DetermineUnderlyingProbabilityDistributionExample')
-      openExample('matlab/SavingAndLoadingHistogramObjectsExample')
-
-    See also Histogram Properties, histcounts, discretize, morebins,
-      fewerbins, histcounts2, histogram2, kde
-
-    Introduced in MATLAB in R2014b
-    Documentation for histogram
-       doc histogram
-
-    Other uses of histogram
-
-       SimBiology.gsa.MPGSA/histogram    tall/histogram
-
-figure(); histogram(high_starts, 'Normalization', 'probability')
-figure(); histogram(high_starts, 'Normalization', 'cumsum')
-{Error using histogram>parseinput (line 311)
-Expected input number 3, Normalization, to match one of these values:
-
-'count', 'countdensity', 'cumcount', 'probability', 'percentage', 'pdf', 'cdf'
-
-The input, 'cumsum', did not match any of the valid values.
-
-Error in histogram (line 50)
-[opts,passthrough,dispatchToCategorical] = parseinput(args,firstaxesinput);
-                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-} 
-figure(); histogram(high_starts, 'Normalization', 'cumcount')
-figure(); histogram(high_starts, 'Normalization', 'percentage')
-close all
-pwd
-
-ans =
-
-    '/home/craig/AlphaModulation_SelectiveDetection/Analysis'
-
-clear
-clc
-laminarDistributions
+[Warning: N=38 not found in table, using closest N=35 present.] 
+[> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In alphaPowerAndPhaseModSummaries (line 1334)] 
+Striatum RS theta bar distribtions kuipers test: 1
+[Warning: N=61 not found in table, using closest N=50 present.] 
+[> In circ_kuipertest>kuiperlookup (line 100)
+In circ_kuipertest (line 59)
+In alphaPowerAndPhaseModSummaries (line 1337)] 
+Striatum FS theta bar distribtions kuipers test: 1

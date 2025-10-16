@@ -1,4 +1,4 @@
-out_path = false; %true;
+out_path = true; %true;
 delete Stats/laminar_distributions.txt 
 diary Stats/laminar_distributions.txt 
 init_paths;
@@ -2601,7 +2601,8 @@ ax.YAxis.FontSize=14;
 
 if out_path
     saveas(combo_fig, '../Figures/dorsoventral_distribution.fig')
-    saveas(combo_fig, '../Figures/dorsoventral_distribution.svg')
+    % saveas(combo_fig, '../Figures/dorsoventral_distribution.svg')
+    print(gcf,'-vector','-dsvg',['../Figures/dorsoventral_distribution','.svg']) % svg
 end
 
 diary off

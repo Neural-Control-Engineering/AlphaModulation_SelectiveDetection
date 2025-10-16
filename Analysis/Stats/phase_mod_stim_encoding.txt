@@ -367,7 +367,8 @@ pfc_rs_suppressed_ranova =
     group:Time          56.342      49    1.1498    0.6788        0.95743       0.67212       0.69094       0.41338
     Error(Time)         4814.1    2842    1.6939                                                                   
 
-[Warning: Model has 0 degrees of freedom for error. Consider not using group as a predictor.] 
+[Warning: Model has 0 degrees of freedom for error. Consider not using group as a
+predictor.] 
 [> In manova.internal.validation.checkDFE (line 26)
 In manova.internal.fitting.fitCoefficients (line 19)
 In RepeatedMeasuresModel.fit (line 1391)
