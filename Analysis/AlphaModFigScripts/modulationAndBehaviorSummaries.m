@@ -1,4 +1,4 @@
-out_path = false;
+out_path = true;
 addpath(genpath('./'))
 addpath(genpath('~/circstat-matlab/'))
 mkdir('../Figures/')

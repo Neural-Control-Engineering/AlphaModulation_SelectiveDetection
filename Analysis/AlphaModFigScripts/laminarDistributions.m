@@ -2129,13 +2129,13 @@ angles(isnan(angles)) = [];
 [pval, table] = circ_wwtest(angles, idx)
 % [p, ~, stats] = anova1(s1_rs_theta_bar_mat)
 
-combo_fig = figure('Position', [1151 721 1850 1081]);
-tl = tiledlayout(3,4);
+combo_fig = figure('Position', [1151 721 1850 900]);
+tl = tiledlayout(2,4);
 rs_avg = [nanmean(s1_l1_rs_frac), nanmean(s1_l2_rs_frac), nanmean(s1_l4_rs_frac), nanmean(s1_l5_rs_frac), nanmean(s1_l6_rs_frac)];
 fs_avg = [nanmean(s1_l1_fs_frac), nanmean(s1_l2_fs_frac), nanmean(s1_l4_fs_frac), nanmean(s1_l5_fs_frac), nanmean(s1_l6_fs_frac)];
 rs_err = [nanstd(s1_l1_rs_frac)/sqrt(sum(~isnan(s1_l1_rs_frac))), nanstd(s1_l2_rs_frac)/sqrt(sum(~isnan(s1_l2_rs_frac))), nanstd(s1_l4_rs_frac)/sqrt(sum(~isnan(s1_l4_rs_frac))), nanstd(s1_l5_rs_frac)/sqrt(sum(~isnan(s1_l5_rs_frac))), nanstd(s1_l6_rs_frac)/sqrt(sum(~isnan(s1_l6_rs_frac)))];
 fs_err = [nanstd(s1_l1_fs_frac)/sqrt(sum(~isnan(s1_l1_fs_frac))), nanstd(s1_l2_fs_frac)/sqrt(sum(~isnan(s1_l2_fs_frac))), nanstd(s1_l4_fs_frac)/sqrt(sum(~isnan(s1_l4_fs_frac))), nanstd(s1_l5_fs_frac)/sqrt(sum(~isnan(s1_l5_fs_frac))), nanstd(s1_l6_fs_frac)/sqrt(sum(~isnan(s1_l6_fs_frac)))];
-axs = zeros(1,12);
+axs = zeros(1,8);
 axs(1) = nexttile;
 hold on
 % barh(1:5, fliplr(rs_avg) .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
@@ -2209,8 +2209,8 @@ errorbar(fliplr(fs_avg) .* 100, 1:5, fliplr(fs_err) .* 100, 'horizontal', 'b.', 
 yticks(1:5)
 yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
 ylim([0.5,5.5])
-lims = xlim;
-xticks(lims)
+xlim([0,100])
+xticks([0,100])
 title('Fast Spiking', 'FontSize', 16, 'FontWeight', 'normal')
 xlabel('% Modulated per Session', 'FontSize', 14, 'FontWeight', 'normal')
 ax = gca;
@@ -2449,160 +2449,359 @@ ax = gca;
 ax.XAxis.FontSize=16;
 ax.YAxis.FontSize=14;
 
-rs_avg = [circ_mean(s1_l1_rs_theta_bar), circ_mean(s1_l2_rs_theta_bar), circ_mean(s1_l4_rs_theta_bar), circ_mean(s1_l5_rs_theta_bar), circ_mean(s1_l6_rs_theta_bar)];
-fs_avg = [circ_mean(s1_l1_fs_theta_bar), circ_mean(s1_l2_fs_theta_bar), circ_mean(s1_l4_fs_theta_bar), circ_mean(s1_l5_fs_theta_bar), circ_mean(s1_l6_fs_theta_bar)];
-rs_err = [circ_std(s1_l1_rs_theta_bar)/sqrt(sum(~isnan(s1_l1_rs_theta_bar))), circ_std(s1_l2_rs_theta_bar)/sqrt(sum(~isnan(s1_l2_rs_theta_bar))), circ_std(s1_l4_rs_theta_bar)/sqrt(sum(~isnan(s1_l4_rs_theta_bar))), circ_std(s1_l5_rs_theta_bar)/sqrt(sum(~isnan(s1_l5_rs_theta_bar))), circ_std(s1_l6_rs_theta_bar)/sqrt(sum(~isnan(s1_l6_rs_theta_bar)))];
-fs_err = [circ_std(s1_l1_fs_theta_bar)/sqrt(sum(~isnan(s1_l1_fs_theta_bar))), circ_std(s1_l2_fs_theta_bar)/sqrt(sum(~isnan(s1_l2_fs_theta_bar))), circ_std(s1_l4_fs_theta_bar)/sqrt(sum(~isnan(s1_l4_fs_theta_bar))), circ_std(s1_l5_fs_theta_bar)/sqrt(sum(~isnan(s1_l5_fs_theta_bar))), circ_std(s1_l6_fs_theta_bar)/sqrt(sum(~isnan(s1_l6_fs_theta_bar)))];
-axs(9) = nexttile;
-% barh(1:5, fliplr(rs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
-hold on
-for i = 1:length(s1_l1_rs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(s1_l1_rs_theta_bar(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(s1_l2_rs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(s1_l2_rs_theta_bar(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(s1_l4_rs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(s1_l4_rs_theta_bar(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(s1_l5_rs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(s1_l5_rs_theta_bar(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(s1_l6_rs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(s1_l6_rs_theta_bar(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
-yticks(1:5)
-yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
-ylim([0.5,5.5])
-xlim([-3.5,3.5])
-xticks([-pi,0,pi])
-xticklabels({'-\pi', '', '\pi'})
-xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
-ax = gca;
-ax.XAxis.FontSize=16;
-ax.YAxis.FontSize=14;
+l1_rs_fig = figure();
+polarhistogram(s1_l1_rs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
 
-axs(10) = nexttile;
-% barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
-hold on
-for i = 1:length(s1_l1_fs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(s1_l1_fs_theta_bar(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(s1_l2_fs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(s1_l2_fs_theta_bar(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(s1_l4_fs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(s1_l4_fs_theta_bar(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(s1_l5_fs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(s1_l5_fs_theta_bar(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(s1_l6_fs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(s1_l6_fs_theta_bar(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
-yticks(1:5)
-yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
-ylim([0.5,5.5])
-xlim([-3.5,3.5])
-xticks([-pi,0,pi])
-xticklabels({'-\pi', '', '\pi'})
-% ylabel(tl, 'Cortical Layer', 'FontSize', 16)
-xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
-ax = gca;
-ax.XAxis.FontSize=16;
-ax.YAxis.FontSize=14;
+l2_rs_fig = figure();
+polarhistogram(s1_l2_rs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
 
-rs_avg = [circ_mean(ac_rs_theta_bar), circ_mean(pl_rs_theta_bar), circ_mean(il_rs_theta_bar), circ_mean(orb_rs_theta_bar), circ_mean(dp_rs_theta_bar)];
-fs_avg = [circ_mean(ac_fs_theta_bar), circ_mean(pl_fs_theta_bar), circ_mean(il_fs_theta_bar), circ_mean(orb_fs_theta_bar), circ_mean(dp_fs_theta_bar)];
-rs_err = [circ_std(ac_rs_theta_bar)/sqrt(sum(~isnan(ac_rs_theta_bar))), circ_std(pl_rs_theta_bar)/sqrt(sum(~isnan(pl_rs_theta_bar))), circ_std(il_rs_theta_bar)/sqrt(sum(~isnan(il_rs_theta_bar))), circ_std(orb_rs_theta_bar)/sqrt(sum(~isnan(orb_rs_theta_bar))), circ_std(dp_rs_theta_bar)/sqrt(sum(~isnan(dp_rs_theta_bar)))];
-fs_err = [circ_std(ac_fs_theta_bar)/sqrt(sum(~isnan(ac_fs_theta_bar))), circ_std(pl_fs_theta_bar)/sqrt(sum(~isnan(pl_fs_theta_bar))), circ_std(il_fs_theta_bar)/sqrt(sum(~isnan(il_fs_theta_bar))), circ_std(orb_fs_theta_bar)/sqrt(sum(~isnan(orb_fs_theta_bar))), circ_std(dp_fs_theta_bar)/sqrt(sum(~isnan(dp_fs_theta_bar)))];
-axs(11) = nexttile;
-% barh(1:5, fliplr(rs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
-hold on
-for i = 1:length(ac_rs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(ac_rs_theta_bar(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(pl_rs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(pl_rs_theta_bar(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(il_rs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(il_rs_theta_bar(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(orb_rs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(orb_rs_theta_bar(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(dp_rs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(dp_rs_theta_bar(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
-yticks(1:5)
-yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
-ylim([0.5,5.5])
-xlim([-3.5,3.5])
-xticks([-pi,0,pi])
-xticklabels({'-\pi', '', '\pi'})
-xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
-ax = gca;
-ax.XAxis.FontSize=16;
-ax.YAxis.FontSize=14;
+l4_rs_fig = figure();
+polarhistogram(s1_l4_rs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
 
-axs(12) = nexttile;
-% barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
-hold on
-for i = 1:length(ac_fs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(ac_fs_theta_bar(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(pl_fs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(pl_fs_theta_bar(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(il_fs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(il_fs_theta_bar(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(orb_fs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(orb_fs_theta_bar(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-for i = 1:length(dp_fs_theta_bar)
-    x = (rand()-0.5) * 0.2;
-    plot(dp_fs_theta_bar(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-end
-errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
-yticks(1:5)
-yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
-ylim([0.5,5.5])
-xlim([-3.5,3.5])
-xticks([-pi,0,pi])
-xticklabels({'-\pi', '', '\pi'})
-% ylabel(tl, 'PFC Subregion', 'FontSize', 16)
-xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
-ax = gca;
-ax.XAxis.FontSize=16;
-ax.YAxis.FontSize=14;
+l5_rs_fig = figure();
+polarhistogram(s1_l5_rs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+l6_rs_fig = figure();
+polarhistogram(s1_l6_rs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+l1_fs_fig = figure();
+polarhistogram(s1_l1_fs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+l2_fs_fig = figure();
+polarhistogram(s1_l2_fs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+l4_fs_fig = figure();
+polarhistogram(s1_l4_fs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+l5_fs_fig = figure();
+polarhistogram(s1_l5_fs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+l6_fs_fig = figure();
+polarhistogram(s1_l6_fs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+ac_rs_fig = figure();
+polarhistogram(ac_rs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+pl_rs_fig = figure();
+polarhistogram(pl_rs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+il_rs_fig = figure();
+polarhistogram(il_rs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+orb_rs_fig = figure();
+polarhistogram(orb_rs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+dp_rs_fig = figure();
+polarhistogram(dp_rs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+ac_fs_fig = figure();
+polarhistogram(ac_fs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+pl_fs_fig = figure();
+polarhistogram(pl_fs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+il_fs_fig = figure();
+polarhistogram(il_fs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+orb_fs_fig = figure();
+polarhistogram(orb_fs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
+dp_fs_fig = figure();
+polarhistogram(dp_fs_theta_bar, 36, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+thetaticks([0 90 180 270])
+pax = gca;
+pax.GridColor = [0 0 0];          % Black grid lines
+pax.GridAlpha = 1;                % Fully opaque grid lines
+pax.GridLineStyle = '--';         % Dashed grid lines for visibility
+
 
 if out_path
     saveas(combo_fig, '../Figures/dorsoventral_distribution.fig')
-    % saveas(combo_fig, '../Figures/dorsoventral_distribution.svg')
-    print(gcf,'-vector','-dsvg',['../Figures/dorsoventral_distribution','.svg']) % svg
+    print(combo_fig,'-vector','-dsvg',['../Figures/dorsoventral_distribution','.svg']) % svg
+    saveas(l1_rs_fig, '../Figures/l1_rs_theta_bar.fig')
+    saveas(l1_fs_fig, '../Figures/l1_fs_theta_bar.fig')
+    saveas(l2_rs_fig, '../Figures/l2_rs_theta_bar.fig')
+    saveas(l2_fs_fig, '../Figures/l2_fs_theta_bar.fig')
+    saveas(l4_rs_fig, '../Figures/l4_rs_theta_bar.fig')
+    saveas(l4_fs_fig, '../Figures/l4_fs_theta_bar.fig')
+    saveas(l5_rs_fig, '../Figures/l5_rs_theta_bar.fig')
+    saveas(l5_fs_fig, '../Figures/l5_fs_theta_bar.fig')
+    saveas(l6_rs_fig, '../Figures/l6_rs_theta_bar.fig')
+    saveas(l6_fs_fig, '../Figures/l6_fs_theta_bar.fig')
+    saveas(l1_rs_fig, '../Figures/l1_rs_theta_bar.svg')
+    saveas(l1_fs_fig, '../Figures/l1_fs_theta_bar.svg')
+    saveas(l2_rs_fig, '../Figures/l2_rs_theta_bar.svg')
+    saveas(l2_fs_fig, '../Figures/l2_fs_theta_bar.svg')
+    saveas(l4_rs_fig, '../Figures/l4_rs_theta_bar.svg')
+    saveas(l4_fs_fig, '../Figures/l4_fs_theta_bar.svg')
+    saveas(l5_rs_fig, '../Figures/l5_rs_theta_bar.svg')
+    saveas(l5_fs_fig, '../Figures/l5_fs_theta_bar.svg')
+    saveas(l6_rs_fig, '../Figures/l6_rs_theta_bar.svg')
+    saveas(l6_fs_fig, '../Figures/l6_fs_theta_bar.svg')
+    saveas(ac_rs_fig, '../Figures/ac_rs_theta_bar.fig')
+    saveas(ac_fs_fig, '../Figures/ac_fs_theta_bar.fig')
+    saveas(pl_rs_fig, '../Figures/pl_rs_theta_bar.fig')
+    saveas(pl_fs_fig, '../Figures/pl_fs_theta_bar.fig')
+    saveas(il_rs_fig, '../Figures/il_rs_theta_bar.fig')
+    saveas(il_fs_fig, '../Figures/il_fs_theta_bar.fig')
+    saveas(orb_rs_fig, '../Figures/orb_rs_theta_bar.fig')
+    saveas(orb_fs_fig, '../Figures/orb_fs_theta_bar.fig')
+    saveas(dp_rs_fig, '../Figures/dp_rs_theta_bar.fig')
+    saveas(dp_fs_fig, '../Figures/dp_fs_theta_bar.fig')
+    saveas(ac_rs_fig, '../Figures/ac_rs_theta_bar.svg')
+    saveas(ac_fs_fig, '../Figures/ac_fs_theta_bar.svg')
+    saveas(pl_rs_fig, '../Figures/pl_rs_theta_bar.svg')
+    saveas(pl_fs_fig, '../Figures/pl_fs_theta_bar.svg')
+    saveas(il_rs_fig, '../Figures/il_rs_theta_bar.svg')
+    saveas(il_fs_fig, '../Figures/il_fs_theta_bar.svg')
+    saveas(orb_rs_fig, '../Figures/orb_rs_theta_bar.svg')
+    saveas(orb_fs_fig, '../Figures/orb_fs_theta_bar.svg')
+    saveas(dp_rs_fig, '../Figures/dp_rs_theta_bar.svg')
+    saveas(dp_fs_fig, '../Figures/dp_fs_theta_bar.svg')
 end
 
 diary off
+% rs_avg = [circ_mean(s1_l1_rs_theta_bar), circ_mean(s1_l2_rs_theta_bar), circ_mean(s1_l4_rs_theta_bar), circ_mean(s1_l5_rs_theta_bar), circ_mean(s1_l6_rs_theta_bar)];
+% fs_avg = [circ_mean(s1_l1_fs_theta_bar), circ_mean(s1_l2_fs_theta_bar), circ_mean(s1_l4_fs_theta_bar), circ_mean(s1_l5_fs_theta_bar), circ_mean(s1_l6_fs_theta_bar)];
+% rs_err = [circ_std(s1_l1_rs_theta_bar)/sqrt(sum(~isnan(s1_l1_rs_theta_bar))), circ_std(s1_l2_rs_theta_bar)/sqrt(sum(~isnan(s1_l2_rs_theta_bar))), circ_std(s1_l4_rs_theta_bar)/sqrt(sum(~isnan(s1_l4_rs_theta_bar))), circ_std(s1_l5_rs_theta_bar)/sqrt(sum(~isnan(s1_l5_rs_theta_bar))), circ_std(s1_l6_rs_theta_bar)/sqrt(sum(~isnan(s1_l6_rs_theta_bar)))];
+% fs_err = [circ_std(s1_l1_fs_theta_bar)/sqrt(sum(~isnan(s1_l1_fs_theta_bar))), circ_std(s1_l2_fs_theta_bar)/sqrt(sum(~isnan(s1_l2_fs_theta_bar))), circ_std(s1_l4_fs_theta_bar)/sqrt(sum(~isnan(s1_l4_fs_theta_bar))), circ_std(s1_l5_fs_theta_bar)/sqrt(sum(~isnan(s1_l5_fs_theta_bar))), circ_std(s1_l6_fs_theta_bar)/sqrt(sum(~isnan(s1_l6_fs_theta_bar)))];
+% axs(9) = nexttile;
+% % barh(1:5, fliplr(rs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+% hold on
+% for i = 1:length(s1_l1_rs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(s1_l1_rs_theta_bar(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(s1_l2_rs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(s1_l2_rs_theta_bar(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(s1_l4_rs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(s1_l4_rs_theta_bar(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(s1_l5_rs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(s1_l5_rs_theta_bar(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(s1_l6_rs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(s1_l6_rs_theta_bar(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
+% yticks(1:5)
+% yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+% ylim([0.5,5.5])
+% xlim([-3.5,3.5])
+% xticks([-pi,0,pi])
+% xticklabels({'-\pi', '', '\pi'})
+% xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
+% ax = gca;
+% ax.XAxis.FontSize=16;
+% ax.YAxis.FontSize=14;
+
+% axs(10) = nexttile;
+% % barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+% hold on
+% for i = 1:length(s1_l1_fs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(s1_l1_fs_theta_bar(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(s1_l2_fs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(s1_l2_fs_theta_bar(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(s1_l4_fs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(s1_l4_fs_theta_bar(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(s1_l5_fs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(s1_l5_fs_theta_bar(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(s1_l6_fs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(s1_l6_fs_theta_bar(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
+% yticks(1:5)
+% yticklabels(fliplr({'L1', 'L2/3', 'L4', 'L5', 'L6'}))
+% ylim([0.5,5.5])
+% xlim([-3.5,3.5])
+% xticks([-pi,0,pi])
+% xticklabels({'-\pi', '', '\pi'})
+% % ylabel(tl, 'Cortical Layer', 'FontSize', 16)
+% xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
+% ax = gca;
+% ax.XAxis.FontSize=16;
+% ax.YAxis.FontSize=14;
+
+% rs_avg = [circ_mean(ac_rs_theta_bar), circ_mean(pl_rs_theta_bar), circ_mean(il_rs_theta_bar), circ_mean(orb_rs_theta_bar), circ_mean(dp_rs_theta_bar)];
+% fs_avg = [circ_mean(ac_fs_theta_bar), circ_mean(pl_fs_theta_bar), circ_mean(il_fs_theta_bar), circ_mean(orb_fs_theta_bar), circ_mean(dp_fs_theta_bar)];
+% rs_err = [circ_std(ac_rs_theta_bar)/sqrt(sum(~isnan(ac_rs_theta_bar))), circ_std(pl_rs_theta_bar)/sqrt(sum(~isnan(pl_rs_theta_bar))), circ_std(il_rs_theta_bar)/sqrt(sum(~isnan(il_rs_theta_bar))), circ_std(orb_rs_theta_bar)/sqrt(sum(~isnan(orb_rs_theta_bar))), circ_std(dp_rs_theta_bar)/sqrt(sum(~isnan(dp_rs_theta_bar)))];
+% fs_err = [circ_std(ac_fs_theta_bar)/sqrt(sum(~isnan(ac_fs_theta_bar))), circ_std(pl_fs_theta_bar)/sqrt(sum(~isnan(pl_fs_theta_bar))), circ_std(il_fs_theta_bar)/sqrt(sum(~isnan(il_fs_theta_bar))), circ_std(orb_fs_theta_bar)/sqrt(sum(~isnan(orb_fs_theta_bar))), circ_std(dp_fs_theta_bar)/sqrt(sum(~isnan(dp_fs_theta_bar)))];
+% axs(11) = nexttile;
+% % barh(1:5, fliplr(rs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+% hold on
+% for i = 1:length(ac_rs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(ac_rs_theta_bar(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(pl_rs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(pl_rs_theta_bar(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(il_rs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(il_rs_theta_bar(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(orb_rs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(orb_rs_theta_bar(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(dp_rs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(dp_rs_theta_bar(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% errorbar(fliplr(rs_avg), 1:5, fliplr(rs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
+% yticks(1:5)
+% yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
+% ylim([0.5,5.5])
+% xlim([-3.5,3.5])
+% xticks([-pi,0,pi])
+% xticklabels({'-\pi', '', '\pi'})
+% xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
+% ax = gca;
+% ax.XAxis.FontSize=16;
+% ax.YAxis.FontSize=14;
+
+% axs(12) = nexttile;
+% % barh(1:5, fliplr(fs_avg), 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
+% hold on
+% for i = 1:length(ac_fs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(ac_fs_theta_bar(i), 5+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(pl_fs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(pl_fs_theta_bar(i), 4+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(il_fs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(il_fs_theta_bar(i), 3+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(orb_fs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(orb_fs_theta_bar(i), 2+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% for i = 1:length(dp_fs_theta_bar)
+%     x = (rand()-0.5) * 0.2;
+%     plot(dp_fs_theta_bar(i), 1+x, 'o', 'MarkerFaceColor', [0.3, 0.3, 0.3], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+% end
+% errorbar(fliplr(fs_avg), 1:5, fliplr(fs_err), 'horizontal', 'b.', 'LineWidth', 2, 'MarkerSize', 10, 'CapSize', 15)
+% yticks(1:5)
+% yticklabels(fliplr({'AC', 'PL', 'IL', 'ORB', 'DP'}))
+% ylim([0.5,5.5])
+% xlim([-3.5,3.5])
+% xticks([-pi,0,pi])
+% xticklabels({'-\pi', '', '\pi'})
+% % ylabel(tl, 'PFC Subregion', 'FontSize', 16)
+% xlabel('Avg. Firing Phase (rad)', 'FontSize', 14, 'FontWeight', 'normal')
+% ax = gca;
+% ax.XAxis.FontSize=16;
+% ax.YAxis.FontSize=14;
