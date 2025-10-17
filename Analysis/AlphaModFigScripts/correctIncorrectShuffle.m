@@ -1,6 +1,6 @@
 addpath(genpath('~/circstat-matlab/'))
 init_paths;
-run_bootstrap = false;
+run_bootstrap = true;
 
 if run_bootstrap
     % S1
