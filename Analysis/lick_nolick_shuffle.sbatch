@@ -4,7 +4,7 @@
 #SBATCH -J strShuff2
 #SBATCH -N 1
 #SBATCH -c 1
-#SBATCH --time=0-48:00
+#SBATCH --time=0-72:00
 #SBATCH -o logs/str_lick_nolick_shuffle.log 
 #SBATCH -e errs/str_lick_nolick_shuffle.err
 #SBATCH --mem 40gb

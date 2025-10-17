@@ -210,7 +210,7 @@ if run_bootstrap
         mkdir(out_path)
     end
 
-    for s = 1:length(session_ids)
+    for s = 20:length(session_ids)
         fig_path = strcat(out_path, session_ids{s}, '/');
         if ~exist(fig_path, 'dir')
             mkdir(fig_path)
@@ -307,6 +307,7 @@ session_ids = {'date--2024-02-14_subj--3387-20240121_geno--Dbh-Cre-x-Gq-DREADD_n
     'date--2024-09-03_subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0', ...
     'date--2024-09-02_subj--3755-20240828_geno--Dbh-Cre-x-Gq-DREADD_npxls--R-npx10_phase--phase3_g0'};
 s1_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/Correct_Incorrect_Shuffles/');
+striatum_path = strcat(ftr_path, 'AP/FIG/S1_Expert_Combo_Revision/Basal_Ganglia/Spontaneous_Alpha_Modulation/Correct_Incorrect_Shuffles/');
 pfc_path = strcat(ftr_path, 'AP/FIG/PFC_Expert_Combo_Revision/PFC/Spontaneous_Alpha_Modulation/Correct_Incorrect_Shuffles/');
 ptiles = [];
 for s = 1:length(session_ids)
@@ -316,6 +317,10 @@ for s = 1:length(session_ids)
         load(sprintf('%s%s/shuffle_data.mat', pfc_path, session_ids{s}));
     end
     ptiles = [ptiles, correct_ptiles];
+    try
+        load(sprintf('%s%s/shuffle_data.mat', striatum_path, session_ids{s}));
+        ptiles = [ptiles, correct_ptiles];
+    end
 end
 
 fig = figure();

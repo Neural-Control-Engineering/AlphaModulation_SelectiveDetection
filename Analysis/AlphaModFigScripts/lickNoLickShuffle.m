@@ -27,7 +27,7 @@ if run_bootstrap
         mkdir(out_path)
     end
 
-    for s = 1:length(session_ids)
+    for s = 18:length(session_ids)
         fig_path = strcat(out_path, session_ids{s}, '/');
         if ~exist(fig_path, 'dir')
             mkdir(fig_path)
