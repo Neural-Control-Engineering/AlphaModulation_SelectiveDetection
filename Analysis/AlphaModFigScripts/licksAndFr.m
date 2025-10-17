@@ -1248,7 +1248,7 @@ ax = gca;
 ax.YAxis.FontSize = 14;
 ax.XAxis.FontSize = 14;
 ylabel(tl, 'Firing Rate (Hz)', 'FontSize', 16)
-saveas(fig, '../Figures/mod_unmod_fr_licks.svg')
+print(fig,'-vector','-dsvg',['../Figures/mod_unmod_fr_licks','.svg']) % svg
 saveas(fig, '../Figures/mod_unmod_fr_licks.fig')
 
 if KStest(cellfun(@nanmean, out.S1_rs_all_lick_frs)) || KStest(cellfun(@nanmean, out.S1_rs_all_no_lick_frs))

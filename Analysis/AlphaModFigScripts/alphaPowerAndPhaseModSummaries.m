@@ -1802,25 +1802,26 @@ ylabel(tl, 'Fraction of Events', 'FontSize', 18)
 
 
 if out_path
-    % saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.svg')
-    print(updated_fig,'-vector','-dsvg','../Figures/lowVsHighAlpha_summary.svg') % svg
-    saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.fig')
-    print(updated_fig,'-vector','-dsvg','../Figures/lowVsHighAlpha_summary.svg') % svg
-    saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.fig')
-    saveas(s1_rs_theta_fig, '../Figures/s1_rs_theta_low_vs_high.svg')
-    saveas(s1_rs_theta_fig, '../Figures/s1_rs_theta_low_vs_high.fig')
-    saveas(s1_fs_theta_fig, '../Figures/s1_fs_theta_low_vs_high.svg')
-    saveas(s1_fs_theta_fig, '../Figures/s1_fs_theta_low_vs_high.fig')
-    saveas(pfc_rs_theta_fig, '../Figures/pfc_rs_theta_low_vs_high.svg')
-    saveas(pfc_rs_theta_fig, '../Figures/pfc_rs_theta_low_vs_high.fig')
-    saveas(pfc_fs_theta_fig, '../Figures/pfc_fs_theta_low_vs_high.svg')
-    saveas(pfc_fs_theta_fig, '../Figures/pfc_fs_theta_low_vs_high.fig')
-    saveas(striatum_rs_theta_fig, '../Figures/striatum_rs_theta_low_vs_high.svg')
-    saveas(striatum_rs_theta_fig, '../Figures/striatum_rs_theta_low_vs_high.fig')
-    saveas(striatum_fs_theta_fig, '../Figures/striatum_fs_theta_low_vs_high.svg')
-    saveas(striatum_fs_theta_fig, '../Figures/striatum_fs_theta_low_vs_high.fig')
-    saveas(angle_diff_fig, '../Figures/angle_diff.svg')
-    saveas(angle_diff_fig, '../Figures/angle_diff.fig')
+    % print(updated_fig,'-vector','-dsvg','../Figures/lowVsHighAlpha_summary.svg') % svg
+    % saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.fig')
+    % print(updated_fig,'-vector','-dsvg','../Figures/lowVsHighAlpha_summary.svg') % svg
+    % saveas(updated_fig, '../Figures/lowVsHighAlpha_summary.fig')
+    % saveas(s1_rs_theta_fig, '../Figures/s1_rs_theta_low_vs_high.svg')
+    % saveas(s1_rs_theta_fig, '../Figures/s1_rs_theta_low_vs_high.fig')
+    % saveas(s1_fs_theta_fig, '../Figures/s1_fs_theta_low_vs_high.svg')
+    % saveas(s1_fs_theta_fig, '../Figures/s1_fs_theta_low_vs_high.fig')
+    % saveas(pfc_rs_theta_fig, '../Figures/pfc_rs_theta_low_vs_high.svg')
+    % saveas(pfc_rs_theta_fig, '../Figures/pfc_rs_theta_low_vs_high.fig')
+    % saveas(pfc_fs_theta_fig, '../Figures/pfc_fs_theta_low_vs_high.svg')
+    % saveas(pfc_fs_theta_fig, '../Figures/pfc_fs_theta_low_vs_high.fig')
+    % saveas(striatum_rs_theta_fig, '../Figures/striatum_rs_theta_low_vs_high.svg')
+    % saveas(striatum_rs_theta_fig, '../Figures/striatum_rs_theta_low_vs_high.fig')
+    % saveas(striatum_fs_theta_fig, '../Figures/striatum_fs_theta_low_vs_high.svg')
+    % saveas(striatum_fs_theta_fig, '../Figures/striatum_fs_theta_low_vs_high.fig')
+    % saveas(angle_diff_fig, '../Figures/angle_diff.svg')
+    % saveas(angle_diff_fig, '../Figures/angle_diff.fig')
+    saveas(event_fig, '../Figures/alpha_events.svg')
+    saveas(event_fig, '../Figures/alpha_events.fig')
 end
 
 % %% example figure

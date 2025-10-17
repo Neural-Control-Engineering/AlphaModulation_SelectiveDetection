@@ -3,7 +3,7 @@ delete Stats/alpha_mod_and_licking.txt
 diary Stats/alpha_mod_and_licking.txt 
 init_paths;
 load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/data.mat'))
-out_path = false; %true;
+out_path = true;
 alpha_modulated = out.alpha_modulated;
 
 s1 = load(strcat(ftr_path, '/AP/FIG/S1_Expert_Combo_Revision/Cortex/Spontaneous_Alpha_Modulation/data.mat'));
