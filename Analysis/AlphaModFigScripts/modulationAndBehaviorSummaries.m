@@ -1030,16 +1030,16 @@ tl = tiledlayout(3,2);
 axs = zeros(3,2);
 axs(1,1) = nexttile;
 hold on
-plot(zeros(1,length(s1_rs_justCorrect))+1+(rand(1,length(s1_rs_justCorrect))-0.5)*0.3, s1_rs_justCorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(s1_rs_justIncorrect))+2+(rand(1,length(s1_rs_justIncorrect))-0.5)*0.3, s1_rs_justIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(s1_rs_correctIncorrect))+3+(rand(1,length(s1_rs_correctIncorrect))-0.5)*0.3, s1_rs_correctIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(s1_rs_justCorrect))+1+(rand(1,length(s1_rs_justCorrect))-0.5)*0.3, s1_rs_justCorrect * 100, 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 5)
+plot(zeros(1,length(s1_rs_justIncorrect))+2+(rand(1,length(s1_rs_justIncorrect))-0.5)*0.3, s1_rs_justIncorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(s1_rs_correctIncorrect))+3+(rand(1,length(s1_rs_correctIncorrect))-0.5)*0.3, s1_rs_correctIncorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
 errorbar(1:3, [nanmean(s1_rs_justCorrect), nanmean(s1_rs_justIncorrect), nanmean(s1_rs_correctIncorrect)] * 100, ...
     [nanstd(s1_rs_justCorrect) ./ sqrt(sum(~isnan(s1_rs_justCorrect))), ...
     nanstd(s1_rs_justIncorrect) ./ sqrt(sum(~isnan(s1_rs_justIncorrect))), ...
     nanstd(s1_rs_correctIncorrect) ./ sqrt(sum(~isnan(s1_rs_correctIncorrect)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
-plot(zeros(1,length(s1_rs_justAction))+6+(rand(1,length(s1_rs_justAction))-0.5)*0.3, s1_rs_justAction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(s1_rs_justInaction))+7+(rand(1,length(s1_rs_justInaction))-0.5)*0.3, s1_rs_justInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(s1_rs_actionInaction))+8+(rand(1,length(s1_rs_actionInaction))-0.5)*0.3, s1_rs_actionInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(s1_rs_justAction))+6+(rand(1,length(s1_rs_justAction))-0.5)*0.3, s1_rs_justAction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(s1_rs_justInaction))+7+(rand(1,length(s1_rs_justInaction))-0.5)*0.3, s1_rs_justInaction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(s1_rs_actionInaction))+8+(rand(1,length(s1_rs_actionInaction))-0.5)*0.3, s1_rs_actionInaction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
 errorbar(6:8, [nanmean(s1_rs_justAction), nanmean(s1_rs_justInaction), nanmean(s1_rs_actionInaction)] * 100, ...
     [nanstd(s1_rs_justAction) ./ sqrt(sum(~isnan(s1_rs_justAction))), ...
     nanstd(s1_rs_justInaction) ./ sqrt(sum(~isnan(s1_rs_justInaction))), ...
@@ -1055,16 +1055,16 @@ ax.XAxis.FontSize = 12;
 ax.YAxis.FontSize = 14;
 axs(1,2) = nexttile;
 hold on
-plot(zeros(1,length(s1_fs_justCorrect))+1+(rand(1,length(s1_fs_justCorrect))-0.5)*0.3, s1_fs_justCorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(s1_fs_justIncorrect))+2+(rand(1,length(s1_fs_justIncorrect))-0.5)*0.3, s1_fs_justIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(s1_fs_correctIncorrect))+3+(rand(1,length(s1_fs_correctIncorrect))-0.5)*0.3, s1_fs_correctIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(s1_fs_justCorrect))+1+(rand(1,length(s1_fs_justCorrect))-0.5)*0.3, s1_fs_justCorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(s1_fs_justIncorrect))+2+(rand(1,length(s1_fs_justIncorrect))-0.5)*0.3, s1_fs_justIncorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(s1_fs_correctIncorrect))+3+(rand(1,length(s1_fs_correctIncorrect))-0.5)*0.3, s1_fs_correctIncorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
 errorbar(1:3, [nanmean(s1_fs_justCorrect), nanmean(s1_fs_justIncorrect), nanmean(s1_fs_correctIncorrect)] * 100, ...
     [nanstd(s1_fs_justCorrect) ./ sqrt(sum(~isnan(s1_fs_justCorrect))), ...
     nanstd(s1_fs_justIncorrect) ./ sqrt(sum(~isnan(s1_fs_justIncorrect))), ...
     nanstd(s1_fs_correctIncorrect) ./ sqrt(sum(~isnan(s1_fs_correctIncorrect)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
-plot(zeros(1,length(s1_fs_justAction))+6+(rand(1,length(s1_fs_justAction))-0.5)*0.3, s1_fs_justAction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(s1_fs_justInaction))+7+(rand(1,length(s1_fs_justInaction))-0.5)*0.3, s1_fs_justInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(s1_fs_actionInaction))+8+(rand(1,length(s1_fs_actionInaction))-0.5)*0.3, s1_fs_actionInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(s1_fs_justAction))+6+(rand(1,length(s1_fs_justAction))-0.5)*0.3, s1_fs_justAction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(s1_fs_justInaction))+7+(rand(1,length(s1_fs_justInaction))-0.5)*0.3, s1_fs_justInaction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(s1_fs_actionInaction))+8+(rand(1,length(s1_fs_actionInaction))-0.5)*0.3, s1_fs_actionInaction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
 errorbar(6:8, [nanmean(s1_fs_justAction), nanmean(s1_fs_justInaction), nanmean(s1_fs_actionInaction)] * 100, ...
     [nanstd(s1_fs_justAction) ./ sqrt(sum(~isnan(s1_fs_justAction))), ...
     nanstd(s1_fs_justInaction) ./ sqrt(sum(~isnan(s1_fs_justInaction))), ...
@@ -1080,16 +1080,16 @@ ax.XAxis.FontSize = 12;
 ax.YAxis.FontSize = 14;
 axs(2,1) = nexttile;
 hold on
-plot(zeros(1,length(pfc_rs_justCorrect))+1+(rand(1,length(pfc_rs_justCorrect))-0.5)*0.3, pfc_rs_justCorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(pfc_rs_justIncorrect))+2+(rand(1,length(pfc_rs_justIncorrect))-0.5)*0.3, pfc_rs_justIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(pfc_rs_correctIncorrect))+3+(rand(1,length(pfc_rs_correctIncorrect))-0.5)*0.3, pfc_rs_correctIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(pfc_rs_justCorrect))+1+(rand(1,length(pfc_rs_justCorrect))-0.5)*0.3, pfc_rs_justCorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(pfc_rs_justIncorrect))+2+(rand(1,length(pfc_rs_justIncorrect))-0.5)*0.3, pfc_rs_justIncorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(pfc_rs_correctIncorrect))+3+(rand(1,length(pfc_rs_correctIncorrect))-0.5)*0.3, pfc_rs_correctIncorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
 errorbar(1:3, [nanmean(pfc_rs_justCorrect), nanmean(pfc_rs_justIncorrect), nanmean(pfc_rs_correctIncorrect)] * 100, ...
     [nanstd(pfc_rs_justCorrect) ./ sqrt(sum(~isnan(pfc_rs_justCorrect))), ...
     nanstd(pfc_rs_justIncorrect) ./ sqrt(sum(~isnan(pfc_rs_justIncorrect))), ...
     nanstd(pfc_rs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_rs_correctIncorrect)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
-plot(zeros(1,length(pfc_rs_justAction))+6+(rand(1,length(pfc_rs_justAction))-0.5)*0.3, pfc_rs_justAction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(pfc_rs_justInaction))+7+(rand(1,length(pfc_rs_justInaction))-0.5)*0.3, pfc_rs_justInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(pfc_rs_actionInaction))+8+(rand(1,length(pfc_rs_actionInaction))-0.5)*0.3, pfc_rs_actionInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(pfc_rs_justAction))+6+(rand(1,length(pfc_rs_justAction))-0.5)*0.3, pfc_rs_justAction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(pfc_rs_justInaction))+7+(rand(1,length(pfc_rs_justInaction))-0.5)*0.3, pfc_rs_justInaction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(pfc_rs_actionInaction))+8+(rand(1,length(pfc_rs_actionInaction))-0.5)*0.3, pfc_rs_actionInaction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
 errorbar(6:8, [nanmean(pfc_rs_justAction), nanmean(pfc_rs_justInaction), nanmean(pfc_rs_actionInaction)] * 100, ...
     [nanstd(pfc_rs_justAction) ./ sqrt(sum(~isnan(pfc_rs_justAction))), ...
     nanstd(pfc_rs_justInaction) ./ sqrt(sum(~isnan(pfc_rs_justInaction))), ...
@@ -1105,16 +1105,16 @@ ax.XAxis.FontSize = 12;
 ax.YAxis.FontSize = 14;
 axs(2,2) = nexttile;
 hold on
-plot(zeros(1,length(pfc_fs_justCorrect))+1+(rand(1,length(pfc_fs_justCorrect))-0.5)*0.3, pfc_fs_justCorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(pfc_fs_justIncorrect))+2+(rand(1,length(pfc_fs_justIncorrect))-0.5)*0.3, pfc_fs_justIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(pfc_fs_correctIncorrect))+3+(rand(1,length(pfc_fs_correctIncorrect))-0.5)*0.3, pfc_fs_correctIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(pfc_fs_justCorrect))+1+(rand(1,length(pfc_fs_justCorrect))-0.5)*0.3, pfc_fs_justCorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(pfc_fs_justIncorrect))+2+(rand(1,length(pfc_fs_justIncorrect))-0.5)*0.3, pfc_fs_justIncorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(pfc_fs_correctIncorrect))+3+(rand(1,length(pfc_fs_correctIncorrect))-0.5)*0.3, pfc_fs_correctIncorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
 errorbar(1:3, [nanmean(pfc_fs_justCorrect), nanmean(pfc_fs_justIncorrect), nanmean(pfc_fs_correctIncorrect)] * 100, ...
     [nanstd(pfc_fs_justCorrect) ./ sqrt(sum(~isnan(pfc_fs_justCorrect))), ...
     nanstd(pfc_fs_justIncorrect) ./ sqrt(sum(~isnan(pfc_fs_justIncorrect))), ...
     nanstd(pfc_fs_correctIncorrect) ./ sqrt(sum(~isnan(pfc_fs_correctIncorrect)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
-plot(zeros(1,length(pfc_fs_justAction))+6+(rand(1,length(pfc_fs_justAction))-0.5)*0.3, pfc_fs_justAction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(pfc_fs_justInaction))+7+(rand(1,length(pfc_fs_justInaction))-0.5)*0.3, pfc_fs_justInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(pfc_fs_actionInaction))+8+(rand(1,length(pfc_fs_actionInaction))-0.5)*0.3, pfc_fs_actionInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(pfc_fs_justAction))+6+(rand(1,length(pfc_fs_justAction))-0.5)*0.3, pfc_fs_justAction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(pfc_fs_justInaction))+7+(rand(1,length(pfc_fs_justInaction))-0.5)*0.3, pfc_fs_justInaction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(pfc_fs_actionInaction))+8+(rand(1,length(pfc_fs_actionInaction))-0.5)*0.3, pfc_fs_actionInaction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
 errorbar(6:8, [nanmean(pfc_fs_justAction), nanmean(pfc_fs_justInaction), nanmean(pfc_fs_actionInaction)] * 100, ...
     [nanstd(pfc_fs_justAction) ./ sqrt(sum(~isnan(pfc_fs_justAction))), ...
     nanstd(pfc_fs_justInaction) ./ sqrt(sum(~isnan(pfc_fs_justInaction))), ...
@@ -1130,16 +1130,16 @@ ax.XAxis.FontSize = 12;
 ax.YAxis.FontSize = 14;
 axs(3,1) = nexttile;
 hold on
-plot(zeros(1,length(striatum_rs_justCorrect))+1+(rand(1,length(striatum_rs_justCorrect))-0.5)*0.3, striatum_rs_justCorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(striatum_rs_justIncorrect))+2+(rand(1,length(striatum_rs_justIncorrect))-0.5)*0.3, striatum_rs_justIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(striatum_rs_correctIncorrect))+3+(rand(1,length(striatum_rs_correctIncorrect))-0.5)*0.3, striatum_rs_correctIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(striatum_rs_justCorrect))+1+(rand(1,length(striatum_rs_justCorrect))-0.5)*0.3, striatum_rs_justCorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(striatum_rs_justIncorrect))+2+(rand(1,length(striatum_rs_justIncorrect))-0.5)*0.3, striatum_rs_justIncorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(striatum_rs_correctIncorrect))+3+(rand(1,length(striatum_rs_correctIncorrect))-0.5)*0.3, striatum_rs_correctIncorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
 errorbar(1:3, [nanmean(striatum_rs_justCorrect), nanmean(striatum_rs_justIncorrect), nanmean(striatum_rs_correctIncorrect)] * 100, ...
     [nanstd(striatum_rs_justCorrect) ./ sqrt(sum(~isnan(striatum_rs_justCorrect))), ...
     nanstd(striatum_rs_justIncorrect) ./ sqrt(sum(~isnan(striatum_rs_justIncorrect))), ...
     nanstd(striatum_rs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_rs_correctIncorrect)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
-plot(zeros(1,length(striatum_rs_justAction))+6+(rand(1,length(striatum_rs_justAction))-0.5)*0.3, striatum_rs_justAction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(striatum_rs_justInaction))+7+(rand(1,length(striatum_rs_justInaction))-0.5)*0.3, striatum_rs_justInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(striatum_rs_actionInaction))+8+(rand(1,length(striatum_rs_actionInaction))-0.5)*0.3, striatum_rs_actionInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(striatum_rs_justAction))+6+(rand(1,length(striatum_rs_justAction))-0.5)*0.3, striatum_rs_justAction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(striatum_rs_justInaction))+7+(rand(1,length(striatum_rs_justInaction))-0.5)*0.3, striatum_rs_justInaction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(striatum_rs_actionInaction))+8+(rand(1,length(striatum_rs_actionInaction))-0.5)*0.3, striatum_rs_actionInaction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
 errorbar(6:8, [nanmean(striatum_rs_justAction), nanmean(striatum_rs_justInaction), nanmean(striatum_rs_actionInaction)] * 100, ...
     [nanstd(striatum_rs_justAction) ./ sqrt(sum(~isnan(striatum_rs_justAction))), ...
     nanstd(striatum_rs_justInaction) ./ sqrt(sum(~isnan(striatum_rs_justInaction))), ...
@@ -1155,16 +1155,16 @@ ax.XAxis.FontSize = 12;
 ax.YAxis.FontSize = 14;
 axs(3,2) = nexttile;
 hold on
-plot(zeros(1,length(striatum_fs_justCorrect))+1+(rand(1,length(striatum_fs_justCorrect))-0.5)*0.3, striatum_fs_justCorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(striatum_fs_justIncorrect))+2+(rand(1,length(striatum_fs_justIncorrect))-0.5)*0.3, striatum_fs_justIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(striatum_fs_correctIncorrect))+3+(rand(1,length(striatum_fs_correctIncorrect))-0.5)*0.3, striatum_fs_correctIncorrect * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(striatum_fs_justCorrect))+1+(rand(1,length(striatum_fs_justCorrect))-0.5)*0.3, striatum_fs_justCorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(striatum_fs_justIncorrect))+2+(rand(1,length(striatum_fs_justIncorrect))-0.5)*0.3, striatum_fs_justIncorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(striatum_fs_correctIncorrect))+3+(rand(1,length(striatum_fs_correctIncorrect))-0.5)*0.3, striatum_fs_correctIncorrect * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
 errorbar(1:3, [nanmean(striatum_fs_justCorrect), nanmean(striatum_fs_justIncorrect), nanmean(striatum_fs_correctIncorrect)] * 100, ...
     [nanstd(striatum_fs_justCorrect) ./ sqrt(sum(~isnan(striatum_fs_justCorrect))), ...
     nanstd(striatum_fs_justIncorrect) ./ sqrt(sum(~isnan(striatum_fs_justIncorrect))), ...
     nanstd(striatum_fs_correctIncorrect) ./ sqrt(sum(~isnan(striatum_fs_correctIncorrect)))] * 100, 'b.', 'MarkerSize', 20, 'LineWidth', 2, 'CapSize', 10)
-plot(zeros(1,length(striatum_fs_justAction))+6+(rand(1,length(striatum_fs_justAction))-0.5)*0.3, striatum_fs_justAction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(striatum_fs_justInaction))+7+(rand(1,length(striatum_fs_justInaction))-0.5)*0.3, striatum_fs_justInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(1,length(striatum_fs_actionInaction))+8+(rand(1,length(striatum_fs_actionInaction))-0.5)*0.3, striatum_fs_actionInaction * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(1,length(striatum_fs_justAction))+6+(rand(1,length(striatum_fs_justAction))-0.5)*0.3, striatum_fs_justAction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(striatum_fs_justInaction))+7+(rand(1,length(striatum_fs_justInaction))-0.5)*0.3, striatum_fs_justInaction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+plot(zeros(1,length(striatum_fs_actionInaction))+8+(rand(1,length(striatum_fs_actionInaction))-0.5)*0.3, striatum_fs_actionInaction * 100, 'o', 'MarkerFaceColor', [0.5,0.5,0.5], 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
 errorbar(6:8, [nanmean(striatum_fs_justAction), nanmean(striatum_fs_justInaction), nanmean(striatum_fs_actionInaction)] * 100, ...
     [nanstd(striatum_fs_justAction) ./ sqrt(sum(~isnan(striatum_fs_justAction))), ...
     nanstd(striatum_fs_justInaction) ./ sqrt(sum(~isnan(striatum_fs_justInaction))), ...

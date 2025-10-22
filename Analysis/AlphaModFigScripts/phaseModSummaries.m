@@ -720,18 +720,18 @@ x = [1,2,3,...
     13,14,15];
 % bar(x, frac_avgs .* 100, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 hold on
-plot(zeros(length(s1_rs_fracs),1)+1+(rand(length(s1_rs_fracs),1)-0.5)*0.3, s1_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(length(s1_fs_fracs),1)+2+(rand(length(s1_fs_fracs),1)-0.5)*0.3, s1_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(length(s1_combo_fracs),1)+3+(rand(length(s1_combo_fracs),1)-0.5)*0.3, s1_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(length(pfc_rs_fracs),1)+5+(rand(length(pfc_rs_fracs),1)-0.5)*0.3, pfc_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(length(pfc_fs_fracs),1)+6+(rand(length(pfc_fs_fracs),1)-0.5)*0.3, pfc_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(length(pfc_combo_fracs),1)+7+(rand(length(pfc_combo_fracs),1)-0.5)*0.3, pfc_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(length(striatum_rs_fracs),1)+9+(rand(length(striatum_rs_fracs),1)-0.5)*0.3, striatum_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(length(striatum_fs_fracs),1)+10+(rand(length(striatum_fs_fracs),1)-0.5)*0.3, striatum_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(length(striatum_combo_fracs),1)+11+(rand(length(striatum_combo_fracs),1)-0.5)*0.3, striatum_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(length(amygdala_rs_fracs),1)+13+(rand(length(amygdala_rs_fracs),1)-0.5)*0.3, amygdala_rs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(length(amygdala_fs_fracs),1)+14+(rand(length(amygdala_fs_fracs),1)-0.5)*0.3, amygdala_fs_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
-plot(zeros(length(amygdala_combo_fracs),1)+15+(rand(length(amygdala_combo_fracs),1)-0.5)*0.3, amygdala_combo_fracs * 100, '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 20)
+plot(zeros(length(s1_rs_fracs),1)+1+(rand(length(s1_rs_fracs),1)-0.5)*0.3, s1_rs_fracs * 100, 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5],  'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(s1_fs_fracs),1)+2+(rand(length(s1_fs_fracs),1)-0.5)*0.3, s1_fs_fracs * 100, 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5],  'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(s1_combo_fracs),1)+3+(rand(length(s1_combo_fracs),1)-0.5)*0.3, s1_combo_fracs * 100, 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5],  'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(pfc_rs_fracs),1)+5+(rand(length(pfc_rs_fracs),1)-0.5)*0.3, pfc_rs_fracs * 100, 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5],  'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(pfc_fs_fracs),1)+6+(rand(length(pfc_fs_fracs),1)-0.5)*0.3, pfc_fs_fracs * 100, 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5],  'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(pfc_combo_fracs),1)+7+(rand(length(pfc_combo_fracs),1)-0.5)*0.3, pfc_combo_fracs * 100, 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5],  'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(striatum_rs_fracs),1)+9+(rand(length(striatum_rs_fracs),1)-0.5)*0.3, striatum_rs_fracs * 100, 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5],  'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(striatum_fs_fracs),1)+10+(rand(length(striatum_fs_fracs),1)-0.5)*0.3, striatum_fs_fracs * 100, 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5],  'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(striatum_combo_fracs),1)+11+(rand(length(striatum_combo_fracs),1)-0.5)*0.3, striatum_combo_fracs * 100, 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5],  'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(amygdala_rs_fracs),1)+13+(rand(length(amygdala_rs_fracs),1)-0.5)*0.3, amygdala_rs_fracs * 100, 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5],  'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(amygdala_fs_fracs),1)+14+(rand(length(amygdala_fs_fracs),1)-0.5)*0.3, amygdala_fs_fracs * 100, 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5],  'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(amygdala_combo_fracs),1)+15+(rand(length(amygdala_combo_fracs),1)-0.5)*0.3, amygdala_combo_fracs * 100, 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5],  'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
 errorbar(x, frac_avgs .* 100, frac_errs .* 100, 'k.', 'CapSize', 10, 'LineWidth', 1.5, 'MarkerSize', 20)
 xticks(x)
 xticklabels({'S1 RS', 'S1 FS', 'S1 Overall'...
@@ -745,6 +745,8 @@ ylabel('% Alpha Modulated per Session', 'FontSize', 18)
 ax = gca;
 ax.XAxis.FontSize = 18;
 ax.YAxis.FontSize = 16;
+
+keyboard 
 
 %% evoked fig 
 s1_mod_rs_delta_hit = s1_mod_rs_hit-mean(s1_mod_rs_hit(:,time<0),2);
@@ -2393,18 +2395,18 @@ x = [1,2,3,...
     13,14,15];
 % bar(x, mi_avgs, 'EdgeColor', [0.5,0.5,0.5], 'FaceColor', [0.5,0.5,0.5])
 hold on
-plot(zeros(length(s1_rs.pmi),1)+1+(rand(length(s1_rs.pmi),1)-0.5)*0.3, log(s1_rs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
-plot(zeros(length(s1_fs.pmi),1)+2+(rand(length(s1_fs.pmi),1)-0.5)*0.3, log(s1_fs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
-plot(zeros(length(s1_rs.pmi)+length(s1_fs.pmi),1)+3+(rand(length(s1_rs.pmi)+length(s1_fs.pmi),1)-0.5)*0.3, log([s1_rs.pmi; s1_fs.pmi]) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
-plot(zeros(length(pfc_rs.pmi),1)+5+(rand(length(pfc_rs.pmi),1)-0.5)*0.3, log(pfc_rs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
-plot(zeros(length(pfc_fs.pmi),1)+6+(rand(length(pfc_fs.pmi),1)-0.5)*0.3, log(pfc_fs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
-plot(zeros(length(pfc_rs.pmi)+length(pfc_fs.pmi),1)+7+(rand(length(pfc_rs.pmi)+length(pfc_fs.pmi),1)-0.5)*0.3, log([pfc_rs.pmi; pfc_fs.pmi]) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
-plot(zeros(length(striatum_rs.pmi),1)+9+(rand(length(striatum_rs.pmi),1)-0.5)*0.3, log(striatum_rs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
-plot(zeros(length(striatum_fs.pmi),1)+10+(rand(length(striatum_fs.pmi),1)-0.5)*0.3, log(striatum_fs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
-plot(zeros(length(striatum_rs.pmi)+length(striatum_fs.pmi),1)+11+(rand(length(striatum_rs.pmi)+length(striatum_fs.pmi),1)-0.5)*0.3, log([striatum_rs.pmi; striatum_fs.pmi]) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
-plot(zeros(length(amygdala_rs.pmi),1)+13+(rand(length(amygdala_rs.pmi),1)-0.5)*0.3, log(amygdala_rs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
-plot(zeros(length(amygdala_fs.pmi),1)+14+(rand(length(amygdala_fs.pmi),1)-0.5)*0.3, log(amygdala_fs.pmi) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
-plot(zeros(length(amygdala_rs.pmi)+length(amygdala_fs.pmi),1)+15+(rand(length(amygdala_rs.pmi)+length(amygdala_fs.pmi),1)-0.5)*0.3, log([amygdala_rs.pmi; amygdala_fs.pmi]) , '.', 'Color', [0.5, 0.5, 0.5], 'MarkerSize', 10)
+plot(zeros(length(s1_rs.pmi),1)+1+(rand(length(s1_rs.pmi),1)-0.5)*0.3, log(s1_rs.pmi) , 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(s1_fs.pmi),1)+2+(rand(length(s1_fs.pmi),1)-0.5)*0.3, log(s1_fs.pmi) , 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(s1_rs.pmi)+length(s1_fs.pmi),1)+3+(rand(length(s1_rs.pmi)+length(s1_fs.pmi),1)-0.5)*0.3, log([s1_rs.pmi; s1_fs.pmi]) , 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(pfc_rs.pmi),1)+5+(rand(length(pfc_rs.pmi),1)-0.5)*0.3, log(pfc_rs.pmi) , 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(pfc_fs.pmi),1)+6+(rand(length(pfc_fs.pmi),1)-0.5)*0.3, log(pfc_fs.pmi) , 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(pfc_rs.pmi)+length(pfc_fs.pmi),1)+7+(rand(length(pfc_rs.pmi)+length(pfc_fs.pmi),1)-0.5)*0.3, log([pfc_rs.pmi; pfc_fs.pmi]) , 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(striatum_rs.pmi),1)+9+(rand(length(striatum_rs.pmi),1)-0.5)*0.3, log(striatum_rs.pmi) , 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(striatum_fs.pmi),1)+10+(rand(length(striatum_fs.pmi),1)-0.5)*0.3, log(striatum_fs.pmi) , 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(striatum_rs.pmi)+length(striatum_fs.pmi),1)+11+(rand(length(striatum_rs.pmi)+length(striatum_fs.pmi),1)-0.5)*0.3, log([striatum_rs.pmi; striatum_fs.pmi]) , 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(amygdala_rs.pmi),1)+13+(rand(length(amygdala_rs.pmi),1)-0.5)*0.3, log(amygdala_rs.pmi) , 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(amygdala_fs.pmi),1)+14+(rand(length(amygdala_fs.pmi),1)-0.5)*0.3, log(amygdala_fs.pmi) , 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
+plot(zeros(length(amygdala_rs.pmi)+length(amygdala_fs.pmi),1)+15+(rand(length(amygdala_rs.pmi)+length(amygdala_fs.pmi),1)-0.5)*0.3, log([amygdala_rs.pmi; amygdala_fs.pmi]) , 'o', 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [1, 1, 1], 'MarkerSize', 7)
 errorbar(x, mi_avgs, mi_errs, 'k.', 'CapSize', 10, 'LineWidth', 1.5, 'MarkerSize', 20)
 xticks(x)
 xticklabels({'S1 RS', 'S1 FS', 'S1 Overall'...

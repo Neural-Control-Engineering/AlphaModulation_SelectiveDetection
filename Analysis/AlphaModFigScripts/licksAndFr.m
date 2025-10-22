@@ -1123,38 +1123,38 @@ axs(1) = nexttile;
 hold on 
 for i = 1:length(out.s1_rs_all_lick_frs)
     x = (rand()-0.5) * 0.3;
-    plot(2+x, nanmean(out.s1_rs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-    plot(1+x, nanmean(out.s1_rs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot(2+x, nanmean(out.s1_rs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    plot(1+x, nanmean(out.s1_rs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     plot([2,1]+x, [nanmean(out.s1_rs_all_lick_frs{i}), nanmean(out.s1_rs_all_no_lick_frs{i})], '--', 'Color', [0.5, 0.5, 0.5])
 end
 for i = 1:length(out.s1_fs_all_lick_frs)
     x = (rand()-0.5) * 0.3;
-    plot(5+x, nanmean(out.s1_fs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-    plot(4+x, nanmean(out.s1_fs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot(5+x, nanmean(out.s1_fs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    plot(4+x, nanmean(out.s1_fs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     plot([5,4]+x, [nanmean(out.s1_fs_all_lick_frs{i}), nanmean(out.s1_fs_all_no_lick_frs{i})], '--', 'Color', [0.5, 0.5, 0.5])
 end
 for i = 1:length(out.pfc_rs_all_lick_frs)
     x = (rand()-0.5) * 0.3;
-    plot(8+x, nanmean(out.pfc_rs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-    plot(7+x, nanmean(out.pfc_rs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot(8+x, nanmean(out.pfc_rs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    plot(7+x, nanmean(out.pfc_rs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     plot([8,7]+x, [nanmean(out.pfc_rs_all_lick_frs{i}), nanmean(out.pfc_rs_all_no_lick_frs{i})], '--', 'Color', [0.5, 0.5, 0.5])
 end
 for i = 1:length(out.pfc_fs_all_lick_frs)
     x = (rand()-0.5) * 0.3;
-    plot(11+x, nanmean(out.pfc_fs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-    plot(10+x, nanmean(out.pfc_fs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot(11+x, nanmean(out.pfc_fs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    plot(10+x, nanmean(out.pfc_fs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     plot([11,10]+x, [nanmean(out.pfc_fs_all_lick_frs{i}), nanmean(out.pfc_fs_all_no_lick_frs{i})], '--', 'Color', [0.5, 0.5, 0.5])
 end
 for i = 1:length(out.striatum_rs_all_lick_frs)
     x = (rand()-0.5) * 0.3;
-    plot(14+x, nanmean(out.striatum_rs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-    plot(13+x, nanmean(out.striatum_rs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot(14+x, nanmean(out.striatum_rs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    plot(13+x, nanmean(out.striatum_rs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     plot([14,13]+x, [nanmean(out.striatum_rs_all_lick_frs{i}), nanmean(out.striatum_rs_all_no_lick_frs{i})], '--', 'Color', [0.5, 0.5, 0.5])
 end
 for i = 1:length(out.striatum_fs_all_lick_frs)
     x = (rand()-0.5) * 0.3;
-    plot(17+x, nanmean(out.striatum_fs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-    plot(16+x, nanmean(out.striatum_fs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot(17+x, nanmean(out.striatum_fs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    plot(16+x, nanmean(out.striatum_fs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     plot([17,16]+x, [nanmean(out.striatum_fs_all_lick_frs{i}), nanmean(out.striatum_fs_all_no_lick_frs{i})], '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar([2,5,8,11,14,17], ...
@@ -1188,38 +1188,38 @@ axs(2) = nexttile;
 hold on 
 for i = 1:length(out.S1_rs_all_lick_frs)
     x = (rand()-0.5) * 0.3;
-    plot(2+x, nanmean(out.S1_rs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-    plot(1+x, nanmean(out.S1_rs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot(2+x, nanmean(out.S1_rs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    plot(1+x, nanmean(out.S1_rs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     plot([2,1]+x, [nanmean(out.S1_rs_all_lick_frs{i}), nanmean(out.S1_rs_all_no_lick_frs{i})], '--', 'Color', [0.5, 0.5, 0.5])
 end
 for i = 1:length(out.S1_fs_all_lick_frs)
     x = (rand()-0.5) * 0.3;
-    plot(5+x, nanmean(out.S1_fs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-    plot(4+x, nanmean(out.S1_fs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot(5+x, nanmean(out.S1_fs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    plot(4+x, nanmean(out.S1_fs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     plot([5,4]+x, [nanmean(out.S1_fs_all_lick_frs{i}), nanmean(out.S1_fs_all_no_lick_frs{i})], '--', 'Color', [0.5, 0.5, 0.5])
 end
 for i = 1:length(out.PFC_rs_all_lick_frs)
     x = (rand()-0.5) * 0.3;
-    plot(8+x, nanmean(out.PFC_rs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-    plot(7+x, nanmean(out.PFC_rs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot(8+x, nanmean(out.PFC_rs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    plot(7+x, nanmean(out.PFC_rs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     plot([8,7]+x, [nanmean(out.PFC_rs_all_lick_frs{i}), nanmean(out.PFC_rs_all_no_lick_frs{i})], '--', 'Color', [0.5, 0.5, 0.5])
 end
 for i = 1:length(out.PFC_fs_all_lick_frs)
     x = (rand()-0.5) * 0.3;
-    plot(11+x, nanmean(out.PFC_fs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-    plot(10+x, nanmean(out.PFC_fs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot(11+x, nanmean(out.PFC_fs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    plot(10+x, nanmean(out.PFC_fs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     plot([11,10]+x, [nanmean(out.PFC_fs_all_lick_frs{i}), nanmean(out.PFC_fs_all_no_lick_frs{i})], '--', 'Color', [0.5, 0.5, 0.5])
 end
 for i = 1:length(out.Striatum_rs_all_lick_frs)
     x = (rand()-0.5) * 0.3;
-    plot(14+x, nanmean(out.Striatum_rs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-    plot(13+x, nanmean(out.Striatum_rs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot(14+x, nanmean(out.Striatum_rs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    plot(13+x, nanmean(out.Striatum_rs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     plot([14,13]+x, [nanmean(out.Striatum_rs_all_lick_frs{i}), nanmean(out.Striatum_rs_all_no_lick_frs{i})], '--', 'Color', [0.5, 0.5, 0.5])
 end
 for i = 1:length(out.Striatum_fs_all_lick_frs)
     x = (rand()-0.5) * 0.3;
-    plot(17+x, nanmean(out.Striatum_fs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
-    plot(16+x, nanmean(out.Striatum_fs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 10)
+    plot(17+x, nanmean(out.Striatum_fs_all_lick_frs{i}), 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
+    plot(16+x, nanmean(out.Striatum_fs_all_no_lick_frs{i}), 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', [1,1,1], 'MarkerSize', 5)
     plot([17,16]+x, [nanmean(out.Striatum_fs_all_lick_frs{i}), nanmean(out.Striatum_fs_all_no_lick_frs{i})], '--', 'Color', [0.5, 0.5, 0.5])
 end
 errorbar([2,5,8,11,14,17], ...
@@ -1248,8 +1248,8 @@ ax = gca;
 ax.YAxis.FontSize = 14;
 ax.XAxis.FontSize = 14;
 ylabel(tl, 'Firing Rate (Hz)', 'FontSize', 16)
-print(fig,'-vector','-dsvg',['../Figures/mod_unmod_fr_licks','.svg']) % svg
 saveas(fig, '../Figures/mod_unmod_fr_licks.fig')
+print(fig,'-vector','-dsvg',['../Figures/mod_unmod_fr_licks','.svg']) % svg
 
 if KStest(cellfun(@nanmean, out.S1_rs_all_lick_frs)) || KStest(cellfun(@nanmean, out.S1_rs_all_no_lick_frs))
     p = signrank(cellfun(@nanmean, out.S1_rs_all_lick_frs), cellfun(@nanmean, out.S1_rs_all_no_lick_frs));

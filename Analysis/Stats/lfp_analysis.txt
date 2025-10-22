@@ -1,5 +1,6 @@
 
 FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
+FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.
 Fitting model across 21 power spectra.
 
 FITTING WARNING: Skipping frequency == 0, as this causes a problem with fitting.

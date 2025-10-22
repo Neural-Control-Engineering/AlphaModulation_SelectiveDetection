@@ -5037,3 +5037,12 @@ print(gcf,'-vector','-dsvg',[fname,'.svg']) % svg
 
 * [2025-10-14 Tue] 
 ** BAD SESSION: 10162 - 09/15/25
+
+* [2025-10-20 Mon] - jackkife periodic analysis 
+** in lfpPowerByOutcome.m 
+ps = zeros(1,size(pparams_pfc_hit,1));
+for i = 1:size(pparams_pfc_hit,1)
+    mat = [pparams_pfc_hit(:,1), pparams_pfc_miss(:,1), pparams_pfc_cr(:,1), pparams_pfc_fa(:,1)];
+    mat(i,:) = [];
+    ps(i) = anova1(mat);
+end

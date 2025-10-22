@@ -1,3 +1,4 @@
+dbcont
 
 
 Mod vs. Unmod on hit trials
@@ -64,7 +65,7 @@ Striatum mod fs vs unmod fs iti fr (Mann-Whitney): p = 1.933626e-03
 [Warning: N=160 not found in table, using closest N=100 present.] 
 [> In circ_kuipertest>kuiperlookup (line 100)
 In circ_kuipertest (line 59)
-In phaseModSummaries (line 1548)] 
+In phaseModSummaries (line 1550)] 
 S1 RS theta bars vs FS theta bars Kuiper test: p = 1
 S1 RS MI vs FS MI Mann Whitney: p = 1.990999e-03
 S1 RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 1.161952e-09
@@ -74,7 +75,7 @@ S1 FS mean theta bar: 2.633881e+00 +/- 6.655267e-02
 [Warning: N=26 not found in table, using closest N=25 present.] 
 [> In circ_kuipertest>kuiperlookup (line 100)
 In circ_kuipertest (line 59)
-In phaseModSummaries (line 1667)] 
+In phaseModSummaries (line 1669)] 
 PFC RS theta bars vs FS theta bars Kuiper test: p = 1.000000e-02
 PFC RS MI vs FS MI Mann Whitney: p = 9.466370e-02
 PFC RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 2.327002e-04
@@ -84,7 +85,7 @@ PFC FS mean theta bar: 5.689574e-01 +/- 2.450192e-01
 [Warning: N=38 not found in table, using closest N=35 present.] 
 [> In circ_kuipertest>kuiperlookup (line 100)
 In circ_kuipertest (line 59)
-In phaseModSummaries (line 1787)] 
+In phaseModSummaries (line 1789)] 
 Striatum RS theta bars vs FS theta bars Kuiper test: p = 1
 Striatum RS MI vs FS MI Mann Whitney: p = 1.191437e-02
 Striatum RS von Mises MSE vs FS von Mises MSE Mann Whitney: p = 1.740850e-02
