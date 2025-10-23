@@ -331,20 +331,23 @@ saveas(sem_fig, strcat(out_path, 'lick_sem_example_3755.svg'))
 saveas(sem_fig, strcat(out_path, 'lick_sem_example_3755.fig'))
 clear slrt_data
 
-session_ids = unique(ftrs.session_id);
-licks = [];
-for s = 1:length(session_ids)
-    load(strcat(ext_path, 'SLRT/', session_ids{s}, '.mat'))
-    lick_mat = lickHist(slrt_data);
-    licks = [licks; mean(lick_mat)];
-end
-bins = -3:0.1:5;
-centers = zeros(length(bins)-1,1);
-for e = 1:(length(bins)-1)
-    centers(e) = mean(bins(e:(e+1)));
-end
 all_lick_fig = figure('Position', [86 738 745 287]);
-semshade(licks ./ 0.1, 0.3, 'k', 'k', centers)
+for i = 1:length(subjects)
+    tmp_ftrs = ftrs(contains(ftrs.session_id, subjects{i}),:);
+    session_ids = unique(tmp_ftrs.ftrs.session_id);
+    licks = [];
+    for s = 1:length(session_ids)
+        load(strcat(ext_path, 'SLRT/', session_ids{s}, '.mat'))
+        lick_mat = lickHist(slrt_data);
+        licks = [licks; mean(lick_mat)];
+    end
+    bins = -3:0.1:5;
+    centers = zeros(length(bins)-1,1);
+    for e = 1:(length(bins)-1)
+        centers(e) = mean(bins(e:(e+1)));
+    end
+    semshade(licks ./ 0.1, 0.3, cols(i,:), cols(i,:), centers)
+end
 xlabel('Time (s)', 'FontSize', 18)
 ylabel('Lick Frequency (Hz)', 'FontSize', 18)
 ax = gca;
