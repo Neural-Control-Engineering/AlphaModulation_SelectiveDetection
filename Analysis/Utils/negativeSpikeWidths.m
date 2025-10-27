@@ -425,6 +425,18 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps, runAnalysis, loadData)
         save('spike_classification_data_v2.mat')
     end
 
+    sil_fig = figure('Position', [1215 944 1399 762]);
+    tl = tiledlayout(7,5);
+    for i = 1:length(ap_files)
+        X_tmp = X(strcmp(all_sessions, ap_files{i}),:);
+        idx_tmp = idx(strcmp(all_sessions, ap_files{i}),:);
+        s = silhouette(X_tmp, idx_tmp, 'sqeuclidean');
+        axs(i) = nexttile; histogram(s, -1:.1:1); xlim([-1,1])
+    end
+    xlabel(tl, 'Silhouette Score', 'FontSize', 18)
+    ylabel(tl, 'Cell Count', 'FontSize', 18)
+
+
 end
 
 function out = classifySpkWaveform(wvfrm, fsRsThreshold)
