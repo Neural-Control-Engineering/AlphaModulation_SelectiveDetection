@@ -432,9 +432,12 @@ function negativeSpikeWidths(ap_dir, ap_files, regMaps, runAnalysis, loadData)
         idx_tmp = idx(strcmp(all_sessions, ap_files{i}),:);
         s = silhouette(X_tmp, idx_tmp, 'sqeuclidean');
         axs(i) = nexttile; histogram(s, -1:.1:1); xlim([-1,1])
+        title(sprintf('Session #%i', i))
     end
     xlabel(tl, 'Silhouette Score', 'FontSize', 18)
-    ylabel(tl, 'Cell Count', 'FontSize', 18)
+    ylabel(tl, 'Unit Count', 'FontSize', 18)
+    saveas(sil_fig, '../Figures/silhouette_scores.svg')
+    saveas(sil_fig, '../Figures/silhouette_scores.svg')
 
 
 end
