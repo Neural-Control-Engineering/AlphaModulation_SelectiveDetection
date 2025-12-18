@@ -37,7 +37,7 @@ First, Neuropixels data must be sorted with [Kilosort](https://github.com/MouseL
 
 For subsequent analyses, you will also need to install [Chronux](https://chronux.org/) and [CircStat](https://github.com/circstat/circstat-matlab).
 
-There are multiple processing steps necessary to run the analyses presented in *link to biorxv*.
+There are multiple processing steps necessary to run the analyses presented in [our 2025 paper](https://doi.org/10.1111/ejn.70356).
 To start running analyses, navigate to *./Analysis/* and run MATLAB.
 
 First, behavior data collected via Simulink must be segmented by trial:
